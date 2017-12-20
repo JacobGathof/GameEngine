@@ -2,18 +2,27 @@
 
 
 
-Application::Application()
-{
-}
+Application::Application(){}
+Application::~Application(){}
 
 
-Application::~Application()
-{
+void Application::test() {
+
+	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
+
+	Color red = Color::DarkRed;
+	Color blue = Color::Blue;
+
+	std::cout << red + blue << std::endl;
+	std::cout << red * blue << std::endl;
+
+	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 }
+
 
 void Application::run()
 {
-	std::cout << "Hello World" << std::endl;
+	test();
 }
 
 int main() {
