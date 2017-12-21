@@ -15,6 +15,7 @@ void Application::test() {
 
 	std::cout << red + blue << std::endl;
 	std::cout << red * blue << std::endl;
+	std::cout << Color::LightGreen << std::endl;
 
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 }

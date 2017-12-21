@@ -92,6 +92,8 @@ Color Color::operator*(Color & c)
 				 (c[3] + data[3])/2);
 }
 
+
+
 /**
 Element-wise addition between two colors and average the result
 */
@@ -104,32 +106,6 @@ Color& Color::operator*=(Color & c)
 	return *this;
 }
 
-
-float Color::r(){ return data[0]; }
-float Color::g(){ return data[1]; }
-float Color::b(){ return data[2]; }
-float Color::a(){ return data[3]; }
-
-
-Color& Color::r(float r){
-	data[0] = r;
-	return *this;	
-}
-
-Color& Color::g(float g){
-	data[1] = g;
-	return *this;
-}
-
-Color& Color::b(float b){
-	data[2] = b;
-	return *this;
-}
-
-Color& Color::a(float a){
-	data[3] = a;
-	return *this;
-}
 
 /**
 Blend two colors together in a specified ratio
@@ -151,30 +127,29 @@ std::ostream& operator<<(std::ostream &os, Color &c) {
 	return os << "<" << c[0] << "," << c[1] << "," << c[2] << "," << c[3] << ">";
 }
 
+Color Color::Red(0xff0000ff);
+Color Color::Orange(0xff8800ff);
+Color Color::Yellow(0xffff00ff);
+Color Color::Green(0x00ff00ff);
+Color Color::Blue(0x0000ffff);
+Color Color::Purple(0xff00ffff);
+Color Color::White(0xffffffff);
+Color Color::Black(0x000000ff);
+Color Color::Clear(0xffffff00);
+Color Color::HalfClear(0xffffff88);
 
-const Color Color::Red(0xff0000ff);
-const Color Color::Orange(0xff8800ff);
-const Color Color::Yellow(0xffff00ff);
-const Color Color::Green(0x00ff00ff);
-const Color Color::Blue(0x0000ffff);
-const Color Color::Purple(0xff00ffff);
-const Color Color::White(0xffffffff);
-const Color Color::Black(0x000000ff);
-const Color Color::Clear(0xffffff00);
-const Color Color::HalfClear(0xffffff88);
+Color Color::DarkRed(0x880000ff);
+Color Color::DarkOrange(0x884400ff);
+Color Color::DarkYellow(0x888800ff);
+Color Color::DarkGreen(0x008800ff);
+Color Color::DarkBlue(0x000088ff);
+Color Color::DarkPurple(0x880088ff);
 
-const Color Color::DarkRed(0x880000ff);
-const Color Color::DarkOrange(0x884400ff);
-const Color Color::DarkYellow(0x888800ff);
-const Color Color::DarkGreen(0x008800ff);
-const Color Color::DarkBlue(0x000088ff);
-const Color Color::DarkPurple(0x880088ff);
-
-const Color Color::LightRed(0xff8888ff);
-const Color Color::LightOrange(0xffaa88ff);
-const Color Color::LightYellow(0xffff88ff);
-const Color Color::LightGreen(0x88ff88ff);
-const Color Color::LightBlue(0x8888ffff);
-const Color Color::LightPurple(0xff88ffff);
+Color Color::LightRed(0xff8888ff);
+Color Color::LightOrange(0xffaa88ff);
+Color Color::LightYellow(0xffff88ff);
+Color Color::LightGreen(0x88ff88ff);
+Color Color::LightBlue(0x8888ffff);
+Color Color::LightPurple(0xff88ffff);
 
 
