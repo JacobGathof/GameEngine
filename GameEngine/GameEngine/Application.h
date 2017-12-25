@@ -1,7 +1,10 @@
 #pragma once
-#include <iostream>
 
+#define GL3W_IMPLEMENTATION
+#include <iostream>
 #include "Color.h"
+#include "Window.h"
+
 
 class Application
 {

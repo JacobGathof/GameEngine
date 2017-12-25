@@ -1,7 +1,6 @@
 #include "Application.h"
 
 
-
 Application::Application(){}
 Application::~Application(){}
 
@@ -18,6 +17,25 @@ void Application::test() {
 	std::cout << Color::LightGreen << std::endl;
 
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
+
+
+
+
+	Window::init("Hello World", 300, 300);
+
+	while (!Window::shouldClose()) {
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		Window::pollEvents();
+
+		Window::swapBuffers();
+	}
+
+	Window::destroy();
+
+
+
+
+
 }
 
 
