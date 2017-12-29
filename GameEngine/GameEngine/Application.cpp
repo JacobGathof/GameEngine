@@ -19,9 +19,13 @@ void Application::test() {
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 
 
+	ShaderProgram sh;
+	//sh.compileShader("", 0, "");
+
 
 
 	Window::init("Hello World", 300, 300);
+
 
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

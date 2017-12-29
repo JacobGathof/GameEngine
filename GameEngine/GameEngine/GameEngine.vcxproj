@@ -22,12 +22,16 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -94,6 +98,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)opengl\GLFW\lib-vc2013</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PreBuildEvent>
       <Command>

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Color.h"
 #include "Window.h"
+#include "ShaderProgram.h"
+#include "Vector2f.h"
 
 
 class Application
