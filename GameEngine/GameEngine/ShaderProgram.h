@@ -22,7 +22,7 @@ public:
 
 	void compileShader(char* file_vertex, char* file_geo, char* file_frag);
 
-	void use();
+	void bind();
 	
 	void loadInteger(char* location, int i);
 	void loadFloat(char* location, float f);

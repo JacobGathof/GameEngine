@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "ShaderProgram.h"
 #include "Vector2f.h"
+#include "Font.h"
 
 
 class Application

@@ -23,7 +23,7 @@ void ShaderProgram::compileShader(char * file_vertex, char * file_geo, char * fi
 
 }
 
-void ShaderProgram::use() {
+void ShaderProgram::bind() {
 	glUseProgram(this->shader_program);
 }
 
@@ -62,7 +62,7 @@ const char* ShaderProgram::getShaderSource(char * filename)
 	int size;
 
 	file.seekg(0, file.end);
-	size = file.tellg();
+	size = (int)file.tellg();
 	file.seekg(0, file.beg);
 
 	buffer = new char[size + 1];
@@ -101,7 +101,6 @@ void ShaderProgram::loadVector2f(char * location, Vector2f & v) {
 void ShaderProgram::loadVector2f(char * location, float x, float y) {
 	glUniform2f(glGetUniformLocation(shader_program, location), x, y);
 }
-
 
 void ShaderProgram::loadColor(char * location, Color & c) {
 	glUniform4f(glGetUniformLocation(shader_program, location), c[0], c[1], c[2], c[3]);

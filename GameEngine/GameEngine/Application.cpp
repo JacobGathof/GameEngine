@@ -19,12 +19,14 @@ void Application::test() {
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 
 
-	ShaderProgram sh;
-	//sh.compileShader("", 0, "");
-
-
-
 	Window::init("Hello World", 300, 300);
+
+
+	ShaderProgram sh;
+	sh.compileShader("res_test/defaultShader.vert", 0, "res_test/defaultShader.frag");
+	Font font("res_test/font.fnt", "res_test/font.png");
+	Texture tex("res_test/Calamity.png");
+
 
 
 	while (!Window::shouldClose()) {
@@ -35,7 +37,6 @@ void Application::test() {
 	}
 
 	Window::destroy();
-
 
 
 
