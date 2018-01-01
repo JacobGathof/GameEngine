@@ -9,15 +9,6 @@ void Application::test() {
 
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
 
-	Color red = Color::DarkRed;
-	Color blue = Color::Blue;
-
-	std::cout << red + blue << std::endl;
-	std::cout << red * blue << std::endl;
-	std::cout << Color::LightGreen << std::endl;
-
-	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
-
 
 	Window::init("Hello World", 300, 300);
 
@@ -40,6 +31,7 @@ void Application::test() {
 
 
 
+	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 
 }
 

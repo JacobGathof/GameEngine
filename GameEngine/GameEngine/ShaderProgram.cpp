@@ -58,19 +58,24 @@ const char* ShaderProgram::getShaderSource(char * filename)
 	std::ifstream file;
 	file.open(filename, file.binary | file.in);
 
-	char *buffer;
-	int size;
+	if (file.is_open()) {
+		char *buffer;
+		int size;
 
-	file.seekg(0, file.end);
-	size = (int)file.tellg();
-	file.seekg(0, file.beg);
+		file.seekg(0, file.end);
+		size = (int)file.tellg();
+		file.seekg(0, file.beg);
 
-	buffer = new char[size + 1];
-	file.read(buffer, size);
+		buffer = new char[size + 1];
+		file.read(buffer, size);
 
-	buffer[size] = '\0';
+		buffer[size] = '\0';
 
-	return buffer;
+		return buffer;
+	} else {
+		std::cout << "Could not open shader source: " << filename << std::endl;
+		return new char[1]{ '#' };
+	}
 
 }
 
