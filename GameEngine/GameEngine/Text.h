@@ -5,7 +5,7 @@
 #include "gl3w.h"
 #include "Model.h"
 
-#include "ShaderProgram.h"
+#include "ShaderManager.h"
 
 class Text
 {
@@ -15,7 +15,7 @@ public:
 	void setText(std::string& newdata);
 	void setFont(Font* font);
 
-	void render(ShaderProgram* shader);
+	void render();
 
 private:
 	unsigned int vao;

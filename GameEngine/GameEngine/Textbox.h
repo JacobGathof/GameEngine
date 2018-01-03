@@ -8,7 +8,7 @@ public:
 	Textbox(Font * font);
 	~Textbox();
 
-	void render(ShaderProgram* shader);
+	void render();
 	void advanceText();
 	void addTextToQueue(std::string text);
 

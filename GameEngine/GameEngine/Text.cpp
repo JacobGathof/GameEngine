@@ -130,9 +130,9 @@ void Text::setFont(Font * f){
 	font = f;
 }
 
-void Text::render(ShaderProgram* shader)
+void Text::render()
 {
-	shader->bind();
+	ShaderManager::get(Shader::TEXT_SHADER)->bind();
 	font->bind();
 	model.bind();
 	glDrawArrays(GL_TRIANGLES, 0, length);

@@ -4,7 +4,6 @@
 Application::Application(){}
 Application::~Application(){}
 
-
 void Application::test() {
 
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
@@ -12,8 +11,8 @@ void Application::test() {
 
 	Window::init("Hello World", 400, 400);
 
-	ShaderProgram sh;
-	sh.compileShader("res_test/defaultShader.vert", 0, "res_test/defaultShader.frag");
+	ShaderManager::init();
+
 	Font font("res_test/font.fnt", "res_test/font.png");
 	Texture tex("res_test/Calamity.png");
 
@@ -28,13 +27,13 @@ void Application::test() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 
-		textbox.render(&sh);
+		textbox.render();
 
 		Window::swapBuffers();
 	}
 
 	Window::destroy();
-
+	ShaderManager::clean();
 
 
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;

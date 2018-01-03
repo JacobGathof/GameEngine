@@ -12,9 +12,9 @@ Textbox::~Textbox()
 {
 }
 
-void Textbox::render(ShaderProgram* shader)
+void Textbox::render()
 {
-	text.render(shader);
+	text.render();
 }
 
 void Textbox::advanceText()
