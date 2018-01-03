@@ -24,7 +24,10 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="lodepng.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Textbox.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -35,7 +38,10 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="lodepng.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="Textbox.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Window.h" />

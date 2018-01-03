@@ -7,6 +7,8 @@
 #include "ShaderProgram.h"
 #include "Vector2f.h"
 #include "Font.h"
+#include "Text.h"
+#include "Textbox.h"
 
 
 class Application
