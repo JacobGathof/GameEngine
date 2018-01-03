@@ -12,11 +12,12 @@ void Application::test() {
 	Window::init("Hello World", 400, 400);
 
 	ShaderManager::init();
+	FontManager::init();
 
 	Font font("res_test/font.fnt", "res_test/font.png");
 	Texture tex("res_test/Calamity.png");
 
-	Textbox textbox(&font);
+	Textbox textbox;
 	textbox.addTextToQueue(std::string("This is the first string"));
 	textbox.advanceText();
 
@@ -34,6 +35,7 @@ void Application::test() {
 
 	Window::destroy();
 	ShaderManager::clean();
+	FontManager::clean();
 
 
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;

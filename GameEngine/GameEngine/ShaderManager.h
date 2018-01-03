@@ -3,7 +3,7 @@
 #include "ShaderProgram.h"
 
 
-enum class Shader {
+enum class ShaderType {
 	TEXT_SHADER
 };
 
@@ -14,12 +14,12 @@ public:
 
 	static void init();
 	static void clean();
-	static ShaderProgram* get(Shader type);
+	static ShaderProgram* get(ShaderType type);
 
 private:
 
-	static void addShader(Shader shader, char* v, char* g, char* f);
-	static std::map<Shader, ShaderProgram*> shaders;
+	static void addShader(ShaderType shader, char* v, char* g, char* f);
+	static std::map<ShaderType, ShaderProgram*> shaders;
 
 };
 

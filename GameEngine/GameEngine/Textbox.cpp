@@ -2,8 +2,9 @@
 
 
 
-Textbox::Textbox(Font* font) 
-	: text(Vector2f(-1, 1), std::string("Default. You should not see this"), Vector2f(.75f, .75f), font)
+Textbox::Textbox() 
+	: text(Vector2f(-1, 1), std::string("Default. You should not see this"), 
+		Vector2f(.75f, .75f), FontManager::get(FontType::DEFAULT))
 {
 }
 

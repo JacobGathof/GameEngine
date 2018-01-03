@@ -4,12 +4,9 @@
 #include <iostream>
 #include "Color.h"
 #include "Window.h"
-#include "Vector2f.h"
-#include "Font.h"
-#include "Text.h"
 #include "Textbox.h"
 #include "ShaderManager.h"
-
+#include "FontManager.h"
 
 class Application
 {

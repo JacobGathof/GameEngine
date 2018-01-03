@@ -1,11 +1,12 @@
 #pragma once
 #include "Text.h"
+#include "FontManager.h"
 #include <queue>
 
 class Textbox
 {
 public:
-	Textbox(Font * font);
+	Textbox();
 	~Textbox();
 
 	void render();
