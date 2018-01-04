@@ -15,6 +15,7 @@ public:
 	static bool isInitialized();
 	static void swapBuffers();
 	static void pollEvents();
+	static void show();
 
 	static void setCursorMode(int mode);
 

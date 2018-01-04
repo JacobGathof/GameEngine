@@ -4,6 +4,11 @@
 #include <fstream>
 #include <sstream>
 
+
+// Bug 0002
+// An incorrect font fnt file will crash the entire program, can not be silently avoided.
+// Best solution would probably be a graceful shutdown
+
 class Font
 {
 public:

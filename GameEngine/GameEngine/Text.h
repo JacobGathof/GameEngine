@@ -7,6 +7,10 @@
 
 #include "ShaderManager.h"
 
+// Bug 0001
+// The size of text cannot be increased, but it can be safely decreased. If a string must be bigger, 
+// instantiate a large enough Text object. 
+
 class Text
 {
 public:

@@ -76,7 +76,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex)
 		pos[vertexPointer++] = position[0] + (xPointer + ch->xoffset) * posScale;
 		pos[vertexPointer++] = position[1] + (yPointer + -ch->height - ch->yoffset) * posScale;
 
-		xPointer += 0.9f*ch->xadvance;
+		xPointer += 1.0f*ch->xadvance;
 		//centerDist += ch->xadvance*posScale;
 
 		tex[texPointer++] = (ch->x) / scaleFactor;

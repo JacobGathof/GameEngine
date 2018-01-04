@@ -66,6 +66,10 @@ void Window::pollEvents(){
 	glfwPollEvents();
 }
 
+void Window::show(){
+	glfwShowWindow(window);
+}
+
 void Window::setCallbacks(){
 
 	glfwSetKeyCallback(window, Callbacks::KeyCallback);

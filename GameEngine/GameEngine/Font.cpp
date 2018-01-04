@@ -20,8 +20,13 @@ Font::Char* Font::getCharacter(char c)
 void Font::loadFont(char * filename)
 {
 	std::ifstream file;
-	file.open(filename, file.in | file.binary);
 	std::string str;
+
+	file.open(filename, file.in | file.binary);
+
+	if (!file.is_open()) {
+		std::cout << "Error loading file: " << filename << std::endl;
+	}
 
 	char buffer[512];
 	char item[64];
@@ -36,7 +41,7 @@ void Font::loadFont(char * filename)
 		std::vector<int> elements;
 
 		file.getline(buffer, 512);
-		if (buffer[0] == 'k') break;
+		if (buffer[0] != 'c') break;
 		line << buffer;
 
 		line.ignore(7);

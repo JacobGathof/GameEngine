@@ -9,21 +9,22 @@ void Application::test() {
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
 
 
-	Window::init("Hello World", 400, 400);
+	Window::init("Hello World", 800, 800);
 
 	ShaderManager::init();
 	FontManager::init();
 
-	Font font("res_test/font.fnt", "res_test/font.png");
 	Texture tex("res_test/Calamity.png");
 
 	Textbox textbox;
-	textbox.addTextToQueue(std::string("This is the first string"));
+	textbox.addTextToQueue(std::string("This is the\n first string"));
 	textbox.advanceText();
 
-	//Text text(Vector2f(-1,1), std::string("Hello World\nNew Line"), Vector2f(1,1), &font);
-	//text.setText(std::string("New string"));
 
+	// Add or remove single "/" on the line below to show window
+
+	//*
+	Window::show();
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
@@ -32,6 +33,7 @@ void Application::test() {
 
 		Window::swapBuffers();
 	}
+	//*/
 
 	Window::destroy();
 	ShaderManager::clean();
