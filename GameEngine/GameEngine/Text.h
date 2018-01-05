@@ -31,10 +31,10 @@ private:
 	int length;
 
 	void writeCharacterData(std::string& string, float * pos, float* tex, float * col);
-	void writeVertices(float* pos);
-	void writeTexCoords(float* tex);
-	void writeColor(float * col, Color& color);
-	void updateVAO(float * pos, int plength, float * tex, int tlength, float* col, int clength);
+	void writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer);
+	void writeTexCoords(float* tex, Font::Char* ch, float scaleFactor, int& texPointer);
+	void writeColor(float * col, Color& color, int& colorPointer);
+	void updateVAO(float * pos, int plength, float * tex, int tlength, float* col, int clength, bool resize);
 };
 
 

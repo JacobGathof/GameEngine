@@ -29,3 +29,9 @@ void Model::updateData(unsigned int vbo, float* data, int data_length){
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(float)*data_length, data);
 }
+
+void Model::resizeData(unsigned int vbo, float * data, int data_length){
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*data_length, data, GL_STATIC_DRAW);
+
+}

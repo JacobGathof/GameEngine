@@ -20,7 +20,6 @@ void Application::test() {
 	textbox.addTextToQueue(std::string("This is the #ff2288pink% string"));
 	textbox.advanceText();
 
-
 	// Add or remove single "/" on the line below to show window
 
 	//*
