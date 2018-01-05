@@ -21,6 +21,7 @@ private:
 	unsigned int vao;
 	unsigned int vbo_pos;
 	unsigned int vbo_tex;
+	unsigned int vbo_col;
 	Vector2f position;
 	Vector2f scale;
 	Font * font;
@@ -29,8 +30,11 @@ private:
 	std::string data;
 	int length;
 
-	void writeCharacterData(std::string& string, float * pos, float* tex);
-	void updateVAO(float * pos, int plength, float * tex, int tlength);
+	void writeCharacterData(std::string& string, float * pos, float* tex, float * col);
+	void writeVertices(float* pos);
+	void writeTexCoords(float* tex);
+	void writeColor(float * col, Color& color);
+	void updateVAO(float * pos, int plength, float * tex, int tlength, float* col, int clength);
 };
 
 

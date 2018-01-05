@@ -3,7 +3,7 @@
 
 
 Textbox::Textbox() 
-	: text(Vector2f(-1, 1), std::string("-=-=-ERROR TEXT-=-=-\nYou should never see this"), 
+	: text(Vector2f(-1, 1), std::string("-=-=-ERROR TEXT-=-=-\nYou should never see this.............................................................................."), 
 		Vector2f(1.0f, 1.0f), FontManager::get(FontType::DEFAULT))
 {
 }

@@ -17,7 +17,7 @@ void Application::test() {
 	Texture tex("res_test/Calamity.png");
 
 	Textbox textbox;
-	textbox.addTextToQueue(std::string("This is the\n first string"));
+	textbox.addTextToQueue(std::string("This is the #ff2288pink% string"));
 	textbox.advanceText();
 
 
