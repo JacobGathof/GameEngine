@@ -4,7 +4,8 @@
 
 
 enum class FontType {
-	DEFAULT
+	DEFAULT,
+	ITALIC
 };
 
 

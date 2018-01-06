@@ -14,6 +14,8 @@ public:
 	~Text();
 	void setText(std::string& newdata);
 	void setFont(Font* font);
+	void addLetter();
+	void resetLength();
 
 	void render();
 
@@ -29,6 +31,7 @@ private:
 
 	std::string data;
 	int length;
+	int displayableLength;
 
 	void writeCharacterData(std::string& string, float * pos, float* tex, float * col);
 	void writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer);

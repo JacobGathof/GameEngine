@@ -7,19 +7,20 @@
 Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 {
 	data = dat;
-	length = dat.length() * 6;
+	length = dat.length();
 	position = p;
 	scale = s;
 	font = f;
+	displayableLength = length;
 
-	int pos_size = length * 2;
-	int tex_size = length * 2;
-	int col_size = length * 3;
+	int pos_size = length * 2 * 6;
+	int tex_size = length * 2 * 6;
+	int col_size = length * 3 * 6;
 	float *pos = new float[pos_size];
 	float *tex = new float[tex_size];
 	float *col = new float[col_size];
 
-	writeCharacterData(std::string(data), pos, tex, col);
+	writeCharacterData(data, pos, tex, col);
 
 	model.init();
 	model.bind();
@@ -60,12 +61,12 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 		if (c == '\n') {
 			xPointer = 0;
 			yPointer -= 1.25f * font->getCharacter('I')->height;
-			length-=6;
+			length--;
 			continue;
 		}
 		if (c == '%') {
 			def = Color(0x000000);
-			length-=6;
+			length--;
 			continue;
 		}
 		if (c == '#') {
@@ -73,7 +74,12 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 			long long val = std::strtoll(c.c_str(), 0, 16);
 			def = Color(val);
 			i += 6;
-			length -= 6*7;
+			length -= 7;
+			continue;
+		}
+		if (c == ' ') {
+			xPointer += 21;
+			length--;
 			continue;
 		}
 
@@ -157,18 +163,19 @@ void Text::updateVAO(float * pos, int plength, float * tex, int tlength, float* 
 
 void Text::setText(std::string& newdata)
 {
-	int newLength = newdata.length() * 6;
+	int newLength = newdata.length();
 	data = newdata;
+	displayableLength = newLength;
 
-	int pos_size = newLength * 2;
-	int tex_size = newLength * 2;
-	int col_size = newLength * 3;
+	int pos_size = newLength * 2 * 6;
+	int tex_size = newLength * 2 * 6;
+	int col_size = newLength * 3 * 6;
 	float* pos = new float[pos_size];
 	float* tex = new float[tex_size];
 	float* col = new float[col_size];
 
 	length = newLength;
-	writeCharacterData(std::string(newdata), pos, tex, col);
+	writeCharacterData(newdata, pos, tex, col);
 	bool resize = newLength > length;
 
 	updateVAO(pos, pos_size, tex, tex_size, col, col_size, resize);
@@ -182,6 +189,18 @@ void Text::setFont(Font * f){
 	font = f;
 }
 
+void Text::addLetter()
+{
+	if (displayableLength < length) {
+		displayableLength++;
+	}
+}
+
+void Text::resetLength()
+{
+	displayableLength = 0;
+}
+
 void Text::render()
 {
 	ShaderProgram * sh = ShaderManager::get(ShaderType::TEXT_SHADER);
@@ -191,7 +210,7 @@ void Text::render()
 	sh->loadVector2f("text_translate", position);
 	sh->loadVector2f("text_scale", scale);
 
-	glDrawArrays(GL_TRIANGLES, 0, length);
+	glDrawArrays(GL_TRIANGLES, 0, displayableLength*6);
 }
 
 
