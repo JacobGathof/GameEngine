@@ -4,7 +4,7 @@
 
 Textbox::Textbox() 
 	: text(Vector2f(-1, 1), std::string("-=-=-ERROR TEXT-=-=-"), 
-		Vector2f(1.0f, 1.0f), FontManager::get(FontType::DEFAULT))
+		Vector2f(0.5f, 0.5f), FontManager::get(FontType::DEFAULT))
 {
 }
 

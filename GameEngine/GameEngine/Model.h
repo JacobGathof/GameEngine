@@ -1,5 +1,6 @@
 #pragma once
 #include "gl3w.h"
+#include <vector>
 
 class Model
 {
@@ -15,6 +16,7 @@ public:
 
 private:
 	unsigned int vao;
+	std::vector<unsigned int> vbos;
 
 };
 

@@ -3,8 +3,10 @@
 
 
 Model::Model(){}
-Model::~Model(){}
-
+Model::~Model(){
+	glDeleteBuffers(vbos.size(), &vbos[0]);
+	glDeleteVertexArrays(1, &vao);
+}
 
 void Model::init(){
 	glGenVertexArrays(1, &vao);
@@ -22,6 +24,7 @@ unsigned int Model::addData(float* data, int data_length, int components, int at
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*data_length, data, GL_STATIC_DRAW);
 	glVertexAttribPointer(attrib_location, components, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(attrib_location);
+	vbos.push_back(vbo);
 	return vbo;
 }
 

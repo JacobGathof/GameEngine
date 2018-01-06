@@ -8,6 +8,6 @@ uniform sampler2D image;
 void main(){
 
 	vec4 color = texture(image, uv);
-
 	gl_FragColor = color*vec4(col,1);
+
 }

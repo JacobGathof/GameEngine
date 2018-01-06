@@ -70,6 +70,7 @@ void Window::show(){
 	glfwShowWindow(window);
 }
 
+
 void Window::setCallbacks(){
 
 	glfwSetKeyCallback(window, Callbacks::KeyCallback);
@@ -92,7 +93,7 @@ void Window::setWindowHints(){
 void Window::initOpenGL(){
 
 	gl3w_init();
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glPointSize(1.0f);

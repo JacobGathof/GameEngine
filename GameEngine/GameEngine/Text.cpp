@@ -1,7 +1,7 @@
 #include "Text.h"
 
 
-
+#include "Window.h"
 
 
 Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
@@ -47,7 +47,8 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	int colorPointer = 0;
 
 	float scaleFactor = 512.0f;
-	float posScale = scale[0] * (1.0f / scaleFactor);
+	float posScale = 1.0f;
+
 
 	float centerDist = 0;
 	Color def(0x000000);
@@ -82,7 +83,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 		writeTexCoords(tex, ch, scaleFactor, texPointer);
 		writeColor(col, def, colorPointer);
 
-		xPointer += 1.0f*ch->xadvance;
+		xPointer += 1.0f*(ch->xadvance-12);
 		//centerDist += ch->xadvance*posScale;
 
 	}
@@ -90,23 +91,23 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 
 void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer){
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->height - ch->yoffset) * posScale;
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->width + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->height - ch->yoffset) * posScale;
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->width + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->width + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
 
-	pos[vertexPointer++] = position[0] + (xPointer + ch->xoffset) * posScale;
-	pos[vertexPointer++] = position[1] + (yPointer + -ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
+	pos[vertexPointer++] = (yPointer + -ch->height - ch->yoffset) * posScale;
 }
 
 void Text::writeTexCoords(float* tex, Font::Char* ch, float scaleFactor, int& texPointer)
@@ -183,9 +184,13 @@ void Text::setFont(Font * f){
 
 void Text::render()
 {
-	ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
+	ShaderProgram * sh = ShaderManager::get(ShaderType::TEXT_SHADER);
+	sh->bind();
 	font->bind();
 	model.bind();
+	sh->loadVector2f("text_translate", position);
+	sh->loadVector2f("text_scale", scale);
+
 	glDrawArrays(GL_TRIANGLES, 0, length);
 }
 

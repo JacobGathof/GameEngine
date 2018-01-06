@@ -19,11 +19,12 @@ public:
 
 	static void setCursorMode(int mode);
 
+	static int WINDOW_WIDTH;
+	static int WINDOW_HEIGHT;
+
 private:
 
 	static GLFWwindow *window;
-	static int WINDOW_WIDTH;
-	static int WINDOW_HEIGHT;
 	static bool initialized;
 	static Color clearColor;
 	static char* WINDOW_TITLE;

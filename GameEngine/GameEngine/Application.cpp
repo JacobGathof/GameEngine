@@ -17,7 +17,24 @@ void Application::test() {
 	Texture tex("res_test/Calamity.png");
 
 	Textbox textbox;
-	textbox.addTextToQueue(std::string("This is the #ff2288pink% string"));
+	textbox.addTextToQueue(
+		std::string(
+			"#880088Lorem ipsum dolor sit amet, \n"
+			"consectetur adipiscing elit, \n"
+			"sed do eiusmod tempor incididunt \n"
+			"ut labore et dolore magna aliqua. \n"
+			"Ut enim ad minim veniam, quis \n"
+			"nostrud exercitation ullamco \n"
+			"laboris nisi ut aliquip ex ea \n"
+			"commodo consequat. Duis aute irure \n"
+			"dolor in reprehenderit in voluptate \n"
+			"velit esse cillum dolore eu fugiat \n"
+			"nulla pariatur. Excepteur sint \n"
+			"occaecat cupidatat non proident, \n"
+			"sunt in culpa qui officia deserunt \n"
+			"mollit anim id est laborum. \n"
+		
+		));
 	textbox.advanceText();
 
 	// Add or remove single "/" on the line below to show window
