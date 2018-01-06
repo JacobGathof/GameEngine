@@ -19,8 +19,12 @@ public:
 
 	static void setCursorMode(int mode);
 
-	static int WINDOW_WIDTH;
-	static int WINDOW_HEIGHT;
+	static void escaped() {
+		//I got really sick of clicking escape. This is clearly just a hack. Will fix later
+		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+			close();
+		};
+	}
 
 private:
 
@@ -32,5 +36,8 @@ private:
 	static void setCallbacks();
 	static void setWindowHints();
 	static void initOpenGL();
+
+	static int WINDOW_WIDTH;
+	static int WINDOW_HEIGHT;
 
 };

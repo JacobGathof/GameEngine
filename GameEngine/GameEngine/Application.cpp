@@ -10,15 +10,10 @@ void Application::test() {
 
 
 	Window::init("Hello World", 800, 800);
-	Timer timer;
-	timer.setTickLength(0.05f);
-
 	ShaderManager::init();
 	FontManager::init();
 
-	Texture tex("res_test/Calamity.png");
 
-	Textbox textbox;
 	Text text(Vector2f(-1, 1), std::string(
 		"#880088Lorem ipsum #ff0000dolor sit amet, \n"
 		"consec#aaaafftetur adipiscing elit, \n"
@@ -33,13 +28,17 @@ void Application::test() {
 		"nulla pariatur. Excepteur sint \n"
 		"occaecat cupidatat non proident, \n"
 		"sunt in culpa qui officia deserunt \n"
-		"mollit anim id est laborum. \n"
+		"mollit anim id est laborum.\n"
 
 	) , Vector2f(.5f, .5f), FontManager::get(FontType::DEFAULT));
 
 	text.resetLength();
 
-	// Add or remove single "/" on the line below to show window
+	Timer timer;
+	timer.setTickLength(0.01f);
+
+
+	// Code Toggle: Remove single "/" on the line below to hide window
 
 	//*
 	Window::show();
@@ -53,6 +52,9 @@ void Application::test() {
 		}
 
 		text.render();
+
+		Window::escaped();
+
 
 		Window::swapBuffers();
 	}
