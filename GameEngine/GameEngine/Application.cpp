@@ -12,6 +12,7 @@ void Application::test() {
 	Window::init("Hello World", 800, 800);
 	ShaderManager::init();
 	FontManager::init();
+	Texture tex("res_test/Melody.png");
 
 
 	Text text(Vector2f(-1, 1), std::string(
@@ -54,8 +55,6 @@ void Application::test() {
 		text.render();
 
 		Window::escaped();
-
-
 		Window::swapBuffers();
 	}
 	//*/

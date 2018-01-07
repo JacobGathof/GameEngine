@@ -4,7 +4,8 @@
 
 
 enum class ShaderType {
-	TEXT_SHADER
+	TEXT_SHADER,
+	BASIC_SHADER
 };
 
 

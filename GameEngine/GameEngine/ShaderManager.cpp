@@ -5,6 +5,7 @@ std::map<ShaderType, ShaderProgram*> ShaderManager::shaders;
 
 void ShaderManager::init(){
 	addShader(ShaderType::TEXT_SHADER, "res_test/defaultShader.vert", 0, "res_test/defaultShader.frag");
+	addShader(ShaderType::BASIC_SHADER, "res_test/basicShader.vert", 0, "res_test/basicShader.frag");
 }
 
 void ShaderManager::clean(){
