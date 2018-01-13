@@ -6,37 +6,24 @@
 
 Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 {
-	data = dat;
-	length = dat.length();
 	position = p;
 	scale = s;
 	font = f;
-	displayableLength = length;
-
-	int pos_size = length * 2 * 6;
-	int tex_size = length * 2 * 6;
-	int col_size = length * 3 * 6;
-	float *pos = new float[pos_size];
-	float *tex = new float[tex_size];
-	float *col = new float[col_size];
-
-	writeCharacterData(data, pos, tex, col);
 
 	model.init();
 	model.bind();
-	vbo_pos = model.addData(pos, pos_size, 2, 0);
-	vbo_tex = model.addData(tex, tex_size, 2, 1);
-	vbo_col = model.addData(col, col_size, 3, 2);
+	vbo_pos = model.addData(0, 0, 2, 0);
+	vbo_tex = model.addData(0, 0, 2, 1);
+	vbo_col = model.addData(0, 0, 3, 2);
 
-	delete[] pos;
-	delete[] tex;
-	delete[] col;
+	setText(dat);
 }
 
 Text::~Text() {}
 
 void Text::writeCharacterData(std::string& string, float * pos, float * tex, float* col)
 {
+
 	if (font == 0) 
 		return;
 
@@ -64,33 +51,24 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 			length--;
 			continue;
 		}
-		if (c == '%') {
-			def = Color(0x000000);
-			length--;
-			continue;
-		}
-		if (c == '#') {
-			std::string c = string.substr(i+1, 6)+"00";
-			long long val = std::strtoll(c.c_str(), 0, 16);
-			def = Color(val);
-			i += 6;
-			length -= 7;
-			continue;
-		}
 		if (c == ' ') {
-			xPointer += 21;
+			xPointer += font->getCharacter(' ')->xadvance - 8;
 			length--;
 			continue;
 		}
 
 		Font::Char* ch = font->getCharacter(c);
+		if (c == 0) {
+			continue;
+		}
 
 		writeVertices(pos, ch, xPointer, yPointer, posScale, vertexPointer);
 		writeTexCoords(tex, ch, scaleFactor, texPointer);
 		writeColor(col, def, colorPointer);
 
-		xPointer += 1.0f*(ch->xadvance-12);
-		//centerDist += ch->xadvance*posScale;
+		int kerning = 0;
+
+		xPointer += 1.0f*(ch->xadvance-8);
 
 	}
 }
@@ -163,6 +141,7 @@ void Text::updateVAO(float * pos, int plength, float * tex, int tlength, float* 
 
 void Text::setText(std::string& newdata)
 {
+	newdata = TextUtils::processString(newdata, font);
 	int newLength = newdata.length();
 	data = newdata;
 	displayableLength = newLength;

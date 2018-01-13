@@ -31,6 +31,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Textbox.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextUtils.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="Textbox.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextUtils.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Window.h" />

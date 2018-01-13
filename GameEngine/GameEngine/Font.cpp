@@ -83,3 +83,4 @@ Font::Char::Char(int* data)
 	yoffset = data[5];
 	xadvance = data[6];
 }
+

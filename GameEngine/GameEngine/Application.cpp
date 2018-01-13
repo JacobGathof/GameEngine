@@ -16,22 +16,22 @@ void Application::test() {
 
 
 	Text text(Vector2f(-1, 1), std::string(
-		"#880088Lorem ipsum #ff0000dolor sit amet, \n"
-		"consec#aaaafftetur adipiscing elit, \n"
-		"sed do eiusmod tempor incididunt \n"
-		"ut labore et dolore magna aliqua. \n"
-		"Ut enim ad minim veniam, quis \n"
-		"nostrud exercit#aaff00ation ullamco %\n"
-		"laboris nisi ut aliquip ex ea \n"
-		"commodo consequat. Duis aute irure \n"
-		"dolor in reprehenderit in voluptate \n"
-		"velit esse cillum dolore eu fugiat \n"
-		"nulla pariatur. Excepteur sint \n"
-		"occaecat cupidatat non proident, \n"
-		"sunt in culpa qui officia deserunt \n"
-		"mollit anim id est laborum.\n"
+		"dolor ipsum dolor sit amet, "
+		"consectetur adipiscing elit, "
+		"sed do eiusmod tempor incididunt "
+		"ut labore et dolore magna aliqua. "
+		"Ut enim ad minim veniam, quis "
+		"nostrud exercitation ullamco "
+		"laboris nisi ut aliquip ex ea "
+		"commodo consequat. Duis aute irure "
+		"dolor in reprehenderit in voluptate "
+		"velit esse cillum dolore eu fugiat "
+		"nulla pariatur. Excepteur sint "
+		"occaecat cupidatat non proident, "
+		"sunt in culpa qui officia deserunt "
+		"mollit anim id est laborum."
 
-	) , Vector2f(.5f, .5f), FontManager::get(FontType::DEFAULT));
+	) , Vector2f(0.5f, 0.5f), FontManager::get(FontType::DEFAULT));
 
 	text.resetLength();
 
@@ -57,6 +57,8 @@ void Application::test() {
 		Window::escaped();
 		Window::swapBuffers();
 	}
+	/*/
+		std::cout << "Here" 
 	//*/
 
 	Window::destroy();

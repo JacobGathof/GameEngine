@@ -6,6 +6,7 @@
 #include "Model.h"
 
 #include "ShaderManager.h"
+#include "TextUtils.h"
 
 class Text
 {
