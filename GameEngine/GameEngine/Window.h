@@ -19,13 +19,6 @@ public:
 
 	static void setCursorMode(int mode);
 
-	static void escaped() {
-		//I got really sick of clicking escape. This is clearly just a hack. Will fix later
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-			close();
-		};
-	}
-
 private:
 
 	static GLFWwindow *window;

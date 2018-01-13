@@ -7,6 +7,7 @@ void Callbacks::CursorPosCallback(GLFWwindow * window, double xpos, double ypos)
 }
 
 void Callbacks::KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {
+	Input::feedKey(key, action);
 }
 
 void Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int mods) {
