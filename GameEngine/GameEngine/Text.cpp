@@ -23,7 +23,6 @@ Text::~Text() {}
 
 void Text::writeCharacterData(std::string& string, float * pos, float * tex, float* col)
 {
-
 	if (font == 0) 
 		return;
 

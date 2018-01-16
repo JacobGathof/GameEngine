@@ -10,7 +10,7 @@ public:
 
 	Color();
 	Color(float r, float g, float b, float a);
-	Color(unsigned int hex);
+	Color(uint32_t hex);
 	~Color();
 
 	float& operator[](int i);

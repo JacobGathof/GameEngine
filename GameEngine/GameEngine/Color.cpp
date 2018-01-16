@@ -1,9 +1,7 @@
 #include "Color.h"
 
 
-/**
-Create a default color <1,1,1,1>
-*/
+
 Color::Color() {
 	data[0] = 1.0f;
 	data[1] = 1.0f;
@@ -11,9 +9,6 @@ Color::Color() {
 	data[3] = 1.0f;
 }
 
-/**
-Create a color with the specified rbga values <r,g,b,a>
-*/
 Color::Color(float r, float g, float b, float a) {
 	data[0] = r;
 	data[1] = g;
@@ -21,11 +16,7 @@ Color::Color(float r, float g, float b, float a) {
 	data[3] = a;
 }
 
-/**
-Create a color from an unsigned integer. 
-Ex: Color(0x00ff00ff) = Green
-*/
-Color::Color(unsigned int hex) {
+Color::Color(uint32_t hex) {
 	data[0] = ((hex & 0xff000000) >> 24) / 255.0f;
 	data[1] = ((hex & 0x00ff0000) >> 16) / 255.0f;
 	data[2] = ((hex & 0x0000ff00) >> 8) / 255.0f;
@@ -36,20 +27,13 @@ Color::~Color()
 {
 }
 
-/**
-Get/set data at a specified index. <0,1,2,3> -> <r,g,b,a>  
 
-@param i The index to look up
-@return data at the given index
-*/
 float& Color::operator[](int i)
 {
 	return data[i];
 }
 
-/**
-Set a color equal to another color
-*/
+
 void Color::operator=(Color & c)
 {
 	data[0] = c[0];
@@ -58,9 +42,7 @@ void Color::operator=(Color & c)
 	data[3] = c[3];
 }
 
-/**
-Element-wise addition between two colors
-*/
+
 Color& Color::operator+=(Color & c)
 {
 	data[0] += c[0];
@@ -70,9 +52,7 @@ Color& Color::operator+=(Color & c)
 	return *this;
 }
 
-/**
-Element-wise addition between two colors
-*/
+
 Color Color::operator+(Color & c)
 {
 	return Color(c[0] + data[0],
@@ -81,9 +61,7 @@ Color Color::operator+(Color & c)
 				c[3] + data[3]);
 }
 
-/**
-Element-wise addition between two colors and average the result
-*/
+
 Color Color::operator*(Color & c)
 {
 	return Color((c[0] + data[0])/2,
@@ -94,9 +72,7 @@ Color Color::operator*(Color & c)
 
 
 
-/**
-Element-wise addition between two colors and average the result
-*/
+
 Color& Color::operator*=(Color & c)
 {
 	data[0] += c[0]; data[0] /= 2;

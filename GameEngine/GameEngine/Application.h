@@ -8,6 +8,7 @@
 #include "ShaderManager.h"
 #include "FontManager.h"
 #include "Timer.h"
+#include "ParticleSystem.h"
 
 class Application
 {
@@ -16,5 +17,6 @@ public:
 	~Application();
 	void run();
 	void test();
+
 };
 

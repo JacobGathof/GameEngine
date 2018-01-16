@@ -13,7 +13,8 @@ void Application::test() {
 	ShaderManager::init();
 	FontManager::init();
 	Texture tex("res_test/Melody.png");
-
+	ParticleSystem sys;
+	sys.init();
 
 	Text text(Vector2f(-1, 1), std::string(
 		"dolor ipsum dolor sit amet, "
@@ -50,10 +51,13 @@ void Application::test() {
 		timer.update();
 		dt = timer.getDeltaTime();
 
+		sys.update(dt);
+
 		if (timer.tick()) {
 			text.addLetter();
 		}
 
+		sys.render();
 		text.render();
 
 		Input::processInput(dt);
