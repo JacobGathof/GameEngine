@@ -7,6 +7,7 @@
 #include "Textbox.h"
 #include "ShaderManager.h"
 #include "FontManager.h"
+#include "ModelManager.h"
 #include "Timer.h"
 #include "ParticleSystem.h"
 

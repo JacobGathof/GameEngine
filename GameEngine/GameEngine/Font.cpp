@@ -2,6 +2,8 @@
 
 
 
+const float Font::textureScale = 512.0f;
+
 Font::Font(char* fnt_filename, char* png_filename)
 {
 	texture = new Texture(png_filename);
@@ -75,12 +77,12 @@ Font::~Font()
 
 Font::Char::Char(int* data)
 {
-	x = data[0];
-	y = data[1];
-	width = data[2];
-	height = data[3];
-	xoffset = data[4];
-	yoffset = data[5];
-	xadvance = data[6];
+	x = data[0] / textureScale;
+	y = data[1] / textureScale;
+	width = data[2] / textureScale;
+	height = data[3] / textureScale;
+	xoffset = data[4] / textureScale;
+	yoffset = data[5] / textureScale;
+	xadvance = (data[6]-8) / textureScale;
 }
 

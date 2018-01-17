@@ -3,6 +3,7 @@
 
 
 ParticleSystem::ParticleSystem() {
+	init();
 }
 
 
@@ -25,23 +26,50 @@ void ParticleSystem::init()
 	vbo_pos = model.addData(pos, maxParticles*2, 2, 0);
 	vbo_col = model.addData(col, maxParticles*4, 4, 1);
 	vbo_lif = model.addData(lif, maxParticles*1, 1, 2);
+
+	emit = true;
+
+	/*
+	float *data = new float[maxParticles * 4];
+	tex.getData(data);
+
+
+	for (int i = 0; i < maxParticles; i++) {
+		float r = (float)rand() / RAND_MAX * 2 * 3.1415f;
+		Vector2f pos((i % 36) / 128.0f, -(int)(i / 36.0f) / 128.0f);
+		Color col(data[4 * i + 0], data[4 * i + 1], data[4 * i + 2], data[4 * i + 3]);
+		particles[i] = Particle(
+			pos,
+			col,
+			.1f*Vector2f(cos(r), sin(r)), 4.0f);
+
+	}
+
+	writeParticleData();
+	updateBuffers();
+
+	delete[] data;
+	*/
+
 }
 
-void ParticleSystem::emit(bool doEmit)
+void ParticleSystem::setEmit(bool doEmit)
 {
+	emit = doEmit;
 }
 
 void ParticleSystem::update(float dt)
 {
 	ptime += dt;
-	if (ptime >= 0.00f) {
+	int particlesToCreate = 0;
 
-		int n = dt*maxParticlesPerSecond;
-		ptime = 0;
-		for (int j = 0; j < n; j++) {
-			particles[pIndex] = createNewParticle();
-			pIndex = ++pIndex % maxParticles;
-		}
+	if (emit) {
+		 particlesToCreate = dt*maxParticlesPerSecond;
+	}
+
+	for (int j = 0; j < particlesToCreate; j++) {
+		particles[pIndex] = createNewParticle();
+		pIndex = ++pIndex % maxParticles;
 	}
 
 	for (int i = 0; i < maxParticles; i++) {

@@ -33,9 +33,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	int texPointer = 0;
 	int colorPointer = 0;
 
-	float scaleFactor = 512.0f;
 	float posScale = 1.0f;
-
 
 	float centerDist = 0;
 	Color def(0x000000);
@@ -51,7 +49,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 			continue;
 		}
 		if (c == ' ') {
-			xPointer += font->getCharacter(' ')->xadvance - 8;
+			xPointer += font->getCharacter(' ')->xadvance;
 			length--;
 			continue;
 		}
@@ -62,12 +60,10 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 		}
 
 		writeVertices(pos, ch, xPointer, yPointer, posScale, vertexPointer);
-		writeTexCoords(tex, ch, scaleFactor, texPointer);
+		writeTexCoords(tex, ch, texPointer);
 		writeColor(col, def, colorPointer);
 
-		int kerning = 0;
-
-		xPointer += 1.0f*(ch->xadvance-8);
+		xPointer += 1.0f*(ch->xadvance);
 
 	}
 }
@@ -93,25 +89,25 @@ void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPoin
 	pos[vertexPointer++] = (yPointer + -ch->height - ch->yoffset) * posScale;
 }
 
-void Text::writeTexCoords(float* tex, Font::Char* ch, float scaleFactor, int& texPointer)
+void Text::writeTexCoords(float* tex, Font::Char* ch, int& texPointer)
 {
-	tex[texPointer++] = (ch->x) / scaleFactor;
-	tex[texPointer++] = (ch->y + ch->height) / scaleFactor;
+	tex[texPointer++] = (ch->x);
+	tex[texPointer++] = (ch->y + ch->height);
 
-	tex[texPointer++] = (ch->x + ch->width) / scaleFactor;
-	tex[texPointer++] = (ch->y + ch->height) / scaleFactor;
+	tex[texPointer++] = (ch->x + ch->width);
+	tex[texPointer++] = (ch->y + ch->height);
 
-	tex[texPointer++] = (ch->x + ch->width) / scaleFactor;
-	tex[texPointer++] = (ch->y) / scaleFactor;
+	tex[texPointer++] = (ch->x + ch->width);
+	tex[texPointer++] = (ch->y);
 
-	tex[texPointer++] = (ch->x + ch->width) / scaleFactor;
-	tex[texPointer++] = (ch->y) / scaleFactor;
+	tex[texPointer++] = (ch->x + ch->width);
+	tex[texPointer++] = (ch->y);
 
-	tex[texPointer++] = (ch->x) / scaleFactor;
-	tex[texPointer++] = (ch->y) / scaleFactor;
+	tex[texPointer++] = (ch->x);
+	tex[texPointer++] = (ch->y);
 
-	tex[texPointer++] = (ch->x) / scaleFactor;
-	tex[texPointer++] = (ch->y + ch->height) / scaleFactor;
+	tex[texPointer++] = (ch->x);
+	tex[texPointer++] = (ch->y + ch->height);
 }
 
 void Text::writeColor(float * col, Color& color, int& colorPointer)

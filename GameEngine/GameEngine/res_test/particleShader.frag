@@ -5,6 +5,6 @@ in float li;
 
 void main(){
 
-	gl_FragColor = col * vec4(0,0,0,1);
+	gl_FragColor = col * vec4(1,1,1,li/4.0);
 
 }

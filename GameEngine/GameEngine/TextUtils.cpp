@@ -14,17 +14,16 @@ TextUtils::~TextUtils()
 
 std::string TextUtils::processString(std::string & txt, Font* font)
 {
-	int length = 0;
-	int maxLength = 1024;
+	float length = 0;
+	float maxLength = 4.0f;
 	std::string newString;
 	for (int i = 0; i < txt.length(); i++) {
 		if (txt[i] == '\n' || txt[i] == ' '){
 			newString += ' ';
-			length += 21;
 		} else {
 			newString += txt[i];
-			length += font->getCharacter(txt[i])->xadvance-12;
 		}
+		length += font->getCharacter(txt[i])->xadvance;
 
 		if (length >= maxLength) {
 			length = 0;

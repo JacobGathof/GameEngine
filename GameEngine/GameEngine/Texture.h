@@ -13,9 +13,12 @@ public:
 	Texture(GLuint t);
 	~Texture();
 
+	void getData(float* data);
+	void eraseData();
+
 private:
 	GLuint tbo;
-	Vector2f dimensions;
+	int width, height;
 
 };
 

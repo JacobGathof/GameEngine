@@ -1,6 +1,7 @@
 #pragma once
 #include "ShaderManager.h"
 #include "Model.h"
+#include "Texture.h"
 
 class ParticleSystem
 {
@@ -21,10 +22,11 @@ public:
 	ParticleSystem();
 	~ParticleSystem();
 
-	int maxParticles = 1000;
+	int maxParticles = 36*36;
 	int pIndex = 0;
 	float ptime = 0.0f;
 	float maxParticlesPerSecond = 500;
+	bool emit = true;
 
 	Particle * particles;
 	float* pos;
@@ -41,7 +43,7 @@ public:
 	bool active;
 
 	void init();
-	void emit(bool doEmit);
+	void setEmit(bool doEmit);
 	void update(float dt);
 	void updateBuffers();
 	void writeParticleData();

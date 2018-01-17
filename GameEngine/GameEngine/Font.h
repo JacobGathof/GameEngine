@@ -12,7 +12,7 @@ public:
 	class Char{
 		public:
 			Char(int* data);
-			int x, y, width, height, xoffset, yoffset, xadvance;
+			float x, y, width, height, xoffset, yoffset, xadvance;
 	};
 
 	Font(char* fnt_filename, char* png_filename);
@@ -26,6 +26,7 @@ private:
 	void loadFont(char* filename);
 	std::map<char, Char*> characters;
 	Texture* texture;
+	static const float textureScale;
 
 };
 

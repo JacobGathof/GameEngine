@@ -9,17 +9,19 @@ void Texture::bind(int offset)
 
 Texture::Texture(char * filename)
 {
-	dimensions = Vector2f(1, 1);
-	unsigned int width, height;
+	unsigned int w, h;
 	std::vector<unsigned char> image;
-	lodepng::decode(image, width, height, filename);
+	lodepng::decode(image, w, h, filename);
 
 	if (image.empty()) {
 		std::cout << "Image could not be loaded: " << filename << std::endl;
-		width = 0;
-		height = 0;
+		w = 0;
+		h = 0;
 		image.push_back(0);
 	}
+
+	width = w;
+	height = h;
 
 	glGenTextures(1, &tbo);
 	glBindTexture(GL_TEXTURE_2D, tbo);
@@ -44,4 +46,19 @@ Texture::Texture(GLuint t) {
 
 Texture::~Texture() {
 	glDeleteTextures(1, &tbo);
+}
+
+void Texture::getData(float * data)
+{
+	bind();
+	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, data);
+}
+
+void Texture::eraseData()
+{
+	bind();
+	int rand_w = rand() % width;
+	int rand_h = rand() % height;
+	unsigned char data[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	glTexSubImage2D(GL_TEXTURE_2D, 0, rand_w, rand_h, 2, 2, GL_RGBA, GL_UNSIGNED_BYTE, data);
 }
