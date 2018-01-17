@@ -1,9 +1,6 @@
 #pragma once
 #include <iostream>
 
-#define vec2 Vector2f
-
-
 class Vector2f
 {
 private:
@@ -59,3 +56,6 @@ public:
 
 	~Vector2f();
 };
+
+
+typedef Vector2f vec2;

@@ -38,6 +38,7 @@
     <ClCompile Include="TextUtils.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2f.cpp" />
+    <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +61,7 @@
     <ClInclude Include="TextUtils.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
