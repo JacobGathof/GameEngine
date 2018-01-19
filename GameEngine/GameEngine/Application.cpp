@@ -4,22 +4,20 @@
 Application::Application(){}
 Application::~Application(){}
 
-void Application::test() {
 
+void Application::run()
+{
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
 
-
-	Window::init("Hello World", 800, 800);
+	Window::init("Hello World", 200, 200);
 
 	ShaderManager::init();
 	FontManager::init();
 	ModelManager::init();
-
-	Texture tex("res_test/Melody.png");
-	ParticleSystem sys;
+	TextureManager::init();
 
 	Text text(Vector2f(-1, 1), std::string(
-		"dolor ipsum dolor sit amet, "
+		"Lorem ipsum dolor sit amet, "
 		"consectetur adipiscing elit, "
 		"sed do eiusmod tempor incididunt "
 		"ut labore et dolore magna aliqua. "
@@ -34,7 +32,7 @@ void Application::test() {
 		"sunt in culpa qui officia deserunt "
 		"mollit anim id est laborum."
 
-	) , Vector2f(0.25f, 0.25f), FontManager::get(FontType::DEFAULT));
+	), Vector2f(0.25f, 0.25f), FontManager::get(FontType::DEFAULT));
 
 	text.resetLength();
 
@@ -53,51 +51,29 @@ void Application::test() {
 		timer.update();
 		dt = timer.getDeltaTime();
 
-		sys.update(dt);
-
 		if (timer.tick()) {
 			text.addLetter();
 		}
 
-		if (Input::keys[GLFW_KEY_0]) {
-			Input::keys[GLFW_KEY_0] = false;
-			tex.eraseData();
-		}
-
-
-		ShaderManager::get(ShaderType::BASIC_SHADER)->bind();
-		tex.bind();
-		ModelManager::get(ModelType::MODEL_SQUARE)->bind();
-		glDrawArrays(GL_TRIANGLES, 0, 6);
-
-
-		sys.render();
 		text.render();
-
 
 		Input::processInput(dt);
 
 		Window::swapBuffers();
 	}
 	/*/
-		std::cout << "Here" 
+	std::cout << "Here"
 	//*/
 
 	ShaderManager::clean();
 	FontManager::clean();
 	ModelManager::clean();
+	TextureManager::clean();
 
 	Window::destroy();
 
-
 	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 
-}
-
-
-void Application::run()
-{
-	test();
 }
 
 int main() {

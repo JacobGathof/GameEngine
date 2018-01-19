@@ -18,6 +18,16 @@ void Input::processInput(float dt){
 		Window::close();
 	}
 
+	if (keys[GLFW_KEY_T]) {
+		keys[GLFW_KEY_T] = false;
+		std::cout << "Hi" << std::endl;
+	}
+
+	if (keys[GLFW_KEY_Q]) {
+		keys[GLFW_KEY_Q] = false;
+		std::cout << "Debug" << std::endl;
+	}
+
 }
 
 void Input::feedKey(int key, int state){

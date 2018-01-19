@@ -14,6 +14,7 @@ void Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int m
 }
 
 void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
+	glViewport(0, 0, width, height);
 }
 
 void Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {

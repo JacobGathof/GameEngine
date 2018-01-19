@@ -57,8 +57,14 @@ void Texture::getData(float * data)
 void Texture::eraseData()
 {
 	bind();
-	int rand_w = rand() % width;
-	int rand_h = rand() % height;
-	unsigned char data[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-	glTexSubImage2D(GL_TEXTURE_2D, 0, rand_w, rand_h, 2, 2, GL_RGBA, GL_UNSIGNED_BYTE, data);
+	unsigned char data[] = { 0,0,0,0 };
+	glTexSubImage2D(GL_TEXTURE_2D, 0, r, q, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+	r--;
+	q++;
+	if (r < 0) {
+		r = q ;
+		q = 0;
+	}
+
 }

@@ -5,6 +5,7 @@ std::map<TextureType, Texture*> TextureManager::textures;
 
 void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_DEFAULT, "res_test/default.png");
+	addTexture(TextureType::TEXTURE_MELODY, "res_test/melody.png");
 }
 
 void TextureManager::clean() {

@@ -8,6 +8,7 @@
 #include "ShaderManager.h"
 #include "FontManager.h"
 #include "ModelManager.h"
+#include "TextureManager.h"
 #include "Timer.h"
 #include "ParticleSystem.h"
 
@@ -17,7 +18,6 @@ public:
 	Application();
 	~Application();
 	void run();
-	void test();
 
 };
 

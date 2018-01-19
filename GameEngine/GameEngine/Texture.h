@@ -20,5 +20,8 @@ private:
 	GLuint tbo;
 	int width, height;
 
+	int r = 0;
+	int q = 0;
+
 };
 
