@@ -18,6 +18,7 @@ public:
 	static void show();
 
 	static void setCursorMode(int mode);
+	static float getAspectRatio();
 
 private:
 

@@ -16,6 +16,9 @@ void Application::run()
 	ModelManager::init();
 	TextureManager::init();
 
+	ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
+	ShaderManager::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
+
 	Text text(Vector2f(-1, 1), std::string(
 		"Lorem ipsum dolor sit amet, "
 		"consectetur adipiscing elit, "

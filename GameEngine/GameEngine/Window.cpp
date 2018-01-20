@@ -106,3 +106,8 @@ void Window::setCursorMode(int mode){
 	glfwSetInputMode(window, GLFW_CURSOR, mode);
 }
 
+float Window::getAspectRatio()
+{
+	return (float)WINDOW_HEIGHT / WINDOW_WIDTH;
+}
+
