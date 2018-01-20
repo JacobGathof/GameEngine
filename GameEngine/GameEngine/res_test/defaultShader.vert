@@ -9,7 +9,7 @@ out vec3 col;
 
 uniform vec2 text_scale;
 uniform vec2 text_translate;
-const float aspect_ratio = 1/1;
+uniform float aspect_ratio;
 
 const float scale = 1.0/512.0;
 

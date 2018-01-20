@@ -1,4 +1,6 @@
+#include "ShaderManager.h"
 #include "Callbacks.h"
+
 
 Callbacks::Callbacks() {}
 Callbacks::~Callbacks() {}
@@ -15,6 +17,8 @@ void Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int m
 
 void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 	glViewport(0, 0, width, height);
+	ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
+	ShaderManager::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", (float)width/height);
 }
 
 void Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {

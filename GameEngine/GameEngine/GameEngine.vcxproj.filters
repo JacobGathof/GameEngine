@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{95c2f93d-75ad-47a7-9668-d3c264170103}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{3983b0d4-fbf6-448c-9eb3-f2783e06683c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">

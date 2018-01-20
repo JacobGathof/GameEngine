@@ -9,7 +9,7 @@ void Application::run()
 {
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
 
-	Window::init("Hello World", 200, 200);
+	Window::init("Hello World", 800, 800);
 
 	ShaderManager::init();
 	FontManager::init();
