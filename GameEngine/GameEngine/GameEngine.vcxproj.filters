@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Text">
       <UniqueIdentifier>{e4b47b3c-363c-4308-86ca-57e23b701a80}</UniqueIdentifier>
     </Filter>
@@ -45,6 +41,25 @@
     </Filter>
     <Filter Include="Header Files\Objects">
       <UniqueIdentifier>{3983b0d4-fbf6-448c-9eb3-f2783e06683c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\AbstractObjects">
+      <UniqueIdentifier>{01c2eb71-46e7-4650-b9f4-143289349a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Object">
+      <UniqueIdentifier>{71c4cb4a-6bdf-414d-8d1e-7af8a1fcb278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\AbstractObjects">
+      <UniqueIdentifier>{13061bac-b759-41b7-80b5-047cb989df06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpriteHandlers">
+      <UniqueIdentifier>{c1f3f14c-a222-406a-a439-e0d83b915eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SpriteHandlers">
+      <UniqueIdentifier>{a2fae1d3-9e78-4d90-ad9e-41e3157ccd0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +126,27 @@
     <ClCompile Include="Vector3f.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\Object\AbstractObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedObject.cpp">
+      <Filter>Source Files\Object\AbstractObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTimer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -175,6 +211,27 @@
     </ClInclude>
     <ClInclude Include="Vector3f.h">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTimer.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedObject.h">
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\SpriteHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
