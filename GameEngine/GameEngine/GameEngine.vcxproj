@@ -34,6 +34,7 @@
     <ClCompile Include="MovableObject.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedObject.h" />
@@ -64,6 +66,7 @@
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Sprite.h" />
@@ -77,6 +80,7 @@
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

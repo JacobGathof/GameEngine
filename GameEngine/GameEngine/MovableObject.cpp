@@ -13,7 +13,7 @@ MovableObject::~MovableObject()
 
 bool MovableObject::update(float delta_time)
 {
-	return false;
+	return AnimatedObject::update(delta_time);
 }
 
 bool MovableObject::collide(Object o)

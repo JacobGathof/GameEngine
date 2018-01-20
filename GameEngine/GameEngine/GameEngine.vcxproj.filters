@@ -61,6 +61,12 @@
     <Filter Include="Header Files\SpriteHandlers">
       <UniqueIdentifier>{a2fae1d3-9e78-4d90-ad9e-41e3157ccd0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\World">
+      <UniqueIdentifier>{05fa4ffd-17a6-47fa-91d7-d950c10655c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{bb91020f-5860-4c23-9dd1-a3d0f64645a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -138,14 +144,20 @@
     <ClCompile Include="CharacterTimer.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="MovableObject.cpp">
+      <Filter>Source Files\Object\AbstractObjects</Filter>
+    </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SpriteHandlers</Filter>
     </ClCompile>
     <ClCompile Include="SpriteSheet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SpriteHandlers</Filter>
     </ClCompile>
-    <ClCompile Include="MovableObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\World</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,11 +239,17 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files\SpriteHandlers</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSheet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MovableObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSheet.h">
+      <Filter>Header Files\SpriteHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,11 +13,17 @@ Object::~Object()
 
 void Object::draw()
 {
+	for (Effect eff : effects) {
+		eff.draw();
+	}
 }
 
 bool Object::update(float delta_time)
 {
-	return false;
+	for (Effect eff : effects) {
+		eff.update(delta_time);
+	}
+	return alive;
 }
 
 bool Object::collide(Object o)
