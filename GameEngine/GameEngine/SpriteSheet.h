@@ -1,7 +1,6 @@
 #pragma once
 
 #include <map>
-#include "Sprite.h"
 #include "Texture.h"
 
 class SpriteSheet : public Texture

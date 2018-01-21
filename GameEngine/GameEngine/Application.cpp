@@ -11,10 +11,7 @@ void Application::run()
 
 	Window::init("Hello World", 800, 800);
 
-	ShaderManager::init();
-	FontManager::init();
-	ModelManager::init();
-	TextureManager::init();
+	ResourceManager::init();
 
 	ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
 	ShaderManager::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
@@ -68,10 +65,7 @@ void Application::run()
 	std::cout << "Here"
 	//*/
 
-	ShaderManager::clean();
-	FontManager::clean();
-	ModelManager::clean();
-	TextureManager::clean();
+	ResourceManager::clean();
 
 	Window::destroy();
 

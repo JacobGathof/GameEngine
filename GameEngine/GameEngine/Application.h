@@ -5,10 +5,7 @@
 #include "Color.h"
 #include "Window.h"
 #include "Textbox.h"
-#include "ShaderManager.h"
-#include "FontManager.h"
-#include "ModelManager.h"
-#include "TextureManager.h"
+#include "ResourceManager.h"
 #include "Timer.h"
 #include "ParticleSystem.h"
 
