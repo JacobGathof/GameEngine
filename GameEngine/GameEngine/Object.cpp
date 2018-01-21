@@ -26,7 +26,7 @@ bool Object::update(float delta_time)
 	return alive;
 }
 
-bool Object::collide(Object o)
+bool Object::collide(Object * o)
 {
 	return false;
 }
