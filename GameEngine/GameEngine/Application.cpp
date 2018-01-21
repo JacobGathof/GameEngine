@@ -13,8 +13,10 @@ void Application::run()
 
 	ResourceManager::init();
 
-	ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
-	ShaderManager::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
+	Res::get(ShaderType::TEXT_SHADER)->bind();
+	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
+
+	Textbox tb;
 
 	Text text(Vector2f(-1, 1), std::string(
 		"Lorem ipsum dolor sit amet, "
@@ -55,6 +57,7 @@ void Application::run()
 			text.addLetter();
 		}
 
+		tb.draw();
 		text.render();
 
 		Input::processInput(dt);

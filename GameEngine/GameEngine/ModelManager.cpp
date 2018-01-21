@@ -6,6 +6,12 @@ void ModelManager::init() {
 	float d1_p[]{ 0,1,1,1,1,0,1,0,0,0,0,1 };
 	float d1_t[]{ 0,0,1,0,1,1,1,1,0,1,0,0 };
 	addModel(ModelType::MODEL_SQUARE, d1_p, 12, d1_t, 12);
+
+
+	float d2_p[]{ -0.5f,0.5f,0.5f,0.5f,0.5f,-0.5f,0.5f,-0.5f,-0.5f,-0.5f,-0.5f,0.5f };
+	float d2_t[]{ 0,0,1,0,1,1,1,1,0,1,0,0 };
+	addModel(ModelType::MODEL_SQUARE_CENTERED, d2_p, 12, d2_t, 12);
+
 }
 
 void ModelManager::clean() {

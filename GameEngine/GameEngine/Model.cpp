@@ -17,6 +17,11 @@ void Model::bind(){
 	glBindVertexArray(vao);
 }
 
+void Model::draw()
+{
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
 unsigned int Model::addData(float* data, int data_length, int components, int attrib_location){
 	unsigned int vbo;
 	glGenBuffers(1, &vbo);

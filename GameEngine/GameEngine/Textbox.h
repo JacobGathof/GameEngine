@@ -1,6 +1,6 @@
 #pragma once
 #include "Text.h"
-#include "FontManager.h"
+#include "ResourceManager.h"
 #include <queue>
 
 class Textbox
@@ -9,7 +9,7 @@ public:
 	Textbox();
 	~Textbox();
 
-	void render();
+	void draw();
 	void advanceText();
 	void addTextToQueue(std::string text);
 

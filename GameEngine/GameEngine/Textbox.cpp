@@ -2,9 +2,7 @@
 
 
 
-Textbox::Textbox() 
-	: text(Vector2f(-1, 1), std::string("-=-=-ERROR TEXT-=-=-"), 
-		Vector2f(0.5f, 0.5f), FontManager::get(FontType::DEFAULT))
+Textbox::Textbox() : text(Vector2f(), std::string(""), Vector2f(), 0)
 {
 }
 
@@ -13,9 +11,18 @@ Textbox::~Textbox()
 {
 }
 
-void Textbox::render()
-{
-	text.render();
+void Textbox::draw(){
+	ShaderProgram* shader = Res::get(ShaderType::TEXTBOX_SHADER);
+	Model * model = Res::get(ModelType::MODEL_SQUARE);
+
+	model->bind();
+	shader->bind();
+	shader->loadVector2f("pos", Vector2f(10, 10));
+	shader->loadVector2f("scale", Vector2f(780, 400));
+	shader->loadColor("color", Color(0x22222288));
+	
+	model->draw();
+
 }
 
 void Textbox::advanceText()

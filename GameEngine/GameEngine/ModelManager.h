@@ -5,6 +5,7 @@
 
 enum class ModelType {
 	MODEL_SQUARE,
+	MODEL_SQUARE_CENTERED,
 };
 
 
