@@ -2,8 +2,9 @@
 
 #include <map>
 #include "Sprite.h"
+#include "Texture.h"
 
-class SpriteSheet
+class SpriteSheet : public Texture
 {
 public:
 
@@ -12,7 +13,6 @@ public:
 		int numColumns;
 		float AnimSpeed;
 		bool loop;
-		Sprite sprite;
 	};
 
 	enum AnimationState
@@ -27,6 +27,7 @@ public:
 
 	SpriteSheet();
 	~SpriteSheet();
+
 	std::map<AnimationState, AnimationStruct> animations;
 	AnimationState state = IDLE;
 

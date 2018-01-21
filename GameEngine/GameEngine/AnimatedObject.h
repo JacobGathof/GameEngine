@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "CharacterTimer.h"
 #include "SpriteSheet.h"
+
 class AnimatedObject : public Object
 {
 public:

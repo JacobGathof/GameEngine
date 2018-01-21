@@ -13,14 +13,14 @@ World::~World()
 
 void World::draw()
 {
-	//Maybe want to switch these.
 	currentRoom.draw();
-	currentRoom.checkCollisions();
 }
 
 void World::update(float delta_time)
 {
+	//Maybe want to switch these.
 	currentRoom.update(delta_time);
+	currentRoom.checkCollisions();
 }
 
 void World::transition(Room newRoom)
