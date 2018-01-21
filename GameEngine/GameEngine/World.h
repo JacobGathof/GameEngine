@@ -5,12 +5,12 @@ class World
 {
 public:
 
-	Room currentRoom;
+	Room * currentRoom;
 
 	static World * getInstance();
 	void draw();
 	void update(float delta_time);
-	void transition(Room newRoom);
+	void transition(Room * newRoom);
 
 private:
 	World();

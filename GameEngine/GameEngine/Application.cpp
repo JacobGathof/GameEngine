@@ -13,6 +13,15 @@ void Application::run()
 
 	ResourceManager::init();
 
+	// Start making objects here
+
+	Object melody(TextureType::TEXTURE_MELODY);
+	World * world = World::getInstance();
+	Room room;
+	
+	world->currentRoom = &room;
+	room.objects.push_back(&melody);
+
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
@@ -58,21 +67,9 @@ void Application::run()
 		tb.draw();
 		text.render();
 
-
-		//
-		ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
-		p->bind();
-		p->loadVector2f("translate", Vector2f(0, 0));
-		p->loadVector2f("scale", Vector2f(.25,.25));
-		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
-		m->bind();
-		Res::get(TextureType::TEXTURE_MELODY)->bind();
-
-		m->draw();
-
-		//
-
 		Input::processInput(dt);
+
+		world->draw();
 
 		Window::swapBuffers();
 	}

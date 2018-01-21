@@ -25,17 +25,17 @@ World * World::getInstance()
 
 void World::draw()
 {
-	currentRoom.draw();
+	currentRoom->draw();
 }
 
 void World::update(float delta_time)
 {
 	//Maybe want to switch these.
-	currentRoom.checkCollisions();
-	currentRoom.update(delta_time);
+	currentRoom->checkCollisions();
+	currentRoom->update(delta_time);
 }
 
-void World::transition(Room newRoom)
+void World::transition(Room * newRoom)
 {
 	//Need to transfer over some objects(Player and Party)
 	currentRoom = newRoom;

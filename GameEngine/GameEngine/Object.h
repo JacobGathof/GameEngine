@@ -2,17 +2,19 @@
 
 #include "Vector2f.h"
 #include "Effect.h"
+#include "ResourceManager.h"
 #include <vector>
 
 class Object
 {
 public:
 	Object();
+	Object(TextureType texture);
 	~Object();
 
 	Vector2f pos;
 	Vector2f scale;
-    //Enum Texture
+	TextureType texture;
 	bool alive = true;
 	std::vector<Effect> effects;
 
