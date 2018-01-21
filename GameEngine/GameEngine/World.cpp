@@ -1,6 +1,8 @@
 #include "World.h"
 
 
+World* World::inst;
+
 
 World::World()
 {
@@ -9,6 +11,16 @@ World::World()
 
 World::~World()
 {
+	delete inst;
+}
+
+World * World::getInstance()
+{
+	if (inst == nullptr) {
+		inst = new World();
+	}
+
+	return inst;
 }
 
 void World::draw()
@@ -19,8 +31,8 @@ void World::draw()
 void World::update(float delta_time)
 {
 	//Maybe want to switch these.
-	currentRoom.update(delta_time);
 	currentRoom.checkCollisions();
+	currentRoom.update(delta_time);
 }
 
 void World::transition(Room newRoom)
