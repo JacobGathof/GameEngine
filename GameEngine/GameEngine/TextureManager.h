@@ -6,6 +6,7 @@
 enum class TextureType {
 	TEXTURE_DEFAULT,
 	TEXTURE_MELODY,
+	TEXTURE_TEST,
 };
 
 

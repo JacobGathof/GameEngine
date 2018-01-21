@@ -5,7 +5,10 @@ layout(location=1) in vec2 texCoords;
 
 out vec2 uv;
 
+uniform vec2 translate;
+uniform vec2 scale;
+
 void main(){
 	uv = texCoords;
-	gl_Position = vec4(position,0,1);
+	gl_Position = vec4((position+translate)*scale,0,1);
 }

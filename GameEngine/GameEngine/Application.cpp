@@ -42,9 +42,7 @@ void Application::run()
 	timer.setTickLength(0.01f);
 
 
-	// Code Toggle: Remove single "/" on the line below to hide window
-
-	//*
+	
 	float dt;
 	Window::show();
 	while (!Window::shouldClose()) {
@@ -60,13 +58,24 @@ void Application::run()
 		tb.draw();
 		text.render();
 
+
+		//
+		ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
+		p->bind();
+		p->loadVector2f("translate", Vector2f(0, 0));
+		p->loadVector2f("scale", Vector2f(.25,.25));
+		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+		m->bind();
+		Res::get(TextureType::TEXTURE_MELODY)->bind();
+
+		m->draw();
+
+		//
+
 		Input::processInput(dt);
 
 		Window::swapBuffers();
 	}
-	/*/
-	std::cout << "Here"
-	//*/
 
 	ResourceManager::clean();
 
