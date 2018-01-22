@@ -12,6 +12,8 @@ World::World()
 World::~World()
 {
 	delete inst;
+
+	delete currentRoom;
 }
 
 World * World::getInstance()
@@ -39,4 +41,9 @@ void World::transition(Room * newRoom)
 {
 	//Need to transfer over some objects(Player and Party)
 	currentRoom = newRoom;
+}
+
+void World::setCurrentRoom(Room * r)
+{
+	currentRoom = r;
 }

@@ -15,12 +15,12 @@ void Application::run()
 
 	// Start making objects here
 
-	Object melody(TextureType::TEXTURE_MELODY);
+	Object melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5));
 	World * world = World::getInstance();
 	Room room;
 	
-	world->currentRoom = &room;
-	room.objects.push_back(&melody);
+	world->setCurrentRoom(&room);
+	room.addObject(&melody);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

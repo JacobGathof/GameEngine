@@ -11,6 +11,7 @@ public:
 	void draw();
 	void update(float delta_time);
 	void transition(Room * newRoom);
+	void setCurrentRoom(Room * r);
 
 private:
 	World();

@@ -15,5 +15,6 @@ public:
 	void update(float delta_time);
 	void draw();
 	void checkCollisions();
+	void addObject(Object * obj);
 };
 
