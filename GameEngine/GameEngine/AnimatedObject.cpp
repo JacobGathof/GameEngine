@@ -2,9 +2,9 @@
 
 
 
-AnimatedObject::AnimatedObject(TextureType t, Vector2f position, Vector2f sc)
+AnimatedObject::AnimatedObject(TextureType t, Vector2f position, Vector2f sc) : Object(t, position, sc)
 {
-	Object(t, position, sc);
+	
 }
 
 AnimatedObject::AnimatedObject()

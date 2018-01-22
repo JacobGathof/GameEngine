@@ -24,11 +24,7 @@ Object::~Object()
 }
 
 void Object::draw()
-{
-	if (texture == TextureType::TEXTURE_MELODY) {
-		std::cout << "Melody";
-	}
-	
+{	
 	ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
 	p->bind();
 	p->loadVector2f("translate", pos);
