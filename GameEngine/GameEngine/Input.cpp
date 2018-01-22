@@ -2,6 +2,7 @@
 #include "Window.h"
 
 bool Input::keys[512];
+std::map<int, int> Input::keyBinds;
 
 Input::Input(){
 
@@ -33,5 +34,11 @@ void Input::processInput(float dt){
 void Input::feedKey(int key, int state){
 	if (key < 0 || key > 512) return;
 	keys[key] = state;
+}
+
+void Input::setupKeybinds(){
+	for (int i = 0; i < 512; i++) {
+		keyBinds[i] = i;
+	}
 }
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 
 class Input
 {
@@ -10,5 +11,12 @@ public:
 
 	static void processInput(float dt);
 	static void feedKey(int key, int state);
+
+
+private:
+
+	static void setupKeybinds();
+	static std::map<int, int> keyBinds;
+
 };
 

@@ -18,9 +18,18 @@ void Textbox::draw(){
 	model->bind();
 	shader->bind();
 	shader->loadVector2f("pos", Vector2f(10, 10));
-	shader->loadVector2f("scale", Vector2f(780, 400));
-	shader->loadColor("color", Color(0x22222288));
-	
+	shader->loadVector2f("scale", Vector2f(780, 200));
+	shader->loadColor("color", Color(0x000000dd));
+	model->draw();
+
+	shader->loadVector2f("pos", Vector2f(12, 12));
+	shader->loadVector2f("scale", Vector2f(776, 196));
+	shader->loadColor("color", Color(0xaaaaaa88));
+	model->draw();
+
+	shader->loadVector2f("pos", Vector2f(14, 14));
+	shader->loadVector2f("scale", Vector2f(772, 192));
+	shader->loadColor("color", Color(0x000000dd));
 	model->draw();
 
 }
