@@ -18,7 +18,7 @@ public:
 	void addLetter();
 	void resetLength();
 
-	void render();
+	void draw();
 
 private:
 	unsigned int vao;

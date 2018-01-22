@@ -61,6 +61,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{5ac773df-e659-46f9-ac19-1bce26b27724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{6d3cb15f-5647-4459-b3bd-836857a38a0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -98,9 +104,6 @@
     </ClCompile>
     <ClCompile Include="Text.cpp">
       <Filter>Source Files\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="Textbox.cpp">
-      <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Utilities</Filter>
@@ -159,6 +162,12 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Textbox.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsPage.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -199,9 +208,6 @@
     </ClInclude>
     <ClInclude Include="Callbacks.h">
       <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Textbox.h">
-      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
       <Filter>Header Files\Game Objects</Filter>
@@ -256,6 +262,12 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Textbox.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsPage.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

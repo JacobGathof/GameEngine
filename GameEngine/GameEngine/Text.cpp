@@ -175,7 +175,7 @@ void Text::resetLength()
 	displayableLength = 0;
 }
 
-void Text::render()
+void Text::draw()
 {
 	ShaderProgram * sh = ShaderManager::get(ShaderType::TEXT_SHADER);
 	sh->bind();

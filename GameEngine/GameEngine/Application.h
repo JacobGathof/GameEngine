@@ -5,6 +5,7 @@
 #include "Color.h"
 #include "Window.h"
 #include "Textbox.h"
+#include "StatsPage.h"
 #include "ResourceManager.h"
 #include "Timer.h"
 #include "ParticleSystem.h"

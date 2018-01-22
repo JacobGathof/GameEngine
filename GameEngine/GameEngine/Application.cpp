@@ -26,6 +26,7 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
 	Textbox tb;
+	StatsPage sp;
 
 	Text text(Vector2f(-1, 1), std::string(
 		"Lorem ipsum dolor sit amet, "
@@ -65,11 +66,12 @@ void Application::run()
 		}
 
 		tb.draw();
-		text.render();
+		sp.draw();
+		//text.render();
 
 		Input::processInput(dt);
 
-		world->draw();
+		//world->draw();
 
 		Window::swapBuffers();
 	}
