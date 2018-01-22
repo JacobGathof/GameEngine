@@ -15,7 +15,7 @@ void Application::run()
 
 	// Start making objects here
 
-	Object melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5));
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5));
 	World * world = World::getInstance();
 	Room room;
 	

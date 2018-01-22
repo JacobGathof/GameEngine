@@ -2,6 +2,11 @@
 
 
 
+AnimatedObject::AnimatedObject(TextureType t, Vector2f position, Vector2f sc)
+{
+	Object(t, position, sc);
+}
+
 AnimatedObject::AnimatedObject()
 {
 }
@@ -19,6 +24,7 @@ void AnimatedObject::draw()
 {
 	Object::draw();
 }
+
 
 bool AnimatedObject::update(float delta_time)
 {

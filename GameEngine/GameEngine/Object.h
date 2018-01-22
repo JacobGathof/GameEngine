@@ -4,12 +4,13 @@
 #include "Effect.h"
 #include "ResourceManager.h"
 #include <vector>
+#include <stdio.h>
 
 class Object
 {
 public:
 	Object();
-	Object(TextureType texture, Vector2f position, Vector2f scale);
+	Object(TextureType t, Vector2f position, Vector2f sc);
 	~Object();
 
 	Vector2f pos;

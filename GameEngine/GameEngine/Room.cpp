@@ -10,7 +10,7 @@ Room::Room()
 Room::~Room()
 {
 	for (Object * o : objects) {
-		delete o;
+		//delete o;
 	}
 }
 

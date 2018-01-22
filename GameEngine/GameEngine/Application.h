@@ -8,7 +8,7 @@
 #include "ResourceManager.h"
 #include "Timer.h"
 #include "ParticleSystem.h"
-#include "Object.h"
+#include "Player.h"
 #include "World.h"
 
 class Application
