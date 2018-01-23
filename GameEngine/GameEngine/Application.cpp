@@ -14,8 +14,8 @@ void Application::run()
 	ResourceManager::init();
 
 	// Start making objects here
-
-	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5));
+	PlayerAI playerAi;
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5), &playerAi);
 	World * world = World::getInstance();
 	Room room;
 	
@@ -71,6 +71,7 @@ void Application::run()
 
 		Input::processInput(dt);
 
+		world->update(dt);
 		world->draw();
 
 		Window::swapBuffers();

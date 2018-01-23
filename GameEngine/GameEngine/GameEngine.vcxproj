@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="AnimatedObject.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Callbacks.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAI.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -55,6 +57,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI.h" />
     <ClInclude Include="AnimatedObject.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Callbacks.h" />
@@ -71,6 +74,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAI.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Screen.h" />

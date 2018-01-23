@@ -2,13 +2,9 @@
 
 
 
-Player::Player(TextureType t, Vector2f position, Vector2f sc) : MovableObject(t, position, sc)
+Player::Player(TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : MovableObject(t, position, sc)
 {
-	//I don't like this.  Need to ask Jake
-
-	//texture = t;
-	//pos = position;
-	//scale = sc;
+	defaultAI = ai;
 }
 
 Player::Player()
@@ -22,5 +18,6 @@ Player::~Player()
 
 bool Player::update(float delta_time)
 {
-	return false;
+	defaultAI->execute(this);
+	return true;
 }
