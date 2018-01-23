@@ -67,11 +67,11 @@ void Application::run()
 
 		tb.draw();
 		sp.draw();
-		//text.render();
+		text.draw();
 
 		Input::processInput(dt);
 
-		//world->draw();
+		world->draw();
 
 		Window::swapBuffers();
 	}
