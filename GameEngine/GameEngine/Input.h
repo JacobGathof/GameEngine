@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include "StatsPage.h"
+#include <vector>
 
 class Input
 {
@@ -10,9 +11,12 @@ public:
 
 	static bool keys[512];
 
+	//Get rid of this
+	static std::vector<char> keysDown;
+
 	static void processInput(float dt);
 	static void feedKey(int key, int state);
-
+	
 
 private:
 

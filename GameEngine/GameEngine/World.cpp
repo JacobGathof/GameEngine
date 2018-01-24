@@ -33,6 +33,7 @@ void World::draw()
 void World::update(float delta_time)
 {
 	//Maybe want to switch these.
+	currentRoom->sort();
 	currentRoom->checkCollisions();
 	currentRoom->update(delta_time);
 }

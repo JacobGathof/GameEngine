@@ -67,6 +67,12 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d3cb15f-5647-4459-b3bd-836857a38a0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{1772291f-ebfa-4a5f-a0c7-eccf812727b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{8bf07b32-0cc6-440f-85b7-0cf642c4d875}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -174,6 +180,18 @@
     <ClCompile Include="BounceTimer.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingAi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedAi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -272,6 +290,7 @@
     <ClInclude Include="Screen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="GameTimer.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
@@ -280,6 +299,19 @@
     </ClInclude>
     <ClInclude Include="BounceTimer.h">
       <Filter>Header Files\Utilities</Filter>
+=======
+    <ClInclude Include="PlayerAI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingAi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedAi.h">
+      <Filter>Header Files</Filter>
+>>>>>>> 12712ca8d6fffb92fcdf99a8b7164c5b934ecca6
     </ClInclude>
   </ItemGroup>
 </Project>
