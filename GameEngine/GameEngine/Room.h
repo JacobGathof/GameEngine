@@ -16,5 +16,10 @@ public:
 	void draw();
 	void checkCollisions();
 	void addObject(Object * obj);
+	void sort();
+
+private:
+	bool collision(Object * obj1, Object * obj2);
+	void place(Object * obj, int index);
 };
 

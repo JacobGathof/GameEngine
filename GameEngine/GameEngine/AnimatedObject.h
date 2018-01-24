@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "CharacterTimer.h"
 #include "SpriteSheet.h"
-#include "AI.h"
+#include "AnimatedAi.h"
 
 class AnimatedObject : public Object
 {
@@ -17,14 +17,14 @@ public:
 	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
 
-	virtual void setAI(AI * ai);
+	virtual void setAI(AnimatedAi * ai);
 	void setAction(SpriteSheet::AnimationState action);
 	virtual void draw();
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o);
 
 protected:
-	AI * defaultAI;
-	std::vector<AI *> aiQueue;
+	AnimatedAi * defaultAI;
+	std::vector<AnimatedAi *> aiQueue;
 };
 

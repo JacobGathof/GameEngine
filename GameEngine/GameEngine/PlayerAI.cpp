@@ -1,5 +1,5 @@
 #include "PlayerAI.h"
-
+#include "LivingObject.h"
 
 PlayerAI::PlayerAI()
 {
@@ -9,16 +9,15 @@ PlayerAI::~PlayerAI()
 {
 }
 
-bool PlayerAI::execute(Object * obj)
+bool PlayerAI::execute(void * o)
 {
-	std::cout << "running AI";
-	float movSpeed = .1f;
+	LivingObject * obj = (LivingObject *)o;
+	float movSpeed = .03f;
 	float x = 0;
 	float y = 0;
 
 	//Fix This
 	for (char c : Input::keysDown) {
-		
 		if (c == 'w') {
 			y += movSpeed;
 		}
@@ -32,7 +31,10 @@ bool PlayerAI::execute(Object * obj)
 			x += movSpeed;
 		}
 	}
-	obj->pos += Vector2f(x,y);
+	obj->pos += Vector2f(x, y);
 
 	return true;
 }
+
+
+

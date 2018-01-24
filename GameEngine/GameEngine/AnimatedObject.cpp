@@ -1,7 +1,6 @@
 #include "AnimatedObject.h"
 
 
-
 AnimatedObject::AnimatedObject(TextureType t, Vector2f position, Vector2f sc) : Object(t, position, sc)
 {
 	
@@ -16,7 +15,7 @@ AnimatedObject::~AnimatedObject()
 {
 }
 
-void AnimatedObject::setAI(AI * ai)
+void AnimatedObject::setAI(AnimatedAi * ai)
 {
 	if (aiQueue.size() == 0 && defaultAI == nullptr) {
 		defaultAI = ai;

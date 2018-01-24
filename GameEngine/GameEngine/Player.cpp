@@ -2,13 +2,9 @@
 
 
 
-Player::Player(TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : MovableObject(t, position, sc)
+Player::Player(TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : LivingObject(t, position, sc, 100, 100)
 {
-	defaultAI = ai;
-}
-
-Player::Player()
-{
+	defaultAi = ai;
 }
 
 
@@ -18,6 +14,11 @@ Player::~Player()
 
 bool Player::update(float delta_time)
 {
-	defaultAI->execute(this);
+	defaultAi->execute(this);
 	return true;
+}
+
+bool Player::collide(Object * o)
+{
+	return false;
 }

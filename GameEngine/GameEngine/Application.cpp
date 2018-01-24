@@ -16,11 +16,15 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5), &playerAi);
+	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
+	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	World * world = World::getInstance();
 	Room room;
 	
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
+	room.addObject(&structure);
+	//room.addObject(&structure2);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
