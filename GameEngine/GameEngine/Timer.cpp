@@ -2,33 +2,23 @@
 
 
 
-void Timer::update()
+Timer::Timer(){}
+Timer::~Timer(){}
+
+void Timer::update(float dt)
 {
+	if (pauseOnTick && tickActive) pause();
 	tickActive = false;
-	currentTime = (float)glfwGetTime();
-	deltaTime = timeMultiplier*(currentTime - lastTime);
-	lastTime = currentTime;
+	if (paused) return;
 
+	currentTime += dt * timeMultiplier;
+	totalTime += dt * timeMultiplier;
 
-	gameTime += deltaTime;
-	frames++;
-	if (currentTime - lastTick >= tickLength) {
-		lastTick = currentTime;
+	if (currentTime >= tickLength) {
+		currentTime = 0;
 		tickActive = true;
-		fps = frames;
-		frames = 0;
 	}
 
-}
-
-float Timer::getDeltaTime()
-{
-	return deltaTime;
-}
-
-float Timer::getGameTime()
-{
-	return gameTime;
 }
 
 void Timer::setTimeMult(float f)
@@ -41,21 +31,41 @@ void Timer::setTickLength(float f)
 	tickLength = f;
 }
 
-bool Timer::tick()
-{
+bool Timer::tick(){
 	return tickActive;
 }
 
-int Timer::FPS()
-{
-	return fps;
+void Timer::pause(){
+	paused = true;
 }
 
-Timer::Timer()
-{
+void Timer::unpause(){
+	paused = false;
 }
 
-
-Timer::~Timer()
+bool Timer::isPaused()
 {
+	return paused;
 }
+
+void Timer::setPauseOnTick(bool pot)
+{
+	pauseOnTick = pot;
+}
+
+void Timer::reset()
+{
+	currentTime = 0.0;
+	totalTime = 0.0f;
+}
+
+float Timer::getTotalTime()
+{
+	return totalTime;
+}
+
+float Timer::getCurrentTime()
+{
+	return currentTime;
+}
+

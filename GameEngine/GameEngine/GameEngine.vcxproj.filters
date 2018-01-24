@@ -111,9 +111,6 @@
     <ClCompile Include="TextUtils.cpp">
       <Filter>Source Files\Text</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2f.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
@@ -137,9 +134,6 @@
     </ClCompile>
     <ClCompile Include="AnimatedObject.cpp">
       <Filter>Source Files\Object\AbstractObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterTimer.cpp">
-      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="MovableObject.cpp">
       <Filter>Source Files\Object\AbstractObjects</Filter>
@@ -168,8 +162,17 @@
     <ClCompile Include="StatsPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
     <ClCompile Include="Screen.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="BounceTimer.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,9 +209,6 @@
     <ClInclude Include="ShaderProgram.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Callbacks.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
@@ -238,9 +238,6 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterTimer.h">
-      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="AnimatedObject.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
@@ -274,6 +271,15 @@
     </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceTimer.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
