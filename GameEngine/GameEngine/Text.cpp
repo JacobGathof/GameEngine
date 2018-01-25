@@ -1,6 +1,5 @@
 #include "Text.h"
 
-
 #include "Window.h"
 
 
@@ -9,6 +8,7 @@ Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 	position = p;
 	scale = s;
 	font = f;
+	color = Color(0x000000ff);
 
 	model.init();
 	model.bind();
@@ -183,8 +183,27 @@ void Text::draw()
 	model.bind();
 	sh->loadVector2f("text_translate", position);
 	sh->loadVector2f("text_scale", scale);
+	sh->loadColor("text_color", color);
 
 	glDrawArrays(GL_TRIANGLES, 0, displayableLength*6);
+}
+
+void Text::setColor(Color & col){
+	color = col;
+}
+
+void Text::setPosition(Vector2f & v)
+{
+	position = v;
+}
+
+void Text::setScale(Vector2f & v)
+{
+	scale = v;
+}
+
+void Text::reloadData()
+{
 }
 
 

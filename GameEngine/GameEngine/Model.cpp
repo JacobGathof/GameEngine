@@ -1,11 +1,13 @@
 #include "Model.h"
-
+#include <iostream>
 
 
 Model::Model(){}
 Model::~Model(){
-	glDeleteBuffers(vbos.size(), &vbos[0]);
-	glDeleteVertexArrays(1, &vao);
+	if (glIsVertexArray(vao)) {
+		glDeleteBuffers(vbos.size(), &vbos[0]);
+		glDeleteVertexArrays(1, &vao);
+	}
 }
 
 void Model::init(){

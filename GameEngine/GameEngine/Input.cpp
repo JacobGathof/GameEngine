@@ -1,5 +1,6 @@
 #include "Input.h"
 #include "Window.h"
+#include "StatsPage.h"
 
 bool Input::keys[512];
 std::map<int, int> Input::keyBinds;

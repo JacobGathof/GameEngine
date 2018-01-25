@@ -32,29 +32,14 @@ void Application::run()
 	Textbox tb;
 	StatsPage sp;
 
-	Text text(Vector2f(-1, 1), std::string(
-		"Lorem ipsum dolor sit amet, "
-		"consectetur adipiscing elit, "
-		"sed do eiusmod tempor incididunt "
-		"ut labore et dolore magna aliqua. "
-		"Ut enim ad minim veniam, quis "
-		"nostrud exercitation ullamco "
-		"laboris nisi ut aliquip ex ea "
-		"commodo consequat. Duis aute irure "
-		"dolor in reprehenderit in voluptate "
-		"velit esse cillum dolore eu fugiat "
-		"nulla pariatur. Excepteur sint "
-		"occaecat cupidatat non proident, "
-		"sunt in culpa qui officia deserunt "
-		"mollit anim id est laborum."
-
-	), Vector2f(0.25f, 0.25f), FontManager::get(FontType::DEFAULT));
+	Text text(Vector2f(100, 100), std::string(
+		"DON'T PRINT THIS"
+	), Vector2f(64.0f, 64.0f), FontManager::get(FontType::DEFAULT));
 
 	text.resetLength();
 
-	Timer timer;
+	GameTimer timer;
 	timer.setTickLength(0.01f);
-
 
 	
 	float dt;
@@ -65,12 +50,14 @@ void Application::run()
 		timer.update();
 		dt = timer.getDeltaTime();
 
+		sp.update(dt);
+
 		if (timer.tick()) {
 			text.addLetter();
 		}
 
 		tb.draw();
-		sp.draw();
+		//sp.draw();
 		text.draw();
 
 		Input::processInput(dt);

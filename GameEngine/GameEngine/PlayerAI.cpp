@@ -35,6 +35,7 @@ bool PlayerAI::execute(void * o)
 
 	if (Input::keys[69]) {
 		Object * closest = World::getInstance()->getNearestObject(obj->pos);
+		closest
 	}
 
 	return true;

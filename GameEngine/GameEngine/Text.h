@@ -20,15 +20,21 @@ public:
 
 	void draw();
 
+	void setColor(Color& col);
+	void setPosition(Vector2f& v);
+	void setScale(Vector2f& v);
+	void reloadData();
+
 private:
 	unsigned int vao;
 	unsigned int vbo_pos;
 	unsigned int vbo_tex;
 	unsigned int vbo_col;
-	Vector2f position;
 	Vector2f scale;
 	Font * font;
 	Model model;
+	Vector2f position;
+	Color color;
 
 	std::string data;
 	int length;

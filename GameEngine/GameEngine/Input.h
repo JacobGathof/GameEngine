@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include "StatsPage.h"
 #include <vector>
 
 class Input
