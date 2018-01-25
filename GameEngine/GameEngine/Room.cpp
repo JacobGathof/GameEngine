@@ -65,6 +65,20 @@ void Room::sort()
 	}
 }
 
+Object * Room::getNearestObject(Vector2f pos)
+{
+	Object * nearest;
+	float nearestDist = 1000000;
+	for (Object * obj : objects) {
+		float dist = sqrt(pow(obj->pos[0] - pos[0], 2) + pow(obj->pos[1] - pos[1], 2));
+		if (dist < nearestDist) {
+			nearestDist = dist;
+			nearest = obj;
+		}
+	}
+	return nearest;
+}
+
 bool Room::collision(Object * obj1, Object * obj2)
 {
 	float x1 = obj1->pos[0];
@@ -76,8 +90,8 @@ bool Room::collision(Object * obj1, Object * obj2)
 	float y2 = obj2->pos[1];
 	float xScale2 = obj2->scale[0];
 	float yScale2 = obj2->scale[1];
-	if (x1 < x2 + xScale2 && x2 < x1 + xScale2) {
-		if (y1 < y2 + yScale2 && y2 < y1 + yScale2) {
+	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
+		if (y1 < y2 + yScale2/2 && y2 < y1 + yScale1/2) {
 			return true;
 		}
 	}

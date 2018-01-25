@@ -165,9 +165,6 @@
     <ClCompile Include="TransitionObject.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Textbox.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -177,17 +174,20 @@
     <ClCompile Include="Screen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LivingObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LivingAi.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="AnimatedAi.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingObject.cpp">
+      <Filter>Source Files\Object\AbstractObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -281,9 +281,6 @@
     <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Textbox.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -293,17 +290,20 @@
     <ClInclude Include="Screen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LivingObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LivingAi.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="AnimatedAi.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingObject.h">
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -52,6 +52,10 @@ bool Object::collide(Object * o)
 	return false;
 }
 
+void Object::interact()
+{
+}
+
 void Object::addEffect(Effect * eff)
 {
 	effects.push_back(eff);

@@ -55,3 +55,7 @@ bool AnimatedObject::collide(Object * o)
 {
 	return false;
 }
+
+void AnimatedObject::interact()
+{
+}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <math.h>
 #include "Object.h"
 class Room
 {
@@ -17,6 +18,7 @@ public:
 	void checkCollisions();
 	void addObject(Object * obj);
 	void sort();
+	Object * getNearestObject(Vector2f pos);
 
 private:
 	bool collision(Object * obj1, Object * obj2);

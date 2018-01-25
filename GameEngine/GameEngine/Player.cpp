@@ -14,11 +14,15 @@ Player::~Player()
 
 bool Player::update(float delta_time)
 {
+	lastX = pos[0];
+	lastY = pos[1];
 	defaultAi->execute(this);
 	return true;
 }
 
 bool Player::collide(Object * o)
 {
-	return false;
+	pos[0] = lastX;
+	pos[1] = lastY;
+	return true;
 }

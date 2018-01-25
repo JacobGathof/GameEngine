@@ -11,5 +11,9 @@ public:
 
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o);
+
+private:
+	float lastX = 0;
+	float lastY = 0;
 };
 

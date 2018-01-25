@@ -33,6 +33,10 @@ bool PlayerAI::execute(void * o)
 	}
 	obj->pos += Vector2f(x, y);
 
+	if (Input::keys[69]) {
+		Object * closest = World::getInstance()->getNearestObject(obj->pos);
+	}
+
 	return true;
 }
 

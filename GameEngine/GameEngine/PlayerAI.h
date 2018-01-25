@@ -3,6 +3,7 @@
 #include "LivingAi.h"
 #include "Input.h"
 #include "LivingObject.h"
+#include "World.h"
 
 class PlayerAI : public LivingAi
 {
