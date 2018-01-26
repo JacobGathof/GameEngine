@@ -54,6 +54,7 @@ bool Object::collide(Object * o)
 
 void Object::interact()
 {
+	std::cout << "Interact" << std::endl;
 }
 
 void Object::addEffect(Effect * eff)

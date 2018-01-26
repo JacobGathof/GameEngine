@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Object.h"
-#include "CharacterTimer.h"
+#include "Timer.h"
 #include "SpriteSheet.h"
 #include "AnimatedAi.h"
 
@@ -12,7 +12,7 @@ public:
 	AnimatedObject();
 	~AnimatedObject();
 
-	CharacterTimer timer;
+	Timer timer;
 	int animationState;
 	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
