@@ -16,6 +16,7 @@ public:
 	float operator[](int i) const;
 
 	float dot(Vector2f &v);
+	float distanceTo(Vector2f &v);
 	float lengthSquared();
 	float length();
 	Vector2f reflect(Vector2f &n);

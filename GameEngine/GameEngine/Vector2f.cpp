@@ -128,6 +128,11 @@ float Vector2f::dot(Vector2f & v)
 	return data[0] * v[0] + data[1] * v[1];
 }
 
+float Vector2f::distanceTo(Vector2f & v)
+{
+	return abs((v - *this).length());
+}
+
 float Vector2f::lengthSquared()
 {
 	return data[0] * data[0] + data[1] * data[1];
