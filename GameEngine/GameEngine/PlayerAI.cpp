@@ -35,7 +35,10 @@ bool PlayerAI::execute(void * o)
 
 	if (Input::keys[69]) {
 		Object * closest = World::getInstance()->getNearestObject(obj->pos);
-		closest
+		std::cout << sqrt(pow(closest->pos[0] - obj->pos[0], 2) + pow(closest->pos[1] - obj->pos[1], 2)) << std::endl;
+		if (sqrt(pow(closest->pos[1] - obj->pos[1], 2) + pow(closest->pos[1] - obj->pos[0], 2)) < 1) {
+			closest->interact();
+		}
 	}
 
 	return true;
