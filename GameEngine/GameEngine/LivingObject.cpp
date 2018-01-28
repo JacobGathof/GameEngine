@@ -21,11 +21,23 @@ void LivingObject::setAI(LivingAi * a)
 
 bool LivingObject::update(float delta_time)
 {
-	defaultAi->execute(this);
+	if (aiQueue.size() == 0) {
+		defaultAi->execute(this);
+	}
+	else {
+		if (!aiQueue.at(0)->execute(this)) {
+			aiQueue.erase(aiQueue.begin());
+		}
+	}
 	return false;
 }
 
 bool LivingObject::collide(Object * o)
+{
+	return false;
+}
+
+bool LivingObject::activateCard(int i)
 {
 	return false;
 }

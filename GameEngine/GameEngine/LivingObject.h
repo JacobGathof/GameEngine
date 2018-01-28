@@ -12,9 +12,11 @@ public:
 	int health;
 	int lucidium;
 
+
 	virtual void setAI(LivingAi * a);
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o);
+	virtual bool activateCard(int i);
 
 protected:
 	std::vector<LivingAi *> aiQueue;
