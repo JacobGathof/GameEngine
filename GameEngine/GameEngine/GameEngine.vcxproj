@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="LivingAi.cpp" />
     <ClCompile Include="AnimatedObject.cpp" />
     <ClCompile Include="Application.cpp" />
@@ -56,6 +57,7 @@
     <ClCompile Include="TextUtils.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="TransitionObject.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -63,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="LivingAi.h" />
     <ClInclude Include="AnimatedObject.h" />
     <ClInclude Include="Application.h" />
@@ -99,6 +102,7 @@
     <ClInclude Include="TextUtils.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="TransitionObject.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Window.h" />

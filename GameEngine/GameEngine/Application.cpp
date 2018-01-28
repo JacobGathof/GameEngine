@@ -1,5 +1,5 @@
 #include "Application.h"
-
+#include "List.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -16,7 +16,7 @@ void Application::run()
 
 	// Start making objects here
 	PlayerAI playerAi;
-	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(.5,.5), &playerAi);
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
 	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	World * world = World::getInstance();
@@ -41,6 +41,12 @@ void Application::run()
 
 	GameTimer timer;
 	timer.setTickLength(0.01f);
+
+	List<float> list;
+	list.add(7.0f);
+	list.add(5.0f);
+	list.add(20.0f);
+	std::cout << list << std::endl;
 
 	
 	float dt;

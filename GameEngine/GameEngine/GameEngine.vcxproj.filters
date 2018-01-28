@@ -51,9 +51,6 @@
     <Filter Include="Source Files\Object\AbstractObjects">
       <UniqueIdentifier>{13061bac-b759-41b7-80b5-047cb989df06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\World">
-      <UniqueIdentifier>{05fa4ffd-17a6-47fa-91d7-d950c10655c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\World">
       <UniqueIdentifier>{bb91020f-5860-4c23-9dd1-a3d0f64645a7}</UniqueIdentifier>
     </Filter>
@@ -72,6 +69,9 @@
     </Filter>
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{8bf07b32-0cc6-440f-85b7-0cf642c4d875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities\World">
+      <UniqueIdentifier>{05fa4ffd-17a6-47fa-91d7-d950c10655c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +198,12 @@
     <ClCompile Include="TerrainMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -273,10 +279,10 @@
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Header Files\World</Filter>
+      <Filter>Header Files\Utilities\World</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Header Files\World</Filter>
+      <Filter>Header Files\Utilities\World</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files\Utilities</Filter>
@@ -321,7 +327,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TerrainMap.h">
-      <Filter>Header Files\World</Filter>
+      <Filter>Header Files\Utilities\World</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
