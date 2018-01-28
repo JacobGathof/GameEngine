@@ -3,7 +3,7 @@
 float Screen::width = 800;
 float Screen::height = 800;
 float Screen::scrollMultiplier = 1.0f;
-ShaderType Screen::worldShaders[]{ ShaderType::BASIC_SHADER};
+ShaderType Screen::worldShaders[]{ ShaderType::BASIC_SHADER, ShaderType::TERRAIN_SHADER};
 
 Screen::Screen()
 {

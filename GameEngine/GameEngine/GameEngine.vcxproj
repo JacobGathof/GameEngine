@@ -25,6 +25,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
+    <ClCompile Include="TerrainMap.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Effect.cpp" />
@@ -67,6 +68,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Callbacks.h" />
+    <ClInclude Include="TerrainMap.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Effect.h" />

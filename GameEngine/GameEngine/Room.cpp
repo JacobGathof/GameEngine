@@ -23,6 +23,8 @@ void Room::update(float delta_time)
 
 void Room::draw()
 {
+	terrain.draw();
+
 	for (Object * o : objects) {
 		o->draw();
 	}

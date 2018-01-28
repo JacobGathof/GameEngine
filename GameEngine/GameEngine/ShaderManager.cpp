@@ -8,6 +8,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::BASIC_SHADER, "res_test/basicShader.vert", 0, "res_test/basicShader.frag");
 	addShader(ShaderType::PARTICLE_SHADER, "res_test/particleShader.vert", 0, "res_test/particleShader.frag");
 	addShader(ShaderType::TEXTBOX_SHADER, "res_test/textboxShader.vert", 0, "res_test/textboxShader.frag");
+	addShader(ShaderType::TERRAIN_SHADER, "res_test/terrainShader.vert", 0, "res_test/terrainShader.frag");
 }
 
 void ShaderManager::clean(){

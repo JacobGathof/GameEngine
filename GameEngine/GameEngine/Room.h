@@ -1,8 +1,9 @@
 #pragma once
-
 #include <vector>
 #include <math.h>
 #include "Object.h"
+#include "TerrainMap.h"
+
 class Room
 {
 public:
@@ -10,7 +11,7 @@ public:
 	~Room();
 
 	std::vector<Object *> objects;
-	//TerrainMap terrain;
+	TerrainMap terrain;
 	//std::vector<Object *> transitions; maybe
 
 	void update(float delta_time);
