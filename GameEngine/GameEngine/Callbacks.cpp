@@ -1,5 +1,6 @@
 #include "ShaderManager.h"
 #include "Window.h"
+#include "Screen.h"
 #include "Callbacks.h"
 
 
@@ -19,10 +20,10 @@ void Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int m
 void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 	if (Window::isInitialized()) {
 		glViewport(0, 0, width, height);
-		ShaderManager::get(ShaderType::TEXT_SHADER)->bind();
-		ShaderManager::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", (float)width / height);
+		Screen::updateRes(width, height);
 	}
 }
 
 void Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {
+	Screen::updateScroll(yoffset / 200.0f);
 }

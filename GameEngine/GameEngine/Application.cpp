@@ -12,6 +12,7 @@ void Application::run()
 	Window::init("Hello World", 800, 800);
 
 	ResourceManager::init();
+	Screen::init();
 
 	// Start making objects here
 	PlayerAI playerAi;

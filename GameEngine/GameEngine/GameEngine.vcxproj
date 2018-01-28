@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LivingAi.cpp" />
     <ClCompile Include="AnimatedObject.cpp" />
     <ClCompile Include="Application.cpp" />
@@ -60,6 +61,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="LivingAi.h" />
     <ClInclude Include="AnimatedObject.h" />
     <ClInclude Include="Application.h" />

@@ -3,7 +3,7 @@
 layout(location=0) in vec2 position;
 layout(location=1) in vec2 texCoords;
 
-const vec2 dim = vec2(800,800);
+uniform vec2 dim;
 uniform vec2 scale;
 uniform vec2 pos;
 

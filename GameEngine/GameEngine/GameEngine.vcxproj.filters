@@ -144,9 +144,6 @@
     <ClCompile Include="AnimatedObject.cpp">
       <Filter>Source Files\Object\AbstractObjects</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterTimer.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="MovableObject.cpp">
       <Filter>Source Files\Object\AbstractObjects</Filter>
     </ClCompile>
@@ -188,6 +185,15 @@
     </ClCompile>
     <ClCompile Include="LivingObject.cpp">
       <Filter>Source Files\Object\AbstractObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BounceTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,9 +263,6 @@
     <ClInclude Include="Object.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterTimer.h">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatedObject.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
@@ -304,6 +307,15 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

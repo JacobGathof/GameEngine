@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Color.h"
 #include "Window.h"
+#include "Screen.h"
 #include "Textbox.h"
 #include "StatsPage.h"
 #include "ResourceManager.h"
