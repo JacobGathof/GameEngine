@@ -43,9 +43,9 @@ void Application::run()
 	timer.setTickLength(0.01f);
 
 	List<float> list;
-	list.add(7.0f);
-	list.add(5.0f);
-	list.add(20.0f);
+	list += { 1,2,3 };
+	list.clear();
+	list.addAll({ 3,4,5 });
 	std::cout << list << std::endl;
 
 	

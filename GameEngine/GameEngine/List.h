@@ -17,6 +17,18 @@ public:
 		data.emplace(data.begin() + i, t);
 	}
 
+	void addAll(std::initializer_list<T> values) {
+		data.insert(data.end(), values.begin(), values.end());
+	}
+
+	void addAll(List<T> &l) {
+		data.insert(data.end(), l.begin(), l.end());
+	}
+
+	void clear() {
+		data.clear();
+	}
+
 	bool remove(int i){
 		data.erase(data.begin() + i);
 		return true;
@@ -38,16 +50,12 @@ public:
 		return data[i];
 	}
 
-	T operator[](int i) {
-		return data[i];
-	}
-
 	typename std::vector<T>::iterator begin() {
-		return std::vector<T>::iterator();
+		return data.begin();
 	}
 
 	typename std::vector<T>::iterator end() {
-		return std::vector<T>::iterator();
+		return data.end();
 	}
 	
 	friend std::ostream& operator<<(std::ostream &os, List<T> &l) {
@@ -56,8 +64,37 @@ public:
 		for (i = 0; i < l.size() - 1; i++) {
 			os << l[i] << ",";
 		}
-		os << l[i] << "]";
+		if (i != 0) os << l[i];
+		os << "]";
 		return os;
+	}
+
+	T operator[](int i) {
+		return data[i];
+	}
+
+	List<T> operator+(List<T> & l) {
+		List<T> ret;
+		ret.addAll(*this);
+		ret.addAll(l);
+		return ret;
+	}
+
+	List<T>& operator+=(List<T> & l) {
+		addAll(l);
+		return *this;
+	}
+
+	List<T> operator+(std::initializer_list<T> l) {
+		List<T> ret;
+		ret.addAll(*this);
+		ret.addAll(l);
+		return ret;
+	}
+
+	List<T>& operator+=(std::initializer_list<T> l) {
+		addAll(l);
+		return *this;
 	}
 
 
