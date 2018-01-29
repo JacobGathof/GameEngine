@@ -13,8 +13,13 @@ Input::~Input(){
 
 }
 
-void Input::processInput(float dt){
-
+void Input::processInput(float dt) {
+	if (keyQueue.size() != 0) {}
+		for (Key key : keyQueue) {
+			key.updateState();
+		}
+		keyQueue.clear();
+	}
 	if (keys[GLFW_KEY_ESCAPE]) {
 		Window::close();
 	}
@@ -32,6 +37,9 @@ void Input::processInput(float dt){
 
 void Input::feedKey(int key, int state){
 	if (key < 0 || key > 512) return;
+	Key pressed = keyMap.at(physicalMap.at(key));
+	pressed.update(state);
+	keyQueue.add(pressed);
 	keys[key] = state;
 }
 
