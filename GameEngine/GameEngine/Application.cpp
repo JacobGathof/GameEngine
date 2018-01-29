@@ -14,18 +14,22 @@ void Application::run()
 	ResourceManager::init();
 	Screen::init();
 
+	//Rooms and the world
+	World * world = World::getInstance();
+	Room room;
+	Room room2;
+
 	// Start making objects here
 	PlayerAI playerAi;
 	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
 	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
+	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
-	World * world = World::getInstance();
-	Room room;
 	
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
-	room.addObject(&structure);
-	//room.addObject(&structure2);
+	room2.addObject(&structure);
+	room.addObject(&trans);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

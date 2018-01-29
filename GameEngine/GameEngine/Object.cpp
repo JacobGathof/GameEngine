@@ -59,5 +59,5 @@ void Object::interact()
 
 void Object::addEffect(Effect * eff)
 {
-	effects.push_back(eff);
+	effects.add(eff);
 }

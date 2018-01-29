@@ -9,7 +9,7 @@ PlayerAI::~PlayerAI()
 {
 }
 
-bool PlayerAI::execute(void * o)
+bool PlayerAI::execute(LivingObject * o)
 {
 	LivingObject * obj = (LivingObject *)o;
 	float movSpeed = .03f;

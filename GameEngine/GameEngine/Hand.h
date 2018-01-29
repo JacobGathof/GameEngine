@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Card.h"
+#include "List.h"
 
 #define DEFAULT_HAND_SIZE 5
 
@@ -11,7 +12,7 @@ public:
 	Hand();
 	~Hand();
 
-	std::vector<Card> hand;
+	List<Card> hand;
 	int maxSize = DEFAULT_HAND_SIZE;
 
 	void increaseHandSize(int i);

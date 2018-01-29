@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="LivingAi.cpp" />
     <ClCompile Include="AnimatedObject.cpp" />
@@ -64,7 +67,10 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Hand.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="LivingAi.h" />
     <ClInclude Include="AnimatedObject.h" />

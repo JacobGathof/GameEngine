@@ -36,9 +36,9 @@ void Room::checkCollisions()
 	for (int i = 0; i < objects.size(); i++) {
 		
 		
-		Object * current = objects.at(i);
-		for (int k = i+1; (k < objects.size() && (current->pos[1] < objects.at(k)->pos[1] + objects.at(k)->scale[1])); k++) {
-			Object * obj = objects.at(k);
+		Object * current = objects.get(i);
+		for (int k = i+1; (k < objects.size() && (current->pos[1] < objects[k]->pos[1] + objects[k]->scale[1])); k++) {
+			Object * obj = objects.get(k);
 			if (collision(current, obj)) {
 				current->collide(obj);
 				obj->collide(current);
@@ -54,15 +54,14 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
-	objects.push_back(obj);
+	objects.add(obj);
 }
 
 void Room::sort()
 {
-	
 	for (int i = 1; i < objects.size(); i++) {
-		if (objects.at(i)->pos[1] > objects.at(i - 1)->pos[1]) {
-			place(objects.at(i), i);
+		if (objects[i]->pos[1] > objects[i - 1]->pos[1]) {
+			sortPlace(objects[i], i);
 		}
 	}
 }
@@ -72,7 +71,7 @@ Object * Room::getNearestObject(Vector2f pos)
 	Object * nearest = nullptr;
 	float nearestDist = 1000000;
 	for (Object * obj : objects) {
-		float dist = sqrt(pow(obj->pos[0] - pos[0], 2) + pow(obj->pos[1] - pos[1], 2));
+		float dist = pos.distanceTo(obj->pos);
 		if (dist < nearestDist && dist != 0) {
 			nearestDist = dist;
 			nearest = obj;
@@ -101,12 +100,12 @@ bool Room::collision(Object * obj1, Object * obj2)
 	return false;
 }
 
-void Room::place(Object * obj, int index)
+void Room::sortPlace(Object * obj, int index)
 {
-	objects.erase(objects.begin() + index);
+	objects.remove(index);
 	for (int i = 0; i < objects.size(); i++) {
-		if (obj->pos[1] > objects.at(i)->pos[1]) {
-			objects.insert(objects.begin() + i, obj);
+		if (obj->pos[1] > objects[i]->pos[1]) {
+			objects.add(obj, i);
 			return;
 		}
 	}

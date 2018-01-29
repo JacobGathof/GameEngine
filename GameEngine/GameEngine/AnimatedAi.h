@@ -1,5 +1,6 @@
 #pragma once
 
+class AnimatedObject;
 
 class AnimatedAi
 {
@@ -7,6 +8,6 @@ public:
 	AnimatedAi();
 	~AnimatedAi();
 
-	virtual bool execute(void * obj);
+	virtual bool execute(AnimatedObject * obj);
 };
 

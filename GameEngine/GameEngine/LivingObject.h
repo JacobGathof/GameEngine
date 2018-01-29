@@ -2,6 +2,7 @@
 
 #include "MovableObject.h"
 #include "LivingAi.h"
+#include "List.h"
 
 class LivingObject : public MovableObject
 {
@@ -19,7 +20,7 @@ public:
 	virtual bool activateCard(int i);
 
 protected:
-	std::vector<LivingAi *> aiQueue;
+	List<LivingAi *> aiQueue;
 	LivingAi * defaultAi;
 };
 

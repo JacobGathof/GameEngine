@@ -15,7 +15,7 @@ void LivingObject::setAI(LivingAi * a)
 		defaultAi = a;
 	}
 	else {
-		aiQueue.push_back(defaultAi);
+		aiQueue.add(defaultAi);
 	}
 }
 
@@ -25,8 +25,8 @@ bool LivingObject::update(float delta_time)
 		defaultAi->execute(this);
 	}
 	else {
-		if (!aiQueue.at(0)->execute(this)) {
-			aiQueue.erase(aiQueue.begin());
+		if (!aiQueue.get(0)->execute(this)) {
+			aiQueue.remove(0);
 		}
 	}
 	return false;

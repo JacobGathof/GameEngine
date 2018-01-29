@@ -7,21 +7,22 @@
 #include <string.h>
 #include <random>
 #include "Card.h"
+#include "List.h"
 
 class Deck
 {
 public:
 	Deck();
-	Deck(std::string n, std::vector<Card> cards);
+	Deck(std::string n, List<Card> cards);
 	~Deck();
 
 	std::string name;
-	std::vector<Card> deck;
-	std::vector<Card> discard;
+	List<Card> deck;
+	List<Card> discard;
 
 	void shuffle();
 	void addCard(Card &card);
-	void addAll(std::vector<Card> cards);
+	void addAll(List<Card> cards);
 	Card &draw();
 	void removeCard(int index);
 	void reset();

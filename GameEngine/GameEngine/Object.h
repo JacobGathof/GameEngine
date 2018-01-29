@@ -3,6 +3,7 @@
 #include "Vector2f.h"
 #include "Effect.h"
 #include "ResourceManager.h"
+#include "List.h"
 #include <vector>
 #include <stdio.h>
 
@@ -17,7 +18,7 @@ public:
 	Vector2f scale;
 	TextureType texture;
 	bool alive = true;
-	std::vector<Effect *> effects;
+	List<Effect *> effects;
 
 	virtual void draw();
 	virtual bool update(float delta_time);

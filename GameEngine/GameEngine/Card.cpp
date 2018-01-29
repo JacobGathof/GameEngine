@@ -26,5 +26,5 @@ LivingAi * Card::use()
 
 std::ostream & operator<<(std::ostream & os, Card & c)
 {
-	os << c.name << ":/n" << c.description;
+	return os << c.name << ":/n" << c.description;
 }

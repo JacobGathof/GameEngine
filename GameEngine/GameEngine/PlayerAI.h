@@ -11,6 +11,6 @@ public:
 	PlayerAI();
 	~PlayerAI();
 
-	virtual bool execute(void * obj);
+	virtual bool execute(LivingObject * obj);
 };
 

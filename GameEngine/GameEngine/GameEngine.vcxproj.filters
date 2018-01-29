@@ -58,9 +58,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\UI">
-      <UniqueIdentifier>{5ac773df-e659-46f9-ac19-1bce26b27724}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d3cb15f-5647-4459-b3bd-836857a38a0f}</UniqueIdentifier>
     </Filter>
@@ -70,7 +67,10 @@
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{8bf07b32-0cc6-440f-85b7-0cf642c4d875}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utilities\World">
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{5ac773df-e659-46f9-ac19-1bce26b27724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\World">
       <UniqueIdentifier>{05fa4ffd-17a6-47fa-91d7-d950c10655c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -204,6 +204,15 @@
     <ClCompile Include="List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -279,10 +288,10 @@
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Header Files\Utilities\World</Filter>
+      <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Header Files\Utilities\World</Filter>
+      <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files\Utilities</Filter>
@@ -327,12 +336,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TerrainMap.h">
-      <Filter>Header Files\Utilities\World</Filter>
+      <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="UIManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

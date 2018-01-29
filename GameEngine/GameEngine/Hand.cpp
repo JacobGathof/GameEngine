@@ -29,7 +29,7 @@ Card &Hand::getCard(int i)
 Card & Hand::removeCard(int i)
 {
 	Card &c = hand[i];
-	hand.erase(hand.begin() + i);
+	hand.remove(i);
 	return c;
 }
 
@@ -38,7 +38,7 @@ bool Hand::addCard(Card & card)
 	if (hand.size() != maxSize) {
 		return false;
 	}
-	hand.push_back(card);
+	hand.add(card);
 	return true;
 }
 

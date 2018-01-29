@@ -13,6 +13,7 @@
 #include "ParticleSystem.h"
 #include "Player.h"
 #include "World.h"
+#include "TransitionObject.h"
 
 class Application
 {

@@ -6,10 +6,11 @@
 class TransitionObject : public Object
 {
 public:
-	TransitionObject();
+	TransitionObject(TextureType t, Vector2f position, Vector2f sc, Room * r);
+	TransitionObject(Vector2f position, Vector2f sc, Room * r);
 	~TransitionObject();
 
-	Room room;
+	Room * room;
 
 	virtual bool collide(Object * o);
 };
