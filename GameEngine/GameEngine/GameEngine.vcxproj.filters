@@ -73,6 +73,12 @@
     <Filter Include="Header Files\World">
       <UniqueIdentifier>{05fa4ffd-17a6-47fa-91d7-d950c10655c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utilities\Shapes">
+      <UniqueIdentifier>{a218b94b-91f7-42ee-a85b-3cb2e86ab651}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Shapes">
+      <UniqueIdentifier>{a6c4375e-6992-48a1-bf05-87c2d3dd928d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -213,6 +219,18 @@
     <ClCompile Include="Hand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Square.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -352,6 +370,18 @@
     </ClInclude>
     <ClInclude Include="Hand.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
