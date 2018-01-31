@@ -6,6 +6,7 @@
 #include "List.h"
 #include <vector>
 #include <stdio.h>
+#include "Screen.h"
 
 class Object
 {

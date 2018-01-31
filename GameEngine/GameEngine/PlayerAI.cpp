@@ -16,7 +16,7 @@ bool PlayerAI::execute(LivingObject * o)
 	float x = 0;
 	float y = 0;
 
-	//Fix This
+	/*
 	for (char c : Input::keysDown) {
 		if (c == 'w') {
 			y += movSpeed;
@@ -31,6 +31,7 @@ bool PlayerAI::execute(LivingObject * o)
 			x += movSpeed;
 		}
 	}
+	*/
 	obj->pos += Vector2f(x, y);
 
 	if (Input::keys[69]) {

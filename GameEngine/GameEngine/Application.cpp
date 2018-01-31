@@ -21,7 +21,7 @@ void Application::run()
 
 	// Start making objects here
 	PlayerAI playerAi;
-	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
 	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
 	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
@@ -52,6 +52,7 @@ void Application::run()
 	list.addAll({ 3,4,5 });
 	std::cout << list << std::endl;
 
+	Circle circ(Vector2f(0,0), 1.0f);
 	
 	float dt;
 	Window::show();
@@ -75,6 +76,8 @@ void Application::run()
 
 		world->update(dt);
 		world->draw();
+
+		circ.draw(timer.getGameTime());
 
 		Window::swapBuffers();
 	}

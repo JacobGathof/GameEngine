@@ -9,6 +9,7 @@ enum class ShaderType {
 	PARTICLE_SHADER,
 	TEXTBOX_SHADER,
 	TERRAIN_SHADER,
+	CIRCLE_SHADER,
 };
 
 

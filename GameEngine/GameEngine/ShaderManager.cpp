@@ -9,6 +9,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::PARTICLE_SHADER, "res_test/particleShader.vert", 0, "res_test/particleShader.frag");
 	addShader(ShaderType::TEXTBOX_SHADER, "res_test/textboxShader.vert", 0, "res_test/textboxShader.frag");
 	addShader(ShaderType::TERRAIN_SHADER, "res_test/terrainShader.vert", 0, "res_test/terrainShader.frag");
+	addShader(ShaderType::CIRCLE_SHADER, "res_test/circleShader.vert", 0, "res_test/circleShader.frag");
 }
 
 void ShaderManager::clean(){

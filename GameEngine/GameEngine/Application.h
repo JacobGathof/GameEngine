@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "World.h"
 #include "TransitionObject.h"
+#include "Circle.h"
 
 class Application
 {
