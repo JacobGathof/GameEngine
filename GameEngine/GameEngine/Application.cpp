@@ -13,7 +13,7 @@ void Application::run()
 
 	ResourceManager::init();
 	Screen::init();
-
+	Input::init();
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
@@ -21,6 +21,7 @@ void Application::run()
 
 	// Start making objects here
 	PlayerAI playerAi;
+	Input::ai = &playerAi;
 	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
 	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
 	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
