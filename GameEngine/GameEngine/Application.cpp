@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "List.h"
+#include "GameState.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -13,7 +14,7 @@ void Application::run()
 
 	ResourceManager::init();
 	Screen::init();
-
+	Input::init();
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
@@ -21,7 +22,8 @@ void Application::run()
 
 	// Start making objects here
 	PlayerAI playerAi;
-	Player melody(TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
+	Input::ai = &playerAi;
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
 	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
 	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
@@ -46,13 +48,8 @@ void Application::run()
 	GameTimer timer;
 	timer.setTickLength(0.01f);
 
-	List<float> list;
-	list += { 1,2,3 };
-	list.clear();
-	list.addAll({ 3,4,5 });
-	std::cout << list << std::endl;
-
 	Circle circ(Vector2f(0,0), 1.0f);
+	sp.show();
 	
 	float dt;
 	Window::show();
@@ -68,8 +65,10 @@ void Application::run()
 			text.addLetter();
 		}
 
+		GameState::setGlobalDebug(std::to_string(timer.getGameTime()));
+
 		tb.draw();
-		//sp.draw();
+		sp.draw();
 		text.draw();
 
 		Input::processInput(dt);

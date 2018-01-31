@@ -3,6 +3,8 @@
 
 bool Input::keys[512];
 std::map<int, int> Input::keyBinds;
+PlayerAI * Input::ai;
+std::map<int, KeyMaps> Input::physicalMap;
 
 Input::Input(){
 
@@ -14,12 +16,7 @@ Input::~Input(){
 }
 
 void Input::processInput(float dt) {
-	if (keyQueue.size() != 0) {}
-		for (Key key : keyQueue) {
-			key.updateState();
-		}
-		keyQueue.clear();
-	}
+	
 	if (keys[GLFW_KEY_ESCAPE]) {
 		Window::close();
 	}
@@ -37,10 +34,26 @@ void Input::processInput(float dt) {
 
 void Input::feedKey(int key, int state){
 	if (key < 0 || key > 512) return;
-	Key pressed = keyMap.at(physicalMap.at(key));
-	pressed.update(state);
-	keyQueue.add(pressed);
 	keys[key] = state;
+	std::map<int, KeyMaps>::iterator it = physicalMap.find(key);
+	if (it == physicalMap.end()) {
+		return;
+	}
+	ai->receiveInput(it->second, state);
+}
+
+void Input::init()
+{
+	physicalMap.insert(std::pair<int, KeyMaps>(87, KeyMaps::KEY_UP));
+	physicalMap.insert(std::pair<int, KeyMaps>(83, KeyMaps::KEY_DOWN));
+	physicalMap.insert(std::pair<int, KeyMaps>(65, KeyMaps::KEY_LEFT));
+	physicalMap.insert(std::pair<int, KeyMaps>(68, KeyMaps::KEY_RIGHT));
+	physicalMap.insert(std::pair<int, KeyMaps>(69, KeyMaps::KEY_INTERACT));
+	physicalMap.insert(std::pair<int, KeyMaps>(49, KeyMaps::KEY_SKILL_1));
+	physicalMap.insert(std::pair<int, KeyMaps>(50, KeyMaps::KEY_SKILL_2));
+	physicalMap.insert(std::pair<int, KeyMaps>(51, KeyMaps::KEY_SKILL_3));
+	physicalMap.insert(std::pair<int, KeyMaps>(52, KeyMaps::KEY_SKILL_4));
+	physicalMap.insert(std::pair<int, KeyMaps>(53, KeyMaps::KEY_SKILL_5));
 }
 
 void Input::setupKeybinds(){

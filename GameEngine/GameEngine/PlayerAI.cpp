@@ -11,38 +11,47 @@ PlayerAI::~PlayerAI()
 
 bool PlayerAI::execute(LivingObject * o)
 {
-	LivingObject * obj = (LivingObject *)o;
-	float movSpeed = .03f;
-	float x = 0;
-	float y = 0;
-
-	/*
-	for (char c : Input::keysDown) {
-		if (c == 'w') {
-			y += movSpeed;
-		}
-		else if (c == 's') {
-			y -= movSpeed;
-		}
-		if (c == 'a') {
-			x -= movSpeed;
-		}
-		else if (c == 'd') {
-			x += movSpeed;
-		}
+	if (user == nullptr) {
+		user = o;
 	}
-	*/
-	obj->pos += Vector2f(x, y);
+	LivingObject * obj = (LivingObject *)o;
 
-	if (Input::keys[69]) {
-		Object * closest = World::getInstance()->getNearestObject(obj->pos);
-		std::cout << sqrt(pow(closest->pos[0] - obj->pos[0], 2) + pow(closest->pos[1] - obj->pos[1], 2)) << std::endl;
-		if (sqrt(pow(closest->pos[1] - obj->pos[1], 2) + pow(closest->pos[1] - obj->pos[0], 2)) < 1) {
+	obj->pos += Vector2f(xVel, yVel);
+
+	return true;
+}
+
+void PlayerAI::receiveInput(KeyMaps key, int state)
+{
+	if (state == 2) {
+		return;
+	}
+	if (user == nullptr) {
+		return;
+	}
+
+	if (state == 1 && key == KeyMaps::KEY_INTERACT) {
+		Object * closest = World::getInstance()->getNearestObject(user->pos);
+		std::cout << sqrt(pow(closest->pos[0] - user->pos[0], 2) + pow(closest->pos[1] - user->pos[1], 2)) << std::endl;
+		if (sqrt(pow(closest->pos[1] - user->pos[1], 2) + pow(closest->pos[1] - user->pos[0], 2)) < 1) {
 			closest->interact();
 		}
 	}
+	int modifier = (state * 2) - 1; //Released = -1    Pressed = 1
 
-	return true;
+	if (key == KeyMaps::KEY_UP) {
+		yVel += modifier * user->moveSpeed;
+	}
+	else if (key == KeyMaps::KEY_DOWN) {
+		yVel += -modifier * user->moveSpeed;
+	}
+	if (key == KeyMaps::KEY_LEFT) {
+		xVel += -modifier * user->moveSpeed;
+	}
+	else if (key == KeyMaps::KEY_RIGHT) {
+		xVel += modifier * user->moveSpeed;
+	}
+
 }
 
 

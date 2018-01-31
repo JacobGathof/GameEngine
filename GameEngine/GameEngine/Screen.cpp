@@ -29,3 +29,8 @@ Vector2f Screen::toScreenCoords(Vector2f scale)
 {
 	return scale / (scrollMultiplier * Vector2f(width, height));
 }
+
+Vector2f Screen::toScreenCoordsUI(Vector2f scale)
+{
+	return 2 * scale / (scrollMultiplier * Vector2f(width, height));
+}

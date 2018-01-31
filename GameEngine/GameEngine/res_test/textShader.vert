@@ -15,5 +15,5 @@ uniform float aspect_ratio;
 void main(){
 	uv = texCoords;
 	col = color;
-	gl_Position = vec4(2*(position * text_scale * vec2(1, aspect_ratio) + text_translate)/dim - vec2(1, 1),0,1);
+	gl_Position = vec4(position * text_scale * vec2(1, aspect_ratio) + text_translate - vec2(1, 1),0,1);
 }
