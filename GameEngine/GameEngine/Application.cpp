@@ -25,14 +25,17 @@ void Application::run()
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
 	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
-	Object structure(TextureType::TEXTURE_TEST, Vector2f(-.5, -.5), Vector2f(.5, .5));
-	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
+	LivingObject structure(TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
+	GoToPointAI follow(Vector2f(-100, 500));
+	structure.setAI(&follow);
+	structure.moveSpeed = 6;
+	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
-	room2.addObject(&structure);
-	room.addObject(&trans);
+	room.addObject(&structure);
+	//room.addObject(&trans);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

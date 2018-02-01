@@ -15,6 +15,8 @@
 #include "World.h"
 #include "TransitionObject.h"
 #include "Circle.h"
+#include "FollowAi.h"
+#include "GoToPointAI.h"
 
 class Application
 {

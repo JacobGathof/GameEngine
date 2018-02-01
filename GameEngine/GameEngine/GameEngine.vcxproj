@@ -22,7 +22,9 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="FollowAi.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="List.cpp" />
@@ -76,7 +78,9 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="FollowAi.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="List.h" />
