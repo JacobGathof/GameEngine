@@ -66,6 +66,7 @@
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="TransitionObject.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="UIUtils.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="TransitionObject.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UIUtils.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Window.h" />

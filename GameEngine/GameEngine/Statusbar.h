@@ -1,6 +1,5 @@
 #pragma once
-#include "ResourceManager.h"
-#include "Screen.h"
+#include "UIUtils.h"
 
 class Statusbar
 {
