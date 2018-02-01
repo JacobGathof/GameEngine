@@ -35,7 +35,7 @@ Vector2f Screen::toScreenCoords(Vector2f translate)
 
 Vector2f Screen::toScreenCoordsUI(Vector2f translate)
 {
-	return 2 * translate / (scrollMultiplier * Vector2f(width, height));
+	return 2 * translate / (Vector2f(width, height));
 }
 
 Vector2f Screen::toScreenScale(Vector2f scale)

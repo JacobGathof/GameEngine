@@ -32,8 +32,7 @@ void PlayerAI::receiveInput(KeyMaps key, int state)
 
 	if (state == 1 && key == KeyMaps::KEY_INTERACT) {
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
-		std::cout << sqrt(pow(closest->pos[0] - user->pos[0], 2) + pow(closest->pos[1] - user->pos[1], 2)) << std::endl;
-		if (sqrt(pow(closest->pos[1] - user->pos[1], 2) + pow(closest->pos[1] - user->pos[0], 2)) < 1) {
+		if (closest->pos.distanceTo(user->pos) < 40) {
 			closest->interact();
 		}
 	}
