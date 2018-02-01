@@ -16,7 +16,7 @@ public:
 	void hide();
 
 private:
-	Text text;
+	Text* text;
 	BounceTimer timer;
 	Timer textUpdateTimer;
 	Vector2f position;

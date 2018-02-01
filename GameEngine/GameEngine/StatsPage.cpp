@@ -2,22 +2,23 @@
 
 
 
-StatsPage::StatsPage() : text(Vector2f(100, 100), std::string(""), Vector2f(128.0f, 128.0f), FontManager::get(FontType::DEFAULT))
+StatsPage::StatsPage()
 {
 	position = Vector2f(0, 0);
 	timer.setTickLength(transitionTime);
 	timer.setPauseOnTick(true);
 
-	text.setText(std::string("Game info:"));
-	text.setPosition(startText);
+	text = new Text(Vector2f(100, 100), std::string(""), Vector2f(128.0f, 128.0f), FontManager::get(FontType::DEFAULT));
+
+	text->setPosition(startText);
 
 	textUpdateTimer.setTickLength(0.1f);
 
 }
 
 
-StatsPage::~StatsPage()
-{
+StatsPage::~StatsPage(){
+	delete text;
 }
 
 void StatsPage::draw()
@@ -29,7 +30,7 @@ void StatsPage::draw()
 	shader->bind();
 	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(10, 790)));
 	shader->loadVector2f("scale", Screen::toScreenCoordsUI(Vector2f(780, -100)));
-	shader->loadColor("color", Color(0xffffff44));
+	shader->loadColor("color", Color(0xffffff88));
 	model->draw();
 
 	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(12, 788)));
@@ -39,10 +40,10 @@ void StatsPage::draw()
 
 	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(14, 786)));
 	shader->loadVector2f("scale", Screen::toScreenCoordsUI(Vector2f(772, -92)));
-	shader->loadColor("color", Color(0xffffff44));
+	shader->loadColor("color", Color(0xffffff88));
 	model->draw();
 
-	text.draw();
+	text->draw();
 }
 
 void StatsPage::update(float dt){
@@ -52,7 +53,7 @@ void StatsPage::update(float dt){
 
 	textUpdateTimer.update(dt);
 	if (textUpdateTimer.tick()) {
-		text.setText(std::string("Game time: ") + GameState::getGlobalDebug() + std::string(" \nTesting second line\n3rd\n4th"));
+		text->setText(std::string("Game FPS: ") + GameState::getGlobalDebug() + std::string(" \nTesting second line\n3rd\n4th"));
 	}
 }
 

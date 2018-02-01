@@ -33,6 +33,7 @@
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Square.h" />
+    <ClInclude Include="Statusbar.h" />
     <ClInclude Include="TerrainMap.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Color.h" />

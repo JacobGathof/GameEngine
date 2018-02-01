@@ -2,13 +2,17 @@
 
 
 
-Textbox::Textbox() : text(Vector2f(), std::string(""), Vector2f(), 0)
+Textbox::Textbox()
 {
+	text = new Text(Vector2f(18,200), std::string("Textbox text"), Vector2f(128,128), FontManager::get(FontType::DEFAULT));
+	text->setColor(Color(0xffffffff));
+	text->setText(std::string("The quick brown fox jumped over the lazy dog"));
 }
 
 
 Textbox::~Textbox()
 {
+	delete text;
 }
 
 void Textbox::draw(){
@@ -32,6 +36,8 @@ void Textbox::draw(){
 	shader->loadColor("color", Color(0x000000dd));
 	model->draw();
 
+	text->draw();
+
 }
 
 void Textbox::advanceText()
@@ -40,7 +46,7 @@ void Textbox::advanceText()
 	textQueue.pop();
 	prepareText(newText);
 
-	text.setText(newText);
+	text->setText(newText);
 }
 
 void Textbox::addTextToQueue(std::string text){

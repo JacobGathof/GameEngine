@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "List.h"
 #include "GameState.h"
+#include "Statusbar.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -38,15 +39,11 @@ void Application::run()
 
 	Textbox tb;
 	StatsPage sp;
+	Statusbar sb;
 
-	Text text(Vector2f(100, 100), std::string(
-		"DON'T PRINT THIS"
-	), Vector2f(64.0f, 64.0f), FontManager::get(FontType::DEFAULT));
-
-	text.resetLength();
 
 	GameTimer timer;
-	timer.setTickLength(0.01f);
+	timer.setTickLength(1.0f);
 
 	Circle circ(Vector2f(0,0), 1.0f);
 	sp.show();
@@ -61,22 +58,19 @@ void Application::run()
 
 		sp.update(dt);
 
-		if (timer.tick()) {
-			text.addLetter();
-		}
-
-		GameState::setGlobalDebug(std::to_string(timer.getGameTime()));
-
-		tb.draw();
-		sp.draw();
-		text.draw();
+		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
 
 		world->update(dt);
 		world->draw();
 
-		circ.draw(timer.getGameTime());
+		circ.draw(timer.getGameTime()*4);
+
+
+		tb.draw();
+		sp.draw();
+		sb.draw();
 
 		Window::swapBuffers();
 	}
