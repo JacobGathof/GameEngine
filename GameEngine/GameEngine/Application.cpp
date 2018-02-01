@@ -24,7 +24,7 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
-	Player melody(TextureType::TEXTURE_MELODY, Vector2f(.5,.5), Vector2f(256,256), &playerAi);
+	Player melody(TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
 	LivingObject structure(TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
 	GoToPointAI follow(Vector2f(-100, 500));
 	structure.setAI(&follow);
@@ -58,6 +58,9 @@ void Application::run()
 		Window::pollEvents();
 		timer.update();
 		dt = timer.getDeltaTime();
+
+
+		Screen::follow(melody.pos);
 
 		sp.update(dt);
 
