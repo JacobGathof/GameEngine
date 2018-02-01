@@ -42,7 +42,6 @@ void Room::checkCollisions()
 			if (collision(current, obj)) {
 				current->collide(obj);
 				obj->collide(current);
-				std::cout << "" << std::endl;
 			}
 			
 		}
