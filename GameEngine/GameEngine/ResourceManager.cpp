@@ -1,6 +1,5 @@
 #include "ResourceManager.h"
 
-
 void ResourceManager::init()
 {
 	ShaderManager::init();

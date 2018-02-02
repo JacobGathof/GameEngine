@@ -5,8 +5,6 @@
 #include "Color.h"
 #include "Window.h"
 #include "Screen.h"
-#include "Textbox.h"
-#include "StatsPage.h"
 #include "ResourceManager.h"
 #include "GameTimer.h"
 #include "BounceTimer.h"
@@ -17,6 +15,9 @@
 #include "Circle.h"
 #include "FollowAi.h"
 #include "GoToPointAI.h"
+#include "List.h"
+#include "GameState.h"
+#include "UIManager.h"
 
 class Application
 {

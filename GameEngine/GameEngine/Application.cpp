@@ -1,7 +1,4 @@
 #include "Application.h"
-#include "List.h"
-#include "GameState.h"
-#include "Statusbar.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -11,11 +8,15 @@ void Application::run()
 {
 	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
 
-	Window::init("Hello World", 200, 200);
+	Window::init("The Echo Effect", 800, 800);
 
 	ResourceManager::init();
 	Screen::init();
 	Input::init();
+
+	UIManager::init();
+
+
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
@@ -40,16 +41,11 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
-	Textbox tb;
-	StatsPage sp;
-	Statusbar sb;
-
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
 
 	Circle circ(Vector2f(0,0), 1.0f);
-	sp.show();
 	
 	float dt;
 	Window::show();
@@ -62,8 +58,6 @@ void Application::run()
 
 		Screen::follow(melody.pos);
 
-		sp.update(dt);
-
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
@@ -74,14 +68,14 @@ void Application::run()
 		circ.draw(timer.getGameTime()*4);
 
 
-		tb.draw();
-		sp.draw();
-		sb.draw();
+		UIManager::draw();
+
 
 		Window::swapBuffers();
 	}
 
 	ResourceManager::clean();
+	UIManager::clean();
 
 	Window::destroy();
 
