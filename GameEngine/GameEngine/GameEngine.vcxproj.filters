@@ -45,12 +45,6 @@
     <Filter Include="Header Files\Objects\AbstractObjects">
       <UniqueIdentifier>{01c2eb71-46e7-4650-b9f4-143289349a20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Object">
-      <UniqueIdentifier>{71c4cb4a-6bdf-414d-8d1e-7af8a1fcb278}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Object\AbstractObjects">
-      <UniqueIdentifier>{13061bac-b759-41b7-80b5-047cb989df06}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\World">
       <UniqueIdentifier>{bb91020f-5860-4c23-9dd1-a3d0f64645a7}</UniqueIdentifier>
     </Filter>
@@ -85,13 +79,22 @@
     <Filter Include="Header Files\Cards">
       <UniqueIdentifier>{e1aa53e8-7d88-4bcc-972f-36163a1ebc48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utilities\Timers">
+      <UniqueIdentifier>{9713b705-dcb1-41f8-9a31-01fe8b4ad5dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Timers">
+      <UniqueIdentifier>{b7c3f707-77da-44e2-bc62-75cc3e5bb6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{71c4cb4a-6bdf-414d-8d1e-7af8a1fcb278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\AbstractObjects">
+      <UniqueIdentifier>{13061bac-b759-41b7-80b5-047cb989df06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files\General</Filter>
-    </ClCompile>
-    <ClCompile Include="Callbacks.cpp">
-      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Source Files\Utilities</Filter>
@@ -129,9 +132,6 @@
     <ClCompile Include="TextUtils.cpp">
       <Filter>Source Files\Text</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2f.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
@@ -148,16 +148,16 @@
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Source Files\Object\AbstractObjects</Filter>
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
     <ClCompile Include="AnimatedObject.cpp">
-      <Filter>Source Files\Object\AbstractObjects</Filter>
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="MovableObject.cpp">
-      <Filter>Source Files\Object\AbstractObjects</Filter>
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\World</Filter>
@@ -172,16 +172,13 @@
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
     <ClCompile Include="TransitionObject.cpp">
-      <Filter>Source Files\Object</Filter>
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Textbox.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="StatsPage.cpp">
       <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LivingAi.cpp">
       <Filter>Source Files\AI</Filter>
@@ -193,28 +190,13 @@
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Object</Filter>
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="LivingObject.cpp">
-      <Filter>Source Files\Object\AbstractObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="BounceTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TerrainMap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="List.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
@@ -249,6 +231,30 @@
     <ClCompile Include="GoToPointAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Utilities\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="BounceTimer.cpp">
+      <Filter>Source Files\Utilities\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>Source Files\Utilities\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainMap.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Callbacks.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -282,12 +288,6 @@
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="ShaderProgram.h">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Callbacks.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
@@ -344,9 +344,6 @@
     <ClInclude Include="StatsPage.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LivingAi.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -362,23 +359,11 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="BounceTimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TerrainMap.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="UIManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="List.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
@@ -412,6 +397,27 @@
     </ClInclude>
     <ClInclude Include="GoToPointAI.h">
       <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>Header Files\Utilities\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="BounceTimer.h">
+      <Filter>Header Files\Utilities\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Utilities\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="Callbacks.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\General</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
