@@ -45,7 +45,7 @@ void Application::run()
 	GameTimer timer;
 	timer.setTickLength(1.0f);
 
-	Circle circ(Vector2f(0,0), 1.0f);
+	Circle circ(Vector2f(0,0), 256.0f);
 	
 	float dt;
 	Window::show();
@@ -65,7 +65,7 @@ void Application::run()
 		world->update(dt);
 		world->draw();
 
-		circ.draw(timer.getGameTime()*4);
+		circ.draw(timer.getGameTime());
 
 
 		UIManager::draw();

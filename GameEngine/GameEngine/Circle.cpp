@@ -1,5 +1,5 @@
 #include "Circle.h"
-
+#include "Screen.h"
 
 
 bool Circle::contains(Vector2f & pt)
@@ -23,9 +23,8 @@ void Circle::draw(float gt){
 
 	model->bind();
 	shader->bind();
-	shader->loadVector2f("translate", center);
-	shader->loadVector2f("scale", Vector2f(radius, radius));
-	shader->loadFloat("radius", abs(cos(gt/3)));
-	shader->loadFloat("gt", .5f);
+	shader->loadVector2f("translate", Screen::toScreenCoords(center));
+	shader->loadVector2f("scale", 3*abs(cos(gt))*Screen::toScreenScale(Vector2f(radius, radius)));
+	shader->loadFloat("gt", 1.0f);
 	model->draw();
 }

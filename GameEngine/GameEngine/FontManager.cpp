@@ -3,8 +3,8 @@
 std::map<FontType, Font*> FontManager::fonts;
 
 void FontManager::init(){
-	addFont(FontType::DEFAULT, "res_test/font.fnt", "res_test/font.png");
-	addFont(FontType::ITALIC, "res_test/ifont.fnt", "res_test/ifont.png");
+	addFont(FontType::DEFAULT, "res/fonts/font.fnt", "res/fonts/font.png");
+	addFont(FontType::ITALIC, "res/fonts/ifont.fnt", "res/fonts/ifont.png");
 }
 
 void FontManager::clean(){
