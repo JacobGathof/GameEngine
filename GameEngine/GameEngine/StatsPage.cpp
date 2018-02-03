@@ -23,7 +23,7 @@ StatsPage::~StatsPage(){
 
 void StatsPage::draw()
 {
-	ShaderProgram* shader = Res::get(ShaderType::TEXTBOX_SHADER);
+	ShaderProgram* shader = Res::get(ShaderType::UI_SOLID_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
 
 	model->bind();
