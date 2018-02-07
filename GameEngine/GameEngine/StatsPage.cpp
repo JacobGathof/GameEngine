@@ -23,25 +23,9 @@ StatsPage::~StatsPage(){
 
 void StatsPage::draw()
 {
-	ShaderProgram* shader = Res::get(ShaderType::UI_SOLID_SHADER);
-	Model * model = Res::get(ModelType::MODEL_SQUARE);
-
-	model->bind();
-	shader->bind();
-	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(10, 790)));
-	shader->loadVector2f("scale", Screen::toScreenCoordsUI(Vector2f(780, -100)));
-	shader->loadColor("color", Color(0xffffff88));
-	model->draw();
-
-	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(12, 788)));
-	shader->loadVector2f("scale", Screen::toScreenCoordsUI(Vector2f(776, -96)));
-	shader->loadColor("color", Color(0x44448844));
-	model->draw();
-
-	shader->loadVector2f("translate", Screen::toScreenCoordsUI(Vector2f(14, 786)));
-	shader->loadVector2f("scale", Screen::toScreenCoordsUI(Vector2f(772, -92)));
-	shader->loadColor("color", Color(0xffffff88));
-	model->draw();
+	UIUtils::drawRectangle(Vector2f(10, 790), Vector2f(780, -100), Color(0xffffff88));
+	UIUtils::drawRectangle(Vector2f(12, 788), Vector2f(776, -96), Color(0x44448844));
+	UIUtils::drawRectangle(Vector2f(14, 786), Vector2f(772, -92), Color(0x44444f88));
 
 	text->draw();
 }

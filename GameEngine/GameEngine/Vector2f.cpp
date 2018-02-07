@@ -203,6 +203,15 @@ bool Vector2f::equals(const Vector2f & v, float eps) const
 	return abs(data[0] - v[0]) < eps && abs(data[1] - v[1]) < eps;
 }
 
+bool Vector2f::between(Vector2f & v1, Vector2f & v2)
+{
+	float m1 = (v1[0] + v2[0]) / 2.0f;
+	float m2 = (v1[1] + v2[1]) / 2.0f;
+	bool b1 = abs(data[0] - m1) <= abs(v1[0] - m1);
+	bool b2 = abs(data[1] - m2) <= abs(v1[1] - m2);
+	return b1 && b2;
+}
+
 std::ostream& operator<<(std::ostream &os, Vector2f &v) {
 	return os << "<" << v[0] << "," << v[1] << ">";
 }

@@ -3,6 +3,7 @@
 #include <vector>
 #include "List.h"
 #include "PlayerAI.h"
+#include "UIManager.h"
 
 class Input
 {
@@ -19,6 +20,7 @@ public:
 	static void processInput(float dt);
 	static void feedKey(int key, int state);
 	static void init();
+	static void feedMousePosition(Vector2f& pos);
 	
 
 private:

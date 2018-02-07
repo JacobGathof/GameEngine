@@ -43,6 +43,11 @@ Vector2f Screen::toScreenScale(Vector2f scale)
 	return scale / (scrollMultiplier * Vector2f(width, height));
 }
 
+Vector2f Screen::fromScreenToUISpace(Vector2f pos)
+{
+	return Vector2f(pos[0], height-pos[1]);
+}
+
 void Screen::follow(Vector2f playerPos)
 {
 	float dist = offset.distanceTo(playerPos);

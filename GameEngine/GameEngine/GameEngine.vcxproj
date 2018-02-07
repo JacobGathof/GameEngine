@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Deck.cpp" />
@@ -75,6 +76,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Deck.h" />

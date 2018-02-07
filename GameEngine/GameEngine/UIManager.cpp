@@ -34,3 +34,15 @@ void UIManager::clean()
 	delete page;
 	delete status;
 }
+
+void UIManager::update(float dt)
+{
+	textbox->update(dt);
+	page->update(dt);
+	status->update(dt);
+}
+
+void UIManager::hover(Vector2f & pos)
+{
+	status->hover(pos);
+}

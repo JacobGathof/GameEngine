@@ -8,6 +8,7 @@ Callbacks::Callbacks() {}
 Callbacks::~Callbacks() {}
 
 void Callbacks::CursorPosCallback(GLFWwindow * window, double xpos, double ypos) {
+	Input::feedMousePosition(Screen::fromScreenToUISpace(Vector2f(xpos, ypos)));
 }
 
 void Callbacks::KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {

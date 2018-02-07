@@ -255,6 +255,9 @@
     <ClCompile Include="Callbacks.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractUIComponent.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -421,6 +424,9 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractUIComponent.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

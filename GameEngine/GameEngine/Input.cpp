@@ -56,6 +56,11 @@ void Input::init()
 	physicalMap.insert(std::pair<int, KeyMaps>(53, KeyMaps::KEY_SKILL_5));
 }
 
+void Input::feedMousePosition(Vector2f & pos)
+{
+	UIManager::hover(pos);
+}
+
 void Input::setupKeybinds(){
 	for (int i = 0; i < 512; i++) {
 		keyBinds[i] = i;

@@ -1,10 +1,10 @@
 #pragma once
 #include "Text.h"
-#include "ResourceManager.h"
 #include "Screen.h"
 #include <queue>
+#include "AbstractUIComponent.h"
 
-class Textbox
+class Textbox : public AbstractUIComponent
 {
 public:
 	Textbox();

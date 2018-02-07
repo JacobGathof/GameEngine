@@ -12,7 +12,8 @@ public:
 	static void draw();
 	static void init();
 	static void clean();
-
+	static void update(float dt);
+	static void hover(Vector2f& pos);
 
 private:
 	static Textbox * textbox;

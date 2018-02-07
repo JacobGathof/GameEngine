@@ -4,8 +4,9 @@
 #include "Text.h"
 #include "Screen.h"
 #include "GameState.h"
+#include "AbstractUIComponent.h"
 
-class StatsPage
+class StatsPage : public AbstractUIComponent
 {
 public:
 	StatsPage();
