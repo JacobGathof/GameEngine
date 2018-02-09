@@ -9,6 +9,6 @@ uniform vec2 translate;
 uniform vec2 scale;
 
 void main(){
-	uv = vec2(texCoords.x, 1-texCoords.y);
+	uv = vec2(texCoords.x, texCoords.y);
 	gl_Position = vec4(position*scale+translate - vec2(1,1),0,1);
 }

@@ -27,6 +27,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="LivingAi.cpp" />
@@ -84,6 +85,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="LivingAi.h" />
@@ -135,9 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngine.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res_test\icon.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

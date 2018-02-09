@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <time.h>
 
 Application::Application(){}
 Application::~Application(){}
@@ -6,7 +7,7 @@ Application::~Application(){}
 
 void Application::run()
 {
-	std::cout << "-=-=-=-Running Tests-=-=-=-" << std::endl;
+	srand(time(0));
 
 	Window::init("The Echo Effect", 800, 800);
 
@@ -15,7 +16,6 @@ void Application::run()
 	Input::init();
 
 	UIManager::init();
-
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -61,6 +61,7 @@ void Application::run()
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
+		UIManager::update(dt);
 
 		world->update(dt);
 		world->draw();
@@ -78,8 +79,6 @@ void Application::run()
 	UIManager::clean();
 
 	Window::destroy();
-
-	std::cout << "-=-=-=-Finished Tests-=-=-=-" << std::endl;
 
 }
 

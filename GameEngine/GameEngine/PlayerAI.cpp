@@ -21,7 +21,7 @@ bool PlayerAI::execute(LivingObject * o)
 	return true;
 }
 
-void PlayerAI::receiveInput(KeyMaps key, int state)
+void PlayerAI::receiveInput(KeyMap key, int state)
 {
 	if (state == 2) {
 		return;
@@ -30,7 +30,7 @@ void PlayerAI::receiveInput(KeyMaps key, int state)
 		return;
 	}
 
-	if (state == 1 && key == KeyMaps::KEY_INTERACT) {
+	if (state == 1 && key == KeyMap::KEY_INTERACT) {
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
 		if (closest->pos.distanceTo(user->pos) < 40) {
 			closest->interact();
@@ -38,16 +38,16 @@ void PlayerAI::receiveInput(KeyMaps key, int state)
 	}
 	int modifier = (state * 2) - 1; //Released = -1    Pressed = 1
 
-	if (key == KeyMaps::KEY_UP) {
+	if (key == KeyMap::KEY_UP) {
 		yVel += modifier * user->moveSpeed;
 	}
-	else if (key == KeyMaps::KEY_DOWN) {
+	else if (key == KeyMap::KEY_DOWN) {
 		yVel += -modifier * user->moveSpeed;
 	}
-	if (key == KeyMaps::KEY_LEFT) {
+	if (key == KeyMap::KEY_LEFT) {
 		xVel += -modifier * user->moveSpeed;
 	}
-	else if (key == KeyMaps::KEY_RIGHT) {
+	else if (key == KeyMap::KEY_RIGHT) {
 		xVel += modifier * user->moveSpeed;
 	}
 

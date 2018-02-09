@@ -12,15 +12,17 @@ public:
 	Input();
 	~Input();
 
-	static std::map<int, KeyMaps> physicalMap;
+	static std::map<int, KeyMap> physicalMap;
 	static PlayerAI * ai;
 
 	static bool keys[512];
+	static Vector2f mousePtr;
 
 	static void processInput(float dt);
 	static void feedKey(int key, int state);
 	static void init();
 	static void feedMousePosition(Vector2f& pos);
+	static void feedMouseEvent(int button, int action);
 	
 
 private:

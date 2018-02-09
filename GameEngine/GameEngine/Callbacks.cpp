@@ -16,6 +16,7 @@ void Callbacks::KeyCallback(GLFWwindow * window, int key, int scancode, int acti
 }
 
 void Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int mods) {
+	Input::feedMouseEvent(button, action);
 }
 
 void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {

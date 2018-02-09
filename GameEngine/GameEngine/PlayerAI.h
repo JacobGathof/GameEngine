@@ -5,7 +5,7 @@
 #include "World.h"
 
 
-enum class KeyMaps {
+enum class KeyMap {
 	KEY_UP,
 	KEY_DOWN,
 	KEY_RIGHT,
@@ -27,7 +27,7 @@ public:
 	LivingObject * user;
 
 	virtual bool execute(LivingObject * obj);
-	void receiveInput(KeyMaps key, int state);
+	void receiveInput(KeyMap key, int state);
 
 private:
 	float xVel;

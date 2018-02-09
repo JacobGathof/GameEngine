@@ -2,6 +2,7 @@
 #include "Textbox.h"
 #include "StatsPage.h"
 #include "Statusbar.h"
+#include "Inventory.h"
 
 class UIManager
 {
@@ -14,11 +15,13 @@ public:
 	static void clean();
 	static void update(float dt);
 	static void hover(Vector2f& pos);
+	static void click(Vector2f& pos);
 
 private:
 	static Textbox * textbox;
 	static StatsPage * page;
 	static Statusbar * status;
+	static Inventory * inventory;
 
 
 };

@@ -2,9 +2,10 @@
 #include "Window.h"
 
 bool Input::keys[512];
+Vector2f Input::mousePtr;
 std::map<int, int> Input::keyBinds;
 PlayerAI * Input::ai;
-std::map<int, KeyMaps> Input::physicalMap;
+std::map<int, KeyMap> Input::physicalMap;
 
 Input::Input(){
 
@@ -35,7 +36,7 @@ void Input::processInput(float dt) {
 void Input::feedKey(int key, int state){
 	if (key < 0 || key > 512) return;
 	keys[key] = state;
-	std::map<int, KeyMaps>::iterator it = physicalMap.find(key);
+	std::map<int, KeyMap>::iterator it = physicalMap.find(key);
 	if (it == physicalMap.end()) {
 		return;
 	}
@@ -44,21 +45,28 @@ void Input::feedKey(int key, int state){
 
 void Input::init()
 {
-	physicalMap.insert(std::pair<int, KeyMaps>(87, KeyMaps::KEY_UP));
-	physicalMap.insert(std::pair<int, KeyMaps>(83, KeyMaps::KEY_DOWN));
-	physicalMap.insert(std::pair<int, KeyMaps>(65, KeyMaps::KEY_LEFT));
-	physicalMap.insert(std::pair<int, KeyMaps>(68, KeyMaps::KEY_RIGHT));
-	physicalMap.insert(std::pair<int, KeyMaps>(69, KeyMaps::KEY_INTERACT));
-	physicalMap.insert(std::pair<int, KeyMaps>(49, KeyMaps::KEY_SKILL_1));
-	physicalMap.insert(std::pair<int, KeyMaps>(50, KeyMaps::KEY_SKILL_2));
-	physicalMap.insert(std::pair<int, KeyMaps>(51, KeyMaps::KEY_SKILL_3));
-	physicalMap.insert(std::pair<int, KeyMaps>(52, KeyMaps::KEY_SKILL_4));
-	physicalMap.insert(std::pair<int, KeyMaps>(53, KeyMaps::KEY_SKILL_5));
+	physicalMap.insert(std::pair<int, KeyMap>(87, KeyMap::KEY_UP));
+	physicalMap.insert(std::pair<int, KeyMap>(83, KeyMap::KEY_DOWN));
+	physicalMap.insert(std::pair<int, KeyMap>(65, KeyMap::KEY_LEFT));
+	physicalMap.insert(std::pair<int, KeyMap>(68, KeyMap::KEY_RIGHT));
+	physicalMap.insert(std::pair<int, KeyMap>(69, KeyMap::KEY_INTERACT));
+	physicalMap.insert(std::pair<int, KeyMap>(49, KeyMap::KEY_SKILL_1));
+	physicalMap.insert(std::pair<int, KeyMap>(50, KeyMap::KEY_SKILL_2));
+	physicalMap.insert(std::pair<int, KeyMap>(51, KeyMap::KEY_SKILL_3));
+	physicalMap.insert(std::pair<int, KeyMap>(52, KeyMap::KEY_SKILL_4));
+	physicalMap.insert(std::pair<int, KeyMap>(53, KeyMap::KEY_SKILL_5));
 }
 
 void Input::feedMousePosition(Vector2f & pos)
 {
+	mousePtr = pos;
 	UIManager::hover(pos);
+}
+
+void Input::feedMouseEvent(int button, int action){
+	if (action == GLFW_PRESS) {
+		UIManager::click(mousePtr);
+	}
 }
 
 void Input::setupKeybinds(){
