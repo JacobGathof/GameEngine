@@ -18,8 +18,15 @@ public:
 
 	Color& operator+=(Color& c);
 	Color operator+(Color& c);
+	Color& operator-=(Color& c);
+	Color operator-(Color& c);
 	Color& operator*=(Color& c);
 	Color operator*(Color& c);
+
+	Color& operator*=(float f);
+	Color operator*(float f);
+	Color& operator/=(float f);
+	Color operator/(float f);
 
 
 	friend std::ostream& operator<<(std::ostream &os, Color &c);

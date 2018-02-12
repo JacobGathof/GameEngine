@@ -61,13 +61,64 @@ Color Color::operator+(Color & c)
 				c[3] + data[3]);
 }
 
+Color & Color::operator-=(Color & c)
+{
+	data[0] -= c[0];
+	data[1] -= c[1];
+	data[2] -= c[2];
+	data[3] -= c[3];
+	return *this;
+}
+
+Color Color::operator-(Color & c)
+{
+	return Color(data[0] - c[0],
+				data[1] - c[1],
+				data[2] - c[2],
+				data[3] - c[3]);
+}
+
 
 Color Color::operator*(Color & c)
 {
-	return Color((c[0] + data[0])/2,
-				 (c[1] + data[1])/2,
-				 (c[2] + data[2])/2,
-				 (c[3] + data[3])/2);
+	return Color((c[0] * data[0]),
+				 (c[1] * data[1]),
+				 (c[2] * data[2]),
+				 (c[3] * data[3]));
+}
+
+Color & Color::operator*=(float f)
+{
+	data[0] *= f;
+	data[1] *= f;
+	data[2] *= f;
+	data[3] *= f;
+	return *this;
+}
+
+Color Color::operator*(float f)
+{
+	return Color((f * data[0]),
+				(f * data[1]),
+				(f * data[2]),
+				(f * data[3]));
+}
+
+Color & Color::operator/=(float f)
+{
+	data[0] /= f;
+	data[1] /= f;
+	data[2] /= f;
+	data[3] /= f;
+	return *this;
+}
+
+Color Color::operator/(float f)
+{
+	return Color((data[0]/f),
+				(data[1]/f),
+				(data[2]/f),
+				(data[3]/f));
 }
 
 
@@ -75,10 +126,10 @@ Color Color::operator*(Color & c)
 
 Color& Color::operator*=(Color & c)
 {
-	data[0] += c[0]; data[0] /= 2;
-	data[1] += c[1]; data[1] /= 2;
-	data[2] += c[2]; data[2] /= 2;
-	data[3] += c[3]; data[3] /= 2;
+	data[0] *= c[0];
+	data[1] *= c[1];
+	data[2] *= c[2];
+	data[3] *= c[3];
 	return *this;
 }
 

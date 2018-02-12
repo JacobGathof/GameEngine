@@ -23,6 +23,8 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DefaultParticleSystem.cpp" />
+    <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="FollowAi.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GoToPointAI.cpp" />
@@ -35,6 +37,8 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="RainParticleSystem.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Statusbar.cpp" />
@@ -81,6 +85,8 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="DefaultParticleSystem.h" />
+    <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="FollowAi.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GoToPointAI.h" />
@@ -93,6 +99,8 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Callbacks.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Square.h" />

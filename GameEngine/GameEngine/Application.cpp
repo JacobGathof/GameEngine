@@ -41,9 +41,15 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
+	DefaultParticleSystem sys;
+	DefaultParticleSystem battle;
+	sys.parentPosition = &melody.pos;
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
+
+	sys.startColor = Color::DarkBlue;
+	sys.endColor = Color::DarkPurple;
 
 	Circle circ(Vector2f(0,0), 256.0f);
 	
@@ -57,16 +63,20 @@ void Application::run()
 
 
 		Screen::follow(melody.pos);
-
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
 		UIManager::update(dt);
+		
 
 		world->update(dt);
 		world->draw();
 
-		circ.draw(timer.getGameTime());
+		sys.update(dt);
+		sys.draw();
+
+
+		//circ.draw(timer.getGameTime());
 
 
 		UIManager::draw();

@@ -18,9 +18,9 @@ Inventory::~Inventory(){}
 
 void Inventory::draw()
 {
-	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(540, 540), Color(0x000000ff));
-	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(536, 536), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(532, 532), Color(0x000000ff));
+	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(540, 540), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(536, 536), Color(0xffffff88));
+	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(532, 532), Color(0x00000088));
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
@@ -33,7 +33,7 @@ void Inventory::draw()
 
 void Inventory::update(float dt)
 {
-	position += Vector2f(50*dt, 0);
+	position = Vector2f(800, 0);
 }
 
 void Inventory::hover(Vector2f & pos)

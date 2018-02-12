@@ -60,6 +60,8 @@ void ParticleSystem::setEmit(bool doEmit)
 
 void ParticleSystem::update(float dt)
 {
+	timer.update(dt);
+
 	ptime += dt;
 	int particlesToCreate = 0;
 
@@ -76,12 +78,20 @@ void ParticleSystem::update(float dt)
 		Particle* p = &particles[i];
 
 		if (p->life > 0.0f) {
-			p->update(dt);
+			updateParticle(p, dt);
 		}
 	}
 
 	writeParticleData();
 	updateBuffers();
+}
+
+void ParticleSystem::emitParticles(int numParticles)
+{
+	for (int j = 0; j < numParticles; j++) {
+		particles[pIndex] = createNewParticle();
+		pIndex = ++pIndex % maxParticles;
+	}
 }
 
 void ParticleSystem::updateBuffers()
@@ -96,8 +106,10 @@ void ParticleSystem::writeParticleData()
 {
 	for (int i = 0; i < maxParticles; i++) {
 		Particle* p = &particles[i];
-		pos[2 * i + 0] = p->position[0];
-		pos[2 * i + 1] = p->position[1];
+		Vector2f q1 = Screen::toScreenCoords(p->position);
+
+		pos[2 * i + 0] = q1[0];
+		pos[2 * i + 1] = q1[1];
 
 		col[4 * i + 0] = p->color[0];
 		col[4 * i + 1] = p->color[1];
@@ -108,36 +120,12 @@ void ParticleSystem::writeParticleData()
 	}
 }
 
-ParticleSystem::Particle ParticleSystem::createNewParticle()
-{
-	float r = (float)rand() / RAND_MAX * 2 * 3.1415f;
-	return Particle(sys_pos, Color::Red, .1f*Vector2f(cos(r), sin(r)), 3.0f);
-}
 
-void ParticleSystem::render()
+void ParticleSystem::draw()
 {
 	ShaderManager::get(ShaderType::PARTICLE_SHADER)->bind();
 	model.bind();
 	glDrawArrays(GL_POINTS, 0, maxParticles);
 }
 
-ParticleSystem::Particle::Particle(Vector2f p, Color c, Vector2f v, float l)
-{
-	position = p;
-	color = c;
-	velocity = v;
-	life = l;
-}
 
-ParticleSystem::Particle::Particle()
-{
-	position = Vector2f(0,0);
-	color = Color(1,1,1,1);
-	velocity = Vector2f(0,0);
-	life = -1;
-}
-
-void ParticleSystem::Particle::update(float dt) {
-	position += dt*velocity;
-	life -= dt;
-}
