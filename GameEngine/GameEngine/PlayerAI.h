@@ -26,7 +26,7 @@ public:
 
 	LivingObject * user;
 
-	virtual bool execute(LivingObject * obj);
+	virtual bool execute(LivingObject * obj, float dt);
 	void receiveInput(KeyMap key, int state);
 
 private:

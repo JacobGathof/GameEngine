@@ -29,7 +29,7 @@ void Application::run()
 	LivingObject structure(TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
 	GoToPointAI follow(Vector2f(-100, 500));
 	structure.setAI(&follow);
-	structure.moveSpeed = 6;
+	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	

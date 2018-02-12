@@ -40,10 +40,10 @@ bool AnimatedObject::update(float delta_time)
 	//timer.tick(delta_time);
 	bool isFinished = Object::update(delta_time);
 	if (aiQueue.size() == 0) {
-		defaultAI->execute(this);
+		defaultAI->execute(this, delta_time);
 	}
 	else {
-		if (!aiQueue.at(0)->execute(this)) {
+		if (!aiQueue.at(0)->execute(this, delta_time)) {
 			//If the current AI is done, remove it
 			aiQueue.erase(aiQueue.begin());
 		}

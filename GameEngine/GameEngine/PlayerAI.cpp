@@ -9,14 +9,14 @@ PlayerAI::~PlayerAI()
 {
 }
 
-bool PlayerAI::execute(LivingObject * o)
+bool PlayerAI::execute(LivingObject * o, float dt)
 {
 	if (user == nullptr) {
 		user = o;
 	}
 	LivingObject * obj = (LivingObject *)o;
 
-	obj->pos += Vector2f(xVel, yVel);
+	obj->pos += Vector2f(xVel * dt, yVel * dt);
 
 	return true;
 }

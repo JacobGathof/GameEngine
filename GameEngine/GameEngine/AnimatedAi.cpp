@@ -10,7 +10,7 @@ AnimatedAi::~AnimatedAi()
 {
 }
 
-bool AnimatedAi::execute(AnimatedObject * obj)
+bool AnimatedAi::execute(AnimatedObject * obj, float dt)
 {
 	return false;
 }

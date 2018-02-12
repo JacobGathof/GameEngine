@@ -16,13 +16,13 @@ public:
 	static void update(float dt);
 	static void hover(Vector2f& pos);
 	static void click(Vector2f& pos);
+	static void addText(std::string text);
 
 private:
 	static Textbox * textbox;
 	static StatsPage * page;
 	static Statusbar * status;
 	static Inventory * inventory;
-
 
 };
 
