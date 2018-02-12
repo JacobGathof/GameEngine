@@ -148,9 +148,10 @@ void Text::setText(std::string& newdata)
 	float* tex = new float[tex_size];
 	float* col = new float[col_size];
 
+	int templ = length;
 	length = newLength;
 	writeCharacterData(newdata, pos, tex, col);
-	bool resize = newLength > length;
+	bool resize = newLength > templ;
 
 	updateVAO(pos, pos_size, tex, tex_size, col, col_size, resize);
 

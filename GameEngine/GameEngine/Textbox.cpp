@@ -4,9 +4,8 @@
 
 Textbox::Textbox()
 {
-	text = new Text(Vector2f(18,200), std::string("Textbox text"), Vector2f(128,128), FontManager::get(FontType::DEFAULT));
+	text = new Text(Vector2f(10 + 10 + 50, 210 + 50 - 12), std::string("Melody"), Vector2f(128,128), FontManager::get(FontType::DEFAULT));
 	text->setColor(Color(0xffffffff));
-	text->setText(std::string("The quick brown fox jumped over the lazy dog"));
 }
 
 
@@ -45,7 +44,7 @@ void Textbox::draw(){
 	UIUtils::drawRectangle(Vector2f(14, 214), Vector2f(92, 92), Color(0x000000dd));
 	*/
 
-	//text->draw();
+	text->draw();
 
 }
 
