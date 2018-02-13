@@ -9,6 +9,6 @@ public:
 	LivingAi();
 	~LivingAi();
 
-	virtual bool execute(LivingObject * obj);
+	virtual bool execute(LivingObject * obj, float dt);
 };
 

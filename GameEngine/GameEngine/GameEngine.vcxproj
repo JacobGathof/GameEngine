@@ -37,9 +37,12 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
+    <ClCompile Include="OpenTextbox.cpp" />
+    <ClCompile Include="OpenTextboxWithChoice.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="RainParticleSystem.cpp" />
+    <ClCompile Include="RunAwayAI.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Statusbar.cpp" />
@@ -100,10 +103,10 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Callbacks.h" />
-    <ClInclude Include="Menu.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RunAwayAI.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Statusbar.h" />

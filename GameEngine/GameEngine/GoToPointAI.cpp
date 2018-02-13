@@ -11,18 +11,18 @@ GoToPointAI::~GoToPointAI()
 {
 }
 
-bool GoToPointAI::execute(LivingObject * obj)
+bool GoToPointAI::execute(LivingObject * obj, float dt)
 {
-	if (obj->pos.distanceTo(dest) < obj->moveSpeed) {
+	if (obj->pos.distanceTo(dest) < obj->moveSpeed * dt) {
 		obj->pos = dest;
+		return true;
 	}
 	else {
 		int dx = dest[0] - obj->pos[0];
 		int dy = dest[1] - obj->pos[1];
-		
 		float angle = atan2(dy,dx);
-		obj->pos[0] += cos(angle) * obj->moveSpeed;
-		obj->pos[1] += sin(angle) * obj->moveSpeed;
+		obj->pos[0] += cos(angle) * obj->moveSpeed * dt;
+		obj->pos[1] += sin(angle) * obj->moveSpeed * dt;
 	}
 	return false;
 }

@@ -10,6 +10,6 @@ public:
 
 	Vector2f dest;
 
-	virtual bool execute(LivingObject * obj);
+	virtual bool execute(LivingObject * obj, float dt);
 };
 

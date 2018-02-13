@@ -20,6 +20,7 @@
 #include "List.h"
 #include "GameState.h"
 #include "UIManager.h"
+#include "RunAwayAI.h"
 
 class Application
 {

@@ -10,7 +10,7 @@ LivingAi::~LivingAi()
 {
 }
 
-bool LivingAi::execute(LivingObject * o)
+bool LivingAi::execute(LivingObject * o, float dt)
 {
 	
 	return false;

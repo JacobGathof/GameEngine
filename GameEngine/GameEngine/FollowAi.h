@@ -12,6 +12,6 @@ public:
 
 	LivingObject * follow;
 
-	virtual bool execute(LivingObject * obj);
+	virtual bool execute(LivingObject * obj, float dt);
 };
 

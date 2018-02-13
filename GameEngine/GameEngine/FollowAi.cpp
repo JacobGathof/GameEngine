@@ -11,14 +11,14 @@ FollowAi::~FollowAi()
 {
 }
 
-bool FollowAi::execute(LivingObject * obj)
+bool FollowAi::execute(LivingObject * obj, float dt)
 {
 	if (obj->pos.distanceTo(follow->pos) < 300) {
 		return false;
 	}
 	int dx = follow->pos[0] - obj->pos[0];
 	int dy = follow->pos[1] - obj->pos[1];
-	obj->pos[0] += dx / 50;
-	obj->pos[1] += dy / 50;
+	obj->pos[0] += dx * dt;
+	obj->pos[1] += dy * dt;
 	return true;
 }

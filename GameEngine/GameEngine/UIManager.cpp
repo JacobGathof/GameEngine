@@ -46,3 +46,8 @@ void UIManager::click(Vector2f & pos)
 {
 	//inventory->click(pos);
 }
+
+void UIManager::addText(std::string text)
+{
+	textbox->addTextToQueue(text);
+}

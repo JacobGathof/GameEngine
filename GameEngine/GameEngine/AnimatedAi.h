@@ -8,6 +8,6 @@ public:
 	AnimatedAi();
 	~AnimatedAi();
 
-	virtual bool execute(AnimatedObject * obj);
+	virtual bool execute(AnimatedObject * obj, float dt);
 };
 

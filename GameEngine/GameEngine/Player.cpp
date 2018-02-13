@@ -5,7 +5,7 @@
 Player::Player(TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : LivingObject(t, position, sc, 100, 100)
 {
 	defaultAi = ai;
-	moveSpeed = 6;
+	moveSpeed = 600;
 }
 
 
@@ -17,7 +17,7 @@ bool Player::update(float delta_time)
 {
 	lastX = pos[0];
 	lastY = pos[1];
-	defaultAi->execute(this);
+	LivingObject::update(delta_time);
 	return true;
 }
 
