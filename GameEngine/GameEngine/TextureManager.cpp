@@ -16,6 +16,8 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_HORUS, "res/tex/horus.png");
 	addTexture(TextureType::TEXTURE_DAGON, "res/tex/dagon.png");
 	addTexture(TextureType::TEXTURE_SLIME, "res/tex/slime.png");
+
+	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
 }
 
 void TextureManager::clean() {

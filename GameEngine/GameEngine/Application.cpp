@@ -72,8 +72,8 @@ void Application::run()
 		world->update(dt);
 		world->draw();
 
-		sys.update(dt);
-		sys.draw();
+		//sys.update(dt);
+		//sys.draw();
 
 
 		//circ.draw(timer.getGameTime());

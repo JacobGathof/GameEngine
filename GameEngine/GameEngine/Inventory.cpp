@@ -33,7 +33,7 @@ void Inventory::draw()
 
 void Inventory::update(float dt)
 {
-	position = Vector2f(800, 0);
+	
 }
 
 void Inventory::hover(Vector2f & pos)

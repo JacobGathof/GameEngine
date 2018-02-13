@@ -1,4 +1,5 @@
 #pragma once
+#include "Menu.h"
 #include "Textbox.h"
 #include "StatsPage.h"
 #include "Statusbar.h"
@@ -19,9 +20,7 @@ public:
 
 private:
 	static Textbox * textbox;
-	static StatsPage * page;
-	static Statusbar * status;
-	static Inventory * inventory;
+	static Menu * menu;
 
 
 };

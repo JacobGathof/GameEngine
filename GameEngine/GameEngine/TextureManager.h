@@ -17,6 +17,9 @@ enum class TextureType {
 	TEXTURE_HORUS,
 	TEXTURE_DAGON,
 	TEXTURE_SLIME,
+
+	SWORD_ICON,
+
 };
 
 
