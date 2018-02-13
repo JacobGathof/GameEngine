@@ -286,7 +286,7 @@
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="RunAwayAI.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -480,7 +480,7 @@
       <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="RunAwayAI.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
