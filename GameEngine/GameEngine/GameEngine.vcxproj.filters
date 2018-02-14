@@ -291,6 +291,9 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -473,20 +476,17 @@
     <ClInclude Include="RainParticleSystem.h">
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="OpenTextbox.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenTextboxWithChoice.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="RunAwayAI.h">
       <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files\UI</Filter>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

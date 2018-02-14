@@ -51,7 +51,7 @@ private:
 class Inventory : public AbstractUIComponent
 {
 public:
-	Inventory();
+	Inventory(Vector2f * parent);
 	~Inventory();
 	virtual void draw();
 	virtual void update(float dt);
@@ -62,6 +62,7 @@ private:
 	Vector2f position;
 	InventoryCell grid[5][5];
 	InventoryWindow window;
+	Vector2f * parentOffset;
 };
 
 

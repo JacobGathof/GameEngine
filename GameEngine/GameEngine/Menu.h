@@ -15,6 +15,8 @@ private:
 	void drawTabs();
 
 	Inventory * inventory;
+	Vector2f position;
+
 	//Settings* settings;
 	//CardsPage*
 	//Armor

@@ -26,6 +26,7 @@
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="FollowAi.cpp" />
+    <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Hand.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="FollowAi.h" />
+    <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Hand.h" />
@@ -103,6 +105,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Callbacks.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="resource.h" />
