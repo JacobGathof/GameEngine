@@ -15,6 +15,7 @@ public:
 	static void init();
 	static void clean();
 	static Framebuffer* get(FramebufferType type);
+	static void updateSizes(int x, int y);
 
 private:
 

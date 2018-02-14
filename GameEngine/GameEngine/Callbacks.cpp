@@ -1,4 +1,5 @@
 #include "ShaderManager.h"
+#include "FramebufferManager.h"
 #include "Window.h"
 #include "Screen.h"
 #include "Callbacks.h"
@@ -23,6 +24,7 @@ void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 	if (Window::isInitialized()) {
 		glViewport(0, 0, width, height);
 		Screen::updateRes(width, height);
+		FramebufferManager::updateSizes(width, height);
 	}
 }
 

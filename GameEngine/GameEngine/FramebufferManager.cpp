@@ -18,6 +18,13 @@ Framebuffer * FramebufferManager::get(FramebufferType type)
 	return buffers[type];
 }
 
+void FramebufferManager::updateSizes(int x, int y)
+{
+	for (auto f : buffers) {
+		f.second->updateSize(x,y);
+	}
+}
+
 void FramebufferManager::addFramebuffer(FramebufferType frame, int id)
 {
 	Framebuffer* buf;
