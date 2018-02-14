@@ -20,6 +20,9 @@ public:
 	static void setCursorMode(int mode);
 	static float getAspectRatio();
 
+	static int WINDOW_WIDTH;
+	static int WINDOW_HEIGHT;
+
 private:
 
 	static GLFWwindow *window;
@@ -30,8 +33,5 @@ private:
 	static void setCallbacks();
 	static void setWindowHints();
 	static void initOpenGL();
-
-	static int WINDOW_WIDTH;
-	static int WINDOW_HEIGHT;
 
 };

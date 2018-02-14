@@ -6,6 +6,7 @@ void ResourceManager::init()
 	FontManager::init();
 	TextureManager::init();
 	ModelManager::init();
+	FramebufferManager::init();
 }
 
 void ResourceManager::clean()
@@ -14,6 +15,7 @@ void ResourceManager::clean()
 	FontManager::clean();
 	TextureManager::clean();
 	ModelManager::clean();
+	FramebufferManager::clean();
 }
 
 ShaderProgram* ResourceManager::get(ShaderType type){
@@ -30,4 +32,8 @@ Font* ResourceManager::get(FontType type){
 
 Texture* ResourceManager::get(TextureType type){
 	return TextureManager::get(type);
+}
+
+Framebuffer * ResourceManager::get(FramebufferType type){
+	return FramebufferManager::get(type);
 }

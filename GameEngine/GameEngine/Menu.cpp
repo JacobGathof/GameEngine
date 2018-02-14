@@ -14,8 +14,10 @@ Menu::~Menu()
 
 void Menu::draw()
 {
+	glBlendFunc(GL_ONE, GL_ZERO);
 	drawTabs();
 	inventory->draw();
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void Menu::update(float dt)

@@ -1,5 +1,6 @@
 #include "Application.h"
 #include <time.h>
+#include "Renderer.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -70,7 +71,7 @@ void Application::run()
 		
 
 		world->update(dt);
-		world->draw();
+		//world->draw();
 
 		//sys.update(dt);
 		//sys.draw();
@@ -79,7 +80,9 @@ void Application::run()
 		//circ.draw(timer.getGameTime());
 
 
-		UIManager::draw();
+		
+
+		Renderer::draw();
 
 
 		Window::swapBuffers();

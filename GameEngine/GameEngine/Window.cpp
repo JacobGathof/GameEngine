@@ -5,7 +5,7 @@ int Window::WINDOW_HEIGHT = 0;
 int Window::WINDOW_WIDTH = 0;
 bool Window::initialized = false;
 char* Window::WINDOW_TITLE = "";
-Color Window::clearColor = Color(0x000000ff);
+Color Window::clearColor = Color(0x00000000);
 
 
 void Window::init(char* title, int width, int height) {

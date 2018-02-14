@@ -3,6 +3,7 @@
 #include "ModelManager.h"
 #include "FontManager.h"
 #include "ShaderManager.h"
+#include "FramebufferManager.h"
 
 class ResourceManager
 {
@@ -14,6 +15,7 @@ public:
 	static Model* get(ModelType type);
 	static Font* get(FontType type);
 	static Texture* get(TextureType type);
+	static Framebuffer* get(FramebufferType type);
 };
 
 typedef ResourceManager Res;

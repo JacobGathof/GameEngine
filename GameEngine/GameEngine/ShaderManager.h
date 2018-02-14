@@ -11,6 +11,7 @@ enum class ShaderType {
 	UI_IMAGE_SHADER,
 	TERRAIN_SHADER,
 	CIRCLE_SHADER,
+	POST_PROCESS_SHADER,
 };
 
 

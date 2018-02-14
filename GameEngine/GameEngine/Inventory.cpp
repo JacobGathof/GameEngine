@@ -20,9 +20,9 @@ Inventory::~Inventory(){}
 
 void Inventory::draw()
 {
-	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(540, 540), Color(0x00000088));
-	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(536, 536), Color(0xffffff88));
-	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(532, 532), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(540, 540), Color(0x000000ff));
+	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(536, 536), Color(0xffffffff));
+	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(532, 532), Color(0x000000ff));
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
@@ -79,9 +79,9 @@ InventoryCell::~InventoryCell(){}
 void InventoryCell::draw()
 {
 	Vector2f drawPos = position + *parentOffset;
-	UIUtils::drawRectangle(drawPos + Vector2f(0, 0), scale - Vector2f(0, 0), Color(0xffffff44));
-	UIUtils::drawRectangle(drawPos + Vector2f(2, 2), scale - Vector2f(4, 4), Color(0x00000044));
-	UIUtils::drawRectangle(drawPos + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x44444444));
+	UIUtils::drawRectangle(drawPos + Vector2f(0, 0), scale - Vector2f(0, 0), Color(0xffffffff));
+	UIUtils::drawRectangle(drawPos + Vector2f(2, 2), scale - Vector2f(4, 4), Color(0x000000ff));
+	UIUtils::drawRectangle(drawPos + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x444444ff));
 	//UIUtils::drawImage(drawPos + Vector2f(6, 6), scale - Vector2f(12, 12), tex);
 }
 
@@ -118,7 +118,7 @@ InventoryWindow::InventoryWindow(Vector2f & pos, Vector2f * parOff, Vector2f & s
 	position = pos;
 	parentOffset = parOff;
 	scale = sc;
-	color = Color(0xddddff88);
+	color = Color(0xddddffff);
 	tex = t;
 }
 
