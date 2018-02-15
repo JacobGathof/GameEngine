@@ -43,7 +43,6 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
 	DefaultParticleSystem sys;
-	DefaultParticleSystem battle;
 	sys.parentPosition = &melody.pos;
 
 	GameTimer timer;
@@ -73,7 +72,7 @@ void Application::run()
 		world->update(dt);
 		//world->draw();
 
-		//sys.update(dt);
+		sys.update(dt);
 		//sys.draw();
 
 

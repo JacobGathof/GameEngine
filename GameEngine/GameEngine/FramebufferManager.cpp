@@ -5,6 +5,7 @@ std::map<FramebufferType, Framebuffer*> FramebufferManager::buffers;
 void FramebufferManager::init() {
 	addFramebuffer(FramebufferType::DEFAULT, 0);
 	addFramebuffer(FramebufferType::UI_BUFFER, -1);
+	addFramebuffer(FramebufferType::PARTICLES_BUFFER, -1);
 }
 
 void FramebufferManager::clean() {

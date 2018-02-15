@@ -4,6 +4,7 @@
 
 DefaultParticleSystem::DefaultParticleSystem()
 {
+	startColor = Color::White;
 	endColor = Color::LightRed;
 }
 

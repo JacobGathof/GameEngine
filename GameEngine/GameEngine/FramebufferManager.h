@@ -5,6 +5,7 @@
 enum class FramebufferType {
 	DEFAULT,
 	UI_BUFFER,
+	PARTICLES_BUFFER,
 };
 
 
