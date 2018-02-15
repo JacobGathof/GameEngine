@@ -2,12 +2,30 @@
 #include "Inventory.h"
 #include "SettingsPage.h"
 
-enum class MenuTab {
+enum class MenuTabType {
 	INVENTORY,
 	CARDS,
 	LEVELING,
 	SETTINGS,
 };
+
+
+class MenuTab : public AbstractUIComponent
+{
+public:
+	MenuTab(AbstractUIComponent * comp, Vector2f& pos, Vector2f& scale);
+	~MenuTab();
+
+	virtual void draw();
+	virtual void update(float dt);
+	virtual void hover(Vector2f& pos);
+	virtual void click(Vector2f& pos);
+private:
+	AbstractUIComponent * tabContents;
+
+};
+
+
 
 class Menu : public AbstractUIComponent
 {
@@ -17,17 +35,14 @@ public:
 
 	void draw();
 	void update(float dt);
-	void setCurrentTab(MenuTab tab);
+	void setCurrentTab(MenuTabType tab);
 
 private:
 
-	AbstractUIComponent * activeComponent;
-
-	void drawTabs();
-
-	Inventory * inventory;
-	SettingsPage* settings;
-	Vector2f position;
+	MenuTab * tabs[2];
+	//AbstractUIComponent * activeComponent;
+	//Inventory * inventory;
+	//SettingsPage* settings;
 
 	//CardsPage*
 	//Armor

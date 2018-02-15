@@ -2,17 +2,17 @@
 
 
 
-Inventory::Inventory(Vector2f* parent)
+Inventory::Inventory()
 {
-	this->parentOffset = parent;
-
 	/*Very temporary instantiation*/
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			grid[i][j] = InventoryCell(Vector2f(i * 105+30, j * 105+30), &position, Vector2f(100, 100), (TextureType)((rand()%8)+2));
+			grid[i][j] = InventoryCell(Vector2f(i * 105+30, j * 105+30), Vector2f(100, 100), (TextureType)((rand()%8)+2));
+			grid[i][j].setParentPosition(&position);
 		}
 	}
-	window = InventoryWindow(Vector2f(600-30, 30), &position, Vector2f(272, 520), TextureType::TEXTURE_PANDORA);
+	window = InventoryWindow(Vector2f(600-30, 30), Vector2f(272, 520), TextureType::TEXTURE_PANDORA);
+	window.setParentPosition(&position);
 }
 
 
@@ -60,10 +60,9 @@ void Inventory::click(Vector2f & pos)
 }
 
 
-InventoryCell::InventoryCell(Vector2f & pos, Vector2f * parOff, Vector2f & sc, TextureType t)
+InventoryCell::InventoryCell(Vector2f & pos, Vector2f & sc, TextureType t)
 {
 	position = pos;
-	parentOffset = parOff;
 	scale = sc;
 	currentColor = Color(0x44444488);
 
@@ -114,9 +113,8 @@ void InventoryCell::setImage(TextureType type)
 	tex = type;
 }
 
-InventoryWindow::InventoryWindow(Vector2f & pos, Vector2f * parOff, Vector2f & sc, TextureType t){
+InventoryWindow::InventoryWindow(Vector2f & pos, Vector2f & sc, TextureType t){
 	position = pos;
-	parentOffset = parOff;
 	scale = sc;
 	color = Color(0xddddffff);
 	tex = t;

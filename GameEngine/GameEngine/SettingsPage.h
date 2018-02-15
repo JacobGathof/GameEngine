@@ -4,13 +4,11 @@
 class SettingsPage : public AbstractUIComponent
 {
 public:
-	SettingsPage(Vector2f *position);
+	SettingsPage();
 	~SettingsPage();
 
 	virtual void draw();
 	virtual void update(float dt);
 
-private:
-	Vector2f * parentOffset;
 };
 

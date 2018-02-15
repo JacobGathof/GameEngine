@@ -20,7 +20,6 @@ private:
 	Text* text;
 	BounceTimer timer;
 	Timer textUpdateTimer;
-	Vector2f position;
 	float transitionTime = 1.0f;
 
 	Vector2f topLeft = Vector2f(10, 790);

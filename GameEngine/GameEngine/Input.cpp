@@ -39,12 +39,12 @@ void Input::processInput(float dt) {
 
 	if (keys[GLFW_KEY_Y]) {
 		keys[GLFW_KEY_Y] = false;
-		UIManager::setMenuTab(MenuTab::SETTINGS);
+		UIManager::setMenuTab(MenuTabType::SETTINGS);
 	}
 
 	if (keys[GLFW_KEY_H]) {
 		keys[GLFW_KEY_H] = false;
-		UIManager::setMenuTab(MenuTab::INVENTORY);
+		UIManager::setMenuTab(MenuTabType::INVENTORY);
 	}
 }
 

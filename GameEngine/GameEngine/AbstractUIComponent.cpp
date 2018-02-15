@@ -18,3 +18,8 @@ void AbstractUIComponent::move(Vector2f & pos){}
 void AbstractUIComponent::update(float dt){}
 
 void AbstractUIComponent::draw(){}
+
+void AbstractUIComponent::setParentPosition(Vector2f * pos)
+{
+	parentOffset = pos;
+}
