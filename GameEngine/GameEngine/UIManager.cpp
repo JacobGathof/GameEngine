@@ -51,3 +51,8 @@ void UIManager::addText(std::string text)
 {
 	textbox->addTextToQueue(text);
 }
+
+void UIManager::setMenuTab(MenuTab tab)
+{
+	menu->setCurrentTab(tab);
+}

@@ -3,7 +3,10 @@
 GLFWwindow* Window::window;
 int Window::WINDOW_HEIGHT = 0;
 int Window::WINDOW_WIDTH = 0;
+int Window::WINDOW_X = 0;
+int Window::WINDOW_Y = 0;
 bool Window::initialized = false;
+bool Window::fullscreen = false;
 char* Window::WINDOW_TITLE = "";
 Color Window::clearColor = Color(0x00000000);
 
@@ -78,6 +81,7 @@ void Window::setCallbacks(){
 	glfwSetMouseButtonCallback(window, Callbacks::MouseCallback);
 	glfwSetWindowSizeCallback(window, Callbacks::WindowSizeCallback);
 	glfwSetScrollCallback(window, Callbacks::ScrollCallback);
+	glfwSetWindowPosCallback(window, Callbacks::WindowPosCallback);
 }
 
 void Window::setWindowHints(){
@@ -109,5 +113,35 @@ void Window::setCursorMode(int mode){
 float Window::getAspectRatio()
 {
 	return (float)WINDOW_HEIGHT / WINDOW_WIDTH;
+}
+
+void Window::setMaximize(bool m)
+{
+	if (m) {
+		glfwMaximizeWindow(window);
+	}
+	else {
+		glfwRestoreWindow(window);
+	}
+}
+
+void Window::setFullscreen(bool f)
+{
+	if (f) {
+		if (!fullscreen) {
+			fullscreen = true;
+			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
+			GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+			const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+			glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		}
+	}
+	else {
+		if (Window::WINDOW_X == 0 || Window::WINDOW_Y == 0) {
+			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
+		}
+		glfwSetWindowMonitor(window, NULL, WINDOW_X, WINDOW_Y, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
+		fullscreen = false;
+	}
 }
 

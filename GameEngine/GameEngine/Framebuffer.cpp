@@ -30,19 +30,28 @@ Framebuffer::Framebuffer() {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-Framebuffer::Framebuffer(unsigned int fb)
-{
+Framebuffer::Framebuffer(unsigned int fb){
 	fbo = fb;
 }
 
 
-Framebuffer::~Framebuffer()
-{
+Framebuffer::~Framebuffer(){
+	if (fbo != 0) {
+		glDeleteFramebuffers(1, &fbo);
+		glDeleteRenderbuffers(1, &rbo);
+		glDeleteTextures(1, &tbo);
+	}
 }
 
 void Framebuffer::bind()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+}
+
+void Framebuffer::bindTexture(int offset)
+{
+	glActiveTexture(GL_TEXTURE0 + offset);
+	glBindTexture(GL_TEXTURE_2D, tbo);
 }
 
 void Framebuffer::updateSize(int x, int y)

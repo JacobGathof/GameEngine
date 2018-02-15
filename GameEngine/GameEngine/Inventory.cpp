@@ -12,7 +12,7 @@ Inventory::Inventory(Vector2f* parent)
 			grid[i][j] = InventoryCell(Vector2f(i * 105+30, j * 105+30), &position, Vector2f(100, 100), (TextureType)((rand()%8)+2));
 		}
 	}
-	window = InventoryWindow(Vector2f(600-30, 22), &position, Vector2f(300, 536), TextureType::TEXTURE_PANDORA);
+	window = InventoryWindow(Vector2f(600-30, 30), &position, Vector2f(272, 520), TextureType::TEXTURE_PANDORA);
 }
 
 
@@ -20,9 +20,9 @@ Inventory::~Inventory(){}
 
 void Inventory::draw()
 {
-	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(540, 540), Color(0x000000ff));
-	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(536, 536), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(532, 532), Color(0x000000ff));
+	UIUtils::drawRectangle(Vector2f(20, 20)+position, Vector2f(840, 540), Color(0x000000ff));
+	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(836, 536), Color(0xffffffff));
+	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(832, 532), Color(0x000000ff));
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {

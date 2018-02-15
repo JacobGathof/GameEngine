@@ -18,6 +18,7 @@ public:
 	static void hover(Vector2f& pos);
 	static void click(Vector2f& pos);
 	static void addText(std::string text);
+	static void setMenuTab(MenuTab tab);
 
 private:
 	static Textbox * textbox;

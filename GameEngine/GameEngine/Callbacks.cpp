@@ -31,3 +31,7 @@ void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 void Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {
 	Screen::updateScroll(yoffset / 200.0f);
 }
+
+void Callbacks::WindowPosCallback(GLFWwindow * window, int x, int y)
+{
+}

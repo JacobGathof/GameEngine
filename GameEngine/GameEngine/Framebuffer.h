@@ -7,10 +7,13 @@ public:
 	Framebuffer();
 	Framebuffer(unsigned int fb);
 	~Framebuffer();
+	void bind();
+	void bindTexture(int offset = 0);
+	void updateSize(int x, int y);
+
+private:
 	GLuint fbo;
 	GLuint tbo;
 	GLuint rbo;
-	void bind();
-	void updateSize(int x, int y);
 };
 

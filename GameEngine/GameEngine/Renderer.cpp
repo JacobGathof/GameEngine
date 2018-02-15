@@ -31,7 +31,7 @@ void Renderer::draw()
 	ShaderProgram * sp = Res::get(ShaderType::POST_PROCESS_SHADER);
 	m->bind();
 	sp->bind();
-	glBindTexture(GL_TEXTURE_2D, Res::get(FramebufferType::UI_BUFFER)->tbo);
+	Res::get(FramebufferType::UI_BUFFER)->bindTexture();
 	m->draw();
 
 

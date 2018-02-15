@@ -31,6 +31,36 @@ void Input::processInput(float dt) {
 		keys[GLFW_KEY_Q] = false;
 		std::cout << "Debug" << std::endl;
 	}
+
+	if (keys[GLFW_KEY_O]) {
+		keys[GLFW_KEY_O] = false;
+		Window::setMaximize(true);
+	}
+
+	if (keys[GLFW_KEY_P]) {
+		keys[GLFW_KEY_P] = false;
+		Window::setMaximize(false);
+	}
+
+	if (keys[GLFW_KEY_I]) {
+		keys[GLFW_KEY_I] = false;
+		Window::setFullscreen(true);
+	}
+
+	if (keys[GLFW_KEY_U]) {
+		keys[GLFW_KEY_U] = false;
+		Window::setFullscreen(false);
+	}
+
+	if (keys[GLFW_KEY_Y]) {
+		keys[GLFW_KEY_Y] = false;
+		UIManager::setMenuTab(MenuTab::SETTINGS);
+	}
+
+	if (keys[GLFW_KEY_H]) {
+		keys[GLFW_KEY_H] = false;
+		UIManager::setMenuTab(MenuTab::INVENTORY);
+	}
 }
 
 void Input::feedKey(int key, int state){

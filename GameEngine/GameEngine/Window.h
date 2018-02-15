@@ -19,6 +19,9 @@ public:
 
 	static void setCursorMode(int mode);
 	static float getAspectRatio();
+	static void setMaximize(bool m);
+	static void setFullscreen(bool f);
+
 
 	static int WINDOW_WIDTH;
 	static int WINDOW_HEIGHT;
@@ -29,9 +32,13 @@ private:
 	static bool initialized;
 	static Color clearColor;
 	static char* WINDOW_TITLE;
+	static bool fullscreen;
 
 	static void setCallbacks();
 	static void setWindowHints();
 	static void initOpenGL();
+
+	static int WINDOW_X;
+	static int WINDOW_Y;
 
 };

@@ -14,5 +14,6 @@ public:
 	static void MouseCallback(GLFWwindow* window, int button, int action, int mods);
 	static void WindowSizeCallback(GLFWwindow* window, int width, int height);
 	static void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+	static void WindowPosCallback(GLFWwindow* window, int x, int y);
 };
 
