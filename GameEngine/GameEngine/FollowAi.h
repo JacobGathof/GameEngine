@@ -11,6 +11,7 @@ public:
 	~FollowAi();
 
 	LivingObject * follow;
+	bool moving = false;
 
 	virtual bool execute(LivingObject * obj, float dt);
 };
