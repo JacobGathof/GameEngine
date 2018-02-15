@@ -42,14 +42,9 @@ void Input::processInput(float dt) {
 		Window::setMaximize(false);
 	}
 
-	if (keys[GLFW_KEY_I]) {
-		keys[GLFW_KEY_I] = false;
-		Window::setFullscreen(true);
-	}
-
-	if (keys[GLFW_KEY_U]) {
-		keys[GLFW_KEY_U] = false;
-		Window::setFullscreen(false);
+	if (keys[GLFW_KEY_GRAVE_ACCENT]) {
+		keys[GLFW_KEY_GRAVE_ACCENT] = false;
+		Window::toggleFullscreen();
 	}
 
 	if (keys[GLFW_KEY_Y]) {

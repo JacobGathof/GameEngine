@@ -125,23 +125,21 @@ void Window::setMaximize(bool m)
 	}
 }
 
-void Window::setFullscreen(bool f)
+void Window::toggleFullscreen()
 {
-	if (f) {
-		if (!fullscreen) {
-			fullscreen = true;
-			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
-			GLFWmonitor* monitor = glfwGetPrimaryMonitor();
-			const GLFWvidmode* mode = glfwGetVideoMode(monitor);
-			glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
-		}
+	if (!fullscreen) {
+		fullscreen = true;
+		glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
+		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+		glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 	}
 	else {
+		fullscreen = false;
 		if (Window::WINDOW_X == 0 || Window::WINDOW_Y == 0) {
 			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		}
 		glfwSetWindowMonitor(window, NULL, WINDOW_X, WINDOW_Y, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
-		fullscreen = false;
 	}
 }
 

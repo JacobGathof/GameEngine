@@ -20,7 +20,7 @@ public:
 	static void setCursorMode(int mode);
 	static float getAspectRatio();
 	static void setMaximize(bool m);
-	static void setFullscreen(bool f);
+	static void toggleFullscreen();
 
 
 	static int WINDOW_WIDTH;
