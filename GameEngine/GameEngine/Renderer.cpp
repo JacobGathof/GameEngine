@@ -32,9 +32,7 @@ void Renderer::draw()
 	m->bind();
 	sp->bind();
 	sp->loadInteger("ui", 0);
-	sp->loadInteger("part", 1);
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
-	Res::get(FramebufferType::PARTICLES_BUFFER)->bindTexture(1);
 	m->draw();
 
 
