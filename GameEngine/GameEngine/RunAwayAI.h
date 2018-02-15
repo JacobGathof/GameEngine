@@ -11,6 +11,7 @@ public:
 	~RunAwayAI();
 
 	LivingObject * object;
+	bool moving = false;
 
 	virtual bool execute(LivingObject * obj, float dt);
 

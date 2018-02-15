@@ -13,12 +13,19 @@ RunAwayAI::~RunAwayAI()
 bool RunAwayAI::execute(LivingObject * obj, float dt)
 {
 
-	if (obj->pos.distanceTo(object->pos) > 1000) {
+	if (moving == true && obj->pos.distanceTo(object->pos) > 1200) {
+		moving = false;
 		return false;
 	}
-	int dx = object->pos[0] - obj->pos[0];
-	int dy = object->pos[1] - obj->pos[1];
-	obj->pos[0] -= dx * dt;
-	obj->pos[1] -= dy * dt;
+	else if (moving == false && obj->pos.distanceTo(object->pos) < 1000) {
+		moving = true;
+	}
+	if (moving) {
+		int dx = object->pos[0] - obj->pos[0];
+		int dy = object->pos[1] - obj->pos[1];
+		obj->pos[0] -= dx * dt;
+		obj->pos[1] -= dy * dt;
+	}
+	
 	return true;
 }
