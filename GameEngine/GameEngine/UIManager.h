@@ -3,7 +3,7 @@
 #include "Textbox.h"
 #include "StatsPage.h"
 #include "Statusbar.h"
-#include "Inventory.h"
+#include "InventoryPage.h"
 
 class UIManager
 {

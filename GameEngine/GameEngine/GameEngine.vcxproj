@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractUIComponent.cpp" />
+    <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Deck.cpp" />
@@ -32,6 +33,9 @@
     <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="InventoryPage.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="KeyItem.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="LivingAi.cpp" />
@@ -85,11 +89,13 @@
     <ClCompile Include="UIUtils.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractUIComponent.h" />
+    <ClInclude Include="Armor.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Deck.h" />
@@ -102,6 +108,9 @@
     <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="InventoryPage.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="LivingAi.h" />
@@ -154,6 +163,7 @@
     <ClInclude Include="UIUtils.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

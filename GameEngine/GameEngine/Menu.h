@@ -1,5 +1,5 @@
 #pragma once
-#include "Inventory.h"
+#include "InventoryPage.h"
 #include "SettingsPage.h"
 
 enum class MenuTabType {

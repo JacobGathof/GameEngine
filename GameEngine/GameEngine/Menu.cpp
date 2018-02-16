@@ -7,7 +7,7 @@ Menu::Menu()
 	//inventory = new Inventory(&position);
 	//settings = new SettingsPage(&position);
 	tabs[0] = new MenuTab(new SettingsPage(), Vector2f(0,0), Vector2f(50,50));
-	tabs[1] = new MenuTab(new Inventory(), Vector2f(0, 0), Vector2f(50, 50));
+	tabs[1] = new MenuTab(new InventoryPage(), Vector2f(0, 0), Vector2f(50, 50));
 
 	for (int i = 0; i < 2; i++) {
 		tabs[i]->setParentPosition(&position);

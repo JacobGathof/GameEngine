@@ -3,15 +3,13 @@
 #include <string>
 
 #include "LivingAi.h"
+#include "Item.h"
 
-class Card
+class Card : public Item
 {
 public:
 	Card(std::string n, std::string desc, LivingAi * a);
 	~Card();
-
-	std::string name;
-	std::string description;
 
 	LivingAi * ai;
 

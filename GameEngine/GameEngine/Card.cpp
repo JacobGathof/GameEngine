@@ -1,10 +1,8 @@
 #include "Card.h"
 
 
-Card::Card(std::string n, std::string desc, LivingAi * a)
+Card::Card(std::string n, std::string desc, LivingAi * a) : Item(n, desc)
 {
-	name = n;
-	description = desc;
 	ai = a;
 }
 
@@ -26,5 +24,5 @@ LivingAi * Card::use()
 
 std::ostream & operator<<(std::ostream & os, Card & c)
 {
-	return os << c.name << ":/n" << c.description;
+	return os << c.getName() << ":/n" << c.getDescription();
 }

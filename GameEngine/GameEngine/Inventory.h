@@ -1,61 +1,37 @@
 #pragma once
-#include "AbstractUIComponent.h"
 
 
-class InventoryCell : public AbstractUIComponent
-{
-public:
-	InventoryCell(Vector2f& pos, Vector2f& sc, TextureType tex);
-	InventoryCell();
-	~InventoryCell();
-	virtual void draw();
-	virtual void update(float dt);
-	virtual void hover(Vector2f& pos);
-	virtual void click(Vector2f& pos);
+#include "List.h"
+#include "Item.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "KeyItem.h"
+#include "Card.h"
+#include <map>
 
-	void setImage(TextureType type);
-private:
-	Color defaultColor;
-	Color hoverColor;
-	Color clickColor;
-
-	Color currentColor;
-
-	TextureType tex;
+enum class ItemType{
+	WEAPON,
+	ARMOR,
+	KEYITEM,
+	CARD
 };
 
 
-class InventoryWindow : public AbstractUIComponent
-{
-public:
-	InventoryWindow(Vector2f& pos, Vector2f& sc, TextureType tex);
-	InventoryWindow();
-	~InventoryWindow();
-	virtual void draw();
-	virtual void update(float dt);
-	virtual void hover(Vector2f& pos);
-
-private:
-	Color color;
-	TextureType tex;
-
-};
-
-
-class Inventory : public AbstractUIComponent
+class Inventory
 {
 public:
 	Inventory();
 	~Inventory();
-	virtual void draw();
-	virtual void update(float dt);
-	virtual void hover(Vector2f& pos);
-	virtual void click(Vector2f& pos);
 
-private:
-	InventoryCell grid[5][5];
-	InventoryWindow window;
+	std::map<ItemType, List<Item *>> items;
+
+	void add(Weapon * wep);
+	void add(Armor * wep);
+	void add(KeyItem * wep);
+	void add(Card * wep);
+	Item * get(int i, ItemType type);
+	List<Item *> getAll(ItemType type);
+	List<TextureType> getAllTextures(ItemType type);
+
 };
-
-
 
