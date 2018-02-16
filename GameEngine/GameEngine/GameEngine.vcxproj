@@ -22,6 +22,7 @@
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefaultParticleSystem.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DefaultParticleSystem.h" />

@@ -1,7 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
 
-
+/*
 class InventoryCell : public AbstractUIComponent
 {
 public:
@@ -40,7 +40,7 @@ private:
 	TextureType tex;
 
 };
-
+*/
 
 class InventoryPage : public AbstractUIComponent
 {
@@ -53,8 +53,8 @@ public:
 	virtual void click(Vector2f& pos);
 
 private:
-	InventoryCell grid[5][5];
-	InventoryWindow window;
+	//InventoryCell grid[5][5];
+	//InventoryWindow window;
 };
 
 

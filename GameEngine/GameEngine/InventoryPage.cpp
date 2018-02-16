@@ -4,7 +4,8 @@
 
 InventoryPage::InventoryPage()
 {
-	/*Very temporary instantiation*/
+	baseOffset = Vector2f(0, 150);
+	/*
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
 			grid[i][j] = InventoryCell(Vector2f(i * 105+30, j * 105+30), Vector2f(100, 100), (TextureType)((rand()%8)+2));
@@ -13,6 +14,7 @@ InventoryPage::InventoryPage()
 	}
 	window = InventoryWindow(Vector2f(600-30, 30), Vector2f(272, 520), TextureType::TEXTURE_PANDORA);
 	window.setParentPosition(&position);
+	*/
 }
 
 
@@ -24,28 +26,27 @@ void InventoryPage::draw()
 	UIUtils::drawRectangle(Vector2f(22, 22)+position, Vector2f(836, 536), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(24, 24)+position, Vector2f(832, 532), Color(0x000000ff));
 
+	/*
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
 			grid[i][j].draw();
 		}
 	}
 	window.draw();
-	
+	*/
 }
 
 void InventoryPage::update(float dt)
 {
-	position = Vector2f(0, 150);
-	if (parentOffset != 0) {
-		position += *parentOffset;
-	}
+	AbstractUIComponent::update(dt);
+	
 }
 
 void InventoryPage::hover(Vector2f & pos)
 {
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			grid[i][j].hover(pos);
+			//grid[i][j].hover(pos);
 		}
 	}
 }
@@ -54,12 +55,12 @@ void InventoryPage::click(Vector2f & pos)
 {
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			grid[i][j].click(pos);
+			//grid[i][j].click(pos);
 		}
 	}
 }
 
-
+/*
 InventoryCell::InventoryCell(Vector2f & pos, Vector2f & sc, TextureType t)
 {
 	position = pos;
@@ -141,3 +142,4 @@ void InventoryWindow::update(float dt)
 void InventoryWindow::hover(Vector2f & pos)
 {
 }
+*/

@@ -309,9 +309,6 @@
     <ClCompile Include="InventoryPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Armor.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
@@ -323,6 +320,12 @@
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="CardsPage.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -527,9 +530,6 @@
     <ClInclude Include="InventoryPage.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Armor.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
@@ -541,6 +541,12 @@
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="CardsPage.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

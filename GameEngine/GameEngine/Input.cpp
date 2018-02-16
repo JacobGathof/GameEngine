@@ -37,15 +37,6 @@ void Input::processInput(float dt) {
 		Window::toggleFullscreen();
 	}
 
-	if (keys[GLFW_KEY_Y]) {
-		keys[GLFW_KEY_Y] = false;
-		UIManager::setMenuTab(MenuTabType::SETTINGS);
-	}
-
-	if (keys[GLFW_KEY_H]) {
-		keys[GLFW_KEY_H] = false;
-		UIManager::setMenuTab(MenuTabType::INVENTORY);
-	}
 }
 
 void Input::feedKey(int key, int state){

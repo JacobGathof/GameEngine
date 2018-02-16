@@ -44,12 +44,12 @@ Item * Inventory::get(int i, ItemType type)
 	return itemList.get(i);
 }
 
-List<Item *> Inventory::getAll(ItemType type)
+List<Item *>& Inventory::getAll(ItemType type)
 {
 	return items.at(type);
 }
 
-List<TextureType> Inventory::getAllTextures(ItemType type)
+List<TextureType>& Inventory::getAllTextures(ItemType type)
 {
 	List<TextureType> textures;
 	List<Item *> itemList = items.at(type);

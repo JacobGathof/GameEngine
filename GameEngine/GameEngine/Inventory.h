@@ -30,8 +30,8 @@ public:
 	void add(KeyItem * wep);
 	void add(Card * wep);
 	Item * get(int i, ItemType type);
-	List<Item *> getAll(ItemType type);
-	List<TextureType> getAllTextures(ItemType type);
+	List<Item *>& getAll(ItemType type);
+	List<TextureType>& getAllTextures(ItemType type);
 
 };
 
