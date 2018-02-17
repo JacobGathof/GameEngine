@@ -2,6 +2,7 @@
 #include "Window.h"
 
 bool Input::keys[512];
+int Input::mouseButtons[32];
 Vector2f Input::mousePtr;
 std::map<int, int> Input::keyBinds;
 PlayerAI * Input::ai;
@@ -37,6 +38,16 @@ void Input::processInput(float dt) {
 		Window::toggleFullscreen();
 	}
 
+
+	UIManager::hover(mousePtr);
+	if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == 1) {
+		UIManager::click(mousePtr);
+	}
+	if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == 2) {
+		mouseButtons[GLFW_MOUSE_BUTTON_LEFT] = 0;
+		UIManager::release(mousePtr);
+	}
+
 }
 
 void Input::feedKey(int key, int state){
@@ -66,12 +77,12 @@ void Input::init()
 void Input::feedMousePosition(Vector2f & pos)
 {
 	mousePtr = pos;
-	UIManager::hover(pos);
 }
 
 void Input::feedMouseEvent(int button, int action){
-	if (action == GLFW_PRESS) {
-		UIManager::click(mousePtr);
+	mouseButtons[button] = action;
+	if (action == GLFW_RELEASE) {
+		mouseButtons[button] = 2;
 	}
 }
 

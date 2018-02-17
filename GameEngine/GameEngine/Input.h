@@ -16,6 +16,8 @@ public:
 	static PlayerAI * ai;
 
 	static bool keys[512];
+	static int mouseButtons[32];
+
 	static Vector2f mousePtr;
 
 	static void processInput(float dt);

@@ -21,6 +21,7 @@ public:
 	static float getAspectRatio();
 	static void setMaximize(bool m);
 	static void toggleFullscreen();
+	static void setSize(int width, int height);
 
 
 	static int WINDOW_WIDTH;

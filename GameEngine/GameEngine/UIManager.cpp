@@ -39,12 +39,17 @@ void UIManager::update(float dt)
 
 void UIManager::hover(Vector2f & pos)
 {
-	//inventory->hover(pos);
+	menu->hover(pos);
 }
 
 void UIManager::click(Vector2f & pos)
 {
-	//inventory->click(pos);
+	menu->click(pos);
+}
+
+void UIManager::release(Vector2f & pos)
+{
+	menu->release(pos);
 }
 
 void UIManager::addText(std::string text)

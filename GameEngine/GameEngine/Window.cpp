@@ -143,3 +143,11 @@ void Window::toggleFullscreen()
 	}
 }
 
+void Window::setSize(int width, int height)
+{
+	if (!fullscreen) {
+		WINDOW_WIDTH = width;
+		WINDOW_HEIGHT = height;
+	}
+}
+

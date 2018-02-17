@@ -19,7 +19,5 @@ protected:
 	Vector2f * parentOffset;
 	Vector2f position;
 	Vector2f scale;
-
-	Vector2f baseOffset;
 };
 
