@@ -18,7 +18,6 @@ void Renderer::draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->draw();
 
-
 	buf = Res::get(FramebufferType::UI_BUFFER);
 	buf->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

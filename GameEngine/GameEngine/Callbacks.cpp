@@ -25,6 +25,9 @@ void Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 		glViewport(0, 0, width, height);
 		Screen::updateRes(width, height);
 		FramebufferManager::updateSizes(width, height);
+
+		Window::WINDOW_HEIGHT = height;
+		Window::WINDOW_WIDTH = width;
 	}
 }
 
