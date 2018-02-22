@@ -327,6 +327,12 @@
     <ClCompile Include="CardsPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonAction.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -546,6 +552,12 @@
       <Filter>Header Files\General</Filter>
     </ClInclude>
     <ClInclude Include="CardsPage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonAction.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

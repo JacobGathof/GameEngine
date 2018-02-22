@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Circle.cpp" />
@@ -97,6 +99,8 @@
   <ItemGroup>
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Circle.h" />
