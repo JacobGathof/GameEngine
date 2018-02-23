@@ -3,6 +3,7 @@
 #include "Button.h"
 #include "Slider.h"
 
+#define NUM_COMPS 3
 
 class SettingsPage : public AbstractUIComponent
 {
@@ -17,6 +18,6 @@ public:
 	virtual void release(Vector2f& pos);
 
 private:
-	AbstractUIComponent * comps[2];
+	AbstractUIComponent * comps[NUM_COMPS];
 };
 

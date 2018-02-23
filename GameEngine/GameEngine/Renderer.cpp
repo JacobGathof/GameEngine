@@ -36,6 +36,7 @@ void Renderer::draw()
 	sp->bind();
 	sp->loadInteger("ui", 0);
 	sp->loadFloat("ui_trans", GameState::sliderValue);
+	sp->loadFloat("ui_blue", GameState::ui_blue);
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
 	m->draw();
 

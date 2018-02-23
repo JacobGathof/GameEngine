@@ -1,5 +1,6 @@
 #pragma once
 #include "AbstractUIComponent.h"
+#include "Text.h"
 
 class Slider : public AbstractUIComponent
 {
@@ -13,6 +14,7 @@ public:
 	virtual void click(Vector2f& pos);
 	virtual void release(Vector2f& pos);
 private:
+	Text * text;
 
 	Color defaultColor[3] = { Color(0xffffffff), Color(0x0000ffff), Color(0xddddddff) };
 	Color hoverColor[3] = { Color(0x8888ffff), Color(0x0000ffff), Color(0xffffffff) };

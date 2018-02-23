@@ -8,7 +8,10 @@ Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 	position = p;
 	scale = s;
 	font = f;
-	color = Color(0x000000ff);
+	if (font == 0) {
+		font = Res::get(FontType::DEFAULT);
+	}
+	color = Color(0xffffffff);
 
 	model.init();
 	model.bind();
