@@ -14,12 +14,12 @@ Menu::~Menu()
 
 void Menu::draw()
 {
-	glBlendFunc(GL_ONE, GL_ZERO);
+
 	UIUtils::drawRectangle(Vector2f(200,300), Vector2f(400, 400), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(200, 300) + Vector2f(2,2), Vector2f(396, 396), Color(0x00000000));
 
 	settings->draw();
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 }
 
 void Menu::update(float dt)

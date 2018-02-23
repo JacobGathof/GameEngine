@@ -8,7 +8,7 @@ int Window::WINDOW_Y = 0;
 bool Window::initialized = false;
 bool Window::fullscreen = false;
 char* Window::WINDOW_TITLE = "";
-Color Window::clearColor = Color(0x00000000);
+Color Window::clearColor = Color(0x000000ff);
 
 
 void Window::init(char* title, int width, int height) {

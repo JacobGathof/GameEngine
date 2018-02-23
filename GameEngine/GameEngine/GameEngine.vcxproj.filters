@@ -333,6 +333,9 @@
     <ClCompile Include="ButtonAction.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -558,6 +561,9 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="ButtonAction.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

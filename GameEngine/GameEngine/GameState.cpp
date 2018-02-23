@@ -1,6 +1,7 @@
 #include "GameState.h"
 
 std::string GameState::globalDebug;
+float GameState::sliderValue;
 
 GameState::GameState()
 {

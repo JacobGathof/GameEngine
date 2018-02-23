@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "Button.h"
+#include "Slider.h"
 
 
 class SettingsPage : public AbstractUIComponent
@@ -16,7 +17,6 @@ public:
 	virtual void release(Vector2f& pos);
 
 private:
-	Button* button;
-
+	AbstractUIComponent * comps[2];
 };
 

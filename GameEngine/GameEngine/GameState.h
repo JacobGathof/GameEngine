@@ -9,6 +9,8 @@ public:
 	static std::string getGlobalDebug();
 	static void setGlobalDebug(std::string str);
 
+	static float sliderValue;
+
 private:
 	static std::string globalDebug;
 

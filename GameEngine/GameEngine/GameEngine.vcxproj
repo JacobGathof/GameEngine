@@ -55,6 +55,7 @@
     <ClCompile Include="RunAwayAI.cpp" />
     <ClCompile Include="SettingsPage.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="RunAwayAI.h" />
     <ClInclude Include="SettingsPage.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="TerrainMap.h" />
