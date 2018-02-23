@@ -27,17 +27,7 @@ void Menu::update(float dt)
 	settings->update(dt);
 }
 
-void Menu::hover(Vector2f & pos)
+void Menu::handleMouseEvents(Mouse & mouse)
 {
-	settings->hover(pos);
-}
-
-void Menu::click(Vector2f & pos)
-{
-	settings->click(pos);
-}
-
-void Menu::release(Vector2f & pos)
-{
-	settings->release(pos);
+	settings->handleMouseEvents(mouse);
 }

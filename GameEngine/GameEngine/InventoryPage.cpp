@@ -42,22 +42,8 @@ void InventoryPage::update(float dt)
 	
 }
 
-void InventoryPage::hover(Vector2f & pos)
+void InventoryPage::handleMouseEvents(Mouse & mouse)
 {
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			//grid[i][j].hover(pos);
-		}
-	}
-}
-
-void InventoryPage::click(Vector2f & pos)
-{
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			//grid[i][j].click(pos);
-		}
-	}
 }
 
 /*

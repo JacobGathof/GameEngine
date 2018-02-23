@@ -19,9 +19,7 @@ public:
 
 	void draw();
 	void update(float dt);
-	virtual void hover(Vector2f& pos);
-	virtual void click(Vector2f& pos);
-	virtual void release(Vector2f& pos);
+	virtual void handleMouseEvents(Mouse& mouse);
 
 private:
 	//AbstractUIComponent * activeComponent;

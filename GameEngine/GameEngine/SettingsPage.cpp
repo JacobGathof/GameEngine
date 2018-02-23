@@ -43,24 +43,9 @@ void SettingsPage::update(float dt)
 	}
 }
 
-void SettingsPage::hover(Vector2f & pos)
+void SettingsPage::handleMouseEvents(Mouse & mouse)
 {
 	for (int i = 0; i < NUM_COMPS; i++) {
-		comps[i]->hover(pos);
+		comps[i]->handleMouseEvents(mouse);
 	}
 }
-
-void SettingsPage::click(Vector2f & pos)
-{
-	for (int i = 0; i < NUM_COMPS; i++) {
-		comps[i]->click(pos);
-	}
-}
-
-void SettingsPage::release(Vector2f & pos)
-{
-	for (int i = 0; i < NUM_COMPS; i++) {
-		comps[i]->release(pos);
-	}
-}
-

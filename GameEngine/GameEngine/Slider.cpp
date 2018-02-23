@@ -32,26 +32,23 @@ void Slider::update(float dt)
 {
 }
 
-void Slider::hover(Vector2f & pos)
+void Slider::handleMouseEvents(Mouse & mouse)
 {
+	if (mouse.click() && mouse.pos().between(position, position + scale)) {
+		held = true;
+	}
+
 	if (held) {
-		ptr = min(1, max(0, (pos[0] - position[0])/scale[0]));
+		ptr = min(1, max(0, (mouse.pos()[0] - position[0]) / scale[0]));
 		if (inc != 0) {
 			ptr = ((int)(ptr * inc + .5f) / inc);
 		}
 		*ref = (maxX - minX)*ptr + minX;
-		text->setText(std::to_string(((int)(*ref * 100))/100.0f).substr(0,4));
+		text->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
 	}
-}
 
-void Slider::click(Vector2f & pos)
-{
-	if (pos.between(position, position + scale)) {
-		held = true;
+	if (mouse.release()) {
+		held = false;
 	}
-}
 
-void Slider::release(Vector2f & pos)
-{
-	held = false;
 }

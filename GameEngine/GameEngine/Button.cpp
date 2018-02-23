@@ -34,27 +34,18 @@ void Button::update(float dt)
 
 }
 
-void Button::hover(Vector2f & pos)
+void Button::handleMouseEvents(Mouse & mouse)
 {
-	if (pos.between(position, position + scale)) {
+	state = ButtonState::NONE;
+	if (mouse.pos().between(position, position + scale)) {
 		state = ButtonState::HOVER;
+		if(mouse.down()){
+			state = ButtonState::CLICK;
+		}
+		else if (mouse.release()) {
+			action->performAction();
+		}
 	}
-	else {
-		state = ButtonState::NONE;
-	}
-}
 
-void Button::click(Vector2f & pos)
-{
-	if (pos.between(position, position + scale)) {
-		state = ButtonState::CLICK;
-	}
-}
-
-void Button::release(Vector2f & pos)
-{
-	if (pos.between(position, position + scale)) {
-		action->performAction();
-	}
 }
 

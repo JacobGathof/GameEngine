@@ -37,19 +37,9 @@ void UIManager::update(float dt)
 	menu->update(dt);
 }
 
-void UIManager::hover(Vector2f & pos)
+void UIManager::handleMouseEvents(Mouse & mouse)
 {
-	menu->hover(pos);
-}
-
-void UIManager::click(Vector2f & pos)
-{
-	menu->click(pos);
-}
-
-void UIManager::release(Vector2f & pos)
-{
-	menu->release(pos);
+	menu->handleMouseEvents(mouse);
 }
 
 void UIManager::addText(std::string text)

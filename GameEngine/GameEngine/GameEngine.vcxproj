@@ -46,6 +46,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="OpenTextbox.cpp" />
     <ClCompile Include="OpenTextboxWithChoice.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="Renderer.h" />

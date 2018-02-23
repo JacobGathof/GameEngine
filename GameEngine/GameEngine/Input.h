@@ -4,6 +4,7 @@
 #include "List.h"
 #include "PlayerAI.h"
 #include "UIManager.h"
+#include "Mouse.h"
 
 class Input
 {
@@ -16,9 +17,8 @@ public:
 	static PlayerAI * ai;
 
 	static bool keys[512];
-	static int mouseButtons[32];
 
-	static Vector2f mousePtr;
+	static Mouse mouse;
 
 	static void processInput(float dt);
 	static void feedKey(int key, int state);

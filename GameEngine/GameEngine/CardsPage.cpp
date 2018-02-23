@@ -19,10 +19,7 @@ void CardsPage::update(float dt)
 {
 }
 
-void CardsPage::hover(Vector2f & pos)
+void CardsPage::handleMouseEvents(Mouse & mouse)
 {
 }
 
-void CardsPage::click(Vector2f & pos)
-{
-}

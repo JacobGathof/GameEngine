@@ -8,7 +8,7 @@ public:
 	~Statusbar();
 	virtual void draw();
 	virtual void update(float dt);
-	virtual void hover(Vector2f& pos);
+	virtual void handleMouseEvents(Mouse& mouse);
 
 private:
 

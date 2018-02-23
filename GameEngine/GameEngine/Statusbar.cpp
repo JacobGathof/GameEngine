@@ -33,12 +33,6 @@ void Statusbar::update(float dt)
 {
 }
 
-void Statusbar::hover(Vector2f & pos)
+void Statusbar::handleMouseEvents(Mouse & mouse)
 {
-	if (pos.between(Vector2f(600, 590 + 50), Vector2f(600, 590 + 50) + Vector2f(100, -100))) {
-		hoverColor = Color(0x000000ff);
-	}
-	else {
-		hoverColor = Color(0xffdddd88);
-	}
 }

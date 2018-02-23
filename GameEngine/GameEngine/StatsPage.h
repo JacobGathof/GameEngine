@@ -15,6 +15,7 @@ public:
 	void update(float dt);
 	void show();
 	void hide();
+	virtual void handleMouseEvents(Mouse& mouse);
 
 private:
 	Text* text;

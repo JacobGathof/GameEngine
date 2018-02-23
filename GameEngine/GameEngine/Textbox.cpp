@@ -56,6 +56,10 @@ void Textbox::addTextToQueue(std::string text){
 	textQueue.push(text);
 }
 
+void Textbox::handleMouseEvents(Mouse & mouse)
+{
+}
+
 void Textbox::prepareText(std::string& nextText)
 {
 	nextText.append("*@*");

@@ -48,3 +48,7 @@ void StatsPage::show(){
 void StatsPage::hide(){
 	timer.unpause();
 }
+
+void StatsPage::handleMouseEvents(Mouse & mouse)
+{
+}

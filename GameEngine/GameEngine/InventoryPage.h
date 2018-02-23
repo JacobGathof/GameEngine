@@ -49,8 +49,7 @@ public:
 	~InventoryPage();
 	virtual void draw();
 	virtual void update(float dt);
-	virtual void hover(Vector2f& pos);
-	virtual void click(Vector2f& pos);
+	virtual void handleMouseEvents(Mouse& mouse);
 
 private:
 	//InventoryCell grid[5][5];

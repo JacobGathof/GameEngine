@@ -13,6 +13,7 @@ public:
 	void draw();
 	void advanceText();
 	void addTextToQueue(std::string text);
+	virtual void handleMouseEvents(Mouse& mouse);
 
 private:
 	void prepareText(std::string& nextText);
