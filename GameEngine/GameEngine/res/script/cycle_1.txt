@@ -1,0 +1,14 @@
+Start{
+[
+	ScreenFade(black)
+	ScreenText(x,y,"Foreword: Our greatest weakness lies in giving up. The most certain way to succeed is ALWAYS to try just one more time. - Thomas Edison”)
+	Screen(Fade, black)
+
+	Text(???, None, "Alright children, settle down. It’s time for the story")
+	Text(???, None, "Storytime! Quit pushing! That’s my seat! Be quiet and sit down! Ssh! You ssh!")
+	Text(???, None, "This story is called “The Silver Knight")
+	Wait(condition)
+]
+
+Start <1,1>
+}

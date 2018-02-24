@@ -1,22 +1,9 @@
 #include "Node.h"
-#include "TextAction.h"
-#include "TextChoiceAction.h"
-#include "DebugAction.h"
+
 
 Node::Node()
 {
-	actions.add(new TextAction(std::string("Hello World")));
-	actions.add(new TextAction(std::string("Hello World1")));
-	actions.add(new TextAction(std::string("Hello World2")));
-	actions.add(new TextAction(std::string("Hello World3")));
-	actions.add(new TextAction(std::string("Hello World4")));
-	std::string choices[2] = { std::string("Hello World4") , std::string("Hello World4") };
-	actions.add(new TextChoiceAction(choices, 2));
-
-	actions.add(new DebugAction("Messages done"));
-	actions.add(new TextAction(std::string("Hello World End")));
-
-	conditions.add(new Edge(new Condition(1, 1), this));
+	
 }
 
 
@@ -75,4 +62,26 @@ void Node::resetNode()
 {
 	actionPtr = 0;
 	completedAllActions = false;
+}
+
+void Node::addAction(AbstractScriptAction * act)
+{
+	actions.add(act);
+}
+
+void Node::setActions(List<AbstractScriptAction*> act)
+{
+	actions.clear();
+	actions.addAll(act);
+}
+
+void Node::addEdge(Edge * edge)
+{
+	conditions.add(edge);
+}
+
+void Node::setEdges(List<Edge*> edges)
+{
+	conditions.clear();
+	conditions.addAll(edges);
 }

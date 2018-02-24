@@ -9,8 +9,11 @@ public:
 	~Graph();
 	void update(float dt);
 
-	Node* root;
 	Node* current;
 	std::vector<Node*> nodes;
+
+private:
+	void createGraph();
+
 };
 

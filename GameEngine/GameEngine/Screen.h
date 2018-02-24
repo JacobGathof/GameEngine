@@ -15,6 +15,9 @@ public:
 	static Vector2f fromScreenToUISpace(Vector2f pos);
 
 	static void follow(Vector2f playerPos);
+
+	static Color screenColor;
+	static float screenColorPercent;
 private:
 	static float width;
 	static float height;

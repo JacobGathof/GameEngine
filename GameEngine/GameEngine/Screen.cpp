@@ -7,6 +7,8 @@ float Screen::x_offset;
 float Screen::y_offset;
 Vector2f Screen::offset;
 ShaderType Screen::worldShaders[]{ ShaderType::BASIC_SHADER, ShaderType::TERRAIN_SHADER};
+Color Screen::screenColor;
+float Screen::screenColorPercent;
 
 Screen::Screen()
 {

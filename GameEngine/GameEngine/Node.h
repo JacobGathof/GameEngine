@@ -13,6 +13,12 @@ public:
 	Node* getNextNode();
 	void resetNode();
 
+	void addAction(AbstractScriptAction* act);
+	void setActions(List<AbstractScriptAction*> act);
+
+	void addEdge(Edge* edge);
+	void setEdges(List<Edge*> edges);
+
 private:
 	List<AbstractScriptAction*> actions;
 	List<Edge*> conditions;

@@ -369,6 +369,12 @@
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
+    <ClCompile Include="WaitAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFadeAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -630,6 +636,12 @@
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Edge.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitAction.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFadeAction.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
   </ItemGroup>

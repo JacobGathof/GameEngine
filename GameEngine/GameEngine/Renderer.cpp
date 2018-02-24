@@ -13,7 +13,7 @@ Renderer::~Renderer()
 
 void Renderer::draw()
 {
-	Framebuffer* buf = Res::get(FramebufferType::DEFAULT);
+	Framebuffer* buf = Res::get(FramebufferType::WORLD_BUFFER);
 	buf->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->draw();
@@ -35,9 +35,16 @@ void Renderer::draw()
 	m->bind();
 	sp->bind();
 	sp->loadInteger("ui", 0);
+	sp->loadInteger("world", 1);
+
 	sp->loadFloat("ui_trans", GameState::sliderValue);
 	sp->loadFloat("ui_blue", GameState::ui_blue);
+
+	sp->loadColor("screen_color", Screen::screenColor);
+	sp->loadFloat("screen_color_percent", Screen::screenColorPercent);
+
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
+	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);
 	m->draw();
 
 
