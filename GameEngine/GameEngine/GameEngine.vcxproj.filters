@@ -109,6 +109,12 @@
     <Filter Include="Header Files\Scripting">
       <UniqueIdentifier>{91ab0d82-be77-47e5-913e-c71f98e90892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scripting\Actions">
+      <UniqueIdentifier>{f7d69086-c4e0-42c6-9fd3-d08be5be8f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripting\Actions">
+      <UniqueIdentifier>{30ab5505-825a-4923-98a9-e2936cc7abbf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -351,29 +357,32 @@
     <ClCompile Include="Node.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
-    <ClCompile Include="AbstractScriptAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
-    </ClCompile>
-    <ClCompile Include="TextAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
-    </ClCompile>
-    <ClCompile Include="TextChoiceAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
-    </ClCompile>
     <ClCompile Include="Condition.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
-    <ClCompile Include="WaitAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
+    <ClCompile Include="AbstractScriptAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="ScreenFadeAction.cpp">
-      <Filter>Source Files\Scripting</Filter>
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="SetAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="TextChoiceAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -620,29 +629,32 @@
     <ClInclude Include="OpenTextboxWithChoice.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractScriptAction.h">
-      <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
-    <ClInclude Include="TextAction.h">
-      <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
-    <ClInclude Include="TextChoiceAction.h">
-      <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugAction.h">
-      <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
     <ClInclude Include="Condition.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Edge.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
-    <ClInclude Include="WaitAction.h">
-      <Filter>Header Files\Scripting</Filter>
+    <ClInclude Include="AbstractScriptAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFadeAction.h">
-      <Filter>Header Files\Scripting</Filter>
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SetAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="TextChoiceAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
