@@ -1,6 +1,7 @@
 #include "Application.h"
 #include <time.h>
 #include "Renderer.h"
+#include "Graph.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -52,6 +53,8 @@ void Application::run()
 	sys.endColor = Color::DarkPurple;
 
 	Circle circ(Vector2f(0,0), 256.0f);
+
+	Graph graph;
 	
 	float dt;
 	Window::show();
@@ -67,7 +70,8 @@ void Application::run()
 
 		Input::processInput(dt);
 		UIManager::update(dt);
-		
+		graph.update(dt);
+
 
 		world->update(dt);
 		//world->draw();

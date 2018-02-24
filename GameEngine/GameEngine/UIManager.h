@@ -16,7 +16,10 @@ public:
 	static void clean();
 	static void update(float dt);
 	static void handleMouseEvents(Mouse& mouse);
-	static void addText(std::string text);
+	static void addText(std::string& text);
+	static void addChoice(std::string* t, int length);
+
+	static bool isTextboxEmpty();
 
 private:
 	static Textbox * textbox;

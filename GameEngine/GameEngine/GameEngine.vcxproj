@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractScriptAction.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -26,14 +27,18 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Condition.cpp" />
+    <ClCompile Include="DebugAction.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
+    <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FollowAi.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GoToPointAI.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryPage.cpp" />
@@ -47,6 +52,7 @@
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="OpenTextbox.cpp" />
     <ClCompile Include="OpenTextboxWithChoice.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -60,6 +66,8 @@
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
+    <ClCompile Include="TextAction.cpp" />
+    <ClCompile Include="TextChoiceAction.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Effect.cpp" />
@@ -99,6 +107,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractScriptAction.h" />
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Button.h" />
@@ -106,14 +115,18 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Condition.h" />
+    <ClInclude Include="DebugAction.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="FollowAi.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GoToPointAI.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryPage.h" />
@@ -128,6 +141,9 @@
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="OpenTextbox.h" />
+    <ClInclude Include="OpenTextboxWithChoice.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="Renderer.h" />
@@ -139,6 +155,8 @@
     <ClInclude Include="Square.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="TerrainMap.h" />
+    <ClInclude Include="TextAction.h" />
+    <ClInclude Include="TextChoiceAction.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Effect.h" />

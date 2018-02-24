@@ -40,9 +40,20 @@ void UIManager::update(float dt)
 void UIManager::handleMouseEvents(Mouse & mouse)
 {
 	menu->handleMouseEvents(mouse);
+	textbox->handleMouseEvents(mouse);
 }
 
-void UIManager::addText(std::string text)
+void UIManager::addText(std::string& text)
 {
 	textbox->addTextToQueue(text);
+}
+
+void UIManager::addChoice(std::string * t, int length)
+{
+	textbox->addChoiceToQueue(t, length);
+}
+
+bool UIManager::isTextboxEmpty()
+{
+	return textbox->isEmpty();
 }

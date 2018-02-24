@@ -16,6 +16,10 @@ Textbox::~Textbox()
 
 void Textbox::draw(){
 	
+	if (!visible) {
+		return;
+	}
+
 	UIUtils::drawRectangle(Vector2f(10, 10), Vector2f(780, 200), Color(0xffaaaaff));
 	UIUtils::drawRectangle(Vector2f(12, 12), Vector2f(776, 196), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(14, 14), Vector2f(772, 192), Color(0x000000ff));
@@ -45,6 +49,9 @@ void Textbox::draw(){
 
 void Textbox::advanceText()
 {
+	if (!visible) {
+		show();
+	}
 	std::string newText = textQueue.front();
 	textQueue.pop();
 	prepareText(newText);
@@ -52,15 +59,54 @@ void Textbox::advanceText()
 	text->setText(newText);
 }
 
-void Textbox::addTextToQueue(std::string text){
+void Textbox::addTextToQueue(std::string& text){
 	textQueue.push(text);
+	if (!visible) {
+		advanceText();
+	}
+}
+
+void Textbox::addChoiceToQueue(std::string * text, int length)
+{
+	textQueue.push(std::string("Choice Stand-in"));
+	if (!visible) {
+		advanceText();
+	}
 }
 
 void Textbox::handleMouseEvents(Mouse & mouse)
 {
+	if (mouse.click() && visible) {
+		if (hasNext()) {
+			advanceText();
+		}
+		else {
+			hide();
+		}
+	}
+}
+
+void Textbox::show()
+{
+	visible = true;
+}
+
+void Textbox::hide()
+{
+	visible = false;
+}
+
+bool Textbox::isEmpty()
+{
+	return !visible;
+}
+
+bool Textbox::hasNext()
+{
+	return !textQueue.empty();
 }
 
 void Textbox::prepareText(std::string& nextText)
 {
-	nextText.append("*@*");
+	
 }

@@ -9,6 +9,6 @@ uniform vec4 text_color;
 void main(){
 
 	vec4 color = texture(image, uv);
-	gl_FragColor = color*vec4(col,1*text_color.a)+vec4(text_color.xyz, 0);
+	gl_FragColor = color*vec4(col,text_color.a)+vec4(text_color.xyz, 0);
 
 }

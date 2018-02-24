@@ -103,6 +103,12 @@
     <Filter Include="Header Files\Items">
       <UniqueIdentifier>{48e1fc37-273e-493e-a375-e0ef93273043}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scripting">
+      <UniqueIdentifier>{5d39e914-61fe-45b9-983b-4098ed08b2c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripting">
+      <UniqueIdentifier>{91ab0d82-be77-47e5-913e-c71f98e90892}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -339,6 +345,30 @@
     <ClCompile Include="Mouse.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractScriptAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="TextChoiceAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugAction.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Condition.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -571,6 +601,36 @@
     </ClInclude>
     <ClInclude Include="Mouse.h">
       <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenTextbox.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenTextboxWithChoice.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractScriptAction.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAction.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="TextChoiceAction.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugAction.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Condition.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\Scripting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

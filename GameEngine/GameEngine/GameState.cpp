@@ -4,6 +4,8 @@ std::string GameState::globalDebug;
 float GameState::sliderValue;
 float GameState::ui_blue;
 
+int GameState::choicePointer;
+
 GameState::GameState()
 {
 }
