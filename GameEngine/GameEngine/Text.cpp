@@ -41,7 +41,8 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	float posScale = 1.0f / maxHeight;
 
 	float centerDist = 0;
-	Color def(0x000000);
+	Color def(0x000000ff);
+	totalWidth = 0;
 
 	int len = string.length();
 	for (int i = 0; i < len; i++) {
@@ -70,7 +71,9 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 
 		xPointer += 1.0f*(ch->xadvance);
 
+		totalWidth += ch->xadvance;
 	}
+	totalWidth = scale[0]*xPointer*posScale;
 }
 
 void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer){
@@ -183,6 +186,8 @@ void Text::resetLength()
 
 void Text::draw()
 {
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	ShaderProgram * sh = ShaderManager::get(ShaderType::TEXT_SHADER);
 	sh->bind();
 	font->bind();
@@ -190,8 +195,9 @@ void Text::draw()
 	sh->loadVector2f("text_translate", Screen::toScreenCoordsUI(position));
 	sh->loadVector2f("text_scale", Screen::toScreenCoordsUI(scale));
 	sh->loadColor("text_color", color);
-
 	glDrawArrays(GL_TRIANGLES, 0, displayableLength*6);
+
+	glBlendFunc(GL_ONE, GL_ZERO);
 }
 
 void Text::setColor(Color & col){
@@ -210,6 +216,11 @@ void Text::setScale(Vector2f & v)
 
 void Text::reloadData()
 {
+}
+
+void Text::center()
+{
+	position -= Vector2f(totalWidth/2,scale[1]/2);
 }
 
 

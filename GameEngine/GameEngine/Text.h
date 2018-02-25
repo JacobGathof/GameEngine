@@ -24,6 +24,7 @@ public:
 	void setPosition(Vector2f& v);
 	void setScale(Vector2f& v);
 	void reloadData();
+	void center();
 
 private:
 	unsigned int vao;
@@ -39,6 +40,7 @@ private:
 	std::string data;
 	int length;
 	int displayableLength;
+	float totalWidth;
 
 	void writeCharacterData(std::string& string, float * pos, float* tex, float * col);
 	void writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer);

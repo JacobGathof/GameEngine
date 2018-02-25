@@ -7,7 +7,9 @@ Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, ButtonAction * a
 {
 	position = pos;
 	scale = sc;
-	text = new Text(position, txt, Vector2f(50,50), Res::get(FontType::DEFAULT));
+	text = new Text(position+scale/2, txt, Vector2f(25,25), Res::get(FontType::DEFAULT));
+	text->center();
+	text->setColor(Color::Black);
 	action = act;
 
 }
@@ -27,6 +29,7 @@ void Button::draw()
 	}
 
 	UIUtils::drawRectangleIcon(position, scale, currentColor, 1.0f);
+	text->draw();
 }
 
 void Button::update(float dt)
