@@ -9,7 +9,7 @@ out float li;
 
 
 void main(){
-	gl_PointSize = 2.0f;
+	gl_PointSize = 4.0f;
 	col = color;
 	li = life;
 	gl_Position = vec4(position,0,1);

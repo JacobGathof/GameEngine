@@ -1,5 +1,5 @@
 #include "TextUtils.h"
-
+#include "Text.h"
 
 
 TextUtils::TextUtils()
@@ -12,18 +12,19 @@ TextUtils::~TextUtils()
 }
 
 
-std::string TextUtils::processString(std::string & txt, Font* font)
+std::string TextUtils::processString(std::string & txt, Font* font, Vector2f& scale, float maxWidth)
 {
 	float length = 0;
-	float maxLength = 4.0f;
+	float maxLength = maxWidth;
 	std::string newString;
+	newString.resize(txt.size());
 	for (int i = 0; i < txt.length(); i++) {
 		if (txt[i] == '\n' || txt[i] == ' '){
-			newString += ' ';
+			newString[i] = ' ';
 		} else {
-			newString += txt[i];
+			newString[i] = txt[i];
 		}
-		length += font->getCharacter(txt[i])->xadvance;
+		length += Text::POS_SCALE * scale[0] * font->getCharacter(txt[i])->xadvance;
 
 		if (length >= maxLength) {
 			length = 0;
@@ -33,12 +34,13 @@ std::string TextUtils::processString(std::string & txt, Font* font)
 	return newString;
 }
 
-void TextUtils::backtrack(int i, std::string & txt, std::string & newString)
+void TextUtils::backtrack(int& i, std::string & txt, std::string & newString)
 {
 	for (int j = 0; j < i; j++) {
 		char c = txt[i - j];
 		if (c == ' ') {
-			newString.insert(newString.length() - j, "\n");
+			newString[i - j] = '\n';
+			i = i - j;
 			return;
 		}
 	}

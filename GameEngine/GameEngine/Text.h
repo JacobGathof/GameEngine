@@ -26,6 +26,13 @@ public:
 	void reloadData();
 	void center();
 
+	bool isDisplayingFullLength();
+	void displayFullLength();
+	Vector2f& getScale();
+
+
+	static float POS_SCALE;
+
 private:
 	unsigned int vao;
 	unsigned int vbo_pos;

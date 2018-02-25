@@ -2,6 +2,7 @@
 
 #include "Window.h"
 
+float Text::POS_SCALE = 512.0f / 97.0f;
 
 Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 {
@@ -29,7 +30,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	if (font == 0) 
 		return;
 
-	float maxHeight = 97.0f/512;
+	float maxHeight = 1.0f / POS_SCALE;
 
 	float xPointer = 0;
 	float yPointer = maxHeight;
@@ -38,7 +39,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	int texPointer = 0;
 	int colorPointer = 0;
 
-	float posScale = 1.0f / maxHeight;
+	float posScale = POS_SCALE;
 
 	float centerDist = 0;
 	Color def(0x000000ff);
@@ -50,7 +51,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 
 		if (c == '\n') {
 			xPointer = 0;
-			yPointer -= 1.25f * maxHeight;
+			yPointer -= 1.20f * maxHeight;
 			length--;
 			continue;
 		}
@@ -221,6 +222,21 @@ void Text::reloadData()
 void Text::center()
 {
 	position -= Vector2f(totalWidth/2,scale[1]/2);
+}
+
+bool Text::isDisplayingFullLength()
+{
+	return displayableLength >= length;
+}
+
+void Text::displayFullLength()
+{
+	displayableLength = length;
+}
+
+Vector2f & Text::getScale()
+{
+	return scale;
 }
 
 

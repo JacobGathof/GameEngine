@@ -35,7 +35,7 @@ void Graph::createGraph()
 	nodes.push_back(new Node());
 
 	nodes[0]->addAction(new TextAction(std::string("Hello World")));
-	nodes[0]->addAction(new TextAction(std::string("Hello World1")));
+	nodes[0]->addAction(new TextAction(std::string("Reach the city steps tonight. Following the power lines. Met a man barside, with elipses for eyes. The quick brown fox jumped over the lazy dog. I bless the rains down in Aaaaafrica")));
 	std::string choices[2] = { std::string("Hello World4") , std::string("Hello World4") };
 	nodes[0]->addAction(new TextChoiceAction(choices, 2));
 	nodes[0]->addAction(new WaitAction(1.0f));

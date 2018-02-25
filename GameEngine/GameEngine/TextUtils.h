@@ -8,7 +8,7 @@ public:
 	TextUtils();
 	~TextUtils();
 
-	static std::string processString(std::string & txt, Font* font);
-	static void backtrack(int i, std::string & txt, std::string& newString);
+	static std::string processString(std::string & txt, Font* font, Vector2f& scale, float maxWidth);
+	static void backtrack(int& i, std::string & txt, std::string& newString);
 };
 

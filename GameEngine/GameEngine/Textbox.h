@@ -3,6 +3,7 @@
 #include "Screen.h"
 #include <queue>
 #include "AbstractUIComponent.h"
+#include "Timer.h"
 
 class Textbox : public AbstractUIComponent
 {
@@ -11,6 +12,7 @@ public:
 	~Textbox();
 
 	void draw();
+	void update(float dt);
 	void advanceText();
 	void addTextToQueue(std::string& text);
 	void addChoiceToQueue(std::string* text, int length);
@@ -28,8 +30,11 @@ private:
 
 	std::queue<std::string> textQueue;
 	Text* text;
+	Timer timer;
 
 	bool visible = true;
+	Vector2f textScale;
+	Vector2f textStartPos;
 
 };
 

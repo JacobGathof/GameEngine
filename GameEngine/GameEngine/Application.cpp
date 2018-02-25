@@ -45,12 +45,11 @@ void Application::run()
 
 	DefaultParticleSystem sys;
 	sys.parentPosition = &melody.pos;
+	sys.startColor = Color::DarkBlue;
+	sys.endColor = Color::DarkPurple;
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
-
-	sys.startColor = Color::DarkBlue;
-	sys.endColor = Color::DarkPurple;
 
 	Circle circ(Vector2f(0,0), 256.0f);
 
@@ -74,9 +73,8 @@ void Application::run()
 
 
 		world->update(dt);
-		//world->draw();
 
-		sys.update(dt);
+		//sys.update(dt);
 		//sys.draw();
 
 

@@ -384,6 +384,9 @@
     <ClCompile Include="WaitAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Banner.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -655,6 +658,9 @@
     </ClInclude>
     <ClInclude Include="WaitAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Banner.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

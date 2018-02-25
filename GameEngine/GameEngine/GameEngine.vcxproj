@@ -22,6 +22,7 @@
     <ClCompile Include="AbstractScriptAction.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="Banner.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="AbstractScriptAction.h" />
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="Banner.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />

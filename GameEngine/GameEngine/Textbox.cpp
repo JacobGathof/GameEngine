@@ -4,8 +4,11 @@
 
 Textbox::Textbox()
 {
-	text = new Text(Vector2f(16, 210), std::string("-----"), Vector2f(50,50), FontManager::get(FontType::DEFAULT));
+	textScale = Vector2f(30, 30);
+	textStartPos = Vector2f(24, 160);
+	text = new Text(textStartPos, std::string("-----"), textScale, FontManager::get(FontType::DEFAULT));
 	text->setColor(Color(0xffffffff));
+	timer.setTickLength(0.05f);
 }
 
 
@@ -47,6 +50,14 @@ void Textbox::draw(){
 
 }
 
+void Textbox::update(float dt)
+{
+	timer.update(dt);
+	if (timer.tick()) {
+		text->addLetter();
+	}
+}
+
 void Textbox::advanceText()
 {
 	if (!visible) {
@@ -57,6 +68,7 @@ void Textbox::advanceText()
 	prepareText(newText);
 
 	text->setText(newText);
+	text->resetLength();
 }
 
 void Textbox::addTextToQueue(std::string& text){
@@ -77,11 +89,16 @@ void Textbox::addChoiceToQueue(std::string * text, int length)
 void Textbox::handleMouseEvents(Mouse & mouse)
 {
 	if (mouse.click() && visible) {
-		if (hasNext()) {
-			advanceText();
+		if (text->isDisplayingFullLength()) {
+			if (hasNext()) {
+				advanceText();
+			}
+			else {
+				hide();
+			}
 		}
 		else {
-			hide();
+			text->displayFullLength();
 		}
 	}
 }
@@ -108,5 +125,5 @@ bool Textbox::hasNext()
 
 void Textbox::prepareText(std::string& nextText)
 {
-	
+	nextText = TextUtils::processString(nextText, Res::get(FontType::DEFAULT), textScale, 738.0f);
 }
