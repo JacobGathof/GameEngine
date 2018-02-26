@@ -4,6 +4,7 @@
 #include "FontManager.h"
 #include "ShaderManager.h"
 #include "FramebufferManager.h"
+#include "MusicManager.h"
 
 class ResourceManager
 {
@@ -16,6 +17,7 @@ public:
 	static Font* get(FontType type);
 	static Texture* get(TextureType type);
 	static Framebuffer* get(FramebufferType type);
+	static AudioEntity* get(MusicType type);
 };
 
 typedef ResourceManager Res;

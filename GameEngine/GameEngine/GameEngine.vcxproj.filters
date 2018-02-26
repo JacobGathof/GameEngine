@@ -115,6 +115,12 @@
     <Filter Include="Source Files\Scripting\Actions">
       <UniqueIdentifier>{30ab5505-825a-4923-98a9-e2936cc7abbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{a52b2bd2-6927-4355-bf32-ea81c7d20f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{88a5c978-138e-4e58-aa8e-de25c85eb41f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -386,6 +392,21 @@
     </ClCompile>
     <ClCompile Include="Banner.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioLoader.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEntity.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayMusicAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseMusicAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -661,6 +682,21 @@
     </ClInclude>
     <ClInclude Include="Banner.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioLoader.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEntity.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayMusicAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMusicAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

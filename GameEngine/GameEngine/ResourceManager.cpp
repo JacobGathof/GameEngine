@@ -7,6 +7,7 @@ void ResourceManager::init()
 	TextureManager::init();
 	ModelManager::init();
 	FramebufferManager::init();
+	MusicManager::init();
 }
 
 void ResourceManager::clean()
@@ -16,6 +17,7 @@ void ResourceManager::clean()
 	TextureManager::clean();
 	ModelManager::clean();
 	FramebufferManager::clean();
+	MusicManager::clean();
 }
 
 ShaderProgram* ResourceManager::get(ShaderType type){
@@ -36,4 +38,8 @@ Texture* ResourceManager::get(TextureType type){
 
 Framebuffer * ResourceManager::get(FramebufferType type){
 	return FramebufferManager::get(type);
+}
+
+AudioEntity * ResourceManager::get(MusicType type){
+	return MusicManager::get(type);
 }

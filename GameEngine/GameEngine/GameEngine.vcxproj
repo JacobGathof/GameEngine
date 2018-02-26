@@ -22,6 +22,8 @@
     <ClCompile Include="AbstractScriptAction.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="AudioEntity.cpp" />
+    <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="Banner.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
@@ -53,11 +55,14 @@
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="OpenTextbox.cpp" />
     <ClCompile Include="OpenTextboxWithChoice.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="PauseMusicAction.cpp" />
+    <ClCompile Include="PlayMusicAction.cpp" />
     <ClCompile Include="RainParticleSystem.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RunAwayAI.cpp" />
@@ -114,6 +119,8 @@
     <ClInclude Include="AbstractScriptAction.h" />
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="AudioEntity.h" />
+    <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="Banner.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
@@ -146,10 +153,13 @@
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MusicManager.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="OpenTextbox.h" />
     <ClInclude Include="OpenTextboxWithChoice.h" />
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="PauseMusicAction.h" />
+    <ClInclude Include="PlayMusicAction.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
@@ -265,11 +275,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)opengl\GLFW\include\GLFW;$(ProjectDir)opengl\GL3W</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)opengl\GLFW\include\GLFW;$(ProjectDir)opengl\GL3W;$(ProjectDir)openal\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)opengl\GLFW\lib-vc2013</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)openal\libs\Win32;$(ProjectDir)opengl\GLFW\lib-vc2013</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;OpenAL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <SubSystem>
       </SubSystem>
