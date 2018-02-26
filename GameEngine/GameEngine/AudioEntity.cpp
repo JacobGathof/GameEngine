@@ -16,6 +16,10 @@ AudioEntity::AudioEntity(unsigned char * data, unsigned int size, unsigned int f
 		std::cout << "Error loading entity" << std::endl;
 	}
 
+	alSourcef(source, AL_MIN_GAIN, 0.01f);
+	alSourcef(source, AL_MAX_GAIN, 1.0f);
+	alSourcef(source, AL_REFERENCE_DISTANCE, 2.0f);
+
 	state = 0;
 }
 
@@ -60,6 +64,7 @@ void AudioEntity::setDirection(float x, float y, float z)
 
 void AudioEntity::setPosition(float x, float y, float z)
 {
+	alSource3f(source, AL_POSITION, x, y, z);
 }
 
 void AudioEntity::setPitch(float pi)

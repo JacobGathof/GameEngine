@@ -32,7 +32,7 @@ void Window::init(char* title, int width, int height) {
 
 	initOpenGL();
 
-	glfwShowWindow(window);
+	//glfwShowWindow(window);
 
 	centerCursor();
 	initialized = true;

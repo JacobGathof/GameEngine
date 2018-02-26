@@ -408,6 +408,9 @@
     <ClCompile Include="PauseMusicAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="AudioSystem.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -697,6 +700,9 @@
     </ClInclude>
     <ClInclude Include="PauseMusicAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSystem.h">
+      <Filter>Header Files\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

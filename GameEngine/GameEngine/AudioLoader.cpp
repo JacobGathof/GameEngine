@@ -1,17 +1,6 @@
 #include "AudioLoader.h"
 #include <iostream>
 
-ALCdevice* AudioLoader::device;
-ALCcontext* AudioLoader::context;
-
-AudioLoader::AudioLoader()
-{
-}
-
-
-AudioLoader::~AudioLoader()
-{
-}
 
 AudioEntity* AudioLoader::loadWavFile(char * f)
 {
@@ -79,21 +68,3 @@ AudioEntity* AudioLoader::loadWavFile(char * f)
 	return entity;
 }
 
-void AudioLoader::init()
-{
-	device = alcOpenDevice(0);
-	if (!device)
-		std::cout << "No device";
-	context = alcCreateContext(device, 0);
-	if (!context)
-		std::cout << "No context";
-
-	alcMakeContextCurrent(context);
-}
-
-void AudioLoader::clean()
-{
-	alcMakeContextCurrent(0);
-	alcDestroyContext(context);
-	alcCloseDevice(device);
-}

@@ -5,13 +5,11 @@ std::map<MusicType, AudioEntity*> MusicManager::audios;
 
 void MusicManager::init()
 {
-	AudioLoader::init();
-	//addAudio(MusicType::SONG_FMAB_AGAIN, "res/audio/again_fmab.wav");
+	//addAudio(MusicType::SONG_FMAB_AGAIN, "res/audio/again_fmab_mono.wav");
 }
 
 void MusicManager::clean()
 {
-	AudioLoader::clean();
 	for (auto pair : audios) {
 		delete pair.second;
 	}
