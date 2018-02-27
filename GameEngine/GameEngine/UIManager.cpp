@@ -43,6 +43,12 @@ void UIManager::handleMouseEvents(Mouse & mouse)
 	textbox->handleMouseEvents(mouse);
 }
 
+void UIManager::handleKeyboardEvents(Keyboard & keyboard)
+{
+	menu->handleKeyEvents(keyboard);
+	textbox->handleKeyEvents(keyboard);
+}
+
 void UIManager::addText(std::string& text)
 {
 	textbox->addTextToQueue(text);
@@ -51,6 +57,11 @@ void UIManager::addText(std::string& text)
 void UIManager::addChoice(std::string * t, int length)
 {
 	textbox->addChoiceToQueue(t, length);
+}
+
+void UIManager::toggleMenu()
+{
+	menu->toggle();
 }
 
 bool UIManager::isTextboxEmpty()

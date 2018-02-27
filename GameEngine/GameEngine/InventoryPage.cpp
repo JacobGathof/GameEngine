@@ -46,6 +46,10 @@ void InventoryPage::handleMouseEvents(Mouse & mouse)
 {
 }
 
+void InventoryPage::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
 /*
 InventoryCell::InventoryCell(Vector2f & pos, Vector2f & sc, TextureType t)
 {

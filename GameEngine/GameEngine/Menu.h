@@ -20,11 +20,14 @@ public:
 	void draw();
 	void update(float dt);
 	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
+	void toggle();
 
 private:
 	//AbstractUIComponent * activeComponent;
 	InventoryPage * inventory;
 	SettingsPage * settings;
+	bool visible = false;
 
 	//CardsPage*
 	//Armor

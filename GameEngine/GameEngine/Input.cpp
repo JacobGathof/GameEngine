@@ -26,7 +26,12 @@ void Input::processInput(float dt) {
 		Window::toggleFullscreen();
 	}
 
+	if (keyboard.press(GLFW_KEY_T)) {
+		UIManager::toggleMenu();
+	}
+
 	UIManager::handleMouseEvents(mouse);
+	UIManager::handleKeyboardEvents(keyboard);
 
 	ai->receiveInput(keyboard);
 

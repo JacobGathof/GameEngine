@@ -18,6 +18,7 @@ public:
 	void addChoiceToQueue(std::string* text, int length);
 
 	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
 
 	void show();
 	void hide();

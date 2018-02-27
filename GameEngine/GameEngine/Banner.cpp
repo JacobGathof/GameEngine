@@ -29,6 +29,10 @@ void Banner::handleMouseEvents(Mouse & mouse)
 {
 }
 
+void Banner::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
 void Banner::setText(std::string str)
 {
 }

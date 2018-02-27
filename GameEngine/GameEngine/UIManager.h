@@ -16,9 +16,11 @@ public:
 	static void clean();
 	static void update(float dt);
 	static void handleMouseEvents(Mouse& mouse);
+	static void handleKeyboardEvents(Keyboard& keyboard);
+
 	static void addText(std::string& text);
 	static void addChoice(std::string* t, int length);
-
+	static void toggleMenu();
 	static bool isTextboxEmpty();
 
 private:

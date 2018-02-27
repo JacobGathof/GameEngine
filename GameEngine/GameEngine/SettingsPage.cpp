@@ -49,3 +49,7 @@ void SettingsPage::handleMouseEvents(Mouse & mouse)
 		comps[i]->handleMouseEvents(mouse);
 	}
 }
+
+void SettingsPage::handleKeyEvents(Keyboard & keyboard)
+{
+}

@@ -16,6 +16,7 @@ public:
 	void show();
 	void hide();
 	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
 
 private:
 	Text* text;

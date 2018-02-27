@@ -52,3 +52,7 @@ void Button::handleMouseEvents(Mouse & mouse)
 
 }
 
+void Button::handleKeyEvents(Keyboard & keyboard)
+{
+}
+

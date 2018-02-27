@@ -56,3 +56,7 @@ void Slider::handleMouseEvents(Mouse & mouse)
 	}
 
 }
+
+void Slider::handleKeyEvents(Keyboard & keyboard)
+{
+}

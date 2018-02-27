@@ -23,3 +23,7 @@ void CardsPage::handleMouseEvents(Mouse & mouse)
 {
 }
 
+void CardsPage::handleKeyEvents(Keyboard & keyboard)
+{
+}
+

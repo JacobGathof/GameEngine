@@ -1,6 +1,7 @@
 #pragma once
 #include "UIUtils.h"
 #include "Mouse.h"
+#include "Keyboard.h"
 
 class AbstractUIComponent
 {
@@ -9,6 +10,7 @@ public:
 	~AbstractUIComponent();
 
 	virtual void handleMouseEvents(Mouse& mouse) = 0;
+	virtual void handleKeyEvents(Keyboard& keyboard) = 0;
 	virtual void update(float dt);
 	virtual void draw() = 0;
 	void setParentPosition(Vector2f* pos);

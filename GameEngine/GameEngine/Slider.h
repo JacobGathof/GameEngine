@@ -11,6 +11,7 @@ public:
 	virtual void draw();
 	virtual void update(float dt);
 	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
 private:
 	Text * data;
 	Text * title;

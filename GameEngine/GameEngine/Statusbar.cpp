@@ -36,3 +36,7 @@ void Statusbar::update(float dt)
 void Statusbar::handleMouseEvents(Mouse & mouse)
 {
 }
+
+void Statusbar::handleKeyEvents(Keyboard & keyboard)
+{
+}

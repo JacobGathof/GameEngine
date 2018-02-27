@@ -103,6 +103,10 @@ void Textbox::handleMouseEvents(Mouse & mouse)
 	}
 }
 
+void Textbox::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
 void Textbox::show()
 {
 	visible = true;

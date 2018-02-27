@@ -14,6 +14,8 @@ Menu::~Menu()
 
 void Menu::draw()
 {
+	if (!visible)
+		return;
 
 	UIUtils::drawRectangle(Vector2f(200,300), Vector2f(400, 400), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(200, 300) + Vector2f(2,2), Vector2f(396, 396), Color(0x00000000));
@@ -24,10 +26,29 @@ void Menu::draw()
 
 void Menu::update(float dt)
 {
+	if (!visible)
+		return;
+
 	settings->update(dt);
 }
 
 void Menu::handleMouseEvents(Mouse & mouse)
 {
+	if (!visible)
+		return;
+
 	settings->handleMouseEvents(mouse);
+}
+
+void Menu::handleKeyEvents(Keyboard & keyboard)
+{
+	if (!visible)
+		return;
+
+	settings->handleKeyEvents(keyboard);
+}
+
+void Menu::toggle()
+{
+	visible = !visible;
 }

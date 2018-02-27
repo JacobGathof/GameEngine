@@ -52,3 +52,7 @@ void StatsPage::hide(){
 void StatsPage::handleMouseEvents(Mouse & mouse)
 {
 }
+
+void StatsPage::handleKeyEvents(Keyboard & keyboard)
+{
+}
