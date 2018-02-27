@@ -88,7 +88,11 @@ void Textbox::addChoiceToQueue(std::string * text, int length)
 
 void Textbox::handleMouseEvents(Mouse & mouse)
 {
-	if (mouse.click() && visible) {
+}
+
+void Textbox::handleKeyEvents(Keyboard & keyboard)
+{
+	if (keyboard.press(VirtualKey::INTERACT) && visible) {
 		if (text->isDisplayingFullLength()) {
 			if (hasNext()) {
 				advanceText();
@@ -101,10 +105,6 @@ void Textbox::handleMouseEvents(Mouse & mouse)
 			text->displayFullLength();
 		}
 	}
-}
-
-void Textbox::handleKeyEvents(Keyboard & keyboard)
-{
 }
 
 void Textbox::show()

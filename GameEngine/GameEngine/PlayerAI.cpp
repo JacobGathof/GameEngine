@@ -27,7 +27,7 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		return;
 	}
 
-	if (keyboard.getKeyState(VirtualKey::INTERACT) == KeyState::PRESS){
+	if (keyboard.press(VirtualKey::INTERACT)){
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
 		if (closest->pos.distanceTo(user->pos) < 40) {
 			closest->interact();
@@ -38,16 +38,16 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 	xVel = 0;
 
 
-	if (keyboard.getKeyState(VirtualKey::UP) == KeyState::DOWN){
+	if (keyboard.down(VirtualKey::UP)){
 		yVel = user->moveSpeed;
 	}
-	if (keyboard.getKeyState(VirtualKey::DOWN) == KeyState::DOWN) {
+	if (keyboard.down(VirtualKey::DOWN)) {
 		yVel = -user->moveSpeed;
 	}
-	if (keyboard.getKeyState(VirtualKey::LEFT) == KeyState::DOWN) {
+	if (keyboard.down(VirtualKey::LEFT)) {
 		xVel = -user->moveSpeed;
 	}
-	if (keyboard.getKeyState(VirtualKey::RIGHT) == KeyState::DOWN) {
+	if (keyboard.down(VirtualKey::RIGHT)) {
 		xVel = user->moveSpeed;
 	}
 

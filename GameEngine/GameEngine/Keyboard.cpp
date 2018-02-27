@@ -9,6 +9,7 @@ Keyboard::Keyboard()
 	virtualMap[VirtualKey::DOWN] = GLFW_KEY_S;
 	virtualMap[VirtualKey::LEFT] = GLFW_KEY_A;
 	virtualMap[VirtualKey::RIGHT] = GLFW_KEY_D;
+	virtualMap[VirtualKey::INTERACT] = GLFW_KEY_E;
 	virtualMap[VirtualKey::SKILL_1] = GLFW_KEY_1;
 	virtualMap[VirtualKey::SKILL_2] = GLFW_KEY_2;
 }
