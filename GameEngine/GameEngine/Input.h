@@ -5,6 +5,7 @@
 #include "PlayerAI.h"
 #include "UIManager.h"
 #include "Mouse.h"
+#include "Keyboard.h"
 
 class Input
 {
@@ -13,12 +14,10 @@ public:
 	Input();
 	~Input();
 
-	static std::map<int, KeyMap> physicalMap;
 	static PlayerAI * ai;
 
-	static bool keys[512];
-
 	static Mouse mouse;
+	static Keyboard keyboard;
 
 	static void processInput(float dt);
 	static void feedKey(int key, int state);
@@ -29,8 +28,6 @@ public:
 
 private:
 
-	static void setupKeybinds();
-	static std::map<int, int> keyBinds;
 
 };
 

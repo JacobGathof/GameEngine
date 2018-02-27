@@ -20,9 +20,11 @@ void Mouse::setButton(int button, int state)
 {
 	if (state == GLFW_PRESS) {
 		mouseButtons[button] = MouseState::CLICK;
+		clicked.push(button);
 	}
 	if (state == GLFW_RELEASE) {
 		mouseButtons[button] = MouseState::RELEASE;
+		released.push(button);
 	}
 }
 
@@ -36,23 +38,36 @@ void Mouse::setPosition(Vector2f & p)
 	position = p;
 }
 
-bool Mouse::down()
+void Mouse::update()
 {
-	return (mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::DOWN || mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::CLICK);
+	while (!clicked.empty()) {
+		mouseButtons[clicked.front()] = MouseState::DOWN;
+		clicked.pop();
+	}
+
+	while (!released.empty()) {
+		mouseButtons[released.front()] = MouseState::UP;
+		released.pop();
+	}
 }
 
-bool Mouse::up()
+bool Mouse::down(int i)
 {
-	return (mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::UP || mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::RELEASE);
+	return (mouseButtons[i] == MouseState::DOWN || mouseButtons[i] == MouseState::CLICK);
 }
 
-bool Mouse::click()
+bool Mouse::up(int i)
 {
-	return mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::CLICK;
+	return (mouseButtons[i] == MouseState::UP || mouseButtons[i] == MouseState::RELEASE);
 }
 
-bool Mouse::release()
+bool Mouse::click(int i)
 {
-	return mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::RELEASE;
+	return mouseButtons[i] == MouseState::CLICK;
+}
+
+bool Mouse::release(int i)
+{
+	return mouseButtons[i] == MouseState::RELEASE;
 }
 

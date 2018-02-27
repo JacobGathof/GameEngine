@@ -21,34 +21,34 @@ bool PlayerAI::execute(LivingObject * o, float dt)
 	return true;
 }
 
-void PlayerAI::receiveInput(KeyMap key, int state)
+void PlayerAI::receiveInput(Keyboard& keyboard)
 {
-	if (state == 2) {
-		return;
-	}
 	if (user == nullptr) {
 		return;
 	}
 
-	if (state == 1 && key == KeyMap::KEY_INTERACT) {
+	if (keyboard.getKeyState(VirtualKey::INTERACT) == KeyState::PRESS){
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
 		if (closest->pos.distanceTo(user->pos) < 40) {
 			closest->interact();
 		}
 	}
-	int modifier = (state * 2) - 1; //Released = -1    Pressed = 1
 
-	if (key == KeyMap::KEY_UP) {
-		yVel += modifier * user->moveSpeed;
+	yVel = 0;
+	xVel = 0;
+
+
+	if (keyboard.getKeyState(VirtualKey::UP) == KeyState::DOWN){
+		yVel = user->moveSpeed;
 	}
-	else if (key == KeyMap::KEY_DOWN) {
-		yVel += -modifier * user->moveSpeed;
+	if (keyboard.getKeyState(VirtualKey::DOWN) == KeyState::DOWN) {
+		yVel = -user->moveSpeed;
 	}
-	if (key == KeyMap::KEY_LEFT) {
-		xVel += -modifier * user->moveSpeed;
+	if (keyboard.getKeyState(VirtualKey::LEFT) == KeyState::DOWN) {
+		xVel = -user->moveSpeed;
 	}
-	else if (key == KeyMap::KEY_RIGHT) {
-		xVel += modifier * user->moveSpeed;
+	if (keyboard.getKeyState(VirtualKey::RIGHT) == KeyState::DOWN) {
+		xVel = user->moveSpeed;
 	}
 
 }
