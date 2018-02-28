@@ -37,8 +37,7 @@ void Graph::createGraph()
 
 	nodes[0]->addAction(new TextAction(std::string("Hello World")));
 	nodes[0]->addAction(new TextAction(std::string("Reach the city steps tonight. Following the power lines. Met a man barside, with eclipses for eyes. The quick brown fox jumped over the lazy dog. I bless the rains down in Aaaaafrica")));
-	std::string choices[2] = { std::string("Hello World4") , std::string("Hello World4") };
-	nodes[0]->addAction(new TextChoiceAction(choices, 2));
+	nodes[0]->addAction(new TextChoiceAction({ std::string("Hello World4") , std::string("Hello World4") }));
 	nodes[0]->addAction(new WaitAction(1.0f));
 	nodes[0]->addAction(new ScreenFadeAction(Color::White, 2.0f, SCREEN_FADE_OUT));
 	//nodes[0]->addAction(new PlayMusicAction(MusicType::SONG_FMAB_AGAIN));
@@ -55,7 +54,7 @@ void Graph::createGraph()
 
 	nodes[1]->addAction(new TextAction(std::string("Hell0")));
 	nodes[1]->addAction(new TextAction(std::string("Hello")));
-	nodes[1]->addAction(new TextChoiceAction(choices, 2));
+	nodes[1]->addAction(new TextChoiceAction({ std::string("Hello World4") , std::string("Hello World4") }));
 	nodes[1]->addAction(new WaitAction(2.0f));
 	nodes[1]->addAction(new DebugAction("Node 1 done"));
 

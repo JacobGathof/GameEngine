@@ -2,19 +2,22 @@
 #include "Window.h"
 
 
+Text* PlainText::text;
+
+
 Textbox::Textbox()
 {
 	textScale = Vector2f(30, 30);
 	textStartPos = Vector2f(24, 160);
-	text = new Text(textStartPos, std::string("-----"), textScale, FontManager::get(FontType::DEFAULT));
-	text->setColor(Color(0xffffffff));
 	timer.setTickLength(0.05f);
+
+	PlainText::init();
 }
 
 
 Textbox::~Textbox()
 {
-	delete text;
+	PlainText::clean();
 }
 
 void Textbox::draw(){
@@ -45,16 +48,17 @@ void Textbox::draw(){
 	UIUtils::drawRectangle(Vector2f(12, 212), Vector2f(96, 96), Color(0xaaaaaa88));
 	UIUtils::drawRectangle(Vector2f(14, 214), Vector2f(92, 92), Color(0x000000dd));
 	*/
-
-	text->draw();
-
+	if (current != 0) {
+		current->draw();
+	}
+	
 }
 
 void Textbox::update(float dt)
 {
 	timer.update(dt);
-	if (timer.tick()) {
-		text->addLetter();
+	if (timer.tick() && visible && current!= 0) {
+		current->addLetter();
 	}
 }
 
@@ -63,24 +67,26 @@ void Textbox::advanceText()
 	if (!visible) {
 		show();
 	}
-	std::string newText = textQueue.front();
-	textQueue.pop();
-	prepareText(newText);
+	if (current != 0) {
+		delete current;
+		current = 0;
+	}
+	current = queue.front();
+	queue.pop();
+	current->prepare();
 
-	text->setText(newText);
-	text->resetLength();
 }
 
 void Textbox::addTextToQueue(std::string& text){
-	textQueue.push(text);
+	queue.push(new PlainText(text));
 	if (!visible) {
 		advanceText();
 	}
 }
 
-void Textbox::addChoiceToQueue(std::string * text, int length)
+void Textbox::addChoiceToQueue(List<std::string>& text)
 {
-	textQueue.push(std::string("Choice Stand-in"));
+	queue.push(new Choice(text));
 	if (!visible) {
 		advanceText();
 	}
@@ -93,7 +99,9 @@ void Textbox::handleMouseEvents(Mouse & mouse)
 void Textbox::handleKeyEvents(Keyboard & keyboard)
 {
 	if (keyboard.press(VirtualKey::INTERACT) && visible) {
-		if (text->isDisplayingFullLength()) {
+
+		if (current == 0 || current->isDisplayingFullLength()) {
+			
 			if (hasNext()) {
 				advanceText();
 			}
@@ -102,7 +110,7 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 			}
 		}
 		else {
-			text->displayFullLength();
+			current->displayFullLength();
 		}
 	}
 }
@@ -124,10 +132,100 @@ bool Textbox::isEmpty()
 
 bool Textbox::hasNext()
 {
-	return !textQueue.empty();
+	return !queue.empty();
 }
 
-void Textbox::prepareText(std::string& nextText)
+
+
+
+Choice::Choice(List<std::string>& ch) : choices(ch)
 {
-	nextText = TextUtils::processString(nextText, Res::get(FontType::DEFAULT), textScale, 738.0f);
+	text1 = new Text(Vector2f(24, 160), std::string(""), Vector2f(30, 30), 0);
+	text2 = new Text(Vector2f(24, 60), std::string("Test"), Vector2f(30, 30), 0);
+	text3 = new Text(Vector2f(424, 160), std::string(""), Vector2f(30, 30), 0);
+	text4 = new Text(Vector2f(424, 60), std::string(""), Vector2f(30, 30), 0);
+
+	choices = ch;
+}
+
+Choice::~Choice()
+{
+	delete text1;
+	delete text2;
+	delete text3;
+	delete text4;
+}
+
+void Choice::draw()
+{
+	text1->draw();
+	text2->draw();
+}
+
+void Choice::prepare()
+{
+	numChoices = 0;
+	choicePointer = 0;
+
+	numChoices = choices.size();
+	std::string s1 = *choices.begin();
+	text1->setText(s1);
+
+}
+
+bool Choice::isDisplayingFullLength(){
+	return true;
+}
+
+void Choice::displayFullLength(){
+}
+
+void Choice::addLetter(){
+}
+
+
+
+
+PlainText::PlainText(std::string & st)
+{
+	str = st;
+}
+
+void PlainText::init()
+{
+	text = new Text(Vector2f(24, 160), std::string("-----"), Vector2f(30, 30), 0);
+	text->setColor(Color(0xffffffff));
+}
+
+void PlainText::clean()
+{
+	delete text;
+}
+
+void PlainText::prepare()
+{
+	str = TextUtils::processString(str, Res::get(FontType::DEFAULT), Vector2f(30,30), 738.0f);
+	text->setText(str);
+	text->resetLength();
+}
+
+void PlainText::draw()
+{
+	text->draw();
+}
+
+
+bool PlainText::isDisplayingFullLength()
+{
+	return text->isDisplayingFullLength();
+}
+
+void PlainText::displayFullLength()
+{
+	text->displayFullLength();
+}
+
+void PlainText::addLetter()
+{
+	text->addLetter();
 }

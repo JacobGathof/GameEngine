@@ -9,6 +9,10 @@ public:
 	List(){}
 	~List(){}
 
+	List(std::initializer_list<T> values) {
+		data.insert(data.end(), values.begin(), values.end());
+	}
+
 	void add(T t){
 		data.push_back(t);
 	}

@@ -1,11 +1,9 @@
 #include "TextChoiceAction.h"
 
 
-
-TextChoiceAction::TextChoiceAction(std::string * ch, int len)
+TextChoiceAction::TextChoiceAction(List<std::string> ch)
 {
 	choices = ch;
-	length = len;
 }
 
 TextChoiceAction::~TextChoiceAction()
@@ -15,7 +13,7 @@ TextChoiceAction::~TextChoiceAction()
 int TextChoiceAction::run(float dt)
 {
 	if (!sentChoice) {
-		UIManager::addChoice(choices, length);
+		UIManager::addChoice(choices);
 		sentChoice = true;
 	}
 	return UIManager::isTextboxEmpty();

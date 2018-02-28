@@ -54,9 +54,9 @@ void UIManager::addText(std::string& text)
 	textbox->addTextToQueue(text);
 }
 
-void UIManager::addChoice(std::string * t, int length)
+void UIManager::addChoice(List<std::string>& text)
 {
-	textbox->addChoiceToQueue(t, length);
+	textbox->addChoiceToQueue(text);
 }
 
 void UIManager::toggleMenu()

@@ -19,7 +19,7 @@ public:
 	static void handleKeyboardEvents(Keyboard& keyboard);
 
 	static void addText(std::string& text);
-	static void addChoice(std::string* t, int length);
+	static void addChoice(List<std::string>& text);
 	static void toggleMenu();
 	static bool isTextboxEmpty();
 
