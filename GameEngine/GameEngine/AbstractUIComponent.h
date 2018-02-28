@@ -14,6 +14,7 @@ public:
 	virtual void update(float dt);
 	virtual void draw() = 0;
 	void setParentPosition(Vector2f* pos);
+	bool mouseIn(Mouse& mouse);
 
 protected:
 	Vector2f * parentOffset;

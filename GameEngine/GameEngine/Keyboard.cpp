@@ -12,6 +12,16 @@ Keyboard::Keyboard()
 	virtualMap[VirtualKey::INTERACT] = GLFW_KEY_E;
 	virtualMap[VirtualKey::SKILL_1] = GLFW_KEY_1;
 	virtualMap[VirtualKey::SKILL_2] = GLFW_KEY_2;
+
+
+	nameMap[VirtualKey::UP] = "Up";
+	nameMap[VirtualKey::DOWN] = "Down";
+	nameMap[VirtualKey::LEFT] = "Left";
+	nameMap[VirtualKey::RIGHT] = "Right";
+	nameMap[VirtualKey::INTERACT] = "Interact";
+	nameMap[VirtualKey::SKILL_1] = "Skill 1";
+	nameMap[VirtualKey::SKILL_2] = "Skill 2";
+
 }
 
 
@@ -98,4 +108,38 @@ bool Keyboard::press(VirtualKey key)
 bool Keyboard::release(VirtualKey key)
 {
 	return release(virtualMap[key]);
+}
+
+void Keyboard::setKeyBind(VirtualKey vk, int k)
+{
+	virtualMap[vk] = k;
+}
+
+int Keyboard::getKeyBind(VirtualKey vk)
+{
+	return virtualMap[vk];
+}
+
+int Keyboard::getCurrentPressed()
+{
+	if (pressed.empty()) {
+		return -1;
+	}
+	return pressed.front();
+}
+
+char * Keyboard::getKeyName(VirtualKey vk)
+{
+	return nameMap[vk];
+}
+
+const char * Keyboard::getRealKeyName(int key)
+{
+	const char* name = glfwGetKeyName(key, 0);
+	return name;
+}
+
+const char * Keyboard::getRealKeyName(VirtualKey key)
+{
+	return getRealKeyName(virtualMap[key]);
 }

@@ -48,10 +48,6 @@
     <Filter Include="Source Files\World">
       <UniqueIdentifier>{bb91020f-5860-4c23-9dd1-a3d0f64645a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{6d3cb15f-5647-4459-b3bd-836857a38a0f}</UniqueIdentifier>
     </Filter>
@@ -120,6 +116,10 @@
     </Filter>
     <Filter Include="Source Files\Audio">
       <UniqueIdentifier>{88a5c978-138e-4e58-aa8e-de25c85eb41f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -413,6 +413,9 @@
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBinder.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -710,10 +713,13 @@
     <ClInclude Include="Keyboard.h">
       <Filter>Header Files\General</Filter>
     </ClInclude>
+    <ClInclude Include="KeyBinder.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameEngine.rc">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files\Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>

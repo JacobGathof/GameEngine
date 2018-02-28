@@ -2,8 +2,9 @@
 #include "AbstractUIComponent.h"
 #include "Button.h"
 #include "Slider.h"
+#include "KeyBinder.h"
 
-#define NUM_COMPS 3
+#define NUM_COMPS 4
 
 class SettingsPage : public AbstractUIComponent
 {

@@ -1,12 +1,13 @@
 #include "SettingsPage.h"
 #include "GameState.h"
+#include "Input.h"
 
 SettingsPage::SettingsPage()
 {
 	comps[0] = new Button(Vector2f(50, 600), Vector2f(200, 50), std::string("Fullscreen"), new FullscreenButtonAction());
 	comps[1] = new Slider(Vector2f(50, 770), Vector2f(300, 10), std::string("Transparency"), &GameState::sliderValue, .25f, 1.0f, 0);
 	comps[2] = new Slider(Vector2f(50, 720), Vector2f(300, 10), std::string("Blue Shift"), &GameState::ui_blue, 0.0f, 1.0f, 0);
-
+	comps[3] = new KeyBinder(Vector2f(20, 300), Vector2f(100, 40), Input::keyboard);
 }
 
 
@@ -52,4 +53,7 @@ void SettingsPage::handleMouseEvents(Mouse & mouse)
 
 void SettingsPage::handleKeyEvents(Keyboard & keyboard)
 {
+	for (int i = 0; i < NUM_COMPS; i++) {
+		comps[i]->handleKeyEvents(keyboard);
+	}
 }

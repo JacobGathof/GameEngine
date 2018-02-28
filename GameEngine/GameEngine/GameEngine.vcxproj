@@ -47,6 +47,7 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryPage.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="KeyBinder.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="KeyItem.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryPage.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="KeyBinder.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Line.h" />

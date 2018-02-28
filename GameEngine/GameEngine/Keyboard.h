@@ -43,12 +43,22 @@ public:
 	bool press(VirtualKey key);
 	bool release(VirtualKey key);
 
+	void setKeyBind(VirtualKey vk, int k);
+	int getKeyBind(VirtualKey vk);
+
+	int getCurrentPressed();
+	char* getKeyName(VirtualKey vk);
+	const char* getRealKeyName(int key);
+	const char* getRealKeyName(VirtualKey key);
+
 private:
 	KeyState keys[512];
 	std::queue<int> pressed;
 	std::queue<int> released;
 
 	std::map<VirtualKey, int> virtualMap;
+	std::map<VirtualKey, char*> nameMap;
+
 
 };
 
