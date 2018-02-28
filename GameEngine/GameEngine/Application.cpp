@@ -11,7 +11,7 @@ Application::~Application(){}
 
 void Application::run()
 {
-	srand(time((time_t)0));
+	srand((unsigned int)time(0));
 
 	Window::init("The Echo Effect", 800, 800);
 	AudioSystem::init();

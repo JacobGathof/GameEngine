@@ -29,7 +29,7 @@ Particle RainParticleSystem::createNewParticle()
 	if (parentPosition != 0) {
 		pPosition += *parentPosition;
 	}
-	Vector2f pVelocity = -800*2* Vector2f(.1, 1);
+	Vector2f pVelocity = -800*2* Vector2f(.1f, 1);
 	Color pColor = startColor;
 	float pLife = maxParticleLife;
 

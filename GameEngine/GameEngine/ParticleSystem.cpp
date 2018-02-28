@@ -66,7 +66,7 @@ void ParticleSystem::update(float dt)
 	int particlesToCreate = 0;
 
 	if (emit) {
-		 particlesToCreate = dt*maxParticlesPerSecond;
+		 particlesToCreate = (int)(dt*maxParticlesPerSecond);
 	}
 
 	for (int j = 0; j < particlesToCreate; j++) {

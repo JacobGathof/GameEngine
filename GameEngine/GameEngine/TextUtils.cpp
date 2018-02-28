@@ -18,7 +18,8 @@ std::string TextUtils::processString(std::string & txt, Font* font, Vector2f& sc
 	float maxLength = maxWidth;
 	std::string newString;
 	newString.resize(txt.size());
-	for (int i = 0; i < txt.length(); i++) {
+	int txtLength = txt.length();
+	for (int i = 0; i < txtLength; i++) {
 		if (txt[i] == '\n' || txt[i] == ' '){
 			newString[i] = ' ';
 		} else {

@@ -23,7 +23,7 @@ public:
 	void shuffle();
 	void addCard(Card &card);
 	void addAll(List<Card> cards);
-	Card &draw();
+	Card draw();
 	void removeCard(int index);
 	void reset();
 	void rename(std::string n);

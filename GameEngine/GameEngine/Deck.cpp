@@ -33,7 +33,7 @@ void Deck::addAll(List<Card> cards)
 	deck.addAll(cards);
 }
 
-Card& Deck::draw()
+Card Deck::draw()
 {
 	Card c = deck[0];
 	deck.remove(0);

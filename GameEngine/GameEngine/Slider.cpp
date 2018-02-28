@@ -45,7 +45,7 @@ void Slider::handleMouseEvents(Mouse & mouse)
 	if (held) {
 		ptr = min(1, max(0, (mouse.pos()[0] - position[0]) / scale[0]));
 		if (inc != 0) {
-			ptr = ((int)(ptr * inc + .5f) / inc);
+			ptr = (float)((int)(ptr * inc + .5f) / inc);
 		}
 		*ref = (maxX - minX)*ptr + minX;
 		data->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
