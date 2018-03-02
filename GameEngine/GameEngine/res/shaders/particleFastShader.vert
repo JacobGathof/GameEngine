@@ -5,6 +5,7 @@ layout(location = 1) in vec3 velocity;
 layout(location = 2) in float life;
 
 uniform float dt;
+uniform float gameTime;
 uniform vec2 translate;
 uniform vec2 scale;
 
@@ -16,18 +17,19 @@ out float alpha;
 
 void main(){
 
-	gl_Position = vec4(position*scale+translate,1);
-	alpha = newLife;
-	vec3 acceleration = vec3(0,0,0);
+	gl_Position = vec4(position*vec3(scale, scale.x)+vec3(translate,0),1);
+	alpha = (position*vec3(scale, scale.x)+vec3(translate,0)).z*4;
+	
+	vec3 acceleration = vec3(velocity.y,-velocity.x,velocity.y) + vec3(cos(gameTime)*velocity);
 
 	if(life <= 0.0){
-		newPosition = velocity;
-		newVelocity = vec3(velocity.y, velocity.x, 0);
+		newPosition = position;
+		newVelocity = velocity;
 		newLife = 2.0f+life;
 	
 	}else{
-		newVelocity = velocity+dt*acceleration;
-		newPosition = position+dt*newVelocity;
+		newVelocity = 200*normalize(velocity + dt*acceleration);
+		newPosition = 200*normalize(position+dt*newVelocity);
 		newLife = life-dt;
 	}
 	

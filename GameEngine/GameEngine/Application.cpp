@@ -95,6 +95,8 @@ void Application::run()
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 		Renderer::draw();
+
+		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
 		fpsys.draw();
 
 		Window::swapBuffers();
