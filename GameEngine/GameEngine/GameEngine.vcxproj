@@ -37,6 +37,7 @@
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FollowAi.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FollowAi.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />

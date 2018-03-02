@@ -3,6 +3,7 @@
 #include "Renderer.h"
 #include "Graph.h"
 #include "AudioSystem.h"
+#include "FastParticleSystem.h"
 
 
 Application::Application(){}
@@ -51,6 +52,8 @@ void Application::run()
 	sys.startColor = Color::DarkBlue;
 	sys.endColor = Color::DarkPurple;
 
+	FastParticleSystem fpsys(5000);
+
 	GameTimer timer;
 	timer.setTickLength(1.0f);
 
@@ -76,11 +79,10 @@ void Application::run()
 
 
 		world->update(dt);
+		fpsys.update(dt);
 
 		//sys.update(dt);
 		//sys.draw();
-
-
 		//circ.draw(timer.getGameTime());
 
 
@@ -93,7 +95,7 @@ void Application::run()
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 		Renderer::draw();
-
+		fpsys.draw();
 
 		Window::swapBuffers();
 	}

@@ -21,6 +21,7 @@ public:
 	~ShaderProgram();
 
 	void compileShader(char* file_vertex, char* file_geo, char* file_frag);
+	void compileFeedbackShader(char* file_vertex, char* file_geo, char* file_frag, const GLchar* varying[], int length);
 
 	void bind();
 	

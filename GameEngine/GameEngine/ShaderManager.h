@@ -7,6 +7,7 @@ enum class ShaderType {
 	TEXT_SHADER,
 	BASIC_SHADER,
 	PARTICLE_SHADER,
+	PARTICLE_FAST_SHADER,
 	UI_SOLID_SHADER,
 	UI_IMAGE_SHADER,
 	TERRAIN_SHADER,
@@ -26,6 +27,7 @@ public:
 private:
 
 	static void addShader(ShaderType shader, char* v, char* g, char* f);
+	static void addShader(ShaderType shader, char* v, char* g, char* f, const GLchar* varying[], int length);
 	static std::map<ShaderType, ShaderProgram*> shaders;
 
 };
