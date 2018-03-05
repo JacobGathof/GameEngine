@@ -18,10 +18,12 @@ public:
 	void addObject(Object * obj);
 	void sort();
 	Object * getNearestObject(Vector2f pos);
+	Object * getObject(std::string name);
 
 private:
 	List<Object *> objects;
 	TerrainMap terrain;
+	std::map<std::string, Object *> objectMap;
 
 	bool collision(Object * obj1, Object * obj2);
 	void sortPlace(Object * obj, int index);

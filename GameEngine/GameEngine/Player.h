@@ -6,7 +6,7 @@
 class Player : public LivingObject
 {
 public:
-	Player(TextureType texture, Vector2f position, Vector2f scale, PlayerAI * ai);
+	Player(std::string name, TextureType texture, Vector2f position, Vector2f scale, PlayerAI * ai);
 	~Player();
 
 	virtual bool update(float delta_time);

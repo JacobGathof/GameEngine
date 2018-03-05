@@ -59,6 +59,7 @@
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="MoveAction.cpp" />
     <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="OpenTextbox.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="MoveAction.h" />
     <ClInclude Include="MusicManager.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="OpenTextbox.h" />

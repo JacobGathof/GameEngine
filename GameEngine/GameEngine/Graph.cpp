@@ -7,6 +7,7 @@
 #include "SetAction.h"
 #include "PlayMusicAction.h"
 #include "PauseMusicAction.h"
+#include "MoveAction.h"
 
 Graph::Graph()
 {
@@ -36,6 +37,8 @@ void Graph::createGraph()
 	nodes.push_back(new Node());
 
 	nodes[0]->addAction(new TextAction(std::string("Hello World")));
+	nodes[0]->addAction(new MoveAction("Melody", Vector2f(100, 2000)));
+	nodes[0]->addAction(new DebugAction("Node 0 done"));
 	nodes[0]->addAction(new TextAction(std::string("Reach the city steps tonight. Following the power lines. Met a man barside, with eclipses for eyes. The quick brown fox jumped over the lazy dog. I bless the rains down in Aaaaafrica")));
 	nodes[0]->addAction(new TextChoiceAction({ std::string("Hello World4") , std::string("Hello World4") }));
 	nodes[0]->addAction(new WaitAction(1.0f));

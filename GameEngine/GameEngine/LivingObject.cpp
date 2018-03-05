@@ -1,7 +1,7 @@
 #include "LivingObject.h"
 
 
-LivingObject::LivingObject(TextureType t, Vector2f position, Vector2f sc, int hp, int luc) : MovableObject(t,position, sc)
+LivingObject::LivingObject(std::string name, TextureType t, Vector2f position, Vector2f sc, int hp, int luc) : MovableObject(name, t,position, sc)
 {
 }
 
@@ -11,6 +11,9 @@ LivingObject::~LivingObject()
 
 void LivingObject::setAI(LivingAi * a)
 {
+	if (stalled) {
+		return;
+	}
 	if (aiQueue.size() == 0 && defaultAI == nullptr) {
 		defaultAi = a;
 	}
@@ -27,7 +30,7 @@ bool LivingObject::update(float delta_time)
 		}
 	}
 	else {
-		if (!aiQueue.get(0)->execute(this, delta_time)) {
+		if (aiQueue.get(0)->execute(this, delta_time)) {
 			aiQueue.remove(0);
 		}
 	}

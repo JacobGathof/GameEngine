@@ -6,6 +6,7 @@ class GoToPointAI : public LivingAi
 {
 public:
 	GoToPointAI(Vector2f loc);
+	GoToPointAI();
 	~GoToPointAI();
 
 	Vector2f dest;

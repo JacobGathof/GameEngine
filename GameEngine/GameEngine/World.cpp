@@ -54,3 +54,8 @@ Object * World::getNearestObject(Vector2f pos)
 
 	return currentRoom->getNearestObject(pos);
 }
+
+Object * World::getObject(std::string name)
+{
+	return currentRoom->getObject(name);
+}

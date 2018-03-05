@@ -1,7 +1,7 @@
 #include "AnimatedObject.h"
 
 
-AnimatedObject::AnimatedObject(TextureType t, Vector2f position, Vector2f sc) : Object(t, position, sc)
+AnimatedObject::AnimatedObject(std::string name, TextureType t, Vector2f position, Vector2f sc) : Object(name, t, position, sc)
 {
 	
 }

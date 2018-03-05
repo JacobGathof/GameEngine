@@ -8,11 +8,12 @@ Object::Object()
 	scale = Vector2f(.25,.25);
 }
 
-Object::Object(TextureType t, Vector2f position, Vector2f sc)
+Object::Object(std::string n, TextureType t, Vector2f position, Vector2f sc)
 {
 	texture = t;
 	pos = position;
 	scale = sc;
+	name = n;
 }
 
 

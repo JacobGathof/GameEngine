@@ -13,6 +13,7 @@ public:
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);
 	Object * getNearestObject(Vector2f pos);
+	Object * getObject(std::string name);
 
 private:
 	World();

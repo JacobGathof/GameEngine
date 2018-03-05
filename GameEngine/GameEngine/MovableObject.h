@@ -5,7 +5,7 @@
 class MovableObject : public AnimatedObject
 {
 public:
-	MovableObject(TextureType t, Vector2f position, Vector2f sc);
+	MovableObject(std::string name, TextureType t, Vector2f position, Vector2f sc);
 	MovableObject();
 	~MovableObject();
 

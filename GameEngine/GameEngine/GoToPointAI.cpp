@@ -7,6 +7,10 @@ GoToPointAI::GoToPointAI(Vector2f loc)
 	dest = loc;
 }
 
+GoToPointAI::GoToPointAI()
+{
+}
+
 GoToPointAI::~GoToPointAI()
 {
 }

@@ -53,7 +53,9 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
+	std::cout << obj->name << std::endl;
 	objects.add(obj);
+	objectMap.insert(std::pair<std::string, Object *>(obj->name, obj));
 }
 
 void Room::sort()
@@ -77,6 +79,12 @@ Object * Room::getNearestObject(Vector2f pos)
 		}
 	}
 	return nearest;
+}
+
+Object * Room::getObject(std::string name)
+{
+	std::cout << objectMap.size() << std::endl;
+	return objectMap.at(name);
 }
 
 bool Room::collision(Object * obj1, Object * obj2)

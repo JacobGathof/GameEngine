@@ -2,7 +2,7 @@
 
 
 
-Player::Player(TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : LivingObject(t, position, sc, 100, 100)
+Player::Player(std::string name, TextureType t, Vector2f position, Vector2f sc, PlayerAI * ai) : LivingObject(name, t, position, sc, 100, 100)
 {
 	defaultAi = ai;
 	moveSpeed = 600;
