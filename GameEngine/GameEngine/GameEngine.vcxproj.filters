@@ -421,7 +421,7 @@
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
     <ClCompile Include="MoveAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -726,7 +726,7 @@
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
     <ClInclude Include="MoveAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

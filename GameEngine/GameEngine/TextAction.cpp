@@ -1,9 +1,10 @@
 #include "TextAction.h"
 
 
-TextAction::TextAction(std::string & txt)
+TextAction::TextAction(std::string & txt, bool block)
 {
 	text = txt;
+	blocking = block;
 }
 
 TextAction::~TextAction(){}
@@ -11,6 +12,9 @@ TextAction::~TextAction(){}
 
 int TextAction::run(float dt)
 {
-	UIManager::addText(text);
-	return 1;
+	if (!sent) {
+		sent = true;
+		UIManager::addText(text);
+	}
+	return !blocking | UIManager::isTextboxEmpty();
 }
