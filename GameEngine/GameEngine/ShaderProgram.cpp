@@ -25,6 +25,7 @@ void ShaderProgram::compileShader(char * file_vertex, char * file_geo, char * fi
 
 void ShaderProgram::compileFeedbackShader(char * file_vertex, char * file_geo, char * file_frag, const GLchar * varying[], int length)
 {
+
 	shader_program = glCreateProgram();
 
 	compileShaderFile(file_vertex, GL_VERTEX_SHADER);
@@ -60,7 +61,7 @@ void ShaderProgram::checkCompileErrors(int shader)
 void ShaderProgram::checkLinkErrors(int program)
 {
 	int success;
-	glGetShaderiv(program, GL_LINK_STATUS, &success);
+	glGetProgramiv(program, GL_LINK_STATUS, &success);
 
 	if (!success) {
 		char infolog[2048];

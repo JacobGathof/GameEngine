@@ -23,6 +23,7 @@ void Application::run()
 
 	UIManager::init();
 
+
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
@@ -53,6 +54,7 @@ void Application::run()
 	sys->startColor = Color::DarkBlue;
 	sys->endColor = Color::DarkPurple;
 
+
 	FastParticleSystem* fpsys = new FastParticleSystem(1000);
 	melody.addEffect(sys);
 	melody.addEffect(fpsys);
@@ -65,9 +67,11 @@ void Application::run()
 	Circle circ(Vector2f(0,0), 256.0f);
 
 	Graph graph;
-	
+
+
 	float dt;
 	Window::show();
+
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
@@ -102,10 +106,9 @@ void Application::run()
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
 
-		//Renderer::draw();
-		//world->getInstance()->draw();
-		fpsys->draw();
+		Renderer::draw();
 
+	
 		Window::swapBuffers();
 	}
 

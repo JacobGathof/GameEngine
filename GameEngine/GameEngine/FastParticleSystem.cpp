@@ -81,13 +81,18 @@ void FastParticleSystem::draw()
 	Res::get(ShaderType::PARTICLE_FAST_SHADER)->bind();
 	Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadVector2f("scale", Screen::toScreenScale(Vector2f(1,1)));
 	Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadVector2f("translate", Screen::toScreenCoords(Vector2f(0,0)));
+
 	glBindVertexArray(vao);
+
 
 	//glEnable(GL_DEPTH_TEST);
 	glBeginTransformFeedback(GL_POINTS);
 	glDrawArrays(GL_POINTS, 0, maxSize);
 	glEndTransformFeedback();
 
+
+
 	//glDisable(GL_DEPTH_TEST);
 
+	
 }
