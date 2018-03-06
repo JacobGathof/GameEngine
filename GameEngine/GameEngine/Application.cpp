@@ -39,6 +39,7 @@ void Application::run()
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	
+
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
 	room.addObject(&structure);
@@ -47,12 +48,16 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
-	DefaultParticleSystem sys;
-	sys.parentPosition = &melody.pos;
-	sys.startColor = Color::DarkBlue;
-	sys.endColor = Color::DarkPurple;
+	DefaultParticleSystem *sys = new DefaultParticleSystem();
+	//sys->parentPosition = &melody.pos;
+	sys->startColor = Color::DarkBlue;
+	sys->endColor = Color::DarkPurple;
 
-	FastParticleSystem fpsys(5000);
+	FastParticleSystem* fpsys = new FastParticleSystem(1000);
+	melody.addEffect(sys);
+	melody.addEffect(fpsys);
+
+
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
@@ -79,7 +84,6 @@ void Application::run()
 
 
 		world->update(dt);
-		fpsys.update(dt);
 
 		//sys.update(dt);
 		//sys.draw();
@@ -94,10 +98,13 @@ void Application::run()
 		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("scale", Screen::toScreenScale(Vector2f(32, 32)));
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
-		Renderer::draw();
 
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
-		fpsys.draw();
+
+
+		//Renderer::draw();
+		//world->getInstance()->draw();
+		fpsys->draw();
 
 		Window::swapBuffers();
 	}

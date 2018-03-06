@@ -22,7 +22,6 @@ private:
 	static float width;
 	static float height;
 	static float scrollMultiplier;
-	static ShaderType worldShaders[];
 
 	static float x_offset;
 	static float y_offset;

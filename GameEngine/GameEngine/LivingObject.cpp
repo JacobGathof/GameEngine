@@ -34,7 +34,7 @@ bool LivingObject::update(float delta_time)
 			aiQueue.remove(0);
 		}
 	}
-	return false;
+	return MovableObject::update(delta_time);
 }
 
 bool LivingObject::collide(Object * o)

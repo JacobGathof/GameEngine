@@ -40,7 +40,9 @@ bool AnimatedObject::update(float delta_time)
 	//timer.tick(delta_time);
 	bool isFinished = Object::update(delta_time);
 	if (aiQueue.size() == 0) {
-		defaultAI->execute(this, delta_time);
+		if (defaultAI != 0) {
+			defaultAI->execute(this, delta_time);
+		}
 	}
 	else {
 		if (!aiQueue.at(0)->execute(this, delta_time)) {

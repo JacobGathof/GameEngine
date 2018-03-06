@@ -19,7 +19,7 @@ Object::Object(std::string n, TextureType t, Vector2f position, Vector2f sc)
 
 Object::~Object()
 {
-	for (Effect * eff : effects) {
+	for (auto eff : effects) {
 		delete eff;
 	}
 }
@@ -33,8 +33,9 @@ void Object::draw()
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	m->bind();
 	Res::get(texture)->bind();
-
+	
 	m->draw();
+	
 	for (Effect * eff : effects) {
 		eff->draw();
 	}

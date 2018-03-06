@@ -1,15 +1,17 @@
 #pragma once
-class FastParticleSystem
+#include "Effect.h"
+
+class FastParticleSystem : public Effect
 {
 public:
 	FastParticleSystem(int numberParticles);
-	~FastParticleSystem();
+	virtual ~FastParticleSystem();
 
 	int maxSize;
 
 	void init();
-	void update(float dt);
-	void draw();
+	virtual void update(float dt);
+	virtual void draw();
 
 	unsigned int vao;
 	unsigned int vbo_positions;

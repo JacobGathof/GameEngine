@@ -6,9 +6,10 @@
 #include "Timer.h"
 
 #include "Particle.h"
+#include "Effect.h"
 
 
-class ParticleSystem
+class ParticleSystem : public Effect
 {
 public:
 
@@ -16,7 +17,7 @@ public:
 	virtual Particle createNewParticle() = 0;
 
 	ParticleSystem();
-	~ParticleSystem();
+	virtual ~ParticleSystem();
 
 
 	int maxParticles = 300;
@@ -39,11 +40,11 @@ public:
 
 	void init();
 	void setEmit(bool doEmit);
-	void update(float dt);
+	virtual void update(float dt);
 	void emitParticles(int numParticles);
 	void updateBuffers();
 	void writeParticleData();
-	void draw();
+	virtual void draw();
 
 protected:
 	Timer timer;

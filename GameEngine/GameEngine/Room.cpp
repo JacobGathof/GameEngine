@@ -16,7 +16,7 @@ Room::~Room()
 
 void Room::update(float delta_time)
 {
-	for (Object * o : objects) {
+	for (auto o : objects) {
 		o->update(delta_time);
 	}
 }

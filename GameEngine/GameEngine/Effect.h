@@ -3,9 +3,9 @@ class Effect
 {
 public:
 	Effect();
-	~Effect();
+	virtual ~Effect();
 
-	void draw();
-	void update(float delta_time);
+	virtual void draw();
+	virtual void update(float delta_time);
 };
 
