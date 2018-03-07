@@ -21,9 +21,10 @@ FastParticleSystem::~FastParticleSystem()
 
 void FastParticleSystem::init()
 {
-	float * data = new float[maxSize * 2];
-	float * data1 = new float[maxSize * 2];
-	float * data2 = new float[maxSize];
+	//float * data = new float[maxSize * 2];
+	//float * data1 = new float[maxSize * 2];
+	//float * data2 = new float[maxSize];
+	/*
 	for (int i = 0; i < maxSize; i++) {
 		Vector2f v((-.5f + ((float)rand()) / RAND_MAX), (-.5f + ((float)rand()) / RAND_MAX));
 		Vector2f v1((-.5f + ((float)rand()) / RAND_MAX), (-.5f + ((float)rand()) / RAND_MAX));
@@ -39,35 +40,35 @@ void FastParticleSystem::init()
 
 		data2[i] = 2.0f * (float)i / maxSize;
 	}
-
+	*/
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
 	glGenBuffers(1, &vbo_positions);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_positions);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*2*maxSize, data, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*2*maxSize, 0, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(0);
 	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, vbo_positions);
 
 	glGenBuffers(1, &vbo_velocities);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_velocities);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * maxSize, data1, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * maxSize, 0, GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 2, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(1);
 	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 1, vbo_velocities);
 
 	glGenBuffers(1, &vbo_lifespan);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_lifespan);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 1 * maxSize, data2, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 1 * maxSize, 0, GL_STATIC_DRAW);
 	glVertexAttribPointer(2, 1, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(2);
 	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 2, vbo_lifespan);
 
 
-	delete[] data;
-	delete[] data1;
-	delete[] data2;
+	//delete[] data;
+	//delete[] data1;
+	//delete[] data2;
 
 }
 

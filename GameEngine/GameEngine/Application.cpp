@@ -107,6 +107,7 @@ void Application::run()
 
 
 		Renderer::draw();
+		fpsys->draw();
 
 	
 		Window::swapBuffers();
