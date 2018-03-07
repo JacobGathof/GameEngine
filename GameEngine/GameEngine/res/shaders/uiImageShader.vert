@@ -13,5 +13,5 @@ uniform vec2 camera_translate;
 
 void main(){
 	uv = texCoords;
-	gl_Position = vec4(position*camera_scale*scale+translate+translate - vec2(1,1),0,1);
+	gl_Position = vec4(position*(camera_scale*scale)+(translate*camera_scale) - vec2(1,1),0,1);
 }

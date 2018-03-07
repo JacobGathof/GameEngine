@@ -28,8 +28,8 @@ void Object::draw()
 {	
 	ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
 	p->bind();
-	p->loadVector2f("translate", Screen::toScreenCoords(pos));
-	p->loadVector2f("scale", Screen::toScreenScale(scale));
+	p->loadVector2f("translate", pos);
+	p->loadVector2f("scale", scale);
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	m->bind();
 	Res::get(texture)->bind();

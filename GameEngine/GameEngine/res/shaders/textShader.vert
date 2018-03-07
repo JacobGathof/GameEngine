@@ -12,8 +12,11 @@ uniform vec2 text_scale;
 uniform vec2 text_translate;
 uniform float aspect_ratio;
 
+uniform vec2 camera_scale;
+uniform vec2 camera_translate;
+
 void main(){
 	uv = texCoords;
 	col = color;
-	gl_Position = vec4(position * text_scale * vec2(1, aspect_ratio) + text_translate - vec2(1, 1),0,1);
+	gl_Position = vec4(position * (text_scale*camera_scale) * vec2(1, aspect_ratio) + (text_translate*camera_scale) - vec2(1, 1),0,1);
 }

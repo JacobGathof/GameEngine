@@ -99,8 +99,8 @@ void Application::run()
 		Res::get(ShaderType::BASIC_SHADER)->bind();
 		Res::get(TextureType::TEXTURE_DEFAULT)->bind();
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->bind();
-		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("translate", Screen::toScreenCoords(Vector2f(0, 0)));
-		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("scale", Screen::toScreenScale(Vector2f(32, 32)));
+		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("translate", Vector2f(0, 0));
+		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("scale",Vector2f(32, 32));
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 

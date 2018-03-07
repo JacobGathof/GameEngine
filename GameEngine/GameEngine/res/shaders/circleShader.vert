@@ -11,6 +11,9 @@ uniform vec2 translate;
 uniform vec2 scale;
 uniform float gt;
 
+/*Will not work in the future. !!! camera scale and camera translate must be integrated */
+
+
 void main(){
 	uv = texCoords;
 	gl_Position = vec4((position*scale+translate) * vec2(1, gt),0,1);
