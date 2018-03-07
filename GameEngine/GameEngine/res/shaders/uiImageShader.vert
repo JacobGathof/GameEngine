@@ -8,7 +8,10 @@ out vec2 uv;
 uniform vec2 translate;
 uniform vec2 scale;
 
+uniform vec2 camera_scale;
+uniform vec2 camera_translate;
+
 void main(){
-	uv = vec2(texCoords.x, texCoords.y);
-	gl_Position = vec4(position*scale+translate - vec2(1,1),0,1);
+	uv = texCoords;
+	gl_Position = vec4(position*camera_scale*scale+translate+translate - vec2(1,1),0,1);
 }

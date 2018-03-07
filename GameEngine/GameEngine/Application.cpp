@@ -93,6 +93,7 @@ void Application::run()
 		//sys.draw();
 		//circ.draw(timer.getGameTime());
 
+		Screen::updateUniforms();
 
 		
 		Res::get(ShaderType::BASIC_SHADER)->bind();

@@ -26,6 +26,13 @@ ShaderProgram * ShaderManager::get(ShaderType type)
 	return shaders[type];
 }
 
+void ShaderManager::uploadAll(char* location, Vector2f & v2){
+	for (auto a : shaders) {
+		a.second->bind();
+		a.second->loadVector2f(location, v2);
+	}
+}
+
 void ShaderManager::addShader(ShaderType shader, char * v, char * g, char * f){
 	ShaderProgram * sh = new ShaderProgram();
 	sh->compileShader(v, g, f);

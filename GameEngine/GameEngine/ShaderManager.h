@@ -23,6 +23,7 @@ public:
 	static void init();
 	static void clean();
 	static ShaderProgram* get(ShaderType type);
+	static void uploadAll(char* location, Vector2f& v2);
 
 private:
 

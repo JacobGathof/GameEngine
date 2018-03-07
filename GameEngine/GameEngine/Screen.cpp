@@ -29,6 +29,13 @@ void Screen::updateScroll(float f){
 	scrollMultiplier = max(1, min(scrollMultiplier, 4));
 }
 
+void Screen::updateUniforms()
+{
+	Vector2f v = 2.0f * Vector2f(1.0f, 1.0f) / (Vector2f(width, height));
+	ShaderManager::uploadAll("camera_scale", v);
+	ShaderManager::uploadAll("camera_translate", v);
+}
+
 Vector2f Screen::toScreenCoords(Vector2f translate)
 {
 	return (translate-offset) / (scrollMultiplier * Vector2f(width, height));

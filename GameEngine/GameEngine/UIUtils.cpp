@@ -18,8 +18,8 @@ void UIUtils::drawRectangle(Vector2f& pos, Vector2f& scale, Color& color)
 
 	model->bind();
 	shader->bind();
-	shader->loadVector2f("translate", Screen::toScreenCoordsUI(pos));
-	shader->loadVector2f("scale", Screen::toScreenCoordsUI(scale));
+	shader->loadVector2f("translate", pos);
+	shader->loadVector2f("scale", scale);
 	shader->loadColor("color", color);
 	model->draw();
 
@@ -43,8 +43,8 @@ void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
 	shader->bind();
 	texture->bind();
 
-	shader->loadVector2f("translate", Screen::toScreenCoordsUI(pos));
-	shader->loadVector2f("scale", Screen::toScreenCoordsUI(scale));
+	shader->loadVector2f("translate", pos);
+	shader->loadVector2f("scale", scale);
 
 	model->draw();
 }
