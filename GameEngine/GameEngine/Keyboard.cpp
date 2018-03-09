@@ -12,6 +12,10 @@ Keyboard::Keyboard()
 	virtualMap[VirtualKey::INTERACT] = GLFW_KEY_E;
 	virtualMap[VirtualKey::SKILL_1] = GLFW_KEY_1;
 	virtualMap[VirtualKey::SKILL_2] = GLFW_KEY_2;
+	virtualMap[VirtualKey::ARROW_UP] = GLFW_KEY_UP;
+	virtualMap[VirtualKey::ARROW_DOWN] = GLFW_KEY_DOWN;
+	virtualMap[VirtualKey::ARROW_LEFT] = GLFW_KEY_LEFT;
+	virtualMap[VirtualKey::ARROW_RIGHT] = GLFW_KEY_RIGHT;
 
 
 	nameMap[VirtualKey::UP] = "Up";

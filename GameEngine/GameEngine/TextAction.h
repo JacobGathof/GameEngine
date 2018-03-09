@@ -8,6 +8,7 @@ public:
 	TextAction(std::string& txt, bool block = false);
 	~TextAction();
 	virtual int run(float dt);
+	virtual void reset();
 
 private:
 	std::string text;

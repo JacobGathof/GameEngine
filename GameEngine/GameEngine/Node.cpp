@@ -62,6 +62,9 @@ void Node::resetNode()
 {
 	actionPtr = 0;
 	completedAllActions = false;
+	for (auto a : actions) {
+		a->reset();
+	}
 }
 
 void Node::addAction(AbstractScriptAction * act)

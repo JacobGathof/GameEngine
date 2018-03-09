@@ -10,3 +10,7 @@ AbstractScriptAction::AbstractScriptAction()
 AbstractScriptAction::~AbstractScriptAction()
 {
 }
+
+void AbstractScriptAction::reset()
+{
+}

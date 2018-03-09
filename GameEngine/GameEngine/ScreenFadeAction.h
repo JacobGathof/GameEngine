@@ -12,6 +12,7 @@ public:
 	ScreenFadeAction(Color c, float f, int di);
 	~ScreenFadeAction();
 	virtual int run(float dt);
+	virtual void reset();
 private:
 	Color color;
 	Timer timer;
