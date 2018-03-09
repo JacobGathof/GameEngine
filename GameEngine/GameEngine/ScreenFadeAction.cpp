@@ -22,3 +22,8 @@ int ScreenFadeAction::run(float dt)
 	Screen::screenColorPercent = abs(direction - timer.getTotalTime()/fl);
 	return timer.tick();
 }
+
+void ScreenFadeAction::reset()
+{
+	timer.reset();
+}

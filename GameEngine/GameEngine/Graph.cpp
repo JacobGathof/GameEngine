@@ -36,30 +36,30 @@ void Graph::createGraph()
 	nodes.push_back(new Node());
 	nodes.push_back(new Node());
 
-	nodes[0]->addAction(new TextAction(std::string("Hello World"), true));
-	nodes[0]->addAction(new MoveAction("Melody", Vector2f(100, 2000)));
-	nodes[0]->addAction(new TextAction(std::string("Reach the city steps tonight. Following the power lines. Met a man barside, with eclipses for eyes. The quick brown fox jumped over the lazy dog. I bless the rains down in Aaaaafrica")));
-	nodes[0]->addAction(new TextChoiceAction({ std::string("Hello World4") , std::string("Hello World4") }));
-	nodes[0]->addAction(new WaitAction(1.0f));
-	nodes[0]->addAction(new ScreenFadeAction(Color::White, 2.0f, SCREEN_FADE_OUT));
-	//nodes[0]->addAction(new PlayMusicAction(MusicType::SONG_FMAB_AGAIN));
-	nodes[0]->addAction(new ScreenFadeAction(Color::White, 4.0f, SCREEN_FADE_IN));
-	//nodes[0]->addAction(new PauseMusicAction(MusicType::SONG_FMAB_AGAIN));
+	nodes[0]->addAction(new TextAction(std::string("Testing the scripting system"), true));
+	nodes[0]->addAction(new MoveAction("Melody", Vector2f(100, 200)));
+	nodes[0]->addAction(new TextAction(std::string("Let this string overflow the boundary - demonstrate text wrapping")));
+	nodes[0]->addAction(new TextChoiceAction({ std::string("Choice1") , std::string("Repeat") , std::string("Choice3"), std::string("Choice4") }));
+	nodes[0]->addAction(new WaitAction(0.5f));
+	nodes[0]->addAction(new TextAction(std::string("Screen fade in/out")));
+	nodes[0]->addAction(new ScreenFadeAction(Color::White, 1.0f, SCREEN_FADE_OUT));
+	nodes[0]->addAction(new ScreenFadeAction(Color::White, 1.0f, SCREEN_FADE_IN));
 	nodes[0]->addAction(new SetAction<float>(&GameState::ui_blue, 0.0f));
+	nodes[0]->addAction(new TextAction(std::string("End of node actions")));
 	nodes[0]->addAction(new DebugAction("Node 0 done"));
 
-	nodes[0]->addEdge(new Edge(new Condition(2, 1), nodes[0]));
-	nodes[0]->addEdge(new Edge(new Condition(1, 1), nodes[1]));
+	nodes[0]->addEdge(new Edge(new ChoiceCondition(1, true), nodes[0]));
+	nodes[0]->addEdge(new Edge(new ChoiceCondition(1, false), nodes[1]));
 
 
 
 
-	nodes[1]->addAction(new TextAction(std::string("Hell0")));
-	nodes[1]->addAction(new TextAction(std::string("Hello")));
-	nodes[1]->addAction(new TextChoiceAction({ std::string("Hello World4") , std::string("Hello World4") }));
-	nodes[1]->addAction(new WaitAction(2.0f));
-	nodes[1]->addAction(new DebugAction("Node 1 done"));
+	nodes[1]->addAction(new TextAction(std::string("2nd Node")));
+	nodes[1]->addAction(new TextAction(std::string("This node will repeat")));
+	nodes[1]->addAction(new TextChoiceAction({ std::string("Choice 1") , std::string("Choice 2") }));
+	nodes[1]->addAction(new WaitAction(0.5f));
+	nodes[1]->addAction(new DebugAction("Node 2 done"));
 
-	nodes[1]->addEdge(new Edge(new Condition(1, 1), nodes[1]));
+	nodes[1]->addEdge(new Edge(new IntCondition(1, 1), nodes[1]));
 
 }

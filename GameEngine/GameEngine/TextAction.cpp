@@ -18,3 +18,8 @@ int TextAction::run(float dt)
 	}
 	return !blocking | UIManager::isTextboxEmpty();
 }
+
+void TextAction::reset()
+{
+	sent = false;
+}

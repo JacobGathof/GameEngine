@@ -5,5 +5,6 @@ public:
 	AbstractScriptAction();
 	~AbstractScriptAction();
 	virtual int run(float dt) = 0;
+	virtual void reset();
 };
 

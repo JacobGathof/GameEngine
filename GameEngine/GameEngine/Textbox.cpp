@@ -3,7 +3,9 @@
 
 
 Text* PlainText::text;
-
+Text* Choice::texts[4];
+Color Choice::selectedColor(0x00ffffff);
+Color Choice::defaultColor(0xffffffff);
 
 Textbox::Textbox()
 {
@@ -12,12 +14,14 @@ Textbox::Textbox()
 	timer.setTickLength(0.05f);
 
 	PlainText::init();
+	Choice::init();
 }
 
 
 Textbox::~Textbox()
 {
 	PlainText::clean();
+	Choice::clean();
 }
 
 void Textbox::draw(){
@@ -68,6 +72,7 @@ void Textbox::advanceText()
 		show();
 	}
 	if (current != 0) {
+		current->finish();
 		delete current;
 		current = 0;
 	}
@@ -113,6 +118,11 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 			current->displayFullLength();
 		}
 	}
+	else {
+		if (current != 0) {
+			current->handleKeyEvents(keyboard);
+		}
+	}
 }
 
 void Textbox::show()
@@ -140,26 +150,34 @@ bool Textbox::hasNext()
 
 Choice::Choice(List<std::string>& ch) : choices(ch)
 {
-	text1 = new Text(Vector2f(24, 160), std::string(""), Vector2f(30, 30), 0);
-	text2 = new Text(Vector2f(24, 60), std::string("Test"), Vector2f(30, 30), 0);
-	text3 = new Text(Vector2f(424, 160), std::string(""), Vector2f(30, 30), 0);
-	text4 = new Text(Vector2f(424, 60), std::string(""), Vector2f(30, 30), 0);
-
 	choices = ch;
 }
 
 Choice::~Choice()
 {
-	delete text1;
-	delete text2;
-	delete text3;
-	delete text4;
+}
+
+void Choice::init()
+{
+	texts[0] = new Text(Vector2f(24, 160), std::string(""), Vector2f(30, 30), 0);
+	texts[1] = new Text(Vector2f(24, 60), std::string("Test"), Vector2f(30, 30), 0);
+	texts[2] = new Text(Vector2f(424, 160), std::string(""), Vector2f(30, 30), 0);
+	texts[3] = new Text(Vector2f(424, 60), std::string(""), Vector2f(30, 30), 0);
+}
+
+void Choice::clean()
+{
+	delete texts[0];
+	delete texts[1];
+	delete texts[2];
+	delete texts[3];
 }
 
 void Choice::draw()
 {
-	text1->draw();
-	text2->draw();
+	for (int i = 0; i < numChoices; i++) {
+		texts[i]->draw();
+	}
 }
 
 void Choice::prepare()
@@ -168,9 +186,18 @@ void Choice::prepare()
 	choicePointer = 0;
 
 	numChoices = choices.size();
-	std::string s1 = *choices.begin();
-	text1->setText(s1);
+	for (int i = 0; i < numChoices; i++) {
+		texts[i]->setText(*(choices.begin() + i));
+		texts[i]->setColor(defaultColor);
+	}
 
+	texts[0]->setColor(selectedColor);
+
+}
+
+void Choice::finish()
+{
+	GameState::choicePointer = choicePointer;
 }
 
 bool Choice::isDisplayingFullLength(){
@@ -181,6 +208,22 @@ void Choice::displayFullLength(){
 }
 
 void Choice::addLetter(){
+}
+
+void Choice::handleKeyEvents(Keyboard & keyboard)
+{
+	int i = 0;
+	if (keyboard.press(VirtualKey::ARROW_UP)) {i = -1;}
+	if (keyboard.press(VirtualKey::ARROW_DOWN)) { i = 1; }
+	if (keyboard.press(VirtualKey::ARROW_LEFT)) { i = -2; }
+	if (keyboard.press(VirtualKey::ARROW_RIGHT)) { i = 2; }
+
+	if (i != 0) {
+		texts[choicePointer]->setColor(defaultColor);
+		choicePointer += i;
+		choicePointer = (choicePointer % numChoices + numChoices) % numChoices;
+		texts[choicePointer]->setColor(selectedColor);
+	}
 }
 
 
@@ -214,6 +257,10 @@ void PlainText::draw()
 	text->draw();
 }
 
+void PlainText::finish()
+{
+}
+
 
 bool PlainText::isDisplayingFullLength()
 {
@@ -228,4 +275,12 @@ void PlainText::displayFullLength()
 void PlainText::addLetter()
 {
 	text->addLetter();
+}
+
+void PlainText::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
+void TextboxContent::handleKeyEvents(Keyboard & keyboard)
+{
 }

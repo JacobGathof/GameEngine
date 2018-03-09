@@ -55,9 +55,7 @@ void Application::run()
 	sys->endColor = Color::DarkPurple;
 
 
-	FastParticleSystem* fpsys = new FastParticleSystem(1000);
 	melody.addEffect(sys);
-	melody.addEffect(fpsys);
 
 
 
@@ -108,7 +106,6 @@ void Application::run()
 
 
 		Renderer::draw();
-		fpsys->draw();
 
 	
 		Window::swapBuffers();

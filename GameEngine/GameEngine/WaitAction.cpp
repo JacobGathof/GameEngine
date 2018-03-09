@@ -17,3 +17,8 @@ int WaitAction::run(float dt)
 	timer.update(dt);
 	return timer.tick();
 }
+
+void WaitAction::reset()
+{
+	timer.reset();
+}

@@ -18,3 +18,8 @@ int TextChoiceAction::run(float dt)
 	}
 	return UIManager::isTextboxEmpty();
 }
+
+void TextChoiceAction::reset()
+{
+	sentChoice = false;
+}
