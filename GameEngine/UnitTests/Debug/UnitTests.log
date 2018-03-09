@@ -1,0 +1,3 @@
+﻿  unittest1.cpp
+c:\users\moormaet\documents\github\game\gameengine\unittests\unittest1.cpp(20): warning C4305: 'argument': truncation from 'double' to 'float'
+  UnitTests.vcxproj -> C:\Users\moormaet\Documents\GitHub\Game\GameEngine\Debug\UnitTests.dll
