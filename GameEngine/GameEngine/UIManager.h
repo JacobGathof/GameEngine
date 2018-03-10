@@ -4,6 +4,7 @@
 #include "StatsPage.h"
 #include "Statusbar.h"
 #include "InventoryPage.h"
+#include "Banner.h"
 
 class UIManager
 {
@@ -23,9 +24,16 @@ public:
 	static void toggleMenu();
 	static bool isTextboxEmpty();
 
+
+	static void showBanner();
+	static void hideBanner();
+	static void setBannerText(std::string& str, std::string& str_sub);
+	static bool isBannerVisible();
+
 private:
 	static Textbox * textbox;
 	static Menu * menu;
+	static Banner * banner;
 
 };
 

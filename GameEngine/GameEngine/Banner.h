@@ -11,11 +11,16 @@ public:
 	virtual void update(float dt);
 	virtual void handleMouseEvents(Mouse& mouse);
 	virtual void handleKeyEvents(Keyboard& keyboard);
-	void setText(std::string str);
+	void setText(std::string& str, std::string& str_sub);
+	bool isVisible();
+
+	void show();
+	void hide();
 
 private:
 	Color bannerColor;
 	Color textColor;
 	Text* text;
+	Text* subText;
 };
 
