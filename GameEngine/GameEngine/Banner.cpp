@@ -8,6 +8,11 @@ Banner::Banner()
 	scale = Vector2f(800, 200);
 	bannerColor = Color::White;
 	textColor = Color::Black;
+	alpha = 0.0f;
+	animationState = 0;
+	visible = false;
+	timer.setTickLength(2.0f);
+
 	text = new Text(position+scale/2, std::string("The Echo Effect"), Vector2f(40,40), 0);
 	text->center();
 	text->setColor(textColor);
@@ -26,7 +31,9 @@ Banner::~Banner()
 
 void Banner::draw()
 {
-	UIUtils::drawRectangle(position, scale, bannerColor);
+	if (!visible)
+		return;
+	UIUtils::drawRectangle(position, scale, Color(1,1,1,alpha));
 	text->draw();
 	subText->draw();
 }
@@ -54,14 +61,33 @@ void Banner::setText(std::string& str, std::string& str_sub)
 
 bool Banner::isVisible()
 {
-	//Not used yet
-	return 0;
+	return visible;
 }
 
-void Banner::show()
+bool Banner::playAnimation(float dt)
 {
-}
+	timer.update(dt);
+	if (timer.tick()) {
+		animationState++;
+	}
 
-void Banner::hide()
-{
+	if (animationState == 0) {
+		visible = true;
+		alpha = timer.getCurrentTime() / timer.getTickLength();
+	}
+	else if (animationState == 1) {
+		alpha = 1;
+	}
+	else if (animationState == 2) {
+		alpha = 1-timer.getCurrentTime()/timer.getTickLength();
+	}
+	else {
+		alpha = 0;
+		animationState = 0;
+		visible = false;
+		timer.reset();
+		return true;
+	}
+
+	return false;
 }

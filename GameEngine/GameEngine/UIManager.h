@@ -25,8 +25,7 @@ public:
 	static bool isTextboxEmpty();
 
 
-	static void showBanner();
-	static void hideBanner();
+	static bool playBannerAnimation(float dt);
 	static void setBannerText(std::string& str, std::string& str_sub);
 	static bool isBannerVisible();
 

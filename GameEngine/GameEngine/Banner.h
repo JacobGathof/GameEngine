@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "Text.h"
+#include "BounceTimer.h"
 
 class Banner : public AbstractUIComponent
 {
@@ -14,10 +15,14 @@ public:
 	void setText(std::string& str, std::string& str_sub);
 	bool isVisible();
 
-	void show();
-	void hide();
+	bool playAnimation(float dt);
 
 private:
+	float alpha;
+	bool visible;
+	int animationState;
+
+	Timer timer;
 	Color bannerColor;
 	Color textColor;
 	Text* text;

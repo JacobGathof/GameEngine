@@ -75,12 +75,8 @@ bool UIManager::isTextboxEmpty()
 }
 
 
-void UIManager::showBanner(){
-	banner->show();
-}
-
-void UIManager::hideBanner(){
-	banner->hide();
+bool UIManager::playBannerAnimation(float dt){
+	return banner->playAnimation(dt);
 }
 
 void UIManager::setBannerText(std::string& str1, std::string& str2)

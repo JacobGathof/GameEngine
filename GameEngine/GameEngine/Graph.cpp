@@ -8,6 +8,7 @@
 #include "PlayMusicAction.h"
 #include "PauseMusicAction.h"
 #include "MoveAction.h"
+#include "BannerAction.h"
 
 Graph::Graph()
 {
@@ -40,6 +41,7 @@ void Graph::createGraph()
 	nodes[0]->addAction(new MoveAction("Melody", Vector2f(100, 200)));
 	nodes[0]->addAction(new TextAction(std::string("Let this string overflow the boundary - demonstrate text wrapping")));
 	nodes[0]->addAction(new TextChoiceAction({ std::string("Choice1") , std::string("Repeat") , std::string("Choice3"), std::string("Choice4") }));
+	nodes[0]->addAction(new BannerAction(std::string("The Echo Effect"), std::string("50% more Gilgamesh")));
 	nodes[0]->addAction(new WaitAction(0.5f));
 	nodes[0]->addAction(new TextAction(std::string("Screen fade in/out")));
 	nodes[0]->addAction(new ScreenFadeAction(Color::White, 1.0f, SCREEN_FADE_OUT));
