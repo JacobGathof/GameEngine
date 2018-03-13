@@ -31,7 +31,7 @@ bool LivingObject::update(float delta_time)
 	}
 	else {
 		if (aiQueue.get(0)->execute(this, delta_time)) {
-			aiQueue.remove(0);
+			aiQueue.removeIndex(0);
 		}
 	}
 	return MovableObject::update(delta_time);

@@ -29,7 +29,7 @@ Card &Hand::getCard(int i)
 Card & Hand::removeCard(int i)
 {
 	Card &c = hand[i];
-	hand.remove(i);
+	hand.removeIndex(i);
 	return c;
 }
 
