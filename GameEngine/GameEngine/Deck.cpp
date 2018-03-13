@@ -36,13 +36,13 @@ void Deck::addAll(List<Card> cards)
 Card Deck::draw()
 {
 	Card c = deck[0];
-	deck.remove(0);
+	deck.removeIndex(0);
 	return c;
 }
 
 void Deck::removeCard(int index)
 {
-	deck.remove(index);
+	deck.removeIndex(index);
 }
 
 void Deck::reset()
@@ -51,7 +51,7 @@ void Deck::reset()
 		deck.add(c);
 	}
 	for (int i = 0; i < discard.size(); i++) {
-		discard.remove(0);
+		discard.removeIndex(0);
 	}
 	shuffle();
 }

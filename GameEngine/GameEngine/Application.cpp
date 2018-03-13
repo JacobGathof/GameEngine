@@ -57,7 +57,8 @@ void Application::run()
 
 	melody.addEffect(sys);
 
-
+	TerrainMap map;
+	map.constructMap("TerrainMaps/test.txt");
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);

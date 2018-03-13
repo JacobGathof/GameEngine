@@ -109,7 +109,7 @@ bool Room::collision(Object * obj1, Object * obj2)
 
 void Room::sortPlace(Object * obj, int index)
 {
-	objects.remove(index);
+	objects.removeIndex(index);
 	for (int i = 0; i < objects.size(); i++) {
 		if (obj->pos[1] > objects[i]->pos[1]) {
 			objects.add(obj, i);

@@ -33,7 +33,7 @@ public:
 		data.clear();
 	}
 
-	bool remove(int i){
+	bool removeIndex(int i){
 		data.erase(data.begin() + i);
 		return true;
 	}
