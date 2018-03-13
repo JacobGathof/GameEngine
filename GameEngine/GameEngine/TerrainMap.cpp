@@ -20,12 +20,11 @@ void TerrainMap::draw(){
 
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			shader->loadVector2f("translate", Vector2f(4-i,4-j));
-			shader->loadVector2f("scale", Vector2f(1,1));
+			shader->loadVector2f("translate", Vector2f(200*i - 800,200*j - 800));
+			shader->loadVector2f("scale", Vector2f(200,200));
 			model->draw();
 		}
 	}
-
 }
 
 void TerrainMap::update(float dt)

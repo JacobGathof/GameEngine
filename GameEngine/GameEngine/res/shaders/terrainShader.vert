@@ -5,11 +5,13 @@ layout(location=1) in vec2 texCoords;
 
 out vec2 uv;
 
-uniform vec2 dim;
 uniform vec2 translate;
 uniform vec2 scale;
 
+uniform vec2 camera_translate;
+uniform vec2 camera_scale;
+
 void main(){
 	uv = texCoords;
-	gl_Position = vec4((position*scale+translate)/dim*800,0,1);
+	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 }
