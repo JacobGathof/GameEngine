@@ -22,6 +22,7 @@ public:
 
 	void setColor(Color& col);
 	void setPosition(Vector2f& v);
+	void setOffset(Vector2f& v);
 	void setScale(Vector2f& v);
 	void reloadData();
 	void center();
@@ -42,6 +43,7 @@ private:
 	Font * font;
 	Model model;
 	Vector2f position;
+	Vector2f offset;
 	Color color;
 
 	std::string data;

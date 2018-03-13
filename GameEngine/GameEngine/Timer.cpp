@@ -69,3 +69,8 @@ float Timer::getCurrentTime()
 	return currentTime;
 }
 
+float Timer::getTickLength()
+{
+	return tickLength;
+}
+

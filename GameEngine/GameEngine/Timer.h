@@ -15,6 +15,7 @@ public:
 	void reset();
 	float getTotalTime();
 	float getCurrentTime();
+	float getTickLength();
 
 	Timer();
 	~Timer();

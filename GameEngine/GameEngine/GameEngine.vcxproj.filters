@@ -423,6 +423,9 @@
     <ClCompile Include="MoveAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="BannerAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -726,6 +729,9 @@
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
     <ClInclude Include="MoveAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="BannerAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
   </ItemGroup>
