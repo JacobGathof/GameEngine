@@ -37,6 +37,11 @@ void Screen::updateUniforms()
 	Res::get(ShaderType::BASIC_SHADER)->bind();
 	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_translate", offset);
 	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_scale", Vector2f(1,1)/Vector2f(scrollMultiplier * Vector2f(width, height)));
+
+	Res::get(ShaderType::TERRAIN_SHADER)->bind();
+	Res::get(ShaderType::TERRAIN_SHADER)->loadVector2f("camera_translate", offset);
+	Res::get(ShaderType::TERRAIN_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
+
 }
 
 Vector2f Screen::toScreenCoords(Vector2f translate)

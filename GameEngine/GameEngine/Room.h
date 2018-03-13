@@ -12,6 +12,8 @@ public:
 	~Room();
 	//std::vector<Object *> transitions; maybe
 
+	std::string name;
+
 	void update(float delta_time);
 	void draw();
 	void checkCollisions();
