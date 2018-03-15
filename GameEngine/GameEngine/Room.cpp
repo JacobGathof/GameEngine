@@ -23,7 +23,7 @@ void Room::update(float delta_time)
 
 void Room::draw()
 {
-	terrain.draw();
+	terrain.draw(objectMap.at("Melody"));
 
 	for (Object * o : objects) {
 		o->draw();
@@ -85,6 +85,11 @@ Object * Room::getObject(std::string name)
 {
 	std::cout << objectMap.size() << std::endl;
 	return objectMap.at(name);
+}
+
+void Room::setTerrainMap(std::string map)
+{
+	terrain.constructMap("TerrainMaps/" + map);
 }
 
 bool Room::collision(Object * obj1, Object * obj2)
