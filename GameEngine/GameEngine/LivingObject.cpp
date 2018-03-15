@@ -24,6 +24,9 @@ void LivingObject::setAI(LivingAi * a)
 
 bool LivingObject::update(float delta_time)
 {
+	if (stalled) {
+		return false;
+	}
 	if (aiQueue.size() == 0) {
 		if (defaultAi != nullptr) {
 			defaultAi->execute(this, delta_time);
