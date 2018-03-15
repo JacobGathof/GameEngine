@@ -15,10 +15,10 @@ int MoveAction::run(float dt)
 {
 	
 	if (ai.execute((LivingObject *)object, dt)) {
-		object->stalled = true;
+		object->stalled = false;
 		return true;
 	}
 
-	object->stalled = false;
+	object->stalled = true;
 	return false;
 }
