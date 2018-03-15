@@ -1,5 +1,6 @@
 #include "Condition.h"
 #include "GameState.h"
+#include  <iostream>
 
 Condition::Condition()
 {

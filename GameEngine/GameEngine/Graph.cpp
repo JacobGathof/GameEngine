@@ -1,14 +1,6 @@
 #include "Graph.h"
-#include "TextAction.h"
-#include "TextChoiceAction.h"
-#include "DebugAction.h"
-#include "WaitAction.h"
-#include "ScreenFadeAction.h"
-#include "SetAction.h"
-#include "PlayMusicAction.h"
-#include "PauseMusicAction.h"
-#include "MoveAction.h"
-#include "BannerAction.h"
+#include "GraphLoader.h"
+
 
 Graph::Graph()
 {
@@ -34,6 +26,9 @@ void Graph::update(float dt)
 
 void Graph::createGraph()
 {
+	GraphLoader::load(nodes, "res/script/cycle_1.txt");
+
+	/*
 	nodes.push_back(new Node());
 	nodes.push_back(new Node());
 
@@ -63,5 +58,6 @@ void Graph::createGraph()
 	nodes[1]->addAction(new DebugAction("Node 2 done"));
 
 	nodes[1]->addEdge(new Edge(new IntCondition(1, 1), nodes[1]));
+	*/
 
 }
