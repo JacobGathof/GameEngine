@@ -223,7 +223,9 @@ void Choice::handleKeyEvents(Keyboard & keyboard)
 		choicePointer += i;
 		choicePointer = (choicePointer % numChoices + numChoices) % numChoices;
 		texts[choicePointer]->setColor(selectedColor);
+
 	}
+	GameState::choicePointer = choicePointer;
 }
 
 

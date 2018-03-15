@@ -1,14 +1,34 @@
-Start{
-[
-	ScreenFade(black)
-	ScreenText(x,y,"Foreword: Our greatest weakness lies in giving up. The most certain way to succeed is ALWAYS to try just one more time. - Thomas Edison”)
-	Screen(Fade, black)
+<node id="Start">
+	<actions>
+		<text>Test</text>
+		<text>Test</text>
+		<choice>
+			<c>First</c>
+			<c>Second</c>
+		</choice>
+		<fade color="0xaaffaaff" time="1.0" dir="out"/>
+		<fade color="0xaaffaaff" time="1.0" dir="in"/>
+	</actions>
+	
+	<conditions>
+		<cond next="End" val="0" match="1"></cond>
+		<cond next="Start" val="0" match="0"></cond>
+	</conditions>
+</node>
 
-	Text(???, None, "Alright children, settle down. It’s time for the story")
-	Text(???, None, "Storytime! Quit pushing! That’s my seat! Be quiet and sit down! Ssh! You ssh!")
-	Text(???, None, "This story is called “The Silver Knight")
-	Wait(condition)
-]
 
-Start <1,1>
-}
+<node id="End">
+	<actions>
+		<text>Node 2</text>
+		<text>Test</text>
+		<choice>
+			<c>1</c>
+			<c>2</c>
+		</choice>
+	</actions>
+	
+	<conditions>
+		<cond next="End" val="0" match="1"></cond>
+		<cond next="Start" val="0" match="0"></cond>
+	</conditions>
+</node>
