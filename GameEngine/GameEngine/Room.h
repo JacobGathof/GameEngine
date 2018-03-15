@@ -21,6 +21,7 @@ public:
 	void sort();
 	Object * getNearestObject(Vector2f pos);
 	Object * getObject(std::string name);
+	void setTerrainMap(std::string map);
 
 private:
 	List<Object *> objects;

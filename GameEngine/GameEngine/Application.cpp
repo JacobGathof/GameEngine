@@ -28,7 +28,7 @@ void Application::run()
 	World * world = World::getInstance();
 	Room room;
 	Room room2;
-
+	room.setTerrainMap("east of town 2.txt");
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
@@ -57,8 +57,7 @@ void Application::run()
 
 	melody.addEffect(sys);
 
-	TerrainMap map;
-	map.constructMap("TerrainMaps/test.txt");
+
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
