@@ -9,27 +9,14 @@ LivingObject::~LivingObject()
 {
 }
 
-void LivingObject::setAI(LivingAi * a)
-{
-	if (stalled) {
-		return;
-	}
-	if (aiQueue.size() == 0 && defaultAI == nullptr) {
-		defaultAi = a;
-	}
-	else {
-		aiQueue.add(defaultAi);
-	}
-}
-
 bool LivingObject::update(float delta_time)
 {
 	if (stalled) {
 		return false;
 	}
 	if (aiQueue.size() == 0) {
-		if (defaultAi != nullptr) {
-			defaultAi->execute(this, delta_time);
+		if (defaultAI != nullptr) {
+			defaultAI->execute(this, delta_time);
 		}
 	}
 	else {

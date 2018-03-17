@@ -1,12 +1,12 @@
 #pragma once
 
-class AnimatedObject;
+#include "AI.h"
 
-class AnimatedAi
+class AnimatedAI : public AI
 {
 public:
-	AnimatedAi();
-	~AnimatedAi();
+	AnimatedAI();
+	~AnimatedAI();
 
 	virtual bool execute(AnimatedObject * obj, float dt);
 };

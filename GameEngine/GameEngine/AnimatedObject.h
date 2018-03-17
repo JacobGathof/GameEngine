@@ -17,7 +17,6 @@ public:
 	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
 
-	virtual void setAI(AnimatedAi * ai);
 	void setAction(SpriteSheet::AnimationState action);
 	virtual void draw();
 	virtual bool update(float delta_time);
@@ -25,7 +24,6 @@ public:
 	virtual void interact();
 
 protected:
-	AnimatedAi * defaultAI;
-	std::vector<AnimatedAi *> aiQueue;
+	
 };
 

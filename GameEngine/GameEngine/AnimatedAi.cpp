@@ -1,16 +1,16 @@
-#include "AnimatedAi.h"
+#include "AnimatedAI.h"
 #include "AnimatedObject.h"
 
-AnimatedAi::AnimatedAi()
+AnimatedAI::AnimatedAI()
 {
 }
 
 
-AnimatedAi::~AnimatedAi()
+AnimatedAI::~AnimatedAI()
 {
 }
 
-bool AnimatedAi::execute(AnimatedObject * obj, float dt)
+bool AnimatedAI::execute(AnimatedObject * obj, float dt)
 {
 	return false;
 }
