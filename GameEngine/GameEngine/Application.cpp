@@ -34,7 +34,7 @@ void Application::run()
 	Input::ai = &playerAi;
 	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
 	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
-	RunAwayAI follow(&melody);
+	FollowAi follow(&melody);
 	structure.setAI(&follow);
 	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
