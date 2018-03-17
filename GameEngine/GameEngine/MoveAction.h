@@ -10,13 +10,13 @@
 class MoveAction : public AbstractScriptAction
 {
 public:
-	MoveAction(std::string name, Vector2f pos);
+	MoveAction(std::string& name, Vector2f& pos);
 	~MoveAction();
 
 	virtual int run(float dt);
 private:
 	Vector2f goal;
-	Object * object;
+	LivingObject * object;
 	GoToPointAI ai;
 };
 
