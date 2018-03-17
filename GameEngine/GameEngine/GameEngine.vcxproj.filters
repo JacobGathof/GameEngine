@@ -423,6 +423,9 @@
     <ClCompile Include="MoveAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="GoToOrthogonalPointAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -727,6 +730,9 @@
     </ClInclude>
     <ClInclude Include="MoveAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="GoToOrthogonalPointAI.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

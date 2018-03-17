@@ -42,6 +42,7 @@
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GoToOrthogonalPointAI.cpp" />
     <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Hand.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GoToOrthogonalPointAI.h" />
     <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Hand.h" />
