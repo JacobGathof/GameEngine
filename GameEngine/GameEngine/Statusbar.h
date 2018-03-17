@@ -13,9 +13,13 @@ public:
 
 private:
 
-	Vector2f topLeft = Vector2f(600, 790);
-	Vector2f botRight = Vector2f(790, 100);
-	Color hoverColor;
+	Color backdrop = Color(0x00004488);
+	/*Color healthColor = Color(0x882244dd);
+	Color staminaColor = Color(0x226622dd);
+	Color magicColor = Color(0x004488dd);*/
 
+	Color healthColor = Color(0xffffffdd);
+	Color staminaColor = Color(0xffffffdd);
+	Color magicColor = Color(0xffffffdd);
 };
 

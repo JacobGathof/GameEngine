@@ -1,6 +1,9 @@
 <node id="Start">
 	<actions>
-		<text>Test</text>
+		<text>Sweep the city steps tonight</text>
+		<text>Following the power lines</text>
+		<text>Met a man barside</text>
+		<text>With eclipses for eyes</text>
 		<text>Test</text>
 		<choice>
 			<c>First</c>

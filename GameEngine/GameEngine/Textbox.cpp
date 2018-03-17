@@ -72,7 +72,6 @@ void Textbox::advanceText()
 		show();
 	}
 	if (current != 0) {
-		current->finish();
 		delete current;
 		current = 0;
 	}
@@ -107,6 +106,10 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 
 		if (current == 0 || current->isDisplayingFullLength()) {
 			
+			if (current != 0) {
+				current->finish();
+			}
+
 			if (hasNext()) {
 				advanceText();
 			}
@@ -225,7 +228,6 @@ void Choice::handleKeyEvents(Keyboard & keyboard)
 		texts[choicePointer]->setColor(selectedColor);
 
 	}
-	GameState::choicePointer = choicePointer;
 }
 
 

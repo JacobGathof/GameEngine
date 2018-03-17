@@ -33,6 +33,7 @@ private:
 	static Textbox * textbox;
 	static Menu * menu;
 	static Banner * banner;
+	static Statusbar * statusbar;
 
 };
 

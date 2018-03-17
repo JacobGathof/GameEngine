@@ -29,9 +29,7 @@ void Renderer::draw()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
 
-
-	
-	glBlendFunc(GL_SRC_ALPHA, GL_DST_ALPHA);
+	glBlendFunc(GL_ONE, GL_ZERO);
 	buf = Res::get(FramebufferType::DEFAULT);
 	buf->bind();
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
