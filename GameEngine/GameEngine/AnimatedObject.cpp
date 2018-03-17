@@ -15,16 +15,6 @@ AnimatedObject::~AnimatedObject()
 {
 }
 
-void AnimatedObject::setAI(AnimatedAi * ai)
-{
-	if (aiQueue.size() == 0 && defaultAI == nullptr) {
-		defaultAI = ai;
-	}
-	else {
-		aiQueue.push_back(ai);
-	}
-}
-
 void AnimatedObject::setAction(SpriteSheet::AnimationState action)
 {
 }
@@ -45,9 +35,9 @@ bool AnimatedObject::update(float delta_time)
 		}
 	}
 	else {
-		if (!aiQueue.at(0)->execute(this, delta_time)) {
+		if (!aiQueue.get(0)->execute(this, delta_time)) {
 			//If the current AI is done, remove it
-			aiQueue.erase(aiQueue.begin());
+			aiQueue.removeIndex(0);
 		}
 	}
 	return isFinished;

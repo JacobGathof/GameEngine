@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LivingAi.h"
+#include "Vector2f.h"
 
 class GoToOrthogonalPointAI : public LivingAi
 {

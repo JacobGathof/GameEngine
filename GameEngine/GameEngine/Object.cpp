@@ -59,6 +59,19 @@ void Object::interact()
 	std::cout << "Interact" << std::endl;
 }
 
+void Object::setAI(AI * a)
+{
+	if (stalled) {
+		return;
+	}
+	if (aiQueue.size() == 0 && defaultAI == nullptr) {
+		defaultAI = a;
+	}
+	else {
+		aiQueue.add(a);
+	}
+}
+
 void Object::addEffect(Effect * eff)
 {
 	effects.add(eff);

@@ -4,9 +4,9 @@
 #include "Effect.h"
 #include "ResourceManager.h"
 #include "List.h"
-#include <vector>
 #include <stdio.h>
 #include "Screen.h"
+#include "AI.h"
 
 class Object
 {
@@ -22,11 +22,15 @@ public:
 	List<Effect *> effects;
 	bool stalled = false;
 	std::string name;
+	List<AI *> aiQueue;
+	AI * defaultAI;
 
 	virtual void draw();
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o);
 	virtual void interact();
+	virtual void setAI(AI * ai);
+
 	void addEffect(Effect * eff);
 	
 };

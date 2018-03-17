@@ -1,4 +1,4 @@
-#include "LivingAi.h"
+#include "LivingAI.h"
 #include "LivingObject.h"
 
 LivingAi::LivingAi()

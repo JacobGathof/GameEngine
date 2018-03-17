@@ -1,9 +1,8 @@
 #pragma once
-#include "Object.h"
 
-class LivingObject;
+#include "AI.h"
 
-class LivingAi
+class LivingAi : public AI
 {
 public:
 	LivingAi();

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="AbstractScriptAction.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="AudioEntity.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
@@ -38,7 +39,7 @@
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
-    <ClCompile Include="FollowAi.cpp" />
+    <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -54,7 +55,7 @@
     <ClCompile Include="KeyItem.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="List.cpp" />
-    <ClCompile Include="LivingAi.cpp" />
+    <ClCompile Include="LivingAI.cpp" />
     <ClCompile Include="AnimatedObject.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
@@ -92,7 +93,7 @@
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelManager.cpp" />
-    <ClCompile Include="AnimatedAi.cpp" />
+    <ClCompile Include="AnimatedAI.cpp" />
     <ClCompile Include="MovableObject.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
@@ -124,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractScriptAction.h" />
     <ClInclude Include="AbstractUIComponent.h" />
+    <ClInclude Include="AI.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="AudioEntity.h" />
     <ClInclude Include="AudioLoader.h" />
@@ -141,7 +143,7 @@
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FastParticleSystem.h" />
-    <ClInclude Include="FollowAi.h" />
+    <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />
     <ClInclude Include="GameState.h" />
@@ -157,7 +159,7 @@
     <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="LivingAi.h" />
+    <ClInclude Include="LivingAI.h" />
     <ClInclude Include="AnimatedObject.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
@@ -196,7 +198,7 @@
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelManager.h" />
-    <ClInclude Include="AnimatedAi.h" />
+    <ClInclude Include="AnimatedAI.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParticleSystem.h" />

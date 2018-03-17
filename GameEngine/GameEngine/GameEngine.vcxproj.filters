@@ -207,12 +207,6 @@
     <ClCompile Include="StatsPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="LivingAi.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimatedAi.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -251,9 +245,6 @@
     </ClCompile>
     <ClCompile Include="Hand.cpp">
       <Filter>Source Files\Cards</Filter>
-    </ClCompile>
-    <ClCompile Include="FollowAi.cpp">
-      <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="GoToPointAI.cpp">
       <Filter>Source Files\AI</Filter>
@@ -426,6 +417,18 @@
     <ClCompile Include="GoToOrthogonalPointAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -512,12 +515,6 @@
     <ClInclude Include="StatsPage.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="LivingAi.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimatedAi.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -559,9 +556,6 @@
     </ClInclude>
     <ClInclude Include="Hand.h">
       <Filter>Header Files\Cards</Filter>
-    </ClInclude>
-    <ClInclude Include="FollowAi.h">
-      <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="GoToPointAI.h">
       <Filter>Header Files\AI</Filter>
@@ -733,6 +727,18 @@
     </ClInclude>
     <ClInclude Include="GoToOrthogonalPointAI.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingAI.h">
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
