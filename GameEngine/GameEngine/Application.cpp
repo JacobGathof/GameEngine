@@ -32,8 +32,8 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
-	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
-	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
+	Player melody("Melody", TextureType::SPRITESHEET_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
+	LivingObject structure("Structure", TextureType::SPRITESHEET_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
 	FollowAi follow(&melody);
 	structure.setAI(&follow);
 	structure.moveSpeed = 600;

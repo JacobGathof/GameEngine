@@ -4,6 +4,7 @@
 std::map<ShaderType, ShaderProgram*> ShaderManager::shaders;
 
 void ShaderManager::init(){
+	addShader(ShaderType::ANIMATED_SHADER, "res/shaders/animatedShader.vert", 0, "res/shaders/animatedShader.frag");
 	addShader(ShaderType::TEXT_SHADER, "res/shaders/textShader.vert", 0, "res/shaders/textShader.frag");
 	addShader(ShaderType::BASIC_SHADER, "res/shaders/basicShader.vert", 0, "res/shaders/basicShader.frag");
 	addShader(ShaderType::PARTICLE_SHADER, "res/shaders/particleShader.vert", 0, "res/shaders/particleShader.frag");

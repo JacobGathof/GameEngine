@@ -7,11 +7,6 @@ MovableObject::MovableObject(std::string name, TextureType t, Vector2f position,
 	
 }
 
-MovableObject::MovableObject()
-{
-}
-
-
 MovableObject::~MovableObject()
 {
 }

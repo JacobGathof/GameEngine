@@ -32,7 +32,7 @@ Font* ResourceManager::get(FontType type){
 	return FontManager::get(type);
 }
 
-Texture* ResourceManager::get(TextureType type){
+SpriteSheet* ResourceManager::get(TextureType type){
 	return TextureManager::get(type);
 }
 

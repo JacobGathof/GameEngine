@@ -4,6 +4,7 @@
 
 
 enum class ShaderType {
+	ANIMATED_SHADER,
 	TEXT_SHADER,
 	BASIC_SHADER,
 	PARTICLE_SHADER,

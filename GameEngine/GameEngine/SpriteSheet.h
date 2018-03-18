@@ -10,22 +10,24 @@ public:
 	struct AnimationStruct {
 		int row;
 		int numColumns;
-		float AnimSpeed;
+		float animSpeed;
 		bool loop;
 	};
 
 	enum AnimationState
 	{
 		IDLE,
-		MOVERIGHT,
-		MOVELEFT,
-		MOVEUP,
-		MOVEDOWN,
+		MOVE_RIGHT,
+		MOVE_LEFT,
+		MOVE_UP,
+		MOVE_DOWN,
 		ATTACK
 	};
 
-	SpriteSheet();
-	~SpriteSheet();
+	SpriteSheet(char* filename, int rows, int columns);
+	virtual ~SpriteSheet();
+
+	int rows, columns;
 
 	std::map<AnimationState, AnimationStruct> animations;
 	AnimationState state = IDLE;

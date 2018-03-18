@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "Texture.h"
+#include "SpriteSheet.h"
 
 
 enum class TextureType {
@@ -17,6 +17,8 @@ enum class TextureType {
 	TEXTURE_HORUS,
 	TEXTURE_DAGON,
 	TEXTURE_SLIME,
+
+	SPRITESHEET_MELODY,
 
 	SWORD_ICON,
 	grass2,
@@ -85,12 +87,12 @@ public:
 
 	static void init();
 	static void clean();
-	static Texture* get(TextureType type);
+	static SpriteSheet* get(TextureType type);
 
 private:
 
-	static void addTexture(TextureType tex, char* filename);
-	static std::map<TextureType, Texture*> textures;
+	static void addTexture(TextureType tex, char* filename, int rows = 1, int columns = 1);
+	static std::map<TextureType, SpriteSheet*> textures;
 
 };
 

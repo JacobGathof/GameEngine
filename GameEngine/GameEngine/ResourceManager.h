@@ -15,7 +15,7 @@ public:
 	static ShaderProgram* get(ShaderType type);
 	static Model* get(ModelType type);
 	static Font* get(FontType type);
-	static Texture* get(TextureType type);
+	static SpriteSheet* get(TextureType type);
 	static Framebuffer* get(FramebufferType type);
 	static AudioEntity* get(MusicType type);
 };

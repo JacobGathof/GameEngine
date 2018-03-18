@@ -9,11 +9,15 @@ class AnimatedObject : public Object
 {
 public:
 	AnimatedObject(std::string name, TextureType t, Vector2f position, Vector2f sc);
-	AnimatedObject();
 	~AnimatedObject();
 
 	Timer timer;
+	Timer animationTimer;
+
 	int animationState;
+	int animationRow = 3;
+	int animationColumn = 0;
+
 	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
 

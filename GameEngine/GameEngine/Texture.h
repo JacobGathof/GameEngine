@@ -11,7 +11,7 @@ public:
 	Texture();
 	Texture(char* filename);
 	Texture(GLuint t);
-	~Texture();
+	virtual ~Texture();
 
 	void getData(float* data);
 

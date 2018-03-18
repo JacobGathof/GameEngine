@@ -1,7 +1,7 @@
 #include "TextureManager.h"
 
 
-std::map<TextureType, Texture*> TextureManager::textures;
+std::map<TextureType, SpriteSheet*> TextureManager::textures;
 
 void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_DEFAULT, "res/tex/default.png");
@@ -16,6 +16,8 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_HORUS, "res/tex/horus.png");
 	addTexture(TextureType::TEXTURE_DAGON, "res/tex/dagon.png");
 	addTexture(TextureType::TEXTURE_SLIME, "res/tex/slime.png");
+
+	addTexture(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3);
 
 	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
 	addTexture(TextureType::grass2, "res/tex/TestTex/za-Grass/grass2.png");
@@ -84,12 +86,12 @@ void TextureManager::clean() {
 	}
 }
 
-Texture * TextureManager::get(TextureType type)
+SpriteSheet * TextureManager::get(TextureType type)
 {
 	return textures[type];
 }
 
-void TextureManager::addTexture(TextureType tex, char * filename) {
-	Texture * t = new Texture(filename);
+void TextureManager::addTexture(TextureType tex, char * filename, int rows, int columns) {
+	SpriteSheet * t = new SpriteSheet(filename, rows, columns);
 	textures[tex] = t;
 }
