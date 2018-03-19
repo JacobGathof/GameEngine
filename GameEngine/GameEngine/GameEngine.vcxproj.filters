@@ -420,12 +420,6 @@
     <ClCompile Include="GraphLoader.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
-    <ClCompile Include="GoToOrthogonalPointAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AnimatedAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -433,6 +427,12 @@
       <Filter>Source Files\AI</Filter>
     </ClCompile>
     <ClCompile Include="LivingAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="GoToOrthogonalPointAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -740,12 +740,6 @@
     <ClInclude Include="rapidxml.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="GoToOrthogonalPointAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatedAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -753,6 +747,12 @@
       <Filter>Header Files\AI</Filter>
     </ClInclude>
     <ClInclude Include="LivingAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="GoToOrthogonalPointAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
   </ItemGroup>
