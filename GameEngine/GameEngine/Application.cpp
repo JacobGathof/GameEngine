@@ -28,7 +28,7 @@ void Application::run()
 	World * world = World::getInstance();
 	Room room;
 	Room room2;
-	room.setTerrainMap("east of town 2.txt");
+	room.setTerrainMap("eastOfTown2.txt");
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
