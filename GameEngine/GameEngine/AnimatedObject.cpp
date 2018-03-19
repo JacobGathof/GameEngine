@@ -37,10 +37,6 @@ void AnimatedObject::draw()
 	sh->bind();
 
 	m->draw();
-
-	for (Effect * eff : effects) {
-		eff->draw();
-	}
 }
 
 

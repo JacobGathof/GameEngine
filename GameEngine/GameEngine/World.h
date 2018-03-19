@@ -8,7 +8,14 @@ public:
 	Room * currentRoom;
 
 	static World * getInstance();
+	static void clean();
+
 	void draw();
+
+	void drawTerrain();
+	void drawObjects();
+	void drawEffects();
+
 	void update(float delta_time);
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);

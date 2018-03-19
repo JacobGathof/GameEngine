@@ -16,6 +16,11 @@ public:
 
 	void update(float delta_time);
 	void draw();
+
+	void drawTerrain();
+	void drawObjects();
+	void drawEffects();
+
 	void checkCollisions();
 	void addObject(Object * obj);
 	void sort();

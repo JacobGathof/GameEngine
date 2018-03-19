@@ -4,17 +4,9 @@
 World* World::inst;
 
 
-World::World()
-{
-}
+World::World(){}
+World::~World(){}
 
-
-World::~World()
-{
-	delete inst;
-
-	delete currentRoom;
-}
 
 World * World::getInstance()
 {
@@ -25,9 +17,33 @@ World * World::getInstance()
 	return inst;
 }
 
+void World::clean()
+{
+	if (inst != 0) {
+		delete inst;
+	}
+}
+
 void World::draw()
 {
-	currentRoom->draw();
+	drawTerrain();
+	drawObjects();
+	drawEffects();
+}
+
+void World::drawTerrain()
+{
+	currentRoom->drawTerrain();
+}
+
+void World::drawObjects()
+{
+	currentRoom->drawObjects();
+}
+
+void World::drawEffects()
+{
+	currentRoom->drawEffects();
 }
 
 void World::update(float delta_time)

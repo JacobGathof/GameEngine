@@ -36,6 +36,10 @@ void Object::draw()
 	
 	m->draw();
 	
+}
+
+void Object::drawEffects()
+{
 	for (Effect * eff : effects) {
 		eff->draw();
 	}

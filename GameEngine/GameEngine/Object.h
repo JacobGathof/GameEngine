@@ -26,6 +26,8 @@ public:
 	AI * defaultAI;
 
 	virtual void draw();
+	virtual void drawEffects();
+
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o);
 	virtual void interact();

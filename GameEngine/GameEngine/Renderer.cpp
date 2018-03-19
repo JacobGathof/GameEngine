@@ -17,7 +17,8 @@ void Renderer::draw()
 	buf->bind();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	World::getInstance()->draw();
+	World::getInstance()->drawTerrain();
+	World::getInstance()->drawObjects();
 
 
 	
@@ -29,6 +30,14 @@ void Renderer::draw()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
 
+	glBlendFunc(GL_SRC_ALPHA, GL_DST_ALPHA);
+	buf = Res::get(FramebufferType::PARTICLES_BUFFER);
+	buf->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	World::getInstance()->drawEffects();
+
+
+
 	glBlendFunc(GL_ONE, GL_ZERO);
 	buf = Res::get(FramebufferType::DEFAULT);
 	buf->bind();
@@ -38,6 +47,7 @@ void Renderer::draw()
 	sp->bind();
 	sp->loadInteger("ui", 0);
 	sp->loadInteger("world", 1);
+	sp->loadInteger("particles", 2);
 
 	sp->loadFloat("ui_trans", GameState::sliderValue);
 	sp->loadFloat("ui_blue", GameState::ui_blue);
@@ -47,6 +57,7 @@ void Renderer::draw()
 
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
 	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);
+	Res::get(FramebufferType::PARTICLES_BUFFER)->bindTexture(2);
 	m->draw();
 	
 

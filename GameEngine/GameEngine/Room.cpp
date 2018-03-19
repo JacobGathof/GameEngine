@@ -23,10 +23,27 @@ void Room::update(float delta_time)
 
 void Room::draw()
 {
-	terrain.draw(objectMap.at("Melody"));
+	drawTerrain();
+	drawObjects();
+	drawEffects();
+}
 
+void Room::drawTerrain()
+{
+	terrain.draw(objectMap.at("Melody"));
+}
+
+void Room::drawObjects()
+{
 	for (Object * o : objects) {
 		o->draw();
+	}
+}
+
+void Room::drawEffects()
+{
+	for (Object * o : objects) {
+		o->drawEffects();
 	}
 }
 
