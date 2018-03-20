@@ -4,6 +4,7 @@
 #include "Graph.h"
 #include "AudioSystem.h"
 #include "FastParticleSystem.h"
+#include "SaveUtilities.h"
 
 
 Application::Application(){}
@@ -23,6 +24,7 @@ void Application::run()
 
 	UIManager::init();
 
+	SaveUtilities::init();
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -65,6 +67,10 @@ void Application::run()
 	Circle circ(Vector2f(0,0), 256.0f);
 
 	Graph graph;
+
+
+
+	SaveUtilities::loadGame();
 
 
 	float dt;
@@ -110,6 +116,8 @@ void Application::run()
 	
 		Window::swapBuffers();
 	}
+
+	SaveUtilities::saveGame();
 
 	World::clean();
 

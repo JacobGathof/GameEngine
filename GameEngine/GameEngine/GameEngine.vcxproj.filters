@@ -435,6 +435,9 @@
     <ClCompile Include="GoToOrthogonalPointAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
+    <ClCompile Include="SaveUtilities.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -754,6 +757,9 @@
     </ClInclude>
     <ClInclude Include="GoToOrthogonalPointAI.h">
       <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveUtilities.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
