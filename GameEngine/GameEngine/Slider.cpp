@@ -12,10 +12,13 @@ Slider::Slider(Vector2f & pos, Vector2f & sc, std::string& t, float* r, float mi
 	maxX = ma;
 	inc = ic;
 
-	*ref = (maxX - minX)*ptr + minX;
-	data = new Text(position + scale, std::string("0"), Vector2f(20, 20), 0);
+	//*ref = (maxX - minX)*ptr + minX;
+	data = new Text(position + scale, std::string(""), Vector2f(20, 20), 0);
 	title = new Text(position + Vector2f(scale[0]/2, 0), t, Vector2f(20,20), 0);
 	title->center();
+	
+	ptr = (*ref - minX) / (maxX - minX);
+	data->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
 }
 
 Slider::~Slider()

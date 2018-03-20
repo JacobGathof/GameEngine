@@ -13,6 +13,7 @@ public:
 	static float sliderValue;
 	static float ui_blue;
 	static int choicePointer;
+	static std::string playerName;
 
 private:
 	static std::string globalDebug;

@@ -4,7 +4,7 @@
 
 List<int*> SaveUtilities::integerSaves;
 List<float*> SaveUtilities::floatSaves;
-List<char*> SaveUtilities::stringSaves;
+List<std::string*> SaveUtilities::stringSaves;
 
 void SaveUtilities::saveGame()
 {
@@ -19,7 +19,7 @@ void SaveUtilities::saveGame()
 		file << std::to_string(*f).c_str() << std::endl;
 	}
 	for (auto c : stringSaves) {
-		file << c << std::endl;
+		file << *c << std::endl;
 	}
 
 	file.close();
@@ -28,28 +28,35 @@ void SaveUtilities::saveGame()
 
 void SaveUtilities::loadGame()
 {
+
 	std::ifstream file;
 	std::string str;
 	file.open("res/save.txt", file.in);
 
 	for (auto i : integerSaves) {
+		if (!file) continue;
 		std::getline(file, str);
 		*i = std::atoi(str.c_str());
 	}
 	for (auto f : floatSaves) {
+		if (!file) continue;
 		std::getline(file, str);
 		*f = std::atof(str.c_str());
 	}
 	for (auto c : stringSaves) {
+		if (!file) continue;
 		std::getline(file, str);
-		*c = str.c_str()[0];
+		*c = str;
 	}
 
 	file.close();
+
+	std::cout << "Finished Loading" << std::endl;
 }
 
 void SaveUtilities::init()
 {
 	integerSaves.add(&GameState::choicePointer);
 	floatSaves.add(&GameState::sliderValue);
+	stringSaves.add(&GameState::playerName);
 }

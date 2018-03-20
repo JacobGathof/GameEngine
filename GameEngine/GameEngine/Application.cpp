@@ -15,6 +15,9 @@ void Application::run()
 {
 	srand((unsigned int)time(0));
 
+	SaveUtilities::init();
+	SaveUtilities::loadGame();
+
 	Window::init("The Echo Effect", 800, 800);
 	AudioSystem::init();
 
@@ -23,8 +26,6 @@ void Application::run()
 	Input::init();
 
 	UIManager::init();
-
-	SaveUtilities::init();
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -69,13 +70,10 @@ void Application::run()
 	Graph graph;
 
 
-
-	SaveUtilities::loadGame();
-
-
 	float dt;
 	Window::show();
-
+	//Window::close();
+	
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
