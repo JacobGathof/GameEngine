@@ -21,6 +21,11 @@
 #include "GameState.h"
 #include "UIManager.h"
 #include "RunAwayAI.h"
+#include "CircleHitbox.h"
+#include "RectHitbox.h"
+#include "ComplexHitbox.h"
+#include "ComplexPolygon.h"
+#include "Rectangle.h"
 
 class Application
 {

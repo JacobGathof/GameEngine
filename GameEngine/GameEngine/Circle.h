@@ -9,9 +9,10 @@ public:
 	Circle(Vector2f& c, float rad);
 	~Circle();
 	void draw(float gt);
-
-private:
 	Vector2f center;
 	float radius;
+
+private:
+	
 };
 

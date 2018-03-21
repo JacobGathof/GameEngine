@@ -54,6 +54,15 @@ void Room::checkCollisions()
 		
 		
 		Object * current = objects.get(i);
+		for (int k = i; k < objects.size(); k++) {
+			Object * other = objects.get(k);
+			if (collision(current, other)) {
+				current->collide(other);
+				other->collide(current);
+			}
+		}
+
+		/*
 		for (int k = i+1; (k < objects.size() && (current->pos[1] < objects[k]->pos[1] + objects[k]->scale[1])); k++) {
 			Object * obj = objects.get(k);
 			if (collision(current, obj)) {
@@ -62,7 +71,7 @@ void Room::checkCollisions()
 			}
 			
 		}
-		
+		*/
 	}
 	
 	
@@ -111,6 +120,23 @@ void Room::setTerrainMap(std::string map)
 
 bool Room::collision(Object * obj1, Object * obj2)
 {
+	
+	for (int i = 0; i < obj1->numHitboxes(); i++) {
+		Hitbox * one = obj1->getHitbox(i);
+		for (int k = 0; k < obj2->numHitboxes(); k++) {
+			Hitbox * two = obj2->getHitbox(i);
+			if (one->pos == two->pos) {
+				continue;
+			}
+			if (one->collide(two)) {
+				return true;
+			}
+		}
+	}
+
+
+	//Will be the square-square hitbox later
+	/*
 	float x1 = obj1->pos[0];
 	float y1 = obj1->pos[1];
 	float xScale1 = obj1->scale[0];
@@ -125,7 +151,7 @@ bool Room::collision(Object * obj1, Object * obj2)
 			return true;
 		}
 	}
-	
+	*/
 	return false;
 }
 

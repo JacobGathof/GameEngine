@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "Screen.h"
 #include "AI.h"
+#include "Hitbox.h"
 
 class Object
 {
@@ -24,6 +25,7 @@ public:
 	std::string name;
 	List<AI *> aiQueue;
 	AI * defaultAI;
+	List<Hitbox *> hitboxes;
 
 	virtual void draw();
 	virtual void drawEffects();
@@ -34,6 +36,9 @@ public:
 	virtual void setAI(AI * ai);
 
 	void addEffect(Effect * eff);
+	int numHitboxes();
+	void addHitbox(Hitbox * h);
+	Hitbox * getHitbox(int i);
 	
 };
 
