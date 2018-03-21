@@ -36,9 +36,6 @@
     <Filter Include="Source Files\Text">
       <UniqueIdentifier>{f32cec6c-8afb-4fd5-94de-637a85c13f2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utilities">
-      <UniqueIdentifier>{95c2f93d-75ad-47a7-9668-d3c264170103}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Objects">
       <UniqueIdentifier>{3983b0d4-fbf6-448c-9eb3-f2783e06683c}</UniqueIdentifier>
     </Filter>
@@ -66,9 +63,6 @@
     <Filter Include="Header Files\Utilities\Shapes">
       <UniqueIdentifier>{a218b94b-91f7-42ee-a85b-3cb2e86ab651}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utilities\Shapes">
-      <UniqueIdentifier>{a6c4375e-6992-48a1-bf05-87c2d3dd928d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Cards">
       <UniqueIdentifier>{5b7ca685-7461-4c39-826c-d6f710284429}</UniqueIdentifier>
     </Filter>
@@ -77,9 +71,6 @@
     </Filter>
     <Filter Include="Header Files\Utilities\Timers">
       <UniqueIdentifier>{9713b705-dcb1-41f8-9a31-01fe8b4ad5dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Utilities\Timers">
-      <UniqueIdentifier>{b7c3f707-77da-44e2-bc62-75cc3e5bb6c9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Objects">
       <UniqueIdentifier>{71c4cb4a-6bdf-414d-8d1e-7af8a1fcb278}</UniqueIdentifier>
@@ -120,6 +111,21 @@
     <Filter Include="Source Files\Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Utilities\Hitbox">
+      <UniqueIdentifier>{1891038a-ed4c-4b20-a998-022d9e9b3b2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{95c2f93d-75ad-47a7-9668-d3c264170103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Shapes">
+      <UniqueIdentifier>{a6c4375e-6992-48a1-bf05-87c2d3dd928d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Timers">
+      <UniqueIdentifier>{b7c3f707-77da-44e2-bc62-75cc3e5bb6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Hitbox">
+      <UniqueIdentifier>{83b5f09e-3170-485f-890e-13af2ffe1c68}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -414,12 +420,6 @@
     <ClCompile Include="MoveAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="GoToOrthogonalPointAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AnimatedAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -428,6 +428,33 @@
     </ClCompile>
     <ClCompile Include="LivingAI.cpp">
       <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleHitbox.cpp">
+      <Filter>Source Files\Utilities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionUtil.cpp">
+      <Filter>Source Files\Utilities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplexHitbox.cpp">
+      <Filter>Source Files\Utilities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Hitbox.cpp">
+      <Filter>Source Files\Utilities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="RectHitbox.cpp">
+      <Filter>Source Files\Utilities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="GoToOrthogonalPointAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplexPolygon.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -725,12 +752,6 @@
     <ClInclude Include="MoveAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="GoToOrthogonalPointAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatedAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -739,6 +760,33 @@
     </ClInclude>
     <ClInclude Include="LivingAI.h">
       <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleHitbox.h">
+      <Filter>Header Files\Utilities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionUtil.h">
+      <Filter>Header Files\Utilities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Hitbox.h">
+      <Filter>Header Files\Utilities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="RectHitbox.h">
+      <Filter>Header Files\Utilities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexHitbox.h">
+      <Filter>Header Files\Utilities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="GoToOrthogonalPointAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexPolygon.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

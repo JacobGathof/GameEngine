@@ -32,10 +32,14 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
-	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(0,0), Vector2f(256,256), &playerAi);
-	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-300, -100), Vector2f(256, 256), 100, 100);
+	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
+	RectHitbox * circ = new RectHitbox(Rect(Vector2f(0,0), Vector2f(100, 170)), Vector2f(0,0));
+	RectHitbox * circ2 = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(100, 170)), Vector2f(0, 0));
+	melody.addHitbox(circ);
+	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
+	structure.addHitbox(circ2);
 	FollowAi follow(&melody);
-	structure.setAI(&follow);
+	//structure.setAI(&follow);
 	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
@@ -62,7 +66,7 @@ void Application::run()
 	GameTimer timer;
 	timer.setTickLength(1.0f);
 
-	Circle circ(Vector2f(0,0), 256.0f);
+	//Circle circ(Vector2f(0,0), 256.0f);
 
 	Graph graph;
 
@@ -110,7 +114,8 @@ void Application::run()
 	
 		Window::swapBuffers();
 	}
-
+	delete circ;
+	delete circ2;
 	ResourceManager::clean();
 	UIManager::clean();
 

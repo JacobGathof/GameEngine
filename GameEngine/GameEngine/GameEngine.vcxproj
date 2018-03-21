@@ -32,6 +32,9 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleHitbox.cpp" />
+    <ClCompile Include="CollisionUtil.cpp" />
+    <ClCompile Include="ComplexHitbox.cpp" />
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DebugAction.cpp" />
     <ClCompile Include="Deck.cpp" />
@@ -47,6 +50,7 @@
     <ClCompile Include="GoToPointAI.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryPage.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -70,7 +74,10 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PauseMusicAction.cpp" />
     <ClCompile Include="PlayMusicAction.cpp" />
+    <ClCompile Include="ComplexPolygon.cpp" />
     <ClCompile Include="RainParticleSystem.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectHitbox.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RunAwayAI.cpp" />
     <ClCompile Include="ScreenFadeAction.cpp" />
@@ -136,6 +143,9 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleHitbox.h" />
+    <ClInclude Include="CollisionUtil.h" />
+    <ClInclude Include="ComplexHitbox.h" />
     <ClInclude Include="Condition.h" />
     <ClInclude Include="DebugAction.h" />
     <ClInclude Include="Deck.h" />
@@ -151,6 +161,7 @@
     <ClInclude Include="GoToPointAI.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="Hitbox.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryPage.h" />
     <ClInclude Include="Item.h" />
@@ -174,7 +185,10 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PauseMusicAction.h" />
     <ClInclude Include="PlayMusicAction.h" />
+    <ClInclude Include="ComplexPolygon.h" />
     <ClInclude Include="RainParticleSystem.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectHitbox.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RunAwayAI.h" />

@@ -76,3 +76,20 @@ void Object::addEffect(Effect * eff)
 {
 	effects.add(eff);
 }
+
+int Object::numHitboxes()
+{
+	return hitboxes.size();
+}
+
+void Object::addHitbox(Hitbox * h)
+{
+	hitboxes.add(h);
+}
+
+Hitbox * Object::getHitbox(int i)
+{
+	Hitbox * hit = hitboxes.get(i);
+	hit->pos = this->pos;
+	return hit;
+}

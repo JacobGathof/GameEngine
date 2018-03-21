@@ -17,6 +17,7 @@ uniform int currentRow;
 uniform int currentColumn;
 
 void main(){
-	uv = (texCoords+vec2(currentColumn, currentRow)) / vec2(columns, rows);
+	uv = (texCoords + vec2(currentColumn, currentRow)) / vec2(columns, rows);
+	//uv = texCoords;
 	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 }
