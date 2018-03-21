@@ -36,7 +36,8 @@ bool CircleHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*this, *h);
 }
 
-void CircleHitbox::draw(float dt)
+void CircleHitbox::draw()
 {
-	shape.draw(dt);
+	shape.center = pos;
+	shape.draw();
 }

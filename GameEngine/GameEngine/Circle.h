@@ -8,7 +8,7 @@ public:
 	virtual bool contains(Vector2f& pt);
 	Circle(Vector2f& c, float rad);
 	~Circle();
-	void draw(float gt);
+	void draw();
 	Vector2f center;
 	float radius;
 

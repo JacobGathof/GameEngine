@@ -35,6 +35,10 @@ void Object::draw()
 	Res::get(texture)->bind();
 	
 	m->draw();
+
+	for (Hitbox * h : hitboxes) {
+		h->draw();
+	}
 	
 }
 

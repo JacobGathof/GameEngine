@@ -23,6 +23,7 @@ bool Player::update(float delta_time)
 
 bool Player::collide(Object * o)
 {
+	std::cout << "Resolve" << std::endl;
 	pos[0] = lastX;
 	pos[1] = lastY;
 	return true;

@@ -16,6 +16,6 @@ public:
 	virtual bool collide(CircleHitbox * h);
 	virtual bool collide(RectHitbox * h);
 	virtual bool collide(ComplexHitbox * h);
-	virtual void draw(float dt);
+	virtual void draw();
 };
 
