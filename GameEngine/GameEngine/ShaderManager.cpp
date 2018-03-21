@@ -13,6 +13,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::TERRAIN_SHADER, "res/shaders/terrainShader.vert", 0, "res/shaders/terrainShader.frag");
 	addShader(ShaderType::CIRCLE_SHADER, "res/shaders/circleShader.vert", 0, "res/shaders/circleShader.frag");
 	addShader(ShaderType::POST_PROCESS_SHADER, "res/shaders/postProcessShader.vert", 0, "res/shaders/postProcessShader.frag");
+	addShader(ShaderType::RECTANGLE_SHADER, "res/shaders/rectangleShader.vert", 0, "res/shaders/rectangleShader.frag");
 }
 
 void ShaderManager::clean(){

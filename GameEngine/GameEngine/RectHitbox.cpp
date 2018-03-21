@@ -34,7 +34,8 @@ bool RectHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*this, *h);
 }
 
-void RectHitbox::draw(float dt)
+void RectHitbox::draw()
 {
-	shape.draw(dt);
+	shape.center = pos;
+	shape.draw();
 }

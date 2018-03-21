@@ -2,17 +2,23 @@
 #include "Shape.h"
 #include "List.h"
 #include "Vector2f.h"
+#include "ResourceManager.h"
 
 class ComplexPolygon : public Shape
 {
 public:
-	ComplexPolygon(Vector2f vert[]);
+	ComplexPolygon(std::initializer_list<Vector2f> vert);
 	ComplexPolygon();
 	~ComplexPolygon();
 
-	List<Vector2f> vertices;
+	unsigned int vao;
+	unsigned int vbo;
 
-	void draw(float gt);
+	List<Vector2f> vertices;
+	Vector2f base = Vector2f(0, 0);
+
+	void draw();
 	virtual bool contains(Vector2f& pt);
+	List<Vector2f> getVertices();
 };
 

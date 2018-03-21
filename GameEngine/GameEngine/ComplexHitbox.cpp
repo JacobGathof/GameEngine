@@ -4,7 +4,7 @@
 
 
 
-ComplexHitbox::ComplexHitbox(ComplexPolygon p, Vector2f off)
+ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f off)
 {
 	shape = p;
 	offset = off;
@@ -12,6 +12,7 @@ ComplexHitbox::ComplexHitbox(ComplexPolygon p, Vector2f off)
 
 ComplexHitbox::~ComplexHitbox()
 {
+	delete shape;
 }
 
 bool ComplexHitbox::collide(Hitbox * s)
@@ -34,7 +35,12 @@ bool ComplexHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*h,*this);
 }
 
-void ComplexHitbox::draw(float dt)
+void ComplexHitbox::draw()
 {
-	shape.draw(dt);
+	shape->base = pos;
+	for (int i = 0; i < shape->vertices.size(); i++) {
+		shape->vertices.get(i) += pos;
+	}
+
+	shape->draw();
 }

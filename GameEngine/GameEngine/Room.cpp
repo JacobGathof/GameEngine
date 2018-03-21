@@ -34,8 +34,6 @@ void Room::checkCollisions()
 {
 	
 	for (int i = 0; i < objects.size(); i++) {
-		
-		
 		Object * current = objects.get(i);
 		for (int k = i; k < objects.size(); k++) {
 			Object * other = objects.get(k);

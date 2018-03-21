@@ -33,8 +33,8 @@ void Application::run()
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
 	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
-	RectHitbox * circ = new RectHitbox(Rect(Vector2f(0,0), Vector2f(100, 170)), Vector2f(0,0));
-	RectHitbox * circ2 = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(100, 170)), Vector2f(0, 0));
+	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,200), Vector2f(-150, 100) }), Vector2f(0, 0));
+	Hitbox * circ2 = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,200), Vector2f(-150, 100) }), Vector2f(0, 0));
 	melody.addHitbox(circ);
 	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
