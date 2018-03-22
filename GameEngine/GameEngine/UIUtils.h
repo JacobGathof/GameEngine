@@ -1,6 +1,7 @@
 #pragma once
-#include "ResourceManager.h"
-#include "Screen.h"
+#include "Vector2f.h"
+#include "Color.h"
+#include "TextureManager.h"
 
 class UIUtils
 {

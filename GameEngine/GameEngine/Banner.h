@@ -1,7 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "Text.h"
-#include "BounceTimer.h"
+#include "Timer.h"
 
 class Banner : public AbstractUIComponent
 {

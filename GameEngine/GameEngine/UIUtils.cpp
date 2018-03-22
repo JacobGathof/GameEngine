@@ -1,5 +1,5 @@
 #include "UIUtils.h"
-
+#include "ResourceManager.h"
 
 
 UIUtils::UIUtils()

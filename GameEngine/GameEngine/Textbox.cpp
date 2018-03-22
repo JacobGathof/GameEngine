@@ -1,6 +1,7 @@
 #include "Textbox.h"
 #include "Window.h"
-
+#include "Screen.h"
+#include "GameState.h"
 
 Text* PlainText::text;
 Text* Choice::texts[4];

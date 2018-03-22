@@ -2,12 +2,11 @@
 
 
 
-
 Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, ButtonAction * act)
 {
 	position = pos;
 	scale = sc;
-	text = new Text(position+scale/2, txt, Vector2f(25,25), Res::get(FontType::DEFAULT));
+	text = new Text(position+scale/2, txt, Vector2f(25,25), 0);
 	text->center();
 	text->setColor(Color::Black);
 	action = act;

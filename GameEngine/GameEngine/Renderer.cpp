@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "UIManager.h"
 #include "World.h"
+#include "GameState.h"
 
 Renderer::Renderer()
 {

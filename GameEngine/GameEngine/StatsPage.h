@@ -2,8 +2,6 @@
 #include "ResourceManager.h"
 #include "BounceTimer.h"
 #include "Text.h"
-#include "Screen.h"
-#include "GameState.h"
 #include "AbstractUIComponent.h"
 
 class StatsPage : public AbstractUIComponent

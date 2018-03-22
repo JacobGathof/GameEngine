@@ -3,7 +3,6 @@
 #include "Color.h"
 #include "gl3w.h"
 #include "Vector2f.h"
-#include <fstream>
 
 class ShaderProgram {
 

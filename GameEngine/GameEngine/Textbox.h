@@ -1,6 +1,5 @@
 #pragma once
 #include "Text.h"
-#include "Screen.h"
 #include <queue>
 #include "AbstractUIComponent.h"
 #include "Timer.h"
