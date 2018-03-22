@@ -19,8 +19,9 @@ Graph::~Graph()
 void Graph::update(float dt)
 {
 	Node* n = current->update(dt);
-	if (n != 0) {
+	while (n != 0) {
 		current = n;
+		n = current->update(dt);
 	}
 }
 

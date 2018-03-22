@@ -23,15 +23,6 @@ Node* Node::update(float dt)
 {
 	Node* n = 0;
 
-
-	if (completedAllActions) {
-		n = getNextNode();
-		if (n != 0) {
-			n->resetNode();
-		}
-	}
-
-
 	int result = 1;
 	while (result == 1 && !completedAllActions) {
 		result = actions[actionPtr]->run(dt);
@@ -40,6 +31,13 @@ Node* Node::update(float dt)
 			if (actionPtr >= actions.size()) {
 				completedAllActions = true;
 			}
+		}
+	}
+
+	if (completedAllActions) {
+		n = getNextNode();
+		if (n != 0) {
+			n->resetNode();
 		}
 	}
 

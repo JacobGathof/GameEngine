@@ -90,14 +90,11 @@ void Application::run()
 
 		Input::processInput(dt);
 		UIManager::update(dt);
-		graph.update(dt);
 
+		graph.update(dt);
 
 		world->update(dt);
 
-		//sys.update(dt);
-		//sys.draw();
-		//circ.draw(timer.getGameTime());
 
 		Screen::updateUniforms();
 

@@ -462,6 +462,12 @@
     <ClCompile Include="SaveUtilities.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="ComplexPolygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -802,6 +808,9 @@
     </ClInclude>
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveUtilities.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
