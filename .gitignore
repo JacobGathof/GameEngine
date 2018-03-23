@@ -2,7 +2,7 @@ GameEngine/Debug
 GameEngine/Release
 GameEngine/x64
 GameEngine/GameEngine/Debug
-GameEngine/UnitTests/Debug
+GameEngine/UnitTests
 GameEngine/GameEngine/Release
 GameEngine/GameEngine/x64
 GameEngine/GameEngine/GameEngine.vcxproj.user
