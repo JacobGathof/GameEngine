@@ -4,11 +4,11 @@
 
 
 
-class FollowAi : public LivingAi
+class FollowAI : public LivingAi
 {
 public:
-	FollowAi(LivingObject * obj);
-	~FollowAi();
+	FollowAI(LivingObject * obj);
+	~FollowAI();
 
 	LivingObject * follow;
 	bool moving = false;

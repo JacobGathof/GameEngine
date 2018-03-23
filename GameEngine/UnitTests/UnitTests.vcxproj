@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{F137D799-3934-450B-874F-613026A48B67}</ProjectGuid>
+    <ProjectGuid>{5BED5ACB-B9AE-4954-A67F-128A883630CE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>UnitTests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
@@ -89,16 +89,16 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(VCInstallDir)UnitTest\include;$(SolutionDir)GameEngine\opengl\GLFW\include\GLFW;$(SolutionDir)GameEngine\opengl\GL3W;$(SolutionDir)GameEngine\openal\include;$(SolutionDir)GameEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)$(SolutionDir)GameEngine\opengl\GLFW\include\GLFW;$(SolutionDir)GameEngine\opengl\GL3W;$(SolutionDir)GameEngine\openal\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);$(SolutionDir)GameEngine\openal\libs\Win32;$(SolutionDir)GameEngine\opengl\GLFW\lib-vc2013;$(SolutionDir)GameEngine\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories);$(SolutionDir)GameEngine\openal\libs\Win32;$(SolutionDir)GameEngine\opengl\GLFW\lib-vc2013</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;OpenAL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -153,212 +153,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\GameEngine\AbstractScriptAction.h" />
-    <ClInclude Include="..\GameEngine\AbstractUIComponent.h" />
-    <ClInclude Include="..\GameEngine\AnimatedAi.h" />
-    <ClInclude Include="..\GameEngine\AnimatedObject.h" />
-    <ClInclude Include="..\GameEngine\Application.h" />
-    <ClInclude Include="..\GameEngine\Armor.h" />
-    <ClInclude Include="..\GameEngine\AudioEntity.h" />
-    <ClInclude Include="..\GameEngine\AudioLoader.h" />
-    <ClInclude Include="..\GameEngine\AudioSystem.h" />
-    <ClInclude Include="..\GameEngine\Banner.h" />
-    <ClInclude Include="..\GameEngine\BounceTimer.h" />
-    <ClInclude Include="..\GameEngine\Button.h" />
-    <ClInclude Include="..\GameEngine\ButtonAction.h" />
-    <ClInclude Include="..\GameEngine\Callbacks.h" />
-    <ClInclude Include="..\GameEngine\Card.h" />
-    <ClInclude Include="..\GameEngine\CardsPage.h" />
-    <ClInclude Include="..\GameEngine\Circle.h" />
-    <ClInclude Include="..\GameEngine\Color.h" />
-    <ClInclude Include="..\GameEngine\Condition.h" />
-    <ClInclude Include="..\GameEngine\DebugAction.h" />
-    <ClInclude Include="..\GameEngine\Deck.h" />
-    <ClInclude Include="..\GameEngine\DefaultParticleSystem.h" />
-    <ClInclude Include="..\GameEngine\DirectedParticleSystem.h" />
-    <ClInclude Include="..\GameEngine\Edge.h" />
-    <ClInclude Include="..\GameEngine\Effect.h" />
-    <ClInclude Include="..\GameEngine\FastParticleSystem.h" />
-    <ClInclude Include="..\GameEngine\FollowAi.h" />
-    <ClInclude Include="..\GameEngine\Font.h" />
-    <ClInclude Include="..\GameEngine\FontManager.h" />
-    <ClInclude Include="..\GameEngine\Framebuffer.h" />
-    <ClInclude Include="..\GameEngine\FramebufferManager.h" />
-    <ClInclude Include="..\GameEngine\GameState.h" />
-    <ClInclude Include="..\GameEngine\GameTimer.h" />
-    <ClInclude Include="..\GameEngine\GoToPointAI.h" />
-    <ClInclude Include="..\GameEngine\Graph.h" />
-    <ClInclude Include="..\GameEngine\Hand.h" />
-    <ClInclude Include="..\GameEngine\Input.h" />
-    <ClInclude Include="..\GameEngine\Inventory.h" />
-    <ClInclude Include="..\GameEngine\InventoryPage.h" />
-    <ClInclude Include="..\GameEngine\Item.h" />
-    <ClInclude Include="..\GameEngine\KeyBinder.h" />
-    <ClInclude Include="..\GameEngine\Keyboard.h" />
-    <ClInclude Include="..\GameEngine\KeyItem.h" />
-    <ClInclude Include="..\GameEngine\Line.h" />
-    <ClInclude Include="..\GameEngine\List.h" />
-    <ClInclude Include="..\GameEngine\LivingAi.h" />
-    <ClInclude Include="..\GameEngine\LivingObject.h" />
-    <ClInclude Include="..\GameEngine\lodepng.h" />
-    <ClInclude Include="..\GameEngine\Menu.h" />
-    <ClInclude Include="..\GameEngine\Model.h" />
-    <ClInclude Include="..\GameEngine\ModelManager.h" />
-    <ClInclude Include="..\GameEngine\Mouse.h" />
-    <ClInclude Include="..\GameEngine\MovableObject.h" />
-    <ClInclude Include="..\GameEngine\MoveAction.h" />
-    <ClInclude Include="..\GameEngine\MusicManager.h" />
-    <ClInclude Include="..\GameEngine\Node.h" />
-    <ClInclude Include="..\GameEngine\Object.h" />
-    <ClInclude Include="..\GameEngine\OpenTextbox.h" />
-    <ClInclude Include="..\GameEngine\OpenTextboxWithChoice.h" />
-    <ClInclude Include="..\GameEngine\Particle.h" />
-    <ClInclude Include="..\GameEngine\ParticleSystem.h" />
-    <ClInclude Include="..\GameEngine\PauseMusicAction.h" />
-    <ClInclude Include="..\GameEngine\Player.h" />
-    <ClInclude Include="..\GameEngine\PlayerAI.h" />
-    <ClInclude Include="..\GameEngine\PlayMusicAction.h" />
-    <ClInclude Include="..\GameEngine\RainParticleSystem.h" />
-    <ClInclude Include="..\GameEngine\Renderer.h" />
-    <ClInclude Include="..\GameEngine\resource.h" />
-    <ClInclude Include="..\GameEngine\ResourceManager.h" />
-    <ClInclude Include="..\GameEngine\Room.h" />
-    <ClInclude Include="..\GameEngine\RunAwayAI.h" />
-    <ClInclude Include="..\GameEngine\Screen.h" />
-    <ClInclude Include="..\GameEngine\ScreenFadeAction.h" />
-    <ClInclude Include="..\GameEngine\SetAction.h" />
-    <ClInclude Include="..\GameEngine\SettingsPage.h" />
-    <ClInclude Include="..\GameEngine\ShaderManager.h" />
-    <ClInclude Include="..\GameEngine\ShaderProgram.h" />
-    <ClInclude Include="..\GameEngine\Shape.h" />
-    <ClInclude Include="..\GameEngine\Slider.h" />
-    <ClInclude Include="..\GameEngine\SpriteSheet.h" />
-    <ClInclude Include="..\GameEngine\Square.h" />
-    <ClInclude Include="..\GameEngine\StatsPage.h" />
-    <ClInclude Include="..\GameEngine\Statusbar.h" />
-    <ClInclude Include="..\GameEngine\TerrainMap.h" />
-    <ClInclude Include="..\GameEngine\Text.h" />
-    <ClInclude Include="..\GameEngine\TextAction.h" />
-    <ClInclude Include="..\GameEngine\Textbox.h" />
-    <ClInclude Include="..\GameEngine\TextChoiceAction.h" />
-    <ClInclude Include="..\GameEngine\Texture.h" />
-    <ClInclude Include="..\GameEngine\TextureManager.h" />
-    <ClInclude Include="..\GameEngine\TextUtils.h" />
-    <ClInclude Include="..\GameEngine\Timer.h" />
-    <ClInclude Include="..\GameEngine\TransitionObject.h" />
-    <ClInclude Include="..\GameEngine\UIManager.h" />
-    <ClInclude Include="..\GameEngine\UIUtils.h" />
-    <ClInclude Include="..\GameEngine\Vector2f.h" />
-    <ClInclude Include="..\GameEngine\Vector3f.h" />
-    <ClInclude Include="..\GameEngine\WaitAction.h" />
-    <ClInclude Include="..\GameEngine\Weapon.h" />
-    <ClInclude Include="..\GameEngine\Window.h" />
-    <ClInclude Include="..\GameEngine\World.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TestInclusions.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\GameEngine\AbstractScriptAction.cpp" />
-    <ClCompile Include="..\GameEngine\AbstractUIComponent.cpp" />
-    <ClCompile Include="..\GameEngine\AnimatedAi.cpp" />
-    <ClCompile Include="..\GameEngine\AnimatedObject.cpp" />
-    <ClCompile Include="..\GameEngine\Application.cpp" />
-    <ClCompile Include="..\GameEngine\Armor.cpp" />
-    <ClCompile Include="..\GameEngine\AudioEntity.cpp" />
-    <ClCompile Include="..\GameEngine\AudioLoader.cpp" />
-    <ClCompile Include="..\GameEngine\AudioSystem.cpp" />
-    <ClCompile Include="..\GameEngine\Banner.cpp" />
-    <ClCompile Include="..\GameEngine\BounceTimer.cpp" />
-    <ClCompile Include="..\GameEngine\Button.cpp" />
-    <ClCompile Include="..\GameEngine\ButtonAction.cpp" />
-    <ClCompile Include="..\GameEngine\Callbacks.cpp" />
-    <ClCompile Include="..\GameEngine\Card.cpp" />
-    <ClCompile Include="..\GameEngine\CardsPage.cpp" />
-    <ClCompile Include="..\GameEngine\Circle.cpp" />
-    <ClCompile Include="..\GameEngine\Color.cpp" />
-    <ClCompile Include="..\GameEngine\Condition.cpp" />
-    <ClCompile Include="..\GameEngine\DebugAction.cpp" />
-    <ClCompile Include="..\GameEngine\Deck.cpp" />
-    <ClCompile Include="..\GameEngine\DefaultParticleSystem.cpp" />
-    <ClCompile Include="..\GameEngine\DirectedParticleSystem.cpp" />
-    <ClCompile Include="..\GameEngine\Edge.cpp" />
-    <ClCompile Include="..\GameEngine\Effect.cpp" />
-    <ClCompile Include="..\GameEngine\FastParticleSystem.cpp" />
-    <ClCompile Include="..\GameEngine\FollowAi.cpp" />
-    <ClCompile Include="..\GameEngine\Font.cpp" />
-    <ClCompile Include="..\GameEngine\FontManager.cpp" />
-    <ClCompile Include="..\GameEngine\Framebuffer.cpp" />
-    <ClCompile Include="..\GameEngine\FramebufferManager.cpp" />
-    <ClCompile Include="..\GameEngine\GameState.cpp" />
-    <ClCompile Include="..\GameEngine\GameTimer.cpp" />
-    <ClCompile Include="..\GameEngine\GoToPointAI.cpp" />
-    <ClCompile Include="..\GameEngine\Graph.cpp" />
-    <ClCompile Include="..\GameEngine\Hand.cpp" />
-    <ClCompile Include="..\GameEngine\Input.cpp" />
-    <ClCompile Include="..\GameEngine\Inventory.cpp" />
-    <ClCompile Include="..\GameEngine\InventoryPage.cpp" />
-    <ClCompile Include="..\GameEngine\Item.cpp" />
-    <ClCompile Include="..\GameEngine\KeyBinder.cpp" />
-    <ClCompile Include="..\GameEngine\Keyboard.cpp" />
-    <ClCompile Include="..\GameEngine\KeyItem.cpp" />
-    <ClCompile Include="..\GameEngine\Line.cpp" />
-    <ClCompile Include="..\GameEngine\List.cpp" />
-    <ClCompile Include="..\GameEngine\LivingAi.cpp" />
-    <ClCompile Include="..\GameEngine\LivingObject.cpp" />
-    <ClCompile Include="..\GameEngine\lodepng.cpp" />
-    <ClCompile Include="..\GameEngine\Menu.cpp" />
-    <ClCompile Include="..\GameEngine\Model.cpp" />
-    <ClCompile Include="..\GameEngine\ModelManager.cpp" />
-    <ClCompile Include="..\GameEngine\Mouse.cpp" />
-    <ClCompile Include="..\GameEngine\MovableObject.cpp" />
-    <ClCompile Include="..\GameEngine\MoveAction.cpp" />
-    <ClCompile Include="..\GameEngine\MusicManager.cpp" />
-    <ClCompile Include="..\GameEngine\Node.cpp" />
-    <ClCompile Include="..\GameEngine\Object.cpp" />
-    <ClCompile Include="..\GameEngine\OpenTextbox.cpp" />
-    <ClCompile Include="..\GameEngine\OpenTextboxWithChoice.cpp" />
-    <ClCompile Include="..\GameEngine\Particle.cpp" />
-    <ClCompile Include="..\GameEngine\ParticleSystem.cpp" />
-    <ClCompile Include="..\GameEngine\PauseMusicAction.cpp" />
-    <ClCompile Include="..\GameEngine\Player.cpp" />
-    <ClCompile Include="..\GameEngine\PlayerAI.cpp" />
-    <ClCompile Include="..\GameEngine\PlayMusicAction.cpp" />
-    <ClCompile Include="..\GameEngine\RainParticleSystem.cpp" />
-    <ClCompile Include="..\GameEngine\Renderer.cpp" />
-    <ClCompile Include="..\GameEngine\ResourceManager.cpp" />
-    <ClCompile Include="..\GameEngine\Room.cpp" />
-    <ClCompile Include="..\GameEngine\RunAwayAI.cpp" />
-    <ClCompile Include="..\GameEngine\Screen.cpp" />
-    <ClCompile Include="..\GameEngine\ScreenFadeAction.cpp" />
-    <ClCompile Include="..\GameEngine\SetAction.cpp" />
-    <ClCompile Include="..\GameEngine\SettingsPage.cpp" />
-    <ClCompile Include="..\GameEngine\ShaderManager.cpp" />
-    <ClCompile Include="..\GameEngine\ShaderProgram.cpp" />
-    <ClCompile Include="..\GameEngine\Shape.cpp" />
-    <ClCompile Include="..\GameEngine\Slider.cpp" />
-    <ClCompile Include="..\GameEngine\SpriteSheet.cpp" />
-    <ClCompile Include="..\GameEngine\Square.cpp" />
-    <ClCompile Include="..\GameEngine\StatsPage.cpp" />
-    <ClCompile Include="..\GameEngine\Statusbar.cpp" />
-    <ClCompile Include="..\GameEngine\TerrainMap.cpp" />
-    <ClCompile Include="..\GameEngine\Text.cpp" />
-    <ClCompile Include="..\GameEngine\TextAction.cpp" />
-    <ClCompile Include="..\GameEngine\Textbox.cpp" />
-    <ClCompile Include="..\GameEngine\TextChoiceAction.cpp" />
-    <ClCompile Include="..\GameEngine\Texture.cpp" />
-    <ClCompile Include="..\GameEngine\TextureManager.cpp" />
-    <ClCompile Include="..\GameEngine\TextUtils.cpp" />
-    <ClCompile Include="..\GameEngine\Timer.cpp" />
-    <ClCompile Include="..\GameEngine\TransitionObject.cpp" />
-    <ClCompile Include="..\GameEngine\UIManager.cpp" />
-    <ClCompile Include="..\GameEngine\UIUtils.cpp" />
-    <ClCompile Include="..\GameEngine\Vector2f.cpp" />
-    <ClCompile Include="..\GameEngine\Vector3f.cpp" />
-    <ClCompile Include="..\GameEngine\WaitAction.cpp" />
-    <ClCompile Include="..\GameEngine\Weapon.cpp" />
-    <ClCompile Include="..\GameEngine\Window.cpp" />
-    <ClCompile Include="..\GameEngine\World.cpp" />
+    <ClCompile Include="GoToOrthogonalPointTest.cpp" />
+    <ClCompile Include="FollowAITests.cpp" />
+    <ClCompile Include="RunAwayAITest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

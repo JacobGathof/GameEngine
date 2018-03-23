@@ -2,16 +2,16 @@
 #include "LivingObject.h"
 
 
-FollowAi::FollowAi(LivingObject * obj)
+FollowAI::FollowAI(LivingObject * obj)
 {
 	follow = obj;
 }
 
-FollowAi::~FollowAi()
+FollowAI::~FollowAI()
 {
 }
 
-bool FollowAi::execute(LivingObject * obj, float dt)
+bool FollowAI::execute(LivingObject * obj, float dt)
 {
 	if (moving == true && obj->pos.distanceTo(follow->pos) < 300) {
 		moving = false;
