@@ -41,7 +41,7 @@ void Application::run()
 	melody.addHitbox(circ);
 	LivingObject structure("Structure", TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
-	FollowAi follow(&melody);
+	FollowAI follow(&melody);
 	//structure.setAI(&follow);
 	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
