@@ -1,7 +1,9 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "ButtonAction.h"
-#include "Text.h"
+
+
+class Text;
 
 enum ButtonState {
 	NONE,

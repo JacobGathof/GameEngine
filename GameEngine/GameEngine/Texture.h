@@ -9,7 +9,7 @@ public:
 	void bind(int offset = 0);
 
 	Texture();
-	Texture(char* filename);
+	Texture(char* filename, bool enable_mipmap=false);
 	Texture(GLuint t);
 	virtual ~Texture();
 

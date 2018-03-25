@@ -1,5 +1,5 @@
 #include "TextAction.h"
-
+#include "UIManager.h"
 
 TextAction::TextAction(std::string & txt, bool block)
 {

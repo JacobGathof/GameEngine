@@ -1,9 +1,9 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include <vector>
-#include "Text.h"
 #include "Timer.h"
 
+class Text;
 
 class SingleKeyBindCell {
 public:

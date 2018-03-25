@@ -1,6 +1,6 @@
 #pragma once
 #include "AbstractScriptAction.h"
-#include "ResourceManager.h"
+#include "MusicManager.h"
 
 class PlayMusicAction : public AbstractScriptAction
 {

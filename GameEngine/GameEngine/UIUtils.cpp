@@ -33,7 +33,7 @@ void UIUtils::drawRectangleIcon(Vector2f& pos, Vector2f& scale, Color colors[3],
 
 }
 
-void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
+void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex, float angle)
 {
 	ShaderProgram* shader = Res::get(ShaderType::UI_IMAGE_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
@@ -45,6 +45,9 @@ void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
 
 	shader->loadVector2f("translate", pos);
 	shader->loadVector2f("scale", scale);
+	shader->loadFloat("yangle", angle);
 
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	model->draw();
+	glBlendFunc(GL_ONE, GL_ZERO);
 }

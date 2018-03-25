@@ -1,5 +1,6 @@
 #pragma once
 #include "ResourceManager.h"
+
 class Screen
 {
 public:

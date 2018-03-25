@@ -1,8 +1,8 @@
 #pragma once
-#include "ResourceManager.h"
 #include "BounceTimer.h"
-#include "Text.h"
 #include "AbstractUIComponent.h"
+
+class Text;
 
 class StatsPage : public AbstractUIComponent
 {

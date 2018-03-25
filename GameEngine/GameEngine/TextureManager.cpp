@@ -21,7 +21,10 @@ void TextureManager::init() {
 
 	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
 	addTexture(TextureType::TERRAIN_SHEET, "res/tex/terrainSheet.png");
-	
+
+
+	addTexture(TextureType::CARD_GHOST, "res/tex/Card_Ghost.png");
+	addTexture(TextureType::CARD_ACE, "res/tex/Card_Ace.png");
 
 }
 

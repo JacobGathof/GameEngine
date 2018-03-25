@@ -1,5 +1,5 @@
 #include "TextChoiceAction.h"
-
+#include "UIManager.h"
 
 TextChoiceAction::TextChoiceAction(List<std::string> ch)
 {

@@ -6,7 +6,7 @@ const float Font::textureScale = 512.0f;
 
 Font::Font(char* fnt_filename, char* png_filename)
 {
-	texture = new Texture(png_filename);
+	texture = new Texture(png_filename, true);
 	loadFont(fnt_filename);
 }
 

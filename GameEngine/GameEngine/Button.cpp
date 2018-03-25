@@ -1,5 +1,5 @@
 #include "Button.h"
-
+#include "Text.h"
 
 
 Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, ButtonAction * act)

@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
-#include "Text.h"
+
+class Text;
 
 class Slider : public AbstractUIComponent
 {

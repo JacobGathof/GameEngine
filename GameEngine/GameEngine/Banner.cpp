@@ -1,5 +1,5 @@
 #include "Banner.h"
-
+#include "Text.h"
 
 
 Banner::Banner()

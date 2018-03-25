@@ -1,6 +1,5 @@
 #pragma once
 #include "AbstractScriptAction.h"
-#include "UIManager.h"
 #include "List.h"
 
 class TextChoiceAction : public AbstractScriptAction

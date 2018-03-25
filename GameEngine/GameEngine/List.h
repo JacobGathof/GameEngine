@@ -50,7 +50,7 @@ public:
 		return data.size();
 	}
 
-	T get(int i) {
+	T& get(int i) {
 		return data[i];
 	}
 
@@ -73,7 +73,7 @@ public:
 		return os;
 	}
 
-	T operator[](int i) {
+	T& operator[](int i) {
 		return data[i];
 	}
 

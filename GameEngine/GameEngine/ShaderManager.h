@@ -2,7 +2,6 @@
 #include <map>
 #include "ShaderProgram.h"
 
-
 enum class ShaderType {
 	ANIMATED_SHADER,
 	TEXT_SHADER,
@@ -16,7 +15,6 @@ enum class ShaderType {
 	POST_PROCESS_SHADER,
 	RECTANGLE_SHADER,
 };
-
 
 class ShaderManager
 {

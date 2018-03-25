@@ -105,7 +105,18 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		std::string dir = inst->first_attribute("dir")->value();
 
 		unsigned long col = std::stoul(color, 0, 16);
-		float t = std::atof(time.c_str());
+		float t = (float)std::atof(time.c_str());
+		int i = (dir == "in") ? SCREEN_FADE_IN : SCREEN_FADE_OUT;
+		act = new ScreenFadeAction(Color(col), t, i);
+	}
+
+	else if (cmd == "fade") {
+		std::string color = inst->first_attribute("color")->value();
+		std::string time = inst->first_attribute("time")->value();
+		std::string dir = inst->first_attribute("dir")->value();
+
+		unsigned long col = std::stoul(color, 0, 16);
+		float t = (float)std::atof(time.c_str());
 		int i = (dir == "in") ? SCREEN_FADE_IN : SCREEN_FADE_OUT;
 		act = new ScreenFadeAction(Color(col), t, i);
 	}

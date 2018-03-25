@@ -1,6 +1,6 @@
 #pragma once
 #include "AbstractScriptAction.h"
-#include "UIManager.h"
+#include "Timer.h"
 
 class WaitAction : public AbstractScriptAction
 {
