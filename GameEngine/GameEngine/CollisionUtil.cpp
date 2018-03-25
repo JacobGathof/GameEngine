@@ -105,10 +105,100 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 
 bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 {
-	return false;
+	List<Vector2f> normals;
+	List<Vector2f> vert1 = c2.shape->getVertices();
+	List<Vector2f> vert2;
+
+	Circle shape = c1.shape;
+
+	Vector2f p1 = shape.center + Vector2f(shape.radius, 0);
+	Vector2f p2 = shape.center - Vector2f(shape.radius, 0);
+	Vector2f p3 = shape.center + Vector2f(0,shape.radius);
+	Vector2f p4 = shape.center - Vector2f(0, shape.radius);
+	Vector2f p5 = shape.center + Vector2f(sqrt(2)/2 * shape.radius, sqrt(2) / 2 * shape.radius);
+	Vector2f p6 = shape.center + Vector2f(-sqrt(2) / 2 * shape.radius, sqrt(2) / 2 * shape.radius);
+	Vector2f p7 = shape.center + Vector2f(sqrt(2) / 2 * shape.radius, -sqrt(2) / 2 * shape.radius);
+	Vector2f p8 = shape.center - Vector2f(sqrt(2) / 2 * shape.radius, sqrt(2) / 2 * shape.radius);
+
+	vert2.add(p1);
+	vert2.add(p2);
+	vert2.add(p3);
+	vert2.add(p4);
+	vert2.add(p5);
+	vert2.add(p6);
+	vert2.add(p7);
+	vert2.add(p8);
+
+
+	for (int i = 1; i <= vert1.size(); i++) {
+		Vector2f p1 = vert1.get(i % vert1.size());
+		Vector2f p2 = vert1.get(i - 1);
+		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
+		Vector2f norm(vec[1], -vec[0]);
+
+		normals.add(norm);
+	}
+
+	for (int i = 0; i < normals.size(); i++) {
+		bool instFound = false;
+		for (int k = 0; k < vert2.size(); k++) {
+			Vector2f p1 = vert1.get(i);
+			Vector2f norm = normals.get(i);
+			Vector2f p2 = vert2.get(k);
+			float val = (p2 - p1).dot(norm);
+			if (val < 0) {
+				instFound = true;
+				break;
+			}
+		}
+		if (!instFound) {
+
+			return false;
+		}
+	}
 }
 
 bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 {
-	return false;
+	List<Vector2f> normals;
+	List<Vector2f> vert1 = c1.shape->getVertices();
+	List<Vector2f> vert2;
+
+	Rect shape = r1.shape;
+	Vector2f topRight = Vector2f(shape.center[0] + shape.scale[0] / 2, shape.center[1] + shape.scale[1] / 2);
+	Vector2f bottomLeft = Vector2f(shape.center[0] - shape.scale[0] / 2, shape.center[1] - shape.scale[1] / 2);
+	Vector2f topLeft = Vector2f(shape.center[0] - shape.scale[0] / 2, shape.center[1] + shape.scale[1] / 2);
+	Vector2f bottomRight = Vector2f(shape.center[0] + shape.scale[0] / 2, shape.center[1] - shape.scale[1] / 2);
+
+	vert2.add(topRight);
+	vert2.add(topLeft);
+	vert2.add(bottomLeft);
+	vert2.add(bottomRight);
+
+	for (int i = 1; i <= vert1.size(); i++) {
+		Vector2f p1 = vert1.get(i % vert1.size());
+		Vector2f p2 = vert1.get(i - 1);
+		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
+		Vector2f norm(vec[1], -vec[0]);
+
+		normals.add(norm);
+	}
+
+	for (int i = 0; i < normals.size(); i++) {
+		bool instFound = false;
+		for (int k = 0; k < vert2.size(); k++) {
+			Vector2f p1 = vert1.get(i);
+			Vector2f norm = normals.get(i);
+			Vector2f p2 = vert2.get(k);
+			float val = (p2 - p1).dot(norm);
+			if (val < 0) {
+				instFound = true;
+				break;
+			}
+		}
+		if (!instFound) {
+
+			return false;
+		}
+	}
 }

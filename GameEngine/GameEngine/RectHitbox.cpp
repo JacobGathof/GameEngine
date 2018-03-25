@@ -7,6 +7,17 @@
 RectHitbox::RectHitbox(Rect rect, Vector2f off)
 {
 	shape = rect;
+
+	Vector2f topRight = shape.center + (shape.scale / 2);
+	Vector2f bottomLeft = shape.center - (shape.scale / 2);
+	Vector2f topLeft = Vector2f(shape.center[0] - shape.scale[0]/2, shape.center[1] + shape.scale[1] / 2);
+	Vector2f bottomRight = Vector2f(shape.center[0] + shape.scale[0] / 2, shape.center[1] - shape.scale[1] / 2);
+
+	vertices.add(topRight);
+	vertices.add(topLeft);
+	vertices.add(bottomLeft);
+	vertices.add(bottomRight);
+
 	offset = off;
 }
 
