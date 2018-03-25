@@ -1,5 +1,5 @@
 #include "PlayMusicAction.h"
-
+#include "ResourceManager.h"
 
 
 PlayMusicAction::PlayMusicAction(MusicType type)

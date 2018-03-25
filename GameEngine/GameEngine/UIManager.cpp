@@ -1,5 +1,8 @@
 #include "UIManager.h"
-
+#include "Menu.h"
+#include "Textbox.h"
+#include "Statusbar.h"
+#include "Banner.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;

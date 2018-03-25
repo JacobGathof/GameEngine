@@ -1,5 +1,5 @@
 #include "Slider.h"
-
+#include "Text.h"
 
 
 

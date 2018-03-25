@@ -1,7 +1,7 @@
 #include "StatsPage.h"
 #include "Screen.h"
 #include "GameState.h"
-
+#include "Text.h"
 
 StatsPage::StatsPage()
 {

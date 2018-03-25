@@ -1,8 +1,8 @@
 #include "World.h"
-
+#include "Room.h"
+#include "Object.h"
 
 World* World::inst;
-
 
 World::World(){}
 World::~World(){}

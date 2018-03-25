@@ -463,10 +463,10 @@
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="ComplexPolygon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

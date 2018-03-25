@@ -2,10 +2,11 @@
 
 #include "AbstractScriptAction.h"
 #include "Vector2f.h"
-#include "LivingObject.h"
 #include "World.h"
 #include "GoToPointAI.h"
 #include <string>
+
+class LivingObject;
 
 class MoveAction : public AbstractScriptAction
 {

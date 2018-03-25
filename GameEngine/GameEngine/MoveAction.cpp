@@ -1,4 +1,5 @@
 #include "MoveAction.h"
+#include "LivingObject.h"
 
 MoveAction::MoveAction(std::string& name, Vector2f& pos)
 {

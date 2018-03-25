@@ -1,7 +1,12 @@
 #pragma once
-#include "InventoryPage.h"
-#include "SettingsPage.h"
+#include "AbstractUIComponent.h"
 #include "Timer.h"
+#include "Mouse.h"
+#include "Keyboard.h"
+
+class InventoryPage;
+class CardsPage;
+class SettingsPage;
 
 enum class MenuTabType {
 	INVENTORY,
@@ -26,7 +31,9 @@ public:
 private:
 	//AbstractUIComponent * activeComponent;
 	InventoryPage * inventory;
+	CardsPage * cardsPage;
 	SettingsPage * settings;
+
 	bool visible = false;
 
 	//CardsPage*

@@ -23,6 +23,9 @@ enum class TextureType {
 	SWORD_ICON,
 	TERRAIN_SHEET,
 
+	CARD_GHOST,
+	CARD_ACE,
+	CARD_WATER_WORKS,
 
 };
 

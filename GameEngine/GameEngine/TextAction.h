@@ -1,6 +1,6 @@
 #pragma once
 #include "AbstractScriptAction.h"
-#include "UIManager.h"
+#include <string>
 
 class TextAction : public AbstractScriptAction
 {

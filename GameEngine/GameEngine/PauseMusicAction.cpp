@@ -1,6 +1,5 @@
 #include "PauseMusicAction.h"
-
-
+#include "ResourceManager.h"
 
 PauseMusicAction::PauseMusicAction(MusicType type)
 {

@@ -1,6 +1,5 @@
 #include "Room.h"
-
-
+#include "Object.h"
 
 Room::Room()
 {

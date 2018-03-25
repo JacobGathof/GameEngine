@@ -2,12 +2,12 @@
 
 #include "Vector2f.h"
 #include "Effect.h"
-#include "ResourceManager.h"
 #include "List.h"
-#include <stdio.h>
 #include "Screen.h"
 #include "AI.h"
 #include "Hitbox.h"
+
+#include "TextureManager.h"
 
 class Object
 {

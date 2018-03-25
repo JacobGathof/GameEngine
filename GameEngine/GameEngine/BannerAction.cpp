@@ -1,5 +1,5 @@
 #include "BannerAction.h"
-
+#include "UIManager.h"
 
 BannerAction::BannerAction(std::string & s1, std::string & s2)
 {

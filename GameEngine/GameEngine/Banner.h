@@ -1,7 +1,8 @@
 #pragma once
 #include "AbstractUIComponent.h"
-#include "Text.h"
 #include "Timer.h"
+
+class Text;
 
 class Banner : public AbstractUIComponent
 {

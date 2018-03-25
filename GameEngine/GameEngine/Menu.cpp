@@ -1,15 +1,19 @@
 #include "Menu.h"
 
-
+#include "InventoryPage.h"
+#include "SettingsPage.h"
+#include "CardsPage.h"
 
 Menu::Menu()
 {
 	settings = new SettingsPage();
+	cardsPage = new CardsPage();
 }
 
 Menu::~Menu()
 {
 	delete settings;
+	delete cardsPage;
 }
 
 void Menu::draw()
@@ -17,10 +21,8 @@ void Menu::draw()
 	if (!visible)
 		return;
 
-	UIUtils::drawRectangle(Vector2f(200,300), Vector2f(400, 400), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(200, 300) + Vector2f(2,2), Vector2f(396, 396), Color(0x00000000));
-
 	settings->draw();
+	cardsPage->draw();
 
 }
 
@@ -30,6 +32,7 @@ void Menu::update(float dt)
 		return;
 
 	settings->update(dt);
+	cardsPage->update(dt);
 }
 
 void Menu::handleMouseEvents(Mouse & mouse)
@@ -38,6 +41,7 @@ void Menu::handleMouseEvents(Mouse & mouse)
 		return;
 
 	settings->handleMouseEvents(mouse);
+	cardsPage->handleMouseEvents(mouse);
 }
 
 void Menu::handleKeyEvents(Keyboard & keyboard)
@@ -46,6 +50,7 @@ void Menu::handleKeyEvents(Keyboard & keyboard)
 		return;
 
 	settings->handleKeyEvents(keyboard);
+	cardsPage->handleKeyEvents(keyboard);
 }
 
 void Menu::toggle()

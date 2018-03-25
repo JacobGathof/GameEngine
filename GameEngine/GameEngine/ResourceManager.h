@@ -2,9 +2,9 @@
 #include "TextureManager.h"
 #include "ModelManager.h"
 #include "FontManager.h"
-#include "ShaderManager.h"
 #include "FramebufferManager.h"
 #include "MusicManager.h"
+#include "ShaderManager.h"
 
 class ResourceManager
 {

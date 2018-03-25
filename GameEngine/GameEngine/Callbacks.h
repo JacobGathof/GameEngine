@@ -1,6 +1,5 @@
 #pragma once
 #include "glfw3.h"
-#include <iostream>
 #include "Input.h"
 
 class Callbacks

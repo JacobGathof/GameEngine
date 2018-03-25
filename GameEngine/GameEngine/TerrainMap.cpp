@@ -19,14 +19,14 @@ void TerrainMap::draw(Object * player){
 	shader->bind();
 	Model* model = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	model->bind();
-	float xOffset = tiles.size() / 2;
-	float yOffset = tiles.get(0).size() / 2;
-	float xLoc = (player->pos[0] / 200) + (tiles.size()/2);
-	float yLoc = -(player->pos[1] / 200) + (tiles.get(0).size()/2);
+	float xOffset = tiles.size() / 2.0f;
+	float yOffset = tiles.get(0).size() / 2.0f;
+	float xLoc = (player->pos[0] / 200.0f) + (tiles.size()/2.0f);
+	float yLoc = -(player->pos[1] / 200.0f) + (tiles.get(0).size()/2.0f);
 	int offset = 10;
 	
-	for (int i = yLoc - offset; (i < yLoc + offset) && (i < tiles.get(0).size()); i++) {
-		for (int k = xLoc - offset; (k < xLoc + offset) && (k < tiles.size()); k++) {
+	for (int i = (int)(yLoc - offset); ((float)i < yLoc + offset) && (i < tiles.get(0).size()); i++) {
+		for (int k = (int)(xLoc - offset); ((float)k < xLoc + offset) && (k < tiles.size()); k++) {
 			if (i < 0 || k < 0) {
 				continue;
 			}
@@ -87,7 +87,8 @@ List<int> TerrainMap::parseInts(std::string str)
 {
 	List<int> vals;
 	std::string current = "";
-	for (int i = 0; i < str.size(); i++) {
+	int size = str.size();
+	for (int i = 0; i < size; i++) {
 		if (str[i] == ' ') {
 			std::stringstream stream(current);
 			int val;
