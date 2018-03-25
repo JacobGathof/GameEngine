@@ -1,10 +1,11 @@
 #pragma once
-#include "Menu.h"
-#include "Textbox.h"
-#include "StatsPage.h"
-#include "Statusbar.h"
-#include "InventoryPage.h"
-#include "Banner.h"
+#include "AbstractUIComponent.h"
+#include "List.h"
+
+class Textbox;
+class Menu;
+class Banner;
+class Statusbar;
 
 class UIManager
 {

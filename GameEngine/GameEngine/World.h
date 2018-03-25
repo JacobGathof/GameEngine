@@ -1,6 +1,10 @@
 #pragma once
+#include "Vector2f.h"
+#include <string>
 
-#include "Room.h"
+class Room;
+class Object;
+
 class World
 {
 public:

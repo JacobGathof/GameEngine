@@ -25,6 +25,7 @@ enum class TextureType {
 
 	CARD_GHOST,
 	CARD_ACE,
+	CARD_WATER_WORKS,
 
 };
 

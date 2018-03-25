@@ -1,9 +1,10 @@
 #pragma once
 #include <vector>
 #include <math.h>
-#include "Object.h"
 #include "TerrainMap.h"
 #include "List.h"
+
+class Object;
 
 class Room
 {
