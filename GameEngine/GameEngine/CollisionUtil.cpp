@@ -45,18 +45,9 @@ bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 
 bool CollisionUtil::collide(ComplexHitbox& c1, ComplexHitbox& c2)
 {
-	List<Vector2f> normals;
+	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
 	List<Vector2f> vert2 = c2.shape->getVertices();
-
-	for (int i = 1; i <= vert1.size(); i++) {
-		Vector2f p1 = vert1.get(i % vert1.size());
-		Vector2f p2 = vert1.get(i - 1);
-		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
-		Vector2f norm(vec[1], -vec[0]);
-		
-		normals.add(norm);
-	}
 
 	for (int i = 0; i < normals.size(); i++) {
 		bool instFound = false;
@@ -105,7 +96,7 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 
 bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 {
-	List<Vector2f> normals;
+	List<Vector2f> normals = c2.shape->normals;
 	List<Vector2f> vert1 = c2.shape->getVertices();
 	List<Vector2f> vert2;
 
@@ -130,15 +121,6 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 	vert2.add(p8);
 
 
-	for (int i = 1; i <= vert1.size(); i++) {
-		Vector2f p1 = vert1.get(i % vert1.size());
-		Vector2f p2 = vert1.get(i - 1);
-		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
-		Vector2f norm(vec[1], -vec[0]);
-
-		normals.add(norm);
-	}
-
 	for (int i = 0; i < normals.size(); i++) {
 		bool instFound = false;
 		for (int k = 0; k < vert2.size(); k++) {
@@ -160,7 +142,7 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 
 bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 {
-	List<Vector2f> normals;
+	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
 	List<Vector2f> vert2;
 
@@ -174,15 +156,6 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 	vert2.add(topLeft);
 	vert2.add(bottomLeft);
 	vert2.add(bottomRight);
-
-	for (int i = 1; i <= vert1.size(); i++) {
-		Vector2f p1 = vert1.get(i % vert1.size());
-		Vector2f p2 = vert1.get(i - 1);
-		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
-		Vector2f norm(vec[1], -vec[0]);
-
-		normals.add(norm);
-	}
 
 	for (int i = 0; i < normals.size(); i++) {
 		bool instFound = false;
