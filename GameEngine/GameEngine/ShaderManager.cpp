@@ -1,7 +1,6 @@
 #include "ShaderManager.h"
 
 
-std::map<ShaderType, ShaderProgram*> ShaderManager::shaders;
 
 void ShaderManager::init(){
 	addShader(ShaderType::ANIMATED_SHADER, "res/shaders/animatedShader.vert", 0, "res/shaders/animatedShader.frag");
@@ -17,19 +16,9 @@ void ShaderManager::init(){
 	addShader(ShaderType::RECTANGLE_SHADER, "res/shaders/rectangleShader.vert", 0, "res/shaders/rectangleShader.frag");
 }
 
-void ShaderManager::clean(){
-	for (auto pair : shaders) {
-		delete pair.second;
-	}
-}
-
-ShaderProgram * ShaderManager::get(ShaderType type)
-{
-	return shaders[type];
-}
 
 void ShaderManager::uploadAll(char* location, Vector2f & v2){
-	for (auto a : shaders) {
+	for (auto a : elements) {
 		a.second->bind();
 		a.second->loadVector2f(location, v2);
 	}
@@ -38,13 +27,13 @@ void ShaderManager::uploadAll(char* location, Vector2f & v2){
 void ShaderManager::addShader(ShaderType shader, char * v, char * g, char * f){
 	ShaderProgram * sh = new ShaderProgram();
 	sh->compileShader(v, g, f);
-	shaders[shader] = sh;
+	elements[shader] = sh;
 }
 
 void ShaderManager::addShader(ShaderType shader, char * v, char * g, char * f, const GLchar * varying[], int length)
 {
 	ShaderProgram * sh = new ShaderProgram();
 	sh->compileFeedbackShader(v, g, f, varying, length);
-	shaders[shader] = sh;
+	elements[shader] = sh;
 	delete[] varying;
 }

@@ -1,47 +1,16 @@
 #pragma once
-#include <map>
 #include "SpriteSheet.h"
+#include "IManager.h"
+#include "ResourceType.h"
 
 
-enum class TextureType {
-	TEXTURE_DEFAULT,
-	TEXTURE_TEST,
-
-	TEXTURE_MELODY,
-	TEXTURE_MELODY_BOOK,
-
-	TEXTURE_MAVIS,
-	TEXTURE_PANDORA,
-	TEXTURE_NARCISSUS,
-	TEXTURE_ANUBIS,
-	TEXTURE_HORUS,
-	TEXTURE_DAGON,
-	TEXTURE_SLIME,
-
-	SPRITESHEET_MELODY,
-
-	SWORD_ICON,
-	TERRAIN_SHEET,
-
-	CARD_GHOST,
-	CARD_ACE,
-	CARD_WATER_WORKS,
-
-};
-
-
-class TextureManager
+class TextureManager : public IManager<SpriteSheet, TextureType>
 {
 public:
-
-	static void init();
-	static void clean();
-	static SpriteSheet* get(TextureType type);
+	virtual void init();
 
 private:
-
-	static void addTexture(TextureType tex, char* filename, int rows = 1, int columns = 1);
-	static std::map<TextureType, SpriteSheet*> textures;
+	void addTexture(TextureType tex, char* filename, int rows = 1, int columns = 1);
 
 };
 

@@ -1,8 +1,6 @@
 #include "TextureManager.h"
 
 
-std::map<TextureType, SpriteSheet*> TextureManager::textures;
-
 void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_DEFAULT, "res/tex/default.png");
 	addTexture(TextureType::TEXTURE_TEST, "res/tex/terraintest.png");
@@ -28,18 +26,7 @@ void TextureManager::init() {
 
 }
 
-void TextureManager::clean() {
-	for (auto pair : textures) {
-		delete pair.second;
-	}
-}
-
-SpriteSheet * TextureManager::get(TextureType type)
-{
-	return textures[type];
-}
-
 void TextureManager::addTexture(TextureType tex, char * filename, int rows, int columns) {
 	SpriteSheet * t = new SpriteSheet(filename, rows, columns);
-	textures[tex] = t;
+	elements[tex] = t;
 }

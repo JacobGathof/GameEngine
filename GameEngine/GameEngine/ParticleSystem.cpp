@@ -123,7 +123,7 @@ void ParticleSystem::writeParticleData()
 
 void ParticleSystem::draw()
 {
-	ShaderManager::get(ShaderType::PARTICLE_SHADER)->bind();
+	Res::get(ShaderType::PARTICLE_SHADER)->bind();
 	model.bind();
 	glDrawArrays(GL_POINTS, 0, maxParticles);
 }

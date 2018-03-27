@@ -189,7 +189,7 @@ void Text::draw()
 {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	ShaderProgram * sh = ShaderManager::get(ShaderType::TEXT_SHADER);
+	ShaderProgram * sh = Res::get(ShaderType::TEXT_SHADER);
 	sh->bind();
 	font->bind();
 	model.bind();

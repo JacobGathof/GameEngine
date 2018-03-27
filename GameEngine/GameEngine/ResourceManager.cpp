@@ -1,45 +1,86 @@
 #include "ResourceManager.h"
 
+CardManager* Res::cardManager;
+FontManager* Res::fontManager;
+ModelManager* Res::modelManager;
+MusicManager* Res::musicManager;
+ShaderManager* Res::shaderManager;
+TextureManager* Res::textureManager;
+FramebufferManager* Res::frameManager;
+
 void ResourceManager::init()
 {
-	ShaderManager::init();
-	FontManager::init();
-	TextureManager::init();
-	ModelManager::init();
-	FramebufferManager::init();
-	MusicManager::init();
+	cardManager = new CardManager();
+	fontManager = new FontManager();
+	modelManager = new ModelManager();
+	musicManager = new MusicManager();
+	shaderManager = new ShaderManager();
+	textureManager = new TextureManager();
+	frameManager = new FramebufferManager();
+
+	
+	cardManager->init();
+	fontManager->init();
+	modelManager->init();
+	musicManager->init();
+	shaderManager->init();
+	textureManager->init();
+	frameManager->init();
 }
 
 void ResourceManager::clean()
 {
-	ShaderManager::clean();
-	FontManager::clean();
-	TextureManager::clean();
-	ModelManager::clean();
-	FramebufferManager::clean();
-	MusicManager::clean();
+	cardManager->clean();
+	fontManager->clean();
+	modelManager->clean();
+	musicManager->clean();
+	shaderManager->clean();
+	textureManager->clean();
+	frameManager->clean();
+
+	delete fontManager;
+	delete cardManager;
+	delete modelManager;
+	delete musicManager;
+	delete shaderManager;
+	delete textureManager;
+	delete frameManager;
 }
 
 ShaderProgram* ResourceManager::get(ShaderType type){
-	return ShaderManager::get(type);
+	return shaderManager->get(type);
 }
 
 Model* ResourceManager::get(ModelType type){
-	return ModelManager::get(type);
+	return modelManager->get(type);
+}
+
+void ResourceManager::updateFramebufferSizes(float x, float y)
+{
+	frameManager->updateSizes((int)x, (int)y);
+}
+
+void ResourceManager::uploadGlobalUniform(char * location, Vector2f & val)
+{
+	shaderManager->uploadAll(location, val);
 }
 
 Font* ResourceManager::get(FontType type){
-	return FontManager::get(type);
+	return fontManager->get(type);
 }
 
 SpriteSheet* ResourceManager::get(TextureType type){
-	return TextureManager::get(type);
+	return textureManager->get(type);
 }
 
 Framebuffer * ResourceManager::get(FramebufferType type){
-	return FramebufferManager::get(type);
+	return frameManager->get(type);
 }
 
 AudioEntity * ResourceManager::get(MusicType type){
-	return MusicManager::get(type);
+	return musicManager->get(type);
+}
+
+Card * ResourceManager::get(CardType type){
+	return cardManager->get(type);
 }

@@ -1,26 +1,16 @@
 #pragma once
-#include <map>
 #include "Model.h"
+#include "ResourceType.h"
+#include "IManager.h"
 
 
-enum class ModelType {
-	MODEL_SQUARE,
-	MODEL_SQUARE_CENTERED,
-};
-
-
-class ModelManager
+class ModelManager : public IManager<Model, ModelType>
 {
 public:
-
-	static void init();
-	static void clean();
-	static Model* get(ModelType type);
+	virtual void init();
 
 private:
-
-	static void addModel(ModelType model, float* pos_data, int l1, float* uv_data, int l2);
-	static std::map<ModelType, Model*> models;
+	void addModel(ModelType model, float* pos_data, int l1, float* uv_data, int l2);
 
 };
 

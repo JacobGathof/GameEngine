@@ -22,6 +22,7 @@ void Screen::init(){}
 void Screen::updateRes(float x, float y){
 	width = x;
 	height = y;
+	Res::updateFramebufferSizes(x,y);
 }
 
 void Screen::updateScroll(float f){
@@ -32,7 +33,7 @@ void Screen::updateScroll(float f){
 void Screen::updateUniforms()
 {
 	Vector2f v = 2.0f * Vector2f(1.0f, 1.0f) / (Vector2f(width, height));
-	ShaderManager::uploadAll("camera_scale", v);
+	Res::uploadGlobalUniform("camera_scale", v);
 
 	Res::get(ShaderType::ANIMATED_SHADER)->bind();
 	Res::get(ShaderType::ANIMATED_SHADER)->loadVector2f("camera_translate", offset);

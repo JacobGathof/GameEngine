@@ -9,7 +9,7 @@ StatsPage::StatsPage()
 	timer.setTickLength(transitionTime);
 	timer.setPauseOnTick(true);
 
-	text = new Text(Vector2f(100, 100), std::string(""), Vector2f(128.0f, 128.0f), FontManager::get(FontType::DEFAULT));
+	text = new Text(Vector2f(100, 100), std::string(""), Vector2f(128.0f, 128.0f), Res::get(FontType::DEFAULT));
 
 	text->setPosition(startText);
 

@@ -1,26 +1,15 @@
 #pragma once
-#include <map>
 #include "Font.h"
+#include "IManager.h"
+#include "ResourceType.h"
 
-
-enum class FontType {
-	DEFAULT,
-	ITALIC
-};
-
-
-class FontManager
+class FontManager : public IManager<Font, FontType>
 {
 public:
-
-	static void init();
-	static void clean();
-	static Font* get(FontType type);
+	virtual void init();
 
 private:
-
-	static void addFont(FontType font, char* fnt, char* png);
-	static std::map<FontType, Font*> fonts;
+	void addFont(FontType font, char* fnt, char* png);
 
 };
 

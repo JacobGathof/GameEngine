@@ -468,6 +468,12 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="CardManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceType.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -811,6 +817,15 @@
     </ClInclude>
     <ClInclude Include="SaveUtilities.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CardManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceType.h">
+      <Filter>Header Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "CardsPage.h"
 #include "TextUtils.h"
-#include "FontManager.h"
+#include "ResourceManager.h"
 #include "Text.h"
 
 CardsPage::CardsPage()
@@ -50,7 +50,7 @@ void CardsPage::draw()
 		UIUtils::drawImage(Vector2f(420, 300 + 200) + Vector2f(8, 8), Vector2f(184, 184), TextureType::CARD_ACE, time*2.0f);
 
 		std::string str = selectedCard->getName();
-		str = TextUtils::processString(str, FontManager::get(FontType::DEFAULT), Vector2f(20, 20), 184);
+		str = TextUtils::processString(str, Res::get(FontType::DEFAULT), Vector2f(20, 20), 184);
 
 		Text text(Vector2f(428, 308 + 184 - 20), str, Vector2f(20, 20), 0);
 		text.draw();
