@@ -15,6 +15,7 @@ public:
 	unsigned int vbo;
 
 	List<Vector2f> vertices;
+	List<Vector2f> normals;
 	Vector2f base = Vector2f(0, 0);
 
 	void draw();
