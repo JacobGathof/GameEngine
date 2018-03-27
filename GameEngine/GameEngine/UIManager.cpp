@@ -3,11 +3,13 @@
 #include "Textbox.h"
 #include "Statusbar.h"
 #include "Banner.h"
+#include "EnemyStatusbar.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;
 Banner* UIManager::banner;
 Statusbar* UIManager::statusbar;
+EnemyStatusbar* UIManager::enemyStatus;
 
 UIManager::UIManager()
 {
@@ -20,10 +22,11 @@ UIManager::~UIManager()
 
 void UIManager::draw()
 {
-	textbox->draw();
+	//textbox->draw();
 	menu->draw();
 	banner->draw();
 	statusbar->draw();
+	enemyStatus->draw();
 }
 
 void UIManager::init()
@@ -32,6 +35,7 @@ void UIManager::init()
 	menu = new Menu();
 	banner = new Banner();
 	statusbar = new Statusbar();
+	enemyStatus = new EnemyStatusbar();
 }
 
 void UIManager::clean()
@@ -40,6 +44,7 @@ void UIManager::clean()
 	delete menu;
 	delete banner;
 	delete statusbar;
+	delete enemyStatus;
 }
 
 void UIManager::update(float dt)
@@ -48,6 +53,7 @@ void UIManager::update(float dt)
 	menu->update(dt);
 	banner->update(dt);
 	statusbar->update(dt);
+	enemyStatus->update(dt);
 }
 
 void UIManager::resize(int newX, int newY)
@@ -56,6 +62,7 @@ void UIManager::resize(int newX, int newY)
 	textbox->resize(newX, newY);
 	banner->resize(newX,newY);
 	statusbar->resize(newX,newY);
+	enemyStatus->resize(newX, newY);
 }
 
 void UIManager::handleMouseEvents(Mouse & mouse)

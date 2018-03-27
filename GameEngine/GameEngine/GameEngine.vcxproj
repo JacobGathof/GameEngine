@@ -43,6 +43,7 @@
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />

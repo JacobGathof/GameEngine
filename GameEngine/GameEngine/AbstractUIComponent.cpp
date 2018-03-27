@@ -6,6 +6,14 @@ AbstractUIComponent::AbstractUIComponent(){}
 
 AbstractUIComponent::~AbstractUIComponent(){}
 
+void AbstractUIComponent::handleMouseEvents(Mouse & mouse)
+{
+}
+
+void AbstractUIComponent::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
 void AbstractUIComponent::update(float dt){}
 
 void AbstractUIComponent::setParentPosition(Vector2f * pos)

@@ -6,6 +6,7 @@ class Textbox;
 class Menu;
 class Banner;
 class Statusbar;
+class EnemyStatusbar;
 
 class UIManager
 {
@@ -36,6 +37,7 @@ private:
 	static Menu * menu;
 	static Banner * banner;
 	static Statusbar * statusbar;
+	static EnemyStatusbar* enemyStatus;
 
 };
 

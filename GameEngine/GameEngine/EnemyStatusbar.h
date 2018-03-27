@@ -1,27 +1,22 @@
 #pragma once
 #include "AbstractUIComponent.h"
+#include "Text.h"
 
-class Statusbar : public AbstractUIComponent
+class EnemyStatusbar : public AbstractUIComponent
 {
 public:
-	Statusbar();
-	~Statusbar();
+	EnemyStatusbar();
+	~EnemyStatusbar();
 	virtual void draw();
 	virtual void update(float dt);
 	virtual void resize(int x, int y);
 
 private:
 
+	Text * text;
+
 	Color backdrop = Color(0x00004488);
 	Color healthColor = Color(0xdd2244ff);
-	Color staminaColor = Color(0x22dd22ff);
-	Color magicColor = Color(0x0044ffff);
-
-	float *health_max;
-	float *health_cur;
-
-	float minBarLength = .25f;
-	float maxBarLength = .5f;
 
 	float barHeight = 12;
 	float barPadding = 4;
@@ -33,12 +28,8 @@ private:
 	float width = 800;
 
 	Vector2f pos_h;
-	Vector2f pos_s;
-	Vector2f pos_m;
-
 	Vector2f scale_h;
-	Vector2f scale_s;
-	Vector2f scale_m;
 
+	Vector2f pos_t;
+	Vector2f scale_t;
 };
-

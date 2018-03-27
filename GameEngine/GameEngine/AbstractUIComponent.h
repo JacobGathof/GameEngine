@@ -9,8 +9,8 @@ public:
 	AbstractUIComponent();
 	~AbstractUIComponent();
 
-	virtual void handleMouseEvents(Mouse& mouse) = 0;
-	virtual void handleKeyEvents(Keyboard& keyboard) = 0;
+	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
 	virtual void update(float dt);
 	virtual void draw() = 0;
 	void setParentPosition(Vector2f* pos);
