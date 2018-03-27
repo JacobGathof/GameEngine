@@ -50,6 +50,14 @@ void UIManager::update(float dt)
 	statusbar->update(dt);
 }
 
+void UIManager::resize(int newX, int newY)
+{
+	menu->resize(newX, newY);
+	textbox->resize(newX, newY);
+	banner->resize(newX,newY);
+	statusbar->resize(newX,newY);
+}
+
 void UIManager::handleMouseEvents(Mouse & mouse)
 {
 	menu->handleMouseEvents(mouse);

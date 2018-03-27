@@ -35,7 +35,7 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
-	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
+	Player melody("Melody", TextureType::SPRITESHEET_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * circ = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(200, 300)), Vector2f(0, 0));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
@@ -105,7 +105,7 @@ void Application::run()
 		Res::get(ModelType::MODEL_SQUARE_CENTERED)->bind();
 		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("translate", Vector2f(0, 0));
 		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("scale",Vector2f(32, 32));
-		Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
+		//Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
@@ -135,6 +135,6 @@ int main() {
 	Application app;
 	app.run();
 
-	system("pause");
+	//system("pause");
 	return 0;
 }

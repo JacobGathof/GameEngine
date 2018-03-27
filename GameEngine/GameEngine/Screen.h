@@ -20,9 +20,11 @@ public:
 
 	static Color screenColor;
 	static float screenColorPercent;
-private:
+
 	static float width;
 	static float height;
+
+private:
 	static float scrollMultiplier;
 
 	static float x_offset;

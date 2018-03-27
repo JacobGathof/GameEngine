@@ -12,6 +12,6 @@ uniform vec2 camera_scale;
 out vec2 coord;
 
 void main(){
-	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	gl_Position = vec4(position*2,0,1);
 	coord = position*2;
 }

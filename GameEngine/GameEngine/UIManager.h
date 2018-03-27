@@ -17,6 +17,7 @@ public:
 	static void init();
 	static void clean();
 	static void update(float dt);
+	static void resize(int newX, int newY);
 	static void handleMouseEvents(Mouse& mouse);
 	static void handleKeyboardEvents(Keyboard& keyboard);
 

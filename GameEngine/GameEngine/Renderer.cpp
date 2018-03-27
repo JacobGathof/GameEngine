@@ -18,8 +18,8 @@ void Renderer::draw()
 	buf->bind();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//World::getInstance()->drawTerrain();
-	//World::getInstance()->drawObjects();
+	World::getInstance()->drawTerrain();
+	World::getInstance()->drawObjects();
 
 
 	

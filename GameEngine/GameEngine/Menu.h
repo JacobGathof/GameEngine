@@ -22,8 +22,9 @@ public:
 	Menu();
 	~Menu();
 
-	void draw();
-	void update(float dt);
+	virtual void draw();
+	virtual void update(float dt);
+	virtual void resize(int x, int y);
 	virtual void handleMouseEvents(Mouse& mouse);
 	virtual void handleKeyEvents(Keyboard& keyboard);
 	void toggle();

@@ -19,7 +19,12 @@ void main(){
 		iteration = iteration + 1;
 	}
 
-	vec4 col = vec4(0,0,iteration/maxit, 1);
+	float val = (1.0f*iteration/maxit);
+	if(iteration >= 100){
+		val = 0;
+	}
+
+	vec4 col = vec4(0,0, val, 1);
 
 	gl_FragColor = col;
 

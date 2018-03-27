@@ -17,3 +17,7 @@ bool AbstractUIComponent::mouseIn(Mouse & mouse)
 {
 	return mouse.pos().between(position, position + scale);
 }
+
+void AbstractUIComponent::resize(int newX, int newY)
+{
+}

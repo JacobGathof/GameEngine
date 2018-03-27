@@ -35,6 +35,12 @@ void Menu::update(float dt)
 	cardsPage->update(dt);
 }
 
+void Menu::resize(int x, int y)
+{
+	settings->resize(x, y);
+	cardsPage->resize(x, y);
+}
+
 void Menu::handleMouseEvents(Mouse & mouse)
 {
 	if (!visible)

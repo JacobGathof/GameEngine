@@ -12,6 +12,8 @@ enum class ShaderType {
 	CIRCLE_SHADER,
 	POST_PROCESS_SHADER,
 	RECTANGLE_SHADER,
+
+	FRACTAL_SHADER,
 };
 
 

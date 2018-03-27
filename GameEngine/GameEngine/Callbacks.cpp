@@ -1,5 +1,3 @@
-#include "ShaderManager.h"
-#include "FramebufferManager.h"
 #include "Window.h"
 #include "Screen.h"
 #include "Callbacks.h"

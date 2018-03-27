@@ -1,4 +1,5 @@
 #include "Screen.h"
+#include "UIManager.h"
 
 float Screen::width = 800;
 float Screen::height = 800;
@@ -23,6 +24,7 @@ void Screen::updateRes(float x, float y){
 	width = x;
 	height = y;
 	Res::updateFramebufferSizes(x,y);
+	UIManager::resize(x, y);
 }
 
 void Screen::updateScroll(float f){
