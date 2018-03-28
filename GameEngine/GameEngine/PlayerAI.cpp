@@ -27,12 +27,14 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		return;
 	}
 
+	/*
 	if (keyboard.press(VirtualKey::INTERACT)){
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
 		if (closest->pos.distanceTo(user->pos) < 40) {
 			closest->interact();
 		}
 	}
+	*/
 
 	yVel = 0;
 	xVel = 0;
