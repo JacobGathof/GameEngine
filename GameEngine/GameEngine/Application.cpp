@@ -30,6 +30,17 @@ void Application::run()
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
+
+	//Begin Init Room 1
+	room.addHitbox(Vector2f(1000, -400), Vector2f(2600, 1400));
+	room.addHitbox(Vector2f(2270, 2700), Vector2f(50, 4800));
+	room.addHitbox(Vector2f(-320, -600), Vector2f(30, 1600));
+	room.addHitbox(Vector2f(-1900, -2000), Vector2f(3200, 1400));
+	room.addHitbox(Vector2f(-4500, -2000), Vector2f(1200, 1400));
+	room.addHitbox(Vector2f(-3480, -800), Vector2f(30, 1000));
+	room.addHitbox(Vector2f(-3910, -800), Vector2f(30, 1000));
+	//End Init Room 1
+
 	Room room2;
 	room.setTerrainMap("eastOfTown2.txt");
 	// Start making objects here
@@ -43,7 +54,6 @@ void Application::run()
 	LivingObject structure("Structure", TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
 	FollowAI follow(&melody);
-	//structure.setAI(&follow);
 	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
@@ -51,7 +61,7 @@ void Application::run()
 
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
-	room.addObject(&structure);
+	//room.addObject(&structure);
 	//room.addObject(&trans);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();

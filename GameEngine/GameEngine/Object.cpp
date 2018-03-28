@@ -22,6 +22,9 @@ Object::~Object()
 	for (auto eff : effects) {
 		delete eff;
 	}
+	for (auto hit : hitboxes) {
+		delete hit;
+	}
 }
 
 void Object::draw()
@@ -54,10 +57,14 @@ bool Object::update(float delta_time)
 	for (Effect * eff : effects) {
 		eff->update(delta_time);
 	}
+	for (Hitbox * hit : hitboxes) {
+		hit->updatePos(pos);
+	}
+	
 	return alive;
 }
 
-bool Object::collide(Object * o)
+bool Object::collide(Object * o, Hitbox * h)
 {
 	return false;
 }
@@ -97,7 +104,5 @@ void Object::addHitbox(Hitbox * h)
 
 Hitbox * Object::getHitbox(int i)
 {
-	Hitbox * hit = hitboxes.get(i);
-	hit->pos = this->pos;
-	return hit;
+	return hitboxes.get(i);
 }

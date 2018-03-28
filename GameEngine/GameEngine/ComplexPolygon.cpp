@@ -5,22 +5,22 @@
 ComplexPolygon::ComplexPolygon(std::initializer_list<Vector2f> vert)
 {
 	vertices.addAll(vert);
-	int size = vertices.size();
-	float * f = new float[size*2];
-
-	int counter = 0;
-	for (Vector2f v : vertices) {
-		f[counter++] = v[0];
-		f[counter++] = v[1];
-	}
 
 	for (int i = 1; i <= vertices.size(); i++) {
 		Vector2f p1 = vertices.get(i % vertices.size());
 		Vector2f p2 = vertices.get(i - 1);
 		Vector2f vec((p1[0] - p2[0]), (p1[1] - p2[1]));
 		Vector2f norm(vec[1], -vec[0]);
+		normals.add(norm.normalize());
+	}
 
-		normals.add(norm);
+	int size = vertices.size();
+	float * f = new float[size * 2];
+
+	int counter = 0;
+	for (Vector2f v : vertices) {
+		f[counter++] = v[0];
+		f[counter++] = v[1];
 	}
 
 	glGenVertexArrays(1, &vao);

@@ -64,7 +64,7 @@ bool AnimatedObject::update(float delta_time)
 	return isFinished;
 }
 
-bool AnimatedObject::collide(Object * o)
+bool AnimatedObject::collide(Object * o, Hitbox * h)
 {
 	return false;
 }

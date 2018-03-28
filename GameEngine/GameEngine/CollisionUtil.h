@@ -1,8 +1,12 @@
 #pragma once
 
+
+
 class CircleHitbox;
 class RectHitbox;
 class ComplexHitbox;
+class Object;
+class Hitbox;
 
 
 class CollisionUtil
@@ -18,5 +22,8 @@ public:
 	static bool collide(CircleHitbox & c1, ComplexHitbox & c2);
 	static bool collide(RectHitbox & r1, ComplexHitbox & c1);
 
+	static bool equalResolve(Object * o1, Object * o2, int bounciness);
+	static bool unequalResolve(Object * o1, Hitbox * h2, int bounciness);
+	static bool unequalResolve(Object * o1, Object * o2, int bounciness);
 };
 

@@ -31,7 +31,7 @@ public:
 	virtual void drawEffects();
 
 	virtual bool update(float delta_time);
-	virtual bool collide(Object * o);
+	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
 
