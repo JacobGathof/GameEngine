@@ -7,6 +7,7 @@
 RectHitbox::RectHitbox(Rect rect, Vector2f off)
 {
 	shape = rect;
+	pos = shape.center;
 
 	Vector2f topRight = shape.center + (shape.scale / 2);
 	Vector2f bottomLeft = shape.center - (shape.scale / 2);

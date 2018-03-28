@@ -16,7 +16,7 @@ TransitionObject::~TransitionObject()
 {
 }
 
-bool TransitionObject::collide(Object * o)
+bool TransitionObject::collide(Object * o, Hitbox * h)
 {
 	World * world = World::getInstance();
 	world->transition(room);

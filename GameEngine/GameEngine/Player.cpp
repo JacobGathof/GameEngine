@@ -21,9 +21,10 @@ bool Player::update(float delta_time)
 	return true;
 }
 
-bool Player::collide(Object * o)
+bool Player::collide(Object * o, Hitbox * h)
 {
-	pos[0] = lastX;
-	pos[1] = lastY;
+	CollisionUtil::unequalResolve(this, h, 10);
+	
+
 	return true;
 }

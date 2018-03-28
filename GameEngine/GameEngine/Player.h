@@ -10,7 +10,7 @@ public:
 	~Player();
 
 	virtual bool update(float delta_time);
-	virtual bool collide(Object * o);
+	virtual bool collide(Object * o, Hitbox * h);
 
 private:
 	float lastX = 0;

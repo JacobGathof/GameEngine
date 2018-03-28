@@ -14,7 +14,7 @@ public:
 	int lucidium;
 
 	virtual bool update(float delta_time);
-	virtual bool collide(Object * o);
+	virtual bool collide(Object * o, Hitbox * h);
 	virtual bool activateCard(int i);
 
 protected:
