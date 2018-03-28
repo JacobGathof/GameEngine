@@ -4,6 +4,7 @@
 
 Room::Room()
 {
+	collisionObject = new Object("extra", TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
 }
 
 
@@ -12,6 +13,9 @@ Room::~Room()
 	for (Object * o : objects) {
 		//delete o;
 	}
+	delete collisionObject;
+	
+	
 }
 
 void Room::update(float delta_time)
@@ -24,10 +28,10 @@ void Room::update(float delta_time)
 void Room::draw()
 {
 	terrain.draw(objectMap.at("Melody"));
-
 	for (Object * o : objects) {
 		o->draw();
 	}
+	collisionObject->draw();
 }
 
 void Room::checkCollisions()
@@ -38,9 +42,12 @@ void Room::checkCollisions()
 		for (int k = i; k < objects.size(); k++) {
 			Object * other = objects.get(k);
 			if (collision(current, other)) {
-				current->collide(other);
-				other->collide(current);
+				current->collide(other, twoCarry);
+				other->collide(current, oneCarry);
 			}
+		}
+		if (collision(current, collisionObject)) {
+			current->collide(collisionObject, twoCarry);
 		}
 
 		/*
@@ -99,40 +106,28 @@ void Room::setTerrainMap(std::string map)
 	terrain.constructMap("TerrainMaps/" + map);
 }
 
+void Room::addHitbox(Vector2f pos, Vector2f scale)
+{
+	Hitbox * hit = new RectHitbox(Rect(pos,scale), pos);
+	collisionObject->addHitbox(hit);
+}
+
 bool Room::collision(Object * obj1, Object * obj2)
 {
-	
 	for (int i = 0; i < obj1->numHitboxes(); i++) {
 		Hitbox * one = obj1->getHitbox(i);
 		for (int k = 0; k < obj2->numHitboxes(); k++) {
-			Hitbox * two = obj2->getHitbox(i);
+			Hitbox * two = obj2->getHitbox(k);
 			if (one->pos == two->pos) {
 				continue;
 			}
 			if (one->collide(two)) {
+				oneCarry = one;
+				twoCarry = two;
 				return true;
 			}
 		}
 	}
-
-
-	//Will be the square-square hitbox later
-	/*
-	float x1 = obj1->pos[0];
-	float y1 = obj1->pos[1];
-	float xScale1 = obj1->scale[0];
-	float yScale1 = obj1->scale[1];
-
-	float x2 = obj2->pos[0];
-	float y2 = obj2->pos[1];
-	float xScale2 = obj2->scale[0];
-	float yScale2 = obj2->scale[1];
-	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
-		if (y1 < y2 + yScale2/2 && y2 < y1 + yScale1/2) {
-			return true;
-		}
-	}
-	*/
 	return false;
 }
 

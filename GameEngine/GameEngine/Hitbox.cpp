@@ -13,6 +13,11 @@ Hitbox::~Hitbox()
 {
 }
 
+void Hitbox::updatePos(Vector2f p)
+{
+	pos = p + offset;
+}
+
 bool Hitbox::collide(Hitbox * s)
 {
 	return false;

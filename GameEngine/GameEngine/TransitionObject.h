@@ -12,6 +12,6 @@ public:
 
 	Room * room;
 
-	virtual bool collide(Object * o);
+	virtual bool collide(Object * o, Hitbox * h);
 };
 

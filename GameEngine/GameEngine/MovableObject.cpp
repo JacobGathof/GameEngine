@@ -21,7 +21,7 @@ bool MovableObject::update(float delta_time)
 	return AnimatedObject::update(delta_time);
 }
 
-bool MovableObject::collide(Object * o)
+bool MovableObject::collide(Object * o, Hitbox * h)
 {
 	return false;
 }

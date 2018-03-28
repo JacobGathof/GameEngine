@@ -2,6 +2,8 @@
 #include "RectHitbox.h"
 #include "CircleHitbox.h"
 #include "ComplexHitbox.h"
+#include "Hitbox.h"
+#include "Object.h"
 
 
 CollisionUtil::CollisionUtil()
@@ -26,13 +28,14 @@ bool CollisionUtil::collide(CircleHitbox& c1, CircleHitbox& c2)
 
 bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 {
-	float x1 = r1.pos[0] + r1.offset[0];
-	float y1 = r1.pos[1] + r1.offset[1];
+
+	float x1 = r1.pos[0] - r1.shape.scale[0]/2;
+	float y1 = r1.pos[1] - r1.shape.scale[1] / 2;
 	float xScale1 = r1.shape.scale[0];
 	float yScale1 = r1.shape.scale[1];
 
-	float x2 = r2.pos[0] + r2.offset[0];
-	float y2 = r2.pos[1] + r2.offset[1];
+	float x2 = r2.pos[0] - r2.shape.scale[0] / 2;
+	float y2 = r2.pos[1] - r2.shape.scale[1] / 2;
 	float xScale2 = r2.shape.scale[0];
 	float yScale2 = r2.shape.scale[1];
 	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
@@ -45,6 +48,11 @@ bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 
 bool CollisionUtil::collide(ComplexHitbox& c1, ComplexHitbox& c2)
 {
+
+	if (!(c1.outerCollide->collide(c2.outerCollide))) {
+		return false;
+	}
+
 	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
 	List<Vector2f> vert2 = c2.shape->getVertices();
@@ -96,6 +104,11 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 
 bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 {
+
+	if (!c1.collide(c2.outerCollide)) {
+		return false;
+	}
+
 	List<Vector2f> normals = c2.shape->normals;
 	List<Vector2f> vert1 = c2.shape->getVertices();
 	List<Vector2f> vert2;
@@ -142,6 +155,12 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 
 bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 {
+
+
+	if (!r1.collide(c1.outerCollide)) {
+		return false;
+	}
+
 	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
 	List<Vector2f> vert2;
@@ -174,4 +193,26 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 			return false;
 		}
 	}
+}
+
+bool CollisionUtil::equalResolve(Object * o1, Object * o2, int bounciness)
+{
+	Vector2f dir = (o1->pos - o2->pos).normalize();
+	o1->pos += dir * bounciness/2;
+	o2->pos -= dir * bounciness / 2;
+	return true;
+}
+
+bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, int bounciness)
+{
+	Vector2f dir = (o1->pos - h2->pos).normalize();
+	o1->pos += dir * bounciness;
+	return false;
+}
+
+bool CollisionUtil::unequalResolve(Object * o1, Object * o2, int bounciness)
+{
+	Vector2f dir = (o1->pos - o2->pos).normalize();
+	o1->pos += dir * bounciness;
+	return false;
 }
