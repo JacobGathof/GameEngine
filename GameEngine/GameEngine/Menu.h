@@ -3,6 +3,7 @@
 #include "Timer.h"
 #include "Mouse.h"
 #include "Keyboard.h"
+#include "List.h"
 
 class InventoryPage;
 class CardsPage;
@@ -15,6 +16,20 @@ enum class MenuTabType {
 	SETTINGS,
 };
 
+class MenuTab : public AbstractUIComponent {
+public:
+
+	MenuTab(AbstractUIComponent* a, TextureType t, Vector2f pos, Vector2f scale);
+	virtual void draw();
+	virtual void resize(int x, int y);
+	bool clicked(Mouse& mouse);
+
+	AbstractUIComponent* getContent();
+private:
+	TextureType tex;
+	AbstractUIComponent * content;
+
+};
 
 class Menu : public AbstractUIComponent
 {
@@ -30,12 +45,18 @@ public:
 	void toggle();
 
 private:
-	//AbstractUIComponent * activeComponent;
+	AbstractUIComponent * activeComponent;
 	InventoryPage * inventory;
 	CardsPage * cardsPage;
 	SettingsPage * settings;
 
 	bool visible = false;
+
+	Vector2f tab_o = Vector2f(100, 0);
+	Vector2f tab_s = Vector2f(100, 100);
+	Vector2f tab_area = Vector2f(100, 600);
+
+	List<MenuTab> tabs;
 
 	//CardsPage*
 	//Armor

@@ -14,7 +14,7 @@ Slider::Slider(Vector2f & pos, Vector2f & sc, std::string& t, float* r, float mi
 
 	//*ref = (maxX - minX)*ptr + minX;
 	data = new Text(position + scale, std::string(""), Vector2f(20, 20), 0);
-	title = new Text(position + Vector2f(scale[0]/2, 0), t, Vector2f(20,20), 0);
+	title = new Text(position + Vector2f(scale[0]/2, -10), t, Vector2f(20,20), 0);
 	title->center();
 	
 	ptr = (*ref - minX) / (maxX - minX);

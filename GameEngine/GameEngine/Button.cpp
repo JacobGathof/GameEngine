@@ -6,7 +6,7 @@ Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, ButtonAction * a
 {
 	position = pos;
 	scale = sc;
-	text = new Text(position+scale/2, txt, Vector2f(25,25), 0);
+	text = new Text(position+scale/2, txt, Vector2f(sc[1]/2.0f, sc[1]/2.0f), 0);
 	text->center();
 	text->setColor(Color::Black);
 	action = act;
