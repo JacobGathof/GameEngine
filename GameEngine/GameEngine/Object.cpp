@@ -53,11 +53,16 @@ bool Object::update(float delta_time)
 	for (Effect * eff : effects) {
 		eff->update(delta_time);
 	}
+	updateHitbox();
+	
+	return alive;
+}
+
+void Object::updateHitbox()
+{
 	for (Hitbox * hit : hitboxes) {
 		hit->updatePos(pos);
 	}
-	
-	return alive;
 }
 
 bool Object::collide(Object * o, Hitbox * h)

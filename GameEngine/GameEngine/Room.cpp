@@ -42,8 +42,7 @@ void Room::checkCollisions()
 		for (int k = i; k < objects.size(); k++) {
 			Object * other = objects.get(k);
 			if (collision(current, other)) {
-				current->collide(other, twoCarry);
-				other->collide(current, oneCarry);
+				
 			}
 		}
 		if (collision(current, collisionObject)) {
@@ -122,9 +121,8 @@ bool Room::collision(Object * obj1, Object * obj2)
 				continue;
 			}
 			if (one->collide(two)) {
-				oneCarry = one;
-				twoCarry = two;
-				return true;
+				obj1->collide(obj2, two);
+				obj2->collide(obj1, one);
 			}
 		}
 	}
