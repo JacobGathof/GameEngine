@@ -131,8 +131,7 @@ void Application::run()
 
 	World::clean();
 
-	delete circ;
-	delete circ2;
+	
 	ResourceManager::clean();
 	UIManager::clean();
 
