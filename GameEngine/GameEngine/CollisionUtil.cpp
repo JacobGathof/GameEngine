@@ -197,22 +197,39 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 
 bool CollisionUtil::equalResolve(Object * o1, Object * o2, int bounciness)
 {
-	Vector2f dir = (o1->pos - o2->pos).normalize();
-	o1->pos += dir * bounciness/2;
-	o2->pos -= dir * bounciness / 2;
-	return true;
+
+	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
+		Vector2f dir = (o1->pos - o2->pos).normalize();
+		o1->pos += dir * bounciness / 2;
+		o2->pos -= dir * bounciness / 2;
+
+		o1->updateHitbox();
+		o2->updateHitbox();
+	}
+
+	return false;
 }
 
 bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, int bounciness)
 {
-	Vector2f dir = (o1->pos - h2->pos).normalize();
-	o1->pos += dir * bounciness;
+	while (o1->getHitbox(0)->collide(h2)) {
+		Vector2f dir = (o1->pos - h2->pos).normalize();
+		o1->pos += dir * bounciness;
+		o1->updateHitbox();
+	}
+	std::cout << "Here" << std::endl;
 	return false;
 }
 
 bool CollisionUtil::unequalResolve(Object * o1, Object * o2, int bounciness)
 {
-	Vector2f dir = (o1->pos - o2->pos).normalize();
-	o1->pos += dir * bounciness;
+	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
+		Vector2f dir = (o1->pos - o2->pos).normalize();
+		o1->pos += dir * bounciness;
+
+		o1->updateHitbox();
+		o2->updateHitbox();
+	}
+
 	return false;
 }

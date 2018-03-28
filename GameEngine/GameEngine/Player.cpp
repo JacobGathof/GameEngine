@@ -15,6 +15,9 @@ Player::~Player()
 
 bool Player::update(float delta_time)
 {
+	if (colliding) {
+		return true;
+	}
 	lastX = pos[0];
 	lastY = pos[1];
 	LivingObject::update(delta_time);
@@ -23,7 +26,7 @@ bool Player::update(float delta_time)
 
 bool Player::collide(Object * o, Hitbox * h)
 {
-	CollisionUtil::unequalResolve(this, h, 10);
+	colliding = CollisionUtil::unequalResolve(this, h, 5);
 	
 
 	return true;

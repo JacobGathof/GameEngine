@@ -26,11 +26,13 @@ public:
 	List<AI *> aiQueue;
 	AI * defaultAI;
 	List<Hitbox *> hitboxes;
+	bool colliding = false;
 
 	virtual void draw();
 	virtual void drawEffects();
 
 	virtual bool update(float delta_time);
+	virtual void updateHitbox();
 	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
