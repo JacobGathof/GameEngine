@@ -53,7 +53,6 @@ void Room::drawEffects()
 
 void Room::checkCollisions()
 {
-	
 	for (int i = 0; i < objects.size(); i++) {
 		Object * current = objects.get(i);
 		for (int k = i; k < objects.size(); k++) {
@@ -138,6 +137,8 @@ bool Room::collision(Object * obj1, Object * obj2)
 				continue;
 			}
 			if (one->collide(two)) {
+				CollisionUtil::one = obj1;
+				CollisionUtil::two = obj2;
 				obj1->collide(obj2, two);
 				obj2->collide(obj1, one);
 			}

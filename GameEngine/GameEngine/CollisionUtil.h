@@ -1,11 +1,13 @@
 #pragma once
 
+#include "Vector2f.h"
 
 
 class CircleHitbox;
 class RectHitbox;
 class ComplexHitbox;
 class Object;
+class MovableObject;
 class Hitbox;
 
 
@@ -15,6 +17,9 @@ public:
 	CollisionUtil();
 	~CollisionUtil();
 
+	static Object * one;
+	static Object * two;
+
 	static bool collide(CircleHitbox & c1, CircleHitbox & c2);
 	static bool collide(RectHitbox & r1, RectHitbox & r2);
 	static bool collide(ComplexHitbox & c1, ComplexHitbox & c2);
@@ -22,8 +27,12 @@ public:
 	static bool collide(CircleHitbox & c1, ComplexHitbox & c2);
 	static bool collide(RectHitbox & r1, ComplexHitbox & c1);
 
-	static bool equalResolve(Object * o1, Object * o2, int bounciness);
-	static bool unequalResolve(Object * o1, Hitbox * h2, int bounciness);
-	static bool unequalResolve(Object * o1, Object * o2, int bounciness);
+	static bool equalResolve(MovableObject * o1, Object * o2, int bounciness);
+	static bool unequalResolve(MovableObject * o1, Hitbox * h2, int bounciness);
+	static bool unequalResolve(MovableObject * o1, Object * o2, int bounciness);
+
+private:
+
+	static Vector2f shortestResolve;
 };
 
