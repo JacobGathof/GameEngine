@@ -74,8 +74,6 @@ bool ComplexHitbox::collide(ComplexHitbox * h)
 
 void ComplexHitbox::draw()
 {
-	shape->base = pos;
-	
 	outerCollide->draw();
 	for (int i = 0; i < shape->vertices.size(); i++) {
 		shape->vertices.get(i) += pos;
