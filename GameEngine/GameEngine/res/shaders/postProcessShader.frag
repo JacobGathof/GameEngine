@@ -23,13 +23,12 @@ void main(){
 	finalColor = world_color;// * vec4(.25,.25,.5,1.0);
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 
-//	finalColor = finalColor + vec4(1, 1, 1, 1)*particles_color.a;
+	finalColor = finalColor + particles_color;
 
 	vec4 uiColor = ui_color*ui_trans;
 	finalColor = finalColor*(1-uiColor.a) + uiColor;
 	//mix(finalColor, ui_color, .5);
 
-	finalColor = floor(finalColor*8)/8.0;
 
 	gl_FragColor = finalColor;
 }

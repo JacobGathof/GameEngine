@@ -9,5 +9,6 @@ public:
 
 	virtual void updateParticle(Particle* p, float dt);
 	virtual Particle createNewParticle();
+	virtual void draw();
 };
 

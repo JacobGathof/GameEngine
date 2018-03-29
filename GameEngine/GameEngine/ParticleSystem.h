@@ -48,9 +48,10 @@ public:
 
 protected:
 	Timer timer;
+	Model model;
 
 private:
-	Model model;
+
 	unsigned int vbo_pos;
 	unsigned int vbo_col;
 	unsigned int vbo_lif;

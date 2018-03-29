@@ -14,6 +14,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::CIRCLE_SHADER, "res/shaders/circleShader.vert", 0, "res/shaders/circleShader.frag");
 	addShader(ShaderType::POST_PROCESS_SHADER, "res/shaders/postProcessShader.vert", 0, "res/shaders/postProcessShader.frag");
 	addShader(ShaderType::RECTANGLE_SHADER, "res/shaders/rectangleShader.vert", 0, "res/shaders/rectangleShader.frag");
+	addShader(ShaderType::PLAIN_SHADER, "res/shaders/plainShader.vert", 0, "res/shaders/plainShader.frag");
 
 	addShader(ShaderType::FRACTAL_SHADER, "res/shaders/fractalShader.vert", 0, "res/shaders/fractalShader.frag");
 }

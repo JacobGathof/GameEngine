@@ -6,10 +6,21 @@ layout(location=2) in float life;
 
 out vec4 col;
 out float li;
+flat out uint circle;
+
+uniform float halfLife;
 
 
 void main(){
-	gl_PointSize = 16.0f;
+
+	float si = 2.0f;
+	circle = 0;
+	if(life <= halfLife){
+		si = 16*(halfLife-life)/halfLife+2;
+		circle = 1;
+	}
+
+	gl_PointSize = si;
 	col = color;
 	li = life;
 	gl_Position = vec4(position,0,1);

@@ -20,7 +20,7 @@ void Renderer::draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawTerrain();
 	World::getInstance()->drawObjects();
-	World::getInstance()->drawHitboxes();
+	//World::getInstance()->drawHitboxes();
 	//World::getInstance()->draw();
 
 
@@ -36,7 +36,7 @@ void Renderer::draw()
 	//glBlendFunc(GL_SRC_ALPHA, GL_DST_ALPHA);
 	buf = Res::get(FramebufferType::PARTICLES_BUFFER);
 	buf->bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawEffects();
 
 

@@ -67,11 +67,10 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
-	DefaultParticleSystem *sys = new DefaultParticleSystem();
+	RainParticleSystem *sys = new RainParticleSystem();
 	//sys->parentPosition = &melody.pos;
-	sys->startColor = Color::DarkBlue;
-	sys->endColor = Color::DarkPurple;
-
+	//sys->startColor = Color::DarkBlue;
+	//sys->endColor = Color::DarkPurple;
 
 	melody.addEffect(sys);
 

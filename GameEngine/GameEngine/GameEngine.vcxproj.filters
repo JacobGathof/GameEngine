@@ -818,9 +818,6 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="SaveUtilities.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -832,6 +829,9 @@
     </ClInclude>
     <ClInclude Include="EnemyStatusbar.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveUtilities.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
