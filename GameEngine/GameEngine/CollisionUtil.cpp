@@ -3,8 +3,14 @@
 #include "CircleHitbox.h"
 #include "ComplexHitbox.h"
 #include "Hitbox.h"
+#include "MovableObject.h"
+#include <math.h>
 #include "Object.h"
 
+
+Vector2f CollisionUtil::shortestResolve;
+Object * CollisionUtil::one;
+Object * CollisionUtil::two;
 
 CollisionUtil::CollisionUtil()
 {
@@ -40,6 +46,42 @@ bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 	float yScale2 = r2.shape.scale[1];
 	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
 		if (y1 < y2 + yScale2 && y2 < y1 + yScale1) {
+
+			float dist1 = (x2 + xScale2) - x1;
+			if (dist1 < 0) {
+				dist1 = 10000;
+			}
+			float dist2 = (x1 + xScale1) - x2;
+			if (dist2 < 0) {
+				dist2 = 10000;
+			}
+			float dist3 = (y2 + yScale2) - y1;
+			if (dist3 < 0) {
+				dist3 = 10000;
+			}
+			float dist4 = (y1 + yScale1) - y2;
+			if (dist4 < 0) {
+				dist4 = 10000;
+			}
+
+			float minimum = min(dist1, dist2);
+			minimum = min(minimum, dist3);
+			minimum = min(minimum, dist4);
+
+
+			if (minimum == dist1) {
+				shortestResolve = Vector2f(1,0);
+			}
+			else if (minimum == dist2) {
+				shortestResolve = Vector2f(-1, 0);
+			}
+			else if (minimum == dist3) {
+				shortestResolve = Vector2f(0, 1);
+			}
+			else {
+				shortestResolve = Vector2f(0, -1);
+			}
+
 			return true;
 		}
 	}
@@ -155,8 +197,6 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 
 bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 {
-
-
 	if (!r1.collide(c1.outerCollide)) {
 		return false;
 	}
@@ -195,9 +235,8 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 	}
 }
 
-bool CollisionUtil::equalResolve(Object * o1, Object * o2, int bounciness)
+bool CollisionUtil::equalResolve(MovableObject * o1, Object * o2, int bounciness)
 {
-
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
 		o1->pos += dir * bounciness / 2;
@@ -210,18 +249,23 @@ bool CollisionUtil::equalResolve(Object * o1, Object * o2, int bounciness)
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, int bounciness)
+bool CollisionUtil::unequalResolve(MovableObject * o1, Hitbox * h2, int bounciness)
 {
 	while (o1->getHitbox(0)->collide(h2)) {
-		Vector2f dir = (o1->pos - h2->pos).normalize();
+		Vector2f dir = shortestResolve;
+		
+		if (o1 == two) {
+			dir = Vector2f(-dir[0], -dir[1]);
+		}
+		
 		o1->pos += dir * bounciness;
+		
 		o1->updateHitbox();
 	}
-	std::cout << "Here" << std::endl;
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(Object * o1, Object * o2, int bounciness)
+bool CollisionUtil::unequalResolve(MovableObject * o1, Object * o2, int bounciness)
 {
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();

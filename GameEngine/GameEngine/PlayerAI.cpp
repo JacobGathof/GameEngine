@@ -16,8 +16,10 @@ bool PlayerAI::execute(LivingObject * o, float dt)
 	}
 	LivingObject * obj = (LivingObject *)o;
 
-	obj->pos += Vector2f(xVel * dt, yVel * dt);
+	obj->direction = Vector2f(xVel, yVel);
 
+	obj->pos += obj->direction * dt;
+	
 	return true;
 }
 
