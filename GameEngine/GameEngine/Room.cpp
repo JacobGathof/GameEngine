@@ -29,6 +29,7 @@ void Room::draw()
 	drawTerrain();
 	drawObjects();
 	drawEffects();
+	drawHitboxes();
 }
 
 void Room::drawTerrain()
@@ -49,6 +50,14 @@ void Room::drawEffects()
 	for (Object * o : objects) {
 		o->drawEffects();
 	}
+}
+
+void Room::drawHitboxes()
+{
+	for (Object * o : objects) {
+		o->drawHitboxes();
+	}
+	collisionObject->drawHitboxes();
 }
 
 void Room::checkCollisions()

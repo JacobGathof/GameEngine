@@ -19,6 +19,7 @@ public:
 	void drawTerrain();
 	void drawObjects();
 	void drawEffects();
+	void drawHitboxes();
 
 	void update(float delta_time);
 	void transition(Room * newRoom);

@@ -29,6 +29,7 @@ void main(){
 	finalColor = finalColor*(1-uiColor.a) + uiColor;
 	//mix(finalColor, ui_color, .5);
 
+	finalColor = floor(finalColor*8)/8.0;
 
 	gl_FragColor = finalColor;
 }

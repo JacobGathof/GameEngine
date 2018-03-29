@@ -29,6 +29,7 @@ void World::draw()
 	drawTerrain();
 	drawObjects();
 	drawEffects();
+	drawHitboxes();
 }
 
 void World::drawTerrain()
@@ -44,6 +45,11 @@ void World::drawObjects()
 void World::drawEffects()
 {
 	currentRoom->drawEffects();
+}
+
+void World::drawHitboxes()
+{
+	currentRoom->drawHitboxes();
 }
 
 void World::update(float delta_time)

@@ -20,6 +20,8 @@ void Renderer::draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawTerrain();
 	World::getInstance()->drawObjects();
+	World::getInstance()->drawHitboxes();
+	//World::getInstance()->draw();
 
 
 	

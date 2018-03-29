@@ -30,6 +30,7 @@ public:
 
 	virtual void draw();
 	virtual void drawEffects();
+	virtual void drawHitboxes();
 
 	virtual bool update(float delta_time);
 	virtual void updateHitbox();

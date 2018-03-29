@@ -23,6 +23,7 @@ public:
 	void drawTerrain();
 	void drawObjects();
 	void drawEffects();
+	void drawHitboxes();
 
 	void checkCollisions();
 	void addObject(Object * obj);
