@@ -46,8 +46,13 @@ bool RectHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*this, *h);
 }
 
+void RectHitbox::updatePos(Vector2f p)
+{
+	Hitbox::updatePos(p);
+	shape.center = pos;
+}
+
 void RectHitbox::draw()
 {
-	shape.center = pos;
 	shape.draw();
 }
