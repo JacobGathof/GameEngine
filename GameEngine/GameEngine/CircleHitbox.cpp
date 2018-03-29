@@ -44,6 +44,5 @@ void CircleHitbox::updatePos(Vector2f p)
 
 void CircleHitbox::draw()
 {
-	shape.center = pos;
 	shape.draw();
 }
