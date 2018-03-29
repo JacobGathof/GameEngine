@@ -1,5 +1,6 @@
 #include "Room.h"
 #include "Object.h"
+#include "CollisionUtil.h"
 
 Room::Room()
 {

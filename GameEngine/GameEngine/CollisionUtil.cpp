@@ -161,10 +161,10 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 	Vector2f p2 = shape.center - Vector2f(shape.radius, 0);
 	Vector2f p3 = shape.center + Vector2f(0,shape.radius);
 	Vector2f p4 = shape.center - Vector2f(0, shape.radius);
-	Vector2f p5 = shape.center + Vector2f(sqrt(2)/2 * shape.radius, sqrt(2) / 2 * shape.radius);
-	Vector2f p6 = shape.center + Vector2f(-sqrt(2) / 2 * shape.radius, sqrt(2) / 2 * shape.radius);
-	Vector2f p7 = shape.center + Vector2f(sqrt(2) / 2 * shape.radius, -sqrt(2) / 2 * shape.radius);
-	Vector2f p8 = shape.center - Vector2f(sqrt(2) / 2 * shape.radius, sqrt(2) / 2 * shape.radius);
+	Vector2f p5 = shape.center + Vector2f((float)sqrt(2)/2 * shape.radius, (float)sqrt(2) / 2 * shape.radius);
+	Vector2f p6 = shape.center + Vector2f((float)-sqrt(2) / 2 * shape.radius, (float)sqrt(2) / 2 * shape.radius);
+	Vector2f p7 = shape.center + Vector2f((float)sqrt(2) / 2 * shape.radius, (float)-sqrt(2) / 2 * shape.radius);
+	Vector2f p8 = shape.center - Vector2f((float)sqrt(2) / 2 * shape.radius, (float)sqrt(2) / 2 * shape.radius);
 
 	vert2.add(p1);
 	vert2.add(p2);
@@ -239,8 +239,8 @@ bool CollisionUtil::equalResolve(MovableObject * o1, Object * o2, int bounciness
 {
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
-		o1->pos += dir * bounciness / 2;
-		o2->pos -= dir * bounciness / 2;
+		o1->pos += dir * bounciness / 2.0f;
+		o2->pos -= dir * bounciness / 2.0f;
 
 		o1->updateHitbox();
 		o2->updateHitbox();
