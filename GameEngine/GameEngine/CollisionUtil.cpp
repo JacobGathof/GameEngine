@@ -29,6 +29,8 @@ bool CollisionUtil::collide(CircleHitbox& c1, CircleHitbox& c2)
 		return true;
 	}
 
+	shortestResolve = (c1.pos - c2.pos).normalize();
+
 	return false;
 }
 
@@ -126,6 +128,8 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 	float distX = abs(c1.pos[0] - r1.pos[0]);
 	float distY = abs(c1.pos[1] - r1.pos[1]);
 
+	shortestResolve = Vector2f(distX, distY).normalize();
+
 	if (distX > r1.shape.scale[0] / 2 + c1.shape.radius) {
 		return false;
 	}
@@ -140,7 +144,6 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 	}
 
 	float distCorner = r1.pos.distanceTo(r1.pos + Vector2f(r1.shape.scale[0] / 2, r1.shape.scale[1] / 2));
-
 	return distCorner <= pow(c1.shape.radius,2);
 }
 
