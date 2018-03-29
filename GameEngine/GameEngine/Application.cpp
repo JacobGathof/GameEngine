@@ -42,7 +42,7 @@ void Application::run()
 	//End Init Room 1
 
 	Room room2;
-	room.setTerrainMap("eastOfTown2.txt");
+	room.setTerrainMap(std::string("eastOfTown2.txt"));
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;

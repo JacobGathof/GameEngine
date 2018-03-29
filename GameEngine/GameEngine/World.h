@@ -24,8 +24,8 @@ public:
 	void update(float delta_time);
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);
-	Object * getNearestObject(Vector2f pos);
-	Object * getObject(std::string name);
+	Object * getNearestObject(Vector2f& pos);
+	Object * getObject(std::string& name);
 
 private:
 	World();

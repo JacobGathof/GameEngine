@@ -106,7 +106,7 @@ void Room::sort()
 	}
 }
 
-Object * Room::getNearestObject(Vector2f pos)
+Object * Room::getNearestObject(Vector2f& pos)
 {
 	Object * nearest = nullptr;
 	float nearestDist = 1000000;
@@ -120,18 +120,18 @@ Object * Room::getNearestObject(Vector2f pos)
 	return nearest;
 }
 
-Object * Room::getObject(std::string name)
+Object * Room::getObject(std::string& name)
 {
 	std::cout << objectMap.size() << std::endl;
 	return objectMap.at(name);
 }
 
-void Room::setTerrainMap(std::string map)
+void Room::setTerrainMap(std::string& map)
 {
 	terrain.constructMap("TerrainMaps/" + map);
 }
 
-void Room::addHitbox(Vector2f pos, Vector2f scale)
+void Room::addHitbox(Vector2f& pos, Vector2f& scale)
 {
 	Hitbox * hit = new RectHitbox(Rect(pos,scale), pos);
 	collisionObject->addHitbox(hit);

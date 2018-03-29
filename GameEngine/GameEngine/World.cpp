@@ -72,13 +72,13 @@ void World::setCurrentRoom(Room * r)
 	currentRoom = r;
 }
 
-Object * World::getNearestObject(Vector2f pos)
+Object * World::getNearestObject(Vector2f& pos)
 {
 
 	return currentRoom->getNearestObject(pos);
 }
 
-Object * World::getObject(std::string name)
+Object * World::getObject(std::string& name)
 {
 	return currentRoom->getObject(name);
 }

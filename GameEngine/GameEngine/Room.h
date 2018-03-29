@@ -28,10 +28,10 @@ public:
 	void checkCollisions();
 	void addObject(Object * obj);
 	void sort();
-	Object * getNearestObject(Vector2f pos);
-	Object * getObject(std::string name);
-	void setTerrainMap(std::string map);
-	void addHitbox(Vector2f pos, Vector2f scale);
+	Object * getNearestObject(Vector2f& pos);
+	Object * getObject(std::string& name);
+	void setTerrainMap(std::string& map);
+	void addHitbox(Vector2f& pos, Vector2f& scale);
 
 private:
 	List<Object *> objects;
