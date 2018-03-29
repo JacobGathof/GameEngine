@@ -50,6 +50,10 @@ void ComplexHitbox::updatePos(Vector2f p)
 {
 	pos = p + offset;
 	outerCollide->updatePos(p);
+	shape->base = pos;
+	for (int i = 0; i < shape->vertices.size(); i++) {
+		shape->vertices.get(i) += pos;
+	}
 }
 
 bool ComplexHitbox::collide(Hitbox * s)
@@ -75,9 +79,7 @@ bool ComplexHitbox::collide(ComplexHitbox * h)
 void ComplexHitbox::draw()
 {
 	outerCollide->draw();
-	for (int i = 0; i < shape->vertices.size(); i++) {
-		shape->vertices.get(i) += pos;
-	}
+	
 
 	shape->draw();
 }
