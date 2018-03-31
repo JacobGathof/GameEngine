@@ -9,6 +9,6 @@ void MusicManager::init()
 
 void MusicManager::addAudio(MusicType type, char * filename)
 {
-	AudioEntity* entity = AudioLoader::loadWavFile(filename);
+	MusicEntity* entity = AudioLoader::loadMusicFile(filename);
 	elements[type] = entity;
 }

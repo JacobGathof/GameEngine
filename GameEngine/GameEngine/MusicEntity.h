@@ -1,11 +1,11 @@
 #pragma once
 #include "openal\include\al.h"
 
-class AudioEntity
+class MusicEntity
 {
 public:
-	AudioEntity(unsigned char* data, unsigned int size, unsigned int frequency, short numChannels);
-	~AudioEntity();
+	MusicEntity(unsigned char* data, unsigned int size, unsigned int frequency, short numChannels);
+	~MusicEntity();
 
 	void play(bool loop);
 	void pause();

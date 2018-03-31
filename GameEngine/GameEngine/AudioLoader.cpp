@@ -2,10 +2,42 @@
 #include <iostream>
 
 
-AudioEntity* AudioLoader::loadWavFile(char * f)
+MusicEntity* AudioLoader::loadMusicFile(char * f)
 {
-	AudioEntity* entity = 0;
+	MusicEntity* entity = 0;
 
+	unsigned char* d;
+	unsigned int s;
+	int sps;
+	short ch;
+	loadData(f, &d, &s, &sps, &ch);
+
+	entity = new MusicEntity(d, s, sps, ch);
+
+	delete[] d;
+
+	return entity;
+}
+
+SoundEntity * AudioLoader::loadSoundFile(char * f)
+{
+	SoundEntity* entity = 0;
+
+	unsigned char* d;
+	unsigned int s;
+	int sps;
+	short ch;
+	loadData(f, &d, &s, &sps, &ch);
+
+	entity = new SoundEntity(d, s, sps, ch);
+
+	delete[] d;
+
+	return entity;
+}
+
+void AudioLoader::loadData(char * f, unsigned char ** d, unsigned int * s, int * sps, short * ch)
+{
 	std::ifstream file(f, std::ifstream::binary);
 
 	if (!file.is_open()) {
@@ -19,11 +51,11 @@ AudioEntity* AudioLoader::loadWavFile(char * f)
 		file.read((char*)&size, 4);
 
 		chunkId[4] = '\0';
-	
+
 		file.read(chunkId, 4);
 
 		chunkId[4] = '\0';
-	
+
 		file.read(chunkId, 4);
 		file.read((char*)&size, 4);
 
@@ -46,7 +78,7 @@ AudioEntity* AudioLoader::loadWavFile(char * f)
 		if (size > 16) {
 			file.seekg((int)file.tellg() + (size - 16));
 		}
-	
+
 		file.read(chunkId, 4);
 		file.read((char*)&size, 4);
 
@@ -57,14 +89,12 @@ AudioEntity* AudioLoader::loadWavFile(char * f)
 
 		file.read((char*)data, size);
 
-		entity = new AudioEntity(data, size, samplesPerSec, channels);
+		file.close();
 
-		delete[] data;
-	
+		*d = data;
+		*s = size;
+		*sps = samplesPerSec;
+		*ch = channels;
 	}
 
-	file.close();
-
-	return entity;
 }
-

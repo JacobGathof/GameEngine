@@ -1,10 +1,10 @@
 #pragma once
-#include "AudioEntity.h"
+#include "MusicEntity.h"
 #include "IManager.h"
 #include "ResourceType.h"
 
 
-class MusicManager : public IManager<AudioEntity, MusicType>
+class MusicManager : public IManager<MusicEntity, MusicType>
 {
 public:
 	virtual void init();

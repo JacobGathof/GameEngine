@@ -7,6 +7,7 @@ MusicManager* Res::musicManager;
 ShaderManager* Res::shaderManager;
 TextureManager* Res::textureManager;
 FramebufferManager* Res::frameManager;
+SoundManager* Res::soundManager;
 
 void ResourceManager::init()
 {
@@ -17,7 +18,7 @@ void ResourceManager::init()
 	shaderManager = new ShaderManager();
 	textureManager = new TextureManager();
 	frameManager = new FramebufferManager();
-
+	soundManager = new SoundManager();
 	
 	cardManager->init();
 	fontManager->init();
@@ -26,6 +27,7 @@ void ResourceManager::init()
 	shaderManager->init();
 	textureManager->init();
 	frameManager->init();
+	soundManager->init();
 }
 
 void ResourceManager::clean()
@@ -37,6 +39,7 @@ void ResourceManager::clean()
 	shaderManager->clean();
 	textureManager->clean();
 	frameManager->clean();
+	soundManager->clean();
 
 	delete fontManager;
 	delete cardManager;
@@ -45,6 +48,7 @@ void ResourceManager::clean()
 	delete shaderManager;
 	delete textureManager;
 	delete frameManager;
+	delete soundManager;
 }
 
 ShaderProgram* ResourceManager::get(ShaderType type){
@@ -53,6 +57,11 @@ ShaderProgram* ResourceManager::get(ShaderType type){
 
 Model* ResourceManager::get(ModelType type){
 	return modelManager->get(type);
+}
+
+SoundEntity * ResourceManager::get(SoundType type)
+{
+	return soundManager->get(type);
 }
 
 void ResourceManager::updateFramebufferSizes(float x, float y)
@@ -77,7 +86,7 @@ Framebuffer * ResourceManager::get(FramebufferType type){
 	return frameManager->get(type);
 }
 
-AudioEntity * ResourceManager::get(MusicType type){
+MusicEntity * ResourceManager::get(MusicType type){
 	return musicManager->get(type);
 }
 

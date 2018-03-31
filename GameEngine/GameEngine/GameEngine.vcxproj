@@ -23,7 +23,7 @@
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="AudioEntity.cpp" />
+    <ClCompile Include="MusicEntity.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
     <ClCompile Include="Banner.cpp" />
@@ -91,6 +91,9 @@
     <ClCompile Include="SettingsPage.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Slider.cpp" />
+    <ClCompile Include="SoundEntity.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundScheduler.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
@@ -140,7 +143,7 @@
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Armor.h" />
-    <ClInclude Include="AudioEntity.h" />
+    <ClInclude Include="MusicEntity.h" />
     <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="AudioSystem.h" />
     <ClInclude Include="Banner.h" />
@@ -211,6 +214,9 @@
     <ClInclude Include="SettingsPage.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Slider.h" />
+    <ClInclude Include="SoundEntity.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundScheduler.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="TerrainMap.h" />

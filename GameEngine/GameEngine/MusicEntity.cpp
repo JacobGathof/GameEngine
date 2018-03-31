@@ -1,9 +1,9 @@
-#include "AudioEntity.h"
+#include "MusicEntity.h"
 #include <iostream>
 
 
 
-AudioEntity::AudioEntity(unsigned char * data, unsigned int size, unsigned int frequency, short numChannels)
+MusicEntity::MusicEntity(unsigned char * data, unsigned int size, unsigned int frequency, short numChannels)
 {
 	alGenBuffers(1, &buffer);
 	alBufferData(buffer, (numChannels == 2) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16, data, size, frequency);
@@ -23,13 +23,13 @@ AudioEntity::AudioEntity(unsigned char * data, unsigned int size, unsigned int f
 	state = 0;
 }
 
-AudioEntity::~AudioEntity()
+MusicEntity::~MusicEntity()
 {
 	alDeleteSources(1, &source);
 	alDeleteBuffers(1, &buffer);
 }
 
-void AudioEntity::play(bool loop)
+void MusicEntity::play(bool loop)
 {
 	if (state != 1) {
 		state = 1;
@@ -39,7 +39,7 @@ void AudioEntity::play(bool loop)
 	}
 }
 
-void AudioEntity::pause()
+void MusicEntity::pause()
 {
 	if (state != 2) {
 		state = 2;
@@ -48,7 +48,7 @@ void AudioEntity::pause()
 	}
 }
 
-void AudioEntity::stop()
+void MusicEntity::stop()
 {
 	if (state != 0) {
 		state = 0;
@@ -58,21 +58,21 @@ void AudioEntity::stop()
 }
 
 
-void AudioEntity::setDirection(float x, float y, float z)
+void MusicEntity::setDirection(float x, float y, float z)
 {
 }
 
-void AudioEntity::setPosition(float x, float y, float z)
+void MusicEntity::setPosition(float x, float y, float z)
 {
 	alSource3f(source, AL_POSITION, x, y, z);
 }
 
-void AudioEntity::setPitch(float pi)
+void MusicEntity::setPitch(float pi)
 {
 	alSourcef(source, AL_PITCH, pi);
 }
 
-void AudioEntity::setVolume(float gain)
+void MusicEntity::setVolume(float gain)
 {
 	alSourcef(source, AL_GAIN, gain);
 }

@@ -4,7 +4,7 @@
 #include "Slider.h"
 #include "KeyBinder.h"
 
-#define NUM_COMPS 4
+#define NUM_COMPS 5
 
 class SettingsPage : public AbstractUIComponent
 {

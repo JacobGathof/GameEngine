@@ -75,3 +75,8 @@ enum class ModelType {
 enum class MusicType {
 	SONG_FMAB_AGAIN,
 };
+
+enum class SoundType {
+	SOUND_A_NOTE,
+	SOUND_A_SHARP_NOTE,
+};

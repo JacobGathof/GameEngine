@@ -49,7 +49,7 @@ void RainParticleSystem::draw()
 
 
 	Res::get(ShaderType::PARTICLE_SHADER)->bind();
-	Res::get(ShaderType::PARTICLE_SHADER)->loadFloat("halfLife", maxParticleLife/2.0f);
+	Res::get(ShaderType::PARTICLE_SHADER)->loadFloat("halfLife", maxParticleLife/4.0f);
 	model.bind();
 	glDrawArrays(GL_POINTS, 0, maxParticles);
 }

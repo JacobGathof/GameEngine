@@ -11,3 +11,8 @@ public:
 	virtual void performAction();
 };
 
+
+class NoteButtonAction : public ButtonAction {
+public:
+	virtual void performAction();
+};

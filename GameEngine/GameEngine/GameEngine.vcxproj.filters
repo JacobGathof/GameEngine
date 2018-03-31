@@ -393,9 +393,6 @@
     <ClCompile Include="AudioLoader.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="AudioEntity.cpp">
-      <Filter>Source Files\Audio</Filter>
-    </ClCompile>
     <ClCompile Include="MusicManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -476,6 +473,18 @@
     </ClCompile>
     <ClCompile Include="EnemyStatusbar.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEntity.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundScheduler.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEntity.cpp">
+      <Filter>Source Files\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -746,9 +755,6 @@
     <ClInclude Include="AudioLoader.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="AudioEntity.h">
-      <Filter>Header Files\Audio</Filter>
-    </ClInclude>
     <ClInclude Include="MusicManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -832,6 +838,18 @@
     </ClInclude>
     <ClInclude Include="SaveUtilities.h">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEntity.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundScheduler.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEntity.h">
+      <Filter>Header Files\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
