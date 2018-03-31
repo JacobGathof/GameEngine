@@ -46,21 +46,24 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
-	Player melody("Melody", TextureType::SPRITESHEET_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
+	Player melody(std::string("Melody"), TextureType::SPRITESHEET_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * circ = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(200, 300)), Vector2f(0, 0));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
 	melody.addHitbox(circ);
-	LivingObject structure("Structure", TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
+	LivingObject structure(std::string("Structure"), TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
 	FollowAI follow(&melody);
 	structure.moveSpeed = 600;
 	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
-	
+
+	Object flo(std::string("name"), TextureType::TEXTURE_DAGON, Vector2f(0, 1024 + 512), Vector2f(256, 256));
 
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
+	room.addObject(&flo);
+
 	//room.addObject(&structure);
 	//room.addObject(&trans);
 
@@ -117,7 +120,10 @@ void Application::run()
 		//Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 
+
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
+		Res::get(ShaderType::WATER_SHADER)->bind();
+		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
 
 		Renderer::draw();

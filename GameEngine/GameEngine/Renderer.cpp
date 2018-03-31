@@ -3,6 +3,8 @@
 #include "World.h"
 #include "GameState.h"
 
+Water Renderer::water;
+
 Renderer::Renderer()
 {
 }
@@ -22,7 +24,6 @@ void Renderer::draw()
 	World::getInstance()->drawObjects();
 	World::getInstance()->drawHitboxes();
 	//World::getInstance()->draw();
-
 
 	
 	glBlendFunc(GL_ONE, GL_ZERO);
@@ -44,6 +45,8 @@ void Renderer::draw()
 	glBlendFunc(GL_ONE, GL_ZERO);
 	buf = Res::get(FramebufferType::DEFAULT);
 	buf->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	ShaderProgram * sp = Res::get(ShaderType::POST_PROCESS_SHADER);
 	m->bind();
@@ -63,6 +66,9 @@ void Renderer::draw()
 	Res::get(FramebufferType::PARTICLES_BUFFER)->bindTexture(2);
 	m->draw();
 	
+
+	water.draw();
+
 
 
 }

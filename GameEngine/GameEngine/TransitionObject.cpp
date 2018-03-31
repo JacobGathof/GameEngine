@@ -2,12 +2,12 @@
 
 
 
-TransitionObject::TransitionObject(TextureType t, Vector2f position, Vector2f sc, Room * r) : Object("trans", t, position, sc)
+TransitionObject::TransitionObject(TextureType t, Vector2f& position, Vector2f& sc, Room * r) : Object("trans", t, position, sc)
 {
 	room = r;
 }
 
-TransitionObject::TransitionObject(Vector2f position, Vector2f sc, Room * r) : Object("trans", TextureType::TEXTURE_DEFAULT, position, sc)
+TransitionObject::TransitionObject(Vector2f& position, Vector2f& sc, Room * r) : Object("trans", TextureType::TEXTURE_DEFAULT, position, sc)
 {
 	room = r;
 }

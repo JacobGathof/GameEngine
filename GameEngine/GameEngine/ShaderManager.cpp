@@ -16,6 +16,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::RECTANGLE_SHADER, "res/shaders/rectangleShader.vert", 0, "res/shaders/rectangleShader.frag");
 	addShader(ShaderType::PLAIN_SHADER, "res/shaders/plainShader.vert", 0, "res/shaders/plainShader.frag");
 
+	addShader(ShaderType::WATER_SHADER, "res/shaders/waterShader.vert", 0, "res/shaders/waterShader.frag");
 	addShader(ShaderType::FRACTAL_SHADER, "res/shaders/fractalShader.vert", 0, "res/shaders/fractalShader.frag");
 }
 

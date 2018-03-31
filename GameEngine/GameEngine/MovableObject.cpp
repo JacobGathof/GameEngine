@@ -2,7 +2,7 @@
 
 
 
-MovableObject::MovableObject(std::string name, TextureType t, Vector2f position, Vector2f sc) : AnimatedObject(name, t, position, sc)
+MovableObject::MovableObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc) : AnimatedObject(name, t, position, sc)
 {
 	
 }

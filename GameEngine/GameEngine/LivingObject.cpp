@@ -1,7 +1,7 @@
 #include "LivingObject.h"
 
 
-LivingObject::LivingObject(std::string name, TextureType t, Vector2f position, Vector2f sc, int hp, int luc) : MovableObject(name, t,position, sc)
+LivingObject::LivingObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, int hp, int luc) : MovableObject(name, t,position, sc)
 {
 }
 

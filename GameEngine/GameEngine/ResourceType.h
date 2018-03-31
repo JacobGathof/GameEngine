@@ -14,6 +14,8 @@ enum class ShaderType {
 	RECTANGLE_SHADER,
 	PLAIN_SHADER,
 
+	WATER_SHADER,
+
 	FRACTAL_SHADER,
 };
 
@@ -41,6 +43,9 @@ enum class TextureType {
 	CARD_GHOST,
 	CARD_ACE,
 	CARD_WATER_WORKS,
+
+	TEXTURE_SKYBOX,
+	PERLIN_NOISE,
 
 };
 

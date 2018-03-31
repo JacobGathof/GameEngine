@@ -8,7 +8,7 @@
 class AnimatedObject : public Object
 {
 public:
-	AnimatedObject(std::string name, TextureType t, Vector2f position, Vector2f sc);
+	AnimatedObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc);
 	~AnimatedObject();
 
 	Timer timer;
