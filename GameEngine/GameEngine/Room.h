@@ -5,6 +5,8 @@
 #include "List.h"
 #include "Rectangle.h"
 #include "RectHitbox.h"
+#include "CircleHitbox.h"
+#include "Circle.h"
 
 class Object;
 
@@ -32,16 +34,21 @@ public:
 	Object * getObject(std::string& name);
 	void setTerrainMap(std::string& map);
 	void addHitbox(Vector2f& pos, Vector2f& scale);
+	void loadObjects(std::string& filepath);
 
 private:
 	List<Object *> objects;
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
 	Object * collisionObject;
+	std::map<std::string, TextureType> textureMap;
 
 	Hitbox * oneCarry;
 	Hitbox * twoCarry;
 
+	void init();
+	List<std::string> parseValues(std::string line);
+	int parseInt(std::string line);
 	bool collision(Object * obj1, Object * obj2);
 	void sortPlace(Object * obj, int index);
 

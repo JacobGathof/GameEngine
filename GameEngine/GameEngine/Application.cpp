@@ -30,8 +30,11 @@ void Application::run()
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
+	room.setTerrainMap(std::string("Clearing"));
+	room.loadObjects(std::string("ObjectMaps/Clearing"));
 
 	//Begin Init Room 1
+	/*
 	room.addHitbox(Vector2f(1000, -400), Vector2f(2600, 1400));
 	room.addHitbox(Vector2f(2270, 2700), Vector2f(50, 4800));
 	room.addHitbox(Vector2f(-320, -600), Vector2f(30, 1600));
@@ -39,10 +42,10 @@ void Application::run()
 	room.addHitbox(Vector2f(-4500, -2000), Vector2f(1200, 1400));
 	room.addHitbox(Vector2f(-3480, -800), Vector2f(30, 1000));
 	room.addHitbox(Vector2f(-3910, -800), Vector2f(30, 1000));
+	*/
 	//End Init Room 1
 
 	Room room2;
-	room.setTerrainMap(std::string("eastOfTown2.txt"));
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
