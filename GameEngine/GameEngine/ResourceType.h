@@ -13,6 +13,7 @@ enum class ShaderType {
 	POST_PROCESS_SHADER,
 	RECTANGLE_SHADER,
 	PLAIN_SHADER,
+	LIGHT_SHADER,
 
 	WATER_SHADER,
 
@@ -55,6 +56,7 @@ enum class FramebufferType {
 	UI_BUFFER,
 	PARTICLES_BUFFER,
 	WORLD_BUFFER,
+	LIGHT_BUFFER,
 };
 
 

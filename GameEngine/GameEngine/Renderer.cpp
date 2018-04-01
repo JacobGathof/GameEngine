@@ -3,8 +3,6 @@
 #include "World.h"
 #include "GameState.h"
 
-Water Renderer::water;
-
 Renderer::Renderer()
 {
 }
@@ -41,6 +39,13 @@ void Renderer::draw()
 	//World::getInstance()->drawEffects();
 
 
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	buf = Res::get(FramebufferType::LIGHT_BUFFER);
+	buf->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	World::getInstance()->drawLights();
+
+
 
 	glBlendFunc(GL_ONE, GL_ZERO);
 	buf = Res::get(FramebufferType::DEFAULT);
@@ -54,6 +59,7 @@ void Renderer::draw()
 	sp->loadInteger("ui", 0);
 	sp->loadInteger("world", 1);
 	sp->loadInteger("particles", 2);
+	sp->loadInteger("lights", 3);
 
 	sp->loadFloat("ui_trans", GameState::sliderValue);
 	sp->loadFloat("ui_blue", GameState::ui_blue);
@@ -64,10 +70,8 @@ void Renderer::draw()
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
 	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);
 	Res::get(FramebufferType::PARTICLES_BUFFER)->bindTexture(2);
+	Res::get(FramebufferType::LIGHT_BUFFER)->bindTexture(3);
 	m->draw();
-	
-
-	water.draw();
 
 
 

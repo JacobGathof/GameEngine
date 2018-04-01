@@ -13,7 +13,7 @@ class Object
 {
 public:
 	Object();
-	Object(std::string n, TextureType t, Vector2f position, Vector2f sc);
+	Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc);
 	~Object();
 
 	Vector2f pos;

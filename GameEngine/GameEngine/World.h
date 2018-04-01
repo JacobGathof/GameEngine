@@ -9,7 +9,6 @@ class World
 {
 public:
 
-	Room * currentRoom;
 
 	static World * getInstance();
 	static void clean();
@@ -20,6 +19,7 @@ public:
 	void drawObjects();
 	void drawEffects();
 	void drawHitboxes();
+	void drawLights();
 
 	void update(float delta_time);
 	void transition(Room * newRoom);
@@ -32,5 +32,6 @@ private:
 	~World();
 
 	static World *inst;
+	Room * currentRoom;
 };
 

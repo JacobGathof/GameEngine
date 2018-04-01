@@ -4,7 +4,7 @@
 
 Room::Room()
 {
-	collisionObject = new Object("extra", TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
+	collisionObject = new Object(std::string("extra"), TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
 }
 
 
@@ -59,6 +59,20 @@ void Room::drawHitboxes()
 		o->drawHitboxes();
 	}
 	collisionObject->drawHitboxes();
+}
+
+void Room::drawLights()
+{
+	for (int i = 0; i < 5; i++) {
+		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
+		p->bind();
+		p->loadVector2f("translate", Vector2f(0,256*i));
+		p->loadVector2f("scale", Vector2f(128, 128));
+		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+		m->bind();
+
+		m->draw();
+	}
 }
 
 void Room::checkCollisions()
