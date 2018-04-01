@@ -5,6 +5,7 @@
 Room::Room()
 {
 	collisionObject = new Object("extra", TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
+	init();
 }
 
 
@@ -92,7 +93,6 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
-	std::cout << obj->name << std::endl;
 	objects.add(obj);
 	objectMap.insert(std::pair<std::string, Object *>(obj->name, obj));
 }
@@ -166,4 +166,77 @@ void Room::sortPlace(Object * obj, int index)
 			return;
 		}
 	}
+}
+
+void Room::loadObjects(std::string& filepath)
+{
+	std::string in = std::string("start");
+	std::ifstream file;
+	file.open(filepath, std::ios::in);
+	if (file.is_open()) {
+		while (std::getline(file, in)) {
+			if (in == "end") {
+				break;
+			}
+			
+			List<std::string> values = parseValues(in);
+			//Need to convert to floats
+			
+			TextureType t = textureMap.at(values.get(0));
+			float tileWidth = 50;
+			float tileHeight = 50;
+			float xPos = .9756f * parseInt(values.get(1)) - (terrain.width * tileWidth);
+			
+			float yPos = (terrain.height * tileHeight) - 1.2121f * parseInt(values.get(2));
+
+			float xScale = parseInt(values.get(3));
+			float yScale = parseInt(values.get(4));
+			std::cout << xScale << "   " << yScale << std::endl;
+			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
+			addObject(o);
+			//objects.add(&o);
+		}
+	}
+}
+
+void Room::init()
+{
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("BRIDGEHORIZ"), TextureType::BRIDGEHORIZ));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("LARGE_TREE"), TextureType::LARGE_TREE));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("PINK_FLOWERS_2"), TextureType::PINK_FLOWERS_2));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("BLUE_FLOWERS_2"), TextureType::BLUE_FLOWERS_2));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("PINK_FLOWERS"), TextureType::PINK_FLOWERS));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("SMALL_LEAF_SHRUB"), TextureType::SMALL_LEAF_SHRUB));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("TALL_GRASS"), TextureType::TALL_GRASS));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ROCK"), TextureType::ROCK));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("MUSHROOMS"), TextureType::MUSHROOMS));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("LOG"), TextureType::LOG));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("BLUE_FLOWERS"), TextureType::BLUE_FLOWERS));
+}
+
+List<std::string> Room::parseValues(std::string line)
+{
+	List<std::string> values;
+	std::string current;
+	for (int i = 0; i < line.size(); i++) {
+		char c = line[i];
+		if (c == ' ') {
+			values.add(current);
+			current = std::string("");
+		}
+		else {
+			current += c;
+		}
+	}
+	values.add(current);
+
+	return values;
+}
+
+int Room::parseInt(std::string line)
+{
+	std::stringstream stream(line);
+	int val;
+	stream >> val;
+	return val;
 }
