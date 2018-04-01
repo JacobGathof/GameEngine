@@ -21,8 +21,8 @@ void TerrainMap::draw(Object * player){
 	model->bind();
 	float xOffset = tiles.size() / 2;
 	float yOffset = tiles.get(0).size() / 2;
-	float xLoc = (player->pos[0] / 200) + (tiles.size()/2);
-	float yLoc = -(player->pos[1] / 200) + (tiles.get(0).size()/2);
+	float xLoc = (player->pos[0] / 100) + (tiles.size()/2);
+	float yLoc = -(player->pos[1] / 100) + (tiles.get(0).size()/2);
 	int offset = 10;
 	
 	for (int i = yLoc - offset; (i < yLoc + offset) && (i < tiles.get(0).size()); i++) {
@@ -32,8 +32,8 @@ void TerrainMap::draw(Object * player){
 			}
 			Res::get(TextureType::TERRAIN_SHEET)->bind();
 			TerrainTile tile = tiles.get(i).get(k);
-			shader->loadVector2f("translate", Vector2f(200 * (k - xOffset), 200 * (yOffset - i)));
-			shader->loadVector2f("scale", Vector2f(200, 200));
+			shader->loadVector2f("translate", Vector2f(100 * (k - xOffset), 100 * (yOffset - i)));
+			shader->loadVector2f("scale", Vector2f(100, 100));
 
 			shader->loadInteger("rows", 16);
 			shader->loadInteger("columns", 16);

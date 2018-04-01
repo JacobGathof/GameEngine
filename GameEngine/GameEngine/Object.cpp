@@ -54,7 +54,6 @@ bool Object::update(float delta_time)
 		eff->update(delta_time);
 	}
 	updateHitbox();
-	
 	return alive;
 }
 
