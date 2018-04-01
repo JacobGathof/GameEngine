@@ -20,6 +20,9 @@ enum class ShaderType {
 	FRACTAL_SHADER,
 };
 
+class TextureTypeT{
+	static constexpr const char* DAGON = "Dagon";
+};
 
 enum class TextureType {
 	TEXTURE_DEFAULT,
