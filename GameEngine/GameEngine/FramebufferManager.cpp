@@ -7,6 +7,7 @@ void FramebufferManager::init() {
 	addFramebuffer(FramebufferType::UI_BUFFER, -1);
 	addFramebuffer(FramebufferType::PARTICLES_BUFFER, -1);
 	addFramebuffer(FramebufferType::WORLD_BUFFER, -1);
+	addFramebuffer(FramebufferType::LIGHT_BUFFER, -1);
 }
 
 void FramebufferManager::updateSizes(int x, int y)

@@ -26,6 +26,7 @@ public:
 	void drawObjects();
 	void drawEffects();
 	void drawHitboxes();
+	void drawLights();
 
 	void checkCollisions();
 	void addObject(Object * obj);

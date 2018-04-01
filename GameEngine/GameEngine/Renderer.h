@@ -9,8 +9,6 @@ public:
 	Renderer();
 	~Renderer();
 
-	static Water water;
-
 	static void draw();
 };
 

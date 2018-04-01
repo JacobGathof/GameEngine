@@ -31,7 +31,7 @@ public:
 	void loadColor(char* location, Color &c);
 
 private:
-	void checkCompileErrors(int shader);
+	void checkCompileErrors(int shader, char* file);
 	void checkLinkErrors(int program);
 	const char* getShaderSource(char* filename);
 	void compileShaderFile(char* file, int type);

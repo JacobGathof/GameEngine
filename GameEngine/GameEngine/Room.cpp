@@ -62,6 +62,20 @@ void Room::drawHitboxes()
 	collisionObject->drawHitboxes();
 }
 
+void Room::drawLights()
+{
+	for (int i = 0; i < 5; i++) {
+		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
+		p->bind();
+		p->loadVector2f("translate", Vector2f(0,256*i));
+		p->loadVector2f("scale", Vector2f(128, 128));
+		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+		m->bind();
+
+		m->draw();
+	}
+}
+
 void Room::checkCollisions()
 {
 	for (int i = 0; i < objects.size(); i++) {

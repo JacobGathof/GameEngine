@@ -52,6 +52,11 @@ void World::drawHitboxes()
 	currentRoom->drawHitboxes();
 }
 
+void World::drawLights()
+{
+	currentRoom->drawLights();
+}
+
 void World::update(float delta_time)
 {
 	//Maybe want to switch these.

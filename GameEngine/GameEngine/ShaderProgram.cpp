@@ -45,7 +45,7 @@ void ShaderProgram::bind() {
 	glUseProgram(this->shader_program);
 }
 
-void ShaderProgram::checkCompileErrors(int shader)
+void ShaderProgram::checkCompileErrors(int shader, char* file)
 {
 	int success;
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
@@ -54,6 +54,7 @@ void ShaderProgram::checkCompileErrors(int shader)
 		char infolog[2048];
 		glGetShaderInfoLog(shader, 2048, 0, infolog);
 		std::cout << infolog << std::endl;
+		std::cout << file << std::endl;
 	}
 
 }
@@ -66,7 +67,7 @@ void ShaderProgram::checkLinkErrors(int program)
 	if (!success) {
 		char infolog[2048];
 		glGetShaderInfoLog(program, 2048, 0, infolog);
-		std::cout << infolog << std::endl;
+		//std::cout << infolog << std::endl;
 	}
 
 }
@@ -103,7 +104,7 @@ void ShaderProgram::compileShaderFile(char * file, int type)
 	const char* source_vertex = getShaderSource(file);
 	glShaderSource(shader_vertex, 1, &source_vertex, 0);
 	glCompileShader(shader_vertex);
-	checkCompileErrors(shader_vertex);
+	checkCompileErrors(shader_vertex, file);
 	glAttachShader(shader_program, shader_vertex);
 	delete[] source_vertex;
 	glDeleteShader(shader_vertex);
