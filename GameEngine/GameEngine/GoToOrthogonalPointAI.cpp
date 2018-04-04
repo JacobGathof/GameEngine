@@ -57,7 +57,7 @@ bool GoToOrthogonalPointAI::execute(LivingObject * obj, float dt)
 	else {
 		float dx = dest[0] - obj->pos[0];
 		float dy = dest[1] - obj->pos[1];
-		float angle = (float)atan2(dy, dx);
+		float angle = atan2(dy, dx);
 		obj->pos[0] += cos(angle) * obj->moveSpeed * dt;
 		obj->pos[1] += sin(angle) * obj->moveSpeed * dt;
 	}

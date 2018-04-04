@@ -39,6 +39,7 @@ public:
 
 private:
 	List<Object *> objects;
+	List<Object *> staticObjects;
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
 	Object * collisionObject;
@@ -49,7 +50,7 @@ private:
 
 	void init();
 	List<std::string> parseValues(std::string line);
-	int parseInt(std::string line);
+	float parseFloat(std::string line);
 	bool collision(Object * obj1, Object * obj2);
 	void sortPlace(Object * obj, int index);
 
