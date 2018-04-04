@@ -21,8 +21,8 @@ bool RunAwayAI::execute(LivingObject * obj, float dt)
 		moving = true;
 	}
 	if (moving) {
-		int dx = object->pos[0] - obj->pos[0];
-		int dy = object->pos[1] - obj->pos[1];
+		float dx = object->pos[0] - obj->pos[0];
+		float dy = object->pos[1] - obj->pos[1];
 		obj->pos[0] -= dx * dt;
 		obj->pos[1] -= dy * dt;
 	}

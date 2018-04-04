@@ -17,8 +17,8 @@ public:
 
 	void increaseHandSize(int i);
 	void setHandSize(int i);
-	Card &getCard(int i);
-	Card &removeCard(int i);
+	Card getCard(int i);
+	Card removeCard(int i);
 	bool addCard(Card &card);
 	
 };

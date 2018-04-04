@@ -21,12 +21,12 @@ void Hand::setHandSize(int i)
 	maxSize = i;
 }
 
-Card &Hand::getCard(int i)
+Card Hand::getCard(int i)
 {
 	return hand[i];
 }
 
-Card & Hand::removeCard(int i)
+Card Hand::removeCard(int i)
 {
 	Card &c = hand[i];
 	hand.removeIndex(i);

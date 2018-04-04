@@ -176,18 +176,18 @@ void Room::loadObjects(std::string& filepath)
 			TextureType t = textureMap.at(values.get(0));
 			float tileWidth = 50;
 			float tileHeight = 50;
-			float xPos = .9756f * parseInt(values.get(1)) - (terrain.width * tileWidth);
+			float xPos = .9756f * parseFloat(values.get(1)) - (terrain.width * tileWidth);
 			
-			float yPos = (terrain.height * tileHeight) - 1.2121f * parseInt(values.get(2));
+			float yPos = (terrain.height * tileHeight) - 1.2121f * parseFloat(values.get(2));
 
-			float xScale = parseInt(values.get(3));
-			float yScale = parseInt(values.get(4));
+			float xScale = parseFloat(values.get(3));
+			float yScale = parseFloat(values.get(4));
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
 			o->setStatic(true);
 			addObject(o);
 			if (values.get(5) == std::string("Rect")) {
-				Vector2f offset(parseInt(values.get(6)), parseInt(values.get(7)));
-				Vector2f scale(parseInt(values.get(8)), parseInt(values.get(9)));
+				Vector2f offset(parseFloat(values.get(6)), parseFloat(values.get(7)));
+				Vector2f scale(parseFloat(values.get(8)), parseFloat(values.get(9)));
 				Hitbox * hit = new RectHitbox(Rect(Vector2f(0, 0), scale), offset);
 				o->addHitbox(hit);
 			}
@@ -215,7 +215,7 @@ List<std::string> Room::parseValues(std::string line)
 {
 	List<std::string> values;
 	std::string current;
-	for (int i = 0; i < line.size(); i++) {
+	for (unsigned int i = 0; i < line.size(); i++) {
 		char c = line[i];
 		if (c == ' ') {
 			values.add(current);
@@ -230,10 +230,10 @@ List<std::string> Room::parseValues(std::string line)
 	return values;
 }
 
-int Room::parseInt(std::string line)
+float Room::parseFloat(std::string line)
 {
 	std::stringstream stream(line);
-	int val;
+	float val;
 	stream >> val;
 	return val;
 }

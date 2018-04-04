@@ -21,8 +21,8 @@ bool FollowAI::execute(LivingObject * obj, float dt)
 		moving = true;
 	}
 	if (moving) {
-		int dx = follow->pos[0] - obj->pos[0];
-		int dy = follow->pos[1] - obj->pos[1];
+		float dx = follow->pos[0] - obj->pos[0];
+		float dy = follow->pos[1] - obj->pos[1];
 		obj->pos[0] += dx * dt;
 		obj->pos[1] += dy * dt;
 	}
