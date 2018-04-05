@@ -134,9 +134,11 @@ bool Room::collision(Object * obj1, Object * obj2)
 		Hitbox * one = obj1->getHitbox(i);
 		for (int k = 0; k < obj2->numHitboxes(); k++) {
 			Hitbox * two = obj2->getHitbox(k);
+			
 			if (one->pos == two->pos) {
 				continue;
 			}
+			
 			if (one->collide(two)) {
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;

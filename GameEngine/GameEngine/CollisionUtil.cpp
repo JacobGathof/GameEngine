@@ -36,19 +36,17 @@ bool CollisionUtil::collide(CircleHitbox& c1, CircleHitbox& c2)
 
 bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 {
-
-	float x1 = r1.pos[0] - r1.shape.scale[0]/2;
-	float y1 = r1.pos[1] - r1.shape.scale[1] / 2;
+	float x1 = r1.pos[0] - r1.shape.scale[0]/2.0f;
+	float y1 = r1.pos[1] - r1.shape.scale[1] / 2.0f;
 	float xScale1 = r1.shape.scale[0];
 	float yScale1 = r1.shape.scale[1];
 
-	float x2 = r2.pos[0] - r2.shape.scale[0] / 2;
-	float y2 = r2.pos[1] - r2.shape.scale[1] / 2;
+	float x2 = r2.pos[0] - r2.shape.scale[0] / 2.0f;
+	float y2 = r2.pos[1] - r2.shape.scale[1] / 2.0f;
 	float xScale2 = r2.shape.scale[0];
 	float yScale2 = r2.shape.scale[1];
 	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
 		if (y1 < y2 + yScale2 && y2 < y1 + yScale1) {
-
 			float dist1 = (x2 + xScale2) - x1;
 			if (dist1 < 0) {
 				dist1 = 10000;
@@ -83,7 +81,6 @@ bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 			else {
 				shortestResolve = Vector2f(0, -1);
 			}
-
 			return true;
 		}
 	}
@@ -210,10 +207,10 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 	List<Vector2f> vert2;
 
 	Rect shape = r1.shape;
-	Vector2f topRight = Vector2f(shape.center[0] + shape.scale[0] / 2, shape.center[1] + shape.scale[1] / 2);
-	Vector2f bottomLeft = Vector2f(shape.center[0] - shape.scale[0] / 2, shape.center[1] - shape.scale[1] / 2);
-	Vector2f topLeft = Vector2f(shape.center[0] - shape.scale[0] / 2, shape.center[1] + shape.scale[1] / 2);
-	Vector2f bottomRight = Vector2f(shape.center[0] + shape.scale[0] / 2, shape.center[1] - shape.scale[1] / 2);
+	Vector2f topRight = Vector2f(shape.center[0] + shape.scale[0] / 2.0f, shape.center[1] + shape.scale[1] / 2.0f);
+	Vector2f bottomLeft = Vector2f(shape.center[0] - shape.scale[0] / 2.0f, shape.center[1] - shape.scale[1] / 2.0f);
+	Vector2f topLeft = Vector2f(shape.center[0] - shape.scale[0] / 2.0f, shape.center[1] + shape.scale[1] / 2.0f);
+	Vector2f bottomRight = Vector2f(shape.center[0] + shape.scale[0] / 2.0f, shape.center[1] - shape.scale[1] / 2.0f);
 
 	vert2.add(topRight);
 	vert2.add(topLeft);

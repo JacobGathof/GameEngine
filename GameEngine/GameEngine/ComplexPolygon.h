@@ -9,11 +9,12 @@ class ComplexPolygon : public Shape
 public:
 	ComplexPolygon(std::initializer_list<Vector2f> vert);
 	ComplexPolygon();
-	~ComplexPolygon();
+	virtual ~ComplexPolygon();
 
 	unsigned int vao;
 	unsigned int vbo;
-
+	
+	bool vboSet = true;
 	List<Vector2f> vertices;
 	List<Vector2f> normals;
 	Vector2f base = Vector2f(0, 0);

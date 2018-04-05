@@ -23,10 +23,10 @@ void TerrainMap::draw(Object * player){
 	float yOffset = tiles.get(0).size() / 2.0f;
 	float xLoc = (player->pos[0] / 100.0f) + (tiles.size()/2.0f);
 	float yLoc = -(player->pos[1] / 100.0f) + (tiles.get(0).size()/2.0f);
-	float offset = 10.0f;
+	float offset = 15.0f;
 	
-	for (float i = yLoc - offset; (i < yLoc + offset) && (i < tiles.get(0).size()); i++) {
-		for (float k = xLoc - offset; (k < xLoc + offset) && (k < tiles.size()); k++) {
+	for (int i = yLoc - offset; (i < yLoc + offset) && (i < tiles.get(0).size()); i++) {
+		for (int k = xLoc - offset; (k < xLoc + offset) && (k < tiles.size()); k++) {
 			if (i < 0 || k < 0) {
 				continue;
 			}
