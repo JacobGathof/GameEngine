@@ -27,7 +27,6 @@ public:
 	AI * defaultAI;
 	List<Hitbox *> hitboxes;
 	bool colliding = false;
-	bool isStatic = false;
 
 	virtual void draw();
 	virtual bool update(float delta_time);
@@ -35,11 +34,11 @@ public:
 	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
-	virtual void setStatic(bool stat);
 
 	void addEffect(Effect * eff);
 	int numHitboxes();
 	void addHitbox(Hitbox * h);
 	Hitbox * getHitbox(int i);
+	
 };
 

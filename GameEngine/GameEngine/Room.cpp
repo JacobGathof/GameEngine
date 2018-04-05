@@ -24,18 +24,12 @@ void Room::update(float delta_time)
 	for (auto o : objects) {
 		o->update(delta_time);
 	}
-	for (auto o : staticObjects) {
-		o->update(delta_time);
-	}
 }
 
 void Room::draw()
 {
 	terrain.draw(objectMap.at("Melody"));
 	for (Object * o : objects) {
-		o->draw();
-	}
-	for (Object * o : staticObjects) {
 		o->draw();
 	}
 	collisionObject->draw();
@@ -51,14 +45,6 @@ void Room::checkCollisions()
 				
 			}
 		}
-
-		for (int k = 0; k < staticObjects.size(); k++) {
-			Object * other = staticObjects.get(k);
-			if (collision(current, other)) {
-
-			}
-		}
-
 		if (collision(current, collisionObject)) {
 			current->collide(collisionObject, twoCarry);
 		}
@@ -80,12 +66,7 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
-	if (obj->isStatic) {
-		staticObjects.add(obj);
-	}
-	else {
-		objects.add(obj);
-	}
+	objects.add(obj);
 	objectMap.insert(std::pair<std::string, Object *>(obj->name, obj));
 }
 
@@ -112,12 +93,13 @@ Object * Room::getNearestObject(Vector2f pos)
 	return nearest;
 }
 
-Object * Room::getObject(std::string& name)
+Object * Room::getObject(std::string name)
 {
+	std::cout << objectMap.size() << std::endl;
 	return objectMap.at(name);
 }
 
-void Room::setTerrainMap(std::string& map)
+void Room::setTerrainMap(std::string map)
 {
 	terrain.constructMap("TerrainMaps/" + map);
 }
@@ -161,7 +143,7 @@ void Room::sortPlace(Object * obj, int index)
 	}
 }
 
-void Room::loadObjects(std::string& filepath)
+void Room::loadObjects(std::string filepath)
 {
 	std::string in = std::string("start");
 	std::ifstream file;
@@ -185,7 +167,6 @@ void Room::loadObjects(std::string& filepath)
 			float xScale = parseFloat(values.get(3));
 			float yScale = parseFloat(values.get(4));
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
-			o->setStatic(true);
 			addObject(o);
 			if (values.get(5) == std::string("Rect")) {
 				Vector2f offset(parseFloat(values.get(6)), parseFloat(values.get(7)));

@@ -24,14 +24,13 @@ public:
 	void addObject(Object * obj);
 	void sort();
 	Object * getNearestObject(Vector2f pos);
-	Object * getObject(std::string& name);
-	void setTerrainMap(std::string& map);
+	Object * getObject(std::string name);
+	void setTerrainMap(std::string map);
 	void addHitbox(Vector2f pos, Vector2f scale);
-	void loadObjects(std::string& filepath);
+	void loadObjects(std::string filepath);
 
 private:
 	List<Object *> objects;
-	List<Object *> staticObjects;
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
 	Object * collisionObject;
