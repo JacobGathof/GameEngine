@@ -30,7 +30,7 @@ void Application::run()
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
-	room.setTerrainMap("Clearing");
+	room.setTerrainMap(std::string("Clearing"));
 	room.loadObjects(std::string("ObjectMaps/Clearing"));
 
 	//Begin Init Room 1
