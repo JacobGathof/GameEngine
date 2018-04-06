@@ -42,6 +42,7 @@
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
+    <ClCompile Include="FilesAndStrings.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
@@ -68,8 +69,6 @@
     <ClCompile Include="MoveAction.cpp" />
     <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="Node.cpp" />
-    <ClCompile Include="OpenTextbox.cpp" />
-    <ClCompile Include="OpenTextboxWithChoice.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PauseMusicAction.cpp" />
@@ -153,6 +152,7 @@
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FastParticleSystem.h" />
+    <ClInclude Include="FilesAndStrings.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />
@@ -180,8 +180,6 @@
     <ClInclude Include="MoveAction.h" />
     <ClInclude Include="MusicManager.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="OpenTextbox.h" />
-    <ClInclude Include="OpenTextboxWithChoice.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PauseMusicAction.h" />
     <ClInclude Include="PlayMusicAction.h" />

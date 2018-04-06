@@ -23,26 +23,26 @@ CollisionUtil::~CollisionUtil()
 
 bool CollisionUtil::collide(CircleHitbox& c1, CircleHitbox& c2)
 {
-	float dist = (c1.pos + c1.offset).distanceTo((c2.pos + c2.offset));
+	float dist = (c1.getPos() + c1.offset).distanceTo((c2.getPos() + c2.offset));
 	float sumRad = c1.shape.radius + c2.shape.radius;
 	if (dist < sumRad) {
 		return true;
 	}
 
-	shortestResolve = (c1.pos - c2.pos).normalize();
+	shortestResolve = (c1.getPos() - c2.getPos()).normalize();
 
 	return false;
 }
 
 bool CollisionUtil::collide(RectHitbox& r1, RectHitbox& r2)
 {
-	float x1 = r1.pos[0] - r1.shape.scale[0]/2.0f;
-	float y1 = r1.pos[1] - r1.shape.scale[1] / 2.0f;
+	float x1 = r1.getPos()[0] - r1.shape.scale[0]/2.0f;
+	float y1 = r1.getPos()[1] - r1.shape.scale[1] / 2.0f;
 	float xScale1 = r1.shape.scale[0];
 	float yScale1 = r1.shape.scale[1];
 
-	float x2 = r2.pos[0] - r2.shape.scale[0] / 2.0f;
-	float y2 = r2.pos[1] - r2.shape.scale[1] / 2.0f;
+	float x2 = r2.getPos()[0] - r2.shape.scale[0] / 2.0f;
+	float y2 = r2.getPos()[1] - r2.shape.scale[1] / 2.0f;
 	float xScale2 = r2.shape.scale[0];
 	float yScale2 = r2.shape.scale[1];
 	if (x1 < x2 + xScale2 && x2 < x1 + xScale1) {
@@ -122,8 +122,8 @@ bool CollisionUtil::collide(ComplexHitbox& c1, ComplexHitbox& c2)
 bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 {
 
-	float distX = abs(c1.pos[0] - r1.pos[0]);
-	float distY = abs(c1.pos[1] - r1.pos[1]);
+	float distX = abs(c1.getPos()[0] - r1.getPos()[0]);
+	float distY = abs(c1.getPos()[1] - r1.getPos()[1]);
 
 	shortestResolve = Vector2f(distX, distY).normalize();
 
@@ -140,7 +140,7 @@ bool CollisionUtil::collide(CircleHitbox& c1, RectHitbox& r1)
 		return true;
 	}
 
-	float distCorner = r1.pos.distanceTo(r1.pos + Vector2f(r1.shape.scale[0] / 2, r1.shape.scale[1] / 2));
+	float distCorner = r1.getPos().distanceTo(r1.getPos() + Vector2f(r1.shape.scale[0] / 2, r1.shape.scale[1] / 2));
 	return distCorner <= pow(c1.shape.radius,2);
 }
 

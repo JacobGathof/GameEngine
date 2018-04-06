@@ -57,7 +57,7 @@ void TerrainMap::constructMap(std::string filename)
 	file.open(filename, std::ios::in);
 	if (file.is_open()) {
 		std::getline(file, in);
-		List<int> dim = parseInts(in);
+		List<int> dim = FilesAndStrings::parseInts(in, ' ');
 		width = dim.get(0);
 		height = dim.get(1);
 		for (int i = 0; i < width; i++) {
@@ -68,7 +68,7 @@ void TerrainMap::constructMap(std::string filename)
 					std::cout << "Exitting Early" << std::endl;
 					return;
 				}
-				dim = parseInts(in);
+				dim = FilesAndStrings::parseInts(in, ' ');
 				TerrainTile t;
 				t.column = dim.get(0);
 				t.row = dim.get(1);
@@ -81,33 +81,6 @@ void TerrainMap::constructMap(std::string filename)
 	else {
 		std::cout << "Failed to open file: " << filename << std::endl;
 	}
-}
-
-List<int> TerrainMap::parseInts(std::string str)
-{
-	List<int> vals;
-	std::string current = "";
-	for (unsigned int i = 0; i < str.size(); i++) {
-		if (str[i] == ' ') {
-			std::stringstream stream(current);
-			int val;
-			stream >> val;
-			vals.add(val);
-			current = "";
-		}
-		else {
-			current += str[i];
-		}
-	}
-	if (current != "") {
-		std::stringstream stream(current);
-		int val;
-		stream >> val;
-		vals.add(val);
-		current = "";
-	}
-
-	return vals;
 }
 
 

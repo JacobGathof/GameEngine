@@ -297,12 +297,6 @@
     <ClCompile Include="RainParticleSystem.cpp">
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
-    <ClCompile Include="OpenTextbox.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenTextboxWithChoice.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="RunAwayAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -455,6 +449,9 @@
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesAndStrings.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -686,12 +683,6 @@
     <ClInclude Include="Node.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
-    <ClInclude Include="OpenTextbox.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenTextboxWithChoice.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="Condition.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
@@ -787,6 +778,9 @@
     </ClInclude>
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesAndStrings.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
