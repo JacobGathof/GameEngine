@@ -193,7 +193,7 @@ bool CollisionUtil::collide(CircleHitbox& c1, ComplexHitbox& c2)
 			return false;
 		}
 	}
-	return false;
+	return true;
 }
 
 bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
@@ -234,7 +234,7 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 			return false;
 		}
 	}
-	return false;
+	return true;
 }
 
 bool CollisionUtil::equalResolve(MovableObject * o1, Object * o2, float bounciness)
@@ -255,7 +255,6 @@ bool CollisionUtil::unequalResolve(MovableObject * o1, Hitbox * h2, float bounci
 {
 	while (o1->getHitbox(0)->collide(h2)) {
 		Vector2f dir = shortestResolve;
-		
 		if (o1 == two) {
 			dir = Vector2f(-dir[0], -dir[1]);
 		}

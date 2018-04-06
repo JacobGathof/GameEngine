@@ -24,12 +24,19 @@ void Room::update(float delta_time)
 	for (auto o : objects) {
 		o->update(delta_time);
 	}
+
+	for (auto o : staticObjects) {
+		o->update(delta_time);
+	}
 }
 
 void Room::draw()
 {
 	terrain.draw(objectMap.at("Melody"));
 	for (Object * o : objects) {
+		o->draw();
+	}
+	for (Object * o : staticObjects) {
 		o->draw();
 	}
 	collisionObject->draw();
@@ -45,6 +52,14 @@ void Room::checkCollisions()
 				
 			}
 		}
+
+		for (int k = 0; k < staticObjects.size(); k++) {
+			Object * other = staticObjects.get(k);
+			if (collision(current, other)) {
+
+			}
+		}
+
 		if (collision(current, collisionObject)) {
 			current->collide(collisionObject, twoCarry);
 		}
@@ -66,7 +81,12 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
-	objects.add(obj);
+	if (obj->isStatic) {
+		staticObjects.add(obj);
+	}
+	else {
+		objects.add(obj);
+	}
 	objectMap.insert(std::pair<std::string, Object *>(obj->name, obj));
 }
 
@@ -167,6 +187,7 @@ void Room::loadObjects(std::string filepath)
 			float xScale = parseFloat(values.get(3));
 			float yScale = parseFloat(values.get(4));
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
+			o->isStatic = true;
 			addObject(o);
 			if (values.get(5) == std::string("Rect")) {
 				Vector2f offset(parseFloat(values.get(6)), parseFloat(values.get(7)));

@@ -31,6 +31,7 @@ public:
 
 private:
 	List<Object *> objects;
+	List<Object *> staticObjects;
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
 	Object * collisionObject;
