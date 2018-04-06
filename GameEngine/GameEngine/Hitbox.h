@@ -13,14 +13,17 @@ public:
 	Hitbox();
 	~Hitbox();
 
-	Vector2f pos;
 	Vector2f offset;
 
+	virtual Vector2f getPos();
 	virtual void updatePos(Vector2f p);
 	virtual bool collide(Hitbox * s);
 	virtual bool collide(CircleHitbox * h);
 	virtual bool collide(RectHitbox * h);
 	virtual bool collide(ComplexHitbox * h);
 	virtual void draw();
+
+protected:
+	Vector2f pos;
 };
 

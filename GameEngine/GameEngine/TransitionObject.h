@@ -10,8 +10,9 @@ public:
 	TransitionObject(Vector2f& position, Vector2f& sc, Room * r);
 	~TransitionObject();
 
-	Room * room;
-
 	virtual bool collide(Object * o, Hitbox * h);
+
+private:
+	Room * room;
 };
 

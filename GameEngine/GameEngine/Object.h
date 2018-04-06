@@ -24,9 +24,6 @@ public:
 	List<Effect *> effects;
 	bool stalled = false;
 	std::string name;
-	List<AI *> aiQueue;
-	AI * defaultAI;
-	List<Hitbox *> hitboxes;
 	bool colliding = false;
 
 	virtual void draw();
@@ -43,6 +40,10 @@ public:
 	int numHitboxes();
 	void addHitbox(Hitbox * h);
 	Hitbox * getHitbox(int i);
-	
+
+protected:
+	List<AI *> aiQueue;
+	AI * defaultAI;
+	List<Hitbox *> hitboxes;
 };
 

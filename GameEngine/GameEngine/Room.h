@@ -7,6 +7,7 @@
 #include "RectHitbox.h"
 #include "CircleHitbox.h"
 #include "Circle.h"
+#include "FilesAndStrings.h"
 
 class Object;
 
@@ -49,8 +50,6 @@ private:
 	Hitbox * twoCarry;
 
 	void init();
-	List<std::string> parseValues(std::string line);
-	float parseFloat(std::string line);
 	bool collision(Object * obj1, Object * obj2);
 	void sortPlace(Object * obj, int index);
 

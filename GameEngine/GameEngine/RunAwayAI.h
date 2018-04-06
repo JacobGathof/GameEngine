@@ -10,10 +10,11 @@ public:
 	RunAwayAI(LivingObject * object);
 	~RunAwayAI();
 
+	virtual bool execute(LivingObject * obj, float dt);
+
+private:
 	LivingObject * object;
 	bool moving = false;
-
-	virtual bool execute(LivingObject * obj, float dt);
 
 };
 

@@ -17,8 +17,7 @@ public:
 	~Deck();
 
 	std::string name;
-	List<Card> deck;
-	List<Card> discard;
+	
 
 	void shuffle();
 	void addCard(Card &card);
@@ -28,5 +27,9 @@ public:
 	void reset();
 	void rename(std::string n);
 	void discardCard(Card &card);
+
+private:
+	List<Card> deck;
+	List<Card> discard;
 };
 

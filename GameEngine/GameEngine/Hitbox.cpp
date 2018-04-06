@@ -13,6 +13,11 @@ Hitbox::~Hitbox()
 {
 }
 
+Vector2f Hitbox::getPos()
+{
+	return pos;
+}
+
 void Hitbox::updatePos(Vector2f p)
 {
 	pos = p + offset;

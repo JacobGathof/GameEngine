@@ -2,6 +2,7 @@
 #include "ResourceManager.h"
 #include "List.h"
 #include "Object.h"
+#include "FilesAndStrings.h"
 #include <iostream>
 #include <fstream>
 #include <ios>
@@ -23,7 +24,6 @@ public:
 	void draw(Object * player);
 	void update(float dt);
 	void constructMap(std::string filename);
-	List<int> parseInts(std::string str);
 
 	int width = 0;
 	int height = 0;
