@@ -42,8 +42,10 @@ ComplexPolygon::ComplexPolygon()
 
 ComplexPolygon::~ComplexPolygon()
 {
-	glDeleteBuffers(1, &vbo);
-	glDeleteVertexArrays(1, &vao);
+	if (vboSet) {
+		glDeleteBuffers(1, &vbo);
+		glDeleteVertexArrays(1, &vao);
+	}
 }
 
 void ComplexPolygon::draw()

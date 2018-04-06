@@ -24,6 +24,7 @@ void Room::update(float delta_time)
 	for (auto o : objects) {
 		o->update(delta_time);
 	}
+
 	for (auto o : staticObjects) {
 		o->update(delta_time);
 	}
@@ -153,12 +154,13 @@ Object * Room::getNearestObject(Vector2f& pos)
 	return nearest;
 }
 
-Object * Room::getObject(std::string& name)
+Object * Room::getObject(std::string name)
 {
+	std::cout << objectMap.size() << std::endl;
 	return objectMap.at(name);
 }
 
-void Room::setTerrainMap(std::string& map)
+void Room::setTerrainMap(std::string map)
 {
 	terrain.constructMap("TerrainMaps/" + map);
 }
@@ -175,9 +177,11 @@ bool Room::collision(Object * obj1, Object * obj2)
 		Hitbox * one = obj1->getHitbox(i);
 		for (int k = 0; k < obj2->numHitboxes(); k++) {
 			Hitbox * two = obj2->getHitbox(k);
+			
 			if (one->pos == two->pos) {
 				continue;
 			}
+			
 			if (one->collide(two)) {
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;
@@ -200,7 +204,7 @@ void Room::sortPlace(Object * obj, int index)
 	}
 }
 
-void Room::loadObjects(std::string& filepath)
+void Room::loadObjects(std::string filepath)
 {
 	std::string in = std::string("start");
 	std::ifstream file;
@@ -224,7 +228,7 @@ void Room::loadObjects(std::string& filepath)
 			float xScale = parseFloat(values.get(3));
 			float yScale = parseFloat(values.get(4));
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
-			o->setStatic(true);
+			o->isStatic = true;
 			addObject(o);
 			if (values.get(5) == std::string("Rect")) {
 				Vector2f offset(parseFloat(values.get(6)), parseFloat(values.get(7)));

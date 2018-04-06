@@ -16,6 +16,7 @@ public:
 	Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc);
 	~Object();
 
+	bool isStatic = false;
 	Vector2f pos;
 	Vector2f scale;
 	TextureType texture;
@@ -27,7 +28,6 @@ public:
 	AI * defaultAI;
 	List<Hitbox *> hitboxes;
 	bool colliding = false;
-	bool isStatic = false;
 
 	virtual void draw();
 	virtual void drawEffects();
@@ -38,11 +38,11 @@ public:
 	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
-	virtual void setStatic(bool stat);
 
 	void addEffect(Effect * eff);
 	int numHitboxes();
 	void addHitbox(Hitbox * h);
 	Hitbox * getHitbox(int i);
+	
 };
 

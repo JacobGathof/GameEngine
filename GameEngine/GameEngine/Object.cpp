@@ -94,11 +94,6 @@ void Object::setAI(AI * a)
 	}
 }
 
-void Object::setStatic(bool stat)
-{
-	isStatic = stat;
-}
-
 void Object::addEffect(Effect * eff)
 {
 	effects.add(eff);
