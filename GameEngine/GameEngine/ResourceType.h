@@ -93,12 +93,9 @@ enum class ModelType {
 	MODEL_SQUARE_CENTERED,
 };
 
-
-enum class MusicType {
-	SONG_FMAB_AGAIN,
-};
-
-enum class SoundType {
+enum class AudioType {
 	SOUND_A_NOTE,
 	SOUND_A_SHARP_NOTE,
+
+	SONG_FMAB_AGAIN,
 };

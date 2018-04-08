@@ -11,7 +11,6 @@
 #include "ScreenFadeAction.h"
 #include "SetAction.h"
 #include "PlayMusicAction.h"
-#include "PauseMusicAction.h"
 #include "MoveAction.h"
 #include "BannerAction.h"
 

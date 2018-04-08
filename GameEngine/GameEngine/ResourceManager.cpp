@@ -3,27 +3,24 @@
 CardManager* Res::cardManager;
 FontManager* Res::fontManager;
 ModelManager* Res::modelManager;
-MusicManager* Res::musicManager;
 ShaderManager* Res::shaderManager;
 TextureManager* Res::textureManager;
 FramebufferManager* Res::frameManager;
-SoundManager* Res::soundManager;
+AudioManager* Res::soundManager;
 
 void ResourceManager::init()
 {
 	cardManager = new CardManager();
 	fontManager = new FontManager();
 	modelManager = new ModelManager();
-	musicManager = new MusicManager();
 	shaderManager = new ShaderManager();
 	textureManager = new TextureManager();
 	frameManager = new FramebufferManager();
-	soundManager = new SoundManager();
+	soundManager = new AudioManager();
 	
 	cardManager->init();
 	fontManager->init();
 	modelManager->init();
-	musicManager->init();
 	shaderManager->init();
 	textureManager->init();
 	frameManager->init();
@@ -35,7 +32,6 @@ void ResourceManager::clean()
 	cardManager->clean();
 	fontManager->clean();
 	modelManager->clean();
-	musicManager->clean();
 	shaderManager->clean();
 	textureManager->clean();
 	frameManager->clean();
@@ -44,7 +40,6 @@ void ResourceManager::clean()
 	delete fontManager;
 	delete cardManager;
 	delete modelManager;
-	delete musicManager;
 	delete shaderManager;
 	delete textureManager;
 	delete frameManager;
@@ -59,7 +54,7 @@ Model* ResourceManager::get(ModelType type){
 	return modelManager->get(type);
 }
 
-SoundEntity * ResourceManager::get(SoundType type)
+SoundEntity * ResourceManager::get(AudioType type)
 {
 	return soundManager->get(type);
 }
@@ -84,10 +79,6 @@ SpriteSheet* ResourceManager::get(TextureType type){
 
 Framebuffer * ResourceManager::get(FramebufferType type){
 	return frameManager->get(type);
-}
-
-MusicEntity * ResourceManager::get(MusicType type){
-	return musicManager->get(type);
 }
 
 Card * ResourceManager::get(CardType type){

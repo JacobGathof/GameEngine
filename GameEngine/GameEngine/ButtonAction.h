@@ -16,3 +16,8 @@ class NoteButtonAction : public ButtonAction {
 public:
 	virtual void performAction();
 };
+
+class MusicButtonAction : public ButtonAction {
+public:
+	virtual void performAction();
+};
