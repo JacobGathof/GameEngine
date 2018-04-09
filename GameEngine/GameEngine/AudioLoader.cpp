@@ -19,6 +19,7 @@ MusicEntity* AudioLoader::loadMusicFile(char * f)
 	return entity;
 }
 
+
 SoundEntity * AudioLoader::loadSoundFile(char * f)
 {
 	SoundEntity* entity = 0;

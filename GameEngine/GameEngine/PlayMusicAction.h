@@ -1,15 +1,15 @@
 #pragma once
 #include "AbstractScriptAction.h"
-#include "MusicManager.h"
+#include "AudioManager.h"
 
 class PlayMusicAction : public AbstractScriptAction
 {
 public:
-	PlayMusicAction(MusicType type);
+	PlayMusicAction(AudioType type);
 	~PlayMusicAction();
 	virtual int run(float dt);
 
 private:
-	MusicType song;
+	AudioType song;
 };
 

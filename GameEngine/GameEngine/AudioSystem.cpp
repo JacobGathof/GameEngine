@@ -1,5 +1,6 @@
 #include "AudioSystem.h"
 #include "SoundScheduler.h"
+#include "MusicScheduler.h"
 
 ALCdevice* AudioSystem::device;
 ALCcontext* AudioSystem::context;
@@ -12,6 +13,7 @@ void AudioSystem::init()
 	alcMakeContextCurrent(context);
 
 	SoundScheduler::init();
+	MusicScheduler::init();
 }
 
 void AudioSystem::clean()
@@ -21,4 +23,5 @@ void AudioSystem::clean()
 	alcCloseDevice(device);
 
 	SoundScheduler::clean();
+	MusicScheduler::clean();
 }

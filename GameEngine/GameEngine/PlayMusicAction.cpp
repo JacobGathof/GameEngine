@@ -2,7 +2,7 @@
 #include "ResourceManager.h"
 
 
-PlayMusicAction::PlayMusicAction(MusicType type)
+PlayMusicAction::PlayMusicAction(AudioType type)
 {
 	song = type;
 }
@@ -13,6 +13,6 @@ PlayMusicAction::~PlayMusicAction()
 
 int PlayMusicAction::run(float dt)
 {
-	Res::get(song)->play(true);
+	Res::get(song)->play();
 	return 1;
 }

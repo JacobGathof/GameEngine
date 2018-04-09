@@ -63,12 +63,3 @@ bool ComplexPolygon::contains(Vector2f & pt)
 	return false;
 }
 
-List<Vector2f> ComplexPolygon::getVertices()
-{
-	List<Vector2f> ret;
-	for (Vector2f vec : vertices) {
-		ret.add(vec + base);
-	}
-
-	return ret;
-}

@@ -5,8 +5,8 @@ class SoundEntity
 {
 public:
 	SoundEntity(unsigned char* data, unsigned int size, unsigned int frequency, short numChannels);
-	~SoundEntity();
-	void play();
+	virtual ~SoundEntity();
+	virtual void play();
 
 	unsigned int buffer;
 

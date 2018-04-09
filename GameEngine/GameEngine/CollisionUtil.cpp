@@ -204,25 +204,15 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 
 	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
-	List<Vector2f> vert2;
-
-	Rect shape = r1.shape;
-	Vector2f topRight = Vector2f(shape.center[0] + shape.scale[0] / 2.0f, shape.center[1] + shape.scale[1] / 2.0f);
-	Vector2f bottomLeft = Vector2f(shape.center[0] - shape.scale[0] / 2.0f, shape.center[1] - shape.scale[1] / 2.0f);
-	Vector2f topLeft = Vector2f(shape.center[0] - shape.scale[0] / 2.0f, shape.center[1] + shape.scale[1] / 2.0f);
-	Vector2f bottomRight = Vector2f(shape.center[0] + shape.scale[0] / 2.0f, shape.center[1] - shape.scale[1] / 2.0f);
-
-	vert2.add(topRight);
-	vert2.add(topLeft);
-	vert2.add(bottomLeft);
-	vert2.add(bottomRight);
+	List<Vector2f> vert2 = r1.shape.getVertices();
+	
 
 	for (int i = 0; i < normals.size(); i++) {
 		bool instFound = false;
 		for (int k = 0; k < vert2.size(); k++) {
-			Vector2f p1 = vert1.get(i);
+			Vector2f p1 = vert1.get(i) + c1.shape->base;
 			Vector2f norm = normals.get(i);
-			Vector2f p2 = vert2.get(k);
+			Vector2f p2 = vert2.get(k) + r1.pos;
 			float val = (p2 - p1).dot(norm);
 			if (val < 0) {
 				instFound = true;

@@ -228,9 +228,6 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Square.cpp">
-      <Filter>Source Files\Utilities\Shapes</Filter>
-    </ClCompile>
     <ClCompile Include="Line.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
@@ -387,13 +384,7 @@
     <ClCompile Include="AudioLoader.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="MusicManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="PlayMusicAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="PauseMusicAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="AudioSystem.cpp">
@@ -462,14 +453,8 @@
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceType.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyStatusbar.cpp">
       <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
-      <Filter>Source Files\Managers</Filter>
     </ClCompile>
     <ClCompile Include="SoundEntity.cpp">
       <Filter>Source Files\Audio</Filter>
@@ -477,11 +462,20 @@
     <ClCompile Include="SoundScheduler.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="Water.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicScheduler.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
     <ClCompile Include="MusicEntity.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Water.cpp">
-      <Filter>Source Files\Game Objects</Filter>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -585,9 +579,6 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
-      <Filter>Header Files\Utilities\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="Square.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
@@ -746,13 +737,7 @@
     <ClInclude Include="AudioLoader.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="MusicManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="PlayMusicAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="PauseMusicAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="AudioSystem.h">
@@ -830,20 +815,26 @@
     <ClInclude Include="SaveUtilities.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="SoundEntity.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
     <ClInclude Include="SoundScheduler.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="Water.h">
+      <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicScheduler.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
     <ClInclude Include="MusicEntity.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="Water.h">
-      <Filter>Header Files\Game Objects</Filter>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

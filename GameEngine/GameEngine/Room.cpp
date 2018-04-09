@@ -12,7 +12,10 @@ Room::Room()
 Room::~Room()
 {
 	for (Object * o : objects) {
-		//delete o;
+		delete o;
+	}
+	for (Object * o : staticObjects) {
+		delete o;
 	}
 	delete collisionObject;
 	
@@ -66,6 +69,9 @@ void Room::drawHitboxes()
 	for (Object * o : objects) {
 		o->drawHitboxes();
 	}
+	for (Object *  o : staticObjects) {
+		o->drawHitboxes();
+	}
 	collisionObject->drawHitboxes();
 }
 
@@ -74,8 +80,9 @@ void Room::drawLights()
 	for (int i = 0; i < 5; i++) {
 		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 		p->bind();
-		p->loadVector2f("translate", Vector2f(0,256*i));
-		p->loadVector2f("scale", Vector2f(128, 128));
+		p->loadVector2f("translate", Vector2f(0,1024*i));
+		p->loadVector2f("scale", Vector2f(512, 512));
+		p->loadColor("color", Color::Orange);
 		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 		m->bind();
 
@@ -156,7 +163,6 @@ Object * Room::getNearestObject(Vector2f& pos)
 
 Object * Room::getObject(std::string& name)
 {
-	std::cout << objectMap.size() << std::endl;
 	return objectMap.at(name);
 }
 
@@ -239,6 +245,11 @@ void Room::loadObjects(std::string& filepath)
 			//objects.add(&o);
 		}
 	}
+}
+
+List<Object*>& Room::getAllObjects()
+{
+	return objects;
 }
 
 void Room::init()

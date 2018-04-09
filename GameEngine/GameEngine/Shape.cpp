@@ -2,11 +2,11 @@
 
 
 
-Shape::Shape()
+List<Vector2f>& Shape::getVertices()
 {
+	return vertices;
 }
 
+Shape::Shape(){}
 
-Shape::~Shape()
-{
-}
+Shape::~Shape(){}

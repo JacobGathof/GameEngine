@@ -27,6 +27,8 @@ public:
 	Object * getNearestObject(Vector2f& pos);
 	Object * getObject(std::string& name);
 
+	Room* getCurrentRoom();
+
 private:
 	World();
 	~World();
