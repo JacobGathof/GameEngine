@@ -17,7 +17,7 @@ public:
 
 	void draw();
 	virtual bool contains(Vector2f& pt);
-	List<Vector2f> getVertices();
+	List<Vector2f>& getVertices();
 
 private:
 	unsigned int vao;

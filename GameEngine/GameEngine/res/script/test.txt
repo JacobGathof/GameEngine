@@ -2,8 +2,7 @@
 
 <node id="Start">
 	<actions>
-		<fade color="0xaaffaaff" time="1.0" dir="out"/>
-		<text>Our greatest weakness lies in giving up.  The most certain way to succeed is ALWAYS to try just one more time.  - Thomas Edison </text>
+		<text>Sweep the city steps tonight</text>
 		<text>Following the power lines</text>
 		<text>Met a man barside</text>
 		<text>With eclipses for eyes</text>
