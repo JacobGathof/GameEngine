@@ -14,7 +14,7 @@ ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f off)
 	float minX = verts.get(0)[0];
 	float maxY = verts.get(0)[1];
 	float minY = verts.get(0)[1];
-
+	
 	for (int i = 1; i < verts.size(); i++) {
 		Vector2f vert = verts.get(i);
 		if (vert[0] > maxX) {
@@ -31,7 +31,6 @@ ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f off)
 			minY = vert[1];
 		}
 	}
-
 	Vector2f dif = Vector2f(maxX - minX, maxY - minY);
 	outerCollide = new RectHitbox(Rect(Vector2f((maxX - minX)/2, (maxY - minY)/2),dif), off + Vector2f(0,dif[1]/2));
 

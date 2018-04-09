@@ -30,8 +30,8 @@ void Application::run()
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room room;
-	room.setTerrainMap(std::string("Clearing"));
-	room.loadObjects(std::string("ObjectMaps/Clearing"));
+	room.setTerrainMap(std::string("StoryTellingRoom"));
+	room.loadObjects(std::string("ObjectMaps/storyTellingRoom"));
 
 	//Begin Init Room 1
 	/*
@@ -49,11 +49,14 @@ void Application::run()
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
+	
 	Player* melody = new Player(std::string("Melody"), TextureType::SPRITESHEET_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
+	
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * circ = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(200, 300)), Vector2f(0, 0));
 	//Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
 	melody->addHitbox(circ);
+	
 	LivingObject structure(std::string("Structure"), TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	//structure.addHitbox(circ2);
 	FollowAI follow(melody);

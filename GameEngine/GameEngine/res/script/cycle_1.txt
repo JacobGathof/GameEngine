@@ -2,20 +2,35 @@
 
 <node id="Start">
 	<actions>
-		<fade color="0xaaffaaff" time="1.0" dir="out"/>
+		<fade color="0x00000000" time="1.0" dir="out"/>
 		<text>Our greatest weakness lies in giving up.  The most certain way to succeed is ALWAYS to try just one more time.  - Thomas Edison </text>
-		<text>Following the power lines</text>
-		<text>Met a man barside</text>
-		<text>With eclipses for eyes</text>
-		<text>Test</text>
-		<choice>
-			<c>First</c>
-			<c>Second</c>
-		</choice>
-		<fade color="0xaaffaaff" time="1.0" dir="out"/>
-		<fade color="0xaaffaaff" time="1.0" dir="in"/>
+		<text>???: Alright children, settle down. It\'s time for the story</text>
+		<text>???: Storytime! Quit pushing! That\'s my seat! Be quiet and sit down! Ssh! You ssh!</text>
+		<text>???: This story is called \"The Silver Knight\"</text>
+		<text>???: Aww, didn\'t we read this last week? No, last week was \"The Brave Lion\"</text>
+		<text>???: Ehem, anyway, let\'s start with Chapter 1.</text>
+		<text>???:Once upon a time, there lived a tiny village on top of a grassy hill. </text>
+		<text>???:And in this village lived a beautiful princess and her loyal knight dressed in silver armor.</text>
+		<text>???: Woah. So cool! Ssh!</text>
 	</actions>
 	
+	<conditions>
+		<cond next="Reading" val="1" match="1"></cond>
+	</conditions>
+</node>
+
+<node id="Reading">
+	<actions>
+		<fade color="0xaaffaaff" time="1.0" dir="in"/>
+		<text>???:All was peaceful in this tiny village.</text>
+		<text>???:Everyone smiled and was happy all of the time.</text>
+		<text>???:One day, the princess was out picking flowers for the upcoming festival</text>
+		<text>???:But she was captured! The evil Dragon King swooped down and took the princess to his lair.</text>
+		<text>???:In order to save the Princess, the Silver Knight set out on an epic journey.</text>
+		<text>???: Wow! Read another chapter! Please! Please! Please!</text>
+		<text>???: I’ll read more next time, that was only chapter 1. Hey, where did sis go?</text>
+	</actions>
+
 	<conditions>
 		<cond next="End" val="0" match="1"></cond>
 		<cond next="Start" val="0" match="0"></cond>

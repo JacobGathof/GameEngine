@@ -32,7 +32,6 @@ ComplexPolygon::ComplexPolygon(std::initializer_list<Vector2f> vert)
 	glVertexAttribPointer(0, 2, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(0);
 
-
 	delete[] f;
 }
 
@@ -63,3 +62,12 @@ bool ComplexPolygon::contains(Vector2f & pt)
 	return false;
 }
 
+List<Vector2f>& ComplexPolygon::getVertices()
+{
+	ret.clear();
+	for (Vector2f vec : vertices) {
+		ret.add(vec + base);
+	}
+
+	return ret;
+}

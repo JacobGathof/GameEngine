@@ -212,7 +212,7 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 		for (int k = 0; k < vert2.size(); k++) {
 			Vector2f p1 = vert1.get(i) + c1.shape->base;
 			Vector2f norm = normals.get(i);
-			Vector2f p2 = vert2.get(k) + r1.pos;
+			Vector2f p2 = vert2.get(k) + r1.getPos();
 			float val = (p2 - p1).dot(norm);
 			if (val < 0) {
 				instFound = true;

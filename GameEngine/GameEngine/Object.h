@@ -25,6 +25,7 @@ public:
 	bool stalled = false;
 	std::string name;
 	bool colliding = false;
+	List<Hitbox *> hitboxes;
 
 	virtual void draw();
 	virtual void drawEffects();
@@ -44,6 +45,5 @@ public:
 protected:
 	List<AI *> aiQueue;
 	AI * defaultAI;
-	List<Hitbox *> hitboxes;
 };
 
