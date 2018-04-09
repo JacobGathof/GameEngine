@@ -228,9 +228,6 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Square.cpp">
-      <Filter>Source Files\Utilities\Shapes</Filter>
-    </ClCompile>
     <ClCompile Include="Line.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
@@ -483,6 +480,9 @@
     <ClCompile Include="AudioManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -585,9 +585,6 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
-      <Filter>Header Files\Utilities\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="Square.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
@@ -847,6 +844,9 @@
     </ClInclude>
     <ClInclude Include="AudioManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

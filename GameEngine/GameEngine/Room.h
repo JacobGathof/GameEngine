@@ -37,6 +37,8 @@ public:
 	void addHitbox(Vector2f& pos, Vector2f& scale);
 	void loadObjects(std::string& filepath);
 
+	List<Object *>& getAllObjects();
+
 private:
 	List<Object *> objects;
 	List<Object *> staticObjects;

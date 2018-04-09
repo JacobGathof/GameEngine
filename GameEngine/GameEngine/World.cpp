@@ -87,3 +87,8 @@ Object * World::getObject(std::string& name)
 {
 	return currentRoom->getObject(name);
 }
+
+Room * World::getCurrentRoom()
+{
+	return currentRoom;
+}

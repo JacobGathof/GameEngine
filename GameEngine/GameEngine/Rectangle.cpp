@@ -11,6 +11,16 @@ Rect::Rect(Vector2f pos, Vector2f size)
 {
 	center = pos;
 	scale = size;
+
+	Vector2f topRight = Vector2f(center[0] + scale[0] / 2.0f, center[1] + scale[1] / 2.0f);
+	Vector2f bottomLeft = Vector2f(center[0] - scale[0] / 2.0f, center[1] - scale[1] / 2.0f);
+	Vector2f topLeft = Vector2f(center[0] - scale[0] / 2.0f, center[1] + scale[1] / 2.0f);
+	Vector2f bottomRight = Vector2f(center[0] + scale[0] / 2.0f, center[1] - scale[1] / 2.0f);
+
+	vertices.add(topRight);
+	vertices.add(topLeft);
+	vertices.add(bottomLeft);
+	vertices.add(bottomRight);
 }
 
 Rect::~Rect()

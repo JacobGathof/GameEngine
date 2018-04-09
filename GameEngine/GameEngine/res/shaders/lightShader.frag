@@ -1,15 +1,15 @@
 #version 400 core
 
+uniform vec4 color;
+
+in vec2 fragPos;
 
 void main(){
 
-	vec2 temp = gl_PointCoord;
-	float f = dot(temp, temp);
+	vec2 temp = fragPos;
+	float d = dot(temp,temp);
+	float f = 1 - d;
 
-	int r = int(f < 0.25);
-
-	vec4 color = vec4(1,1,1, r);
-
-	gl_FragColor = color * vec4(1,1,1,1);
+	gl_FragColor = color * vec4(1,1,1,smoothstep(0,1,f));
 
 }
