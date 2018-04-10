@@ -130,12 +130,6 @@ void Application::run()
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
-		
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		auto buf = Res::get(FramebufferType::LIGHT_BUFFER);
-		buf->bind();
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//map.drawShadows();
 
 		Renderer::draw();
 	
