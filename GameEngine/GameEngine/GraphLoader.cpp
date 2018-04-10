@@ -128,17 +128,35 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 
 void GraphLoader::handleCondition(std::vector<Node*>& nodes, int nodePtr, std::map<std::string, int>& nodeNames, rapidxml::xml_node<> *inst)
 {
+	Edge* edge = 0;
 	std::string cmd = inst->name();
 
 	std::string next = inst->first_attribute("next")->value();
-	std::string match = inst->first_attribute("match")->value();
-	std::string val = inst->first_attribute("val")->value();
-
 	int node = nodeNames[next];
-	int cond = std::atoi(val.c_str());
-	int b = (match == std::string("1")) ? 1 : 0;
 
-	nodes[nodePtr]->addEdge(new Edge(new ChoiceCondition(cond, b), nodes[node]));
+
+	if (cmd == "goto") {
+		edge = new Edge(new Condition(), nodes[node]);
+	}
+
+	else if (cmd == "cond") {
+
+		std::string match = inst->first_attribute("match")->value();
+		std::string val = inst->first_attribute("val")->value();
+
+	
+		int cond = std::atoi(val.c_str());
+		int b = (match == std::string("1")) ? 1 : 0;
+
+		edge = new Edge(new ChoiceCondition(cond, b), nodes[node]);
+	}
+
+
+	if (edge != 0) {
+		nodes[nodePtr]->addEdge(edge);
+	}
+
+	
 }
 
 List<std::string> GraphLoader::split(std::string & str, char delim)

@@ -125,7 +125,6 @@ void Application::run()
 		//Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
 
 
-
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());

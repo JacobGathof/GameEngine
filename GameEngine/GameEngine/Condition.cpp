@@ -8,7 +8,7 @@ Condition::Condition()
 
 bool Condition::evaluate()
 {
-	return false;
+	return true;
 }
 
 
