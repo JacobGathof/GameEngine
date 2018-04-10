@@ -28,7 +28,7 @@ void Graph::update(float dt)
 void Graph::createGraph()
 {
 	GraphLoader::load(nodes, "res/script/cycle_1.txt");
-
+	
 	/*
 	nodes.push_back(new Node());
 	nodes.push_back(new Node());

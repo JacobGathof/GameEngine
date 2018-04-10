@@ -11,14 +11,17 @@ public:
 	ComplexPolygon();
 	virtual ~ComplexPolygon();
 
-	unsigned int vao;
-	unsigned int vbo;
-	
 	bool vboSet = true;
 	List<Vector2f> normals;
 	Vector2f base = Vector2f(0, 0);
+	List<Vector2f> ret;
 
 	void draw();
 	virtual bool contains(Vector2f& pt);
+	List<Vector2f>& getVertices();
+
+private:
+	unsigned int vao;
+	unsigned int vbo;
 };
 

@@ -22,7 +22,7 @@ UIManager::~UIManager()
 
 void UIManager::draw()
 {
-	//textbox->draw();
+	textbox->draw();
 	menu->draw();
 	banner->draw();
 	statusbar->draw();

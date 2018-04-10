@@ -13,5 +13,7 @@ public:
 	Vector2f dest;
 
 	virtual bool execute(LivingObject * obj, float dt);
+
+private:
 };
 

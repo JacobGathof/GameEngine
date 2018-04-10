@@ -184,7 +184,7 @@ bool Room::collision(Object * obj1, Object * obj2)
 		for (int k = 0; k < obj2->numHitboxes(); k++) {
 			Hitbox * two = obj2->getHitbox(k);
 			
-			if (one->pos == two->pos) {
+			if (one->getPos() == two->getPos()) {
 				continue;
 			}
 			
@@ -221,24 +221,24 @@ void Room::loadObjects(std::string& filepath)
 				break;
 			}
 			
-			List<std::string> values = parseValues(in);
+			List<std::string> values = FilesAndStrings::parseStrings(in, ' ');
 			//Need to convert to floats
 			
 			TextureType t = textureMap.at(values.get(0));
 			float tileWidth = 50;
 			float tileHeight = 50;
-			float xPos = .9756f * parseFloat(values.get(1)) - (terrain.width * tileWidth);
+			float xPos = .9756f * FilesAndStrings::parseFloat(values.get(1)) - (terrain.width * tileWidth);
 			
-			float yPos = (terrain.height * tileHeight) - 1.2121f * parseFloat(values.get(2));
+			float yPos = (terrain.height * tileHeight) - 1.2121f * FilesAndStrings::parseFloat(values.get(2));
 
-			float xScale = parseFloat(values.get(3));
-			float yScale = parseFloat(values.get(4));
+			float xScale = FilesAndStrings::parseFloat(values.get(3));
+			float yScale = FilesAndStrings::parseFloat(values.get(4));
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
 			o->isStatic = true;
 			addObject(o);
 			if (values.get(5) == std::string("Rect")) {
-				Vector2f offset(parseFloat(values.get(6)), parseFloat(values.get(7)));
-				Vector2f scale(parseFloat(values.get(8)), parseFloat(values.get(9)));
+				Vector2f offset(FilesAndStrings::parseFloat(values.get(6)), FilesAndStrings::parseFloat(values.get(7)));
+				Vector2f scale(FilesAndStrings::parseFloat(values.get(8)), FilesAndStrings::parseFloat(values.get(9)));
 				Hitbox * hit = new RectHitbox(Rect(Vector2f(0, 0), scale), offset);
 				o->addHitbox(hit);
 			}
@@ -265,31 +265,14 @@ void Room::init()
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("MUSHROOMS"), TextureType::MUSHROOMS));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("LOG"), TextureType::LOG));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("BLUE_FLOWERS"), TextureType::BLUE_FLOWERS));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-WARDROBE"), TextureType::ZH_WARDROBE));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZF-GILGAMESH"), TextureType::ZF_GILGAMESH));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZI_ZMELODY_BOOK"), TextureType::ZI_ZMELODY_BOOK));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-HORIZONTAL_TABLE"), TextureType::ZH_HORIZONTAL_TABLE));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-NIGHT_WINDOW_LARGE"), TextureType::ZH_NIGHT_WINDOW_LARGE));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-TOMATO_BASKET"), TextureType::ZH_TOMATO_BASKET));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-WATER_GLASS"), TextureType::ZH_WATER_GLASS));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-BREAD_BASKET"), TextureType::ZH_BREAD_BASKET));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-CANDLE_POST"), TextureType::ZH_CANDLE_POST));
 }
 
-List<std::string> Room::parseValues(std::string line)
-{
-	List<std::string> values;
-	std::string current;
-	for (unsigned int i = 0; i < line.size(); i++) {
-		char c = line[i];
-		if (c == ' ') {
-			values.add(current);
-			current = std::string("");
-		}
-		else {
-			current += c;
-		}
-	}
-	values.add(current);
-
-	return values;
-}
-
-float Room::parseFloat(std::string line)
-{
-	std::stringstream stream(line);
-	float val;
-	stream >> val;
-	return val;
-}

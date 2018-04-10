@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node id="Start">
+	<actions>
+		<text>Sweep the city steps tonight</text>
+		<text>Following the power lines</text>
+		<text>Met a man barside</text>
+		<text>With eclipses for eyes</text>
+		<text>Test</text>
+		<choice>
+			<c>First</c>
+			<c>Second</c>
+		</choice>
+		<fade color="0xaaffaaff" time="1.0" dir="out"/>
+		<fade color="0xaaffaaff" time="1.0" dir="in"/>
+	</actions>
+	
+	<conditions>
+		<cond next="End" val="0" match="1"></cond>
+		<cond next="Start" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+
+<node id="End">
+	<actions>
+		<text>Node 2</text>
+		<text>Test</text>
+		<choice>
+			<c>1</c>
+			<c>2</c>
+		</choice>
+	</actions>
+	
+	<conditions>
+		<cond next="End" val="0" match="1"></cond>
+		<cond next="Start" val="0" match="0"></cond>
+	</conditions>
+</node>
