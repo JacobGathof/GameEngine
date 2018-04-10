@@ -31,3 +31,13 @@ public:
 	bool match;
 
 };
+
+class TextBoxCondition : public Condition
+{
+public:
+	TextBoxCondition(bool On);
+	virtual bool evaluate();
+
+	bool on;
+
+};

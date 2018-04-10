@@ -13,6 +13,7 @@
 #include "PlayMusicAction.h"
 #include "MoveAction.h"
 #include "BannerAction.h"
+#include "MoveCameraAction.h"
 
 #include "rapidxml.hpp"
 

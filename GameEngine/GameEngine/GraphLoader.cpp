@@ -120,6 +120,17 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		int i = (dir == "in") ? SCREEN_FADE_IN : SCREEN_FADE_OUT;
 		act = new ScreenFadeAction(Color(col), t, i);
 	}
+	else if (cmd == "setScreenPos") {
+		char * xStr = inst->first_attribute("x")->value();
+		char * yStr = inst->first_attribute("y")->value();
+		float x = std::atof(xStr);
+		float y = std::atof(yStr);
+
+		act = new MoveCameraAction(x,y);
+
+		//delete xStr;
+		//delete yStr;
+	}
 
 	if (act != 0) {
 		nodes[nodePtr]->addAction(act);
@@ -129,8 +140,17 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 void GraphLoader::handleCondition(std::vector<Node*>& nodes, int nodePtr, std::map<std::string, int>& nodeNames, rapidxml::xml_node<> *inst)
 {
 	std::string cmd = inst->name();
-
 	std::string next = inst->first_attribute("next")->value();
+
+	//I don't know if this is how we want to do it in the end (Most likely not), but it will work for now
+	if (cmd == std::string("textEmpty")) {
+		
+		std::string onStr = inst->first_attribute("textbox")->value();
+		bool on = (onStr == std::string("on"));
+		int node = nodeNames[next];
+		nodes[nodePtr]->addEdge(new Edge(new TextBoxCondition(on), nodes[node]));
+		return;
+	}
 	std::string match = inst->first_attribute("match")->value();
 	std::string val = inst->first_attribute("val")->value();
 

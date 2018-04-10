@@ -14,6 +14,7 @@ public:
 	static float ui_blue;
 	static int choicePointer;
 	static std::string playerName;
+	static bool textboxEmpty;
 
 private:
 	static std::string globalDebug;

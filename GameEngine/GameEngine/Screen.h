@@ -15,6 +15,7 @@ public:
 	static Vector2f toScreenCoordsUI(Vector2f translate);
 	static Vector2f toScreenScale(Vector2f scale);
 	static Vector2f fromScreenToUISpace(Vector2f pos);
+	static void moveTo(Vector2f pos);
 
 	static void follow(Vector2f playerPos);
 

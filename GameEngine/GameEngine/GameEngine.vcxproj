@@ -71,6 +71,7 @@
     <ClCompile Include="Callbacks.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MoveAction.cpp" />
+    <ClCompile Include="MoveCameraAction.cpp" />
     <ClCompile Include="MusicEntity.cpp" />
     <ClCompile Include="MusicScheduler.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MoveAction.h" />
+    <ClInclude Include="MoveCameraAction.h" />
     <ClInclude Include="MusicEntity.h" />
     <ClInclude Include="MusicScheduler.h" />
     <ClInclude Include="Node.h" />

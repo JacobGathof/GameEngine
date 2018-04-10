@@ -103,8 +103,8 @@ void Application::run()
 		timer.update();
 		dt = timer.getDeltaTime();
 
-
-		Screen::follow(melody->pos);
+		//Screen::follow(melody->pos);
+		//Screen::follow(Vector2f(-1250, 1200));
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
