@@ -19,5 +19,7 @@ public:
 	virtual bool collide(ComplexHitbox * h);
 	virtual void updatePos(Vector2f p);
 	virtual void draw();
+
+	virtual Shape* getShape();
 };
 

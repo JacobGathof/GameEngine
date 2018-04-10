@@ -41,7 +41,6 @@ void Screen::updateUniforms()
 	Res::get(ShaderType::ANIMATED_SHADER)->loadVector2f("camera_translate", offset);
 	Res::get(ShaderType::ANIMATED_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
 
-
 	Res::get(ShaderType::BASIC_SHADER)->bind();
 	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_translate", offset);
 	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_scale", Vector2f(1,1)/Vector2f(scrollMultiplier * Vector2f(width, height)));
@@ -63,6 +62,10 @@ void Screen::updateUniforms()
 	Res::get(ShaderType::LIGHT_SHADER)->bind();
 	Res::get(ShaderType::LIGHT_SHADER)->loadVector2f("camera_translate", offset);
 	Res::get(ShaderType::LIGHT_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
+
+	Res::get(ShaderType::SHADOW_SHADER)->bind();
+	Res::get(ShaderType::SHADOW_SHADER)->loadVector2f("camera_translate", offset);
+	Res::get(ShaderType::SHADOW_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
 
 }
 

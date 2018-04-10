@@ -46,3 +46,8 @@ void CircleHitbox::draw()
 {
 	shape.draw();
 }
+
+Shape * CircleHitbox::getShape()
+{
+	return &shape;
+}

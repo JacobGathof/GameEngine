@@ -11,8 +11,6 @@ public:
 	~RectHitbox();
 
 	Rect shape;
-	
-	List<Vector2f> vertices;
 
 	virtual bool collide(Hitbox * s);
 	virtual bool collide(CircleHitbox * h);
@@ -21,5 +19,6 @@ public:
 	virtual void updatePos(Vector2f p);
 	virtual void draw();
 
+	virtual Shape* getShape();
 };
 

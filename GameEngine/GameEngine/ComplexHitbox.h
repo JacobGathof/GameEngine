@@ -20,5 +20,7 @@ public:
 	virtual bool collide(RectHitbox * h);
 	virtual bool collide(ComplexHitbox * h);
 	virtual void draw();
+
+	virtual Shape* getShape();
 };
 

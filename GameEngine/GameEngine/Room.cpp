@@ -249,7 +249,7 @@ void Room::loadObjects(std::string& filepath)
 
 List<Object*>& Room::getAllObjects()
 {
-	return objects;
+	return staticObjects;
 }
 
 void Room::init()

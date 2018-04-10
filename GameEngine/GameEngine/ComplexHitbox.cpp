@@ -81,3 +81,8 @@ void ComplexHitbox::draw()
 
 	shape->draw();
 }
+
+Shape * ComplexHitbox::getShape()
+{
+	return shape;
+}

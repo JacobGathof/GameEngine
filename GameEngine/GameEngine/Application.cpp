@@ -6,6 +6,7 @@
 #include "FastParticleSystem.h"
 #include "SaveUtilities.h"
 #include "Room.h"
+#include "ShadowMap.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -50,10 +51,10 @@ void Application::run()
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
 	Player* melody = new Player(std::string("Melody"), TextureType::SPRITESHEET_MELODY, Vector2f(100,100), Vector2f(256,256), &playerAi);
-	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
+	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * circ = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(200, 300)), Vector2f(0, 0));
 	//Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
-	melody->addHitbox(circ);
+	//melody->addHitbox(circ);
 	LivingObject structure(std::string("Structure"), TextureType::SPRITESHEET_MELODY, Vector2f(-500, -300), Vector2f(256, 256), 100, 100);
 	//structure.addHitbox(circ2);
 	FollowAI follow(melody);
@@ -87,10 +88,12 @@ void Application::run()
 	Graph graph;
 
 
+	ShadowMap map;
+
 	float dt;
 	Window::show();
 	//Window::close();
-	
+
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
@@ -108,9 +111,8 @@ void Application::run()
 
 		world->update(dt);
 
-
 		Screen::updateUniforms();
-
+		//map.calculateShadowMap(melody->pos);
 		
 		Res::get(ShaderType::BASIC_SHADER)->bind();
 		Res::get(TextureType::TEXTURE_DEFAULT)->bind();
@@ -125,9 +127,14 @@ void Application::run()
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
+		
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		auto buf = Res::get(FramebufferType::LIGHT_BUFFER);
+		buf->bind();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//map.drawShadows();
 
 		Renderer::draw();
-
 	
 		Window::swapBuffers();
 	}

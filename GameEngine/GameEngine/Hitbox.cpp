@@ -41,3 +41,8 @@ bool Hitbox::collide(ComplexHitbox * h)
 void Hitbox::draw()
 {
 }
+
+Shape * Hitbox::getShape()
+{
+	return nullptr;
+}

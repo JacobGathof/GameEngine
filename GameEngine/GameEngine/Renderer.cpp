@@ -39,12 +39,13 @@ void Renderer::draw()
 	//World::getInstance()->drawEffects();
 
 
+	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	buf = Res::get(FramebufferType::LIGHT_BUFFER);
 	buf->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawLights();
-
+	
 
 
 	glBlendFunc(GL_ONE, GL_ZERO);
@@ -74,5 +75,6 @@ void Renderer::draw()
 	m->draw();
 
 
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 }
