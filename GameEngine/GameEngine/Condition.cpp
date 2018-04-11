@@ -38,3 +38,13 @@ bool IntCondition::evaluate()
 {
 	return arg1 == arg2;
 }
+
+TextBoxCondition::TextBoxCondition(bool On)
+{
+	on = On;
+}
+
+bool TextBoxCondition::evaluate()
+{
+	return GameState::textboxEmpty != on;
+}

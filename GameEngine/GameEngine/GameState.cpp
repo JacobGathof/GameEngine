@@ -4,6 +4,7 @@ std::string GameState::globalDebug;
 float GameState::sliderValue;
 float GameState::ui_blue;
 std::string GameState::playerName = "Player";
+bool GameState::textboxEmpty = true;
 
 int GameState::choicePointer;
 

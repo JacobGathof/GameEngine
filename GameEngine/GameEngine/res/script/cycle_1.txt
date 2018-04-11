@@ -15,12 +15,13 @@
 	</actions>
 	
 	<conditions>
-		<cond next="Reading" val="1" match="1"></cond>
+		<textEmpty next="Reading" textbox="off"></textEmpty>
 	</conditions>
 </node>
 
 <node id="Reading">
 	<actions>
+		<setScreenPos x="-1250" y="1200"/>
 		<fade color="0xaaffaaff" time="1.0" dir="in"/>
 		<text>???:All was peaceful in this tiny village.</text>
 		<text>???:Everyone smiled and was happy all of the time.</text>
@@ -28,7 +29,7 @@
 		<text>???:But she was captured! The evil Dragon King swooped down and took the princess to his lair.</text>
 		<text>???:In order to save the Princess, the Silver Knight set out on an epic journey.</text>
 		<text>???: Wow! Read another chapter! Please! Please! Please!</text>
-		<text>???: I’ll read more next time, that was only chapter 1. Hey, where did sis go?</text>
+		<text>???: I/’ll read more next time, that was only chapter 1. Hey, where did sis go?</text>
 	</actions>
 
 	<conditions>

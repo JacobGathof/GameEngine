@@ -94,3 +94,8 @@ void Screen::follow(Vector2f playerPos)
 	float dist = offset.distanceTo(playerPos);
 	offset += (playerPos-offset).normalize() * (dist)/50;
 }
+
+void Screen::moveTo(Vector2f pos)
+{
+	offset = pos;
+}

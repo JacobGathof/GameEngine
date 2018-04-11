@@ -65,6 +65,10 @@ void Textbox::update(float dt)
 	if (timer.tick() && visible && current!= 0) {
 		current->addLetter();
 	}
+
+	if (!visible) {
+		GameState::textboxEmpty = true;
+	}
 }
 
 void Textbox::advanceText()
@@ -84,6 +88,7 @@ void Textbox::advanceText()
 
 void Textbox::addTextToQueue(std::string& text){
 	queue.push(new PlainText(text));
+	GameState::textboxEmpty = false;
 	if (!visible) {
 		advanceText();
 	}
@@ -91,6 +96,7 @@ void Textbox::addTextToQueue(std::string& text){
 
 void Textbox::addChoiceToQueue(List<std::string>& text)
 {
+	GameState::textboxEmpty = false;
 	queue.push(new Choice(text));
 	if (!visible) {
 		advanceText();
