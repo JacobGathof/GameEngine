@@ -41,16 +41,16 @@ void QuoteBanner::update(float dt)
 		if (animationState == 0) {
 			text->addLetter();
 		}
-		if (animationState == 1) {
-			alpha -= dt / 2.0f;
-			text->setAlpha(alpha);
-		}
 		if (text->isDisplayingFullLength()) {
 			animationState = 1;
 		}
-		if (alpha <= 0) {
-			visible = false;
-		}
+	}
+	if (animationState == 1) {
+		alpha -= dt / 1.0f;
+		text->setAlpha(alpha);
+	}
+	if (alpha <= 0) {
+		visible = false;
 	}
 }
 

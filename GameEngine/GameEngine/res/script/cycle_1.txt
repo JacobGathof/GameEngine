@@ -3,7 +3,7 @@
 <node id="Start">
 	<actions>
 		<fade color="0x00000000" time="1.0" dir="out"/>
-		<quote>Our greatest weakness lies in giving up.~ The most certain way to succeed is ALWAYS~to try just one more time.~ - Thomas Edison </quote>
+		<quote>Our greatest weakness lies in giving up.~The most certain way to succeed is ALWAYS~to try just one more time.~ - Thomas Edison </quote>
 		<text>???: Alright children, settle down. It\'s time for the story</text>
 		<text>???: Storytime! Quit pushing! That\'s my seat! Be quiet and sit down! Ssh! You ssh!</text>
 		<text>???: This story is called \"The Silver Knight\"</text>
