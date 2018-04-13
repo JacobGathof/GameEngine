@@ -13,8 +13,10 @@ public:
 
 	Vector2f center;
 	Vector2f scale;
+	List<Vector2f> ret;
 
 	virtual bool contains(Vector2f& pt);
 	void draw();
+	virtual List<Vector2f>& getVertices();
 };
 
