@@ -66,7 +66,7 @@ void Object::updateHitbox()
 
 bool Object::collide(Object * o, Hitbox * h)
 {
-	return false;
+	return true;
 }
 
 void Object::interact()

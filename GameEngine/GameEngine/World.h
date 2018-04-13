@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Room.h"
+#include "List.h"
 class World
 {
 public:
@@ -19,6 +20,7 @@ private:
 	World();
 	~World();
 
+	List<Room *> rooms;
 	static World *inst;
 };
 

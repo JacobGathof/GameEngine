@@ -8,7 +8,7 @@ class TransitionObject : public Object
 public:
 	TransitionObject(TextureType t, Vector2f position, Vector2f sc, Room * r);
 	TransitionObject(Vector2f position, Vector2f sc, Room * r);
-	~TransitionObject();
+	virtual ~TransitionObject();
 
 	virtual bool collide(Object * o, Hitbox * h);
 

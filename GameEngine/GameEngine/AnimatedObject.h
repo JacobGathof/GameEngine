@@ -10,7 +10,7 @@ class AnimatedObject : public Object
 public:
 	AnimatedObject(std::string name, TextureType t, Vector2f position, Vector2f sc);
 	AnimatedObject();
-	~AnimatedObject();
+	virtual ~AnimatedObject();
 
 	Timer timer;
 	int animationState;

@@ -29,6 +29,9 @@ public:
 	void setTerrainMap(std::string map);
 	void addHitbox(Vector2f pos, Vector2f scale);
 	void loadObjects(std::string filepath);
+	void removeObject(Object * obj);
+	List<Object *> getStaticObjects();
+	List<Object*> getObjects();
 
 private:
 	List<Object *> objects;

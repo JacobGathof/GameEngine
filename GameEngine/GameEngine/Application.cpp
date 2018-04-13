@@ -43,26 +43,29 @@ void Application::run()
 	//End Init Room 1
 
 	Room room2;
+	room2.setTerrainMap("eastOfTown2.txt");
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
 	Player melody("Melody", TextureType::TEXTURE_MELODY, Vector2f(100,-1500), Vector2f(256,256), &playerAi);
+	melody.persistent = true;
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
-	//Hitbox * circ = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
+	Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
 	melody.addHitbox(circ);
 	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
 	FollowAI follow(&melody);
 	structure.moveSpeed = 600;
-	//TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
+	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
+	trans.addHitbox(rect);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	
 
 	world->setCurrentRoom(&room);
 	room.addObject(&melody);
 	room.addObject(&structure);
-	//room.addObject(&trans);
+	room.addObject(&trans);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

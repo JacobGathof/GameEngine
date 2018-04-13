@@ -14,8 +14,9 @@ class Object
 public:
 	Object();
 	Object(std::string n, TextureType t, Vector2f position, Vector2f sc);
-	~Object();
+	virtual ~Object();
 
+	bool persistent = false;
 	bool isStatic = false;
 	Vector2f pos;
 	Vector2f scale;

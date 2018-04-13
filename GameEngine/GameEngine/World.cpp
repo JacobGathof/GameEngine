@@ -13,7 +13,9 @@ World::~World()
 {
 	delete inst;
 
-	delete currentRoom;
+	for (Room * room : rooms) {
+		delete room;
+	}
 }
 
 World * World::getInstance()
@@ -42,11 +44,22 @@ void World::update(float delta_time)
 void World::transition(Room * newRoom)
 {
 	//Need to transfer over some objects(Player and Party)
+	List<Object *> objs = currentRoom->getObjects();
+	objs.addAll(currentRoom->getStaticObjects());
+	for (int i = 0; i < objs.size(); i++) {
+		Object * obj = objs.get(i);
+		if (obj->persistent) {
+			currentRoom->removeObject(obj);
+			newRoom->addObject(obj);
+		}
+	}
+
 	currentRoom = newRoom;
 }
 
 void World::setCurrentRoom(Room * r)
 {
+	rooms.add(r);
 	currentRoom = r;
 }
 

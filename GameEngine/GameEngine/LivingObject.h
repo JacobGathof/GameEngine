@@ -8,7 +8,7 @@ class LivingObject : public MovableObject
 {
 public:
 	LivingObject(std::string name, TextureType t, Vector2f position, Vector2f sc, int hp, int luc);
-	~LivingObject();
+	virtual ~LivingObject();
 
 	int health;
 	int lucidium;
