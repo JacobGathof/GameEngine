@@ -23,4 +23,5 @@ int BannerAction::run(float dt)
 
 void BannerAction::reset()
 {
+	first = false;
 }

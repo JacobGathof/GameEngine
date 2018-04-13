@@ -4,10 +4,12 @@
 #include "Statusbar.h"
 #include "Banner.h"
 #include "EnemyStatusbar.h"
+#include "QuoteBanner.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;
 Banner* UIManager::banner;
+QuoteBanner* UIManager::quoteBanner;
 Statusbar* UIManager::statusbar;
 EnemyStatusbar* UIManager::enemyStatus;
 
@@ -25,6 +27,7 @@ void UIManager::draw()
 	textbox->draw();
 	menu->draw();
 	banner->draw();
+	quoteBanner->draw();
 	statusbar->draw();
 	enemyStatus->draw();
 }
@@ -34,6 +37,7 @@ void UIManager::init()
 	textbox = new Textbox();
 	menu = new Menu();
 	banner = new Banner();
+	quoteBanner = new QuoteBanner();
 	statusbar = new Statusbar();
 	enemyStatus = new EnemyStatusbar();
 }
@@ -43,6 +47,7 @@ void UIManager::clean()
 	delete textbox;
 	delete menu;
 	delete banner;
+	delete quoteBanner;
 	delete statusbar;
 	delete enemyStatus;
 }
@@ -52,6 +57,7 @@ void UIManager::update(float dt)
 	textbox->update(dt);
 	menu->update(dt);
 	banner->update(dt);
+	quoteBanner->update(dt);
 	statusbar->update(dt);
 	enemyStatus->update(dt);
 }
@@ -61,6 +67,7 @@ void UIManager::resize(int newX, int newY)
 	menu->resize(newX, newY);
 	textbox->resize(newX, newY);
 	banner->resize(newX,newY);
+	quoteBanner->resize(newX, newY);
 	statusbar->resize(newX,newY);
 	enemyStatus->resize(newX, newY);
 }
@@ -124,4 +131,14 @@ void UIManager::setBannerText(std::string& str1, std::string& str2)
 bool UIManager::isBannerVisible()
 {
 	return banner->isVisible();
+}
+
+void UIManager::setQuoteText(std::string & str)
+{
+	quoteBanner->setText(str);
+}
+
+bool UIManager::isQuoteBannerVisible()
+{
+	return quoteBanner->isVisible();
 }

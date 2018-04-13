@@ -79,6 +79,8 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PlayMusicAction.cpp" />
     <ClCompile Include="ComplexPolygon.cpp" />
+    <ClCompile Include="QuoteAction.cpp" />
+    <ClCompile Include="QuoteBanner.cpp" />
     <ClCompile Include="RainParticleSystem.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectHitbox.cpp" />
@@ -199,6 +201,8 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PlayMusicAction.h" />
     <ClInclude Include="ComplexPolygon.h" />
+    <ClInclude Include="QuoteAction.h" />
+    <ClInclude Include="QuoteBanner.h" />
     <ClInclude Include="RainParticleSystem.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectHitbox.h" />

@@ -21,6 +21,7 @@ public:
 	void draw();
 
 	void setColor(Color& col);
+	void setAlpha(float a);
 	void setPosition(Vector2f& v);
 	void setOffset(Vector2f& v);
 	void setScale(Vector2f& v);

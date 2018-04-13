@@ -205,6 +205,11 @@ void Text::setColor(Color & col){
 	color = col;
 }
 
+void Text::setAlpha(float a)
+{
+	color[3] = a;
+}
+
 void Text::setOffset(Vector2f & v)
 {
 	offset = v;

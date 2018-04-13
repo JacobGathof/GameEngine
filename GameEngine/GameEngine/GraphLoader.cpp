@@ -1,5 +1,5 @@
 #include "GraphLoader.h"
-
+#include <algorithm>
 
 GraphLoader::GraphLoader()
 {
@@ -136,6 +136,11 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		std::string sub = inst->first_attribute("sub")->value();
 
 		act = new BannerAction(super, sub);
+	}
+
+	else if (cmd == "quote") {
+		std::replace(val.begin(), val.end(), '~', '\n');
+		act = new QuoteAction(val);
 	}
 
 	if (act != 0) {

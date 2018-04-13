@@ -483,6 +483,12 @@
     <ClCompile Include="MoveCameraAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QuoteBanner.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="QuoteAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -846,6 +852,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MoveCameraAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuoteBanner.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="QuoteAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

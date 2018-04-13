@@ -5,6 +5,7 @@
 class Textbox;
 class Menu;
 class Banner;
+class QuoteBanner;
 class Statusbar;
 class EnemyStatusbar;
 
@@ -32,6 +33,10 @@ public:
 	static bool isBannerVisible();
 
 
+	static void setQuoteText(std::string& str);
+	static bool isQuoteBannerVisible();
+
+
 	static void toggleMenu();
 	static void setEnemyStatusVisible(bool t);
 	static void setStatusVisible(bool t);
@@ -40,6 +45,7 @@ private:
 	static Textbox * textbox;
 	static Menu * menu;
 	static Banner * banner;
+	static QuoteBanner * quoteBanner;
 	static Statusbar * statusbar;
 	static EnemyStatusbar* enemyStatus;
 
