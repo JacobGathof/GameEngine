@@ -3,6 +3,8 @@
 #include "Card.h"
 #include "List.h"
 
+class Text;
+
 class CardsPage : public AbstractUIComponent
 {
 public:
@@ -17,5 +19,10 @@ private:
 	Card * selectedCard = 0;
 	List<Card> deck;
 	float time;
+
+	Text* cardName;
+	Text* cardDesc;
+	TextureType cardTexture;
+
 };
 

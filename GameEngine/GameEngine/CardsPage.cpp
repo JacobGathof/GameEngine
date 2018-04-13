@@ -5,6 +5,9 @@
 
 CardsPage::CardsPage()
 {
+	cardName = new Text(Vector2f(0, 0), std::string(""), Vector2f(0, 0), 0);
+	cardDesc = new Text(Vector2f(0, 0), std::string(""), Vector2f(0, 0), 0);
+
 	deck.add(Card("Urano Metria", "The spell of the starry heavens, destined to bring destruction to the Gods", 0));
 	deck.add(Card("Sema", "The spell of the starry heavens, destined to bring destruction to the Gods", 0));
 	deck.add(Card("UWW", "The spell of the starry heavens, destined to bring destruction to the Gods", 0));
@@ -14,6 +17,8 @@ CardsPage::CardsPage()
 
 CardsPage::~CardsPage()
 {
+	delete cardName;
+	delete cardDesc;
 }
 
 void CardsPage::draw()
@@ -43,8 +48,6 @@ void CardsPage::draw()
 	UIUtils::drawRectangle(Vector2f(420, 200+200) + Vector2f(8, 8), Vector2f(184, 184), Color(0x000000ff));
 
 	if (selectedCard != 0) {
-
-
 		UIUtils::drawRectangle(Vector2f(418, 198) + Vector2f(8, 8), Vector2f(188, 388), Color(0xaaaaffff));
 
 		UIUtils::drawImage(Vector2f(420, 200 + 200) + Vector2f(8, 8), Vector2f(184, 184), TextureType::CARD_ACE, time*2.0f);
@@ -67,6 +70,9 @@ void CardsPage::handleMouseEvents(Mouse & mouse)
 	for (int i = 0; i < deck.size(); i++) {
 		if (mouse.pos().between(Vector2f(420, 300), Vector2f(500, 400))) {
 			selectedCard = &(deck[0]);
+			cardName->setText(selectedCard->getName());
+			cardDesc->setText(selectedCard->getDescription());
+			cardTexture = selectedCard->getTexture();
 		}
 	}
 }

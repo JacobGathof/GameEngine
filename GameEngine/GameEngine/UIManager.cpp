@@ -94,6 +94,18 @@ void UIManager::toggleMenu()
 	menu->toggle();
 }
 
+void UIManager::setEnemyStatusVisible(bool t)
+{
+	enemyStatus->setVisible(t);
+}
+
+void UIManager::setStatusVisible(bool t)
+{
+	statusbar->setVisible(t);
+}
+
+
+
 bool UIManager::isTextboxEmpty()
 {
 	return textbox->isEmpty();

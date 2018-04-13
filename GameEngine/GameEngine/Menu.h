@@ -4,6 +4,7 @@
 #include "Mouse.h"
 #include "Keyboard.h"
 #include "List.h"
+#include "Text.h"
 
 class InventoryPage;
 class CardsPage;
@@ -19,17 +20,19 @@ enum class MenuTabType {
 class MenuTab : public AbstractUIComponent {
 public:
 
-	MenuTab(AbstractUIComponent* a, TextureType t, Vector2f pos, Vector2f scale);
+	MenuTab(AbstractUIComponent* a, std::string& str, Vector2f& pos, Vector2f& scale);
+	~MenuTab();
 	virtual void draw();
 	virtual void resize(int x, int y);
 	bool clicked(Mouse& mouse);
 
 	AbstractUIComponent* getContent();
 private:
-	TextureType tex;
+	Text * tabText;
 	AbstractUIComponent * content;
 
 };
+
 
 class Menu : public AbstractUIComponent
 {
@@ -55,6 +58,11 @@ private:
 	Vector2f tab_o = Vector2f(100, 0);
 	Vector2f tab_s = Vector2f(100, 100);
 	Vector2f tab_area = Vector2f(100, 600);
+
+
+	Vector2f basePos = Vector2f(100, 100);
+	Vector2f baseScale = Vector2f(600, 600);
+
 
 	List<MenuTab> tabs;
 

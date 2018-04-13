@@ -131,6 +131,12 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		//delete xStr;
 		//delete yStr;
 	}
+	else if (cmd == "banner") {
+		std::string super = inst->first_attribute("super")->value();
+		std::string sub = inst->first_attribute("sub")->value();
+
+		act = new BannerAction(super, sub);
+	}
 
 	if (act != 0) {
 		nodes[nodePtr]->addAction(act);
@@ -154,9 +160,6 @@ void GraphLoader::handleCondition(std::vector<Node*>& nodes, int nodePtr, std::m
 		nodes[nodePtr]->addEdge(new Edge(new TextBoxCondition(on), nodes[node]));
 		return;
 	}
-
-	
-
 
 	if (cmd == "goto") {
 		edge = new Edge(new Condition(), nodes[node]);

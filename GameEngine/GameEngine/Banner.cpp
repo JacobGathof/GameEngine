@@ -33,6 +33,7 @@ void Banner::draw()
 {
 	if (!visible)
 		return;
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	UIUtils::drawRectangle(position, scale, Color(1,1,1,alpha));
 	text->draw();
 	subText->draw();

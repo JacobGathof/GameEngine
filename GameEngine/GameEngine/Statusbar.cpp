@@ -13,6 +13,8 @@ Statusbar::~Statusbar()
 
 void Statusbar::draw()
 {
+	if (!visible)
+		return;
 
 	UIUtils::drawRectangle(pos_h			, scale_h				, backdrop);
 	UIUtils::drawRectangle(pos_h+barPadding	, scale_h-2*barPadding	, healthColor);

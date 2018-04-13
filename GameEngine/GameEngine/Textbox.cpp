@@ -13,6 +13,7 @@ Textbox::Textbox()
 	textScale = Vector2f(30, 30);
 	textStartPos = Vector2f(24, 160);
 	timer.setTickLength(0.05f);
+	visible = false;
 
 	PlainText::init();
 	Choice::init();

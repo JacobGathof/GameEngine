@@ -24,13 +24,17 @@ public:
 
 	static void addText(std::string& text);
 	static void addChoice(List<std::string>& text);
-	static void toggleMenu();
 	static bool isTextboxEmpty();
 
 
 	static bool playBannerAnimation(float dt);
 	static void setBannerText(std::string& str, std::string& str_sub);
 	static bool isBannerVisible();
+
+
+	static void toggleMenu();
+	static void setEnemyStatusVisible(bool t);
+	static void setStatusVisible(bool t);
 
 private:
 	static Textbox * textbox;

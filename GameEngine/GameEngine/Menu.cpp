@@ -6,12 +6,16 @@
 
 Menu::Menu()
 {
+
+	position = basePos;
+	scale = baseScale;
+
 	settings = new SettingsPage();
 	cardsPage = new CardsPage();
 
 	activeComponent = settings;
-	tabs.add(MenuTab(settings, TextureType::TEXTURE_DEFAULT, Vector2f(100,650), Vector2f(50,50)));
-	tabs.add(MenuTab(cardsPage, TextureType::TEXTURE_DEFAULT, Vector2f(170, 650), Vector2f(50, 50)));
+	tabs.add(MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(150,50)));
+	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(270, 650), Vector2f(150, 50)));
 }
 
 Menu::~Menu()
@@ -25,9 +29,9 @@ void Menu::draw()
 	if (!visible)
 		return;
 
-	UIUtils::drawRectangle(Vector2f(100, 100), Vector2f(600, 600), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(100, 100) + Vector2f(2, 2), Vector2f(596, 596), Color(0x00000088));
-	//UIUtils::drawRectangle(Vector2f(100, 100) + Vector2f(4, 4), Vector2f(592, 592), Color(0x00000000));
+	UIUtils::drawRectangle(position, scale, Color(0x888888ff));
+	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0xaaaaaa88));
+	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4,4), Color(0x00000888));
 
 	for (auto t : tabs) {
 		t.draw();
@@ -48,6 +52,9 @@ void Menu::resize(int x, int y)
 {
 	settings->resize(x, y);
 	cardsPage->resize(x, y);
+
+	position[0] = x / 2 - scale[0]/2;
+	position[1] = 2*y / 4 - 3*scale[1] / 8;
 }
 
 void Menu::handleMouseEvents(Mouse & mouse)
@@ -81,17 +88,24 @@ void Menu::toggle()
 
 
 
-MenuTab::MenuTab(AbstractUIComponent * a, TextureType t, Vector2f pos, Vector2f sc)
+MenuTab::MenuTab(AbstractUIComponent * a, std::string& txt, Vector2f& pos, Vector2f& sc)
 {
 	content = a;
-	tex = t;
 	position = pos;
 	scale = sc;
+	tabText = new Text(pos+sc/2, txt, Vector2f(sc[1]/2, sc[1]/2), 0);
+	tabText->center();
+}
+
+MenuTab::~MenuTab()
+{
 }
 
 void MenuTab::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color::LightRed);
+	UIUtils::drawRectangle(position, scale, Color::Red);
+	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::LightRed);
+	tabText->draw();
 }
 
 void MenuTab::resize(int x, int y)

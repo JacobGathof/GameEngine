@@ -29,3 +29,8 @@ bool AbstractUIComponent::mouseIn(Mouse & mouse)
 void AbstractUIComponent::resize(int newX, int newY)
 {
 }
+
+void AbstractUIComponent::setVisible(bool b)
+{
+	visible = b;
+}
