@@ -25,6 +25,7 @@ Object::~Object()
 	for (auto hit : hitboxes) {
 		delete hit;
 	}
+	std::cout << "Done Deleting Object " << name << std::endl;
 }
 
 void Object::draw()

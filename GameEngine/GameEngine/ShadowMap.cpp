@@ -31,7 +31,7 @@ ShadowMap::~ShadowMap()
 
 void ShadowMap::calculateShadowMap(Vector2f& pos)
 {
-	List<Object*> objects = World::getInstance()->getCurrentRoom()->getAllObjects();
+	List<Object*> objects = World::getInstance()->getCurrentRoom()->getStaticObjects();
 
 	points.clear();
 	lineSegments.clear();

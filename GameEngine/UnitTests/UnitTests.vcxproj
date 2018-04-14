@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ComplexPolygonTestObj.cpp" />
+    <ClCompile Include="FilesAndStringsTests.cpp" />
     <ClCompile Include="GoToOrthogonalPointTest.cpp" />
     <ClCompile Include="FollowAITests.cpp" />
     <ClCompile Include="RunAwayAITest.cpp" />
