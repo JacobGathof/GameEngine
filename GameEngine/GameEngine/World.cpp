@@ -13,9 +13,7 @@ World::~World()
 {
 	delete inst;
 
-	for (Room * room : rooms) {
-		delete room;
-	}
+	
 }
 
 World * World::getInstance()
@@ -59,8 +57,12 @@ void World::transition(Room * newRoom)
 
 void World::setCurrentRoom(Room * r)
 {
-	rooms.add(r);
 	currentRoom = r;
+}
+
+void World::setCurrentRoom(std::string & name)
+{
+	currentRoom = rooms.at(name);
 }
 
 Object * World::getNearestObject(Vector2f pos)
@@ -69,7 +71,17 @@ Object * World::getNearestObject(Vector2f pos)
 	return currentRoom->getNearestObject(pos);
 }
 
-Object * World::getObject(std::string name)
+Room * World::getRoom(std::string & name)
+{
+	return rooms.at(name);
+}
+
+void World::addRoom(std::string & name, Room * room)
+{
+	rooms.emplace(std::pair<std::string, Room *>(name, room));
+}
+
+Object * World::getObject(std::string& name)
 {
 	return currentRoom->getObject(name);
 }

@@ -13,14 +13,17 @@ public:
 	void update(float delta_time);
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);
+	void setCurrentRoom(std::string& name);
 	Object * getNearestObject(Vector2f pos);
-	Object * getObject(std::string name);
+	Object * getObject(std::string& name);
+	Room * getRoom(std::string& name);
+	void addRoom(std::string& name, Room * room);
 
 private:
 	World();
 	~World();
+	std::map<std::string, Room *> rooms;
 
-	List<Room *> rooms;
 	static World *inst;
 };
 
