@@ -11,15 +11,28 @@ Room::Room()
 
 Room::~Room()
 {
-	for (Object * o : objects) {
-		delete o;
+	std::cout << "Delete Room" << std::endl;
+	if (objects.size() > 0) {
+		for (Object * o : objects) {
+			if (o != nullptr) {
+				std::cout << "Delete Object " << o->name << std::endl;
+				delete o;
+			}
+		}
 	}
-	for (Object * o : staticObjects) {
-		delete o;
+	if (staticObjects.size() > 0) {
+		for (Object * o : staticObjects) {
+			if (o != nullptr) {
+				std::cout << "Delete Object " << o->name << std::endl;
+				delete o;
+			}
+		}
 	}
-	delete collisionObject;
-	
-	
+	std::cout << "Deleting Collision Object" << std::endl;
+	if (collisionObject != nullptr) {
+		delete collisionObject;
+	}
+	std::cout << "Done Deleting Collision Object" << std::endl;
 }
 
 void Room::update(float delta_time)
@@ -97,19 +110,19 @@ void Room::checkCollisions()
 		for (int k = i; k < objects.size(); k++) {
 			Object * other = objects.get(k);
 			if (collision(current, other)) {
-				
+				return;
 			}
 		}
 
 		for (int k = 0; k < staticObjects.size(); k++) {
 			Object * other = staticObjects.get(k);
 			if (collision(current, other)) {
-
+				return;
 			}
 		}
 
 		if (collision(current, collisionObject)) {
-			current->collide(collisionObject, twoCarry);
+			return;
 		}
 
 		/*
@@ -191,8 +204,12 @@ bool Room::collision(Object * obj1, Object * obj2)
 			if (one->collide(two)) {
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;
-				obj1->collide(obj2, two);
-				obj2->collide(obj1, one);
+				bool cont1 = obj1->collide(obj2, two);
+				bool cont2 = obj2->collide(obj1, one);
+				
+				if (!(cont1 && cont2)) {
+					return true;
+				}
 			}
 		}
 	}
@@ -247,9 +264,33 @@ void Room::loadObjects(std::string& filepath)
 	}
 }
 
-List<Object*>& Room::getAllObjects()
+void Room::removeObject(Object * obj)
+{
+	for (int i = 0; i < objects.size(); i++) {
+		Object * o = objects.get(i);
+		if (obj == o) {
+			objects.removeIndex(i);
+			return;
+		}
+	}
+
+	for (int i = 0; i < staticObjects.size(); i++) {
+		Object * o = staticObjects.get(i);
+		if (obj == o) {
+			staticObjects.removeIndex(i);
+			return;
+		}
+	}
+}
+
+List<Object*> Room::getStaticObjects()
 {
 	return staticObjects;
+}
+
+List<Object*> Room::getObjects()
+{
+	return objects;
 }
 
 void Room::init()

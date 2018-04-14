@@ -2,6 +2,8 @@
 #include "Vector2f.h"
 #include <string>
 
+#include "Room.h"
+#include "List.h"
 class Room;
 class Object;
 
@@ -33,6 +35,7 @@ private:
 	World();
 	~World();
 
+	List<Room *> rooms;
 	static World *inst;
 	Room * currentRoom;
 };
