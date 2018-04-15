@@ -6,6 +6,8 @@ class World
 {
 public:
 
+	~World();
+
 	Room * currentRoom;
 
 	static World * getInstance();
@@ -21,7 +23,6 @@ public:
 
 private:
 	World();
-	~World();
 	std::map<std::string, Room *> rooms;
 
 	static World *inst;

@@ -11,12 +11,11 @@ Room::Room()
 
 Room::~Room()
 {
+	std::cout << "Here" << std::endl;
 	for (Object * o : objects) {
 		//delete o;
 	}
 	delete collisionObject;
-	
-	
 }
 
 void Room::update(float delta_time)

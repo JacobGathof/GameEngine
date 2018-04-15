@@ -26,9 +26,9 @@ void Application::run()
 
 	//Rooms and the world
 	World * world = World::getInstance();
-	Room room;
-	room.setTerrainMap("Clearing");
-	room.loadObjects(std::string("ObjectMaps/Clearing"));
+	Room * room = new Room();
+	room->setTerrainMap("Clearing");
+	room->loadObjects(std::string("ObjectMaps/Clearing"));
 
 	//Begin Init Room 1
 	/*
@@ -42,8 +42,8 @@ void Application::run()
 	*/
 	//End Init Room 1
 
-	Room room2;
-	room2.setTerrainMap("eastOfTown2.txt");
+	Room * room2 = new Room();
+	room2->setTerrainMap("eastOfTown2.txt");
 	// Start making objects here
 	PlayerAI playerAi;
 	Input::ai = &playerAi;
@@ -57,15 +57,17 @@ void Application::run()
 	structure.addHitbox(circ2);
 	FollowAI follow(&melody);
 	structure.moveSpeed = 600;
-	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), &room2);
+	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);
 	trans.addHitbox(rect);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
 	
+	world->addRoom(std::string("Room 1"), room);
+	world->addRoom(std::string("Room 2"), room2);
 
-	world->setCurrentRoom(&room);
-	room.addObject(&melody);
-	room.addObject(&structure);
-	room.addObject(&trans);
+	world->setCurrentRoom(room);
+	room->addObject(&melody);
+	room->addObject(&structure);
+	room->addObject(&trans);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
@@ -135,6 +137,7 @@ void Application::run()
 
 	AudioSystem::clean();
 	Window::destroy();
+	delete world;
 
 }
 

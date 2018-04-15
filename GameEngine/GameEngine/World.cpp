@@ -11,9 +11,10 @@ World::World()
 
 World::~World()
 {
-	delete inst;
-
-	
+	//delete inst;
+	for (std::map<std::string, Room *>::iterator it = rooms.begin(); it != rooms.end(); ++it) {
+		delete it->second;
+	}
 }
 
 World * World::getInstance()
@@ -41,7 +42,6 @@ void World::update(float delta_time)
 
 void World::transition(Room * newRoom)
 {
-	//Need to transfer over some objects(Player and Party)
 	List<Object *> objs = currentRoom->getObjects();
 	objs.addAll(currentRoom->getStaticObjects());
 	for (int i = 0; i < objs.size(); i++) {
