@@ -11,6 +11,7 @@ class World
 {
 public:
 
+	~World();
 
 	static World * getInstance();
 	static void clean();
@@ -26,16 +27,17 @@ public:
 	void update(float delta_time);
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);
-	Object * getNearestObject(Vector2f& pos);
+	void setCurrentRoom(std::string& name);
+	Object * getNearestObject(Vector2f pos);
 	Object * getObject(std::string& name);
-
-	Room* getCurrentRoom();
+	Room * getRoom(std::string& name);
+	void addRoom(std::string& name, Room * room);
+	Room * getCurrentRoom();
 
 private:
 	World();
-	~World();
+	static std::map<std::string, Room *> rooms;
 
-	List<Room *> rooms;
 	static World *inst;
 	Room * currentRoom;
 };

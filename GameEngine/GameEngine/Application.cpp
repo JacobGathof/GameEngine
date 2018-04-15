@@ -64,6 +64,9 @@ void Application::run()
 	TransitionObject * trans = new TransitionObject(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);
 	trans->addHitbox(rect);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
+	
+	world->addRoom(std::string("room1"), room);
+	world->addRoom(std::string("room2"), room2);
 
 	world->setCurrentRoom(room);
 	room->addObject(melody);
@@ -144,8 +147,7 @@ void Application::run()
 
 	AudioSystem::clean();
 	Window::destroy();
-	delete room;
-	delete room2;
+
 }
 
 int main() {

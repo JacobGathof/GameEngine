@@ -15,6 +15,7 @@
 #include "BannerAction.h"
 #include "MoveCameraAction.h"
 #include "QuoteAction.h"
+#include "RoomChangeAction.h"
 
 #include "rapidxml.hpp"
 

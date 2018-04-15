@@ -11,11 +11,9 @@ Room::Room()
 
 Room::~Room()
 {
-	std::cout << "Delete Room" << std::endl;
 	if (objects.size() > 0) {
 		for (Object * o : objects) {
 			if (o != nullptr) {
-				std::cout << "Delete Object " << o->name << std::endl;
 				delete o;
 			}
 		}
@@ -23,16 +21,13 @@ Room::~Room()
 	if (staticObjects.size() > 0) {
 		for (Object * o : staticObjects) {
 			if (o != nullptr) {
-				std::cout << "Delete Object " << o->name << std::endl;
 				delete o;
 			}
 		}
 	}
-	std::cout << "Deleting Collision Object" << std::endl;
 	if (collisionObject != nullptr) {
 		delete collisionObject;
 	}
-	std::cout << "Done Deleting Collision Object" << std::endl;
 }
 
 void Room::update(float delta_time)

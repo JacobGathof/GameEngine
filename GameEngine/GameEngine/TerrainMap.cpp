@@ -21,8 +21,8 @@ void TerrainMap::draw(Object * player){
 	model->bind();
 	float xOffset = tiles.size() / 2.0f;
 	float yOffset = tiles.get(0).size() / 2.0f;
-	float xLoc = (player->pos[0] / 100.0f) + (tiles.size()/2.0f);
-	float yLoc = -(player->pos[1] / 100.0f) + (tiles.get(0).size()/2.0f);
+	float xLoc = (Screen::offset[0] / 100.0f) + (tiles.size()/2.0f);
+	float yLoc = -(Screen::offset[1] / 100.0f) + (tiles.get(0).size()/2.0f);
 	float offset = 15.0f;
 	
 	for (int i = yLoc - offset; (i < yLoc + offset) && (i < tiles.get(0).size()); i++) {

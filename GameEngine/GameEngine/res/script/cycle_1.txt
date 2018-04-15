@@ -32,7 +32,16 @@
 		<text>???: Wow! Read another chapter! Please! Please! Please!</text>
 		<text>???: I'll read more next time, that was only chapter 1. Hey, where did sis go?</text>
 	</actions>
+		
+	<conditions>
+		<textEmpty next="Tree" textbox="off"></textEmpty>
+	</conditions>
+</node>
 
+<node id="Tree">
+	<actions>
+		<room name="room2"/>
+	</actions>
 	<conditions>
 		<cond next="End" val="0" match="1"></cond>
 		<cond next="Start" val="0" match="0"></cond>

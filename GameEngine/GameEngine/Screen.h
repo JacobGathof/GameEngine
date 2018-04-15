@@ -24,13 +24,9 @@ public:
 
 	static float width;
 	static float height;
+	static Vector2f offset;
 
 private:
 	static float scrollMultiplier;
-
-	static float x_offset;
-	static float y_offset;
-	static Vector2f offset;
-
 };
 

@@ -3,17 +3,11 @@
 #include "Object.h"
 
 World* World::inst;
+std::map<std::string, Room *> World::rooms;
 
 World::World(){}
 World::~World(){
-	/*
-	std::cout << "Rooms: " << rooms.size() << std::endl;
-	for (int i = 0; i < rooms.size(); i++) {
-		if (room != nullptr) {
-			delete room;
-		}
-	}
-	*/
+	
 }
 
 
@@ -28,6 +22,10 @@ World * World::getInstance()
 
 void World::clean()
 {
+	//delete inst;
+	for (std::map<std::string, Room *>::iterator it = rooms.begin(); it != rooms.end(); ++it) {
+		delete it->second;
+	}
 	if (inst != 0) {
 		delete inst;
 	}
@@ -78,7 +76,6 @@ void World::update(float delta_time)
 
 void World::transition(Room * newRoom)
 {
-	//Need to transfer over some objects(Player and Party)
 	List<Object *> objs = currentRoom->getObjects();
 	objs.addAll(currentRoom->getStaticObjects());
 	for (int i = 0; i < objs.size(); i++) {
@@ -94,14 +91,28 @@ void World::transition(Room * newRoom)
 
 void World::setCurrentRoom(Room * r)
 {
-	rooms.add(r);
 	currentRoom = r;
 }
 
-Object * World::getNearestObject(Vector2f& pos)
+void World::setCurrentRoom(std::string & name)
+{
+	currentRoom = rooms.at(name);
+}
+
+Object * World::getNearestObject(Vector2f pos)
 {
 
 	return currentRoom->getNearestObject(pos);
+}
+
+Room * World::getRoom(std::string & name)
+{
+	return rooms.at(name);
+}
+
+void World::addRoom(std::string & name, Room * room)
+{
+	rooms.emplace(std::pair<std::string, Room *>(name, room));
 }
 
 Object * World::getObject(std::string& name)

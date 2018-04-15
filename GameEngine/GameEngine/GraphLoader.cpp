@@ -142,6 +142,11 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		std::replace(val.begin(), val.end(), '~', '\n');
 		act = new QuoteAction(val);
 	}
+	else if (cmd == "room") {
+		std::string room = inst->first_attribute("name")->value();
+		
+		act = new RoomChangeAction(room);
+	}
 
 	if (act != 0) {
 		nodes[nodePtr]->addAction(act);

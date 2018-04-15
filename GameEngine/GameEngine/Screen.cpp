@@ -4,8 +4,6 @@
 float Screen::width = 800;
 float Screen::height = 800;
 float Screen::scrollMultiplier = 1.0f;
-float Screen::x_offset;
-float Screen::y_offset;
 Vector2f Screen::offset;
 Color Screen::screenColor;
 float Screen::screenColorPercent;
