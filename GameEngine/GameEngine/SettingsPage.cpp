@@ -1,6 +1,7 @@
 #include "SettingsPage.h"
 #include "GameState.h"
 #include "Input.h"
+#include "InputTextArea.h"
 
 SettingsPage::SettingsPage()
 {
@@ -10,6 +11,8 @@ SettingsPage::SettingsPage()
 	comps[3] = new Slider(Vector2f(120, 550), Vector2f(300, 10), std::string("Blue Shift"), &GameState::ui_blue, 0.0f, 1.0f, 0);
 	comps[4] = new KeyBinder(Vector2f(120, 200), Vector2f(100, 40), Input::keyboard);
 	comps[5] = new Button(Vector2f(310, 120), Vector2f(80, 30), std::string("Music"), new MusicButtonAction());
+
+	comps[6] = new InputTextArea(Vector2f(510, 120), Vector2f(200, 40));
 }
 
 

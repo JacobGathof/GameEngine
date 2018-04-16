@@ -492,6 +492,9 @@
     <ClCompile Include="QuoteAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="InputTextArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -865,6 +868,9 @@
     </ClInclude>
     <ClInclude Include="QuoteAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="InputTextArea.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

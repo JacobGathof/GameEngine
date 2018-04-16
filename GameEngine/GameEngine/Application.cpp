@@ -91,6 +91,7 @@ void Application::run()
 	//Circle circ(Vector2f(0,0), 256.0f);
 
 	Graph graph;
+	GameState::graph = &graph;
 
 
 	ShadowMap map;

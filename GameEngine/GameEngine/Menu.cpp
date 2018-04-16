@@ -29,6 +29,8 @@ void Menu::draw()
 	if (!visible)
 		return;
 
+	//Hwhat?								|
+	//										v
 	UIUtils::drawRectangle(position, scale, Color(0x888888ff));
 	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0xaaaaaa88));
 	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4,4), Color(0x00000888));

@@ -8,6 +8,8 @@ bool GameState::textboxEmpty = true;
 
 int GameState::choicePointer;
 
+Graph* GameState::graph;
+
 GameState::GameState()
 {
 }

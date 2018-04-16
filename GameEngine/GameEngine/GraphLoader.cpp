@@ -10,12 +10,11 @@ GraphLoader::~GraphLoader()
 {
 }
 
-void GraphLoader::load(std::vector<Node*>& nodes, char * filename)
+void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& nodeNames, char * filename)
 {
 	rapidxml::xml_document<> doc;
 
 	std::ifstream file;
-	std::map<std::string, int> nodeNames;
 	int nodeCounter = 0;
 
 	file.open(filename, std::ios::in);
@@ -27,7 +26,10 @@ void GraphLoader::load(std::vector<Node*>& nodes, char * filename)
 
 	rapidxml::xml_node<> *node = doc.first_node();
 	while (node != 0) {
-		nodeNames[node->first_attribute("id")->value()] = nodeCounter;
+		std::string name = node->first_attribute("id")->value();
+		std::transform(name.begin(), name.end(), name.begin(), ::toupper);
+
+		nodeNames[name] = nodeCounter;
 		nodeCounter++;
 		node = node->next_sibling();
 	}

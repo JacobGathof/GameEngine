@@ -24,7 +24,7 @@ class GraphLoader
 public:
 	GraphLoader();
 	~GraphLoader();
-	static void load(std::vector<Node*>& nodes, char* filename);
+	static void load(std::vector<Node*>& nodes, std::map<std::string, int>& nodeNames, char* filename);
 
 private:
 	static void handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml::xml_node<> *inst);

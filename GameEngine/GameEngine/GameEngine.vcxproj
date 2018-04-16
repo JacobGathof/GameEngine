@@ -56,6 +56,7 @@
     <ClCompile Include="GraphLoader.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="InputTextArea.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryPage.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="IManager.h" />
+    <ClInclude Include="InputTextArea.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryPage.h" />
     <ClInclude Include="Item.h" />

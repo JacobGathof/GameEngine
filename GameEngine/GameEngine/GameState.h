@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "Graph.h"
+
 class GameState
 {
 public:
@@ -15,6 +17,8 @@ public:
 	static int choicePointer;
 	static std::string playerName;
 	static bool textboxEmpty;
+
+	static Graph* graph;
 
 private:
 	static std::string globalDebug;

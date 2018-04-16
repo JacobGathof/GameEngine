@@ -25,9 +25,17 @@ void Graph::update(float dt)
 	}
 }
 
+void Graph::setCurrentNode(std::string & s)
+{
+	auto k = nodeNames.find(s);
+	if (k != nodeNames.end()) {
+		current = nodes[nodeNames[s]];
+	}
+}
+
 void Graph::createGraph()
 {
-	GraphLoader::load(nodes, "res/script/cycle_1.txt");
+	GraphLoader::load(nodes, nodeNames, "res/script/cycle_1.txt");
 	//GraphLoader::load(nodes, "res/script/test.txt");
 	
 	/*
