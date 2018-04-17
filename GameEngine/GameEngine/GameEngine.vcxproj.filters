@@ -495,6 +495,9 @@
     <ClCompile Include="InputTextArea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InteractionObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -870,6 +873,9 @@
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="InputTextArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractionObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

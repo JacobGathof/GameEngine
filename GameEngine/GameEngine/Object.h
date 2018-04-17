@@ -6,6 +6,7 @@
 #include "Screen.h"
 #include "AI.h"
 #include "Hitbox.h"
+#include "InteractionObject.h"
 
 #include "TextureManager.h"
 
@@ -26,6 +27,7 @@ public:
 	bool stalled = false;
 	std::string name;
 	bool colliding = false;
+	InteractionObject * interactObj = new InteractionObject();
 	List<Hitbox *> hitboxes;
 
 	virtual void draw();
@@ -37,6 +39,7 @@ public:
 	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
+	virtual void setInteraction(InteractionObject * i);
 
 	void addEffect(Effect * eff);
 	int numHitboxes();

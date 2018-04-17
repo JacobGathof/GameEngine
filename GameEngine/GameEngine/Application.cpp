@@ -7,6 +7,7 @@
 #include "SaveUtilities.h"
 #include "Room.h"
 #include "ShadowMap.h"
+#include "InteractionObject.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -59,6 +60,8 @@ void Application::run()
 	melody->addHitbox(circ);
 	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
 	structure->addHitbox(circ2);
+	TextInteractionObject * inter = new TextInteractionObject(std::string("Interacting"));
+	structure->setInteraction(inter);
 	FollowAI follow(melody);
 	structure->moveSpeed = 600;
 	TransitionObject * trans = new TransitionObject(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);

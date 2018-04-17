@@ -31,8 +31,9 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 
 	/*
 	if (keyboard.press(VirtualKey::INTERACT)){
+		
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
-		if (closest->pos.distanceTo(user->pos) < 40) {
+		if (closest->pos.distanceTo(user->pos) < 1024) {
 			closest->interact();
 		}
 	}
