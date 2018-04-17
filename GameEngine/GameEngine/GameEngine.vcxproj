@@ -52,6 +52,7 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="InteractionObject.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryPage.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="InteractionObject.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="InventoryPage.h" />
     <ClInclude Include="Item.h" />

@@ -453,6 +453,9 @@
     <ClCompile Include="FilesAndStrings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InteractionObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -780,6 +783,9 @@
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="FilesAndStrings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractionObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

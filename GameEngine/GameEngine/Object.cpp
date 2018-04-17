@@ -25,6 +25,7 @@ Object::~Object()
 	for (auto hit : hitboxes) {
 		delete hit;
 	}
+	delete interactObj;
 }
 
 void Object::draw()
@@ -71,7 +72,8 @@ bool Object::collide(Object * o, Hitbox * h)
 
 void Object::interact()
 {
-	std::cout << "Interact" << std::endl;
+	std::cout << "Object Interacting" << std::endl;
+	interactObj->execute();
 }
 
 void Object::setAI(AI * a)
@@ -85,6 +87,13 @@ void Object::setAI(AI * a)
 	else {
 		aiQueue.add(a);
 	}
+}
+
+void Object::setInteraction(InteractionObject * i)
+{
+	delete interactObj;
+	
+	interactObj = i;
 }
 
 void Object::addEffect(Effect * eff)

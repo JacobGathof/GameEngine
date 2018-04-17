@@ -8,6 +8,7 @@
 #include "Screen.h"
 #include "AI.h"
 #include "Hitbox.h"
+#include "InteractionObject.h"
 
 class Object
 {
@@ -26,6 +27,7 @@ public:
 	bool stalled = false;
 	std::string name;
 	bool colliding = false;
+	InteractionObject * interactObj = new InteractionObject();
 
 	virtual void draw();
 	virtual bool update(float delta_time);
@@ -33,6 +35,7 @@ public:
 	virtual bool collide(Object * o, Hitbox * h);
 	virtual void interact();
 	virtual void setAI(AI * ai);
+	virtual void setInteraction(InteractionObject * i);
 
 	void addEffect(Effect * eff);
 	int numHitboxes();

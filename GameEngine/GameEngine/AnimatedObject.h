@@ -21,7 +21,6 @@ public:
 	virtual void draw();
 	virtual bool update(float delta_time);
 	virtual bool collide(Object * o, Hitbox * h);
-	virtual void interact();
 
 protected:
 	

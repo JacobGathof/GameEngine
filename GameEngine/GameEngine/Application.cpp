@@ -4,6 +4,7 @@
 #include "Graph.h"
 #include "AudioSystem.h"
 #include "FastParticleSystem.h"
+#include "InteractionObject.h"
 
 
 Application::Application(){}
@@ -55,6 +56,8 @@ void Application::run()
 	melody.addHitbox(circ);
 	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
+	TextInteractionObject * inter = new TextInteractionObject(std::string("Interacting"));
+	structure.setInteraction(inter);
 	FollowAI follow(&melody);
 	structure.moveSpeed = 600;
 	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);

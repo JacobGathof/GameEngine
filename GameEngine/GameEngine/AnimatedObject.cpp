@@ -47,7 +47,3 @@ bool AnimatedObject::collide(Object * o, Hitbox * h)
 {
 	return false;
 }
-
-void AnimatedObject::interact()
-{
-}
