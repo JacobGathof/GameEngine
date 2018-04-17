@@ -55,6 +55,6 @@ private:
 	void init();
 	bool collision(Object * obj1, Object * obj2);
 	void sortPlace(Object * obj, int index);
-
+	void sortStaticPlace(Object * obj, int index);
 };
 

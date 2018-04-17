@@ -49,8 +49,7 @@ void ComplexHitbox::updatePos(Vector2f p)
 {
 	pos = p + offset;
 	outerCollide->updatePos(p);
-	shape->base = pos;
-	
+	shape->updatePos(pos);
 }
 
 bool ComplexHitbox::collide(Hitbox * s)
