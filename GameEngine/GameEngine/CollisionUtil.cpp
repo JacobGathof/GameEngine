@@ -204,6 +204,7 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 
 	List<Vector2f> normals = c1.shape->normals;
 	List<Vector2f> vert1 = c1.shape->getVertices();
+
 	List<Vector2f> vert2;
 
 	Rect shape = r1.shape;

@@ -35,7 +35,6 @@ void World::update(float delta_time)
 {
 	//Maybe want to switch these.
 	currentRoom->sort();
-	
 	currentRoom->update(delta_time);
 	currentRoom->checkCollisions();
 }

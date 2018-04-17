@@ -32,12 +32,33 @@ void Room::update(float delta_time)
 void Room::draw()
 {
 	terrain.draw(objectMap.at("Melody"));
-	for (Object * o : objects) {
-		o->draw();
+
+	int objectCounter = 0;
+	int staticObjectCounter = 0;
+
+	while (objectCounter < objects.size() && staticObjectCounter < staticObjects.size()) {
+		Object * obj = objects.get(objectCounter);
+		Object * stObj = staticObjects.get(staticObjectCounter);
+		if (obj->pos[1] < stObj->pos[1]) {
+			stObj->draw();
+			staticObjectCounter++;
+		}
+		else {
+			obj->draw();
+			objectCounter++;
+		}
 	}
-	for (Object * o : staticObjects) {
-		o->draw();
+	if (objectCounter < objects.size()) {
+		for (int i = objectCounter; i < objects.size(); i++) {
+			objects.get(i)->draw();
+		}
 	}
+	if (staticObjectCounter < staticObjects.size()) {
+		for (int i = staticObjectCounter; i < staticObjects.size(); i++) {
+			staticObjects.get(i)->draw();
+		}
+	}
+	
 	collisionObject->draw();
 }
 
@@ -94,6 +115,12 @@ void Room::sort()
 	for (int i = 1; i < objects.size(); i++) {
 		if (objects[i]->pos[1] > objects[i - 1]->pos[1]) {
 			sortPlace(objects[i], i);
+		}
+	}
+
+	for (int i = 1; i < staticObjects.size(); i++) {
+		if (staticObjects[i]->pos[1] > staticObjects[i - 1]->pos[1]) {
+			sortStaticPlace(staticObjects[i], i);
 		}
 	}
 }
@@ -160,6 +187,17 @@ void Room::sortPlace(Object * obj, int index)
 	for (int i = 0; i < objects.size(); i++) {
 		if (obj->pos[1] > objects[i]->pos[1]) {
 			objects.add(obj, i);
+			return;
+		}
+	}
+}
+
+void Room::sortStaticPlace(Object * obj, int index)
+{
+	staticObjects.removeIndex(index);
+	for (int i = 0; i < staticObjects.size(); i++) {
+		if (obj->pos[1] > staticObjects[i]->pos[1]) {
+			staticObjects.add(obj, i);
 			return;
 		}
 	}

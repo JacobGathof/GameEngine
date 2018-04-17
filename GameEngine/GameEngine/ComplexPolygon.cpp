@@ -52,7 +52,7 @@ void ComplexPolygon::draw()
 {
 	ShaderProgram* p = Res::get(ShaderType::RECTANGLE_SHADER);
 	p->bind();
-	p->loadVector2f("translate", base);
+	p->loadVector2f("translate", pos);
 	p->loadVector2f("scale", Vector2f(1,1));
 	glBindVertexArray(vao);
 	glDrawArrays(GL_LINE_LOOP, 0, vertices.size());
@@ -65,10 +65,15 @@ bool ComplexPolygon::contains(Vector2f & pt)
 
 List<Vector2f> ComplexPolygon::getVertices()
 {
-	List<Vector2f> ret;
-	for (Vector2f vec : vertices) {
-		ret.add(vec + base);
-	}
+	return vertices;
+}
 
-	return ret;
+void ComplexPolygon::updatePos(Vector2f & p)
+{
+	if (p != pos) {
+		for (Vector2f& vec : vertices) {
+			vec += (p - pos);
+		}
+		pos = p;
+	}
 }

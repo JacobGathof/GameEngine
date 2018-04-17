@@ -14,11 +14,12 @@ public:
 	bool vboSet = true;
 	List<Vector2f> vertices;
 	List<Vector2f> normals;
-	Vector2f base = Vector2f(0, 0);
+	Vector2f pos = Vector2f(0, 0);
 
 	void draw();
 	virtual bool contains(Vector2f& pt);
 	List<Vector2f> getVertices();
+	void updatePos(Vector2f& pos);
 
 private:
 	unsigned int vao;
