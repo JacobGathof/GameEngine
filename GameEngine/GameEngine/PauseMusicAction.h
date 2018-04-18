@@ -1,8 +1,8 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "ResourceManager.h"
 
-class PauseMusicAction : public AbstractScriptAction
+class PauseMusicAction : public AbstractAction
 {
 public:
 	PauseMusicAction(MusicType type);

@@ -1,12 +1,12 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "Timer.h"
 #include "Color.h"
 
 #define SCREEN_FADE_OUT 0
 #define SCREEN_FADE_IN 1
 
-class ScreenFadeAction : public AbstractScriptAction
+class ScreenFadeAction : public AbstractAction
 {
 public:
 	ScreenFadeAction(Color c, float f, int di);

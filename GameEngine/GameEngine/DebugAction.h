@@ -1,7 +1,7 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 
-class DebugAction : public AbstractScriptAction
+class DebugAction : public AbstractAction
 {
 public:
 	DebugAction(char* str);

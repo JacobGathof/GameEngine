@@ -1,9 +1,9 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "UIManager.h"
 #include "List.h"
 
-class TextChoiceAction : public AbstractScriptAction
+class TextChoiceAction : public AbstractAction
 {
 public:
 	TextChoiceAction(List<std::string> ch);

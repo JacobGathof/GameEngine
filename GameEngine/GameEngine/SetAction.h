@@ -1,8 +1,8 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 
 template<class T>
-class SetAction : public AbstractScriptAction
+class SetAction : public AbstractAction
 {
 public:
 	SetAction(T* ref, T val) {

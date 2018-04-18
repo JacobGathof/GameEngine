@@ -1,13 +1,13 @@
 #pragma once
 
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "Vector2f.h"
 #include "LivingObject.h"
 #include "World.h"
 #include "GoToPointAI.h"
 #include <string>
 
-class MoveAction : public AbstractScriptAction
+class MoveAction : public AbstractAction
 {
 public:
 	MoveAction(std::string name, Vector2f pos);
