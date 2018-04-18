@@ -1,6 +1,6 @@
 #pragma once
 #include "List.h"
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "Edge.h"
 
 class Node
@@ -13,14 +13,14 @@ public:
 	Node* getNextNode();
 	void resetNode();
 
-	void addAction(AbstractScriptAction* act);
-	void setActions(List<AbstractScriptAction*> act);
+	void addAction(AbstractAction* act);
+	void setActions(List<AbstractAction*> act);
 
 	void addEdge(Edge* edge);
 	void setEdges(List<Edge*> edges);
 
 private:
-	List<AbstractScriptAction*> actions;
+	List<AbstractAction*> actions;
 	List<Edge*> conditions;
 	int actionPtr = 0;
 

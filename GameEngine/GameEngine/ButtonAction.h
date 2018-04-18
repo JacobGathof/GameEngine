@@ -1,23 +1,20 @@
 #pragma once
-class ButtonAction
-{
+
+#include "AbstractAction.h"
+
+class FullscreenButtonAction : public AbstractAction {
 public:
-	virtual void performAction() = 0;
+	virtual int run(float dt = 0.0f);
 };
 
 
-class FullscreenButtonAction : public ButtonAction{
+class NoteButtonAction : public AbstractAction {
 public:
-	virtual void performAction();
+	virtual int run(float dt = 0.0f);
 };
 
-
-class NoteButtonAction : public ButtonAction {
+class MusicButtonAction : public AbstractAction {
 public:
-	virtual void performAction();
+	virtual int run(float dt = 0.0f);
 };
 
-class MusicButtonAction : public ButtonAction {
-public:
-	virtual void performAction();
-};

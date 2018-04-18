@@ -1,15 +1,15 @@
 #pragma once
 
 #include "World.h"
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 
-class RoomChangeAction : public AbstractScriptAction
+class RoomChangeAction : public AbstractAction
 {
 public:
 	RoomChangeAction(std::string n);
 	~RoomChangeAction();
 
-	virtual int run(float dt);
+	virtual int run(float dt = 0.0f);
 
 private:
 

@@ -80,7 +80,7 @@ bool Object::collide(Object * o, Hitbox * h)
 void Object::interact()
 {
 	std::cout << "Object Interacting" << std::endl;
-	interactObj->execute();
+	interactObj->run();
 }
 
 void Object::setAI(AI * a)
@@ -96,7 +96,7 @@ void Object::setAI(AI * a)
 	}
 }
 
-void Object::setInteraction(InteractionObject * i)
+void Object::setInteraction(AbstractAction * i)
 {
 	delete interactObj;
 	

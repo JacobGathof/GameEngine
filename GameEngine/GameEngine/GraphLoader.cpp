@@ -82,7 +82,7 @@ void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& no
 
 void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml::xml_node<> *inst)
 {
-	AbstractScriptAction* act = 0;
+	AbstractAction* act = 0;
 
 	std::string cmd = inst->name();
 	std::string val = inst->value();

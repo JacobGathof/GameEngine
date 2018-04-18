@@ -1,8 +1,8 @@
 #pragma once
-#include "AbstractScriptAction.h"
-#include <string>
+#include "AbstractAction.h"
+#include "UIManager.h"
 
-class TextAction : public AbstractScriptAction
+class TextAction : public AbstractAction
 {
 public:
 	TextAction(std::string& txt, bool block = false);

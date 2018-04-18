@@ -1,13 +1,13 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include <string>
 
-class BannerAction : public AbstractScriptAction
+class BannerAction : public AbstractAction
 {
 public:
 	BannerAction(std::string& s1, std::string& s2);
 	~BannerAction();
-	virtual int run(float dt);
+	virtual int run(float dt = 0.0f);
 	virtual void reset();
 private:
 	bool first;

@@ -1,8 +1,8 @@
 #pragma once
-#include "AbstractScriptAction.h"
+#include "AbstractAction.h"
 #include "Timer.h"
 
-class WaitAction : public AbstractScriptAction
+class WaitAction : public AbstractAction
 {
 public:
 	WaitAction(float time);

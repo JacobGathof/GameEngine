@@ -1,8 +1,8 @@
 #pragma once
-#include "AbstractScriptAction.h"
-#include "AudioManager.h"
+#include "AbstractAction.h"
+#include "ResourceManager.h"
 
-class PlayMusicAction : public AbstractScriptAction
+class PlayMusicAction : public AbstractAction
 {
 public:
 	PlayMusicAction(AudioType type);
