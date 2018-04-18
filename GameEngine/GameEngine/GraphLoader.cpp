@@ -125,8 +125,8 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	else if (cmd == "setScreenPos") {
 		char * xStr = inst->first_attribute("x")->value();
 		char * yStr = inst->first_attribute("y")->value();
-		float x = std::atof(xStr);
-		float y = std::atof(yStr);
+		float x = (float)std::atof(xStr);
+		float y = (float)std::atof(yStr);
 
 		act = new MoveCameraAction(x,y);
 
@@ -161,6 +161,7 @@ void GraphLoader::handleCondition(std::vector<Node*>& nodes, int nodePtr, std::m
 	std::string cmd = inst->name();
 
 	std::string next = inst->first_attribute("next")->value();
+	std::transform(next.begin(), next.end(), next.begin(), ::toupper);
 	int node = nodeNames[next];
 
 	//I don't know if this is how we want to do it in the end (Most likely not), but it will work for now
