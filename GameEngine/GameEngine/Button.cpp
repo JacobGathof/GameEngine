@@ -3,7 +3,7 @@
 
 
 
-Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, ButtonAction * act)
+Button::Button(Vector2f & pos, Vector2f & sc, std::string& txt, AbstractAction * act)
 {
 	position = pos;
 	scale = sc;
@@ -46,7 +46,7 @@ void Button::handleMouseEvents(Mouse & mouse)
 			state = ButtonState::CLICK;
 		}
 		else if (mouse.release()) {
-			action->performAction();
+			action->run();
 		}
 	}
 

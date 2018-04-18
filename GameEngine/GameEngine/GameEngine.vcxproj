@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractScriptAction.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
+    <ClCompile Include="AbstractAction.cpp" />
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="AudioEntity.cpp" />
@@ -130,8 +130,8 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractScriptAction.h" />
     <ClInclude Include="AbstractUIComponent.h" />
+    <ClInclude Include="AbstractAction.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="AudioEntity.h" />

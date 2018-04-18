@@ -1,21 +1,6 @@
 #include "InteractionObject.h"
 
 
-
-InteractionObject::InteractionObject()
-{
-}
-
-
-InteractionObject::~InteractionObject()
-{
-}
-
-void InteractionObject::execute()
-{
-}
-
-
 TextInteractionObject::TextInteractionObject(std::string s) {
 	text = s;
 }
@@ -24,9 +9,9 @@ TextInteractionObject::~TextInteractionObject()
 {
 }
 
-void TextInteractionObject::execute()
+int TextInteractionObject::run(float dt)
 {
-	std::cout << text << std::endl;
 	UIManager::addText(text);
+	return 1;
 }
 

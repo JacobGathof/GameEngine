@@ -339,9 +339,6 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="ButtonAction.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Slider.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -359,9 +356,6 @@
     </ClCompile>
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\Scripting</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractScriptAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="DebugAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
@@ -454,6 +448,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InteractionObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -671,9 +671,6 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="ButtonAction.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Slider.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -691,9 +688,6 @@
     </ClInclude>
     <ClInclude Include="Edge.h">
       <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractScriptAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFadeAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
@@ -786,6 +780,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InteractionObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

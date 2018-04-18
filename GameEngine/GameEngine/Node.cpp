@@ -67,12 +67,12 @@ void Node::resetNode()
 	}
 }
 
-void Node::addAction(AbstractScriptAction * act)
+void Node::addAction(AbstractAction * act)
 {
 	actions.add(act);
 }
 
-void Node::setActions(List<AbstractScriptAction*> act)
+void Node::setActions(List<AbstractAction*> act)
 {
 	actions.clear();
 	actions.addAll(act);

@@ -1,22 +1,14 @@
 #pragma once
 #include "UIManager.h"
+#include "AbstractAction.h"
 
-class InteractionObject
-{
-public:
-	InteractionObject();
-	~InteractionObject();
-
-	virtual void execute();
-};
-
-class TextInteractionObject : public InteractionObject {
+class TextInteractionObject : public AbstractAction {
 public:
 	TextInteractionObject(std::string s);
 	~TextInteractionObject();
 
 	std::string text = "";
 
-	virtual void execute();
+	virtual int run(float dt = 0.0f);
 };
 
