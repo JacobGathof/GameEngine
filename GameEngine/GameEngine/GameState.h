@@ -2,6 +2,9 @@
 #include <string>
 #include "Graph.h"
 
+
+class Inventory;
+
 class GameState
 {
 public:
@@ -19,6 +22,8 @@ public:
 	static bool textboxEmpty;
 
 	static Graph* graph;
+
+	static Inventory inv;
 
 private:
 	static std::string globalDebug;

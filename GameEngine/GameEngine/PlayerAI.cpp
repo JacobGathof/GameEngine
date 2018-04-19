@@ -29,7 +29,7 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		return;
 	}
 
-	/*
+	
 	if (keyboard.press(VirtualKey::INTERACT)){
 		
 		Object * closest = World::getInstance()->getNearestObject(user->pos);
@@ -37,7 +37,7 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 			closest->interact();
 		}
 	}
-	*/
+	
 
 	if (keyboard.press(VirtualKey::ARROW_UP)) {
 		std::cout << user->pos << std::endl;

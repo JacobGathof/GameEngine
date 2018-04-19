@@ -35,8 +35,8 @@ void Graph::setCurrentNode(std::string & s)
 
 void Graph::createGraph()
 {
-	GraphLoader::load(nodes, nodeNames, "res/script/cycle_1.txt");
-	//GraphLoader::load(nodes, "res/script/test.txt");
+	//GraphLoader::load(nodes, nodeNames, "res/script/cycle_1.txt");
+	GraphLoader::load(nodes, nodeNames,"res/script/test.txt");
 	
 	/*
 	nodes.push_back(new Node());

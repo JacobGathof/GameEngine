@@ -67,6 +67,10 @@ void Application::run()
 	TransitionObject * trans = new TransitionObject(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);
 	trans->addHitbox(rect);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
+	Chest * chest = new Chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(-1000, 0), Vector2f(256, 256));
+	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), 0);
+	chest->addItem(card);
+	chest->isStatic = false;
 	
 	world->addRoom(std::string("room1"), room);
 	world->addRoom(std::string("room2"), room2);
@@ -75,6 +79,7 @@ void Application::run()
 	room->addObject(melody);
 	room->addObject(structure);
 	room->addObject(trans);
+	room->addObject(chest);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
@@ -109,7 +114,7 @@ void Application::run()
 		timer.update();
 		dt = timer.getDeltaTime();
 
-		//Screen::follow(melody->pos);
+		Screen::follow(melody->pos);
 		//Screen::follow(Vector2f(-1250, 1200));
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 

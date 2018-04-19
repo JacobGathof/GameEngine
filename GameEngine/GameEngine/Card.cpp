@@ -4,6 +4,7 @@
 Card::Card(std::string n, std::string desc, LivingAi * a) : Item(n, desc)
 {
 	ai = a;
+	type = ItemType::CARD;
 }
 
 Card::~Card()

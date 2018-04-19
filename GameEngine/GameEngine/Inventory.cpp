@@ -35,6 +35,31 @@ void Inventory::add(Card * wep)
 	items.at(ItemType::CARD).add(wep);
 }
 
+void Inventory::add(Item * wep)
+{
+	items.at(wep->type).add(wep);
+	std::cout << "Armor" << std::endl;
+	for (Item * it : items.at(ItemType::ARMOR)) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Weapons" << std::endl;
+	for (Item * it : items.at(ItemType::WEAPON)) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Key Items" << std::endl;
+	for (Item * it : items.at(ItemType::KEYITEM)) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Card" << std::endl;
+	for (Item * it : items.at(ItemType::CARD)) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+}
+
 Item * Inventory::get(int i, ItemType type)
 {
 	List<Item *> itemList = items.at(type);
