@@ -26,6 +26,7 @@
 #include "ComplexHitbox.h"
 #include "ComplexPolygon.h"
 #include "Rectangle.h"
+#include "Chest.h"
 
 class Application
 {

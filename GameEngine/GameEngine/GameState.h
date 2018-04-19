@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+
+class Inventory;
+
 class GameState
 {
 public:
@@ -13,6 +16,8 @@ public:
 	static float sliderValue;
 	static float ui_blue;
 	static int choicePointer;
+
+	static Inventory inv;
 
 private:
 	static std::string globalDebug;

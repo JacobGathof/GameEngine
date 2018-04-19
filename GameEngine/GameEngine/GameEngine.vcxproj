@@ -31,6 +31,7 @@
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardsPage.cpp" />
+    <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardsPage.h" />
+    <ClInclude Include="Chest.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleHitbox.h" />
     <ClInclude Include="CollisionUtil.h" />

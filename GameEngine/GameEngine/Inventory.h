@@ -9,13 +9,6 @@
 #include "Card.h"
 #include <map>
 
-enum class ItemType{
-	WEAPON,
-	ARMOR,
-	KEYITEM,
-	CARD
-};
-
 
 class Inventory
 {
@@ -29,6 +22,7 @@ public:
 	void add(Armor * wep);
 	void add(KeyItem * wep);
 	void add(Card * wep);
+	void add(Item * wep);
 	Item * get(int i, ItemType type);
 	List<Item *>& getAll(ItemType type);
 	List<TextureType> getAllTextures(ItemType type);

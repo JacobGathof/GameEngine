@@ -63,6 +63,9 @@ void Application::run()
 	TransitionObject trans(TextureType::TEXTURE_TEST, Vector2f(-.5, .5), Vector2f(.5, .5), room2);
 	trans.addHitbox(rect);
 	//Object structure2(TextureType::TEXTURE_TEST, Vector2f(-.5, 1), Vector2f(.5, .5));
+	Chest chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(-1000, 0), Vector2f(256, 256));
+	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), 0);
+	chest.addItem(card);
 	
 	world->addRoom(std::string("Room 1"), room);
 	world->addRoom(std::string("Room 2"), room2);
@@ -71,6 +74,7 @@ void Application::run()
 	room->addObject(&melody);
 	room->addObject(&structure);
 	room->addObject(&trans);
+	room->addObject(&chest);
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
