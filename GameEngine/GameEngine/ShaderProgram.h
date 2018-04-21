@@ -9,18 +9,13 @@ class ShaderProgram {
 private:
 	int shader_program;
 
-	enum ShaderType {
-		VERTEX,
-		GEOMETRY,
-		FRAGMENT
-	};
-
 public:
 	ShaderProgram();
 	~ShaderProgram();
 
-	void compileShader(char* file_vertex, char* file_geo, char* file_frag);
-	void compileFeedbackShader(char* file_vertex, char* file_geo, char* file_frag, const GLchar* varying[], int length);
+	void compileShader(char* file_vertex, char* file_frag);
+	void compileShader(char* file_compute);
+	void compileFeedbackShader(char* file_vertex, char* file_frag, const GLchar* varying[], int length);
 
 	void bind();
 	

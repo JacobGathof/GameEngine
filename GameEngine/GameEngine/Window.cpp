@@ -32,8 +32,6 @@ void Window::init(char* title, int width, int height) {
 
 	initOpenGL();
 
-	//glfwShowWindow(window);
-
 	centerCursor();
 	initialized = true;
 
@@ -46,7 +44,7 @@ void Window::destroy() {
 }
 
 bool Window::shouldClose(){
-	return glfwWindowShouldClose(window) ? 1 : 0;
+	return glfwWindowShouldClose(window);
 }
 
 void Window::close(){
@@ -105,8 +103,8 @@ void Window::initOpenGL(){
 	glClearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
 }
 
+//GLFW_CURSOR_HIDDEN, GLFW_CURSOR_DISABLED, GLFW_CURSOR_NORMAL
 void Window::setCursorMode(int mode){
-	//GLFW_CURSOR_HIDDEN, GLFW_CURSOR_DISABLED, GLFW_CURSOR_NORMAL
 	glfwSetInputMode(window, GLFW_CURSOR, mode);
 }
 

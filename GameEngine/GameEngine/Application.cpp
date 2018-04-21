@@ -29,6 +29,10 @@ void Application::run()
 
 	UIManager::init();
 
+	Inventory inv;
+	GameState::inv = &inv;
+
+
 	//Rooms and the world
 	World * world = World::getInstance();
 	Room * room = new Room();
@@ -112,9 +116,10 @@ void Application::run()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 		timer.update();
-		dt = timer.getDeltaTime();
+		//dt = timer.getDeltaTime();
+		dt = 1.0f / 60.0f;
 
-		Screen::follow(melody->pos);
+		Screen::setTargetPosition(&melody->pos);
 		//Screen::follow(Vector2f(-1250, 1200));
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
@@ -122,19 +127,11 @@ void Application::run()
 		UIManager::update(dt);
 
 		graph.update(dt);
-
 		world->update(dt);
+		Screen::update(dt);
 
 		Screen::updateUniforms();
-		//map.calculateShadowMap(melody->pos);
 		
-		Res::get(ShaderType::BASIC_SHADER)->bind();
-		Res::get(TextureType::TEXTURE_DEFAULT)->bind();
-		Res::get(ModelType::MODEL_SQUARE_CENTERED)->bind();
-		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("translate", Vector2f(0, 0));
-		Res::get(ShaderType::BASIC_SHADER)->loadVector2f("scale",Vector2f(32, 32));
-		//Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
-
 
 		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
 		Res::get(ShaderType::WATER_SHADER)->bind();

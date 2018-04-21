@@ -13,8 +13,11 @@ MoveCameraAction::~MoveCameraAction()
 
 int MoveCameraAction::run(float dt)
 {
-	Screen::moveTo(pos);
-	Screen::follow(pos);
+	Screen::setPosition(pos);
+	Screen::setTargetPosition(&pos);
+	Screen::setMovementBehavior(Screen::followBehavior);
+	//Screen::moveTo(pos);
+	//Screen::follow(pos);
 	return 1;
 }
 
