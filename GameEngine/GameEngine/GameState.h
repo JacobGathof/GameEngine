@@ -1,9 +1,7 @@
 #pragma once
 #include <string>
 #include "Graph.h"
-
-
-class Inventory;
+#include "Inventory.h"
 
 class GameState
 {
@@ -23,7 +21,7 @@ public:
 
 	static Graph* graph;
 
-	static Inventory inv;
+	static Inventory* inv;
 
 private:
 	static std::string globalDebug;

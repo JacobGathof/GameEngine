@@ -8,13 +8,13 @@ Vector2f Screen::offset;
 Color Screen::screenColor;
 float Screen::screenColorPercent;
 
-Screen::Screen()
-{
-}
 
-Screen::~Screen()
-{
-}
+Vector2f* Screen::target;
+void(*Screen::fcnPtr)(float dt) = nullBehavior;
+
+
+Screen::Screen(){}
+Screen::~Screen(){}
 
 void Screen::init(){}
 
@@ -87,13 +87,34 @@ Vector2f Screen::fromScreenToUISpace(Vector2f pos)
 	return Vector2f(pos[0], height-pos[1]);
 }
 
-void Screen::follow(Vector2f playerPos)
+void Screen::followBehavior(float dt)
 {
-	float dist = offset.distanceTo(playerPos);
-	offset += (playerPos-offset).normalize() * (dist)/50;
+	float dist = offset.distanceTo(*target);
+	offset += (*target-offset).normalize() * (dist)/50;
 }
 
-void Screen::moveTo(Vector2f pos)
+void Screen::nullBehavior(float dt){}
+
+void Screen::update(float dt){
+	fcnPtr(dt);
+}
+
+void Screen::setMovementBehavior(void(*fcn)(float dt)){
+	fcnPtr = fcn;
+}
+
+void Screen::setTargetPosition(Vector2f * vec)
+{
+	target = vec;
+}
+
+void Screen::setPosition(Vector2f& pos)
 {
 	offset = pos;
+}
+
+
+void Screen::moveToBehavior(float dt)
+{
+	offset = *target;
 }

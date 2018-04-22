@@ -30,9 +30,11 @@ void Inventory::add(KeyItem * wep)
 	items.at(ItemType::KEYITEM).add(wep);
 }
 
-void Inventory::add(Card * wep)
+void Inventory::add(Card * c)
 {
-	items.at(ItemType::CARD).add(wep);
+	items.at(ItemType::CARD).add(c);
+	cards.add(c);
+	std::cout << cards.size() << std::endl;
 }
 
 void Inventory::add(Item * wep)
@@ -72,6 +74,11 @@ Item * Inventory::get(int i, ItemType type)
 List<Item *>& Inventory::getAll(ItemType type)
 {
 	return items.at(type);
+}
+
+List<Card*>& Inventory::getCards()
+{
+	return cards;
 }
 
 List<TextureType> Inventory::getAllTextures(ItemType type)

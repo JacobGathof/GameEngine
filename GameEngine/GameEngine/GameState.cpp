@@ -1,5 +1,4 @@
 #include "GameState.h"
-#include "Inventory.h"
 
 std::string GameState::globalDebug;
 float GameState::sliderValue;
@@ -8,7 +7,7 @@ std::string GameState::playerName = "Player";
 bool GameState::textboxEmpty = true;
 
 int GameState::choicePointer;
-Inventory GameState::inv;
+Inventory* GameState::inv;
 
 Graph* GameState::graph;
 

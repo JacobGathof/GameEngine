@@ -8,12 +8,11 @@ ShaderProgram::~ShaderProgram() {
 	glDeleteProgram(shader_program);
 }
 
-void ShaderProgram::compileShader(char * file_vertex, char * file_geo, char * file_frag)
+void ShaderProgram::compileShader(char * file_vertex, char * file_frag)
 {
 	shader_program = glCreateProgram();
 
 	compileShaderFile(file_vertex, GL_VERTEX_SHADER);
-	if (file_geo != 0) { compileShaderFile(file_geo, GL_GEOMETRY_SHADER); }
 	compileShaderFile(file_frag, GL_FRAGMENT_SHADER);
 
 
@@ -23,13 +22,23 @@ void ShaderProgram::compileShader(char * file_vertex, char * file_geo, char * fi
 
 }
 
-void ShaderProgram::compileFeedbackShader(char * file_vertex, char * file_geo, char * file_frag, const GLchar * varying[], int length)
+void ShaderProgram::compileShader(char * file_compute)
+{
+	shader_program = glCreateProgram();
+
+	compileShaderFile(file_compute, GL_COMPUTE_SHADER);
+
+	glLinkProgram(shader_program);
+	checkLinkErrors(shader_program);
+	glUseProgram(shader_program);
+}
+
+void ShaderProgram::compileFeedbackShader(char * file_vertex, char * file_frag, const GLchar * varying[], int length)
 {
 
 	shader_program = glCreateProgram();
 
 	compileShaderFile(file_vertex, GL_VERTEX_SHADER);
-	if (file_geo != 0) { compileShaderFile(file_geo, GL_GEOMETRY_SHADER); }
 	compileShaderFile(file_frag, GL_FRAGMENT_SHADER);
 
 	glTransformFeedbackVaryings(shader_program, length, varying, GL_SEPARATE_ATTRIBS);

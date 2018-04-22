@@ -28,7 +28,7 @@ int GiveItemAction::run(float dt)
 {
 	if (timesGiven != 0) {
 		for (auto it : items) {
-			GameState::inv.add(it);
+			GameState::inv->add(it);
 		}
 		timesGiven--;
 	}

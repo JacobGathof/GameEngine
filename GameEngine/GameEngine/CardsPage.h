@@ -17,7 +17,6 @@ public:
 
 private:
 	Card * selectedCard = 0;
-	List<Card> deck;
 	float time;
 
 	Text* cardName;
