@@ -40,7 +40,7 @@
 
 <node id="Tree">
 	<actions>
-		<room name="room2"/>
+		<room name="Clearing"/>
 	</actions>
 	<conditions>
 		<cond next="End" val="0" match="1"></cond>

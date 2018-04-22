@@ -501,6 +501,9 @@
     <ClCompile Include="Chest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RoomFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -882,6 +885,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

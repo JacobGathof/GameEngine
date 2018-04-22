@@ -35,7 +35,6 @@ void Room::update(float delta_time)
 	for (auto o : objects) {
 		o->update(delta_time);
 	}
-
 	for (auto o : staticObjects) {
 		o->update(delta_time);
 	}

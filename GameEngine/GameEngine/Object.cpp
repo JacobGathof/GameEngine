@@ -25,6 +25,10 @@ Object::~Object()
 	for (auto hit : hitboxes) {
 		delete hit;
 	}
+	for (auto ai : aiQueue) {
+		delete ai;
+	}
+	delete defaultAI;
 	delete interactObj;
 }
 

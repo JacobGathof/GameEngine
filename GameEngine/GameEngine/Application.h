@@ -27,6 +27,7 @@
 #include "ComplexPolygon.h"
 #include "Rectangle.h"
 #include "Chest.h"
+#include "RoomFactory.h"
 
 class Application
 {

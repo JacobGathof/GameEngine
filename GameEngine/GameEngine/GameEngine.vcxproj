@@ -89,6 +89,7 @@
     <ClCompile Include="RectHitbox.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RoomChangeAction.cpp" />
+    <ClCompile Include="RoomFactory.cpp" />
     <ClCompile Include="RunAwayAI.cpp" />
     <ClCompile Include="SaveUtilities.cpp" />
     <ClCompile Include="ScreenFadeAction.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceType.h" />
     <ClInclude Include="RoomChangeAction.h" />
+    <ClInclude Include="RoomFactory.h" />
     <ClInclude Include="RunAwayAI.h" />
     <ClInclude Include="SaveUtilities.h" />
     <ClInclude Include="ScreenFadeAction.h" />
