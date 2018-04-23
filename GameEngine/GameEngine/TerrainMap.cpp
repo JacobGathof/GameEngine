@@ -14,7 +14,7 @@ TerrainMap::~TerrainMap()
 {
 }
 
-void TerrainMap::draw(Object * player){
+void TerrainMap::draw(){
 	ShaderProgram* shader = Res::get(ShaderType::TERRAIN_SHADER);
 	shader->bind();
 	Model* model = Res::get(ModelType::MODEL_SQUARE_CENTERED);

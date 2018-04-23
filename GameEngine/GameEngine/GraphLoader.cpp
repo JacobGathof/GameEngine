@@ -18,15 +18,19 @@ void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& no
 	int nodeCounter = 0;
 
 	file.open(filename, std::ios::in);
+	
 	std::stringstream buffer;
 	buffer << file.rdbuf();
+	
 	file.close();
 	std::string content(buffer.str());
 	doc.parse<0>(&content[0]);
-
+	
 	rapidxml::xml_node<> *node = doc.first_node();
+	
 	while (node != 0) {
 		std::string name = node->first_attribute("id")->value();
+		
 		std::transform(name.begin(), name.end(), name.begin(), ::toupper);
 
 		nodeNames[name] = nodeCounter;
@@ -41,6 +45,7 @@ void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& no
 	std::cout << std::endl;
 
 	int numberOfNodes = nodeNames.size();
+	
 	for (int i = 0; i < numberOfNodes; i++) {
 		nodes.push_back(new Node());
 	}
@@ -53,7 +58,7 @@ void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& no
 		while (set != 0) {
 			int state = 0;
 			std::string setname = set->name();
-
+	
 			if (setname == "actions") {
 				state = 0;
 			}
@@ -86,7 +91,6 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 
 	std::string cmd = inst->name();
 	std::string val = inst->value();
-
 	if (cmd == "text") {
 		act = new TextAction(val);
 	}
@@ -148,6 +152,35 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		std::string room = inst->first_attribute("name")->value();
 		
 		act = new RoomChangeAction(room);
+	}
+	else if (cmd == "follow") {
+		std::string name = inst->first_attribute("name")->value();
+		World * world = World::getInstance();
+		Object * obj = world->getObject(name);
+		if (obj == nullptr) {
+			std::cout << "Couldn't Follow Object " << name << std::endl;
+			return;
+		}
+		act = new ScreenFollowAction(obj);
+	}
+	else if (cmd == "moveObject") {
+		std::string name = inst->first_attribute("name")->value();
+		char * xStr = inst->first_attribute("x")->value();
+		char * yStr = inst->first_attribute("y")->value();
+		float x = (float)std::atof(xStr);
+		float y = (float)std::atof(yStr);
+		char * speed = inst->first_attribute("speed")->value();
+		if (speed != nullptr) {
+			act = new MoveAction(name, Vector2f(x, y), (float)std::atof(speed));
+		}
+		else {
+			act = new MoveAction(name, Vector2f(x, y));
+		}
+	}
+	else if (cmd == "wait") {
+		char* time = inst->first_attribute("time")->value();
+		float t = (float)std::atof(time);
+		act = new WaitAction(t);
 	}
 
 	if (act != 0) {

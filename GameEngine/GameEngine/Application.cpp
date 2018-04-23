@@ -37,11 +37,10 @@ void Application::run()
 	World * world = World::getInstance();
 
 	RoomFactory::CreateAllRooms();
-
-	//TODO:  Make this one call to world
-	world->setCurrentRoom(world->getRoom(std::string("Reading Room")));
 	
-
+	world->setCurrentRoom(std::string("Reading Room"));
+	world->transition(world->getRoom(std::string("Clearing")));
+	
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
@@ -58,28 +57,30 @@ void Application::run()
 	timer.setTickLength(1.0f);
 
 	//Circle circ(Vector2f(0,0), 256.0f);
-
+	
 	Graph graph;
 	GameState::graph = &graph;
-
 
 	ShadowMap map;
 
 	float dt;
+
 	Window::show();
 	//Window::close();
-
-	Object * melody = world->getObject(std::string("Melody"));
 	
-
+	Object * melody = world->getObject(std::string("Player"));
+	melody->weight = Weight::GHOST;
+	Screen::setTargetPosition(&melody->pos);
+	Screen::setMovementBehavior(Screen::followBehavior);
+	
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 		timer.update();
 		//dt = timer.getDeltaTime();
 		dt = 1.0f / 60.0f;
-
-		Screen::setTargetPosition(&melody->pos);
+		
+		
 		//Screen::follow(Vector2f(-1250, 1200));
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 

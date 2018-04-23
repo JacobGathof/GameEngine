@@ -6,6 +6,7 @@ Player::Player(std::string& name, TextureType t, Vector2f& position, Vector2f& s
 {
 	defaultAI = ai;
 	moveSpeed = 600;
+	weight = Weight::PLAYER;
 }
 
 
@@ -26,7 +27,7 @@ bool Player::update(float delta_time)
 
 bool Player::collide(Object * o, Hitbox * h)
 {
-	colliding = CollisionUtil::unequalResolve(this, h, 5);
+	//colliding = CollisionUtil::unequalResolve(this, h, 5);
 	
 
 	return true;

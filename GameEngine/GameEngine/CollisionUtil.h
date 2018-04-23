@@ -27,9 +27,9 @@ public:
 	static bool collide(CircleHitbox & c1, ComplexHitbox & c2);
 	static bool collide(RectHitbox & r1, ComplexHitbox & c1);
 
-	static bool equalResolve(MovableObject * o1, Object * o2, float bounciness);
-	static bool unequalResolve(MovableObject * o1, Hitbox * h2, float bounciness);
-	static bool unequalResolve(MovableObject * o1, Object * o2, float bounciness);
+	static bool equalResolve(Object * o1, Object * o2, float bounciness);
+	static bool unequalResolve(Object * o1, Hitbox * h2, float bounciness);
+	static bool unequalResolve(Object * o1, Object * o2, float bounciness);
 
 private:
 

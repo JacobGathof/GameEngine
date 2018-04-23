@@ -10,6 +10,16 @@
 
 #include "TextureManager.h"
 
+enum class Weight {
+	VERY_LIGHT,
+	LIGHT,
+	PLAYER,
+	HEAVY,
+	VERY_HEAVY,
+	UNMOVABLE,
+	GHOST
+};
+
 class Object
 {
 public:
@@ -17,6 +27,7 @@ public:
 	Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc);
 	~Object();
 
+	Weight weight = Weight::UNMOVABLE;
 	bool persistent = false;
 	bool isStatic = false;
 	Vector2f pos;

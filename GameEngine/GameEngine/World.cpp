@@ -96,7 +96,12 @@ void World::setCurrentRoom(Room * r)
 
 void World::setCurrentRoom(std::string & name)
 {
-	currentRoom = rooms.at(name);
+	Room * room = rooms.at(name);
+	if (room == nullptr) {
+		std::cout << "Could not find room " << name << std::endl;
+		return;
+	}
+	currentRoom = room;
 }
 
 Object * World::getNearestObject(Vector2f pos)

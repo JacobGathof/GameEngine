@@ -83,7 +83,9 @@ bool Object::collide(Object * o, Hitbox * h)
 
 void Object::interact()
 {
-	std::cout << "Object Interacting" << std::endl;
+	if (stalled) {
+		return;
+	}
 	interactObj->run();
 }
 

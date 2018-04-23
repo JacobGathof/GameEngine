@@ -226,7 +226,7 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 	return true;
 }
 
-bool CollisionUtil::equalResolve(MovableObject * o1, Object * o2, float bounciness)
+bool CollisionUtil::equalResolve(Object * o1, Object * o2, float bounciness)
 {
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
@@ -240,7 +240,7 @@ bool CollisionUtil::equalResolve(MovableObject * o1, Object * o2, float bouncine
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(MovableObject * o1, Hitbox * h2, float bounciness)
+bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, float bounciness)
 {
 	while (o1->getHitbox(0)->collide(h2)) {
 		Vector2f dir = shortestResolve;
@@ -255,7 +255,7 @@ bool CollisionUtil::unequalResolve(MovableObject * o1, Hitbox * h2, float bounci
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(MovableObject * o1, Object * o2, float bounciness)
+bool CollisionUtil::unequalResolve(Object * o1, Object * o2, float bounciness)
 {
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();

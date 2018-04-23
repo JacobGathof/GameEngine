@@ -28,8 +28,9 @@ void RoomFactory::ReadingRoom()
 
 	PlayerAI * playerAi = new PlayerAI();
 	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Melody"), TextureType::TEXTURE_MELODY, Vector2f(100, -1500), Vector2f(256, 256), playerAi);
+	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(100, -1500), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
+
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 100), Vector2f(0, 0));
@@ -61,7 +62,11 @@ void RoomFactory::Clearing()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("Clearing"));
-	room->loadObjects(std::string("Clearing"));
+	room->loadObjects(std::string("ObjectMaps/Clearing"));
+
+	Object * echo = new Object(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(256, 256));
+	echo->weight = Weight::GHOST;
+	room->addObject(echo);
 	
 	world->addRoom(std::string("Clearing"), room);
 }

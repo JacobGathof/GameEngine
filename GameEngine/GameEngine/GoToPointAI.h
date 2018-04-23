@@ -11,6 +11,7 @@ public:
 	~GoToPointAI();
 
 	Vector2f dest;
+	float speed = -1;
 
 	virtual bool execute(LivingObject * obj, float dt);
 

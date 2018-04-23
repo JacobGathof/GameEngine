@@ -47,6 +47,7 @@
     <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
+    <ClCompile Include="ScreenFollowAction.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="FramebufferManager.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
+    <ClInclude Include="ScreenFollowAction.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="FramebufferManager.h" />

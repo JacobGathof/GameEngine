@@ -2,13 +2,14 @@
 
 <node id="Start">
 	<actions>
-		<fade color="0x00000000" time="1.0" dir="out"/>
+		<fade color="0x00000000" time="0.1" dir="out"/>
+		<room name="Reading Room"/>
 		<quote>Our greatest weakness lies in giving up.~The most certain way to succeed is ALWAYS~to try just one more time.~ - Thomas Edison </quote>
-		<text>???: Alright children, settle down. It\'s time for the story</text>
-		<text>???: Storytime! Quit pushing! That\'s my seat! Be quiet and sit down! Ssh! You ssh!</text>
-		<text>???: This story is called \"The Silver Knight\"</text>
-		<text>???: Aww, didn\'t we read this last week? No, last week was \"The Brave Lion\"</text>
-		<text>???: Ehem, anyway, let\'s start with Chapter 1.</text>
+		<text>???: Alright children, settle down. It's time for the story</text>
+		<text>???: Storytime! Quit pushing! That's my seat! Be quiet and sit down! Ssh! You ssh!</text>
+		<text>???: This story is called "The Silver Knight"</text>
+		<text>???: Aww, didn't we read this last week? No, last week was "The Brave Lion"</text>
+		<text>???: Ehem, anyway, let's start with Chapter 1.</text>
 		<text>???:Once upon a time, there lived a tiny village on top of a grassy hill. </text>
 		<text>???:And in this village lived a beautiful princess and her loyal knight dressed in silver armor.</text>
 		<text>???: Woah. So cool! Ssh!</text>
@@ -40,13 +41,173 @@
 
 <node id="Tree">
 	<actions>
+		<fade color="0x00000000" time="1.0" dir="out"/>
+		<moveObject name="Player" x="-920" y="940" speed="10000"/>
+
 		<room name="Clearing"/>
+		<setScreenPos x="-920" y="940"/>
+		<fade color="0x00000000" time="1.0" dir="in"/>
+
+		<moveObject name="Echo" x="-920" y="500" speed="400"/>
+		<wait time="2.0"/>
+		<text>"???: Hey, that's my spot."</text>
+		<moveObject name="Echo" x="-920" y="600" speed="400"/>
+		<choice>
+			<c>Ummm...</c>
+			<c>Not anymore</c>
+			<c>You're seat?</c>
+		</choice>
+		<wait time="2.0"/>
+		<text>"???: Well, I gues there's no helping it."</text>
+		<wait time="2.0"/>
+		<moveObject name="Echo" x="-1050" y="900" speed="300"/> 
+		<wait time="3.0"/>
+		<text>"???: It's a beautiful day out."</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
 	</actions>
 	<conditions>
-		<cond next="End" val="0" match="1"></cond>
-		<cond next="Start" val="0" match="0"></cond>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry2" val="0" match="0"></cond>
 	</conditions>
 </node>
+
+<node id="TreeTry2">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: Hey, I'll race you to that tree over there"</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry3" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="TreeTry3">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: A wise man once said, stealing a lady's spot will result in 1000 years of bad luck"</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry4" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="TreeTry4">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: C'mon, move as a favor to me?"</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry5" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="TreeTry5">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: I'll make it worth your while"</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry6" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="TreeTry6">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: I think you're sitting on a baby slime monster, you better move before he attacks!"</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="TreeTry7" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="TreeTry7">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: Just letting you know, that spot is under a bee's nest... so..."</text>
+		<choice>
+			<c>Give away your spot</c>
+			<c>Remain seated</c>
+		</choice>
+	</actions>
+
+	<conditions>
+		<cond next="GaveUpSpot" val="0" match="1"></cond>
+		<cond next="SpotNotGiven" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="SpotNotGiven">
+	<actions>
+		<wait time="2.0"/>
+		<text>"???: If you're going to take my spot, at least tell me your name."</text>
+	</actions>
+
+	<conditions>
+		<cond next="PostMovementAttempts" val="0" match="0"></cond>
+	</conditions>
+</node>
+
+<node id="GaveUpSpot">
+	<actions>
+		<fade color="0x00000000" time="0.5" dir="out"/>
+		<moveObject name="Player" x="-1050" y="900" speed="300"/> 
+		<moveObject name="Echo" x="-920" y="940" speed="10000"/>
+		<fade color="0x00000000" time="0.5" dir="in"/>
+		<text>"???: Sweet victory is mine. For the record, this is my spot."</text>
+		<wait time="3.0"/>
+		<text>"???: So, Mr. Spot Stealer, how about you tell me your name?"</text>
+	</actions>
+
+	<conditions>
+		<cond next="PostMovementAttempts" val="0" match="1"></cond>
+	</conditions>
+</node>
+
+
+<node id="PostMovementAttempts">
+	<actions>
+		<text>"Player Enters Name Here."</text>
+	</actions>
+
+	<conditions>
+		<cond next="End" val="0" match="0"></cond>
+	</conditions>
+</node>
+
 
 
 <node id="End">

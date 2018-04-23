@@ -11,7 +11,7 @@ class LivingObject;
 class MoveAction : public AbstractAction
 {
 public:
-	MoveAction(std::string& name, Vector2f& pos);
+	MoveAction(std::string& name, Vector2f& pos, float speed = -1);
 	~MoveAction();
 
 	virtual int run(float dt);

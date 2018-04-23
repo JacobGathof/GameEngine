@@ -50,7 +50,7 @@ void Room::draw()
 
 void Room::drawTerrain()
 {
-	terrain.draw(objectMap.at("Melody"));
+	terrain.draw();
 }
 
 void Room::drawObjects() {
@@ -225,6 +225,21 @@ bool Room::collision(Object * obj1, Object * obj2)
 				CollisionUtil::two = obj2;
 				bool cont1 = obj1->collide(obj2, two);
 				bool cont2 = obj2->collide(obj1, one);
+				Weight weight1 = obj1->weight;
+				Weight weight2 = obj2->weight;
+				
+				if (weight1 == Weight::GHOST || weight2 == Weight::GHOST) {
+					//Do Nothing
+				}
+				else if (weight1 > weight2) {
+					CollisionUtil::unequalResolve(obj1, two, 5);
+				}
+				else if (weight2 > weight1) {
+					CollisionUtil::unequalResolve(obj2, one, 5);
+				}
+				else {
+					CollisionUtil::equalResolve(obj1, obj2, 5);
+				}
 				
 				if (!(cont1 && cont2)) {
 					return true;
@@ -291,6 +306,9 @@ void Room::loadObjects(std::string& filepath)
 			}
 			//objects.add(&o);
 		}
+	}
+	else {
+		std::cout << "Could not open Object File " << filepath << std::endl;
 	}
 }
 

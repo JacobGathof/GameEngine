@@ -21,7 +21,7 @@ public:
 	~TerrainMap();
 
 	List<List<TerrainTile>> tiles;
-	void draw(Object * player);
+	void draw();
 	void update(float dt);
 	void constructMap(std::string filename);
 
