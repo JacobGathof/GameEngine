@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Object Tests">
       <UniqueIdentifier>{4adddecd-5634-4f7a-a1fd-0612ceb98f9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scripting Tests">
+      <UniqueIdentifier>{dfff28fe-495a-4c5d-aa9e-9ae747d3d9f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -78,6 +81,12 @@
       <Filter>Source Files\Cards</Filter>
     </ClCompile>
     <ClCompile Include="ObjectTest.cpp">
+      <Filter>Source Files\Object Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionTests.cpp">
+      <Filter>Source Files\Scripting Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTests.cpp">
       <Filter>Source Files\Object Tests</Filter>
     </ClCompile>
   </ItemGroup>

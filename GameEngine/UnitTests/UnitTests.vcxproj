@@ -158,6 +158,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionTests.cpp" />
     <ClCompile Include="ComplexPolygonTestObj.cpp" />
     <ClCompile Include="DeckTests.cpp" />
     <ClCompile Include="FilesAndStringsTests.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="PlayerAITest.cpp" />
     <ClCompile Include="CardsTests.cpp" />
     <ClCompile Include="HandTests.cpp" />
+    <ClCompile Include="ShapeTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

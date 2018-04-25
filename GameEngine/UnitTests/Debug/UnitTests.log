@@ -1,2 +1,11 @@
-﻿  ObjectTest.cpp
+﻿  ActionTests.cpp
+  CollisionUtilTests.cpp
+  ComplexPolygonTestObj.cpp
+  PlayerAITest.cpp
+c:\users\moormaet\documents\github\game\gameengine\unittests\playeraitest.cpp(26): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\moormaet\documents\github\game\gameengine\unittests\playeraitest.cpp(28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\moormaet\documents\github\game\gameengine\unittests\playeraitest.cpp(43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\moormaet\documents\github\game\gameengine\unittests\playeraitest.cpp(45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ShapeTests.cpp
+  Generating Code...
   UnitTests.vcxproj -> C:\Users\moormaet\Documents\GitHub\Game\GameEngine\Debug\UnitTests.dll
