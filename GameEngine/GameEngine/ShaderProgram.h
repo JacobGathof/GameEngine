@@ -15,14 +15,12 @@ public:
 
 	void compileShader(char* file_vertex, char* file_frag);
 	void compileShader(char* file_compute);
-	void compileFeedbackShader(char* file_vertex, char* file_frag, const GLchar* varying[], int length);
 
 	void bind();
 	
 	void loadInteger(char* location, int i);
 	void loadFloat(char* location, float f);
 	void loadVector2f(char* location, Vector2f &v);
-	void loadVector2f(char* location, float x, float y);
 	void loadColor(char* location, Color &c);
 
 private:

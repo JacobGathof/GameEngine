@@ -33,23 +33,6 @@ void ShaderProgram::compileShader(char * file_compute)
 	glUseProgram(shader_program);
 }
 
-void ShaderProgram::compileFeedbackShader(char * file_vertex, char * file_frag, const GLchar * varying[], int length)
-{
-
-	shader_program = glCreateProgram();
-
-	compileShaderFile(file_vertex, GL_VERTEX_SHADER);
-	compileShaderFile(file_frag, GL_FRAGMENT_SHADER);
-
-	glTransformFeedbackVaryings(shader_program, length, varying, GL_SEPARATE_ATTRIBS);
-
-
-	glLinkProgram(shader_program);
-	checkLinkErrors(shader_program);
-	glUseProgram(shader_program);
-
-}
-
 void ShaderProgram::bind() {
 	glUseProgram(this->shader_program);
 }
@@ -129,10 +112,6 @@ void ShaderProgram::loadFloat(char * location, float f) {
 
 void ShaderProgram::loadVector2f(char * location, Vector2f & v) {
 	glUniform2fv(glGetUniformLocation(shader_program, location), 1, v);
-}
-
-void ShaderProgram::loadVector2f(char * location, float x, float y) {
-	glUniform2f(glGetUniformLocation(shader_program, location), x, y);
 }
 
 void ShaderProgram::loadColor(char * location, Color & c) {

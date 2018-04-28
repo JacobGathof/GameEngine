@@ -16,6 +16,5 @@ public:
 	unsigned int vao;
 	unsigned int vbo_positions;
 	unsigned int vbo_velocities;
-	unsigned int vbo_lifespan;
 };
 

@@ -10,7 +10,7 @@ float Screen::screenColorPercent;
 
 
 Vector2f* Screen::target;
-void(*Screen::fcnPtr)(float dt) = nullBehavior;
+void(*Screen::behaviorPtr)(float dt) = nullBehavior;
 
 
 Screen::Screen(){}
@@ -96,11 +96,11 @@ void Screen::followBehavior(float dt)
 void Screen::nullBehavior(float dt){}
 
 void Screen::update(float dt){
-	fcnPtr(dt);
+	behaviorPtr(dt);
 }
 
 void Screen::setMovementBehavior(void(*fcn)(float dt)){
-	fcnPtr = fcn;
+	behaviorPtr = fcn;
 }
 
 void Screen::setTargetPosition(Vector2f * vec)

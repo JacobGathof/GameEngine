@@ -94,7 +94,6 @@ void Application::run()
 		Screen::updateUniforms();
 		
 
-		Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadFloat("gameTime", timer.getGameTime());
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
@@ -106,13 +105,13 @@ void Application::run()
 
 	SaveUtilities::saveGame();
 
-	World::clean();
 
-	
+	World::clean();
 	ResourceManager::clean();
 	UIManager::clean();
-
 	AudioSystem::clean();
+
+
 	Window::destroy();
 
 }
