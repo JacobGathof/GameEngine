@@ -174,10 +174,11 @@
 	<actions>
 		<wait time="2.0"/>
 		<text>"???: If you're going to take my spot, at least tell me your name."</text>
+		<text>"Player Enters Name Here."</text>
 	</actions>
 
 	<conditions>
-		<cond next="PostMovementAttempts" val="0" match="0"></cond>
+		<cond next="PostNameDidntGiveUp" val="0" match="0"></cond>
 	</conditions>
 </node>
 
@@ -190,24 +191,76 @@
 		<text>"???: Sweet victory is mine. For the record, this is my spot."</text>
 		<wait time="3.0"/>
 		<text>"???: So, Mr. Spot Stealer, how about you tell me your name?"</text>
-	</actions>
-
-	<conditions>
-		<cond next="PostMovementAttempts" val="0" match="1"></cond>
-	</conditions>
-</node>
-
-
-<node id="PostMovementAttempts">
-	<actions>
 		<text>"Player Enters Name Here."</text>
 	</actions>
 
 	<conditions>
-		<cond next="End" val="0" match="0"></cond>
+		<cond next="PostNameGaveUp" val="0" match="1"></cond>
 	</conditions>
 </node>
 
+<node id="PostNameGaveUp">
+	<actions>
+		<text>"???: Player, well that’s a name...  What are you doing around here??"</text>
+		<choice>
+			<c>I don't know</c>
+			<c>...</c>
+		</choice>
+		<text>"???: Wait, you’re telling me you don’t know where you’re from.</text>  
+		<moveObject name="Echo" x="-930" y="935" speed="300"/>
+		<text>"???: Well, how did you get here?"</text>
+		<moveObject name="Echo" x="-940" y="930" speed="300"/>
+		<text>"???: Where are you going?"</text> 
+		<choice>
+			<c>I don't know</c>
+			<c>Slow down</c>
+		</choice>
+		
+	</actions>
+
+	<conditions>
+		<cond next="EndTree" val="0" match="0"></cond>
+		<cond next="EndTree" val="0" match="1"></cond>
+	</conditions>
+</node>
+
+
+<node id="PostNameDidntGiveUp">
+	<actions>
+		<text>"???: Player, well that’s a name...  What are you doing around here??"</text>
+		<choice>
+			<c>I don't know</c>
+			<c>...</c>
+		</choice>
+		<text>"???: Wait, you’re telling me you don’t know where you’re from.</text>  
+		<moveObject name="Echo" x="-1040" y="905" speed="300"/> 
+		<text>"???: Well, how did you get here?"</text>
+		<moveObject name="Echo" x="-1030" y="910" speed="300"/> 
+		<text>"???: Where are you going?"</text> 
+		<moveObject name="Echo" x="-1020" y="915" speed="300"/> 
+		<text>"???: Why are you still in my spot?"</text>
+		<choice>
+			<c>I don't know</c>
+			<c>Slow down</c>
+		</choice>
+		
+	</actions>
+
+	<conditions>
+		<cond next="EndTree" val="0" match="0"></cond>
+		<cond next="EndTree" val="0" match="1"></cond>
+	</conditions>
+</node>
+
+<node id="EndTree">
+	<actions>
+	</actions>
+
+	<conditions>
+		<cond next="End" val="0" match="0"></cond>
+		<cond next="End" val="0" match="1"></cond>
+	</conditions>
+</node>
 
 
 <node id="End">
