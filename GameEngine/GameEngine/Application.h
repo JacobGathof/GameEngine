@@ -27,6 +27,9 @@
 #include "ComplexPolygon.h"
 #include "Rectangle.h"
 #include "Chest.h"
+#include "PlayerCombatAI.h"
+#include "Application.h"
+#include "Enemy.h"
 
 class Application
 {

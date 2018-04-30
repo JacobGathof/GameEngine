@@ -28,6 +28,7 @@ public:
 	std::string name;
 	bool colliding = false;
 	AbstractAction * interactObj = new AbstractAction();
+	AI * defaultAI;
 
 	virtual void draw();
 	virtual bool update(float delta_time);
@@ -44,7 +45,7 @@ public:
 
 protected:
 	List<AI *> aiQueue;
-	AI * defaultAI;
+	
 	List<Hitbox *> hitboxes;
 };
 

@@ -5,6 +5,7 @@
 #include "AudioSystem.h"
 #include "FastParticleSystem.h"
 #include "InteractionObject.h"
+#include "BattleManager.h"
 
 
 Application::Application(){}
@@ -54,7 +55,7 @@ void Application::run()
 	Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0,0), 100), Vector2f(0, 0));
 	melody.addHitbox(circ);
-	LivingObject structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
+	Enemy structure("Structure", TextureType::TEXTURE_MELODY, Vector2f(-2000, -2000), Vector2f(256, 256), 100, 100);
 	structure.addHitbox(circ2);
 	TextInteractionObject * inter = new TextInteractionObject(std::string("Interacting"));
 	structure.setInteraction(inter);
@@ -75,6 +76,10 @@ void Application::run()
 	room->addObject(&structure);
 	room->addObject(&trans);
 	room->addObject(&chest);
+
+	BattleManager battleManager(&melody);
+
+	GameState::battleManager = battleManager;
 
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

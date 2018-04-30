@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 
+
 class Inventory;
+class BattleManager;
 
 class GameState
 {
@@ -16,6 +18,7 @@ public:
 	static float sliderValue;
 	static float ui_blue;
 	static int choicePointer;
+	static BattleManager battleManager;
 
 	static Inventory inv;
 

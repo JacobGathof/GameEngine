@@ -27,7 +27,6 @@ bool Player::update(float delta_time)
 bool Player::collide(Object * o, Hitbox * h)
 {
 	colliding = CollisionUtil::unequalResolve(this, h, 5);
-	
 
 	return true;
 }

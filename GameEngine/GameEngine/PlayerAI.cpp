@@ -30,15 +30,11 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 	}
 
 	if (keyboard.press(VirtualKey::INTERACT)){
-		
-		Object * closest = World::getInstance()->getNearestObject(user->pos);
-		if (closest->pos.distanceTo(user->pos) < 1024) {
-			closest->interact();
-		}
+		this->processInteractKey();
 	}
 
 	if (keyboard.press(VirtualKey::ARROW_UP)) {
-		std::cout << user->pos << std::endl;
+		this->processArrowUpKey();
 	}
 
 	yVel = 0;
@@ -58,6 +54,19 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		xVel = user->moveSpeed;
 	}
 
+}
+
+void PlayerAI::processInteractKey()
+{
+	Object * closest = World::getInstance()->getNearestObject(user->pos);
+	if (closest->pos.distanceTo(user->pos) < 1024) {
+		closest->interact();
+	}
+}
+
+void PlayerAI::processArrowUpKey()
+{
+	std::cout << user->pos << std::endl;
 }
 
 

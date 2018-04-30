@@ -21,6 +21,7 @@ bool LivingObject::update(float delta_time)
 	}
 	else {
 		if (aiQueue.get(0)->execute(this, delta_time)) {
+			
 			aiQueue.removeIndex(0);
 		}
 	}

@@ -33,7 +33,7 @@ public:
 	List<Object *> getStaticObjects();
 	List<Object*> getObjects();
 
-private:
+protected:
 	List<Object *> objects;
 	List<Object *> staticObjects;
 	TerrainMap terrain;

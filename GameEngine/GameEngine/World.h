@@ -2,6 +2,8 @@
 
 #include "Room.h"
 #include "List.h"
+#include "GameState.h"
+#include "BattleManager.h"
 class World
 {
 public:
