@@ -13,23 +13,23 @@ class Deck
 {
 public:
 	Deck();
-	Deck(std::string n, List<Card> cards);
+	Deck(std::string n, List<Card *> cards);
 	~Deck();
 
 	std::string name;
 	
 
 	void shuffle();
-	void addCard(Card &card);
-	void addAll(List<Card> cards);
-	Card draw();
+	void addCard(Card * card);
+	void addAll(List<Card *> cards);
+	Card * draw();
 	void removeCard(int index);
 	void reset();
 	void rename(std::string n);
-	void discardCard(Card &card);
+	void discardCard(Card * card);
 
 private:
-	List<Card> deck;
-	List<Card> discard;
+	List<Card *> deck;
+	List<Card *> discard;
 };
 
