@@ -90,6 +90,7 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	AbstractAction* act = 0;
 
 	std::string cmd = inst->name();
+	
 	std::string val = inst->value();
 	if (cmd == "text") {
 		act = new TextAction(val);
@@ -165,18 +166,49 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	}
 	else if (cmd == "moveObject") {
 		std::string name = inst->first_attribute("name")->value();
-		char * xStr = inst->first_attribute("x")->value();
-		char * yStr = inst->first_attribute("y")->value();
-		float x = (float)std::atof(xStr);
-		float y = (float)std::atof(yStr);
-		char * speed = inst->first_attribute("speed")->value();
-		if (speed != nullptr) {
-			act = new MoveAction(name, Vector2f(x, y), (float)std::atof(speed));
+		rapidxml::xml_attribute<char> * xStr = inst->first_attribute("x");
+		rapidxml::xml_attribute<char> * yStr = inst->first_attribute("y");
+		float x = 0.0f;
+		if (xStr == nullptr) {
+			x = World::getInstance()->getObject(name)->pos[0];
 		}
 		else {
-			act = new MoveAction(name, Vector2f(x, y));
+			
+			char * xVal = xStr->value();
+			std::cout << xVal << std::endl;
+			x = (float)std::atof(xVal);
 		}
+		float y = 0.0f;
+		if (yStr == nullptr) {
+			y = World::getInstance()->getObject(name)->pos[1];
+		}
+		else {
+			char * yVal = yStr->value();
+			y = (float)std::atof(yVal);
+		}
+		
+		rapidxml::xml_attribute<char> * speed = inst->first_attribute("speed");
+		rapidxml::xml_attribute<char> * conc = inst->first_attribute("concurrent");
+		if (conc == nullptr || conc->value() == "false") {
+			if (speed != nullptr) {
+				act = new MoveAction(name, Vector2f(x, y), (float)std::atof(speed->value()));
+			}
+			else {
+				act = new MoveAction(name, Vector2f(x, y));
+			}
+		}
+		else {
+			if (speed != nullptr) {
+				
+				act = new NonBlockingMove(name, Vector2f(x, y), (float)std::atof(speed->value()));
+			}
+			else {
+				act = new NonBlockingMove(name, Vector2f(x, y));
+			}
+		}
+		
 	}
+	
 	else if (cmd == "wait") {
 		char* time = inst->first_attribute("time")->value();
 		float t = (float)std::atof(time);

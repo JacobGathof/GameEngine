@@ -195,18 +195,18 @@
 	</actions>
 
 	<conditions>
-		<cond next="PostNameGaveUp" val="0" match="1"></cond>
+		<goto next="PostNameGaveUp"></goto>
 	</conditions>
 </node>
 
 <node id="PostNameGaveUp">
 	<actions>
-		<text>"???: Player, well that’s a name...  What are you doing around here??"</text>
+		<text>"???: Player, well that's a name...  What are you doing around here??"</text>
 		<choice>
 			<c>I don't know</c>
 			<c>...</c>
 		</choice>
-		<text>"???: Wait, you’re telling me you don’t know where you’re from.</text>  
+		<text>"???: Wait, you're telling me you don't know where you're from.</text>  
 		<moveObject name="Echo" x="-930" y="935" speed="300"/>
 		<text>"???: Well, how did you get here?"</text>
 		<moveObject name="Echo" x="-940" y="930" speed="300"/>
@@ -219,20 +219,19 @@
 	</actions>
 
 	<conditions>
-		<cond next="EndTree" val="0" match="0"></cond>
-		<cond next="EndTree" val="0" match="1"></cond>
+		<goto next="EndTree"></goto>
 	</conditions>
 </node>
 
 
 <node id="PostNameDidntGiveUp">
 	<actions>
-		<text>"???: Player, well that’s a name...  What are you doing around here??"</text>
+		<text>"???: Player, well that's a name...  What are you doing around here??"</text>
 		<choice>
 			<c>I don't know</c>
 			<c>...</c>
 		</choice>
-		<text>"???: Wait, you’re telling me you don’t know where you’re from.</text>  
+		<text>"???: Wait, you're telling me you don't know where you're from.</text>  
 		<moveObject name="Echo" x="-1040" y="905" speed="300"/> 
 		<text>"???: Well, how did you get here?"</text>
 		<moveObject name="Echo" x="-1030" y="910" speed="300"/> 
@@ -247,18 +246,20 @@
 	</actions>
 
 	<conditions>
-		<cond next="EndTree" val="0" match="0"></cond>
-		<cond next="EndTree" val="0" match="1"></cond>
+		<goto next="EndTree"></goto>
 	</conditions>
 </node>
 
 <node id="EndTree">
 	<actions>
+		<text>"???: Well, either way I suppose you need a place to stay until you figure things out.  Come on, Illl take you to the village."</text>
+		<wait time="1.0"/>
+		<moveObject name="Echo" x="-1040" y="-1000" speed="300" concurrent="true"/> 
+		<moveObject name="Player" x="-1040" y="-1000" speed="300"/> 
 	</actions>
 
 	<conditions>
-		<cond next="End" val="0" match="0"></cond>
-		<cond next="End" val="0" match="1"></cond>
+		<goto next="End"></goto>
 	</conditions>
 </node>
 

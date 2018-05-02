@@ -15,9 +15,19 @@ public:
 	~MoveAction();
 
 	virtual int run(float dt);
-private:
+protected:
 	Vector2f goal;
 	LivingObject * object;
-	GoToPointAI ai;
+	GoToPointAI * ai;
+};
+
+class NonBlockingMove : public MoveAction
+{
+public:
+	NonBlockingMove(std::string& name, Vector2f& pos, float speed = -1);
+	~NonBlockingMove();
+
+	virtual int run(float dt);
+
 };
 

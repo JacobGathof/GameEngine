@@ -64,7 +64,7 @@ void RoomFactory::Clearing()
 	room->setTerrainMap(std::string("Clearing"));
 	room->loadObjects(std::string("ObjectMaps/Clearing"));
 
-	Object * echo = new Object(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128));
+	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128),100,100);
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
 	
