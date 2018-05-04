@@ -44,12 +44,12 @@ void RoomFactory::ReadingRoom()
 	structure->moveSpeed = 600;
 	*/
 	
-	/*
+	
 	Chest * chest = new Chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(-1000, 0), Vector2f(256, 256));
 	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), 0);
 	chest->addItem(card);
 	chest->isStatic = false;
-	*/
+	
 
 
 	room->addObject(melody);
@@ -64,7 +64,7 @@ void RoomFactory::Clearing()
 	room->setTerrainMap(std::string("Clearing"));
 	room->loadObjects(std::string("ObjectMaps/Clearing"));
 
-	Object * echo = new Object(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(256, 256));
+	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128),100,100);
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
 	

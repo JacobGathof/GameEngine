@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\AITests">
+      <UniqueIdentifier>{6d43a589-9adb-499d-939d-d98599ef41df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HitboxTesting">
+      <UniqueIdentifier>{391094e2-9861-4d66-a1d7-51534e78dbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\General Tests">
+      <UniqueIdentifier>{fa97e4c0-015b-40bc-9e23-46f3de416157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cards">
+      <UniqueIdentifier>{ea4231c2-d9fb-4358-a589-8fdc1755ddb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object Tests">
+      <UniqueIdentifier>{4adddecd-5634-4f7a-a1fd-0612ceb98f9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripting Tests">
+      <UniqueIdentifier>{dfff28fe-495a-4c5d-aa9e-9ae747d3d9f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -29,26 +47,47 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="unittest1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GoToOrthogonalPointTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FollowAITests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AITests</Filter>
     </ClCompile>
     <ClCompile Include="RunAwayAITest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AITests</Filter>
+    </ClCompile>
+    <ClCompile Include="GoToOrthogonalPointTest.cpp">
+      <Filter>Source Files\AITests</Filter>
+    </ClCompile>
+    <ClCompile Include="GoToPointAITest.cpp">
+      <Filter>Source Files\AITests</Filter>
     </ClCompile>
     <ClCompile Include="CollisionUtilTests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\HitboxTesting</Filter>
     </ClCompile>
     <ClCompile Include="ComplexPolygonTestObj.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\HitboxTesting</Filter>
     </ClCompile>
     <ClCompile Include="FilesAndStringsTests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\General Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAITest.cpp">
+      <Filter>Source Files\AITests</Filter>
+    </ClCompile>
+    <ClCompile Include="CardsTests.cpp">
+      <Filter>Source Files\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="HandTests.cpp">
+      <Filter>Source Files\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="DeckTests.cpp">
+      <Filter>Source Files\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTest.cpp">
+      <Filter>Source Files\Object Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionTests.cpp">
+      <Filter>Source Files\Scripting Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTests.cpp">
+      <Filter>Source Files\Object Tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

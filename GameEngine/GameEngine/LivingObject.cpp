@@ -10,16 +10,20 @@ LivingObject::~LivingObject()
 }
 
 bool LivingObject::update(float delta_time)
-{
+{	
 	if (stalled) {
 		return false;
 	}
+
 	if (aiQueue.size() == 0) {
-		if (defaultAI != nullptr) {
+		
+		if (defaultAI != nullptr && defaultAI != 0) {
+			
 			defaultAI->execute(this, delta_time);
 		}
 	}
 	else {
+		
 		if (aiQueue.get(0)->execute(this, delta_time)) {
 			aiQueue.removeIndex(0);
 		}

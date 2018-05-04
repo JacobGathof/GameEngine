@@ -94,7 +94,7 @@ void Object::setAI(AI * a)
 	if (stalled) {
 		return;
 	}
-	if (aiQueue.size() == 0 && defaultAI == nullptr) {
+	if (defaultAI == nullptr) {
 		defaultAI = a;
 	}
 	else {

@@ -28,6 +28,9 @@ Card Hand::getCard(int i)
 
 Card Hand::removeCard(int i)
 {
+	if (i >= hand.size()) {
+		return hand[hand.size() - 1];
+	}
 	Card &c = hand[i];
 	hand.removeIndex(i);
 	return c;
@@ -35,7 +38,7 @@ Card Hand::removeCard(int i)
 
 bool Hand::addCard(Card & card)
 {
-	if (hand.size() != maxSize) {
+	if (hand.size() >= maxSize) {
 		return false;
 	}
 	hand.add(card);
