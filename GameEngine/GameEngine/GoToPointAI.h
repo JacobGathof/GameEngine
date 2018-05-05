@@ -6,7 +6,7 @@
 class GoToPointAI : public LivingAi
 {
 public:
-	GoToPointAI(Vector2f loc);
+	GoToPointAI(Vector2f loc, float speed = -1);
 	GoToPointAI();
 	~GoToPointAI();
 

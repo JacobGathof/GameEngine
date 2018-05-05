@@ -3,6 +3,10 @@
 #include "Graph.h"
 #include "Inventory.h"
 
+
+class Inventory;
+class BattleManager;
+
 class GameState
 {
 public:
@@ -20,6 +24,7 @@ public:
 	static bool textboxEmpty;
 
 	static Graph* graph;
+	static BattleManager battleManager;
 
 	static Inventory* inv;
 

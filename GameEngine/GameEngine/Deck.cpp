@@ -35,7 +35,12 @@ void Deck::addAll(List<Card *> cards)
 
 Card * Deck::draw()
 {
+	if (deck.size() <= 0) {
+		std::cout << "Deck Out" << std::endl;
+		return nullptr;
+	}
 	Card * c = deck[0];
+	discardCard(c);
 	deck.removeIndex(0);
 	return c;
 }

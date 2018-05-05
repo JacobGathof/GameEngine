@@ -86,10 +86,6 @@ enum class FramebufferType {
 
 
 
-enum class CardType {
-	CARD_UNLIMITED_WATER_WORKS,
-	CARD_FIREBALL,
-};
 
 
 enum class FontType {

@@ -2,10 +2,10 @@
 #include "LivingObject.h"
 
 
-GoToPointAI::GoToPointAI(Vector2f loc)
+GoToPointAI::GoToPointAI(Vector2f loc, float sp)
 {
 	dest = loc;
-	speed = -1;
+	speed = sp;
 }
 
 GoToPointAI::GoToPointAI()
@@ -26,6 +26,7 @@ bool GoToPointAI::execute(LivingObject * obj, float dt)
 
 	if (obj->pos.distanceTo(dest) < sp * dt) {
 		obj->pos = dest;
+		
 		return true;
 	}
 	else {

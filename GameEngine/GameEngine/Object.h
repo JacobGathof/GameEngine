@@ -32,6 +32,7 @@ public:
 	bool isStatic = false;
 	Vector2f pos;
 	Vector2f scale;
+	Vector2f forward = Vector2f(0, -1);
 	TextureType texture;
 	bool alive = true;
 	List<Effect *> effects;
@@ -40,6 +41,7 @@ public:
 	bool colliding = false;
 	AbstractAction * interactObj = new AbstractAction();
 	List<Hitbox *> hitboxes;
+	AI * defaultAI;
 
 	virtual void draw();
 	virtual void drawEffects();
@@ -59,6 +61,5 @@ public:
 
 protected:
 	List<AI *> aiQueue;
-	AI * defaultAI;
 };
 

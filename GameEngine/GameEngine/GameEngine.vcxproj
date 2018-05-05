@@ -27,6 +27,7 @@
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
     <ClCompile Include="Banner.cpp" />
+    <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="BannerAction.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
@@ -41,9 +42,11 @@
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DebugAction.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
@@ -81,6 +84,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="PlayerCombatAI.cpp" />
     <ClCompile Include="PlayMusicAction.cpp" />
     <ClCompile Include="ComplexPolygon.cpp" />
     <ClCompile Include="QuoteAction.cpp" />
@@ -155,6 +159,7 @@
     <ClInclude Include="AudioSystem.h" />
     <ClInclude Include="Banner.h" />
     <ClInclude Include="BannerAction.h" />
+    <ClInclude Include="BattleManager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
@@ -168,9 +173,11 @@
     <ClInclude Include="Condition.h" />
     <ClInclude Include="DebugAction.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="DeckManager.h" />
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
@@ -209,6 +216,7 @@
     <ClInclude Include="MusicScheduler.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="PlayerCombatAI.h" />
     <ClInclude Include="PlayMusicAction.h" />
     <ClInclude Include="ComplexPolygon.h" />
     <ClInclude Include="QuoteAction.h" />

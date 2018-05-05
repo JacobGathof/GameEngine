@@ -2,6 +2,7 @@
 
 #include "MovableObject.h"
 #include "PlayerAI.h"
+#include "BattleManager.h"
 
 class Player : public LivingObject
 {

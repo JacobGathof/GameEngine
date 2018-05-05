@@ -21,22 +21,22 @@ void Hand::setHandSize(int i)
 	maxSize = i;
 }
 
-Card Hand::getCard(int i)
+Card * Hand::getCard(int i)
 {
 	return hand[i];
 }
 
-Card Hand::removeCard(int i)
+Card * Hand::removeCard(int i)
 {
 	if (i >= hand.size()) {
 		return hand[hand.size() - 1];
 	}
-	Card &c = hand[i];
+	Card * c = hand[i];
 	hand.removeIndex(i);
 	return c;
 }
 
-bool Hand::addCard(Card & card)
+bool Hand::addCard(Card * card)
 {
 	if (hand.size() >= maxSize) {
 		return false;
@@ -44,4 +44,15 @@ bool Hand::addCard(Card & card)
 	hand.add(card);
 	return true;
 }
+
+std::ostream & Hand::operator<<(std::ostream & os)
+{
+	os << "Hand: " << std::endl;
+	for (Card * c : hand) {
+		os << c->getName() << std::endl;
+	}
+	return os;
+}
+
+
 

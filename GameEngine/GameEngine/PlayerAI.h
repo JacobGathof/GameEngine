@@ -14,10 +14,13 @@ public:
 	LivingObject * user;
 
 	virtual bool execute(LivingObject * obj, float dt);
-	void receiveInput(Keyboard& keyboard);
+	virtual void receiveInput(Keyboard& keyboard);
 
-private:
+protected:
 	float xVel;
 	float yVel;
+
+	virtual void processInteractKey();
+	virtual void processArrowUpKey();
 };
 

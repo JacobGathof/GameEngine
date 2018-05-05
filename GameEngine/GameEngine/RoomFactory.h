@@ -10,6 +10,7 @@
 #include "TransitionObject.h"
 #include "Chest.h"
 #include "FollowAI.h"
+#include "DeckManager.h"
 
 class RoomFactory
 {
