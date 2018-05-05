@@ -12,6 +12,8 @@ public:
 	PlayerCombatAI();
 	~PlayerCombatAI();
 
+	LivingObject * enemy;
+
 	virtual bool execute(LivingObject * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard);
 
@@ -22,5 +24,9 @@ protected:
 private:
 	float rollDistance = 300;
 	float rollSpeed = 1400;
+	float attackRange = 300;
+
+	bool skillBuffer = false;
+	bool meleeAttacking = false;
 };
 

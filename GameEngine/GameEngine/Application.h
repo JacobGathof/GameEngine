@@ -30,6 +30,8 @@
 #include "PlayerCombatAI.h"
 #include "Application.h"
 #include "Enemy.h"
+#include "CardManager.h"
+#include "DeckManager.h"
 
 class Application
 {

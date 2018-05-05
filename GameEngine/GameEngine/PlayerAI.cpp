@@ -54,6 +54,10 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		xVel = user->moveSpeed;
 	}
 
+	if (xVel != 0 || yVel != 0) {
+		user->forward = Vector2f(xVel, yVel).normalize();
+	}
+
 }
 
 void PlayerAI::processInteractKey()

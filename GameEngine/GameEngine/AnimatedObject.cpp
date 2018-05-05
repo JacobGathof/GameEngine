@@ -37,7 +37,9 @@ bool AnimatedObject::update(float delta_time)
 	else {
 		if (aiQueue.get(0)->execute(this, delta_time)) {
 			//If the current AI is done, remove it
+			AI * ai = aiQueue.get(0);
 			aiQueue.removeIndex(0);
+			delete ai;
 		}
 	}
 	return isFinished;

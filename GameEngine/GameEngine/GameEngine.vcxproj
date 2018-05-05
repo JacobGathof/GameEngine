@@ -31,6 +31,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardManager.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Circle.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DebugAction.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="DefaultParticleSystem.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardManager.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Chest.h" />
     <ClInclude Include="Circle.h" />
@@ -156,6 +159,7 @@
     <ClInclude Include="Condition.h" />
     <ClInclude Include="DebugAction.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="DeckManager.h" />
     <ClInclude Include="DefaultParticleSystem.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
@@ -262,7 +266,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>

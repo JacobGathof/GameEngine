@@ -32,6 +32,10 @@ void Application::run()
 	room->setTerrainMap("Clearing");
 	room->loadObjects(std::string("ObjectMaps/Clearing"));
 
+	CardManager::init();
+	DeckManager::init();
+
+
 	//Begin Init Room 1
 	/*
 	room.addHitbox(Vector2f(1000, -400), Vector2f(2600, 1400));
@@ -91,7 +95,7 @@ void Application::run()
 
 
 	melody.addEffect(sys);
-
+	melody.giveDeck(DeckManager::getDeck(Decks::TEST));
 
 
 	GameTimer timer;

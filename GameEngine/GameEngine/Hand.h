@@ -14,12 +14,13 @@ public:
 
 	void increaseHandSize(int i);
 	void setHandSize(int i);
-	Card getCard(int i);
-	Card removeCard(int i);
-	bool addCard(Card &card);
+	Card * getCard(int i);
+	Card * removeCard(int i);
+	bool addCard(Card *card);
+	std::ostream& operator<<(std::ostream &os);
 	
 private:
-	List<Card> hand;
+	List<Card *> hand;
 	int maxSize = DEFAULT_HAND_SIZE;
 };
 

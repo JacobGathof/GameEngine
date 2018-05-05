@@ -37,13 +37,9 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	pos = player->pos;
 	enemy = enemyObj;
 	enemy->persistent = true;
-	std::cout << "Getting Room" << std::endl;
 	Room * room = World::getInstance()->getRoom(std::string("Room 2"));
-	if (room == nullptr) {
-		std::cout << "Null Pointer" << std::endl;
-	}
+	
 	World::getInstance()->transition(room);
-	std::cout << "Got Room" << std::endl;
 
 	player->pos = playerPos;
 	enemyObj ->pos = enemyPos;
@@ -55,9 +51,16 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	player->setAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
 	playerAI = player->defaultAI;
 	ai = new PlayerCombatAI();
+	ai->enemy = enemy;
 	player->defaultAI = ai;
 	Input::ai = ai;
 	battleState = BATTLESTARTED;
+
+	//enemy->shuffle();
+	//enemy->drawCards(5);
+
+	player->shuffle();
+	player->drawCards(5);
 }
 
 void BattleManager::endBattle()

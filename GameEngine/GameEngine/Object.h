@@ -21,6 +21,7 @@ public:
 	bool isStatic = false;
 	Vector2f pos;
 	Vector2f scale;
+	Vector2f forward = Vector2f(0, -1);
 	TextureType texture;
 	bool alive = true;
 	List<Effect *> effects;
