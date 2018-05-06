@@ -28,6 +28,7 @@ class TextureTypeT{
 enum class TextureType {
 	TEXTURE_DEFAULT,
 	TEXTURE_TEST,
+	TEXTURE_TEST_2,
 
 	TEXTURE_MELODY,
 	TEXTURE_MELODY_BOOK,
@@ -72,6 +73,9 @@ enum class TextureType {
 	ZH_WATER_GLASS,
 	ZH_BREAD_BASKET,
 	ZH_CANDLE_POST,
+
+
+	TS_TILESET,
 
 };
 

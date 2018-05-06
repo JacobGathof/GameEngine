@@ -25,7 +25,7 @@ void main(){
 	vec4 totalLight = ( vec4(.22,.33,.46,0) + lights_color);
 
 	//finalColor = finalColor * vec4(.55,.45,.40,1);
-	finalColor = finalColor * totalLight;
+	//finalColor = finalColor * totalLight;
 
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 

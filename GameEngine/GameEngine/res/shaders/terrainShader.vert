@@ -11,13 +11,10 @@ uniform vec2 scale;
 uniform vec2 camera_translate;
 uniform vec2 camera_scale;
 
-uniform int rows;
-uniform int columns;
-uniform int currentRow;
-uniform int currentColumn;
+out vec2 fragCoord;
 
 void main(){
-	uv = (texCoords + vec2(currentColumn, currentRow)) / vec2(columns, rows);
-	//uv = texCoords;
-	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	uv = texCoords;
+	fragCoord = position*(scale*camera_scale)+((translate-camera_translate)*camera_scale);
+	gl_Position = vec4(position*2,0,1);
 }
