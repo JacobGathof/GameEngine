@@ -91,7 +91,7 @@ void Application::run()
 		Input::processInput(dt);
 		UIManager::update(dt);
 
-		graph.update(dt);
+		//graph.update(dt);
 		world->update(dt);
 		Screen::update(dt);
 
