@@ -12,12 +12,16 @@ Keyboard::Keyboard()
 	virtualMap[VirtualKey::INTERACT] = GLFW_KEY_E;
 	virtualMap[VirtualKey::SKILL_1] = GLFW_KEY_1;
 	virtualMap[VirtualKey::SKILL_2] = GLFW_KEY_2;
+	virtualMap[VirtualKey::SKILL_3] = GLFW_KEY_3;
+	virtualMap[VirtualKey::SKILL_4] = GLFW_KEY_4;
+	virtualMap[VirtualKey::SKILL_5] = GLFW_KEY_5;
 	virtualMap[VirtualKey::ARROW_UP] = GLFW_KEY_UP;
 	virtualMap[VirtualKey::ARROW_DOWN] = GLFW_KEY_DOWN;
 	virtualMap[VirtualKey::ARROW_LEFT] = GLFW_KEY_LEFT;
 	virtualMap[VirtualKey::ARROW_RIGHT] = GLFW_KEY_RIGHT;
+	virtualMap[VirtualKey::DODGE] = GLFW_KEY_SPACE;
 
-
+	
 	nameMap[VirtualKey::UP] = "Up";
 	nameMap[VirtualKey::DOWN] = "Down";
 	nameMap[VirtualKey::LEFT] = "Left";
@@ -25,6 +29,10 @@ Keyboard::Keyboard()
 	nameMap[VirtualKey::INTERACT] = "Interact";
 	nameMap[VirtualKey::SKILL_1] = "Skill 1";
 	nameMap[VirtualKey::SKILL_2] = "Skill 2";
+	nameMap[VirtualKey::SKILL_3] = "Skill 3";
+	nameMap[VirtualKey::SKILL_4] = "Skill 4";
+	nameMap[VirtualKey::SKILL_5] = "Skill 5";
+	nameMap[VirtualKey::DODGE] = "Dodge";
 
 }
 

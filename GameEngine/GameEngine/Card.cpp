@@ -20,6 +20,7 @@ int Card::update(int delta_time)
 
 LivingAi * Card::use()
 {
+	std::cout << "Using Card: " << this->getName() << std::endl;
 	return ai;
 }
 

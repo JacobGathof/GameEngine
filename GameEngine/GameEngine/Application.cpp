@@ -8,6 +8,7 @@
 #include "Room.h"
 #include "ShadowMap.h"
 #include "InteractionObject.h"
+#include "BattleManager.h"
 
 Application::Application(){}
 Application::~Application(){}
@@ -32,6 +33,8 @@ void Application::run()
 	Inventory inv;
 	GameState::inv = &inv;
 
+	DeckManager::init();
+	CardManager::init();
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -51,7 +54,7 @@ void Application::run()
 
 	//melody.addEffect(sys);
 
-
+	
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
@@ -69,6 +72,7 @@ void Application::run()
 	//Window::close();
 	
 	Object * melody = world->getObject(std::string("Player"));
+	
 	melody->weight = Weight::GHOST;
 	Screen::setTargetPosition(&melody->pos);
 	Screen::setMovementBehavior(Screen::followBehavior);

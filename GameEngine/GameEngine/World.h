@@ -7,6 +7,8 @@
 class Room;
 class Object;
 
+#include "GameState.h"
+#include "BattleManager.h"
 class World
 {
 public:

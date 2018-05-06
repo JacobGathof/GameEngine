@@ -17,11 +17,15 @@ enum class VirtualKey {
 	RIGHT,
 	SKILL_1,
 	SKILL_2,
+	SKILL_3,
+	SKILL_4,
+	SKILL_5,
 	INTERACT,
 	ARROW_UP,
 	ARROW_DOWN,
 	ARROW_LEFT,
 	ARROW_RIGHT,
+	DODGE,
 };
 
 class Keyboard

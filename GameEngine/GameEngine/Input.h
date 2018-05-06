@@ -1,9 +1,13 @@
 #pragma once
 #include <map>
 #include <vector>
+#include "List.h"
 #include "PlayerAI.h"
+#include "UIManager.h"
 #include "Mouse.h"
 #include "Keyboard.h"
+
+class PlayerAI;
 
 class Input
 {

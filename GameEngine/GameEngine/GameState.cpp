@@ -1,4 +1,6 @@
 #include "GameState.h"
+#include "Inventory.h"
+#include "BattleManager.h"
 
 std::string GameState::globalDebug;
 float GameState::sliderValue;
@@ -10,6 +12,7 @@ int GameState::choicePointer;
 Inventory* GameState::inv;
 
 Graph* GameState::graph;
+BattleManager GameState::battleManager;
 
 GameState::GameState()
 {

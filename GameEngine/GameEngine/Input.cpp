@@ -1,6 +1,8 @@
 #include "Input.h"
 #include "Window.h"
 #include "UIManager.h"
+#include "PlayerAI.h"
+
 
 Mouse Input::mouse;
 Keyboard Input::keyboard;
@@ -30,8 +32,10 @@ void Input::processInput(float dt) {
 		UIManager::toggleMenu();
 	}
 
-	UIManager::handleMouseEvents(mouse);
-	UIManager::handleKeyboardEvents(keyboard);
+	if (GameState::battleManager.battleState == NOBATTLE) {
+		UIManager::handleMouseEvents(mouse);
+		UIManager::handleKeyboardEvents(keyboard);
+	}
 
 	ai->receiveInput(keyboard);
 

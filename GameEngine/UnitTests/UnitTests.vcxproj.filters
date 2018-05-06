@@ -42,6 +42,9 @@
     <ClInclude Include="ComplexPolygonTestObj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -88,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="ShapeTests.cpp">
       <Filter>Source Files\Object Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomTests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
