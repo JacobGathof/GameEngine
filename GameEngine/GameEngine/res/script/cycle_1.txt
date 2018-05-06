@@ -43,7 +43,7 @@
 	<actions>
 		<fade color="0x00000000" time="1.0" dir="out"/>
 		<moveObject name="Player" x="-920" y="940" speed="10000"/>
-
+		<create object="Echo" x="-900" y="900"/>
 		<room name="Clearing"/>
 		<setScreenPos x="-920" y="940"/>
 		<fade color="0x00000000" time="1.0" dir="in"/>

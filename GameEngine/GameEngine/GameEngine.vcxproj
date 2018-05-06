@@ -105,6 +105,7 @@
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SoundEntity.cpp" />
     <ClCompile Include="SoundScheduler.cpp" />
+    <ClCompile Include="SpawnAction.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
     <ClCompile Include="TextAction.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SoundEntity.h" />
     <ClInclude Include="SoundScheduler.h" />
+    <ClInclude Include="SpawnAction.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="TerrainMap.h" />
     <ClInclude Include="TextAction.h" />

@@ -35,10 +35,12 @@ public:
 	Room * getRoom(std::string& name);
 	void addRoom(std::string& name, Room * room);
 	Room * getCurrentRoom();
+	void addObject(Object * obj);
 
 private:
 	World();
 	static std::map<std::string, Room *> rooms;
+	std::map<std::string, Object *> objects;
 
 	static World *inst;
 	Room * currentRoom;

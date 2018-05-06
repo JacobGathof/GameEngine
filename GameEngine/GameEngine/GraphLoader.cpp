@@ -206,13 +206,20 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 				act = new NonBlockingMove(name, Vector2f(x, y));
 			}
 		}
-		
 	}
 	
 	else if (cmd == "wait") {
 		char* time = inst->first_attribute("time")->value();
 		float t = (float)std::atof(time);
 		act = new WaitAction(t);
+	}
+	else if (cmd == "create") {
+		std::string name = inst->first_attribute("object")->value();
+		char * xStr = inst->first_attribute("x")->value();
+		char * yStr = inst->first_attribute("y")->value();
+		float x = std::atof(xStr);
+		float y = std::atof(yStr);
+		act = new SpawnAction(name, Vector2f(x,y));
 	}
 
 	if (act != 0) {

@@ -7,7 +7,9 @@ std::map<std::string, Room *> World::rooms;
 
 World::World(){}
 World::~World(){
-	
+	for (auto pair : objects) {
+		delete pair.second;
+	}
 }
 
 
@@ -118,14 +120,25 @@ Room * World::getRoom(std::string & name)
 void World::addRoom(std::string & name, Room * room)
 {
 	rooms.emplace(std::pair<std::string, Room *>(name, room));
+	for (Object * obj : room->getObjects()) {
+		objects[obj->name] = obj;
+	}
 }
 
 Object * World::getObject(std::string& name)
 {
-	return currentRoom->getObject(name);
+	return objects.at(name);
 }
 
 Room * World::getCurrentRoom()
 {
 	return currentRoom;
+}
+
+void World::addObject(Object * obj)
+{
+	if (currentRoom != nullptr) {
+		currentRoom->addObject(obj);
+	}
+	objects[obj->name] = obj;
 }

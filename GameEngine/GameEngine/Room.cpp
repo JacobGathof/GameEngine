@@ -11,6 +11,7 @@ Room::Room()
 
 Room::~Room()
 {
+	/*
 	if (objects.size() > 0) {
 		for (Object * o : objects) {
 			if (o != nullptr) {
@@ -25,6 +26,7 @@ Room::~Room()
 			}
 		}
 	}
+	*/
 	if (collisionObject != nullptr) {
 		delete collisionObject;
 	}

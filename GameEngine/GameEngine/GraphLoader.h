@@ -17,6 +17,7 @@
 #include "QuoteAction.h"
 #include "RoomChangeAction.h"
 #include "ScreenFollowAction.h"
+#include "SpawnAction.h"
 
 #include "rapidxml.hpp"
 
