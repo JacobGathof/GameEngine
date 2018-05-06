@@ -127,6 +127,12 @@
     <Filter Include="Source Files\Utilities\Hitbox">
       <UniqueIdentifier>{83b5f09e-3170-485f-890e-13af2ffe1c68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interaction">
+      <UniqueIdentifier>{df47b42e-b1af-498f-a920-c55f82771e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interaction">
+      <UniqueIdentifier>{aca92c8a-b3ca-457b-a670-36c314cc63a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -444,9 +450,6 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="CardManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyStatusbar.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -471,9 +474,6 @@
     <ClCompile Include="ShadowMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FilesAndStrings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="QuoteBanner.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -486,47 +486,53 @@
     <ClCompile Include="QuoteAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="InputTextArea.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractionObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Chest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RoomFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerCombatAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BattleManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeckManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RoomFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractAction.cpp">
+      <Filter>Source Files\Scripting\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonAction.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CardManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Chest.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DeckManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesAndStrings.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="InputTextArea.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractionObject.cpp">
+      <Filter>Source Files\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCombatAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomFactory.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
     <ClCompile Include="ScreenFollowAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="SpawnAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -848,9 +854,6 @@
     <ClInclude Include="IManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="CardManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceType.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -881,9 +884,6 @@
     <ClInclude Include="ShadowMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FilesAndStrings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="QuoteBanner.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -896,47 +896,53 @@
     <ClInclude Include="QuoteAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="InputTextArea.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractionObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ButtonAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RoomFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerCombatAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BattleManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CardManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeckManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RoomFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AbstractAction.h">
+      <Filter>Header Files\Scripting\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonAction.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CardManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Chest.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DeckManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesAndStrings.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="InputTextArea.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractionObject.h">
+      <Filter>Header Files\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCombatAI.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomFactory.h">
+      <Filter>Header Files\World</Filter>
+    </ClInclude>
     <ClInclude Include="ScreenFollowAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="SpawnAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
