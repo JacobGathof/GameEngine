@@ -279,9 +279,6 @@
     <ClCompile Include="Screen.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
-    <ClCompile Include="Callbacks.cpp">
-      <Filter>Source Files\General</Filter>
-    </ClCompile>
     <ClCompile Include="AbstractUIComponent.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -676,9 +673,6 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Utilities\Timers</Filter>
-    </ClInclude>
-    <ClInclude Include="Callbacks.h">
-      <Filter>Header Files\General</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files\General</Filter>

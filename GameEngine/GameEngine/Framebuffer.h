@@ -15,5 +15,7 @@ private:
 	GLuint fbo;
 	GLuint tbo;
 	GLuint rbo;
+
+	int width, height;
 };
 

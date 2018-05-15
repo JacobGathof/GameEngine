@@ -1,6 +1,5 @@
 #include "Text.h"
-
-#include "Window.h"
+#include "ResourceManager.h"
 
 float Text::POS_SCALE = 512.0f / 97.0f;
 

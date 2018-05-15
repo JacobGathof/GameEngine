@@ -6,7 +6,6 @@
 #include "FastParticleSystem.h"
 #include "SaveUtilities.h"
 #include "Room.h"
-#include "ShadowMap.h"
 #include "InteractionObject.h"
 #include "BattleManager.h"
 
@@ -63,8 +62,6 @@ void Application::run()
 	
 	Graph graph;
 	GameState::graph = &graph;
-
-	ShadowMap map;
 
 	float dt;
 

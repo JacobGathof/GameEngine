@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "Input.h"
 
 GLFWwindow* Window::window;
 int Window::WINDOW_HEIGHT = 0;
@@ -126,19 +127,19 @@ void Window::setMaximize(bool m)
 void Window::toggleFullscreen()
 {
 	if (!fullscreen) {
-		fullscreen = true;
 		glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 		glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 	}
 	else {
-		fullscreen = false;
 		if (Window::WINDOW_X == 0 || Window::WINDOW_Y == 0) {
 			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		}
 		glfwSetWindowMonitor(window, NULL, WINDOW_X, WINDOW_Y, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
 	}
+
+	fullscreen = !fullscreen;
 }
 
 void Window::setSize(int width, int height)
@@ -148,4 +149,43 @@ void Window::setSize(int width, int height)
 		WINDOW_HEIGHT = height;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+void Window::Callbacks::CursorPosCallback(GLFWwindow * window, double xpos, double ypos) {
+	Input::feedMousePosition(Screen::fromScreenToUISpace(Vector2f((float)xpos, (float)ypos)));
+}
+
+void Window::Callbacks::KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {
+	Input::feedKey(key, action);
+}
+
+void Window::Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int mods) {
+	Input::feedMouseEvent(button, action);
+}
+
+void Window::Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
+	if (Window::isInitialized()) {
+		glViewport(0, 0, width, height);
+		Screen::updateRes((float)width, (float)height);
+		Window::setSize(width, height);
+	}
+}
+
+void Window::Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {
+	Screen::updateScroll((float)yoffset / 200.0f);
+}
+
+void Window::Callbacks::WindowPosCallback(GLFWwindow * window, int x, int y)
+{
+}
+
+
 

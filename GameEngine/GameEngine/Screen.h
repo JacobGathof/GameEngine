@@ -38,5 +38,6 @@ private:
 	static float scrollMultiplier;
 	static Vector2f* target;
 	static void(*behaviorPtr)(float dt);
+
 };
 

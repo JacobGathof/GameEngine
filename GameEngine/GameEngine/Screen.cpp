@@ -1,9 +1,11 @@
 #include "Screen.h"
 #include "UIManager.h"
 
+#define SCALE_FACTOR 1
+
 float Screen::width = 800;
 float Screen::height = 800;
-float Screen::scrollMultiplier = 1.0f;
+float Screen::scrollMultiplier = 1.0f*SCALE_FACTOR;
 Vector2f Screen::offset;
 Color Screen::screenColor;
 float Screen::screenColorPercent;
@@ -19,10 +21,10 @@ Screen::~Screen(){}
 void Screen::init(){}
 
 void Screen::updateRes(float x, float y){
-	width = x;
-	height = y;
-	Res::updateFramebufferSizes(x,y);
-	UIManager::resize(x, y);
+	width = x/ SCALE_FACTOR;
+	height = y/ SCALE_FACTOR;
+	Res::updateFramebufferSizes(x / SCALE_FACTOR, y / SCALE_FACTOR);
+	UIManager::resize(x / SCALE_FACTOR, y / SCALE_FACTOR);
 }
 
 void Screen::updateScroll(float f){
