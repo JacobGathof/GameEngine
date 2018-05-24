@@ -4,23 +4,13 @@
 #include "Deck.h"
 
 
-enum class Decks {
-	TEST,
-};
 
-class DeckManager
+class DeckManager : public IManager<Deck, DeckType>
 {
 public:
-	DeckManager();
-	~DeckManager();
-
-	static void init();
-	static Deck * getDeck(Decks deck);
-	static void clean();
+	virtual void init();
 
 private:
-
-	static std::map<Decks, Deck *> decks;
-	static void addDeck(Decks d, Deck * deck);
+	void addDeck(DeckType d, Deck * deck);
 };
 

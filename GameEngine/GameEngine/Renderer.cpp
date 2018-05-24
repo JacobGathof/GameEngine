@@ -43,9 +43,10 @@ void Renderer::draw()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	buf = Res::get(FramebufferType::LIGHT_BUFFER);
 	buf->bind();
+	glClearColor(.5, .5, .5, .5);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawLights();
-	
+	glClearColor(0,0,0,0);
 
 
 	glBlendFunc(GL_ONE, GL_ZERO);

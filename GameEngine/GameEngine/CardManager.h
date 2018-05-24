@@ -1,36 +1,15 @@
 #pragma once
 #include "Card.h"
+#include "IManager.h"
+#include "ResourceType.h"
 
 
-enum class CardType {
-	FIREBALL,
-	ICECYCLE,
-	UNLIMITED_WATERWORKS,
-	SHOCK,
-	LIGHTNING,
-	STORM,
-	SHADOW_STEP,
-	PLANE_WALK,
-	TRANSMISSION,
-	MOONLIGHT,
-	TWILIGHT,
-	DAWN,
-	EXCALIBUR,
-	BOULDER
-};
-
-class CardManager
+class CardManager : public IManager<Card, CardType>
 {
 public:
-	CardManager();
-	~CardManager();
-
-	static void init();
-	static Card * get(CardType name);
-	static void clean();
+	virtual void init();
 
 private:
-	static std::map<CardType, Card *> dictionary;
 
-	static void addCard(CardType name, Card * card);
+	void addCard(CardType name, Card * card);
 };

@@ -17,15 +17,16 @@ void main(){
 	vec4 ui_color = texture(ui, uv);
 	vec4 world_color = texture(world, uv);
 	vec4 particles_color = texture(particles, uv);
-	vec4 lights_color = texture(lights, uv);
+	vec4 lights_color = texture(lights, uv) * 2 - 1;
 
 	vec4 finalColor = vec4(0,0,0,1);
 	finalColor = world_color;
 
-	vec4 totalLight = ( vec4(.22,.33,.46,0) + lights_color);
-
+	//vec4 totalLight = ( vec4(.22,.33,.46,0) + lights_color);
+	vec4 totalLight = lights_color;
+	
 	//finalColor = finalColor * vec4(.55,.45,.40,1);
-	//finalColor = finalColor * totalLight;
+	//finalColor = finalColor + .75*totalLight;
 
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 

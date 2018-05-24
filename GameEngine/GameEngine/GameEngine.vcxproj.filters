@@ -468,9 +468,6 @@
     <ClCompile Include="AudioManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="ShadowMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="QuoteBanner.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -482,9 +479,6 @@
     </ClCompile>
     <ClCompile Include="QuoteAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="CardManager.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RoomFactory.cpp">
       <Filter>Source Files</Filter>
@@ -533,6 +527,9 @@
     </ClCompile>
     <ClCompile Include="Path.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CardManager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -877,9 +874,6 @@
     </ClInclude>
     <ClInclude Include="AudioManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="ShadowMap.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QuoteBanner.h">
       <Filter>Header Files\UI</Filter>

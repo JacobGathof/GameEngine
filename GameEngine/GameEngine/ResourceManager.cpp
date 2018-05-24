@@ -7,6 +7,7 @@ ShaderManager* Res::shaderManager;
 TextureManager* Res::textureManager;
 FramebufferManager* Res::frameManager;
 AudioManager* Res::soundManager;
+DeckManager* Res::deckManager;
 
 void ResourceManager::init()
 {
@@ -17,8 +18,10 @@ void ResourceManager::init()
 	textureManager = new TextureManager();
 	frameManager = new FramebufferManager();
 	soundManager = new AudioManager();
+	deckManager = new DeckManager();
 	
 	cardManager->init();
+	deckManager->init();
 	fontManager->init();
 	modelManager->init();
 	shaderManager->init();
@@ -36,7 +39,9 @@ void ResourceManager::clean()
 	textureManager->clean();
 	frameManager->clean();
 	soundManager->clean();
+	deckManager->clean();
 
+	delete deckManager;
 	delete fontManager;
 	delete cardManager;
 	delete modelManager;
@@ -83,4 +88,9 @@ Framebuffer * ResourceManager::get(FramebufferType type){
 
 Card * ResourceManager::get(CardType type){
 	return cardManager->get(type);
+}
+
+Deck * ResourceManager::get(DeckType deck)
+{
+	return deckManager->get(deck);
 }

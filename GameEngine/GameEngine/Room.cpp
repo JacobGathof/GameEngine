@@ -108,9 +108,12 @@ void Room::drawLights()
 	for (int i = 0; i < 5; i++) {
 		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 		p->bind();
-		p->loadVector2f("translate", Vector2f(0,1024*i));
+		p->loadVector2f("translate", Vector2f(0,512*i));
 		p->loadVector2f("scale", Vector2f(512, 512));
-		p->loadColor("color", Color::Orange);
+		p->loadColor("color", Color::White);
+		if (i == 1) {
+			p->loadColor("color", Color::Black);
+		}
 		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 		m->bind();
 

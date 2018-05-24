@@ -27,7 +27,7 @@ private:
 	float barPadding = 4;
 	float gap = 4;
 
-	float offsetX = 16;
+	float offsetX = 16+100;
 	float offsetY = 16;
 	float height = 800;
 	float width = 800;

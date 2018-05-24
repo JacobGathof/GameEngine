@@ -6,6 +6,7 @@
 #include "ShaderManager.h"
 #include "CardManager.h"
 #include "AudioManager.h"
+#include "DeckManager.h"
 
 class ResourceManager
 {
@@ -18,6 +19,7 @@ public:
 	static SpriteSheet* get(TextureType type);
 	static Framebuffer* get(FramebufferType type);
 	static Card* get(CardType type);
+	static Deck* get(DeckType deck);
 	static Font* get(FontType type);
 	static Model* get(ModelType type);
 	static SoundEntity* get(AudioType type);
@@ -34,6 +36,7 @@ private:
 	static TextureManager* textureManager;
 	static FramebufferManager* frameManager;
 	static AudioManager* soundManager;
+	static DeckManager* deckManager;
 
 };
 

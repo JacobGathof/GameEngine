@@ -36,7 +36,7 @@ void RoomFactory::ReadingRoom()
 	Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 100), Vector2f(0, 0));
 	melody->addHitbox(circ);
-	melody->giveDeck(DeckManager::getDeck(Decks::TEST));
+	melody->giveDeck(Res::get(DeckType::TEST));
 	GameState::battleManager = BattleManager(melody);
 	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
 	structure->addHitbox(circ2);

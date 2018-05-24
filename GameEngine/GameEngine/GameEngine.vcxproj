@@ -100,7 +100,6 @@
     <ClCompile Include="ScreenFadeAction.cpp" />
     <ClCompile Include="SetAction.cpp" />
     <ClCompile Include="SettingsPage.cpp" />
-    <ClCompile Include="ShadowMap.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SoundEntity.cpp" />
@@ -236,7 +235,6 @@
     <ClInclude Include="ScreenFadeAction.h" />
     <ClInclude Include="SetAction.h" />
     <ClInclude Include="SettingsPage.h" />
-    <ClInclude Include="ShadowMap.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SoundEntity.h" />

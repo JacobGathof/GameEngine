@@ -40,6 +40,8 @@ void UIManager::init()
 	quoteBanner = new QuoteBanner();
 	statusbar = new Statusbar();
 	enemyStatus = new EnemyStatusbar();
+
+	statusbar->setVisible(true);
 }
 
 void UIManager::clean()

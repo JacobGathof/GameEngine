@@ -1,16 +1,5 @@
 #include "CardManager.h"
 
-std::map<CardType, Card *> CardManager::dictionary;
-
-CardManager::CardManager()
-{
-}
-
-
-CardManager::~CardManager()
-{
-	
-}
 
 void CardManager::init()
 {
@@ -30,19 +19,7 @@ void CardManager::init()
 	addCard(CardType::UNLIMITED_WATERWORKS, new Card("Unlimited Waterworks", "Fire", nullptr));
 }
 
-Card * CardManager::get(CardType name)
-{
-	return dictionary.at(name);
-}
-
-void CardManager::clean()
-{
-	for (auto pair : dictionary) {
-		delete pair.second;
-	}
-}
-
 void CardManager::addCard(CardType name, Card * card)
 {
-	dictionary[name] = card;
+	elements[name] = card;
 }

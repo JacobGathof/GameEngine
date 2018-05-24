@@ -109,3 +109,25 @@ enum class AudioType {
 
 	SONG_FMAB_AGAIN,
 };
+
+
+enum class CardType {
+	FIREBALL,
+	ICECYCLE,
+	UNLIMITED_WATERWORKS,
+	SHOCK,
+	LIGHTNING,
+	STORM,
+	SHADOW_STEP,
+	PLANE_WALK,
+	TRANSMISSION,
+	MOONLIGHT,
+	TWILIGHT,
+	DAWN,
+	EXCALIBUR,
+	BOULDER
+};
+
+enum class DeckType {
+	TEST,
+};

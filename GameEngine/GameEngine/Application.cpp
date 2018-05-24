@@ -9,6 +9,9 @@
 #include "InteractionObject.h"
 #include "BattleManager.h"
 
+#include <thread>
+#include <chrono>
+
 Application::Application(){}
 Application::~Application(){}
 
@@ -31,9 +34,6 @@ void Application::run()
 
 	Inventory inv;
 	GameState::inv = &inv;
-
-	DeckManager::init();
-	CardManager::init();
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -73,15 +73,21 @@ void Application::run()
 	melody->weight = Weight::GHOST;
 	Screen::setTargetPosition(&melody->pos);
 	Screen::setMovementBehavior(Screen::followBehavior);
+
+	dt = 1.0f / 60.0f;
 	
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 		timer.update();
-		//dt = timer.getDeltaTime();
-		dt = 1.0f / 60.0f;
+
+		//float f = timer.getDeltaTime();
+
+		//std::this_thread::sleep_for(std::chrono::microseconds(int(1000000*(dt-f))));
 		
-		
+		//f = timer.getDeltaTime();
+		//std::cout << f << std::endl;
+
 		//Screen::follow(Vector2f(-1250, 1200));
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 

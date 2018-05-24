@@ -48,7 +48,7 @@ Framebuffer::~Framebuffer(){
 
 void Framebuffer::bind()
 {
-	glViewport(0, 0, width, height);
+	//glViewport(0, 0, width, height);
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 }
 
@@ -62,11 +62,6 @@ void Framebuffer::updateSize(int x, int y)
 {
 	width = x;
 	height = y;
-
-	if (fbo == 0) {
-		width = Window::WINDOW_WIDTH;
-		height = Window::WINDOW_HEIGHT;
-	}
 
 	glBindTexture(GL_TEXTURE_2D, tbo);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
