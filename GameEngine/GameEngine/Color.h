@@ -35,6 +35,7 @@ public:
 	static Color Red, Orange, Yellow, Green, Blue, Purple, Black, White, Clear, HalfClear;
 	static Color LightRed, LightOrange, LightYellow, LightGreen, LightBlue, LightPurple;
 	static Color DarkRed, DarkOrange, DarkYellow, DarkGreen, DarkBlue, DarkPurple;
+	static Color LightGray, Gray, DarkGray;
 };
 
 

@@ -42,6 +42,8 @@ void UIManager::init()
 	enemyStatus = new EnemyStatusbar();
 
 	statusbar->setVisible(true);
+	menu->setVisible(true);
+	textbox->addTextToQueue(std::string("Hello world"));
 }
 
 void UIManager::clean()

@@ -9,6 +9,7 @@ private:
 public:
 	Vector2f();
 	Vector2f(float v1, float v2);
+	Vector2f(float v1);
 	Vector2f(const Vector2f &v);
 	Vector2f(float* v);
 

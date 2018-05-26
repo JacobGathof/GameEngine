@@ -6,7 +6,6 @@
 
 Menu::Menu()
 {
-
 	position = basePos;
 	scale = baseScale;
 
@@ -14,8 +13,8 @@ Menu::Menu()
 	cardsPage = new CardsPage();
 
 	activeComponent = settings;
-	tabs.add(MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(150,50)));
-	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(270, 650), Vector2f(150, 50)));
+	tabs.add(MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(75,25)));
+	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(270, 650), Vector2f(75, 25)));
 }
 
 Menu::~Menu()
@@ -55,8 +54,6 @@ void Menu::resize(int x, int y)
 	settings->resize(x, y);
 	cardsPage->resize(x, y);
 
-	position[0] = x / 2 - scale[0]/2;
-	position[1] = 2*y / 4 - 3*scale[1] / 8;
 }
 
 void Menu::handleMouseEvents(Mouse & mouse)
@@ -105,8 +102,8 @@ MenuTab::~MenuTab()
 
 void MenuTab::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color::Red);
-	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::LightRed);
+	UIUtils::drawRectangle(position, scale, Color::DarkGray);
+	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::LightGray);
 	tabText->draw();
 }
 

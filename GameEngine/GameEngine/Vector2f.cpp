@@ -12,6 +12,12 @@ Vector2f::Vector2f(float v1, float v2) {
 	data[1] = v2;
 }
 
+Vector2f::Vector2f(float v1)
+{
+	data[0] = v1;
+	data[1] = v1;
+}
+
 Vector2f::Vector2f(const Vector2f &v) {
 	data[0] = v[0];
 	data[1] = v[1];

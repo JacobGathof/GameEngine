@@ -179,4 +179,7 @@ Color Color::LightGreen(0x88ff88ff);
 Color Color::LightBlue(0x8888ffff);
 Color Color::LightPurple(0xff88ffff);
 
+Color Color::LightGray(0x444444ff);
+Color Color::Gray(0x888888ff);
+Color Color::DarkGray(0xccccccff);
 

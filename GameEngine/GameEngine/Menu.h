@@ -53,15 +53,13 @@ private:
 	CardsPage * cardsPage;
 	SettingsPage * settings;
 
-	bool visible = false;
-
 	Vector2f tab_o = Vector2f(100, 0);
 	Vector2f tab_s = Vector2f(100, 100);
 	Vector2f tab_area = Vector2f(100, 600);
 
 
-	Vector2f basePos = Vector2f(100, 100);
-	Vector2f baseScale = Vector2f(600, 600);
+	Vector2f basePos =Vector2f(100, 250);
+	Vector2f baseScale = Vector2f(600, 400);
 
 
 	List<MenuTab> tabs;
