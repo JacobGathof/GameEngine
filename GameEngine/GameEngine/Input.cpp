@@ -39,6 +39,8 @@ void Input::processInput(float dt) {
 
 	ai->receiveInput(keyboard);
 
+	Screen::updateScroll((float)mouse.getScroll() / 200.0f);
+
 	mouse.update();
 	keyboard.update();
 
@@ -61,6 +63,11 @@ void Input::feedMousePosition(Vector2f & pos){
 
 void Input::feedMouseEvent(int button, int action){
 	mouse.setButton(button, action);
+}
+
+void Input::feedMouseScroll(int scroll)
+{
+	mouse.setScroll(scroll);
 }
 
 

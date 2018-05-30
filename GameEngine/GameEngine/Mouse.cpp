@@ -38,6 +38,11 @@ void Mouse::setPosition(Vector2f & p)
 	position = p;
 }
 
+void Mouse::setScroll(int i)
+{
+	scroll = i;
+}
+
 void Mouse::update()
 {
 	while (!clicked.empty()) {
@@ -49,6 +54,8 @@ void Mouse::update()
 		mouseButtons[released.front()] = MouseState::UP;
 		released.pop();
 	}
+
+	scroll = 0;
 }
 
 bool Mouse::down(int i)
@@ -69,5 +76,10 @@ bool Mouse::click(int i)
 bool Mouse::release(int i)
 {
 	return mouseButtons[i] == MouseState::RELEASE;
+}
+
+int Mouse::getScroll()
+{
+	return scroll;
 }
 

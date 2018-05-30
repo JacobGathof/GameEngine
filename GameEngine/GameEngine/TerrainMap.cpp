@@ -1,6 +1,6 @@
 #include "TerrainMap.h"
 
-
+#include "Window.h"
 
 TerrainMap::TerrainMap()
 {
@@ -23,6 +23,8 @@ void TerrainMap::draw(){
 
 	shader->loadInteger("tileset", 0);
 	shader->loadInteger("terrain", 1);
+	shader->loadVector2f("scale", Vector2f(0, 0));
+	shader->loadVector2f("translate", Vector2f(0, 0));
 
 	Res::get(TextureType::TS_TILESET)->bind(0);
 	Res::get(TextureType::TEXTURE_TEST)->bind(1);

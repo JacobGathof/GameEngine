@@ -71,3 +71,8 @@ void Deck::discardCard(Card * card)
 	discard.add(card);
 }
 
+List<Card*>& Deck::getAllCards()
+{
+	return deck;
+}
+

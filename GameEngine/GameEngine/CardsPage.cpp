@@ -6,9 +6,9 @@
 
 CardsPage::CardsPage()
 {
-	cardName = new Text(Vector2f(0, 0), std::string(""), Vector2f(0, 0), 0);
-	cardDesc = new Text(Vector2f(0, 0), std::string(""), Vector2f(0, 0), 0);
-
+	cardName = new Text(Vector2f(520, 375), std::string(""), Vector2f(25, 25), 0);
+	cardDesc = new Text(Vector2f(520, 200), std::string(""), Vector2f(20, 20), 0);
+	cardGrid.index = &selectedIndex;
 }
 
 
@@ -20,64 +20,184 @@ CardsPage::~CardsPage()
 
 void CardsPage::draw()
 {
-	UIUtils::drawRectangle(Vector2f(200, 200), Vector2f(200, 400), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(2,2), Vector2f(196, 396), Color(0x000000ff));
-	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000000));
 
-	UIUtils::drawRectangle(Vector2f(420, 200), Vector2f(200, 400), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(420, 200) + Vector2f(2, 2), Vector2f(196, 396), Color(0x000000ff));
-	UIUtils::drawRectangle(Vector2f(420, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000000));
+	/*
+	UIUtils::drawRectangle(Vector2f(200, 200), Vector2f(200, 400), Color(0xffffff88));
+	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(2,2), Vector2f(196, 396), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
+	*/
+	UIUtils::drawRectangle(Vector2f(520, 200), Vector2f(200, 400), Color(0x00ffff88));
+	UIUtils::drawRectangle(Vector2f(520, 200) + Vector2f(2, 2), Vector2f(196, 396), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(520, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
 
-	List<Card*> deck = GameState::inv->getCards();
 
-	for (int i = 0; i < deck.size(); i++) {
-		Card* c = deck[i];
-		int height = 30;
-		int padding = 2;
+	Deck* deck = Res::get(DeckType::TEST);
 
-		UIUtils::drawRectangle(Vector2f(200, 200 - i*(height+padding)+400 - 30) + Vector2f(8, -8), Vector2f(184, height), Color(0x0000ffff));
-		UIUtils::drawImage(Vector2f(200, 200 - i * (height + padding) +400 - 30) + Vector2f(8, -8), Vector2f(height, height), TextureType::CARD_GHOST);
-		std::string str = c->getName();
+	List<Card*> cards = deck->getAllCards();
 
-		Text text(Vector2f(200 + 2*height, 200+400 - 34 - i * (height + padding)), str, Vector2f(20, 20), 0);
-		text.draw();
-	}
+	UIUtils::drawImage(Vector2f(520, 200 + 200) + Vector2f(8, 8), Vector2f(184, 184), cardTexture);
+	cardName->draw();
+	cardDesc->draw();
 
-	UIUtils::drawRectangle(Vector2f(420, 200+200) + Vector2f(8, 8), Vector2f(184, 184), Color(0x000000ff));
 
-	if (selectedCard != 0) {
-		UIUtils::drawRectangle(Vector2f(418, 198) + Vector2f(8, 8), Vector2f(188, 388), Color(0xaaaaffff));
-
-		UIUtils::drawImage(Vector2f(420, 200 + 200) + Vector2f(8, 8), Vector2f(184, 184), TextureType::CARD_ACE, time*2.0f);
-
-		std::string str = selectedCard->getName();
-		str = TextUtils::processString(str, Res::get(FontType::DEFAULT), Vector2f(20, 20), 184);
-
-		Text text(Vector2f(428, 208 + 184 - 20), str, Vector2f(20, 20), 0);
-		text.draw();
-	}
+	cardGrid.draw();
 }
 
 void CardsPage::update(float dt)
 {
-	time += dt;
-}
+	if (lastIndex != selectedIndex) {
 
-void CardsPage::handleMouseEvents(Mouse & mouse)
-{
-	/*
-	for (int i = 0; i < deck.size(); i++) {
-		if (mouse.pos().between(Vector2f(420, 300), Vector2f(500, 400))) {
-			selectedCard = &(deck[0]);
+		if (selectedIndex < Res::get(DeckType::TEST)->getAllCards().size()) {
+			lastIndex = selectedIndex;
+			selectedCard = Res::get(DeckType::TEST)->getAllCards()[selectedIndex];
+
 			cardName->setText(selectedCard->getName());
 			cardDesc->setText(selectedCard->getDescription());
 			cardTexture = selectedCard->getTexture();
 		}
+
 	}
-	*/
+}
+
+void CardsPage::handleMouseEvents(Mouse & mouse)
+{
+	cardGrid.handleMouseEvents(mouse);
 }
 
 void CardsPage::handleKeyEvents(Keyboard & keyboard)
 {
 }
 
+
+
+
+
+
+
+
+CardGrid::CardGrid()
+{
+}
+
+CardGrid::~CardGrid()
+{
+}
+
+void CardGrid::draw()
+{
+	UIUtils::drawRectangle(position, scale, Color(0x00ffff88));
+
+	List<Card*> deck = Res::get(DeckType::TEST)->getAllCards();
+	for (int i = 0; i < deck.size(); i++) {
+
+		int row = i % cards_per_row;
+		int column = i / cards_per_column;
+
+
+		Vector2f pos = position + Vector2f(row, column) * card_box_scale 
+								+ Vector2f((2*row+1)*card_box_gap, (2*column+1)*card_box_gap);
+		Vector2f sc = card_box_scale;
+
+
+		UIUtils::drawRectangle(pos, sc, (i==*index)?Color(0xff00ff88):Color(0x00ffff88));
+		UIUtils::drawRectangle(pos+Vector2f(1), sc-Vector2f(2), Color(0x0000ff88));
+		UIUtils::drawImage(pos + Vector2f(1), sc - Vector2f(2), deck[i]->getTexture());
+
+	}
+
+
+	if (carryIndex >= 0 && carryIndex < deck.size()) {
+		Vector2f sc = card_box_scale - Vector2f(2);
+		Vector2f pos = mousePos - sc / 2;
+		UIUtils::drawImage(pos, sc, deck[carryIndex]->getTexture());
+	}
+
+
+}
+
+void CardGrid::update(float dt)
+{
+}
+
+void CardGrid::handleMouseEvents(Mouse & mouse)
+{
+
+	if (mouse.release()) {
+
+		if (carryIndex != -1) {
+
+			Vector2f pos = mouse.pos();
+			int swapPos = getIndexAtPosition(pos);
+
+
+			if (swapPos != -1) {
+
+			
+				List<Card*>* deck = &Res::get(DeckType::TEST)->getAllCards();
+				deck->swap(carryIndex, swapPos);
+				
+
+			}
+
+		}
+
+	}
+
+
+
+	if (mouse.down()) {
+
+		if (mouse.click()) {
+			Vector2f pos = mouse.pos();
+			carryIndex = getIndexAtPosition(pos);
+		}
+
+
+		mouseDown = true;
+		mousePos = mouse.pos();
+	}
+	else {
+		mouseDown = false;
+		carryIndex = -1;
+	}
+
+	
+
+	if (mouse.click()) {
+		Vector2f pos = mouse.pos();
+
+		int i = getIndexAtPosition(pos);
+
+		if (i != -1) {
+			*index = i;
+		}
+	}
+
+}
+
+void CardGrid::handleKeyEvents(Keyboard & keyboard)
+{
+}
+
+int CardGrid::getIndexAtPosition(Vector2f & pos)
+{
+	int rowClicked = -1;
+	int columnClicked = -1;
+
+	Vector2f tot = card_box_scale + 2 * card_box_gap;
+
+	rowClicked = (int)((pos[1] - position[1]) / tot[1]);
+	columnClicked = (int)((pos[0] - position[0]) / tot[0]);
+
+	if (rowClicked < 0 || columnClicked < 0) {
+		return -1;
+	}
+
+	int index = rowClicked * cards_per_column + columnClicked;
+
+	if (index < 0 || index >= Res::get(DeckType::TEST)->getAllCards().size()) {
+		return -1;
+	}
+
+	return index;
+}

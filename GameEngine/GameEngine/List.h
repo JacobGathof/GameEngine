@@ -101,6 +101,11 @@ public:
 		return *this;
 	}
 
+	void swap(int a, int b) {
+		T temp = data[a];
+		data[a] = data[b];
+		data[b] = temp;
+	}
 
 private:
 	std::vector<T> data;

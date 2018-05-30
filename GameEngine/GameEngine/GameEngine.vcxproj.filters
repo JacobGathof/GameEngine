@@ -267,9 +267,6 @@
     <ClCompile Include="GameTimer.cpp">
       <Filter>Source Files\Utilities\Timers</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="TerrainMap.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>

@@ -9,6 +9,7 @@ class Card : public Item
 {
 public:
 	Card(std::string n, std::string desc, LivingAi * a);
+	Card(std::string n, std::string desc, TextureType tex, LivingAi * a);
 	~Card();
 
 	LivingAi * ai;

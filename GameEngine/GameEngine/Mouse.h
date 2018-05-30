@@ -22,7 +22,7 @@ public:
 	
 	Vector2f& pos();
 	void setPosition(Vector2f& p);
-
+	void setScroll(int i);
 	void update();
 
 	bool down(int i = GLFW_MOUSE_BUTTON_LEFT);
@@ -30,11 +30,14 @@ public:
 	bool click(int i = GLFW_MOUSE_BUTTON_LEFT);
 	bool release(int i = GLFW_MOUSE_BUTTON_LEFT);
 
+	int getScroll();
+
 private:
 	Vector2f position;
 	MouseState mouseButtons[32];
 	std::queue<int> clicked;
 	std::queue<int> released;
+	int scroll;
 
 };
 

@@ -26,6 +26,7 @@ public:
 	static void init();
 	static void feedMousePosition(Vector2f& pos);
 	static void feedMouseEvent(int button, int action);
+	static void feedMouseScroll(int scroll);
 	
 
 private:

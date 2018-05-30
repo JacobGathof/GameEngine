@@ -185,7 +185,7 @@ void Window::Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int h
 }
 
 void Window::Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, double yoffset) {
-	Screen::updateScroll((float)yoffset / 200.0f);
+	Input::feedMouseScroll((int)yoffset);
 }
 
 void Window::Callbacks::WindowPosCallback(GLFWwindow * window, int x, int y)

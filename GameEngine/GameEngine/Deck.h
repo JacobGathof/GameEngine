@@ -28,6 +28,8 @@ public:
 	void rename(std::string n);
 	void discardCard(Card * card);
 
+	List<Card*>& getAllCards();
+
 private:
 	List<Card *> deck;
 	List<Card *> discard;

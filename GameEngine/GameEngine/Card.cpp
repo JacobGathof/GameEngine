@@ -7,6 +7,12 @@ Card::Card(std::string n, std::string desc, LivingAi * a) : Item(n, desc)
 	type = ItemType::CARD;
 }
 
+Card::Card(std::string n, std::string desc, TextureType tex, LivingAi * a) : Item(n,desc)
+{
+	ai = a;
+	setTexture(tex);
+}
+
 Card::~Card()
 {
 }
