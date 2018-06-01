@@ -2,6 +2,7 @@
 #include "UIManager.h"
 #include "World.h"
 #include "GameState.h"
+#include "WeatherManager.h"
 
 Renderer::Renderer()
 {
@@ -14,6 +15,19 @@ Renderer::~Renderer()
 
 void Renderer::draw()
 {
+
+	
+	drawWorld();
+	drawUI();
+	drawEffects();
+
+	postProcess();
+	
+
+}
+
+void Renderer::drawWorld()
+{
 	Framebuffer* buf = Res::get(FramebufferType::WORLD_BUFFER);
 	buf->bind();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -22,35 +36,43 @@ void Renderer::draw()
 	World::getInstance()->drawObjects();
 	World::getInstance()->drawHitboxes();
 	//World::getInstance()->draw();
+}
 
-	
+
+void Renderer::drawEffects()
+{
+	Framebuffer* buf = Res::get(FramebufferType::PARTICLES_BUFFER);
+	buf->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	World::getInstance()->drawEffects();
+	WeatherManager::drawWeatherEffects();
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	buf = Res::get(FramebufferType::LIGHT_BUFFER);
+	buf->bind();
+	Color c = WeatherManager::currentLight;
+	glClearColor(c[0], c[1], c[2], c[3]);
+	//glClearColor(.5,.5,.5,.5);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	World::getInstance()->drawLights();
+	glClearColor(0,0,0,0);
+}
+
+void Renderer::drawUI()
+{
 	glBlendFunc(GL_ONE, GL_ZERO);
-	buf = Res::get(FramebufferType::UI_BUFFER);
+	Framebuffer* buf = Res::get(FramebufferType::UI_BUFFER);
 	buf->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	UIManager::draw();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
 
-	//glBlendFunc(GL_SRC_ALPHA, GL_DST_ALPHA);
-	buf = Res::get(FramebufferType::PARTICLES_BUFFER);
-	buf->bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//World::getInstance()->drawEffects();
+}
 
-
-	
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	buf = Res::get(FramebufferType::LIGHT_BUFFER);
-	buf->bind();
-	glClearColor(.5, .5, .5, .5);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	World::getInstance()->drawLights();
-	glClearColor(0,0,0,0);
-
-
+void Renderer::postProcess()
+{
 	glBlendFunc(GL_ONE, GL_ZERO);
-	buf = Res::get(FramebufferType::DEFAULT);
+	Framebuffer* buf = Res::get(FramebufferType::DEFAULT);
 	buf->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

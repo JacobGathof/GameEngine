@@ -528,6 +528,9 @@
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="WeatherManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -933,6 +936,9 @@
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="Path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

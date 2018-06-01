@@ -12,6 +12,8 @@
 #include <thread>
 #include <chrono>
 
+#include "WeatherManager.h"
+
 Application::Application(){}
 Application::~Application(){}
 
@@ -31,6 +33,8 @@ void Application::run()
 	Input::init();
 
 	UIManager::init();
+
+	WeatherManager::init();
 
 	Inventory inv;
 	GameState::inv = &inv;
@@ -52,8 +56,6 @@ void Application::run()
 	//sys->endColor = Color::DarkPurple;
 
 	//melody.addEffect(sys);
-
-	
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
@@ -94,6 +96,8 @@ void Application::run()
 		Input::processInput(dt);
 		UIManager::update(dt);
 
+		WeatherManager::update(dt);
+
 		//graph.update(dt);
 		world->update(dt);
 		Screen::update(dt);
@@ -104,8 +108,8 @@ void Application::run()
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
-
 		Renderer::draw();
+
 	
 		Window::swapBuffers();
 	}
@@ -118,6 +122,7 @@ void Application::run()
 	UIManager::clean();
 	AudioSystem::clean();
 
+	WeatherManager::clean();
 
 	Window::destroy();
 

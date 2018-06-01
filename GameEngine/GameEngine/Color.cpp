@@ -121,6 +121,14 @@ Color Color::operator/(float f)
 				(data[3]/f));
 }
 
+Color Color::operator^(float f)
+{
+	return Color(pow(data[0], f),
+		pow(data[1], f),
+		pow(data[2], f),
+		pow(data[3], f));
+}
+
 
 
 
@@ -179,7 +187,7 @@ Color Color::LightGreen(0x88ff88ff);
 Color Color::LightBlue(0x8888ffff);
 Color Color::LightPurple(0xff88ffff);
 
-Color Color::LightGray(0x444444ff);
+Color Color::LightGray(0xccccccff);
 Color Color::Gray(0x888888ff);
-Color Color::DarkGray(0xccccccff);
+Color Color::DarkGray(0x444444ff);
 
