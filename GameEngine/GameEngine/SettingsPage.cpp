@@ -5,14 +5,14 @@
 
 SettingsPage::SettingsPage()
 {
-	comps[0] = new Button(Vector2f(120, 120), Vector2f(100, 30), std::string("Fullscreen"), new FullscreenButtonAction());
-	comps[1] = new Button(Vector2f(210, 120), Vector2f(80, 30), std::string("A Note"), new NoteButtonAction());
-	comps[2] = new Slider(Vector2f(120, 500), Vector2f(300, 10), std::string("Transparency"), &GameState::sliderValue, .25f, 1.0f, 0);
-	comps[3] = new Slider(Vector2f(120, 550), Vector2f(300, 10), std::string("Blue Shift"), &GameState::ui_blue, 0.0f, 1.0f, 0);
-	comps[4] = new KeyBinder(Vector2f(120, 200), Vector2f(100, 40), Input::keyboard);
-	comps[5] = new Button(Vector2f(310, 120), Vector2f(80, 30), std::string("Music"), new MusicButtonAction());
+	comps[0] = new Button(Vector2f(120, 300), Vector2f(100, 30), std::string("Fullscreen"), new FullscreenButtonAction());
+	comps[1] = new Button(Vector2f(210, 300), Vector2f(80, 30), std::string("A Note"), new NoteButtonAction());
+	comps[2] = new Slider(Vector2f(120, 550), Vector2f(300, 10), std::string("Transparency"), &GameState::sliderValue, .25f, 1.0f, 0);
+	comps[3] = new Slider(Vector2f(120, 600), Vector2f(300, 10), std::string("Blue Shift"), &GameState::ui_blue, 0.0f, 1.0f, 0);
+	comps[4] = new KeyBinder(Vector2f(120, 350), Vector2f(100, 40), Input::keyboard);
+	comps[5] = new Button(Vector2f(310, 300), Vector2f(80, 30), std::string("Music"), new MusicButtonAction());
 
-	comps[6] = new InputTextArea(Vector2f(510, 120), Vector2f(200, 40));
+	comps[6] = new InputTextArea(Vector2f(410, 300), Vector2f(200, 40));
 }
 
 

@@ -18,10 +18,10 @@ void WeatherManager::update(float dt)
 	currentLight = currentLight / 2;
 
 
-	sys->update(dt);
-	sys->position = Screen::offset;
+	//sys->update(dt);
+	//sys->position = Screen::offset;
 
-	simulateLightning(dt);
+	//simulateLightning(dt);
 }
 
 void WeatherManager::simulateLightning(float dt)

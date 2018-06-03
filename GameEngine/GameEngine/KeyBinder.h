@@ -38,7 +38,7 @@ private:
 	bool waitingForInput = false;
 	Timer timer;
 
-	Color colors[3] =			{ Color(0xffffffff), Color(0x888888ff), Color(0x00000088) };
-	Color colors_active[3] =	{ Color(0xffffffff), Color(0x00ff00ff), Color(0x00000088) };
+	Color colors[3] =			{ Color(0xffffffff), Color(0x888888ff), Color(0x000000ff) };
+	Color colors_active[3] =	{ Color(0xffffffff), Color(0x00ff00ff), Color(0x000000ff) };
 };
 

@@ -13,6 +13,7 @@ UIUtils::~UIUtils()
 
 void UIUtils::drawRectangle(Vector2f& pos, Vector2f& scale, Color& color)
 {
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	ShaderProgram* shader = Res::get(ShaderType::UI_SOLID_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
 

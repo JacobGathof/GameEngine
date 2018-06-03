@@ -7,7 +7,7 @@
 CardsPage::CardsPage()
 {
 	cardName = new Text(Vector2f(520, 375), std::string(""), Vector2f(25, 25), 0);
-	cardDesc = new Text(Vector2f(520, 200), std::string(""), Vector2f(20, 20), 0);
+	cardDesc = new Text(Vector2f(520, 325), std::string(""), Vector2f(20, 20), 0);
 	cardGrid.index = &selectedIndex;
 }
 
@@ -26,16 +26,16 @@ void CardsPage::draw()
 	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(2,2), Vector2f(196, 396), Color(0x00000088));
 	UIUtils::drawRectangle(Vector2f(200, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
 	*/
-	UIUtils::drawRectangle(Vector2f(520, 200), Vector2f(200, 400), Color(0x00ffff88));
-	UIUtils::drawRectangle(Vector2f(520, 200) + Vector2f(2, 2), Vector2f(196, 396), Color(0x00000088));
-	UIUtils::drawRectangle(Vector2f(520, 200) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(520, 250), Vector2f(200, 400), Color(0xcccccc88));
+	UIUtils::drawRectangle(Vector2f(520, 250) + Vector2f(2, 2), Vector2f(196, 396), Color(0x00000088));
+	UIUtils::drawRectangle(Vector2f(520, 250) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
 
 
 	Deck* deck = Res::get(DeckType::TEST);
 
 	List<Card*> cards = deck->getAllCards();
 
-	UIUtils::drawImage(Vector2f(520, 200 + 200) + Vector2f(8, 8), Vector2f(184, 184), cardTexture);
+	UIUtils::drawImage(Vector2f(520, 200 + 250) + Vector2f(8, 8), Vector2f(184, 184), cardTexture);
 	cardName->draw();
 	cardDesc->draw();
 
@@ -85,7 +85,7 @@ CardGrid::~CardGrid()
 
 void CardGrid::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color(0x00ffff88));
+	UIUtils::drawRectangle(position, scale, Color(0xcccccc88));
 
 	List<Card*> deck = Res::get(DeckType::TEST)->getAllCards();
 	for (int i = 0; i < deck.size(); i++) {
@@ -99,8 +99,8 @@ void CardGrid::draw()
 		Vector2f sc = card_box_scale;
 
 
-		UIUtils::drawRectangle(pos, sc, (i==*index)?Color(0xff00ff88):Color(0x00ffff88));
-		UIUtils::drawRectangle(pos+Vector2f(1), sc-Vector2f(2), Color(0x0000ff88));
+		UIUtils::drawRectangle(pos, sc, (i==*index)?Color(0x0000ff88): Color(0xcccccc88));
+		UIUtils::drawRectangle(pos+Vector2f(1), sc-Vector2f(2), Color(0x44444488));
 		UIUtils::drawImage(pos + Vector2f(1), sc - Vector2f(2), deck[i]->getTexture());
 
 	}

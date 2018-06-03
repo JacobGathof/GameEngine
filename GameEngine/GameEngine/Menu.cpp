@@ -31,8 +31,8 @@ void Menu::draw()
 	//Hwhat?								|
 	//										v
 	UIUtils::drawRectangle(position, scale, Color(0x888888ff));
-	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4,4), Color(0x00000888));
+	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0xaaaaaaff));
+	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4,4), Color(0x000008ff));
 
 	for (auto t : tabs) {
 		t.draw();
@@ -102,8 +102,8 @@ MenuTab::~MenuTab()
 
 void MenuTab::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color::DarkGray);
-	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::LightGray);
+	UIUtils::drawRectangle(position, scale, Color::Black);
+	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::DarkGray);
 	tabText->draw();
 }
 

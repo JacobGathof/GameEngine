@@ -17,11 +17,11 @@ public:
 
 private:
 
-	Color backdrop = Color(0x00004488);
+	Color backdrop = Color(0x000044ff);
 	Color healthColor = Color(0xdd2244ff);
 	Color staminaColor = Color(0x22dd22ff);
 	Color magicColor = Color(0x0044ffff);
-	Color boxColor = Color(0x00002288);
+	Color boxColor = Color(0x000022ff);
 
 
 	float hpm = 100;

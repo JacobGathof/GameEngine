@@ -19,8 +19,8 @@ InputTextArea::~InputTextArea()
 void InputTextArea::draw()
 {
 	UIUtils::drawRectangle(position, scale, Color(0x888888ff));
-	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4, 4), selected ? Color(0x00aa0088) : Color(0xaaaaaa88));
-	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x00000088));
+	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4, 4), selected ? Color(0x00aa00ff) : Color(0xaaaaaaff));
+	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000000ff));
 
 	text->draw();
 }
