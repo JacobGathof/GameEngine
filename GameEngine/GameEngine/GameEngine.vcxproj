@@ -38,6 +38,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
+    <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DebugAction.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleHitbox.h" />
     <ClInclude Include="CollisionUtil.h" />
+    <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
     <ClInclude Include="Condition.h" />
     <ClInclude Include="DebugAction.h" />

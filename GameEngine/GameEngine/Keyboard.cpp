@@ -155,3 +155,16 @@ const char * Keyboard::getRealKeyName(VirtualKey key)
 {
 	return getRealKeyName(virtualMap[key]);
 }
+
+void Keyboard::clearQueues()
+{
+	while (!pressed.empty()) {
+		keys[pressed.front()] = KeyState::UP;
+		pressed.pop();
+	}
+
+	while (!released.empty()) {
+		keys[released.front()] = KeyState::UP;
+		released.pop();
+	}
+}

@@ -32,6 +32,11 @@ void Input::processInput(float dt) {
 		UIManager::toggleMenu();
 	}
 
+	if (keyboard.press(GLFW_KEY_TAB)) {
+		UIManager::toggleCommandLine();
+	}
+
+
 	if (GameState::battleManager.battleState == NOBATTLE) {
 		UIManager::handleMouseEvents(mouse);
 		UIManager::handleKeyboardEvents(keyboard);

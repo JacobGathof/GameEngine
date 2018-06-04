@@ -107,6 +107,22 @@ public:
 		data[b] = temp;
 	}
 
+	void insert(typename std::vector<T>::iterator a, typename std::vector<T>::iterator b) {
+		data.insert(data.end(), a, b);
+	}
+
+	List<T> subList(int a, int b) {
+		List<T> li;
+		li.insert(data.begin()+a, data.begin()+b);
+		return li;
+	}
+
+	List<T> subList(int a) {
+		List<T> li;
+		li.insert(data.begin() + a, data.end());
+		return li;
+	}
+
 private:
 	std::vector<T> data;
 };

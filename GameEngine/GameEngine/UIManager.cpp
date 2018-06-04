@@ -5,6 +5,7 @@
 #include "Banner.h"
 #include "EnemyStatusbar.h"
 #include "QuoteBanner.h"
+#include "CommandLine.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;
@@ -12,6 +13,7 @@ Banner* UIManager::banner;
 QuoteBanner* UIManager::quoteBanner;
 Statusbar* UIManager::statusbar;
 EnemyStatusbar* UIManager::enemyStatus;
+CommandLine* UIManager::cmdLine;
 
 UIManager::UIManager()
 {
@@ -30,6 +32,7 @@ void UIManager::draw()
 	quoteBanner->draw();
 	statusbar->draw();
 	enemyStatus->draw();
+	cmdLine->draw();
 }
 
 void UIManager::init()
@@ -40,10 +43,11 @@ void UIManager::init()
 	quoteBanner = new QuoteBanner();
 	statusbar = new Statusbar();
 	enemyStatus = new EnemyStatusbar();
+	cmdLine = new CommandLine();
 
 	statusbar->setVisible(true);
-	menu->setVisible(true);
-	textbox->addTextToQueue(std::string("Hello world"));
+	//menu->setVisible(true);
+	//textbox->addTextToQueue(std::string("Hello world"));
 }
 
 void UIManager::clean()
@@ -54,6 +58,7 @@ void UIManager::clean()
 	delete quoteBanner;
 	delete statusbar;
 	delete enemyStatus;
+	delete cmdLine;
 }
 
 void UIManager::update(float dt)
@@ -64,6 +69,7 @@ void UIManager::update(float dt)
 	quoteBanner->update(dt);
 	statusbar->update(dt);
 	enemyStatus->update(dt);
+	cmdLine->update(dt);
 }
 
 void UIManager::resize(int newX, int newY)
@@ -74,6 +80,7 @@ void UIManager::resize(int newX, int newY)
 	quoteBanner->resize(newX, newY);
 	statusbar->resize(newX,newY);
 	enemyStatus->resize(newX, newY);
+	cmdLine->resize(newX, newY);
 }
 
 void UIManager::handleMouseEvents(Mouse & mouse)
@@ -86,6 +93,7 @@ void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 {
 	menu->handleKeyEvents(keyboard);
 	textbox->handleKeyEvents(keyboard);
+	cmdLine->handleKeyEvents(keyboard);
 }
 
 
@@ -113,6 +121,11 @@ void UIManager::setEnemyStatusVisible(bool t)
 void UIManager::setStatusVisible(bool t)
 {
 	statusbar->setVisible(t);
+}
+
+void UIManager::toggleCommandLine()
+{
+	cmdLine->toggle();
 }
 
 

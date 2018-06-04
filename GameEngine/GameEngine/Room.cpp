@@ -105,6 +105,7 @@ void Room::drawHitboxes()
 
 void Room::drawLights()
 {
+	/*
 	for (int i = 0; i < 5; i++) {
 		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 		p->bind();
@@ -119,6 +120,7 @@ void Room::drawLights()
 
 		m->draw();
 	}
+	*/
 }
 
 void Room::checkCollisions()

@@ -24,6 +24,9 @@ void AnimatedObject::draw()
 	SpriteSheet* sh = Res::get(texture);
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 
+	m->bind();
+	sh->bind();
+
 	p->bind();
 	p->loadVector2f("translate", pos);
 	p->loadVector2f("scale", scale);
@@ -33,8 +36,6 @@ void AnimatedObject::draw()
 	p->loadInteger("currentRow", animationRow);
 	p->loadInteger("currentColumn", animationColumn);
 
-	m->bind();
-	sh->bind();
 
 	m->draw();
 }

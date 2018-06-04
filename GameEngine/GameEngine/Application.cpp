@@ -45,7 +45,7 @@ void Application::run()
 	RoomFactory::CreateAllRooms();
 	
 	world->setCurrentRoom(std::string("Reading Room"));
-	world->transition(world->getRoom(std::string("Clearing")));
+	//world->transition(world->getRoom(std::string("Clearing")));
 	
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());

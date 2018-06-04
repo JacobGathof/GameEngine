@@ -29,7 +29,7 @@ void RoomFactory::ReadingRoom()
 
 	PlayerAI * playerAi = new PlayerAI();
 	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(100, -1500), Vector2f(256, 256), playerAi);
+	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(100, 00), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 
 	Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
@@ -48,7 +48,7 @@ void RoomFactory::ReadingRoom()
 	*/
 	
 	
-	Chest * chest = new Chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(-1000, 0), Vector2f(256, 256));
+	Chest * chest = new Chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(256, 0), Vector2f(256, 256));
 	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), 0);
 	chest->addItem(card);
 	chest->isStatic = false;
@@ -57,6 +57,7 @@ void RoomFactory::ReadingRoom()
 
 	room->addObject(melody);
 	room->addObject(structure);
+	room->addObject(chest);
 
 	world->addRoom(std::string("Reading Room"), room);
 }

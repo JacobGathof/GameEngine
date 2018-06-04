@@ -59,6 +59,8 @@ public:
 	const char* getRealKeyName(int key);
 	const char* getRealKeyName(VirtualKey key);
 
+	void clearQueues();
+
 private:
 	KeyState keys[512];
 	std::queue<int> pressed;

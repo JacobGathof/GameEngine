@@ -531,6 +531,9 @@
     <ClCompile Include="WeatherManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CommandLine.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -940,6 +943,9 @@
     </ClInclude>
     <ClInclude Include="WeatherManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandLine.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

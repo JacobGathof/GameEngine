@@ -8,6 +8,7 @@ class Banner;
 class QuoteBanner;
 class Statusbar;
 class EnemyStatusbar;
+class CommandLine;
 
 class UIManager
 {
@@ -41,6 +42,9 @@ public:
 	static void setEnemyStatusVisible(bool t);
 	static void setStatusVisible(bool t);
 
+
+	static void toggleCommandLine();
+
 private:
 	static Textbox * textbox;
 	static Menu * menu;
@@ -48,6 +52,7 @@ private:
 	static QuoteBanner * quoteBanner;
 	static Statusbar * statusbar;
 	static EnemyStatusbar* enemyStatus;
+	static CommandLine* cmdLine;
 
 };
 
