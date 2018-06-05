@@ -6,6 +6,9 @@
 #include "EnemyStatusbar.h"
 #include "QuoteBanner.h"
 #include "CommandLine.h"
+#include "PauseMenu.h"
+
+#include "GameState.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;
@@ -14,6 +17,7 @@ QuoteBanner* UIManager::quoteBanner;
 Statusbar* UIManager::statusbar;
 EnemyStatusbar* UIManager::enemyStatus;
 CommandLine* UIManager::cmdLine;
+PauseMenu* UIManager::pauseMenu;
 
 UIManager::UIManager()
 {
@@ -33,6 +37,10 @@ void UIManager::draw()
 	statusbar->draw();
 	enemyStatus->draw();
 	cmdLine->draw();
+
+	if (GameState::isGamePaused()) {
+		pauseMenu->draw();
+	}
 }
 
 void UIManager::init()
@@ -44,6 +52,7 @@ void UIManager::init()
 	statusbar = new Statusbar();
 	enemyStatus = new EnemyStatusbar();
 	cmdLine = new CommandLine();
+	pauseMenu = new PauseMenu();
 
 	statusbar->setVisible(true);
 	//menu->setVisible(true);
@@ -59,17 +68,20 @@ void UIManager::clean()
 	delete statusbar;
 	delete enemyStatus;
 	delete cmdLine;
+	delete pauseMenu;
 }
 
 void UIManager::update(float dt)
 {
-	textbox->update(dt);
-	menu->update(dt);
-	banner->update(dt);
-	quoteBanner->update(dt);
-	statusbar->update(dt);
-	enemyStatus->update(dt);
-	cmdLine->update(dt);
+	if (!GameState::isGamePaused()) {
+		textbox->update(dt);
+		menu->update(dt);
+		banner->update(dt);
+		quoteBanner->update(dt);
+		statusbar->update(dt);
+		enemyStatus->update(dt);
+		cmdLine->update(dt);
+	}
 }
 
 void UIManager::resize(int newX, int newY)
@@ -85,15 +97,22 @@ void UIManager::resize(int newX, int newY)
 
 void UIManager::handleMouseEvents(Mouse & mouse)
 {
-	menu->handleMouseEvents(mouse);
-	textbox->handleMouseEvents(mouse);
+	if (!GameState::isGamePaused()) {
+		menu->handleMouseEvents(mouse);
+		textbox->handleMouseEvents(mouse);
+	}
+	else {
+		pauseMenu->handleMouseEvents(mouse);
+	}
 }
 
 void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 {
-	menu->handleKeyEvents(keyboard);
-	textbox->handleKeyEvents(keyboard);
-	cmdLine->handleKeyEvents(keyboard);
+	if (!GameState::isGamePaused()) {
+		menu->handleKeyEvents(keyboard);
+		textbox->handleKeyEvents(keyboard);
+		cmdLine->handleKeyEvents(keyboard);
+	}
 }
 
 

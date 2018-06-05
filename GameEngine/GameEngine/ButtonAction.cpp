@@ -1,6 +1,7 @@
 #include "ButtonAction.h"
 #include "ResourceManager.h"
 #include "Window.h"
+#include "Input.h"
 
 int FullscreenButtonAction::run(float dt)
 {
@@ -20,3 +21,14 @@ int MusicButtonAction::run(float dt)
 	return 1;
 }
 
+int UnpauseAction::run(float dt)
+{
+	Input::pause(false);
+	return 1;
+}
+
+int ExitAction::run(float dt)
+{
+	Window::close();
+	return 1;
+}

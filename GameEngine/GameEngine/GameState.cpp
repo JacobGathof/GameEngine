@@ -14,6 +14,9 @@ Inventory* GameState::inv;
 Graph* GameState::graph;
 BattleManager GameState::battleManager;
 
+
+ApplicationControl GameState::applicationState;
+
 GameState::GameState()
 {
 }
@@ -30,4 +33,9 @@ std::string GameState::getGlobalDebug()
 
 void GameState::setGlobalDebug(std::string str){
 	globalDebug = str;
+}
+
+bool GameState::isGamePaused()
+{
+	return applicationState.gamePaused;
 }

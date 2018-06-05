@@ -85,6 +85,7 @@ void Window::setCallbacks(){
 	glfwSetWindowSizeCallback(window, Callbacks::WindowSizeCallback);
 	glfwSetScrollCallback(window, Callbacks::ScrollCallback);
 	glfwSetWindowPosCallback(window, Callbacks::WindowPosCallback);
+	glfwSetWindowFocusCallback(window, Callbacks::WindowFocusCallback);
 }
 
 void Window::setWindowHints(){
@@ -190,6 +191,15 @@ void Window::Callbacks::ScrollCallback(GLFWwindow * window, double xoffset, doub
 
 void Window::Callbacks::WindowPosCallback(GLFWwindow * window, int x, int y)
 {
+}
+
+void Window::Callbacks::WindowFocusCallback(GLFWwindow * window, int focused)
+{
+	if (focused) {
+
+	} else {
+		Input::pause();
+	}
 }
 
 

@@ -29,6 +29,8 @@ public:
 	static void feedMouseScroll(int scroll);
 	
 
+	static void pause(bool t = true);
+
 private:
 
 

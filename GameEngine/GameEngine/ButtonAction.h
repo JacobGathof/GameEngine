@@ -18,3 +18,14 @@ public:
 	virtual int run(float dt = 0.0f);
 };
 
+class UnpauseAction : public AbstractAction {
+public:
+	virtual int run(float dt = 0.0f);
+};
+
+class ExitAction : public AbstractAction {
+public:
+	virtual int run(float dt = 0.0f);
+};
+
+

@@ -50,6 +50,7 @@ private:
 		static void WindowSizeCallback(GLFWwindow* window, int width, int height);
 		static void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 		static void WindowPosCallback(GLFWwindow* window, int x, int y);
+		static void WindowFocusCallback(GLFWwindow* window, int focused);
 	};
 
 

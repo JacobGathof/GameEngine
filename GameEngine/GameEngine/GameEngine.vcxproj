@@ -52,6 +52,7 @@
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
     <ClCompile Include="Path.cpp" />
+    <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="ScreenFollowAction.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="ScreenFollowAction.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />

@@ -7,15 +7,27 @@
 class Inventory;
 class BattleManager;
 
+struct ApplicationControl {
+	bool gamePaused = false;
+	int fps = 60;
+};
+
+
+
 class GameState
 {
 public:
 	GameState();
 	~GameState();
 
+	static ApplicationControl applicationState;
+
+
 	static std::string getGlobalDebug();
 	static void setGlobalDebug(std::string str);
 
+
+	static bool isGamePaused();
 
 	static float sliderValue;
 	static float ui_blue;

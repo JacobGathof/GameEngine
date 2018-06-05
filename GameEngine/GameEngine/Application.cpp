@@ -83,35 +83,26 @@ void Application::run()
 		Window::pollEvents();
 		timer.update();
 
-		//float f = timer.getDeltaTime();
-
-		//std::this_thread::sleep_for(std::chrono::microseconds(int(1000000*(dt-f))));
-		
-		//f = timer.getDeltaTime();
-		//std::cout << f << std::endl;
-
-		//Screen::follow(Vector2f(-1250, 1200));
+	
 		GameState::setGlobalDebug(std::to_string(timer.FPS()));
 
 		Input::processInput(dt);
 		UIManager::update(dt);
 
-		WeatherManager::update(dt);
+		if (!GameState::isGamePaused()) {
 
-		//graph.update(dt);
-		world->update(dt);
-		Screen::update(dt);
+			WeatherManager::update(dt);
+
+			//graph.update(dt);
+			world->update(dt);
+			Screen::update(dt);
+
+		}
 
 		Screen::updateUniforms();
-		
-
-		Res::get(ShaderType::WATER_SHADER)->bind();
-		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
-
 		Renderer::draw();
-
-	
 		Window::swapBuffers();
+		
 	}
 
 	SaveUtilities::saveGame();

@@ -9,6 +9,7 @@ class QuoteBanner;
 class Statusbar;
 class EnemyStatusbar;
 class CommandLine;
+class PauseMenu;
 
 class UIManager
 {
@@ -53,6 +54,7 @@ private:
 	static Statusbar * statusbar;
 	static EnemyStatusbar* enemyStatus;
 	static CommandLine* cmdLine;
+	static PauseMenu* pauseMenu;
 
 };
 

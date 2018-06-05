@@ -24,6 +24,10 @@ void Input::processInput(float dt) {
 		Window::close();
 	}
 
+	if (keyboard.press(GLFW_KEY_1)) {
+		pause(false);
+	}
+
 	if (keyboard.press(GLFW_KEY_GRAVE_ACCENT)) {
 		Window::toggleFullscreen();
 	}
@@ -73,6 +77,15 @@ void Input::feedMouseEvent(int button, int action){
 void Input::feedMouseScroll(int scroll)
 {
 	mouse.setScroll(scroll);
+}
+
+void Input::pause(bool t)
+{
+	if (t) {
+		GameState::applicationState.gamePaused = true;
+	} else {
+		GameState::applicationState.gamePaused = !GameState::applicationState.gamePaused;
+	}
 }
 
 
