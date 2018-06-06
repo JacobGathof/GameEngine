@@ -14,8 +14,6 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_DAGON, "res/tex/dagon.png");
 	addTexture(TextureType::TEXTURE_SLIME, "res/tex/slime.png");
 
-	addTexture(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3);
-
 	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
 	addTexture(TextureType::TERRAIN_SHEET, "res/tex/terrainSheet.png");
 	addTexture(TextureType::BRIDGEHORIZ, "res/tex/ImageFiles/bridgeHoriz.png");
@@ -52,9 +50,27 @@ void TextureManager::init() {
 	addTexture(TextureType::ZH_BREAD_BASKET, "res/tex/ImageFiles/zh-bread basket.png");
 	addTexture(TextureType::ZH_CANDLE_POST, "res/tex/ImageFiles/zh-candle post.png");
 
+
+	initSpritesheets();
 }
 
 void TextureManager::addTexture(TextureType tex, char * filename, int rows, int columns) {
 	SpriteSheet * t = new SpriteSheet(filename, rows, columns);
 	elements[tex] = t;
+}
+
+void TextureManager::addSpriteSheet(TextureType tex, char * filename, int rows, int columns, std::vector<SpriteSheet::AnimationState> states, std::vector<SpriteSheet::AnimationStruct> structs)
+{
+	SpriteSheet * t = new SpriteSheet(filename, rows, columns, states, structs);
+	elements[tex] = t;
+}
+
+void TextureManager::initSpritesheets()
+{
+	typedef SpriteSheet::AnimationState a;
+	typedef SpriteSheet::AnimationStruct aa;
+	std::vector<SpriteSheet::AnimationState> states =	{a::IDLE,		a::MOVE_RIGHT,	a::MOVE_LEFT,	a::MOVE_UP,		a::MOVE_DOWN};
+	std::vector<SpriteSheet::AnimationStruct> structs = { aa{3,3,1,0},	aa{ 0,3,1,0 },	aa{ 1,3,1,0 } ,	aa{ 2,3,1,0 } , aa{ 3,3,1,0 } };
+
+	addSpriteSheet(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3, states, structs);
 }

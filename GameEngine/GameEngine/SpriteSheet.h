@@ -25,6 +25,7 @@ public:
 	};
 
 	SpriteSheet(char* filename, int rows, int columns);
+	SpriteSheet(char* filename, int rows, int columns, std::vector<AnimationState> states, std::vector<AnimationStruct> structs);
 	virtual ~SpriteSheet();
 
 	int rows, columns;

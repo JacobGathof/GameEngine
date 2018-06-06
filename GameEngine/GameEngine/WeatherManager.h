@@ -25,10 +25,15 @@ public:
 	static void drawWeatherEffects();
 
 
+	static void setState(int i);
+
+
 	static RainParticleSystem* sys;
 
 	static void init();
 	static void clean();
+
+	static int weatherState;
 
 };
 

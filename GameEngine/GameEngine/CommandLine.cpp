@@ -1,6 +1,6 @@
 #include "CommandLine.h"
 #include "FilesAndStrings.h"
-
+#include "WeatherManager.h"
 
 CommandLine::CommandLine()
 {
@@ -44,7 +44,7 @@ void CommandLine::handleKeyEvents(Keyboard & keyboard)
 
 
 	int key = keyboard.getCurrentPressed();
-	if ((key <= 'Z' && key >= 'A' || key == ' ')) {
+	if (((key <= 'Z' && key >= 'A') || (key <= '9' && key >= '0')  || key == ' ')) {
 		str += (char)key;
 		text->setText(str);
 		keyboard.clearQueues();
@@ -73,6 +73,10 @@ void CommandLine::handleCommand(std::string s)
 		std::cout << li.subList(1);
 	}
 
+
+	if (li[0] == "WEATHER") {
+		WeatherManager::setState(std::atoi(li[1].c_str()));
+	}
 
 
 }

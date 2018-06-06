@@ -14,6 +14,7 @@ void AnimatedObject::setAction(SpriteSheet::AnimationState action)
 {
 	SpriteSheet * sh = Res::get(texture);
 	SpriteSheet::AnimationStruct str = sh->animations[action];
+	animationRow = str.row;
 	//TODO
 
 }

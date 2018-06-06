@@ -19,6 +19,8 @@ PauseMenu::~PauseMenu()
 
 void PauseMenu::draw()
 {
+	UIUtils::drawRectangle(Vector2f(0, 0), Vector2f(800, 800), Color(0x22224488));
+
 	text->draw();
 	resume->draw();
 	exit->draw();

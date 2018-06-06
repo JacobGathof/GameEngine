@@ -109,9 +109,9 @@ void UIManager::handleMouseEvents(Mouse & mouse)
 void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 {
 	if (!GameState::isGamePaused()) {
+		cmdLine->handleKeyEvents(keyboard);
 		menu->handleKeyEvents(keyboard);
 		textbox->handleKeyEvents(keyboard);
-		cmdLine->handleKeyEvents(keyboard);
 	}
 }
 

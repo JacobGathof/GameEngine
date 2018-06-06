@@ -24,16 +24,10 @@ void Input::processInput(float dt) {
 		Window::close();
 	}
 
-	if (keyboard.press(GLFW_KEY_1)) {
-		pause(false);
-	}
+	
 
 	if (keyboard.press(GLFW_KEY_GRAVE_ACCENT)) {
 		Window::toggleFullscreen();
-	}
-
-	if (keyboard.press(GLFW_KEY_T)) {
-		UIManager::toggleMenu();
 	}
 
 	if (keyboard.press(GLFW_KEY_TAB)) {
@@ -45,6 +39,17 @@ void Input::processInput(float dt) {
 		UIManager::handleMouseEvents(mouse);
 		UIManager::handleKeyboardEvents(keyboard);
 	}
+
+	if (keyboard.press(GLFW_KEY_1)) {
+		pause(false);
+	}
+
+
+	if (keyboard.press(GLFW_KEY_T)) {
+		UIManager::toggleMenu();
+	}
+
+
 
 	ai->receiveInput(keyboard);
 

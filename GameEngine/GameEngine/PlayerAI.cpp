@@ -44,15 +44,19 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 
 	if (keyboard.down(VirtualKey::UP)){
 		yVel = user->moveSpeed;
+		user->setAction(SpriteSheet::AnimationState::MOVE_UP);
 	}
 	if (keyboard.down(VirtualKey::DOWN)) {
 		yVel = -user->moveSpeed;
+		user->setAction(SpriteSheet::AnimationState::MOVE_DOWN);
 	}
 	if (keyboard.down(VirtualKey::LEFT)) {
 		xVel = -user->moveSpeed;
+		user->setAction(SpriteSheet::AnimationState::MOVE_LEFT);
 	}
 	if (keyboard.down(VirtualKey::RIGHT)) {
 		xVel = user->moveSpeed;
+		user->setAction(SpriteSheet::AnimationState::MOVE_RIGHT);
 	}
 
 	if (xVel != 0 || yVel != 0) {

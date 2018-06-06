@@ -15,7 +15,7 @@ public:
 	Timer animationTimer;
 
 	int animationState;
-	int animationRow = 3;
+	int animationRow = 0;
 	int animationColumn = 0;
 
 	SpriteSheet::AnimationState currentAction;
