@@ -6,9 +6,8 @@ layout(location=1) in vec2 texCoords;
 uniform vec2 scale;
 uniform vec2 translate;
 
-uniform vec2 camera_scale;
-uniform vec2 camera_translate;
+uniform vec2 ui_scale;
 
 void main(){
-	gl_Position = vec4(position*(scale*camera_scale) + (translate*camera_scale) - vec2(1, 1), 0, 1);
+	gl_Position = vec4(position*(scale*ui_scale) + (translate*ui_scale) - vec2(1, 1), 0, 1);
 }

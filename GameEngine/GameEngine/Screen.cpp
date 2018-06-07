@@ -29,43 +29,16 @@ void Screen::updateRes(float x, float y){
 
 void Screen::updateScroll(float f){
 	scrollMultiplier += f;
-	scrollMultiplier = max(1, min(scrollMultiplier, 4));
+	scrollMultiplier = max(.1f, min(scrollMultiplier, 4));
 }
 
 void Screen::updateUniforms()
 {
 	Vector2f v = 2.0f * Vector2f(1.0f, 1.0f) / (Vector2f(width, height));
-	Res::uploadGlobalUniform("camera_scale", v);
+	Res::uploadGlobalUniform("ui_scale", v);
 
-	Res::get(ShaderType::ANIMATED_SHADER)->bind();
-	Res::get(ShaderType::ANIMATED_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::ANIMATED_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-	Res::get(ShaderType::BASIC_SHADER)->bind();
-	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::BASIC_SHADER)->loadVector2f("camera_scale", Vector2f(1,1)/Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-	Res::get(ShaderType::TERRAIN_SHADER)->bind();
-	Res::get(ShaderType::TERRAIN_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::TERRAIN_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-
-	Res::get(ShaderType::RECTANGLE_SHADER)->bind();
-	Res::get(ShaderType::RECTANGLE_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::RECTANGLE_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-
-	Res::get(ShaderType::WATER_SHADER)->bind();
-	Res::get(ShaderType::WATER_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::WATER_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-	Res::get(ShaderType::LIGHT_SHADER)->bind();
-	Res::get(ShaderType::LIGHT_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::LIGHT_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
-
-	Res::get(ShaderType::SHADOW_SHADER)->bind();
-	Res::get(ShaderType::SHADOW_SHADER)->loadVector2f("camera_translate", offset);
-	Res::get(ShaderType::SHADOW_SHADER)->loadVector2f("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
+	Res::uploadGlobalUniform("camera_translate", offset);
+	Res::uploadGlobalUniform("camera_scale", Vector2f(1, 1) / Vector2f(scrollMultiplier * Vector2f(width, height)));
 
 }
 

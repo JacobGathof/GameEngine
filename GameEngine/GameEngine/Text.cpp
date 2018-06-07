@@ -18,7 +18,7 @@ Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 	model.bind();
 	vbo_pos = model.addData(0, 0, 2, 0);
 	vbo_tex = model.addData(0, 0, 2, 1);
-	vbo_col = model.addData(0, 0, 3, 2);
+	vbo_col = model.addData(0, 0, 4, 2);
 
 	setText(dat);
 }
@@ -42,7 +42,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	float posScale = POS_SCALE;
 
 	float centerDist = 0;
-	Color def(0x000000ff);
+	Color def = Color::Clear;
 	totalWidth = 0;
 
 	int len = string.length();
@@ -58,6 +58,12 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 		if (c == ' ') {
 			xPointer += font->getCharacter(' ')->xadvance;
 			length--;
+			continue;
+		}
+
+		if (c == '\a') {
+			length -= 4;
+			i = processEscapeCharacters(string, i, def);
 			continue;
 		}
 
@@ -125,6 +131,7 @@ void Text::writeColor(float * col, Color& color, int& colorPointer)
 		col[colorPointer++] = color[0];
 		col[colorPointer++] = color[1];
 		col[colorPointer++] = color[2];
+		col[colorPointer++] = color[3];
 	}
 }
 
@@ -143,6 +150,19 @@ void Text::updateVAO(float * pos, int plength, float * tex, int tlength, float* 
 	}
 }
 
+int Text::processEscapeCharacters(std::string & data, int pos, Color & color)
+{
+	char c1 = data[pos + 1];
+	char c2 = data[pos + 2];
+	char c3 = data[pos + 3];
+	int r = (c1 >= 'A') ? (c1 - 'A' + 10) : (c1 - '0');
+	int g = (c2 >= 'A') ? (c2 - 'A' + 10) : (c2 - '0');
+	int b = (c3 >= 'A') ? (c3 - 'A' + 10) : (c3 - '0');
+	color = Color(r / 16.0f, g / 16.0f, b / 16.0f, 1);
+	return pos + 3;
+
+}
+
 void Text::setText(std::string& newdata)
 {
 	int newLength = newdata.length();
@@ -151,7 +171,7 @@ void Text::setText(std::string& newdata)
 
 	int pos_size = newLength * 2 * 6;
 	int tex_size = newLength * 2 * 6;
-	int col_size = newLength * 3 * 6;
+	int col_size = newLength * 4 * 6;
 	float* pos = new float[pos_size];
 	float* tex = new float[tex_size];
 	float* col = new float[col_size];

@@ -45,6 +45,11 @@ void Input::processInput(float dt) {
 	}
 
 
+	if (keyboard.press(GLFW_KEY_2)) {
+		UIManager::setQuoteText(std::string("Testing\aF00 Quote Banner"));
+	}
+
+
 	if (keyboard.press(GLFW_KEY_T)) {
 		UIManager::toggleMenu();
 	}

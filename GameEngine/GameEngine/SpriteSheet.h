@@ -7,13 +7,6 @@ class SpriteSheet : public Texture
 {
 public:
 
-	struct AnimationStruct {
-		int row;
-		int numColumns;
-		float animSpeed;
-		bool loop;
-	};
-
 	enum AnimationState
 	{
 		IDLE,
@@ -22,6 +15,14 @@ public:
 		MOVE_UP,
 		MOVE_DOWN,
 		ATTACK
+	};
+
+	struct AnimationStruct {
+		int row;
+		int numColumns;
+		float animSpeed;
+		int loop;
+		AnimationState next = IDLE;
 	};
 
 	SpriteSheet(char* filename, int rows, int columns);

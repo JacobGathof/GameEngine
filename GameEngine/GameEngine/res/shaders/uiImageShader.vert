@@ -8,14 +8,13 @@ out vec2 uv;
 uniform vec2 translate;
 uniform vec2 scale;
 
-uniform vec2 camera_scale;
-uniform vec2 camera_translate;
+uniform vec2 ui_scale;
 
 
 void main(){
 	uv = texCoords;
 
-	vec3 pos = vec3(position*(camera_scale*scale)+(translate*camera_scale) - vec2(1,1),0);
+	vec3 pos = vec3(position*(ui_scale*scale)+(translate*ui_scale) - vec2(1,1),0);
 
 
 	gl_Position = vec4(pos,1);

@@ -70,7 +70,7 @@ void TextureManager::initSpritesheets()
 	typedef SpriteSheet::AnimationState a;
 	typedef SpriteSheet::AnimationStruct aa;
 	std::vector<SpriteSheet::AnimationState> states =	{a::IDLE,		a::MOVE_RIGHT,	a::MOVE_LEFT,	a::MOVE_UP,		a::MOVE_DOWN};
-	std::vector<SpriteSheet::AnimationStruct> structs = { aa{3,3,1,0},	aa{ 0,3,1,0 },	aa{ 1,3,1,0 } ,	aa{ 2,3,1,0 } , aa{ 3,3,1,0 } };
+	std::vector<SpriteSheet::AnimationStruct> structs = { aa{3,3,1,-1},	aa{ 0,3,1,-1 },	aa{ 1,3,1,-1 } ,	aa{ 2,3,1,-1 } , aa{ 3,3,1,-1 } };
 
 	addSpriteSheet(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3, states, structs);
 }

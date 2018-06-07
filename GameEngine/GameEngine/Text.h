@@ -57,6 +57,8 @@ private:
 	void writeTexCoords(float* tex, Font::Char* ch, int& texPointer);
 	void writeColor(float * col, Color& color, int& colorPointer);
 	void updateVAO(float * pos, int plength, float * tex, int tlength, float* col, int clength, bool resize);
+
+	int processEscapeCharacters(std::string& data, int pos, Color& color);
 };
 
 

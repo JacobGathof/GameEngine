@@ -17,6 +17,7 @@ public:
 	int animationState;
 	int animationRow = 0;
 	int animationColumn = 0;
+	int animationLoop = true;
 
 	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
