@@ -67,6 +67,12 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 			continue;
 		}
 
+		if (c == '\b') {
+			length--;
+			def = Color::Clear;
+			continue;
+		}
+
 		Font::Char* ch = font->getCharacter(c);
 		if (c == 0) {
 			continue;

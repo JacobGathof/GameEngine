@@ -56,7 +56,7 @@ void UIManager::init()
 
 	statusbar->setVisible(true);
 	//menu->setVisible(true);
-	//textbox->addTextToQueue(std::string("Hello world"));
+	addText(std::string("Hello World"));
 }
 
 void UIManager::clean()
@@ -119,7 +119,7 @@ void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 
 void UIManager::addText(std::string& text)
 {
-	textbox->addTextToQueue(text);
+	textbox->addTextToQueue(text, std::string("Check UIManager"), TextureType::TEXTURE_MAVIS);
 }
 
 void UIManager::addChoice(List<std::string>& text)

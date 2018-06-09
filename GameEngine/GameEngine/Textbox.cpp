@@ -4,6 +4,7 @@
 #include "GameState.h"
 
 Text* PlainText::text;
+Text* PlainText::speakerName;
 Text* Choice::texts[4];
 Color Choice::selectedColor(0x00ffffff);
 Color Choice::defaultColor(0xffffffff);
@@ -11,7 +12,7 @@ Color Choice::defaultColor(0xffffffff);
 Textbox::Textbox()
 {
 	textScale = Vector2f(30, 30);
-	textStartPos = Vector2f(24, 160);
+	textStartPos = Vector2f(24+100, 160);
 	timer.setTickLength(0.05f);
 	visible = false;
 
@@ -35,13 +36,6 @@ void Textbox::draw(){
 	UIUtils::drawRectangle(Vector2f(10, 10), Vector2f(780, 200), Color(0xffaaaaff));
 	UIUtils::drawRectangle(Vector2f(12, 12), Vector2f(776, 196), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(14, 14), Vector2f(772, 192), Color(0x000000ff));
-
-	/*
-	UIUtils::drawRectangle(Vector2f(10, 110)+Vector2f(6,-6), Vector2f(100, 100), Color(0x000000dd));
-	UIUtils::drawRectangle(Vector2f(12, 112) + Vector2f(6, -6), Vector2f(96, 96), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), Color(0x000000dd));
-	UIUtils::drawImage(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), TextureType::TEXTURE_MELODY);
-	*/
 
 	/*
 	UIUtils::drawRectangle(Vector2f(10, 210), Vector2f(200, 50), Color(0x000000dd));
@@ -89,6 +83,15 @@ void Textbox::advanceText()
 
 void Textbox::addTextToQueue(std::string& text){
 	queue.push(new PlainText(text));
+	GameState::textboxEmpty = false;
+	if (!visible) {
+		advanceText();
+	}
+}
+
+void Textbox::addTextToQueue(std::string & text, std::string & name, TextureType tex)
+{
+	queue.push(new PlainText(text, name, tex));
 	GameState::textboxEmpty = false;
 	if (!visible) {
 		advanceText();
@@ -244,17 +247,31 @@ void Choice::handleKeyEvents(Keyboard & keyboard)
 PlainText::PlainText(std::string & st)
 {
 	str = st;
+	name = "Test";
+	speakerPortrait = TextureType::TEXTURE_SLIME;
+}
+
+PlainText::PlainText(std::string & st, std::string & nm, TextureType tex)
+{
+	str = st;
+	name = nm;
+	speakerPortrait = tex;
+
 }
 
 void PlainText::init()
 {
-	text = new Text(Vector2f(24, 160), std::string("-----"), Vector2f(30, 30), 0);
+	text = new Text(Vector2f(24+100, 160), std::string("-----"), Vector2f(30, 30), 0);
 	text->setColor(Color(0xffffffff));
+
+	speakerName = new Text(Vector2f(24, 60), std::string("-----"), Vector2f(30, 30), 0);
+	speakerName->setColor(Color(0xaaaaffff));
 }
 
 void PlainText::clean()
 {
 	delete text;
+	delete speakerName;
 }
 
 void PlainText::prepare()
@@ -262,11 +279,25 @@ void PlainText::prepare()
 	str = TextUtils::processString(str, Res::get(FontType::DEFAULT), Vector2f(30,30), 738.0f);
 	text->setText(str);
 	text->resetLength();
+
+	speakerName->setText(name);
 }
 
 void PlainText::draw()
 {
 	text->draw();
+
+	UIUtils::drawRectangle(Vector2f(10, 110) + Vector2f(6, -6), Vector2f(100, 100), Color(0x000000dd));
+	UIUtils::drawRectangle(Vector2f(12, 112) + Vector2f(6, -6), Vector2f(96, 96), Color(0xaaaaaa88));
+	UIUtils::drawRectangle(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), Color(0x000000dd));
+	UIUtils::drawImage(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), speakerPortrait);
+
+	UIUtils::drawRectangle(Vector2f(10, 60) + Vector2f(6, -6), Vector2f(100, 40), Color(0x000000dd));
+	UIUtils::drawRectangle(Vector2f(12, 62) + Vector2f(6, -6), Vector2f(96, 36), Color(0xaaaaaa88));
+	UIUtils::drawRectangle(Vector2f(14, 64) + Vector2f(6, -6), Vector2f(92, 32), Color(0x000000dd));
+
+	speakerName->draw();
+
 }
 
 void PlainText::finish()

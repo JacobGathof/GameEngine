@@ -83,8 +83,8 @@ void Application::run()
 		Window::pollEvents();
 		timer.update();
 
-	
-		GameState::setGlobalDebug(std::to_string(timer.FPS()));
+		Res::get(ShaderType::TEXT_SHADER)->bind();
+		Res::get(ShaderType::TEXT_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
 		Input::processInput(dt);
 		UIManager::update(dt);

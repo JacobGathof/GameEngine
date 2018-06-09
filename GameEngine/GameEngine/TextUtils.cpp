@@ -25,7 +25,10 @@ std::string TextUtils::processString(std::string & txt, Font* font, Vector2f& sc
 		} else {
 			newString[i] = txt[i];
 		}
-		length += Text::POS_SCALE * scale[0] * font->getCharacter(txt[i])->xadvance;
+		Font::Char * c = font->getCharacter(txt[i]);
+		if (c == 0)
+			continue;
+		length += Text::POS_SCALE * scale[0] * c->xadvance;
 
 		if (length >= maxLength) {
 			length = 0;

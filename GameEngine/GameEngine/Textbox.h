@@ -24,6 +24,7 @@ public:
 class PlainText : public TextboxContent {
 public:
 	PlainText(std::string& str);
+	PlainText(std::string& str, std::string& name, TextureType tex);
 
 	static void init();
 	static void clean();
@@ -40,7 +41,11 @@ public:
 
 private:
 	static Text* text;
+	static Text* speakerName;
+
 	std::string str;
+	std::string name;
+	TextureType speakerPortrait;
 
 };
 
@@ -82,6 +87,7 @@ public:
 	void update(float dt);
 	void advanceText();
 	void addTextToQueue(std::string& text);
+	void addTextToQueue(std::string& text, std::string& name, TextureType tex);
 	void addChoiceToQueue(List<std::string>& text);
 
 	virtual void handleMouseEvents(Mouse& mouse);

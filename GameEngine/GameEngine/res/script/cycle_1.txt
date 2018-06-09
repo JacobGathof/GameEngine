@@ -6,7 +6,7 @@
 		<fade color="0x00000000" time="0.1" dir="out"/>
 		<room name="Reading Room"/>
 		<quote>Our greatest weakness lies in giving up.~The most certain way to succeed is ALWAYS~to try just one more time.~ - Thomas Edison </quote>
-		<text>???: Alright children, settle down. It's time for the story</text>
+		<text>???: Alright F0Fchildren, settle down. It's time for the story</text>
 		<text>???: Storytime! Quit pushing! That's my seat! Be quiet and sit down! Ssh! You ssh!</text>
 		<text>???: This story is called "The Silver Knight"</text>
 		<text>???: Aww, didn't we read this last week? No, last week was "The Brave Lion"</text>

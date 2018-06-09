@@ -4,7 +4,7 @@
 
 Banner::Banner()
 {
-	position = Vector2f(0, 500);
+	position = Vector2f(0, 400);
 	scale = Vector2f(800, 200);
 	bannerColor = Color::White;
 	textColor = Color::Black;
@@ -37,10 +37,15 @@ void Banner::draw()
 	UIUtils::drawRectangle(position, scale, Color(1,1,1,alpha));
 	text->draw();
 	subText->draw();
+
+	UIUtils::drawRectangle(position + Vector2f(200, 75), Vector2f(400,2), Color(0,0,0, alpha));
+
 }
 
 void Banner::update(float dt)
 {
+	text->setAlpha(alpha);
+	subText->setAlpha(alpha);
 }
 
 void Banner::handleMouseEvents(Mouse & mouse)
