@@ -83,9 +83,6 @@ void Application::run()
 		Window::pollEvents();
 		timer.update();
 
-		Res::get(ShaderType::TEXT_SHADER)->bind();
-		Res::get(ShaderType::TEXT_SHADER)->loadFloat("gameTime", timer.getGameTime());
-
 		Input::processInput(dt);
 		UIManager::update(dt);
 

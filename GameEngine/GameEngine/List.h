@@ -123,6 +123,16 @@ public:
 		return li;
 	}
 
+	/*
+	T concat() {
+		T ret;
+		for (int i = 0; i < data.size(); i++) {
+			ret += data[i];
+		}
+		return ret;
+	}
+	*/
+
 private:
 	std::vector<T> data;
 };

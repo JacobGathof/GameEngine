@@ -1,6 +1,7 @@
 #include "CommandLine.h"
 #include "FilesAndStrings.h"
 #include "WeatherManager.h"
+#include "UIManager.h"
 
 CommandLine::CommandLine()
 {
@@ -76,6 +77,10 @@ void CommandLine::handleCommand(std::string s)
 
 	if (li[0] == "WEATHER") {
 		WeatherManager::setState(std::atoi(li[1].c_str()));
+	}
+
+	if (li[0] == "SAY") {
+		UIManager::addText(s.substr(s.find(' ')));
 	}
 
 
