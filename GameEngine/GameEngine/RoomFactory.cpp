@@ -29,7 +29,7 @@ void RoomFactory::ReadingRoom()
 
 	PlayerAI * playerAi = new PlayerAI();
 	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(100, 00), Vector2f(256, 256), playerAi);
+	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 00), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));

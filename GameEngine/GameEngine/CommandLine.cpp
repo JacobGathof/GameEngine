@@ -61,9 +61,6 @@ void CommandLine::handleKeyEvents(Keyboard & keyboard)
 		str = "";
 		text->setText(str);
 	}
-
-
-
 }
 
 void CommandLine::handleCommand(std::string s)

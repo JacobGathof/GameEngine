@@ -71,6 +71,7 @@ void Application::run()
 	//Window::close();
 	
 	Object * melody = world->getObject(std::string("Player"));
+	melody->pos = Vector2f(0, 0);
 	
 	melody->weight = Weight::GHOST;
 	Screen::setTargetPosition(&melody->pos);
@@ -82,6 +83,10 @@ void Application::run()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 		timer.update();
+
+		Res::get(ShaderType::LIGHT_SHADER)->bind();
+		Res::get(ShaderType::LIGHT_SHADER)->loadFloat("gameTime", timer.getGameTime());
+
 
 		Input::processInput(dt);
 		UIManager::update(dt);
