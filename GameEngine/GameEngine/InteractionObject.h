@@ -28,6 +28,7 @@ public:
 
 	virtual int run(float dt = 0.0f) {
 		GameState::inv->add(item);
+		UIManager::addText(std::string("You just got ") + item->getName());
 		return 1;
 	};
 private:

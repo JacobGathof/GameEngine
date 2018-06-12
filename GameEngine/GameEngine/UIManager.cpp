@@ -56,7 +56,8 @@ void UIManager::init()
 
 	statusbar->setVisible(true);
 	//menu->setVisible(true);
-	addText(std::string("Hello World"));
+	addText(std::string("Hello World"), std::string("Melody"), TextureType::TEXTURE_PANDORA);
+
 }
 
 void UIManager::clean()
@@ -119,7 +120,12 @@ void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 
 void UIManager::addText(std::string& text)
 {
-	textbox->addTextToQueue(text, std::string("Check UIManager"), TextureType::TEXTURE_MAVIS);
+	textbox->addPlainTextToQueue(text);
+}
+
+void UIManager::addText(std::string & text, std::string & name, TextureType tex)
+{
+	textbox->addDialogueToQueue(text, name, tex);
 }
 
 void UIManager::addChoice(List<std::string>& text)

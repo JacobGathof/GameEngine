@@ -24,7 +24,32 @@ public:
 class PlainText : public TextboxContent {
 public:
 	PlainText(std::string& str);
-	PlainText(std::string& str, std::string& name, TextureType tex);
+
+	static void init();
+	static void clean();
+
+	virtual void prepare();
+	virtual void draw();
+	virtual void finish();
+
+	virtual bool isDisplayingFullLength();
+	virtual void displayFullLength();
+	virtual void addLetter();
+
+	virtual void handleKeyEvents(Keyboard& keyboard);
+
+private:
+	static Text* text;
+	
+	std::string str;
+
+};
+
+
+class DialogueText : public TextboxContent {
+public:
+	DialogueText(std::string& str);
+	DialogueText(std::string& str, std::string& name, TextureType tex);
 
 	static void init();
 	static void clean();
@@ -48,6 +73,8 @@ private:
 	TextureType speakerPortrait;
 
 };
+
+
 
 class Choice : public TextboxContent {
 public:
@@ -86,8 +113,8 @@ public:
 	void draw();
 	void update(float dt);
 	void advanceText();
-	void addTextToQueue(std::string& text);
-	void addTextToQueue(std::string& text, std::string& name, TextureType tex);
+	void addPlainTextToQueue(std::string& text);
+	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex);
 	void addChoiceToQueue(List<std::string>& text);
 
 	virtual void handleMouseEvents(Mouse& mouse);

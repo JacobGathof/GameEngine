@@ -26,7 +26,7 @@ public:
 	static void handleKeyboardEvents(Keyboard& keyboard);
 
 	static void addText(std::string& text);
-	//static void addText(std::string& text, std::string& name, TextureType tex);
+	static void addText(std::string& text, std::string& name, TextureType tex);
 	static void addChoice(List<std::string>& text);
 	static bool isTextboxEmpty();
 
