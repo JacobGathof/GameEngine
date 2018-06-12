@@ -47,6 +47,7 @@ void RoomFactory::ReadingRoom()
 	structure->moveSpeed = 600;
 	*/
 	
+
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
