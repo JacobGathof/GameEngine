@@ -42,6 +42,7 @@ public:
 	AbstractAction * interactObj;
 	List<Hitbox *> hitboxes;
 	AI * defaultAI;
+	bool selected = false;
 
 	virtual void draw();
 	virtual void drawEffects();

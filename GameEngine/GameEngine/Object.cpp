@@ -34,14 +34,24 @@ Object::~Object()
 
 void Object::draw()
 {	
-	ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
+	ShaderProgram* p = Res::get(ShaderType::ANIMATED_SHADER);
+	SpriteSheet* sh = Res::get(texture);
+	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+
+	m->bind();
+	sh->bind();
+
 	p->bind();
 	p->loadVector2f("translate", pos);
 	p->loadVector2f("scale", scale);
-	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
-	m->bind();
-	Res::get(texture)->bind();
-	
+
+	p->loadInteger("rows", 1);
+	p->loadInteger("columns", 1);
+	p->loadInteger("currentRow", 0);
+	p->loadInteger("currentColumn", 0);
+
+	p->loadInteger("selected", selected);
+
 	m->draw();
 	
 }

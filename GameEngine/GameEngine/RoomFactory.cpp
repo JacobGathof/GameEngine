@@ -48,15 +48,18 @@ void RoomFactory::ReadingRoom()
 	*/
 	
 	
-	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(256, 256), new GiveCardAction(Res::get(CardType::DAWN)));
-	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), TextureType::TEXTURE_HORUS, 0);
+	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
 	
+
+	Chest * chest2 = new Chest(TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::MOONLIGHT)));
+
 
 
 	room->addObject(melody);
 	room->addObject(structure);
 	room->addObject(chest);
+	room->addObject(chest2);
 
 	world->addRoom(std::string("Reading Room"), room);
 }

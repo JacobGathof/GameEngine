@@ -50,6 +50,15 @@ void World::drawTerrain()
 void World::drawObjects()
 {
 	currentRoom->drawObjects();
+	Object* p = getObject(std::string("Player"));
+	Object* closest = currentRoom->getNearestObject(p->pos);
+	if (closest->pos.distanceTo(p->pos) < 256 && closest != p) {
+
+		closest->selected = true;
+		closest->draw();
+		closest->selected = false;
+
+	}
 }
 
 void World::drawEffects()

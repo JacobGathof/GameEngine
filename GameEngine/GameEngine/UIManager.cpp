@@ -56,7 +56,7 @@ void UIManager::init()
 
 	statusbar->setVisible(true);
 	//menu->setVisible(true);
-	addText(std::string("Hello World"), std::string("Melody"), TextureType::TEXTURE_PANDORA);
+	//addText(std::string("Hello World"), std::string("--------"), TextureType::TEXTURE_PANDORA);
 
 }
 

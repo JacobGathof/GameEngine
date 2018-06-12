@@ -43,7 +43,8 @@ void AnimatedObject::draw()
 	p->loadInteger("columns", sh->columns);
 	p->loadInteger("currentRow", animationRow);
 	p->loadInteger("currentColumn", animationColumn);
-
+	
+	p->loadInteger("selected", selected);
 
 	m->draw();
 }

@@ -191,11 +191,11 @@ void Room::sort()
 
 Object * Room::getNearestObject(Vector2f& pos)
 {
-	Object * nearest = nullptr;
-	float nearestDist = 1000000;
+	Object * nearest = 0;
+	float nearestDist = -1;
 	for (Object * obj : objects) {
-		float dist = pos.distanceTo(obj->pos);
-		if (dist < nearestDist && dist != 0) {
+		float dist = (pos - obj->pos).lengthSquared();
+		if ((dist < nearestDist || nearestDist == -1) && (dist != 0)) {
 			nearestDist = dist;
 			nearest = obj;
 		}
