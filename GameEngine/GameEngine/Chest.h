@@ -7,14 +7,8 @@
 class Chest : public Object
 {
 public:
-	Chest(std::string n, TextureType t, Vector2f position, Vector2f sc);
-	Chest(std::string n, TextureType t, Vector2f position, Vector2f sc, List<Item *> it);
+	Chest(TextureType t, Vector2f& position, Vector2f& sc, AbstractAction* action);
 	~Chest();
-
-	List<Item *> items;
-
-	void addItem(Item * item);
-	List<Item *>& giveItems();
-	Item * giveItem(int i);
+	virtual void interact();
 };
 

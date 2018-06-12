@@ -104,7 +104,9 @@ void Object::setAI(AI * a)
 
 void Object::setInteraction(AbstractAction * i)
 {
-	delete interactObj;
+	if (interactObj != 0) {
+		delete interactObj;
+	}
 	
 	interactObj = i;
 }

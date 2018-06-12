@@ -1,23 +1,16 @@
 #include "Card.h"
 
 
-Card::Card(std::string n, std::string desc, LivingAi * a) : Item(n, desc)
+Card::Card(std::string& n, std::string& desc, TextureType tex, LivingAi * a) : Item(n,tex,desc)
 {
 	ai = a;
-	type = ItemType::CARD;
-}
-
-Card::Card(std::string n, std::string desc, TextureType tex, LivingAi * a) : Item(n,desc)
-{
-	ai = a;
-	setTexture(tex);
 }
 
 Card::~Card()
 {
 }
 
-int Card::update(int delta_time)
+int Card::update(float dt)
 {
 	//Might be necessary for cards that have effects in hand.  Don't know
 
@@ -26,6 +19,7 @@ int Card::update(int delta_time)
 
 LivingAi * Card::use()
 {
+	
 	std::cout << "Using Card: " << this->getName() << std::endl;
 	return ai;
 }

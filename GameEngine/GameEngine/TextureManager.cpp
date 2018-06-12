@@ -74,3 +74,4 @@ void TextureManager::initSpritesheets()
 
 	addSpriteSheet(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3, states, structs);
 }
+

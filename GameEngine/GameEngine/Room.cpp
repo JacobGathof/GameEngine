@@ -106,14 +106,18 @@ void Room::drawHitboxes()
 void Room::drawLights()
 {
 	
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 3; i++) {
 		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 		p->bind();
-		p->loadVector2f("translate", Vector2f(0,512*i));
+		p->loadVector2f("translate", Vector2f(2*512*i, 0));
 		p->loadVector2f("scale", 4*Vector2f(512, 512));
-		p->loadColor("color", Color::White);
+		p->loadColor("color", Color(1,1,1,2));
 		if (i == 1) {
-			p->loadColor("color", Color::Black);
+			p->loadColor("color", Color(0xff0000ff));
+		}
+		if (i == 2) {
+			p->loadColor("color", Color(-2, -2, -2, 2));
+			p->loadVector2f("translate", Vector2f(512, 512));
 		}
 		Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 		m->bind();

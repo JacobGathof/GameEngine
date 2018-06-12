@@ -40,7 +40,7 @@ void RoomFactory::ReadingRoom()
 	GameState::battleManager = BattleManager(melody);
 	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
 	structure->addHitbox(circ2);
-	TextInteractionObject * inter = new TextInteractionObject(std::string("Interacting"));
+	TextInteractionAction * inter = new TextInteractionAction(std::string("Interacting"));
 	structure->setInteraction(inter);
 	/*
 	FollowAI * follow = new FollowAI(melody);
@@ -48,9 +48,8 @@ void RoomFactory::ReadingRoom()
 	*/
 	
 	
-	Chest * chest = new Chest(std::string("Chest"), TextureType::TEXTURE_HORUS, Vector2f(256, 0), Vector2f(256, 256));
-	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), 0);
-	chest->addItem(card);
+	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(256, 256), new GiveCardAction(Res::get(CardType::DAWN)));
+	Card * card = new Card(std::string("My Card"), std::string("Its Mine"), TextureType::TEXTURE_HORUS, 0);
 	chest->isStatic = false;
 	
 

@@ -5,7 +5,7 @@
 class KeyItem : public Item
 {
 public:
-	KeyItem(std::string n, std::string desc);
+	KeyItem(std::string& n, TextureType tex, std::string& desc);
 	~KeyItem();
 };
 

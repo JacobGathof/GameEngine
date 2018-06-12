@@ -3,28 +3,21 @@
 #include "TextureManager.h"
 #include <string>
 
-enum class ItemType {
-	WEAPON,
-	ARMOR,
-	KEYITEM,
-	CARD
-};
-
 
 class Item
 {
 public:
-	Item(std::string n, std::string desc);
-	~Item();
-
-	ItemType type;
+	virtual ~Item();
 
 	virtual void setTexture(TextureType t);
-	virtual void setName(std::string n);
-	virtual void setDescription(std::string desc);
-	virtual std::string getName();
-	virtual std::string getDescription();
+	virtual void setName(std::string& n);
+	virtual void setDescription(std::string& desc);
+	virtual std::string& getName();
+	virtual std::string& getDescription();
 	virtual TextureType getTexture();
+
+protected:
+	Item(std::string& n, TextureType tex, std::string& desc);
 
 private:
 	std::string name;

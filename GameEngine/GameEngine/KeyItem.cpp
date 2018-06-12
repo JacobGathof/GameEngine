@@ -1,9 +1,8 @@
 #include "KeyItem.h"
 
 
-KeyItem::KeyItem(std::string n, std::string desc) : Item(n, desc)
+KeyItem::KeyItem(std::string& n, TextureType tex, std::string& desc) : Item(n, tex, desc)
 {
-	type = ItemType::KEYITEM;
 }
 
 KeyItem::~KeyItem()

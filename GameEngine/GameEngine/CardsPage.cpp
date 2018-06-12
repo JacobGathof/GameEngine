@@ -31,9 +31,7 @@ void CardsPage::draw()
 	UIUtils::drawRectangle(Vector2f(520, 250) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
 
 
-	Deck* deck = Res::get(DeckType::TEST);
-
-	List<Card*> cards = deck->getAllCards();
+	List<Card*> cards = GameState::inv->getCards();
 
 	UIUtils::drawImage(Vector2f(520, 200 + 250) + Vector2f(8, 8), Vector2f(184, 184), cardTexture);
 	cardName->draw();
@@ -47,9 +45,9 @@ void CardsPage::update(float dt)
 {
 	if (lastIndex != selectedIndex) {
 
-		if (selectedIndex < Res::get(DeckType::TEST)->getAllCards().size()) {
+		if (selectedIndex < GameState::inv->getCards().size()) {
 			lastIndex = selectedIndex;
-			selectedCard = Res::get(DeckType::TEST)->getAllCards()[selectedIndex];
+			selectedCard = GameState::inv->getCards()[selectedIndex];
 
 			cardName->setText(selectedCard->getName());
 			cardDesc->setText(selectedCard->getDescription());
@@ -87,7 +85,8 @@ void CardGrid::draw()
 {
 	UIUtils::drawRectangle(position, scale, Color(0xcccccc88));
 
-	List<Card*> deck = Res::get(DeckType::TEST)->getAllCards();
+	List<Card*> deck = GameState::inv->getCards();
+
 	for (int i = 0; i < deck.size(); i++) {
 
 		int row = i % cards_per_row;
@@ -133,7 +132,7 @@ void CardGrid::handleMouseEvents(Mouse & mouse)
 			if (swapPos != -1) {
 
 			
-				List<Card*>* deck = &Res::get(DeckType::TEST)->getAllCards();
+				List<Card*>* deck = &GameState::inv->getCards();
 				deck->swap(carryIndex, swapPos);
 				
 
@@ -195,7 +194,7 @@ int CardGrid::getIndexAtPosition(Vector2f & pos)
 
 	int index = rowClicked * cards_per_column + columnClicked;
 
-	if (index < 0 || index >= Res::get(DeckType::TEST)->getAllCards().size()) {
+	if (index < 0 || index >= GameState::inv->getCards().size()) {
 		return -1;
 	}
 

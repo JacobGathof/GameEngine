@@ -39,7 +39,7 @@ public:
 	bool stalled = false;
 	std::string name;
 	bool colliding = false;
-	AbstractAction * interactObj = new AbstractAction();
+	AbstractAction * interactObj;
 	List<Hitbox *> hitboxes;
 	AI * defaultAI;
 

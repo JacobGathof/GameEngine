@@ -39,6 +39,12 @@ void Application::run()
 	Inventory inv;
 	GameState::inv = &inv;
 
+	inv.add(Res::get(CardType::EXCALIBUR));
+	inv.add(Res::get(CardType::FIREBALL));
+	inv.add(Res::get(CardType::FIREBALL));
+	inv.add(Res::get(CardType::EXCALIBUR));
+	inv.add(Res::get(CardType::SHADOW_STEP));
+
 	//Rooms and the world
 	World * world = World::getInstance();
 
@@ -82,6 +88,7 @@ void Application::run()
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
+
 		timer.update();
 
 		Res::get(ShaderType::LIGHT_SHADER)->bind();

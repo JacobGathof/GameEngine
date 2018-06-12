@@ -4,10 +4,7 @@
 
 Inventory::Inventory()
 {
-	items.insert(std::pair<ItemType, List<Item *>>(ItemType::ARMOR, List<Item *>()));
-	items.insert(std::pair<ItemType, List<Item *>>(ItemType::WEAPON, List<Item *>()));
-	items.insert(std::pair<ItemType, List<Item *>>(ItemType::CARD, List<Item *>()));
-	items.insert(std::pair<ItemType, List<Item *>>(ItemType::KEYITEM, List<Item *>()));
+	
 }
 
 
@@ -15,78 +12,117 @@ Inventory::~Inventory()
 {
 }
 
-void Inventory::add(Weapon * wep)
+void Inventory::add(Weapon * w)
 {
-	items.at(ItemType::WEAPON).add(wep);
+	weapons.add(w);
 }
 
-void Inventory::add(Armor * wep)
+void Inventory::add(Armor * a)
 {
-	items.at(ItemType::ARMOR).add(wep);
+	armors.add(a);
 }
 
-void Inventory::add(KeyItem * wep)
+void Inventory::add(KeyItem * k)
 {
-	items.at(ItemType::KEYITEM).add(wep);
+	keyItems.add(k);
 }
 
 void Inventory::add(Card * c)
 {
-	items.at(ItemType::CARD).add(c);
 	cards.add(c);
-	std::cout << cards.size() << std::endl;
 }
 
-void Inventory::add(Item * wep)
-{
-	items.at(wep->type).add(wep);
-	std::cout << "Armor" << std::endl;
-	for (Item * it : items.at(ItemType::ARMOR)) {
-		std::cout << it->getName() << std::endl;
-	}
-	std::cout << "--------------------------------" << std::endl;
-	std::cout << "Weapons" << std::endl;
-	for (Item * it : items.at(ItemType::WEAPON)) {
-		std::cout << it->getName() << std::endl;
-	}
-	std::cout << "--------------------------------" << std::endl;
-	std::cout << "Key Items" << std::endl;
-	for (Item * it : items.at(ItemType::KEYITEM)) {
-		std::cout << it->getName() << std::endl;
-	}
-	std::cout << "--------------------------------" << std::endl;
-	std::cout << "Card" << std::endl;
-	for (Item * it : items.at(ItemType::CARD)) {
-		std::cout << it->getName() << std::endl;
-	}
-	std::cout << "--------------------------------" << std::endl;
-}
-
-Item * Inventory::get(int i, ItemType type)
-{
-	List<Item *> itemList = items.at(type);
-	if (itemList.size() >= i) {
-		return nullptr;
-	}
-	return itemList.get(i);
-}
-
-List<Item *>& Inventory::getAll(ItemType type)
-{
-	return items.at(type);
-}
 
 List<Card*>& Inventory::getCards()
 {
 	return cards;
 }
 
-List<TextureType> Inventory::getAllTextures(ItemType type)
+List<Weapon*>& Inventory::getWeapons()
 {
-	List<TextureType> textures;
-	List<Item *> itemList = items.at(type);
-	for (Item * item : itemList) {
-		textures.add(item->getTexture());
-	}
-	return textures;
+	return weapons;
 }
+
+List<Armor*>& Inventory::getArmor()
+{
+	return armors;
+}
+
+List<KeyItem*>& Inventory::getKeyItems()
+{
+	return keyItems;
+}
+
+void Inventory::printInventory()
+{
+	std::cout << "Inventory" << std::endl;
+	std::cout << "Armor" << std::endl;
+	for (Item * it : armors) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Weapons" << std::endl;
+	for (Item * it : weapons) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Key Items" << std::endl;
+	for (Item * it : keyItems) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Card" << std::endl;
+	for (Item * it : cards) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------\n" << std::endl;
+}
+
+void Inventory::printCurrentInventory()
+{
+	std::cout << "Equipped:" << std::endl;
+	std::cout << "Armor" << std::endl;
+	if(current.armor != 0)
+		std::cout << current.armor->getName() << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Weapons" << std::endl;
+	if (current.weapon != 0)
+		std::cout << current.weapon->getName() << std::endl;
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Card" << std::endl;
+	for (auto it : current.deck) {
+		std::cout << it->getName() << std::endl;
+	}
+	std::cout << "--------------------------------\n" << std::endl;
+}
+
+
+void Inventory::addCardToCurrentDeck(Card * card){
+	current.deck.add(card);
+}
+
+void Inventory::removeCardFromCurrentDeck(Card * card){
+	current.deck.remove(card);
+}
+
+void Inventory::setCurrentWeapon(Weapon * w){
+	current.weapon = w;
+}
+
+void Inventory::setCurrentArmor(Armor * armor){
+	current.armor = armor;
+}
+
+Weapon * Inventory::getCurrentWeapon(){
+	return current.weapon;
+}
+
+Armor * Inventory::getCurrentArmor(){
+	return current.armor;
+}
+
+List<Card*>& Inventory::getCurrentDeck(){
+	return current.deck;
+}
+
+

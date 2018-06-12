@@ -16,23 +16,45 @@ public:
 	Inventory();
 	~Inventory();
 
-	std::map<ItemType, List<Item *>> items;
+	void add(Weapon * w);
+	void add(Armor * a);
+	void add(KeyItem * k);
+	void add(Card * c);
 
-
-	void add(Weapon * wep);
-	void add(Armor * wep);
-	void add(KeyItem * wep);
-	void add(Card * wep);
-	void add(Item * wep);
-	Item * get(int i, ItemType type);
-	List<Item *>& getAll(ItemType type);
 	List<Card *>& getCards();
+	List<Weapon *>& getWeapons();
+	List<Armor *>& getArmor();
+	List<KeyItem *>& getKeyItems();
 
-	List<TextureType> getAllTextures(ItemType type);
+	Weapon* getCurrentWeapon();
+	Armor* getCurrentArmor();
+	List<Card*>& getCurrentDeck();
+
+	void printInventory();
+	void printCurrentInventory();
+
+	void addCardToCurrentDeck(Card* card);
+	void removeCardFromCurrentDeck(Card* card);
+	void setCurrentWeapon(Weapon* w);
+	void setCurrentArmor(Armor* armor);
 
 
 private:
 	List<Card*> cards;
+	List<Armor*> armors;
+	List<Weapon*> weapons;
+	List<KeyItem*> keyItems;
+
+	//Duplication Bug is possible if we allow more than one deck to be created
+
+	struct CurrentUse {
+		List<Card*> deck;
+		Weapon* weapon;
+		Armor* armor;
+	} current;
+
+
+
 
 };
 

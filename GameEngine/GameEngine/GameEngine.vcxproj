@@ -49,6 +49,7 @@
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyStatusbar.cpp" />
+    <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyStatusbar.h" />
+    <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
     <ClInclude Include="Path.h" />

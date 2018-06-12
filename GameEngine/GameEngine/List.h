@@ -39,8 +39,8 @@ public:
 	}
 
 	bool remove(T t){
-		int index = std::find(data.begin(), data.end(), t);
-		if (index < data.begin() || index > data.end())
+		auto index = std::find(data.begin(), data.end(), t);
+		if (index == data.end())
 			return false;
 		data.erase(index);
 		return true;

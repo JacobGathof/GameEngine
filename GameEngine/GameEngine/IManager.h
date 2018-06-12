@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 
+
 template <class T, typename Q>
 class IManager
 {

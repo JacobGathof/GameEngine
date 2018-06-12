@@ -38,12 +38,6 @@ void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& no
 		node = node->next_sibling();
 	}
 
-
-	for (auto a : nodeNames) {
-		std::cout << a.first << " " << a.second << std::endl;
-	}
-	std::cout << std::endl;
-
 	int numberOfNodes = nodeNames.size();
 	
 	for (int i = 0; i < numberOfNodes; i++) {
@@ -173,9 +167,7 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 			x = World::getInstance()->getObject(name)->pos[0];
 		}
 		else {
-			
 			char * xVal = xStr->value();
-			std::cout << xVal << std::endl;
 			x = (float)std::atof(xVal);
 		}
 		float y = 0.0f;

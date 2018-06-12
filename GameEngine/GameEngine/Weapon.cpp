@@ -1,9 +1,8 @@
 #include "Weapon.h"
 
 
-Weapon::Weapon(std::string n, std::string desc) : Item(n, desc)
+Weapon::Weapon(std::string& n, TextureType tex, std::string& desc) : Item(n, tex, desc)
 {
-	type = ItemType::WEAPON;
 }
 
 Weapon::~Weapon()

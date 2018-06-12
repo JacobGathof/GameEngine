@@ -49,6 +49,10 @@ void Input::processInput(float dt) {
 		UIManager::setQuoteText(std::string("Testing\aF00 Quote Banner"));
 	}
 
+	if (keyboard.press(GLFW_KEY_3)) {
+		GameState::inv->printInventory();
+		GameState::inv->printCurrentInventory();
+	}
 
 	if (keyboard.press(GLFW_KEY_T)) {
 		UIManager::toggleMenu();
