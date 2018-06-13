@@ -23,6 +23,7 @@
     <ClCompile Include="AbstractAction.cpp" />
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="ArmorManager.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
@@ -52,6 +53,7 @@
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
+    <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="ScreenFollowAction.cpp" />
@@ -148,6 +150,7 @@
     <ClCompile Include="WaitAction.cpp" />
     <ClCompile Include="Water.cpp" />
     <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="WeaponManager.cpp" />
     <ClCompile Include="WeatherManager.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
@@ -157,6 +160,7 @@
     <ClInclude Include="AbstractAction.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Armor.h" />
+    <ClInclude Include="ArmorManager.h" />
     <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AudioSystem.h" />
@@ -186,6 +190,7 @@
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
+    <ClInclude Include="KeyItemManager.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="ScreenFollowAction.h" />
@@ -287,6 +292,7 @@
     <ClInclude Include="WaitAction.h" />
     <ClInclude Include="Water.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="WeaponManager.h" />
     <ClInclude Include="WeatherManager.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />

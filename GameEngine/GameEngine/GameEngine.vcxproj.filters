@@ -528,9 +528,6 @@
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="WeatherManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CommandLine.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
@@ -539,6 +536,18 @@
     </ClCompile>
     <ClCompile Include="EquipPage.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyItemManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmorManager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -947,9 +956,6 @@
     <ClInclude Include="Path.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WeatherManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CommandLine.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -958,6 +964,18 @@
     </ClInclude>
     <ClInclude Include="EquipPage.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyItemManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmorManager.h">
+      <Filter>Header Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

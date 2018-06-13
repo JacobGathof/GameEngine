@@ -131,3 +131,21 @@ enum class CardType {
 enum class DeckType {
 	TEST,
 };
+
+
+enum class ArmorType {
+	BASIC_HELMET,
+	BASIC_BOOTS,
+	BASIC_LEGGINGS,
+	BASIC_CHEST,
+};
+
+enum class KeyItemType {
+	PANDORA_SOUL
+};
+
+enum class WeaponType {
+	BOW,
+	SWORD,
+	SPEAR,
+};

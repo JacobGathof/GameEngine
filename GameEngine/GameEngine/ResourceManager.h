@@ -8,6 +8,12 @@
 #include "AudioManager.h"
 #include "DeckManager.h"
 
+#include "ArmorManager.h"
+#include "WeaponManager.h"
+#include "KeyItemManager.h"
+
+#include "IManager.h"
+
 class ResourceManager
 {
 public:
@@ -23,6 +29,11 @@ public:
 	static Font* get(FontType type);
 	static Model* get(ModelType type);
 	static SoundEntity* get(AudioType type);
+	
+	static Armor* get(ArmorType type);
+	static Weapon* get(WeaponType type);
+	static KeyItem* get(KeyItemType type);
+
 
 	static void updateFramebufferSizes(float x, float y);
 	static void uploadGlobalUniform(char* location, Vector2f& val);
@@ -37,6 +48,10 @@ private:
 	static FramebufferManager* frameManager;
 	static AudioManager* soundManager;
 	static DeckManager* deckManager;
+
+	static ArmorManager* armorManager;
+	static WeaponManager* weaponManager;
+	static KeyItemManager* keyItemManager;
 
 };
 
