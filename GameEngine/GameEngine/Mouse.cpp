@@ -56,6 +56,8 @@ void Mouse::update()
 	}
 
 	scroll = 0;
+
+	lastPosition = position;
 }
 
 bool Mouse::down(int i)
@@ -81,5 +83,10 @@ bool Mouse::release(int i)
 int Mouse::getScroll()
 {
 	return scroll;
+}
+
+bool Mouse::mouseMoved()
+{
+	return lastPosition != position;
 }
 

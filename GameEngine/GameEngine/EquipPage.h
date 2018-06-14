@@ -1,8 +1,32 @@
 #pragma once
-class EquipPage
+#include "AbstractUIComponent.h"
+#include "Weapon.h"
+#include "List.h"
+#include "Grid.h"
+
+class Text;
+
+class EquipPage : public AbstractUIComponent
 {
 public:
 	EquipPage();
 	~EquipPage();
+	virtual void draw();
+	virtual void update(float dt);
+	virtual void handleMouseEvents(Mouse& mouse);
+	virtual void handleKeyEvents(Keyboard& keyboard);
+
+private:
+	Weapon * selectedWeapon = 0;
+
+	Text* weaponName;
+	Text* weaponDesc;
+	TextureType weaponTexture;
+	Grid<Weapon*>* weaponGrid;
+
+	List<Weapon*>* weapons;
+
+	int selectedIndex = -1;
+	int lastIndex = selectedIndex;
 };
 

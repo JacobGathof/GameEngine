@@ -53,6 +53,7 @@
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="KeyItemManager.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PauseMenu.h" />

@@ -54,6 +54,7 @@ public:
 	bool operator>=(Vector2f& v);
 	bool operator<=(Vector2f& v);
 	bool operator==(const Vector2f& v) const;
+	bool operator!=(const Vector2f& v) const;
 	bool equals(const Vector2f& v, float eps = 0) const;
 
 	bool between(Vector2f& v1, Vector2f& v2);

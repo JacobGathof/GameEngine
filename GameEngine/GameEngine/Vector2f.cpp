@@ -204,6 +204,11 @@ bool Vector2f::operator==(const Vector2f & v) const
 	return data[0] == v[0] && data[1] == v[1];
 }
 
+bool Vector2f::operator!=(const Vector2f & v) const
+{
+	return data[0] != v[0] || data[1] != v[1];
+}
+
 bool Vector2f::equals(const Vector2f & v, float eps) const
 {
 	return abs(data[0] - v[0]) < eps && abs(data[1] - v[1]) < eps;

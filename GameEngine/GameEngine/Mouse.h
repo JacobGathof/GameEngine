@@ -31,9 +31,11 @@ public:
 	bool release(int i = GLFW_MOUSE_BUTTON_LEFT);
 
 	int getScroll();
+	bool mouseMoved();
 
 private:
 	Vector2f position;
+	Vector2f lastPosition;
 	MouseState mouseButtons[32];
 	std::queue<int> clicked;
 	std::queue<int> released;

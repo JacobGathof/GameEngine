@@ -3,6 +3,7 @@
 #include "InventoryPage.h"
 #include "SettingsPage.h"
 #include "CardsPage.h"
+#include "EquipPage.h"
 
 Menu::Menu()
 {
@@ -11,16 +12,19 @@ Menu::Menu()
 
 	settings = new SettingsPage();
 	cardsPage = new CardsPage();
+	equipPage = new EquipPage();
 
 	activeComponent = settings;
 	tabs.add(MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(75,25)));
-	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(270, 650), Vector2f(75, 25)));
+	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(200, 650), Vector2f(75, 25)));
+	tabs.add(MenuTab(equipPage, std::string("Weapons"), Vector2f(300, 650), Vector2f(75, 25)));
 }
 
 Menu::~Menu()
 {
 	delete settings;
 	delete cardsPage;
+	delete equipPage;
 }
 
 void Menu::draw()

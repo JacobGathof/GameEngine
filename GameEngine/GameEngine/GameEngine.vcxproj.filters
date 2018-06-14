@@ -522,9 +522,6 @@
     <ClCompile Include="SpawnAction.cpp">
       <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Path.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -548,6 +545,12 @@
     </ClCompile>
     <ClCompile Include="ArmorManager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -953,9 +956,6 @@
     <ClInclude Include="SpawnAction.h">
       <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CommandLine.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -976,6 +976,12 @@
     </ClInclude>
     <ClInclude Include="ArmorManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

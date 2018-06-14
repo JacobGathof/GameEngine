@@ -9,12 +9,14 @@
 class InventoryPage;
 class CardsPage;
 class SettingsPage;
+class EquipPage;
 
 enum class MenuTabType {
 	INVENTORY,
 	CARDS,
 	LEVELING,
 	SETTINGS,
+	WEAPONS,
 };
 
 class MenuTab : public AbstractUIComponent {
@@ -49,9 +51,11 @@ public:
 
 private:
 	AbstractUIComponent * activeComponent;
+
 	InventoryPage * inventory;
 	CardsPage * cardsPage;
 	SettingsPage * settings;
+	EquipPage * equipPage;
 
 	Vector2f tab_o = Vector2f(100, 0);
 	Vector2f tab_s = Vector2f(100, 100);

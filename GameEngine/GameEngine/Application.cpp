@@ -32,18 +32,20 @@ void Application::run()
 	Screen::init();
 	Input::init();
 
-	UIManager::init();
-
-	WeatherManager::init();
-
 	Inventory inv;
 	GameState::inv = &inv;
-
 	inv.add(Res::get(CardType::EXCALIBUR));
 	inv.add(Res::get(CardType::FIREBALL));
 	inv.add(Res::get(CardType::FIREBALL));
 	inv.add(Res::get(CardType::EXCALIBUR));
 	inv.add(Res::get(CardType::SHADOW_STEP));
+
+	inv.add(Res::get(WeaponType::SWORD));
+
+	UIManager::init();
+
+	WeatherManager::init();
+
 
 	//Rooms and the world
 	World * world = World::getInstance();
