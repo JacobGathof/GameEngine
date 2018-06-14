@@ -28,8 +28,8 @@ void TextureManager::init() {
 	addTexture(TextureType::LOG, "res/tex/ImageFiles/Log.png");
 	addTexture(TextureType::BLUE_FLOWERS, "res/tex/ImageFiles/blue flowers.png");
 
-	addTexture(TextureType::CARD_GHOST, "res/tex/Card_Ghost.png");
-	addTexture(TextureType::CARD_ACE, "res/tex/Card_Ace.png");
+	addTexture(TextureType::T_CARD_GHOST, "res/tex/Card_Ghost.png");
+	addTexture(TextureType::T_CARD_ACE, "res/tex/Card_Ace.png");
 
 	addTexture(TextureType::TEXTURE_SKYBOX, "res/tex/Skybox.png");
 	addTexture(TextureType::PERLIN_NOISE, "res/tex/perlin_displacement.png");

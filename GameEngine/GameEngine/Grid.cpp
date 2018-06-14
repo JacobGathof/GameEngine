@@ -31,7 +31,7 @@ void Grid<T>::draw()
 	for (int i = 0; i < contents->size(); i++) {
 
 		int row = i % cards_per_row;
-		int column = i / cards_per_column;
+		int column = i / cards_per_row;
 
 
 		Vector2f pos = position + Vector2f(row, column) * card_box_scale
@@ -116,6 +116,16 @@ void Grid<T>::handleMouseEvents(Mouse & mouse)
 
 		if (i != -1) {
 			*index = i;
+		}
+	}
+
+	if (mouse.doubleClick()) {
+		Vector2f pos = mouse.pos();
+
+		int i = getIndexAtPosition(pos);
+
+		if (i != -1) {
+			*specialIndex = i;
 		}
 	}
 

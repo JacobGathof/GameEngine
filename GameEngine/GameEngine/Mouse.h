@@ -33,6 +33,8 @@ public:
 	int getScroll();
 	bool mouseMoved();
 
+	bool doubleClick();
+
 private:
 	Vector2f position;
 	Vector2f lastPosition;
@@ -40,6 +42,8 @@ private:
 	std::queue<int> clicked;
 	std::queue<int> released;
 	int scroll;
+	int clickDelay;
+	bool dClick;
 
 };
 

@@ -17,6 +17,9 @@ public:
 	virtual void handleKeyEvents(Keyboard& keyboard);
 
 private:
+
+	void setCurrentWeapon(Weapon* w);
+
 	Weapon * selectedWeapon = 0;
 
 	Text* weaponName;
@@ -26,7 +29,13 @@ private:
 
 	List<Weapon*>* weapons;
 
+	TextureType weaponTextureEquip;
+
 	int selectedIndex = -1;
 	int lastIndex = selectedIndex;
+
+	int specialIndex = -1;
+	int lastSpecialIndex = specialIndex;
+
 };
 

@@ -10,8 +10,9 @@ EquipPage::EquipPage()
 	weaponName = new Text(Vector2f(520, 375), std::string(""), Vector2f(25, 25), 0);
 	weaponDesc = new Text(Vector2f(520, 325), std::string(""), Vector2f(20, 20), 0);
 	weapons = &GameState::inv->getWeapons();
-	weaponGrid = new Grid<Weapon*>(weapons, 5, 1);
+	weaponGrid = new Grid<Weapon*>(weapons, 3, 1);
 	weaponGrid->index = &selectedIndex;
+	weaponGrid->specialIndex = &specialIndex;
 }
 
 EquipPage::~EquipPage()
@@ -34,6 +35,9 @@ void EquipPage::draw()
 	weaponDesc->draw();
 
 	weaponGrid->draw();
+
+
+	UIUtils::drawImage(Vector2f(400, 300), Vector2f(75, 75), weaponTextureEquip);
 }
 
 void EquipPage::update(float dt)
@@ -50,6 +54,18 @@ void EquipPage::update(float dt)
 		}
 
 	}
+
+	if (lastSpecialIndex != specialIndex) {
+
+		if (specialIndex < weapons->size()) {
+			lastSpecialIndex = specialIndex;
+			Weapon* equipWeapon = (*weapons)[specialIndex];
+
+			weaponTextureEquip = equipWeapon->getTexture();
+			setCurrentWeapon(equipWeapon);
+		}
+
+	}
 }
 
 void EquipPage::handleMouseEvents(Mouse & mouse)
@@ -59,4 +75,9 @@ void EquipPage::handleMouseEvents(Mouse & mouse)
 
 void EquipPage::handleKeyEvents(Keyboard & keyboard)
 {
+}
+
+void EquipPage::setCurrentWeapon(Weapon * w)
+{
+	GameState::inv->setCurrentWeapon(w);
 }

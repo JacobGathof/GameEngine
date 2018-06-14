@@ -17,6 +17,7 @@ public:
 
 	int getIndexAtPosition(Vector2f& pos);
 	int* index;
+	int* specialIndex;
 
 	int carryIndex;
 	bool mouseDown;

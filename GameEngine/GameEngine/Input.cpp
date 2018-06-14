@@ -59,7 +59,6 @@ void Input::processInput(float dt) {
 	}
 
 
-
 	ai->receiveInput(keyboard);
 
 	Screen::updateScroll((float)mouse.getScroll() / 200.0f);

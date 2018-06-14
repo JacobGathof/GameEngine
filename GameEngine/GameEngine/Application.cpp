@@ -41,6 +41,7 @@ void Application::run()
 	inv.add(Res::get(CardType::SHADOW_STEP));
 
 	inv.add(Res::get(WeaponType::SWORD));
+	inv.add(Res::get(WeaponType::BOW));
 
 	UIManager::init();
 

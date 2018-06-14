@@ -45,6 +45,20 @@ void Mouse::setScroll(int i)
 
 void Mouse::update()
 {
+
+	scroll = 0;
+	dClick = false;
+
+	if (mouseButtons[GLFW_MOUSE_BUTTON_LEFT] == MouseState::CLICK) {
+		if (clickDelay > 0) {
+			dClick = true;
+		}
+		clickDelay = 20;
+	}
+	clickDelay = std::max(0, clickDelay - 1);
+
+
+
 	while (!clicked.empty()) {
 		mouseButtons[clicked.front()] = MouseState::DOWN;
 		clicked.pop();
@@ -55,7 +69,7 @@ void Mouse::update()
 		released.pop();
 	}
 
-	scroll = 0;
+	
 
 	lastPosition = position;
 }
@@ -88,5 +102,10 @@ int Mouse::getScroll()
 bool Mouse::mouseMoved()
 {
 	return lastPosition != position;
+}
+
+bool Mouse::doubleClick()
+{
+	return dClick;
 }
 
