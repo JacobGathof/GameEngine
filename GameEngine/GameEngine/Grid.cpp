@@ -26,7 +26,7 @@ Grid<T>::~Grid()
 template <class T>
 void Grid<T>::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color(0xcccccc88));
+	UIUtils::drawRectangle(position, scale, Color(0xffcccc88));
 
 	for (int i = 0; i < contents->size(); i++) {
 
@@ -40,7 +40,7 @@ void Grid<T>::draw()
 
 
 		UIUtils::drawRectangle(pos, sc, (i == *index) ? Color(0x0000ff88) : Color(0xcccccc88));
-		UIUtils::drawRectangle(pos + Vector2f(1), sc - Vector2f(2), Color(0x44444488));
+		UIUtils::drawRectangle(pos + Vector2f(1), sc - Vector2f(2), Color(0xffcccc88));
 		UIUtils::drawImage(pos + Vector2f(1), sc - Vector2f(2), (*contents)[i]->getTexture());
 
 	}

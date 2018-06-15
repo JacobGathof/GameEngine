@@ -22,8 +22,6 @@
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="AbstractAction.cpp" />
     <ClCompile Include="AI.cpp" />
-    <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="ArmorManager.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
@@ -160,8 +158,6 @@
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="AbstractAction.h" />
     <ClInclude Include="AI.h" />
-    <ClInclude Include="Armor.h" />
-    <ClInclude Include="ArmorManager.h" />
     <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AudioSystem.h" />

@@ -1,6 +1,6 @@
 #include "Mouse.h"
 
-
+#define DOUBLE_CLICK_FRAMES 20
 
 Mouse::Mouse(){}
 Mouse::~Mouse(){}
@@ -53,7 +53,7 @@ void Mouse::update()
 		if (clickDelay > 0) {
 			dClick = true;
 		}
-		clickDelay = 20;
+		clickDelay = DOUBLE_CLICK_FRAMES;
 	}
 	clickDelay = std::max(0, clickDelay - 1);
 

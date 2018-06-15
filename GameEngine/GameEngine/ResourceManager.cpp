@@ -9,7 +9,6 @@ FramebufferManager* Res::frameManager;
 AudioManager* Res::soundManager;
 DeckManager* Res::deckManager;
 
-ArmorManager* Res::armorManager;
 WeaponManager* Res::weaponManager;
 KeyItemManager* Res::keyItemManager;
 
@@ -24,7 +23,6 @@ void ResourceManager::init()
 	soundManager = new AudioManager();
 	deckManager = new DeckManager();
 
-	armorManager = new ArmorManager();
 	weaponManager = new WeaponManager();
 	keyItemManager = new KeyItemManager();
 	
@@ -38,7 +36,6 @@ void ResourceManager::init()
 	frameManager->init();
 	soundManager->init();
 
-	armorManager->init();
 	weaponManager->init();
 	keyItemManager->init();
 }
@@ -53,7 +50,6 @@ void ResourceManager::clean()
 	frameManager->clean();
 	soundManager->clean();
 	deckManager->clean();
-	armorManager->clean();
 	weaponManager->clean();
 	keyItemManager->clean();
 
@@ -65,7 +61,6 @@ void ResourceManager::clean()
 	delete textureManager;
 	delete frameManager;
 	delete soundManager;
-	delete armorManager;
 	delete weaponManager;
 	delete keyItemManager;
 }
@@ -81,11 +76,6 @@ Model* ResourceManager::get(ModelType type){
 SoundEntity * ResourceManager::get(AudioType type)
 {
 	return soundManager->get(type);
-}
-
-Armor * ResourceManager::get(ArmorType type)
-{
-	return armorManager->get(type);
 }
 
 Weapon * ResourceManager::get(WeaponType type)

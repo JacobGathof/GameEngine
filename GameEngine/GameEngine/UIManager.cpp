@@ -55,6 +55,7 @@ void UIManager::init()
 	pauseMenu = new PauseMenu();
 
 	statusbar->setVisible(true);
+	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
 	//addText(std::string("Hello World"), std::string("--------"), TextureType::TEXTURE_PANDORA);
 

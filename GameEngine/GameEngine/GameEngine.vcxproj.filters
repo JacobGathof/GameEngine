@@ -315,9 +315,6 @@
     <ClCompile Include="InventoryPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Armor.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
@@ -543,9 +540,6 @@
     <ClCompile Include="KeyItemManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="ArmorManager.cpp">
-      <Filter>Source Files\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="Path.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
@@ -739,9 +733,6 @@
     </ClInclude>
     <ClInclude Include="InventoryPage.h">
       <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Armor.h">
-      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\Items</Filter>
@@ -972,9 +963,6 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="KeyItemManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="ArmorManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Path.h">

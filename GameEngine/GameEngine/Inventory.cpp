@@ -17,11 +17,6 @@ void Inventory::add(Weapon * w)
 	weapons.add(w);
 }
 
-void Inventory::add(Armor * a)
-{
-	armors.add(a);
-}
-
 void Inventory::add(KeyItem * k)
 {
 	keyItems.add(k);
@@ -43,11 +38,6 @@ List<Weapon*>& Inventory::getWeapons()
 	return weapons;
 }
 
-List<Armor*>& Inventory::getArmor()
-{
-	return armors;
-}
-
 List<KeyItem*>& Inventory::getKeyItems()
 {
 	return keyItems;
@@ -56,10 +46,6 @@ List<KeyItem*>& Inventory::getKeyItems()
 void Inventory::printInventory()
 {
 	std::cout << "Inventory" << std::endl;
-	std::cout << "Armor" << std::endl;
-	for (Item * it : armors) {
-		std::cout << it->getName() << std::endl;
-	}
 	std::cout << "--------------------------------" << std::endl;
 	std::cout << "Weapons" << std::endl;
 	for (Item * it : weapons) {
@@ -81,9 +67,6 @@ void Inventory::printInventory()
 void Inventory::printCurrentInventory()
 {
 	std::cout << "Equipped:" << std::endl;
-	std::cout << "Armor" << std::endl;
-	if(current.armor != 0)
-		std::cout << current.armor->getName() << std::endl;
 	std::cout << "--------------------------------" << std::endl;
 	std::cout << "Weapons" << std::endl;
 	if (current.weapon != 0)
@@ -109,16 +92,8 @@ void Inventory::setCurrentWeapon(Weapon * w){
 	current.weapon = w;
 }
 
-void Inventory::setCurrentArmor(Armor * armor){
-	current.armor = armor;
-}
-
 Weapon * Inventory::getCurrentWeapon(){
 	return current.weapon;
-}
-
-Armor * Inventory::getCurrentArmor(){
-	return current.armor;
 }
 
 List<Card*>& Inventory::getCurrentDeck(){

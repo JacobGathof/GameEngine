@@ -34,7 +34,7 @@ void RoomFactory::ReadingRoom()
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
-	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 100), Vector2f(0, 0));
+	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 400), Vector2f(0, 0));
 	//melody->addHitbox(circ);
 	melody->giveDeck(Res::get(DeckType::TEST));
 	GameState::battleManager = BattleManager(melody);

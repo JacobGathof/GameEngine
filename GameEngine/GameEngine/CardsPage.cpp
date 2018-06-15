@@ -11,7 +11,7 @@ CardsPage::CardsPage()
 	cards = &GameState::inv->getCards();
 	cardGrid = new Grid<Card*>(cards);
 	cardGrid->index = &selectedIndex;
-
+	cardGrid->specialIndex = &selectedIndex;
 }
 
 

@@ -23,8 +23,7 @@ void Circle::draw(){
 
 	model->bind();
 	shader->bind();
-	shader->loadVector2f("translate", Screen::toScreenCoords(center));
-	shader->loadVector2f("scale", Screen::toScreenCoords(Vector2f(radius, radius)));
-	shader->loadFloat("gt", 1.0f);
+	shader->loadVector2f("translate", center);
+	shader->loadVector2f("scale", Vector2f(radius));
 	model->draw();
 }

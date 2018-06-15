@@ -9,14 +9,14 @@ out vec2 sc;
 
 uniform vec2 translate;
 uniform vec2 scale;
-uniform float gt;
 
-/*Will not work in the future. !!! camera scale and camera translate must be integrated */
+uniform vec2 camera_translate;
+uniform vec2 camera_scale;
 
 
 void main(){
 	uv = texCoords;
-	gl_Position = vec4((position*scale+translate) * vec2(1, gt),0,1);
-	fragPos = position*2;
-	sc = scale;
+	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	fragPos = position*scale*camera_scale*2;
+	sc = scale*camera_scale;
 }

@@ -8,7 +8,6 @@
 #include "AudioManager.h"
 #include "DeckManager.h"
 
-#include "ArmorManager.h"
 #include "WeaponManager.h"
 #include "KeyItemManager.h"
 
@@ -30,7 +29,6 @@ public:
 	static Model* get(ModelType type);
 	static SoundEntity* get(AudioType type);
 	
-	static Armor* get(ArmorType type);
 	static Weapon* get(WeaponType type);
 	static KeyItem* get(KeyItemType type);
 
@@ -49,7 +47,6 @@ private:
 	static AudioManager* soundManager;
 	static DeckManager* deckManager;
 
-	static ArmorManager* armorManager;
 	static WeaponManager* weaponManager;
 	static KeyItemManager* keyItemManager;
 

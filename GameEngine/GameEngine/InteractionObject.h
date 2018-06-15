@@ -38,7 +38,6 @@ private:
 
 
 typedef ItemAction<Card*> GiveCardAction;
-typedef ItemAction<Armor*> GiveArmorAction;
 typedef ItemAction<Weapon*> GiveWeaponAction;
 typedef ItemAction<KeyItem*> GiveKeyItemAction;
 
