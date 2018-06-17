@@ -27,3 +27,8 @@ void Circle::draw(){
 	shader->loadVector2f("scale", Vector2f(radius));
 	model->draw();
 }
+
+bool Circle::intersects(Circle * c)
+{
+	return (radius + c->radius)*(radius + c->radius) > (center - c->center).lengthSquared();
+}

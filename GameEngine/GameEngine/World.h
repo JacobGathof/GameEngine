@@ -30,7 +30,7 @@ public:
 	void transition(Room * newRoom);
 	void setCurrentRoom(Room * r);
 	void setCurrentRoom(std::string& name);
-	Object * getNearestObject(Vector2f pos);
+	InteractableObject * getNearestObject(Vector2f pos);
 	Object * getObject(std::string& name);
 	Room * getRoom(std::string& name);
 	void addRoom(std::string& name, Room * room);

@@ -34,6 +34,10 @@ void TerrainMap::draw(){
 	Res::get(TextureType::TEXTURE_TEST_2)->bind(1);
 	model->draw();
 
+
+	Res::get(TextureType::TEXTURE_TEST_3)->bind(1);
+	model->draw();
+
 }
 
 void TerrainMap::update(float dt)

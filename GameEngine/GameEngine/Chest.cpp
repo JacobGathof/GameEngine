@@ -2,7 +2,7 @@
 
 
 Chest::Chest(TextureType t, Vector2f & position, Vector2f & sc, AbstractAction * action) 
-	: Object(std::string("Chest"), t, position, sc)
+	: InteractableObject(std::string("Chest"), t, position, sc)
 {
 	interactObj = action;
 }

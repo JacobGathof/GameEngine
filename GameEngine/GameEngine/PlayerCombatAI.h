@@ -14,7 +14,7 @@ public:
 
 	LivingObject * enemy;
 
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Player * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard);
 
 protected:

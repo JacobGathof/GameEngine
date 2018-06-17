@@ -9,7 +9,7 @@
 #include "Circle.h"
 #include "FilesAndStrings.h"
 
-class Object;
+class CollidableObject;
 
 class Room
 {
@@ -20,7 +20,7 @@ public:
 
 	std::string name;
 
-	void update(float delta_time);
+	void update(float dt);
 	void draw();
 
 	void drawTerrain();
@@ -31,30 +31,42 @@ public:
 
 	void checkCollisions();
 	void addObject(Object * obj);
-	void sort();
-	Object * getNearestObject(Vector2f& pos);
+	void addObject(CollidableObject * obj);
+	void addObject(InteractableObject* obj);
+
+	void sortObjects();
+
+	InteractableObject * getNearestObject(Vector2f& pos);
 	Object * getObject(std::string& name);
 	void setTerrainMap(std::string& map);
 	void addHitbox(Vector2f& pos, Vector2f& scale);
 	void loadObjects(std::string& filepath);
 	void removeObject(Object * obj);
-	List<Object *> getStaticObjects();
-	List<Object*> getObjects();
+
+	List<InteractableObject *>& getInteractableObjects();
+	List<CollidableObject *>& getCollidableObjects();
+	List<Object*>& getObjects();
 
 protected:
-	List<Object *> objects;
-	List<Object *> staticObjects;
+
+	List<InteractableObject *> interactableObjects;
+	List<CollidableObject *> collidableObjects;
+	List<Object *> simpleObjects;
+
+	List<Object*> allObjects;
+
+
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
-	Object * collisionObject;
+
+	CollidableObject * collisionObject;
 	std::map<std::string, TextureType> textureMap;
 
 	Hitbox * oneCarry;
 	Hitbox * twoCarry;
 
 	void init();
-	bool collision(Object * obj1, Object * obj2);
-	void sortPlace(Object * obj, int index);
-	void sortStaticPlace(Object * obj, int index);
+	bool collision(CollidableObject * obj1, CollidableObject * obj2);
+
 };
 

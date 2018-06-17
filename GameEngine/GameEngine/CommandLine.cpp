@@ -2,6 +2,7 @@
 #include "FilesAndStrings.h"
 #include "WeatherManager.h"
 #include "UIManager.h"
+#include "World.h"
 
 CommandLine::CommandLine()
 {
@@ -45,7 +46,7 @@ void CommandLine::handleKeyEvents(Keyboard & keyboard)
 
 
 	int key = keyboard.getCurrentPressed();
-	if (((key <= 'Z' && key >= 'A') || (key <= '9' && key >= '0')  || key == ' ')) {
+	if (((key <= 'Z' && key >= 'A') || (key <= '9' && key >= '0')  || key == ' ' || key == '-')) {
 		str += (char)key;
 		text->setText(str);
 		keyboard.clearQueues();
@@ -78,6 +79,12 @@ void CommandLine::handleCommand(std::string s)
 
 	if (li[0] == "SAY") {
 		UIManager::addText(s.substr(s.find(' ')));
+	}
+
+
+	if (li[0] == "TO") {
+		Object* o = World::getInstance()->getObject(std::string("Player"));
+		o->pos = Vector2f(std::atoi(li[1].c_str()), std::atoi(li[2].c_str()));
 	}
 
 

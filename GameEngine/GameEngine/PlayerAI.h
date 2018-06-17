@@ -1,19 +1,20 @@
 #pragma once
 
-#include "LivingAi.h"
-#include "LivingObject.h"
+#include "AI.h"
 #include "World.h"
 #include "Keyboard.h"
 
-class PlayerAI : public LivingAi
+#include "Player.h"
+
+class PlayerAI : public AI
 {
 public:
 	PlayerAI();
 	~PlayerAI();
 
-	LivingObject * user;
+	Player * user;
 
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Player * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard);
 
 protected:

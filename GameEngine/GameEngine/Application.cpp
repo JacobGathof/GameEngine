@@ -71,8 +71,8 @@ void Application::run()
 
 	//Circle circ(Vector2f(0,0), 256.0f);
 	
-	Graph graph;
-	GameState::graph = &graph;
+	//Graph graph;
+	//GameState::graph = &graph;
 
 	float dt;
 
@@ -82,7 +82,7 @@ void Application::run()
 	Object * melody = world->getObject(std::string("Player"));
 	melody->pos = Vector2f(0, 0);
 	
-	melody->weight = Weight::GHOST;
+	//melody->weight = Weight::GHOST;
 	Screen::setTargetPosition(&melody->pos);
 	Screen::setMovementBehavior(Screen::followBehavior);
 

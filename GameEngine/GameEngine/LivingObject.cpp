@@ -1,6 +1,7 @@
 #include "LivingObject.h"
+#include "LivingAi.h"
 
-
+/*
 LivingObject::LivingObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, int hp, int luc) : MovableObject(name, t,position, sc)
 {
 	health = hp;
@@ -86,4 +87,30 @@ void LivingObject::drawCards(int amount)
 		hand->addCard(c);
 		std::cout << "Drew Card: " << c->getName() << std::endl;
 	}
+}
+
+*/
+
+LivingObject::LivingObject(std::string & name, TextureType t, Vector2f & position, Vector2f & sc) : 
+	InteractableObject(name, t, position, sc)
+{
+}
+
+LivingObject::~LivingObject()
+{
+}
+
+bool LivingObject::update(float dt)
+{
+	return InteractableObject::update(dt);
+}
+
+bool LivingObject::collide(Object * o, Hitbox * h)
+{
+	return false;
+}
+
+bool LivingObject::executeAI(float dt, AI * ai)
+{
+	return ai->execute(this, dt);
 }

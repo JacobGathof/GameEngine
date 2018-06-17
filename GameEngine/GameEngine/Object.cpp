@@ -1,12 +1,6 @@
 #include "Object.h"
 #include "ResourceManager.h"
 
-Object::Object()
-{
-	texture = TextureType::TEXTURE_DEFAULT;
-	pos = Vector2f(0,0);
-	scale = Vector2f(.25,.25);
-}
 
 Object::Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc)
 {
@@ -22,14 +16,10 @@ Object::~Object()
 	for (auto eff : effects) {
 		delete eff;
 	}
-	for (auto hit : hitboxes) {
-		delete hit;
-	}
 	for (auto ai : aiQueue) {
 		delete ai;
 	}
 	delete defaultAI;
-	delete interactObj;
 }
 
 void Object::draw()
@@ -50,6 +40,8 @@ void Object::draw()
 	p->loadInteger("currentRow", 0);
 	p->loadInteger("currentColumn", 0);
 
+	p->loadInteger("depth", pos[1]);
+
 	p->loadInteger("selected", selected);
 
 	m->draw();
@@ -63,80 +55,42 @@ void Object::drawEffects()
 	}
 }
 
-void Object::drawHitboxes()
-{
-	for (Hitbox * h : hitboxes) {
-		h->draw();
-	}
+void Object::destroy(){
+	alive = false;
 }
 
-bool Object::update(float delta_time)
+bool Object::update(float dt)
 {
 	for (Effect * eff : effects) {
-		eff->update(delta_time);
+		eff->update(dt);
 	}
-	updateHitbox();
+
+	if (aiQueue.size() == 0) {
+		if (defaultAI != 0) {
+			executeAI(dt, defaultAI);
+		}
+	}
+	else {
+		if (executeAI(dt, aiQueue[0])) {
+			//If the current AI is done, remove it
+			AI * ai = aiQueue[0];
+			aiQueue.removeIndex(0);
+			delete ai;
+		}
+	}
+
 	return alive;
 }
 
-void Object::updateHitbox()
+bool Object::executeAI(float dt, AI * ai)
 {
-	for (Hitbox * hit : hitboxes) {
-		hit->updatePos(pos);
-	}
+	return ai->execute(this, dt);
 }
 
-bool Object::collide(Object * o, Hitbox * h)
-{
-	return true;
-}
-
-void Object::interact()
-{
-	if (stalled) {
-		return;
-	}
-	interactObj->run();
-}
-
-void Object::setAI(AI * a)
-{
-	if (stalled) {
-		return;
-	}
-	if (defaultAI == nullptr) {
-		defaultAI = a;
-	}
-	else {
-		aiQueue.add(a);
-	}
-}
-
-void Object::setInteraction(AbstractAction * i)
-{
-	if (interactObj != 0) {
-		delete interactObj;
-	}
-	
-	interactObj = i;
-}
 
 void Object::addEffect(Effect * eff)
 {
 	effects.add(eff);
 }
 
-int Object::numHitboxes()
-{
-	return hitboxes.size();
-}
 
-void Object::addHitbox(Hitbox * h)
-{
-	hitboxes.add(h);
-}
-
-Hitbox * Object::getHitbox(int i)
-{
-	return hitboxes.get(i);
-}

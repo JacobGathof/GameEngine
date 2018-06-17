@@ -1,8 +1,11 @@
 #include "Player.h"
 
+#include "BattleManager.h"
+#include "PlayerAI.h"
 
 
-Player::Player(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, PlayerAI * ai) : LivingObject(name, t, position, sc, 100, 100)
+Player::Player(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, PlayerAI * ai) : 
+	LivingObject(name, t, position, sc)
 {
 	defaultAI = ai;
 	moveSpeed = 256;
@@ -31,4 +34,9 @@ bool Player::collide(Object * o, Hitbox * h)
 	
 
 	return true;
+}
+
+bool Player::executeAI(float dt, AI * ai)
+{
+	return ai->execute(this, dt);
 }

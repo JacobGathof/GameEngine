@@ -12,6 +12,8 @@ public:
 	Vector2f center;
 	float radius;
 
+	bool intersects(Circle* c);
+
 private:
 	
 };

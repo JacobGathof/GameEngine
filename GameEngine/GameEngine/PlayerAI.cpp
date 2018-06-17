@@ -1,5 +1,5 @@
 #include "PlayerAI.h"
-#include "LivingObject.h"
+#include "Player.h"
 
 PlayerAI::PlayerAI()
 {
@@ -9,26 +9,23 @@ PlayerAI::~PlayerAI()
 {
 }
 
-bool PlayerAI::execute(LivingObject * o, float dt)
+bool PlayerAI::execute(Player * o, float dt)
 {
-	if (user == nullptr) {
+	if (user == 0) {
 		user = o;
 	}
-	LivingObject * obj = (LivingObject *)o;
 
-	obj->direction = Vector2f(xVel, yVel);
-
-	obj->pos += obj->direction * dt;
+	user->pos += Vector2f(xVel, yVel) * dt;
 	
 	return true;
 }
 
 void PlayerAI::receiveInput(Keyboard& keyboard)
 {
-	if (user == nullptr) {
+
+	if (user == 0) {
 		return;
 	}
-
 	
 	if (keyboard.press(VirtualKey::INTERACT)){
 		this->processInteractKey();
@@ -60,17 +57,18 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 	}
 
 	if (xVel != 0 || yVel != 0) {
-		user->forward = Vector2f(xVel, yVel).normalize();
+		//user->forward = Vector2f(xVel, yVel).normalize();
 	}
 
 }
 
 void PlayerAI::processInteractKey()
 {
-	Object * closest = World::getInstance()->getNearestObject(user->pos);
+	InteractableObject * closest = World::getInstance()->getNearestObject(user->pos);
 	if (closest == 0)
 		return;
-	if (closest->pos.distanceTo(user->pos) < 256) {
+	if (closest->intersects(user)) {
+		std::cout << "H";
 		closest->interact();
 	}
 }

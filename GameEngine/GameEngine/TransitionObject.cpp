@@ -2,14 +2,8 @@
 
 
 
-TransitionObject::TransitionObject(TextureType t, Vector2f& position, Vector2f& sc, Room * r) : Object(std::string("trans"), t, position, sc)
-{
-	isStatic = true;
-	room = r;
-	weight = Weight::GHOST;
-}
-
-TransitionObject::TransitionObject(Vector2f& position, Vector2f& sc, Room * r) : Object(std::string("trans"), TextureType::TEXTURE_DEFAULT, position, sc)
+TransitionObject::TransitionObject(TextureType t, Vector2f& position, Vector2f& sc, Room * r) : 
+	CollidableObject(std::string("trans"), t, position, sc)
 {
 	isStatic = true;
 	room = r;

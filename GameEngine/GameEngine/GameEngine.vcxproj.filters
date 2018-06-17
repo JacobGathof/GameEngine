@@ -195,9 +195,6 @@
     <ClCompile Include="AnimatedObject.cpp">
       <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
-    <ClCompile Include="MovableObject.cpp">
-      <Filter>Source Files\Objects\AbstractObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
@@ -399,9 +396,6 @@
     <ClCompile Include="GraphLoader.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
-    <ClCompile Include="AnimatedAI.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="FollowAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -546,6 +540,12 @@
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="CollidableObject.cpp">
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableObject.cpp">
+      <Filter>Source Files\Objects\AbstractObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -606,9 +606,6 @@
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
     <ClInclude Include="AnimatedObject.h">
-      <Filter>Header Files\Objects\AbstractObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="MovableObject.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
@@ -821,9 +818,6 @@
     <ClInclude Include="rapidxml.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="AnimatedAI.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="FollowAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -970,6 +964,12 @@
     </ClInclude>
     <ClInclude Include="Grid.h">
       <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidableObject.h">
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableObject.h">
+      <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

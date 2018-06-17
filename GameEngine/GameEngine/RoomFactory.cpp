@@ -25,20 +25,20 @@ void RoomFactory::ReadingRoom()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("StoryTellingRoom"));
-	room->loadObjects(std::string("ObjectMaps/storyTellingRoom"));
+	//room->loadObjects(std::string("ObjectMaps/storyTellingRoom"));
 
 	PlayerAI * playerAi = new PlayerAI();
 	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 00), Vector2f(256, 256), playerAi);
+	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 400), Vector2f(0, 0));
 	//melody->addHitbox(circ);
-	melody->giveDeck(Res::get(DeckType::TEST));
+	//melody->giveDeck(Res::get(DeckType::TEST));
 	GameState::battleManager = BattleManager(melody);
-	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256), 100, 100);
+	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256));
 	structure->addHitbox(circ2);
 	TextInteractionAction * inter = new TextInteractionAction(std::string("Interacting"));
 	structure->setInteraction(inter);
@@ -71,7 +71,7 @@ void RoomFactory::Clearing()
 	room->setTerrainMap(std::string("Clearing"));
 	room->loadObjects(std::string("ObjectMaps/Clearing"));
 
-	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128),100,100);
+	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128));
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
 	

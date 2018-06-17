@@ -25,8 +25,8 @@ World * World::getInstance()
 void World::clean()
 {
 	//delete inst;
-	for (std::map<std::string, Room *>::iterator it = rooms.begin(); it != rooms.end(); ++it) {
-		delete it->second;
+	for (auto r : rooms) {
+		delete r.second;
 	}
 	if (inst != 0) {
 		delete inst;
@@ -52,7 +52,7 @@ void World::drawObjects()
 	currentRoom->drawObjects();
 	Object* p = getObject(std::string("Player"));
 	Object* closest = currentRoom->getNearestObject(p->pos);
-	if (closest->pos.distanceTo(p->pos) < 256 && closest != p) {
+	if (closest->pos.distanceTo(p->pos) < (-1) && closest != p) {
 
 		closest->selected = true;
 		closest->draw();
@@ -78,8 +78,6 @@ void World::drawLights()
 
 void World::update(float delta_time)
 {
-	//Maybe want to switch these.
-	currentRoom->sort();
 
 	currentRoom->update(delta_time);
 	currentRoom->checkCollisions();
@@ -87,6 +85,7 @@ void World::update(float delta_time)
 
 void World::transition(Room * newRoom)
 {
+	/*
 	List<Object *> objs = currentRoom->getObjects();
 	objs.addAll(currentRoom->getStaticObjects());
 	for (int i = 0; i < objs.size(); i++) {
@@ -98,6 +97,7 @@ void World::transition(Room * newRoom)
 	}
 
 	currentRoom = newRoom;
+	*/
 }
 
 void World::setCurrentRoom(Room * r)
@@ -115,9 +115,8 @@ void World::setCurrentRoom(std::string & name)
 	currentRoom = room;
 }
 
-Object * World::getNearestObject(Vector2f pos)
+InteractableObject * World::getNearestObject(Vector2f pos)
 {
-
 	return currentRoom->getNearestObject(pos);
 }
 
@@ -128,15 +127,12 @@ Room * World::getRoom(std::string & name)
 
 void World::addRoom(std::string & name, Room * room)
 {
-	rooms.emplace(std::pair<std::string, Room *>(name, room));
-	for (Object * obj : room->getObjects()) {
-		objects[obj->name] = obj;
-	}
+	rooms[name] = room;
 }
 
 Object * World::getObject(std::string& name)
 {
-	return objects.at(name);
+	return currentRoom->getObject(name);
 }
 
 Room * World::getCurrentRoom()
@@ -150,4 +146,6 @@ void World::addObject(Object * obj)
 		currentRoom->addObject(obj);
 	}
 	objects[obj->name] = obj;
+
+	std::cout << obj->name << std::endl;
 }

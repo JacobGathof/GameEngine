@@ -1,5 +1,5 @@
 #include "Card.h"
-
+#include "LivingAi.h"
 
 Card::Card(std::string& n, std::string& desc, TextureType tex, LivingAi * a) : Item(n,tex,desc)
 {

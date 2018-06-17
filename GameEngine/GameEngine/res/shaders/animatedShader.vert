@@ -17,8 +17,10 @@ uniform int columns;
 uniform int currentRow;
 uniform int currentColumn;
 
+uniform float depth;
+
 void main(){
 	sc = scale;
 	uv = (texCoords+vec2(currentColumn, currentRow)) / vec2(columns, rows);
-	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),depth/65536,1);
 }

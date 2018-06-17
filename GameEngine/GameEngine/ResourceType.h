@@ -27,8 +27,7 @@ class TextureTypeT{
 
 enum class TextureType {
 	TEXTURE_DEFAULT,
-	TEXTURE_TEST,
-	TEXTURE_TEST_2,
+	
 
 	TEXTURE_MELODY,
 	TEXTURE_MELODY_BOOK,
@@ -81,6 +80,9 @@ enum class TextureType {
 
 
 	TS_TILESET,
+	TEXTURE_TEST,
+	TEXTURE_TEST_2,
+	TEXTURE_TEST_3,
 
 };
 

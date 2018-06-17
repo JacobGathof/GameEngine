@@ -1,10 +1,11 @@
 #include "Room.h"
-#include "Object.h"
+#include "CollidableObject.h"
+#include "InteractableObject.h"
 #include "CollisionUtil.h"
 
 Room::Room()
 {
-	collisionObject = new Object(std::string("extra"), TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
+	collisionObject = new CollidableObject(std::string("extra"), TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
 	init();
 }
 
@@ -30,15 +31,15 @@ Room::~Room()
 	if (collisionObject != nullptr) {
 		delete collisionObject;
 	}
+	for (auto a : allObjects) {
+		delete a;
+	}
 }
 
-void Room::update(float delta_time)
+void Room::update(float dt)
 {
-	for (auto o : objects) {
-		o->update(delta_time);
-	}
-	for (auto o : staticObjects) {
-		o->update(delta_time);
+	for (auto a : allObjects) {
+		a->update(dt);
 	}
 }
 
@@ -56,30 +57,8 @@ void Room::drawTerrain()
 }
 
 void Room::drawObjects() {
-	int objectCounter = 0;
-	int staticObjectCounter = 0;
-
-	while (objectCounter < objects.size() && staticObjectCounter < staticObjects.size()) {
-		Object * obj = objects.get(objectCounter);
-		Object * stObj = staticObjects.get(staticObjectCounter);
-		if (obj->pos[1] < stObj->pos[1]) {
-			stObj->draw();
-			staticObjectCounter++;
-		}
-		else {
-			obj->draw();
-			objectCounter++;
-		}
-	}
-	if (objectCounter < objects.size()) {
-		for (int i = objectCounter; i < objects.size(); i++) {
-			objects.get(i)->draw();
-		}
-	}
-	if (staticObjectCounter < staticObjects.size()) {
-		for (int i = staticObjectCounter; i < staticObjects.size(); i++) {
-			staticObjects.get(i)->draw();
-		}
+	for (auto a : allObjects) {
+		a->draw();
 	}
 	
 	collisionObject->draw();
@@ -87,17 +66,17 @@ void Room::drawObjects() {
 
 void Room::drawEffects()
 {
-	for (Object * o : objects) {
-		o->drawEffects();
+	for (auto a : allObjects) {
+		a->drawEffects();
 	}
 }
 
 void Room::drawHitboxes()
 {
-	for (Object * o : objects) {
+	for (auto o : collidableObjects) {
 		o->drawHitboxes();
 	}
-	for (Object *  o : staticObjects) {
+	for (auto o : interactableObjects) {
 		o->drawHitboxes();
 	}
 	collisionObject->drawHitboxes();
@@ -105,7 +84,7 @@ void Room::drawHitboxes()
 
 void Room::drawLights()
 {
-	
+	return;
 	for (int i = 0; i < 3; i++) {
 		ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 		p->bind();
@@ -128,17 +107,21 @@ void Room::drawLights()
 
 void Room::checkCollisions()
 {
-	for (int i = 0; i < objects.size(); i++) {
-		Object * current = objects.get(i);
-		for (int k = i; k < objects.size(); k++) {
-			Object * other = objects.get(k);
+
+	//rework
+	/*
+	for (int i = 0; i < collidableObjects.size(); i++) {
+		CollidableObject * current = collidableObjects.get(i);
+
+		for (int k = i+1; k < collidableObjects.size(); k++) {
+			CollidableObject * other = collidableObjects.get(k);
 			if (collision(current, other)) {
 				return;
 			}
 		}
 
-		for (int k = 0; k < staticObjects.size(); k++) {
-			Object * other = staticObjects.get(k);
+		for (int k = 0; k < interactableObjects.size(); k++) {
+			CollidableObject * other = interactableObjects.get(k);
 			if (collision(current, other)) {
 				return;
 			}
@@ -157,43 +140,47 @@ void Room::checkCollisions()
 			}
 			
 		}
-		*/
+		
 	}
+
+	*/
 	
 	
 }
 
 void Room::addObject(Object * obj)
 {
-	if (obj->isStatic) {
-		staticObjects.add(obj);
-	}
-	else {
-		objects.add(obj);
-	}
-	objectMap.insert(std::pair<std::string, Object *>(obj->name, obj));
+	simpleObjects.add(obj);
+	objectMap[obj->name] = obj;
+
+	allObjects.add(obj);
 }
 
-void Room::sort()
+void Room::addObject(CollidableObject * obj)
 {
-	for (int i = 1; i < objects.size(); i++) {
-		if (objects[i]->pos[1] > objects[i - 1]->pos[1]) {
-			sortPlace(objects[i], i);
-		}
-	}
-
-	for (int i = 1; i < staticObjects.size(); i++) {
-		if (staticObjects[i]->pos[1] > staticObjects[i - 1]->pos[1]) {
-			sortStaticPlace(staticObjects[i], i);
-		}
-	}
+	collidableObjects.add(obj);
+	objectMap[obj->name]= obj;
+	allObjects.add(obj);
 }
 
-Object * Room::getNearestObject(Vector2f& pos)
+void Room::addObject(InteractableObject * obj)
 {
-	Object * nearest = 0;
+	interactableObjects.add(obj);
+	objectMap[obj->name] = obj;
+	allObjects.add(obj);
+}
+
+void Room::sortObjects()
+{
+	std::sort(allObjects.begin(), allObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
+}
+
+InteractableObject * Room::getNearestObject(Vector2f& pos)
+{
+	InteractableObject * nearest = 0;
 	float nearestDist = -1;
-	for (Object * obj : objects) {
+	
+	for (auto  obj : interactableObjects) {
 		float dist = (pos - obj->pos).lengthSquared();
 		if ((dist < nearestDist || nearestDist == -1) && (dist != 0)) {
 			nearestDist = dist;
@@ -219,7 +206,7 @@ void Room::addHitbox(Vector2f& pos, Vector2f& scale)
 	collisionObject->addHitbox(hit);
 }
 
-bool Room::collision(Object * obj1, Object * obj2)
+bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 {
 	for (int i = 0; i < obj1->numHitboxes(); i++) {
 		Hitbox * one = obj1->getHitbox(i);
@@ -260,27 +247,6 @@ bool Room::collision(Object * obj1, Object * obj2)
 	return false;
 }
 
-void Room::sortPlace(Object * obj, int index)
-{
-	objects.removeIndex(index);
-	for (int i = 0; i < objects.size(); i++) {
-		if (obj->pos[1] > objects[i]->pos[1]) {
-			objects.add(obj, i);
-			return;
-		}
-	}
-}
-
-void Room::sortStaticPlace(Object * obj, int index)
-{
-	staticObjects.removeIndex(index);
-	for (int i = 0; i < staticObjects.size(); i++) {
-		if (obj->pos[1] > staticObjects[i]->pos[1]) {
-			staticObjects.add(obj, i);
-			return;
-		}
-	}
-}
 
 void Room::loadObjects(std::string& filepath)
 {
@@ -312,7 +278,8 @@ void Room::loadObjects(std::string& filepath)
 				Vector2f offset(FilesAndStrings::parseFloat(values.get(6)), FilesAndStrings::parseFloat(values.get(7)));
 				Vector2f scale(FilesAndStrings::parseFloat(values.get(8)), FilesAndStrings::parseFloat(values.get(9)));
 				Hitbox * hit = new RectHitbox(Rect(Vector2f(0, 0), scale), offset);
-				o->addHitbox(hit);
+				//o->addHitbox(hit);
+				//TODO: fix ^^^;
 			}
 			//objects.add(&o);
 		}
@@ -324,31 +291,45 @@ void Room::loadObjects(std::string& filepath)
 
 void Room::removeObject(Object * obj)
 {
-	for (int i = 0; i < objects.size(); i++) {
-		Object * o = objects.get(i);
+	allObjects.remove(obj);
+
+	for (int i = 0; i < simpleObjects.size(); i++) {
+		Object * o = simpleObjects.get(i);
 		if (obj == o) {
-			objects.removeIndex(i);
+			simpleObjects.removeIndex(i);
 			return;
 		}
 	}
-
-	for (int i = 0; i < staticObjects.size(); i++) {
-		Object * o = staticObjects.get(i);
+	for (int i = 0; i < collidableObjects.size(); i++) {
+		Object * o = collidableObjects.get(i);
 		if (obj == o) {
-			staticObjects.removeIndex(i);
+			collidableObjects.removeIndex(i);
+			return;
+		}
+	}
+	for (int i = 0; i < interactableObjects.size(); i++) {
+		Object * o = interactableObjects.get(i);
+		if (obj == o) {
+			interactableObjects.removeIndex(i);
 			return;
 		}
 	}
 }
 
-List<Object*> Room::getStaticObjects()
+List<InteractableObject*>& Room::getInteractableObjects()
 {
-	return staticObjects;
+	return interactableObjects;
 }
 
-List<Object*> Room::getObjects()
+List<CollidableObject*>& Room::getCollidableObjects()
 {
-	return objects;
+	return collidableObjects;
+}
+
+
+List<Object*>& Room::getObjects()
+{
+	return allObjects;
 }
 
 void Room::init()

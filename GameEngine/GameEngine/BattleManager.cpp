@@ -63,8 +63,8 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	//enemy->shuffle();
 	//enemy->drawCards(5);
 
-	player->shuffle();
-	player->drawCards(5);
+	//player->shuffle();
+	//player->drawCards(5);
 }
 
 void BattleManager::endBattle()

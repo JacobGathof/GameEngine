@@ -1,9 +1,10 @@
 #pragma once
 
 #include <string>
-
-#include "LivingAi.h"
 #include "Item.h"
+
+
+class LivingAi;
 
 class Card : public Item
 {

@@ -2,8 +2,8 @@
 
 
 
-Enemy::Enemy(std::string name, TextureType t, Vector2f position, Vector2f sc, int hp, int luc) 
-	: LivingObject(name, t, position, sc, hp, luc)
+Enemy::Enemy(std::string name, TextureType t, Vector2f position, Vector2f sc) 
+	: LivingObject(name, t, position, sc)
 {
 }
 

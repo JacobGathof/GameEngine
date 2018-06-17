@@ -1,18 +1,21 @@
 #pragma once
-class AnimatedObject;
+
 class Object;
-class MovableObject;
+class CollidableObject;
+class InteractableObject;
+class AnimatedObject;
 class LivingObject;
+class Player;
+
 
 class AI
 {
 public:
-	AI();
-	~AI();
-
-	virtual bool execute(Object * obj, float dt);
-	virtual bool execute(AnimatedObject * obj, float dt);
-	virtual bool execute(MovableObject * obj, float dt);
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Object * obj, float dt) { return false; };
+	virtual bool execute(CollidableObject * obj, float dt) { return false; };
+	virtual bool execute(InteractableObject * obj, float dt) { return false; };
+	virtual bool execute(AnimatedObject * obj, float dt) { return false; };
+	virtual bool execute(LivingObject * obj, float dt) { return false; };
+	virtual bool execute(Player * obj, float dt) { return false; };
 };
 

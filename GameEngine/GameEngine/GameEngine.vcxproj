@@ -36,6 +36,7 @@
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
+    <ClCompile Include="CollidableObject.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
@@ -52,6 +53,7 @@
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
@@ -122,8 +124,6 @@
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelManager.cpp" />
-    <ClCompile Include="AnimatedAI.cpp" />
-    <ClCompile Include="MovableObject.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -172,6 +172,7 @@
     <ClInclude Include="Chest.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleHitbox.h" />
+    <ClInclude Include="CollidableObject.h" />
     <ClInclude Include="CollisionUtil.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="KeyItemManager.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PauseMenu.h" />
@@ -263,8 +265,6 @@
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelManager.h" />
-    <ClInclude Include="AnimatedAI.h" />
-    <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Player.h" />

@@ -28,6 +28,7 @@ void Renderer::draw()
 
 void Renderer::drawWorld()
 {
+
 	Framebuffer* buf = Res::get(FramebufferType::WORLD_BUFFER);
 	buf->bind();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

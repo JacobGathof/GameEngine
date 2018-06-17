@@ -1,6 +1,7 @@
 #pragma once
 
 #include "AI.h"
+#include "LivingObject.h"
 
 class LivingAi : public AI
 {
