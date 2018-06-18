@@ -40,8 +40,6 @@ void Object::draw()
 	p->loadInteger("currentRow", 0);
 	p->loadInteger("currentColumn", 0);
 
-	p->loadInteger("depth", pos[1]);
-
 	p->loadInteger("selected", selected);
 
 	m->draw();
@@ -90,6 +88,7 @@ bool Object::executeAI(float dt, AI * ai)
 
 void Object::addEffect(Effect * eff)
 {
+	eff->setParent(this);
 	effects.add(eff);
 }
 

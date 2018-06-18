@@ -59,6 +59,9 @@ void Application::run()
 	Res::get(ShaderType::TEXT_SHADER)->bind();
 	Res::get(ShaderType::TEXT_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
 
+	Res::get(ShaderType::TEXT_WORLD_SHADER)->bind();
+	Res::get(ShaderType::TEXT_WORLD_SHADER)->loadFloat("aspect_ratio", Window::getAspectRatio());
+
 	//RainParticleSystem *sys = new RainParticleSystem();
 	//sys->parentPosition = &melody.pos;
 	//sys->startColor = Color::DarkBlue;
@@ -96,6 +99,9 @@ void Application::run()
 
 		Res::get(ShaderType::LIGHT_SHADER)->bind();
 		Res::get(ShaderType::LIGHT_SHADER)->loadFloat("gameTime", timer.getGameTime());
+
+		Res::get(ShaderType::WATER_SHADER)->bind();
+		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
 
 		Input::processInput(dt);

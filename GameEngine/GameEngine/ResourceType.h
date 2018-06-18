@@ -19,6 +19,8 @@ enum class ShaderType {
 	WATER_SHADER,
 
 	FRACTAL_SHADER,
+
+	TEXT_WORLD_SHADER,
 };
 
 class TextureTypeT{

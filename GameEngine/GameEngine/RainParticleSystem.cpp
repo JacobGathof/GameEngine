@@ -42,12 +42,6 @@ Particle RainParticleSystem::createNewParticle()
 
 void RainParticleSystem::draw()
 {
-	Res::get(ShaderType::PLAIN_SHADER)->bind();
-	Res::get(ShaderType::PLAIN_SHADER)->loadColor("color", Color(0,0,0, .125f));
-	Res::get(ModelType::MODEL_SQUARE_CENTERED)->bind();
-	Res::get(ModelType::MODEL_SQUARE_CENTERED)->draw();
-
-
 	Res::get(ShaderType::PARTICLE_SHADER)->bind();
 	Res::get(ShaderType::PARTICLE_SHADER)->loadFloat("halfLife", maxParticleLife/4.0f);
 	model.bind();

@@ -27,6 +27,7 @@ public:
 	void setScale(Vector2f& v);
 	void reloadData();
 	void center();
+	void setWorldRelative(bool b);
 
 	bool isDisplayingFullLength();
 	void displayFullLength();
@@ -46,6 +47,7 @@ private:
 	Vector2f position;
 	Vector2f offset;
 	Color color;
+	bool worldRelative = false;
 
 	std::string data;
 	int length;

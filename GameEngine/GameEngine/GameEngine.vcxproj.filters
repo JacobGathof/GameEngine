@@ -444,9 +444,6 @@
     <ClCompile Include="SoundScheduler.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Water.cpp">
-      <Filter>Source Files\Game Objects</Filter>
-    </ClCompile>
     <ClCompile Include="MusicScheduler.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
@@ -545,6 +542,9 @@
     </ClCompile>
     <ClCompile Include="InteractableObject.cpp">
       <Filter>Source Files\Objects\AbstractObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Tag.cpp">
+      <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -869,9 +869,6 @@
     <ClInclude Include="SoundScheduler.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="Water.h">
-      <Filter>Header Files\Game Objects</Filter>
-    </ClInclude>
     <ClInclude Include="MusicScheduler.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
@@ -970,6 +967,9 @@
     </ClInclude>
     <ClInclude Include="InteractableObject.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Tag.h">
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

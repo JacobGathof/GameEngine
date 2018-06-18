@@ -214,7 +214,7 @@ void Text::draw()
 {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	ShaderProgram * sh = Res::get(ShaderType::TEXT_SHADER);
+	ShaderProgram * sh = Res::get(worldRelative ? ShaderType::TEXT_WORLD_SHADER : ShaderType::TEXT_SHADER);
 	sh->bind();
 	font->bind();
 	model.bind();
@@ -257,6 +257,11 @@ void Text::reloadData()
 void Text::center()
 {
 	offset = Vector2f(-totalWidth/2,-scale[1]/2);
+}
+
+void Text::setWorldRelative(bool b)
+{
+	worldRelative = b;
 }
 
 bool Text::isDisplayingFullLength()

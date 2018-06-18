@@ -1,6 +1,6 @@
 #include "RoomFactory.h"
 #include "BattleManager.h"
-
+#include "Tag.h"
 
 World * RoomFactory::world = 0;
 RoomFactory::RoomFactory()
@@ -47,7 +47,7 @@ void RoomFactory::ReadingRoom()
 	structure->moveSpeed = 600;
 	*/
 	
-
+	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0,100)));
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;

@@ -68,7 +68,6 @@ void PlayerAI::processInteractKey()
 	if (closest == 0)
 		return;
 	if (closest->intersects(user)) {
-		std::cout << "H";
 		closest->interact();
 	}
 }

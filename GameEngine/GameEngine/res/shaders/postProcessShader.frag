@@ -30,8 +30,10 @@ void main(){
 
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 
-	finalColor = finalColor + particles_color;
+	//finalColor = finalColor + particles_color;
 
+	finalColor = finalColor*(1-particles_color.a) + particles_color;
+	
 	vec4 uiColor = ui_color*ui_trans;
 	finalColor = finalColor*(1-uiColor.a) + uiColor;
 	//mix(finalColor, ui_color, .5);

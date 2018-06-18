@@ -44,8 +44,6 @@ void AnimatedObject::draw()
 	p->loadInteger("columns", sh->columns);
 	p->loadInteger("currentRow", animationRow);
 	p->loadInteger("currentColumn", animationColumn);
-
-	p->loadInteger("depth", pos[1]);
 	
 	p->loadInteger("selected", selected);
 
