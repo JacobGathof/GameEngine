@@ -20,7 +20,7 @@ void main(){
 	vec4 pos = position_buffer[index];
 	vec4 vel = velocity_buffer[index];
 	
-	vec2 accel = vec2(0,0); 
+	vec2 accel = vec2(vel.y,-vel.x); 
 	
 	vel.xy += dt*accel;
 	pos.xy += dt*vel.xy;
@@ -28,7 +28,7 @@ void main(){
 	pos.w -= dt;
 	if(pos.w <= 0.0f){
 		pos.w  = 1;
-		pos.xy = center;
+		pos.xy = center + vel.xy;
 	}
 	
 	

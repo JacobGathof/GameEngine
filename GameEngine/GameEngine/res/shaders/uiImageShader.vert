@@ -10,9 +10,12 @@ uniform vec2 scale;
 
 uniform vec2 ui_scale;
 
+uniform vec2 dim;
+uniform vec2 offset;
+
 
 void main(){
-	uv = texCoords;
+	uv = (texCoords + offset) / dim;
 
 	vec3 pos = vec3(position*(ui_scale*scale)+(translate*ui_scale) - vec2(1,1),0);
 

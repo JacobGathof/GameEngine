@@ -36,9 +36,14 @@ void UIUtils::drawRectangleIcon(Vector2f& pos, Vector2f& scale, Color colors[3],
 
 void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
 {
+	drawImage(pos, scale, tex, Vector2f(0, 0));
+}
+
+void UIUtils::drawImage(Vector2f & pos, Vector2f & scale, TextureType tex, Vector2f & offset)
+{
 	ShaderProgram* shader = Res::get(ShaderType::UI_IMAGE_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
-	Texture * texture = Res::get(tex);
+	SpriteSheet * texture = Res::get(tex);
 
 	model->bind();
 	shader->bind();
@@ -46,6 +51,9 @@ void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
 
 	shader->loadVector2f("translate", pos);
 	shader->loadVector2f("scale", scale);
+	shader->loadVector2f("dim", Vector2f(texture->columns, texture->rows));
+	shader->loadVector2f("offset", offset);
+
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	model->draw();

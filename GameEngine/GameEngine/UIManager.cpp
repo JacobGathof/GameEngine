@@ -57,7 +57,7 @@ void UIManager::init()
 	statusbar->setVisible(true);
 	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
-	//addText(std::string("Hello World"), std::string("--------"), TextureType::TEXTURE_PANDORA);
+	addText(std::string("Hello World"), std::string("--------"), TextureType::TEXTURE_PANDORA);
 
 }
 

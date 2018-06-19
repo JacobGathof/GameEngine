@@ -12,5 +12,6 @@ public:
 	static void drawRectangle(Vector2f& pos, Vector2f& scale, Color& color);
 	static void drawRectangleIcon(Vector2f& pos, Vector2f& scale, Color colors[3], float spacing);
 	static void drawImage(Vector2f& pos, Vector2f& scale, TextureType tex);
+	static void drawImage(Vector2f& pos, Vector2f& scale, TextureType tex, Vector2f& offset);
 };
 

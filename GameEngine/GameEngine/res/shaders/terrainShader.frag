@@ -11,7 +11,7 @@ const int TERRAIN_DIM = 64;
 
 void main(){
 
-	vec2 adjustedUV = (fragCoord + vec2(1-uv.x, uv.y))/4;
+	vec2 adjustedUV = fragCoord + vec2(1-uv.x, uv.y)/4;
 	adjustedUV.x = 1-adjustedUV.x;
 	vec4 color = texture(terrain, adjustedUV);
 
