@@ -41,6 +41,7 @@ void Object::draw()
 	p->loadInteger("currentColumn", 0);
 
 	p->loadInteger("selected", selected);
+	p->loadFloat("rotation", rotation);
 
 	m->draw();
 	
@@ -90,6 +91,11 @@ void Object::addEffect(Effect * eff)
 {
 	eff->setParent(this);
 	effects.add(eff);
+}
+
+void Object::removeEffect(Effect * eff)
+{
+	effects.remove(eff);
 }
 
 

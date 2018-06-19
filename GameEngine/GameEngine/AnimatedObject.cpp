@@ -46,6 +46,7 @@ void AnimatedObject::draw()
 	p->loadInteger("currentColumn", animationColumn);
 	
 	p->loadInteger("selected", selected);
+	p->loadFloat("rotation", rotation);
 
 	m->draw();
 }

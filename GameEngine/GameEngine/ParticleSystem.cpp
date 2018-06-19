@@ -3,6 +3,8 @@
 
 
 ParticleSystem::ParticleSystem() {
+	maxParticles = 3000;
+	maxParticlesPerSecond = 1000;
 	init();
 }
 

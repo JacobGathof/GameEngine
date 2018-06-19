@@ -17,8 +17,11 @@ uniform int columns;
 uniform int currentRow;
 uniform int currentColumn;
 
+uniform float rotation;
+
 void main(){
+	vec2 pos = position * mat2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation));
 	sc = scale;
 	uv = (texCoords+vec2(currentColumn, currentRow)) / vec2(columns, rows);
-	gl_Position = vec4(position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	gl_Position = vec4(pos*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 }

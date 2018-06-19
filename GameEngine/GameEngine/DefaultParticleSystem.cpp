@@ -28,10 +28,10 @@ Particle DefaultParticleSystem::createNewParticle()
 {
 	float r = (float)rand() / RAND_MAX * 2 * 3.1415f;
 	Vector2f v(cos(r)*cos(2*timer.getTotalTime()), sin(r)*sin(timer.getTotalTime()));
-	Vector2f pPosition = position + v * 200;
+	Vector2f pPosition = position + v * 50;
 	pPosition += parent->pos;
 
-	Vector2f pVelocity = 200 * Vector2f(cos(r), sin(r));
+	Vector2f pVelocity = 50 * Vector2f(cos(r), sin(r));
 	Color pColor = startColor;
 	float pLife = maxParticleLife;
 

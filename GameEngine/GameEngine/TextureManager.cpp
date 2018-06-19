@@ -40,6 +40,7 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_TEST_2, "res/tex/terraintest2.png");
 	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/terraintest2.png");
 
+	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 
 	addTexture(TextureType::ZH_WARDROBE, "res/tex/ImageFiles/zh-wardrobe.png");
 	addTexture(TextureType::ZF_GILGAMESH, "res/tex/ImageFiles/zf-Gilgamesh.png");

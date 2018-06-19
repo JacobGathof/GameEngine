@@ -29,9 +29,9 @@ bool PlayerCombatAI::execute(Player * obj, float dt)
 	return false;
 }
 
-void PlayerCombatAI::receiveInput(Keyboard & keyboard)
+void PlayerCombatAI::receiveInput(Keyboard & keyboard, Mouse& mouse)
 {
-	PlayerAI::receiveInput(keyboard);
+	PlayerAI::receiveInput(keyboard, mouse);
 
 	if (keyboard.press(VirtualKey::DODGE)) {
 		Vector2f pos = Vector2f(xVel, yVel).normalize() * rollDistance;

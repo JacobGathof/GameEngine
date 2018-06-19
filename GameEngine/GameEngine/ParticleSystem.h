@@ -20,8 +20,8 @@ public:
 	virtual ~ParticleSystem();
 
 
-	int maxParticles = 300;
-	float maxParticlesPerSecond = 100;
+	int maxParticles = 3000;
+	float maxParticlesPerSecond = 1000;
 	int pIndex = 0;
 	float ptime = 0.0f;
 	bool emit = true;

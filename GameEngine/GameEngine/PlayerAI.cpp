@@ -22,7 +22,7 @@ bool PlayerAI::execute(Player * o, float dt)
 	return true;
 }
 
-void PlayerAI::receiveInput(Keyboard& keyboard)
+void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 {
 
 	if (user == 0) {
@@ -62,6 +62,10 @@ void PlayerAI::receiveInput(Keyboard& keyboard)
 		//user->forward = Vector2f(xVel, yVel).normalize();
 	}
 
+	if (mouse.click()) {
+		leftClick(mouse.pos() - Vector2f(400,400));
+	}
+
 }
 
 void PlayerAI::processInteractKey()
@@ -76,7 +80,13 @@ void PlayerAI::processInteractKey()
 
 void PlayerAI::processArrowUpKey()
 {
-	Projectile * p = new Projectile(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(128, 128));
+	std::cout << user->pos << std::endl;
+}
+
+void PlayerAI::leftClick(Vector2f & pos)
+{
+	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
+	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(128, 128), direction);
 	p->addEffect(new DefaultParticleSystem());
 	World::getInstance()->addObject(p);
 }

@@ -35,12 +35,14 @@ public:
 	virtual bool executeAI(float dt, AI* ai);
 		
 	void addEffect(Effect * eff);
+	void removeEffect(Effect* eff);
 	void drawEffects();
 
 	Vector2f pos;
 	Vector2f scale;
 	TextureType texture;
 	std::string name;
+	float rotation;
 
 protected:
 	List<AI *> aiQueue;
