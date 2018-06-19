@@ -546,6 +546,9 @@
     <ClCompile Include="Tag.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -970,6 +973,9 @@
     </ClInclude>
     <ClInclude Include="Tag.h">
       <Filter>Header Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

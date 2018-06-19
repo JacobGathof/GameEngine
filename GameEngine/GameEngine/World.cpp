@@ -6,11 +6,7 @@ World* World::inst;
 std::map<std::string, Room *> World::rooms;
 
 World::World(){}
-World::~World(){
-	for (auto pair : objects) {
-		delete pair.second;
-	}
-}
+World::~World(){}
 
 
 World * World::getInstance()
@@ -146,6 +142,4 @@ void World::addObject(Object * obj)
 		currentRoom->addObject(obj);
 	}
 	objects[obj->name] = obj;
-
-	std::cout << obj->name << std::endl;
 }

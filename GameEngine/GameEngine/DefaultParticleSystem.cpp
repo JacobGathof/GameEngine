@@ -1,8 +1,8 @@
 #include "DefaultParticleSystem.h"
+#include "Object.h"
 
 
-
-DefaultParticleSystem::DefaultParticleSystem()
+DefaultParticleSystem::DefaultParticleSystem() : ParticleSystem()
 {
 	startColor = Color::White;
 	endColor = Color::LightRed;
@@ -29,9 +29,8 @@ Particle DefaultParticleSystem::createNewParticle()
 	float r = (float)rand() / RAND_MAX * 2 * 3.1415f;
 	Vector2f v(cos(r)*cos(2*timer.getTotalTime()), sin(r)*sin(timer.getTotalTime()));
 	Vector2f pPosition = position + v * 200;
-	if (parentPosition != 0) {
-		pPosition += *parentPosition;
-	}
+	pPosition += parent->pos;
+
 	Vector2f pVelocity = 200 * Vector2f(cos(r), sin(r));
 	Color pColor = startColor;
 	float pLife = maxParticleLife;

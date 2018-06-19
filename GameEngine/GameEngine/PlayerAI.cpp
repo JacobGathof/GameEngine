@@ -1,5 +1,7 @@
 #include "PlayerAI.h"
 #include "Player.h"
+#include "Projectile.h"
+#include "DefaultParticleSystem.h"
 
 PlayerAI::PlayerAI()
 {
@@ -74,7 +76,9 @@ void PlayerAI::processInteractKey()
 
 void PlayerAI::processArrowUpKey()
 {
-	std::cout << user->pos << std::endl;
+	Projectile * p = new Projectile(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(128, 128));
+	p->addEffect(new DefaultParticleSystem());
+	World::getInstance()->addObject(p);
 }
 
 

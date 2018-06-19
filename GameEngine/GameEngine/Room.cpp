@@ -38,8 +38,10 @@ Room::~Room()
 
 void Room::update(float dt)
 {
-	for (auto a : allObjects) {
-		a->update(dt);
+	for (int i = 0; i < allObjects.size(); i++) {
+		bool b = allObjects[i]->update(dt);
+		if (!b)
+			removeObject(allObjects[i--]);
 	}
 }
 
