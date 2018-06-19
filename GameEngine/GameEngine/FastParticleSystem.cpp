@@ -3,6 +3,7 @@
 #include "ResourceManager.h"
 #include "Screen.h"
 #include "GameState.h"
+#include "Object.h"
 
 FastParticleSystem::FastParticleSystem(int ms)
 {
@@ -32,7 +33,7 @@ void FastParticleSystem::init()
 		positions[4 * i + 0] = pos[0]*100;
 		positions[4 * i + 1] = pos[1]*100;
 		positions[4 * i + 2] = 0;
-		positions[4 * i + 3] = 0;
+		positions[4 * i + 3] = (float)rand() / RAND_MAX;
 	}
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 	glVertexAttribPointer(0, 4, GL_FLOAT, false, 0, 0);
@@ -48,7 +49,7 @@ void FastParticleSystem::init()
 		velocities[4 * i + 0] = vel[0]*100;
 		velocities[4 * i + 1] = vel[1]*100;
 		velocities[4 * i + 2] = 1;
-		velocities[4 * i + 3] = 0;
+		velocities[4 * i + 3] = (float) rand() / RAND_MAX;
 	}
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 	glVertexAttribPointer(1, 4, GL_FLOAT, false, 0, 0);
@@ -61,6 +62,7 @@ void FastParticleSystem::update(float dt)
 	
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->bind();
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadFloat("dt", dt);
+	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadVector2f("center", parent->pos);
 
 	glBindVertexArray(vao);
 

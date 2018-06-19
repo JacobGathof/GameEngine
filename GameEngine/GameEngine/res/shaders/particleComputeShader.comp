@@ -12,6 +12,7 @@ layout (std430, binding = 1) buffer VelBuf {
 	
 
 uniform float dt;
+uniform vec2 center;
 
 void main(){
 	
@@ -24,8 +25,12 @@ void main(){
 	vel.xy += dt*accel;
 	pos.xy += dt*vel.xy;
 	
-	pos.w -= .01*dt;
-	pos.w += uint(pos.w <= 0); 
+	pos.w -= dt;
+	if(pos.w <= 0.0f){
+		pos.w  = 1;
+		pos.xy = center;
+	}
+	
 	
 	
 	position_buffer[index] = pos;
