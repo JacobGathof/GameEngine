@@ -9,6 +9,8 @@ void ShaderManager::init(){
 	addShader(ShaderType::BASIC_SHADER, "res/shaders/basicShader.vert", "res/shaders/basicShader.frag");
 	addShader(ShaderType::PARTICLE_SHADER, "res/shaders/particleShader.vert", "res/shaders/particleShader.frag");
 	addShader(ShaderType::PARTICLE_COMPUTE_SHADER, "res/shaders/particleComputeShader.comp");
+	addShader(ShaderType::PARTICLE_FAST_SHADER, "res/shaders/particleFastShader.vert", "res/shaders/particleFastShader.frag");
+
 	addShader(ShaderType::UI_SOLID_SHADER, "res/shaders/textboxShader.vert", "res/shaders/textboxShader.frag");
 	addShader(ShaderType::UI_IMAGE_SHADER, "res/shaders/uiImageShader.vert", "res/shaders/uiImageShader.frag");
 	addShader(ShaderType::TERRAIN_SHADER, "res/shaders/terrainShader.vert", "res/shaders/terrainShader.frag");

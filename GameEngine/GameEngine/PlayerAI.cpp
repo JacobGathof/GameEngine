@@ -1,7 +1,7 @@
 #include "PlayerAI.h"
 #include "Player.h"
 #include "Projectile.h"
-#include "DefaultParticleSystem.h"
+#include "FastParticleSystem.h"
 
 PlayerAI::PlayerAI()
 {
@@ -87,7 +87,7 @@ void PlayerAI::leftClick(Vector2f & pos)
 {
 	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(128, 128), direction);
-	p->addEffect(new DefaultParticleSystem());
+	p->addEffect(new FastParticleSystem(512));
 	World::getInstance()->addObject(p);
 }
 

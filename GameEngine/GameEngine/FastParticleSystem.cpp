@@ -25,22 +25,41 @@ void FastParticleSystem::init()
 
 	glGenBuffers(1, &vbo_positions);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_positions);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*4*maxSize, 0, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float)*4*maxSize, 0, GL_DYNAMIC_COPY);
+	float* positions = (float*)glMapBufferRange(GL_ARRAY_BUFFER, 0, maxSize * 4 * sizeof(float), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
+	for (int i = 0; i < maxSize; i++) {
+		Vector2f pos((float)rand() / RAND_MAX - .5, (float)rand() / RAND_MAX - .5);
+		positions[4 * i + 0] = pos[0]*100;
+		positions[4 * i + 1] = pos[1]*100;
+		positions[4 * i + 2] = 0;
+		positions[4 * i + 3] = 0;
+	}
+	glUnmapBuffer(GL_ARRAY_BUFFER);
 	glVertexAttribPointer(0, 4, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(0);
-	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, vbo_positions);
+
 
 	glGenBuffers(1, &vbo_velocities);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_velocities);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * maxSize, 0, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * maxSize, 0, GL_DYNAMIC_COPY);
+	float* velocities = (float*)glMapBufferRange(GL_ARRAY_BUFFER, 0, maxSize * 4 * sizeof(float), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
+	for (int i = 0; i < maxSize; i++) {
+		Vector2f vel((float)rand() / RAND_MAX - .5, (float)rand() / RAND_MAX - .5);
+		velocities[4 * i + 0] = vel[0]*100;
+		velocities[4 * i + 1] = vel[1]*100;
+		velocities[4 * i + 2] = 1;
+		velocities[4 * i + 3] = 0;
+	}
+	glUnmapBuffer(GL_ARRAY_BUFFER);
 	glVertexAttribPointer(1, 4, GL_FLOAT, false, 0, 0);
 	glEnableVertexAttribArray(1);
-	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 1, vbo_velocities);
 
 }
 
 void FastParticleSystem::update(float dt)
 {
+	
+	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->bind();
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadFloat("dt", dt);
 
 	glBindVertexArray(vao);
@@ -49,14 +68,14 @@ void FastParticleSystem::update(float dt)
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, vbo_velocities);
 	glDispatchCompute(maxSize / 256, 1, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
-
+	
 }
 
 void FastParticleSystem::draw()
 {
-	Res::get(ShaderType::PARTICLE_SHADER)->bind();
-	Res::get(ShaderType::PARTICLE_SHADER)->loadVector2f("scale", Screen::toScreenScale(Vector2f(1,1)));
-	Res::get(ShaderType::PARTICLE_SHADER)->loadVector2f("translate", Screen::toScreenCoords(Vector2f(0,0)));
+	Res::get(ShaderType::PARTICLE_FAST_SHADER)->bind();
+	Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadVector2f("scale", Vector2f(1,1));
+	Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadVector2f("translate", Vector2f(0,0));
 
 	glBindVertexArray(vao);
 
