@@ -40,7 +40,7 @@ public:
 
 	void init();
 	void setEmit(bool doEmit);
-	virtual void update(float dt);
+	virtual bool update(float dt);
 	void emitParticles(int numParticles);
 	void updateBuffers();
 	void writeParticleData();

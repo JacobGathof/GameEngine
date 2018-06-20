@@ -20,8 +20,14 @@ void Tag::draw()
 	text->draw();
 }
 
-void Tag::update(float dt)
+bool Tag::update(float dt)
 {
 	text->setPosition(offset + parent->pos);
 	text->center();
+	return true;
+}
+
+void Tag::increasePosition(Vector2f & v)
+{
+
 }

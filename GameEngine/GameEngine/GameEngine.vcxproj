@@ -41,6 +41,7 @@
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
     <ClCompile Include="Condition.cpp" />
+    <ClCompile Include="DamageTag.cpp" />
     <ClCompile Include="DebugAction.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DeckManager.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
     <ClInclude Include="Condition.h" />
+    <ClInclude Include="DamageTag.h" />
     <ClInclude Include="DebugAction.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DeckManager.h" />

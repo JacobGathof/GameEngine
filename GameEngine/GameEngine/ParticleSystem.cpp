@@ -60,7 +60,7 @@ void ParticleSystem::setEmit(bool doEmit)
 	emit = doEmit;
 }
 
-void ParticleSystem::update(float dt)
+bool ParticleSystem::update(float dt)
 {
 	timer.update(dt);
 
@@ -86,6 +86,8 @@ void ParticleSystem::update(float dt)
 
 	writeParticleData();
 	updateBuffers();
+
+	return true;
 }
 
 void ParticleSystem::emitParticles(int numParticles)

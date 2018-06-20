@@ -57,7 +57,7 @@ void FastParticleSystem::init()
 
 }
 
-void FastParticleSystem::update(float dt)
+bool FastParticleSystem::update(float dt)
 {
 	
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->bind();
@@ -70,6 +70,8 @@ void FastParticleSystem::update(float dt)
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, vbo_velocities);
 	glDispatchCompute(maxSize / 256, 1, 1);
 	glMemoryBarrier(GL_ALL_BARRIER_BITS);
+
+	return true;
 	
 }
 

@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Projectile.h"
 #include "FastParticleSystem.h"
+#include "DamageTag.h"
 
 PlayerAI::PlayerAI()
 {
@@ -89,6 +90,9 @@ void PlayerAI::leftClick(Vector2f & pos)
 	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(128, 128), direction);
 	p->addEffect(new FastParticleSystem(512));
 	World::getInstance()->addObject(p);
+
+
+	user->addEffect(new DamageTag());
 }
 
 

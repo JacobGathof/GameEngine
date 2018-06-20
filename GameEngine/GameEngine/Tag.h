@@ -9,12 +9,17 @@ class Tag : public Effect
 {
 public:
 	Tag(std::string& name, Vector2f& offset);
-	~Tag();
+	virtual ~Tag();
 	virtual void draw();
-	virtual void update(float dt);
+	virtual bool update(float dt);
+
+	void increasePosition(Vector2f& v);
+
+protected:
+	Vector2f offset;
 
 private:
 	Text * text;
-	Vector2f offset;
+
 };
 

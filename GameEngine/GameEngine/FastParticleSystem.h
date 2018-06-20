@@ -10,7 +10,7 @@ public:
 	int maxSize;
 
 	void init();
-	virtual void update(float dt);
+	virtual bool update(float dt);
 	virtual void draw();
 
 	unsigned int vao;

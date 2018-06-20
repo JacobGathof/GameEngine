@@ -40,8 +40,9 @@ void Room::update(float dt)
 {
 	for (int i = 0; i < allObjects.size(); i++) {
 		bool b = allObjects[i]->update(dt);
-		if (!b)
+		if (!b) {
 			removeObject(allObjects[i--]);
+		}
 	}
 }
 
@@ -292,6 +293,7 @@ void Room::loadObjects(std::string& filepath)
 
 void Room::removeObject(Object * obj)
 {
+	delete obj;
 	allObjects.remove(obj);
 
 	for (int i = 0; i < simpleObjects.size(); i++) {

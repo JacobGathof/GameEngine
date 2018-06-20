@@ -60,8 +60,12 @@ void Object::destroy(){
 
 bool Object::update(float dt)
 {
-	for (Effect * eff : effects) {
-		eff->update(dt);
+	for (int i = 0; i < effects.size(); i++) {
+		bool b = effects[i]->update(dt);
+		if (!b) {
+			delete effects[i];
+			effects.remove(effects[i--]);
+		}
 	}
 
 	if (aiQueue.size() == 0) {
