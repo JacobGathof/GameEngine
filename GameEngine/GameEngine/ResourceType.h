@@ -95,9 +95,8 @@ enum class TextureType {
 enum class FramebufferType {
 	DEFAULT,
 	UI_BUFFER,
-	PARTICLES_BUFFER,
+	EFFECTS_BUFFER,
 	WORLD_BUFFER,
-	LIGHT_BUFFER,
 };
 
 

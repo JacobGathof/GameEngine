@@ -106,7 +106,8 @@ void Window::initOpenGL(){
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glPointSize(1.0f);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glClearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
+	glClearColor(0,0,0,0);
+
 }
 
 //GLFW_CURSOR_HIDDEN, GLFW_CURSOR_DISABLED, GLFW_CURSOR_NORMAL

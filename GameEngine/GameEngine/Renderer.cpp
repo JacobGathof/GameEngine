@@ -42,17 +42,10 @@ void Renderer::drawWorld()
 void Renderer::drawEffects()
 {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	Res::get(FramebufferType::PARTICLES_BUFFER)->bind();
+	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
 	World::getInstance()->drawEffects();
 	//WeatherManager::drawWeatherEffects();
 
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	Res::get(FramebufferType::LIGHT_BUFFER)->bind();
-	Color c = WeatherManager::currentLight;
-	glClearColor(c[0], c[1], c[2], c[3]);
-	glClearColor(.5,.5,.5,.5);
-	World::getInstance()->drawLights();
-	glClearColor(0,0,0,0);
 }
 
 void Renderer::drawUI()
@@ -74,8 +67,7 @@ void Renderer::postProcess()
 	sp->bind();
 	sp->loadInteger("ui", 0);
 	sp->loadInteger("world", 1);
-	sp->loadInteger("particles", 2);
-	sp->loadInteger("lights", 3);
+	sp->loadInteger("effects", 2);
 
 	sp->loadFloat("ui_trans", GameState::sliderValue);
 	sp->loadFloat("ui_blue", GameState::ui_blue);
@@ -85,8 +77,7 @@ void Renderer::postProcess()
 
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
 	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);
-	Res::get(FramebufferType::PARTICLES_BUFFER)->bindTexture(2);
-	Res::get(FramebufferType::LIGHT_BUFFER)->bindTexture(3);
+	Res::get(FramebufferType::EFFECTS_BUFFER)->bindTexture(2);
 	m->draw();
 
 
@@ -105,11 +96,7 @@ void Renderer::preProcess()
 	Res::get(FramebufferType::UI_BUFFER)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	Res::get(FramebufferType::PARTICLES_BUFFER)->bind();
+	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	Res::get(FramebufferType::LIGHT_BUFFER)->bind();
-	glClearColor(.5, .5, .5, .5);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0,0,0,0);
 }

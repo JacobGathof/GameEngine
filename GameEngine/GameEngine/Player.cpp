@@ -18,6 +18,7 @@ Player::~Player()
 {
 }
 
+
 bool Player::update(float delta_time)
 {
 	if (colliding) {
