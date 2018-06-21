@@ -12,7 +12,7 @@ uniform vec2 camera_scale;
 
 void main(){
 
-	gl_PointSize = 4.0f;
+	gl_PointSize = 1.0f;
 	gl_Position = vec4(position.xy*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 
 }

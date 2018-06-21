@@ -64,7 +64,7 @@ bool Object::update(float dt)
 		bool b = effects[i]->update(dt);
 		if (!b) {
 			delete effects[i];
-			effects.remove(effects[i--]);
+			effects.removeIndex(i--);
 		}
 	}
 

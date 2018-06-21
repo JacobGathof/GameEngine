@@ -10,6 +10,7 @@ Player::Player(std::string& name, TextureType t, Vector2f& position, Vector2f& s
 	defaultAI = ai;
 	moveSpeed = 256;
 	weight = Weight::PLAYER;
+	interactionRadius->radius = 10;
 }
 
 

@@ -23,7 +23,7 @@ void TerrainMap::draw(){
 
 	shader->loadInteger("tileset", 0);
 	shader->loadInteger("terrain", 1);
-	shader->loadVector2f("translate", Vector2f(0,0));
+	shader->loadVector2f("translate", Vector2f(64*32,0));
 
 	Res::get(TextureType::TS_TILESET)->bind(0);
 	Res::get(TextureType::TEXTURE_TEST)->bind(1);
@@ -39,11 +39,11 @@ void TerrainMap::draw(){
 
 
 
-	/*
+	
 	ShaderProgram* p = Res::get(ShaderType::WATER_SHADER);
 	p->bind();
 	p->loadVector2f("scale", Vector2f(0, 0));
-	p->loadVector2f("translate", Vector2f(0, 0));
+	p->loadVector2f("translate", Vector2f(64 * 32, 0));
 	p->loadInteger("skybox", 0);
 	p->loadInteger("dispMap", 1);
 	p->loadInteger("tileset", 2);
@@ -59,7 +59,7 @@ void TerrainMap::draw(){
 
 
 	m->draw();
-	*/
+	
 
 }
 

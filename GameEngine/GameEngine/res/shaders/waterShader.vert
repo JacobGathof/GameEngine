@@ -17,6 +17,6 @@ out vec2 fragCoord;
 void main(){
 	uv = texCoords / (vec2(512,512)*camera_scale);
 	uv2 = texCoords;
-	fragCoord = .5/(vec2(512,512))*(translate - camera_translate + vec2(1,-1)/camera_scale);
+	fragCoord = .5/vec2(512,512) * (-translate - camera_translate - vec2(1024, 0) + vec2(64*64) + vec2(1,-1)/camera_scale);
 	gl_Position = vec4(position*2,0,1);
 }
