@@ -18,6 +18,7 @@ private:
 	static void drawUI();
 
 	static void postProcess();
+	static void preProcess();
 
 };
 

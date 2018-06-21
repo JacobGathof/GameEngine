@@ -56,6 +56,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="Projectile.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="KeyItemManager.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="Projectile.h" />

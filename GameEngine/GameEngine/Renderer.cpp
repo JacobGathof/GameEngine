@@ -15,7 +15,7 @@ Renderer::~Renderer()
 
 void Renderer::draw()
 {
-
+	preProcess();
 	
 	drawWorld();
 	drawUI();
@@ -29,10 +29,9 @@ void Renderer::draw()
 void Renderer::drawWorld()
 {
 
-	Framebuffer* buf = Res::get(FramebufferType::WORLD_BUFFER);
-	buf->bind();
+	Res::get(FramebufferType::WORLD_BUFFER)->bind();
+
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	World::getInstance()->drawTerrain();
 	World::getInstance()->drawObjects();
 	World::getInstance()->drawHitboxes();
@@ -42,40 +41,32 @@ void Renderer::drawWorld()
 
 void Renderer::drawEffects()
 {
-	Framebuffer* buf = Res::get(FramebufferType::PARTICLES_BUFFER);
-	buf->bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	Res::get(FramebufferType::PARTICLES_BUFFER)->bind();
 	World::getInstance()->drawEffects();
-	WeatherManager::drawWeatherEffects();
+	//WeatherManager::drawWeatherEffects();
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	buf = Res::get(FramebufferType::LIGHT_BUFFER);
-	buf->bind();
+	Res::get(FramebufferType::LIGHT_BUFFER)->bind();
 	Color c = WeatherManager::currentLight;
 	glClearColor(c[0], c[1], c[2], c[3]);
-	//glClearColor(.5,.5,.5,.5);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(.5,.5,.5,.5);
 	World::getInstance()->drawLights();
 	glClearColor(0,0,0,0);
 }
 
 void Renderer::drawUI()
 {
+	Res::get(FramebufferType::UI_BUFFER)->bind();
 	glBlendFunc(GL_ONE, GL_ZERO);
-	Framebuffer* buf = Res::get(FramebufferType::UI_BUFFER);
-	buf->bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	UIManager::draw();
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 }
 
 void Renderer::postProcess()
 {
 	glBlendFunc(GL_ONE, GL_ZERO);
-	Framebuffer* buf = Res::get(FramebufferType::DEFAULT);
-	buf->bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	Res::get(FramebufferType::DEFAULT)->bind();
 
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	ShaderProgram * sp = Res::get(ShaderType::POST_PROCESS_SHADER);
@@ -101,4 +92,24 @@ void Renderer::postProcess()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+}
+
+void Renderer::preProcess()
+{
+	Res::get(FramebufferType::DEFAULT)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Res::get(FramebufferType::WORLD_BUFFER)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Res::get(FramebufferType::UI_BUFFER)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Res::get(FramebufferType::PARTICLES_BUFFER)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Res::get(FramebufferType::LIGHT_BUFFER)->bind();
+	glClearColor(.5, .5, .5, .5);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(0,0,0,0);
 }

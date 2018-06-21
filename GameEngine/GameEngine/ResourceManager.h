@@ -34,6 +34,8 @@ public:
 
 
 	static void updateFramebufferSizes(float x, float y);
+	static void setTemporaryFramebuffer(FramebufferType type);
+	static void resetTemporaryFramebuffer();
 	static void uploadGlobalUniform(char* location, Vector2f& val);
 
 private:

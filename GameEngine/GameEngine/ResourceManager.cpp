@@ -93,6 +93,16 @@ void ResourceManager::updateFramebufferSizes(float x, float y)
 	frameManager->updateSizes((int)x, (int)y);
 }
 
+void ResourceManager::setTemporaryFramebuffer(FramebufferType type)
+{
+	frameManager->setTemporaryBuffer(type);
+}
+
+void ResourceManager::resetTemporaryFramebuffer()
+{
+	frameManager->resetTempBuffer();
+}
+
 void ResourceManager::uploadGlobalUniform(char * location, Vector2f & val)
 {
 	shaderManager->uploadAll(location, val);
