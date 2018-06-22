@@ -6,7 +6,7 @@
 class Light : public Effect
 {
 public:
-	Light(Vector2f& offset, Color& color);
+	Light(Vector2f& offset, Color& color, Vector2f& sc);
 	virtual ~Light();
 	virtual void draw();
 	virtual bool update(float dt);
@@ -14,5 +14,6 @@ public:
 private:
 	Color color;
 	Vector2f offset;
+	Vector2f scale;
 };
 

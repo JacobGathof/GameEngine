@@ -130,6 +130,7 @@ private:
 
 	std::queue<TextboxContent*> queue;
 	Timer timer;
+	Timer advanceTimer;
 
 	bool visible = true;
 	Vector2f textScale;

@@ -49,7 +49,7 @@ void RoomFactory::ReadingRoom()
 	*/
 	
 	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0,100)));
-	melody->addEffect(new Light(Vector2f(0, 0), Color(0,-.5,0,1)));
+	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256,256)));
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));

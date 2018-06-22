@@ -19,7 +19,7 @@ void main(){
 	float d = dot(temp,temp);
 	float f = clamp(1 - d, 0, 1);
 
-	float alpha = maxStrength - maxStrength / (1 + attenuation*pow(f, 2+rand()));
+	float alpha = maxStrength - maxStrength / (1 + attenuation*f*f);
 	
 	gl_FragColor = color * vec4(1,1,1,alpha);
 

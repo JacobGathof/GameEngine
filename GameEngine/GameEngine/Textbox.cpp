@@ -18,6 +18,9 @@ Textbox::Textbox()
 	textScale = Vector2f(30, 30);
 	textStartPos = Vector2f(24+100, 160);
 	timer.setTickLength(0.05f);
+	advanceTimer.setPauseOnTick(true);
+	advanceTimer.pause();
+	advanceTimer.setTickLength(-1);
 	visible = false;
 
 	DialogueText::init();
@@ -63,8 +66,14 @@ void Textbox::draw(){
 void Textbox::update(float dt)
 {
 	timer.update(dt);
+	advanceTimer.update(dt);
+
 	if (timer.tick() && visible && current!= 0) {
 		current->addLetter();
+	}
+
+	if (advanceTimer.tick() && visible) {
+		advanceText();
 	}
 
 	if (!visible) {
@@ -74,17 +83,25 @@ void Textbox::update(float dt)
 
 void Textbox::advanceText()
 {
-	if (!visible) {
-		show();
-	}
 	if (current != 0) {
-		delete current;
-		current = 0;
+		current->finish();
 	}
-	current = queue.front();
-	queue.pop();
-	current->prepare();
 
+	if (hasNext()) {
+		if (!visible) {
+			show();
+		}
+		if (current != 0) {
+			delete current;
+			current = 0;
+		}
+		current = queue.front();
+		queue.pop();
+		current->prepare();
+	}
+	else {
+		hide();
+	}
 }
 
 void Textbox::addPlainTextToQueue(std::string& text){
@@ -98,6 +115,8 @@ void Textbox::addPlainTextToQueue(std::string& text){
 void Textbox::addDialogueToQueue(std::string & text, std::string & name, TextureType tex)
 {
 	queue.push(new DialogueText(text, name, tex));
+	//advanceTimer.unpause();
+	//advanceTimer.setTickLength(3.0f);
 	GameState::textboxEmpty = false;
 	if (!visible) {
 		advanceText();
@@ -122,17 +141,7 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 	if (keyboard.press(VirtualKey::INTERACT) && visible) {
 
 		if (current == 0 || current->isDisplayingFullLength()) {
-			
-			if (current != 0) {
-				current->finish();
-			}
-
-			if (hasNext()) {
-				advanceText();
-			}
-			else {
-				hide();
-			}
+			advanceText();
 		}
 		else {
 			current->displayFullLength();
