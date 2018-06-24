@@ -34,6 +34,8 @@ public:
 	void addObject(CollidableObject * obj);
 	void addObject(InteractableObject* obj);
 
+	void addWorldObject(InteractableObject* obj);
+
 	void sortObjects();
 
 	InteractableObject * getNearestObject(Vector2f& pos);
@@ -41,11 +43,13 @@ public:
 	void setTerrainMap(std::string& map);
 	void addHitbox(Vector2f& pos, Vector2f& scale);
 	void loadObjects(std::string& filepath);
+
 	void removeObject(Object * obj);
+	void removeCollidableObject(CollidableObject* obj);
+	void removeInteractableObject(InteractableObject* obj);
 
 	List<InteractableObject *>& getInteractableObjects();
 	List<CollidableObject *>& getCollidableObjects();
-	List<Object*>& getObjects();
 
 protected:
 
@@ -53,7 +57,7 @@ protected:
 	List<CollidableObject *> collidableObjects;
 	List<Object *> simpleObjects;
 
-	List<Object*> allObjects;
+	List<Object*> allRoomObjects;
 
 
 	TerrainMap terrain;

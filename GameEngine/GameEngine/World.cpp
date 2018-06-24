@@ -4,9 +4,15 @@
 
 World* World::inst;
 std::map<std::string, Room *> World::rooms;
+std::map<std::string, InteractableObject *> World::worldObjects;
 
-World::World(){}
+
 World::~World(){}
+
+World::World() {
+
+}
+
 
 
 World * World::getInstance()
@@ -20,12 +26,14 @@ World * World::getInstance()
 
 void World::clean()
 {
-	//delete inst;
 	for (auto r : rooms) {
 		delete r.second;
 	}
 	if (inst != 0) {
 		delete inst;
+	}
+	for (auto a : worldObjects) {
+		delete a.second;
 	}
 }
 
@@ -90,6 +98,7 @@ void World::transition(Room * newRoom)
 void World::setCurrentRoom(Room * r)
 {
 	currentRoom = r;
+
 }
 
 void World::setCurrentRoom(const char* name)
@@ -99,7 +108,7 @@ void World::setCurrentRoom(const char* name)
 		std::cout << "Could not find room " << name << std::endl;
 		return;
 	}
-	currentRoom = room;
+	setCurrentRoom(room);
 }
 
 InteractableObject * World::getNearestObject(Vector2f pos)
@@ -119,7 +128,11 @@ void World::addRoom(const char * name, Room * room)
 
 Object * World::getObject(std::string& name)
 {
-	return currentRoom->getObject(name);
+	Object* o = currentRoom->getObject(name);
+	if (o == 0) {
+		o = worldObjects[name];
+	}
+	return o;
 }
 
 Room * World::getCurrentRoom()
@@ -132,5 +145,13 @@ void World::addObject(Object * obj)
 	if (currentRoom != nullptr) {
 		currentRoom->addObject(obj);
 	}
-	objects[obj->name] = obj;
+}
+
+void World::addWorldObject(InteractableObject * obj){
+	worldObjects[obj->name] = obj;
+}
+
+InteractableObject * World::getWorldObject(const char * name)
+{
+	return worldObjects[name];
 }

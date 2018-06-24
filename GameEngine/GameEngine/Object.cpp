@@ -1,6 +1,8 @@
 #include "Object.h"
 #include "ResourceManager.h"
 
+int Object::numCreated = 0;
+int Object::numDeleted = 0;
 
 Object::Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc)
 {
@@ -8,6 +10,8 @@ Object::Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc)
 	pos = position;
 	scale = sc;
 	name = n;
+
+	numCreated++;
 }
 
 
@@ -20,6 +24,8 @@ Object::~Object()
 		delete ai;
 	}
 	delete defaultAI;
+
+	numDeleted++;
 }
 
 void Object::draw()

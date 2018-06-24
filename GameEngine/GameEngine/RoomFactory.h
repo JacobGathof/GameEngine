@@ -19,6 +19,7 @@ public:
 	~RoomFactory();
 
 	static void CreateAllRooms();
+	static void addWorldObjects();
 
 private:
 	static Room* createReadingRoom();

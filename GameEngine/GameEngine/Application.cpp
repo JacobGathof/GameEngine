@@ -54,6 +54,7 @@ void Application::run()
 	RoomFactory::CreateAllRooms();
 	
 	world->setCurrentRoom(World::RoomNames::READING_ROOM);
+
 	//world->transition(world->getRoom(std::string("Clearing")));
 	
 	Res::get(ShaderType::TEXT_SHADER)->bind();
@@ -91,6 +92,9 @@ void Application::run()
 
 	dt = 1.0f / 60.0f;
 	
+
+	std::cout << "Objects Created: " << Object::numCreated << std::endl;
+
 	while (!Window::shouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
@@ -133,6 +137,8 @@ void Application::run()
 
 	WeatherManager::clean();
 
+	std::cout << "Objects Deleted: " << Object::numDeleted << std::endl;
+
 	Window::destroy();
 
 }
@@ -141,6 +147,6 @@ int main() {
 	Application app;
 	app.run();
 
-	//system("pause");
+	system("pause");
 	return 0;
 }

@@ -51,10 +51,14 @@ public:
 	Room * getCurrentRoom();
 	void addObject(Object * obj);
 
+	void addWorldObject(InteractableObject* obj);
+	InteractableObject* getWorldObject(const char* name);
+
 private:
 	World();
 	static std::map<std::string, Room *> rooms;
-	std::map<std::string, Object *> objects;
+	static std::map<std::string, InteractableObject *> worldObjects;
+
 
 	static World *inst;
 	Room * currentRoom;

@@ -44,6 +44,9 @@ public:
 	std::string name;
 	float rotation;
 
+	static int numCreated;
+	static int numDeleted;
+
 protected:
 	List<AI *> aiQueue;
 

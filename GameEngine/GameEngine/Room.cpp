@@ -12,36 +12,32 @@ Room::Room()
 
 Room::~Room()
 {
-	/*
-	if (objects.size() > 0) {
-		for (Object * o : objects) {
-			if (o != nullptr) {
-				delete o;
-			}
-		}
-	}
-	if (staticObjects.size() > 0) {
-		for (Object * o : staticObjects) {
-			if (o != nullptr) {
-				delete o;
-			}
-		}
-	}
-	*/
-	if (collisionObject != nullptr) {
+	if (collisionObject != 0) {
 		delete collisionObject;
 	}
-	for (auto a : allObjects) {
+	for (auto a : allRoomObjects) {
 		delete a;
 	}
 }
 
 void Room::update(float dt)
 {
-	for (int i = 0; i < allObjects.size(); i++) {
-		bool b = allObjects[i]->update(dt);
+	for (int i = 0; i < simpleObjects.size(); i++) {
+		bool b = simpleObjects[i]->update(dt);
 		if (!b) {
-			removeObject(allObjects[i--]);
+			removeObject(simpleObjects[i--]);
+		}
+	}
+	for (int i = 0; i < collidableObjects.size(); i++) {
+		bool b = collidableObjects[i]->update(dt);
+		if (!b) {
+			removeCollidableObject(collidableObjects[i--]);
+		}
+	}
+	for (int i = 0; i < interactableObjects.size(); i++) {
+		bool b = interactableObjects[i]->update(dt);
+		if (!b) {
+			removeInteractableObject(interactableObjects[i--]);
 		}
 	}
 }
@@ -60,16 +56,27 @@ void Room::drawTerrain()
 }
 
 void Room::drawObjects() {
-	for (auto a : allObjects) {
+	for (auto a : simpleObjects) {
 		a->draw();
 	}
-	
+	for (auto a : collidableObjects) {
+		a->draw();
+	}
+	for (auto a : interactableObjects) {
+		a->draw();
+	}
 	collisionObject->draw();
 }
 
 void Room::drawEffects()
 {
-	for (auto a : allObjects) {
+	for (auto a : simpleObjects) {
+		a->drawEffects();
+	}
+	for (auto a : collidableObjects) {
+		a->drawEffects();
+	}
+	for (auto a : interactableObjects) {
 		a->drawEffects();
 	}
 }
@@ -138,26 +145,31 @@ void Room::addObject(Object * obj)
 	simpleObjects.add(obj);
 	objectMap[obj->name] = obj;
 
-	allObjects.add(obj);
+	allRoomObjects.add(obj);
 }
 
 void Room::addObject(CollidableObject * obj)
 {
 	collidableObjects.add(obj);
 	objectMap[obj->name]= obj;
-	allObjects.add(obj);
+	allRoomObjects.add(obj);
 }
 
 void Room::addObject(InteractableObject * obj)
 {
 	interactableObjects.add(obj);
 	objectMap[obj->name] = obj;
-	allObjects.add(obj);
+	allRoomObjects.add(obj);
+}
+
+void Room::addWorldObject(InteractableObject * obj)
+{
+	interactableObjects.add(obj);
 }
 
 void Room::sortObjects()
 {
-	std::sort(allObjects.begin(), allObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
+	std::sort(allRoomObjects.begin(), allRoomObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
 }
 
 InteractableObject * Room::getNearestObject(Vector2f& pos)
@@ -177,7 +189,7 @@ InteractableObject * Room::getNearestObject(Vector2f& pos)
 
 Object * Room::getObject(std::string& name)
 {
-	return objectMap.at(name);
+	return objectMap[name];
 }
 
 void Room::setTerrainMap(std::string& map)
@@ -274,11 +286,9 @@ void Room::loadObjects(std::string& filepath)
 	}
 }
 
+
 void Room::removeObject(Object * obj)
 {
-	delete obj;
-	allObjects.remove(obj);
-
 	for (int i = 0; i < simpleObjects.size(); i++) {
 		Object * o = simpleObjects.get(i);
 		if (obj == o) {
@@ -286,21 +296,31 @@ void Room::removeObject(Object * obj)
 			return;
 		}
 	}
+}
+
+void Room::removeCollidableObject(CollidableObject * obj)
+{
 	for (int i = 0; i < collidableObjects.size(); i++) {
-		Object * o = collidableObjects.get(i);
+		CollidableObject * o = collidableObjects.get(i);
 		if (obj == o) {
 			collidableObjects.removeIndex(i);
 			return;
 		}
 	}
+}
+
+void Room::removeInteractableObject(InteractableObject * obj)
+{
 	for (int i = 0; i < interactableObjects.size(); i++) {
-		Object * o = interactableObjects.get(i);
+		InteractableObject * o = interactableObjects.get(i);
 		if (obj == o) {
 			interactableObjects.removeIndex(i);
 			return;
 		}
 	}
 }
+
+
 
 List<InteractableObject*>& Room::getInteractableObjects()
 {
@@ -312,11 +332,6 @@ List<CollidableObject*>& Room::getCollidableObjects()
 	return collidableObjects;
 }
 
-
-List<Object*>& Room::getObjects()
-{
-	return allObjects;
-}
 
 void Room::init()
 {

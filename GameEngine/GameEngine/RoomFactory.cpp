@@ -11,11 +11,29 @@ RoomFactory::~RoomFactory(){}
 void RoomFactory::CreateAllRooms()
 {
 	World * world = World::getInstance();
+	addWorldObjects();
+
+
 	world->addRoom(World::RoomNames::READING_ROOM, createReadingRoom());
 	world->addRoom(World::RoomNames::CLEARING, createClearing());
 	world->addRoom(World::RoomNames::EAST, createEastOfTown());
 
 	AddTransitionObjects();
+}
+
+void RoomFactory::addWorldObjects()
+{
+	PlayerAI * playerAi = new PlayerAI();
+	Input::ai = playerAi;
+	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
+	melody->persistent = true;
+	GameState::battleManager = BattleManager(melody);
+
+	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
+	melody->addEffect(new Light(Vector2f(0, 0), Color(1, 0, 0, 1), Vector2f(256, 256)));
+
+
+	World::getInstance()->addWorldObject(melody);
 }
 
 Room* RoomFactory::createReadingRoom()
@@ -24,17 +42,14 @@ Room* RoomFactory::createReadingRoom()
 	room->setTerrainMap(std::string("StoryTellingRoom"));
 	//room->loadObjects(std::string("ObjectMaps/storyTellingRoom"));
 
-	PlayerAI * playerAi = new PlayerAI();
-	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
-	melody->persistent = true;
+	
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
 	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 400), Vector2f(0, 0));
 	//melody->addHitbox(circ);
 	//melody->giveDeck(Res::get(DeckType::TEST));
-	GameState::battleManager = BattleManager(melody);
+	
 	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256));
 	structure->addHitbox(circ2);
 	TextInteractionAction * inter = new TextInteractionAction(std::string("Interacting"));
@@ -44,8 +59,7 @@ Room* RoomFactory::createReadingRoom()
 	structure->moveSpeed = 600;
 	*/
 	
-	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0,100)));
-	melody->addEffect(new Light(Vector2f(0, 0), Color(1,0,0,1), Vector2f(256,256)));
+	
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
@@ -56,8 +70,7 @@ Room* RoomFactory::createReadingRoom()
 	Chest * chest2 = new Chest(TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::MOONLIGHT)));
 	chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
-
-	room->addObject(melody);
+	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	room->addObject(structure);
 	room->addObject(chest);
 	room->addObject(chest2);
