@@ -11,7 +11,7 @@ World::~World(){}
 
 World * World::getInstance()
 {
-	if (inst == nullptr) {
+	if (inst == 0) {
 		inst = new World();
 	}
 
@@ -46,15 +46,6 @@ void World::drawTerrain()
 void World::drawObjects()
 {
 	currentRoom->drawObjects();
-	Object* p = getObject(std::string("Player"));
-	Object* closest = currentRoom->getNearestObject(p->pos);
-	if (closest->pos.distanceTo(p->pos) < (-1) && closest != p) {
-
-		closest->selected = true;
-		closest->draw();
-		closest->selected = false;
-
-	}
 }
 
 void World::drawEffects()
@@ -101,7 +92,7 @@ void World::setCurrentRoom(Room * r)
 	currentRoom = r;
 }
 
-void World::setCurrentRoom(std::string & name)
+void World::setCurrentRoom(const char* name)
 {
 	Room * room = rooms.at(name);
 	if (room == nullptr) {
@@ -116,12 +107,12 @@ InteractableObject * World::getNearestObject(Vector2f pos)
 	return currentRoom->getNearestObject(pos);
 }
 
-Room * World::getRoom(std::string & name)
+Room * World::getRoom(const char * name)
 {
-	return rooms.at(name);
+	return rooms[name];
 }
 
-void World::addRoom(std::string & name, Room * room)
+void World::addRoom(const char * name, Room * room)
 {
 	rooms[name] = room;
 }

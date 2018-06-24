@@ -18,6 +18,7 @@
 #include "RoomChangeAction.h"
 #include "ScreenFollowAction.h"
 #include "SpawnAction.h"
+#include "DialogueAction.h"
 
 #include "rapidxml.hpp"
 

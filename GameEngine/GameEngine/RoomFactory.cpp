@@ -3,26 +3,22 @@
 #include "Tag.h"
 #include "Light.h"
 
-World * RoomFactory::world = 0;
-RoomFactory::RoomFactory()
-{
-}
 
+RoomFactory::RoomFactory(){}
+RoomFactory::~RoomFactory(){}
 
-RoomFactory::~RoomFactory()
-{
-}
 
 void RoomFactory::CreateAllRooms()
 {
-	world = World::getInstance();
-	ReadingRoom();
-	Clearing();
+	World * world = World::getInstance();
+	world->addRoom(World::RoomNames::READING_ROOM, createReadingRoom());
+	world->addRoom(World::RoomNames::CLEARING, createClearing());
+	world->addRoom(World::RoomNames::EAST, createEastOfTown());
 
 	AddTransitionObjects();
 }
 
-void RoomFactory::ReadingRoom()
+Room* RoomFactory::createReadingRoom()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("StoryTellingRoom"));
@@ -49,7 +45,7 @@ void RoomFactory::ReadingRoom()
 	*/
 	
 	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0,100)));
-	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256,256)));
+	melody->addEffect(new Light(Vector2f(0, 0), Color(1,0,0,1), Vector2f(256,256)));
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
@@ -66,10 +62,10 @@ void RoomFactory::ReadingRoom()
 	room->addObject(chest);
 	room->addObject(chest2);
 
-	world->addRoom(std::string("Reading Room"), room);
+	return room;
 }
 
-void RoomFactory::Clearing()
+Room* RoomFactory::createClearing()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("Clearing"));
@@ -79,10 +75,10 @@ void RoomFactory::Clearing()
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
 	
-	world->addRoom(std::string("Clearing"), room);
+	return room;
 }
 
-void RoomFactory::EastOfTown2()
+Room* RoomFactory::createEastOfTown()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("EastOfTown2.txt"));
@@ -95,12 +91,11 @@ void RoomFactory::EastOfTown2()
 	room->addHitbox(Vector2f(-4500, -2000), Vector2f(1200, 1400));
 	room->addHitbox(Vector2f(-3480, -800), Vector2f(30, 1000));
 	room->addHitbox(Vector2f(-3910, -800), Vector2f(30, 1000));
-	world->addRoom(std::string("East of town 2"), room);
+	
+	return room;
 }
 
 void RoomFactory::AddTransitionObjects()
 {
-	Room * readingRoom = world->getRoom(std::string("Reading Room"));
-	Room * clearing = world->getRoom(std::string("Clearing"));
 
 }

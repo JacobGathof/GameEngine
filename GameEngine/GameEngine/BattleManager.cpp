@@ -41,7 +41,7 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	pos = player->pos;
 	enemy = enemyObj;
 	enemy->persistent = true;
-	Room * room = World::getInstance()->getRoom(std::string("Room 2"));
+	Room * room = World::getInstance()->getRoom(World::RoomNames::CLEARING);
 	
 	World::getInstance()->transition(room);
 

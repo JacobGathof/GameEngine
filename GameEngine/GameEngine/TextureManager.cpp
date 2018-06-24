@@ -34,11 +34,11 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_SKYBOX, "res/tex/Skybox.png");
 	addTexture(TextureType::PERLIN_NOISE, "res/tex/perlin_displacement.png");
 
-	addTexture(TextureType::TS_TILESET, "res/tex/ts_tileset.png");
+	addTexture(TextureType::TS_TILESET, "res/tex/test.png");
 
-	addTexture(TextureType::TEXTURE_TEST, "res/tex/terraintest.png");
-	addTexture(TextureType::TEXTURE_TEST_2, "res/tex/terraintest2.png");
-	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/terraintest2.png");
+	addTexture(TextureType::TEXTURE_TEST, "res/tex/clearing_bottom.png");
+	addTexture(TextureType::TEXTURE_TEST_2, "res/tex/clearing_middle.png");
+	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/clearing_top.png");
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 

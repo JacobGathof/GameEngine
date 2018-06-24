@@ -20,9 +20,9 @@ void main(){
 	vec4 finalColor = vec4(0,0,0,1);
 	finalColor = world_color;
 
-	finalColor = mix(finalColor, screen_color, screen_color_percent);
-
 	finalColor = finalColor*(1-effects_color.a) + effects_color;
+	
+	finalColor = mix(finalColor, screen_color, screen_color_percent);
 	
 	vec4 uiColor = ui_color*ui_trans;
 	finalColor = finalColor*(1-uiColor.a) + uiColor;

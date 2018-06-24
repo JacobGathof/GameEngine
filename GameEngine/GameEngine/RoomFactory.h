@@ -18,14 +18,12 @@ public:
 	RoomFactory();
 	~RoomFactory();
 
-	static World * world;
-
 	static void CreateAllRooms();
 
 private:
-	static void ReadingRoom();
-	static void Clearing();
-	static void EastOfTown2();
+	static Room* createReadingRoom();
+	static Room* createClearing();
+	static Room* createEastOfTown();
 	static void AddTransitionObjects();
 };
 

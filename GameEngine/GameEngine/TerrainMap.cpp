@@ -58,7 +58,7 @@ void TerrainMap::draw(){
 	Res::get(TextureType::TEXTURE_TEST_2)->bind(3);
 
 
-	m->draw();
+	//m->draw();
 	
 
 }

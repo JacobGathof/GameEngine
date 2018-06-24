@@ -84,10 +84,16 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	AbstractAction* act = 0;
 
 	std::string cmd = inst->name();
-	
 	std::string val = inst->value();
+
 	if (cmd == "text") {
-		act = new TextAction(val);
+		auto a = inst->first_attribute("name");
+		if (a == 0) {
+			act = new TextAction(val);
+		}
+		else {
+			act = new DialogueAction(val, std::string(a->value()), TextureType::TEXTURE_DAGON);
+		}
 	}
 
 	else if (cmd == "choice") {

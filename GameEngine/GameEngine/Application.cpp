@@ -53,7 +53,7 @@ void Application::run()
 
 	RoomFactory::CreateAllRooms();
 	
-	world->setCurrentRoom(std::string("Reading Room"));
+	world->setCurrentRoom(World::RoomNames::READING_ROOM);
 	//world->transition(world->getRoom(std::string("Clearing")));
 	
 	Res::get(ShaderType::TEXT_SHADER)->bind();

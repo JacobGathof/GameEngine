@@ -4,14 +4,25 @@
 
 #include "Room.h"
 #include "List.h"
-class Room;
-class Object;
 
 #include "GameState.h"
 #include "BattleManager.h"
+
+
+class Room;
+class Object;
+
 class World
 {
 public:
+
+	class RoomNames {
+	public:
+		static constexpr const char* READING_ROOM = "Reading Room";
+		static constexpr const char* CLEARING = "Clearing";
+		static constexpr const char* EAST = "East of Town";
+	};
+
 
 	~World();
 
@@ -19,7 +30,6 @@ public:
 	static void clean();
 
 	void draw();
-
 	void drawTerrain();
 	void drawObjects();
 	void drawEffects();
@@ -28,12 +38,16 @@ public:
 
 	void update(float delta_time);
 	void transition(Room * newRoom);
-	void setCurrentRoom(Room * r);
-	void setCurrentRoom(std::string& name);
+
 	InteractableObject * getNearestObject(Vector2f pos);
+
 	Object * getObject(std::string& name);
-	Room * getRoom(std::string& name);
-	void addRoom(std::string& name, Room * room);
+
+	void setCurrentRoom(Room * r);
+	void setCurrentRoom(const char* name);
+	Room * getRoom(const char* name);
+	void addRoom(const char* name, Room * room);
+
 	Room * getCurrentRoom();
 	void addObject(Object * obj);
 
