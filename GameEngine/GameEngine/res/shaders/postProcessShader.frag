@@ -12,6 +12,8 @@ uniform float ui_blue;
 uniform vec4 screen_color;
 uniform float screen_color_percent;
 
+#define k 0.001
+
 void main(){
 	vec4 ui_color = texture(ui, uv);
 	vec4 world_color = texture(world, uv);

@@ -42,7 +42,9 @@ void InputTextArea::handleKeyEvents(Keyboard & keyboard)
 		return;
 
 	int key = keyboard.getCurrentPressed();
-	if ((key <= 'Z' && key >= 'A' || key == ' ') && str.size() < maxChars) {
+	if (((key <= 'Z' && key >= 'A') || 
+		(key <= '9' && key >= '0') || 
+		key == ' ' || key == '-' || key=='_') && str.size() < maxChars) {
 		str += (char)key;
 		text->setText(str);
 	}
@@ -52,7 +54,11 @@ void InputTextArea::handleKeyEvents(Keyboard & keyboard)
 	}
 	if (key == GLFW_KEY_ENTER) {
 		selected = false;
-		GameState::graph->setCurrentNode(str);
 	}
 
+}
+
+std::string & InputTextArea::getString()
+{
+	return str;
 }

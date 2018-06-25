@@ -10,6 +10,7 @@ class Statusbar;
 class EnemyStatusbar;
 class CommandLine;
 class PauseMenu;
+class Map;
 
 class UIManager
 {
@@ -56,6 +57,7 @@ private:
 	static EnemyStatusbar* enemyStatus;
 	static CommandLine* cmdLine;
 	static PauseMenu* pauseMenu;
+	static Map* map;
 
 };
 

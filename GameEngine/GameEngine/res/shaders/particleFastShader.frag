@@ -1,6 +1,9 @@
 #version 400 core
 
+in float alpha;
+in vec3 color;
+
 void main(){
 
-	gl_FragColor = vec4(1,1,1,1);
+	gl_FragColor = vec4(color,alpha);
 }

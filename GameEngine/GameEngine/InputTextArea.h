@@ -12,6 +12,8 @@ public:
 	virtual void handleMouseEvents(Mouse& mouse);
 	virtual void handleKeyEvents(Keyboard& keyboard);
 
+	std::string& getString();
+
 private:
 	Text * text;
 	std::string str;

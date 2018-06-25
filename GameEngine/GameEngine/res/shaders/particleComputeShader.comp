@@ -9,10 +9,19 @@ layout (std430, binding = 0) buffer PosBuf {
 layout (std430, binding = 1) buffer VelBuf {
 	vec4 velocity_buffer[];
 };
-	
 
 uniform float dt;
 uniform vec2 center;
+
+const vec3 palette[5] = vec3[](vec3(1,1,1), vec3(0,0,1), vec3(.75,.75,1), vec3(0,0,1), vec3(1,1,1));
+
+vec3 colorAt(float f){
+	return mix(palette[int(floor(f))], palette[int(ceil(f))], fract(f));
+}
+
+vec2 vel_field(float x, float y){
+	return vec2(y,-x);
+}
 
 void main(){
 	
@@ -20,15 +29,17 @@ void main(){
 	vec4 pos = position_buffer[index];
 	vec4 vel = velocity_buffer[index];
 	
-	vec2 accel = vec2(vel.y,-vel.x); 
+	float x = pos.x;
+	float y = pos.y;
 	
-	vel.xy += dt*accel;
-	pos.xy += dt*vel.xy;
+	pos.zw = vel_field(x,y);
+	pos.xy += dt*pos.zw;
+	vel.xyz = vec3(1,1,1);//colorAt(vel.w*4);
 	
-	pos.w -= dt;
-	if(pos.w <= 0.0f){
-		pos.w  = 1;
-		pos.xy = center + vel.xy;
+	vel.w -= dt;
+	if(vel.w <= 0.0f){
+		vel.w  = 1.0f;
+		pos.xy = center + 1000*normalize(pos.xy);
 	}
 	
 	

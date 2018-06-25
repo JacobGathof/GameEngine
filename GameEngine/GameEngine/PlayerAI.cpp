@@ -86,6 +86,7 @@ void PlayerAI::processArrowUpKey()
 
 void PlayerAI::leftClick(Vector2f & pos)
 {
+	/*
 	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(128, 128), direction);
 	p->addEffect(new FastParticleSystem(512));
@@ -93,6 +94,8 @@ void PlayerAI::leftClick(Vector2f & pos)
 
 
 	user->addEffect(new DamageTag());
+
+	*/
 }
 
 
