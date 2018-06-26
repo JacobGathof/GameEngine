@@ -35,7 +35,7 @@ void Renderer::drawWorld()
 	World::getInstance()->drawTerrain();
 	World::getInstance()->drawObjects();
 	World::getInstance()->drawHitboxes();
-	//World::getInstance()->draw();
+	World::getInstance()->draw();
 }
 
 
