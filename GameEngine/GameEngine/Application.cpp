@@ -96,7 +96,6 @@ void Application::run()
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
 
 	while (!Window::shouldClose()) {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		Window::pollEvents();
 
 		timer.update();

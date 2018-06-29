@@ -36,10 +36,10 @@ void UIManager::draw()
 	menu->draw();
 	banner->draw();
 	quoteBanner->draw();
-	statusbar->draw();
+	//statusbar->draw();
 	enemyStatus->draw();
 	cmdLine->draw();
-	map->draw();
+	//map->draw();
 
 	if (GameState::isGamePaused()) {
 		pauseMenu->draw();

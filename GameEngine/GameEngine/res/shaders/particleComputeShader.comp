@@ -19,8 +19,8 @@ vec3 colorAt(float f){
 	return mix(palette[int(floor(f))], palette[int(ceil(f))], fract(f));
 }
 
-vec2 vel_field(float x, float y){
-	return vec2(y,-x);
+vec2 accel_field(float x, float y){
+	return vec2(y*cos(y),x*cos(x));
 }
 
 void main(){
@@ -29,10 +29,12 @@ void main(){
 	vec4 pos = position_buffer[index];
 	vec4 vel = velocity_buffer[index];
 	
-	float x = pos.x;
-	float y = pos.y;
+	float x = pos.z;
+	float y = pos.w;
 	
-	pos.zw = vel_field(x,y);
+	vec2 accel = accel_field(x,y);
+	
+	pos.zw += dt*accel;
 	pos.xy += dt*pos.zw;
 	vel.xyz = vec3(1,1,1);//colorAt(vel.w*4);
 	

@@ -11,6 +11,8 @@ public:
 	virtual void draw();
 	virtual bool update(float dt);
 
+	void setScale(Vector2f& s);
+
 private:
 	Color color;
 	Vector2f offset;

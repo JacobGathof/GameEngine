@@ -13,6 +13,7 @@ public:
 	static void updateScroll(float f);
 	static void updateUniforms();
 
+	static Vector2f toWorldCoords(Vector2f translate);
 	static Vector2f toScreenCoords(Vector2f translate);
 	static Vector2f toScreenCoordsUI(Vector2f translate);
 	static Vector2f toScreenScale(Vector2f scale);

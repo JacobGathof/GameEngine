@@ -2,7 +2,7 @@
 #include "Window.h"
 #include "UIManager.h"
 #include "PlayerAI.h"
-
+#include "WorldManipulator.h"
 
 Mouse Input::mouse;
 Keyboard Input::keyboard;
@@ -58,7 +58,7 @@ void Input::processInput(float dt) {
 		UIManager::toggleMenu();
 	}
 
-
+	WorldManipulator::process(mouse, keyboard, dt);
 	ai->receiveInput(keyboard, mouse);
 
 	Screen::updateScroll((float)mouse.getScroll() / 200.0f);

@@ -32,3 +32,8 @@ bool Light::update(float dt)
 {
 	return true;
 }
+
+void Light::setScale(Vector2f & s)
+{
+	scale = s;
+}

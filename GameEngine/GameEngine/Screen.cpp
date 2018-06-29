@@ -42,6 +42,11 @@ void Screen::updateUniforms()
 
 }
 
+Vector2f Screen::toWorldCoords(Vector2f translate)
+{
+	return (2 * translate - Vector2f(width, height))* (scrollMultiplier) + offset;
+}
+
 Vector2f Screen::toScreenCoords(Vector2f translate)
 {
 	return (translate-offset) / (scrollMultiplier * Vector2f(width, height));

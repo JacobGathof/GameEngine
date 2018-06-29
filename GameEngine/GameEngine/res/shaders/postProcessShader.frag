@@ -12,8 +12,6 @@ uniform float ui_blue;
 uniform vec4 screen_color;
 uniform float screen_color_percent;
 
-#define k 0.001
-
 void main(){
 	vec4 ui_color = texture(ui, uv);
 	vec4 world_color = texture(world, uv);
@@ -22,7 +20,8 @@ void main(){
 	vec4 finalColor = vec4(0,0,0,1);
 	finalColor = world_color;
 
-	finalColor = finalColor*(1-effects_color.a) + effects_color;
+	finalColor = mix(finalColor, effects_color, effects_color.a);
+	//finalColor = finalColor*(1-effects_color.a) + effects_color*(effects_color.a);
 	
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 	

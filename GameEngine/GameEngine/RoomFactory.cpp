@@ -30,8 +30,8 @@ void RoomFactory::addWorldObjects()
 	melody->persistent = true;
 	GameState::battleManager = BattleManager(melody);
 
-	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
-	melody->addEffect(new Light(Vector2f(0, 0), Color(1, 0, 0, 1), Vector2f(256, 256)));
+	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
+	//melody->addEffect(new Light(Vector2f(0, 0), Color(1, 0, 0, 1), Vector2f(256, 256)));
 
 
 	World::getInstance()->addWorldObject(melody);
@@ -65,12 +65,12 @@ Room* RoomFactory::createReadingRoom()
 	
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
-	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
-	chest->addEffect(new FastParticleSystem(4096*16));
+	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
+	//chest->addEffect(new FastParticleSystem(4096*16));
 
 
 	Chest * chest2 = new Chest(TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::MOONLIGHT)));
-	chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
+	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	room->addObject(structure);
