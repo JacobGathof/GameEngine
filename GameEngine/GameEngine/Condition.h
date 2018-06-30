@@ -48,9 +48,10 @@ public:
 class FlagCondition : public Condition
 {
 public:
-	FlagCondition(std::string str);
+	FlagCondition(std::string str, bool val);
 	virtual bool evaluate();
 
 	std::string str;
+	bool val;
 
 };

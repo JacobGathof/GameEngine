@@ -1,6 +1,7 @@
 #include "GraphLoader.h"
 #include <algorithm>
 #include "PauseAction.h"
+#include "SetFlagAction.h"
 
 GraphLoader::GraphLoader()
 {
@@ -136,8 +137,6 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 
 		act = new MoveCameraAction(x,y);
 
-		//delete xStr;
-		//delete yStr;
 	}
 	else if (cmd == "banner") {
 		std::string super = inst->first_attribute("super")->value();
@@ -153,6 +152,12 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 
 	else if (cmd == "pause") {
 		act = new PauseAction();
+	}
+
+	else if (cmd == "set") {
+		std::string flag = inst->first_attribute("flag")->value();
+		std::string b = inst->first_attribute("bool")->value();
+		act = new SetFlagAction(flag, std::atoi(b.c_str()));
 	}
 
 	else if (cmd == "room") {
@@ -252,6 +257,17 @@ void GraphLoader::handleCondition(std::vector<Node*>& nodes, int nodePtr, std::m
 
 	if (cmd == "goto") {
 		edge = new Edge(new Condition(), nodes[node]);
+	}
+
+	else if (cmd == "flag") {
+
+		std::string b = inst->first_attribute("bool")->value();
+		std::string flag = inst->first_attribute("flag")->value();
+
+
+		int bb = (b == std::string("true")) ? 1 : 0;
+
+		edge = new Edge(new FlagCondition(flag, bb), nodes[node]);
 	}
 
 	else if (cmd == "cond") {

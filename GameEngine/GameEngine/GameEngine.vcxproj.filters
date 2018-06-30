@@ -570,6 +570,9 @@
     <ClCompile Include="WorldManipulator.cpp">
       <Filter>Source Files\General</Filter>
     </ClCompile>
+    <ClCompile Include="SetFlagAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1018,6 +1021,9 @@
     </ClInclude>
     <ClInclude Include="RoomFactory.h">
       <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="SetFlagAction.h">
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,37 +2,50 @@
 
 <node id="Start">
 	<actions>
-		<text>Sweep the city steps tonight</text>
-		<pause></pause>
-		<text>Sweep the city steps tonight</text>
-		<text>With eclipses for eyes</text>
-		<text>Test</text>
-		<choice>
-			<c>First</c>
-			<c>Second</c>
-		</choice>
-		<fade color="0x00000000" time="1.0" dir="out"/>
-		<fade color="0x00000000" time="1.0" dir="in"/>
+		<text>First node followed by a pause</text>
+		<pause/>
 	</actions>
 	
 	<conditions>
-		<textEmpty next="End" textbox="off"></textEmpty>
+		<flag next="First" flag="flag_1" bool="false"></flag>
+		<flag next="Second" flag="flag_1" bool="true"></flag>
 	</conditions>
 </node>
 
 
-<node id="End">
+<node id="First">
 	<actions>
-		<text>Node 2</text>
-		<text>Test</text>
-		<choice>
-			<c>1</c>
-			<c>2</c>
-		</choice>
+		<text>This is First Node :). You got the key</text>
+		<text>Continue to the beginning</text>
+		<set flag="flag_1" bool="1" />
 	</actions>
 	
 	<conditions>
-		<cond next="End" val="0" match="1"></cond>
-		<cond next="Start" val="0" match="0"></cond>
+		<goto next="Start"></cond>
+	</conditions>
+</node>
+
+
+<node id="Second">
+	<actions>
+		<text>This is the Second Node</text>
+		<text>You have reached the end</text>
+	</actions>
+	
+	<conditions>
+		<goto next="End"></cond>
+	</conditions>
+</node>
+
+
+
+<node id="End">
+	<actions>
+		<text>Go away</text>
+		<pause/>
+	</actions>
+	
+	<conditions>
+		<goto next="End"></cond>
 	</conditions>
 </node>
