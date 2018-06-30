@@ -19,18 +19,16 @@ InteractableObject::~InteractableObject()
 
 void InteractableObject::interact()
 {
-	if (stalled) {
-		return;
-	}
-	interactObj->run();
+	std::cout << "Interact" << std::endl;
+	interacting = true;
 }
 
-void InteractableObject::setAI(AI * a)
+void InteractableObject::addAI(AI * a)
 {
 	if (stalled) {
 		return;
 	}
-	if (defaultAI == nullptr) {
+	if (defaultAI == 0) {
 		defaultAI = a;
 	}
 	else {
@@ -50,6 +48,9 @@ void InteractableObject::setInteraction(AbstractAction * i)
 bool InteractableObject::update(float dt)
 {
 	interactionRadius->center = pos;
+	if (interacting) {
+		interacting = !interactObj->run(dt);
+	}
 	return AnimatedObject::update(dt);
 }
 
@@ -67,4 +68,9 @@ bool InteractableObject::intersects(InteractableObject * obj)
 Circle* InteractableObject::getInteractionRadius()
 {
 	return interactionRadius;
+}
+
+bool InteractableObject::executeAI(float dt, AI * ai)
+{
+	return ai->execute(this, dt);
 }

@@ -139,7 +139,7 @@ void Textbox::handleMouseEvents(Mouse & mouse)
 void Textbox::handleKeyEvents(Keyboard & keyboard)
 {
 	if (keyboard.press(VirtualKey::INTERACT) && visible) {
-
+		keyboard.setKeyState(VirtualKey::INTERACT, 0);
 		if (current == 0 || current->isDisplayingFullLength()) {
 			advanceText();
 		}

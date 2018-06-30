@@ -23,6 +23,10 @@ Node* Node::update(float dt)
 {
 	Node* n = 0;
 
+	if (status == 0) {
+		return n;
+	}
+
 	int result = 1;
 	while (result == 1 && !completedAllActions) {
 		result = actions[actionPtr]->run(dt);
@@ -31,6 +35,16 @@ Node* Node::update(float dt)
 			if (actionPtr >= actions.size()) {
 				completedAllActions = true;
 			}
+		}
+		if (result == 2) {
+			pauseNode();
+
+			actionPtr++;
+			if (actionPtr >= actions.size()) {
+				completedAllActions = true;
+			}
+
+			return n;
 		}
 	}
 
@@ -89,4 +103,14 @@ void Node::setEdges(List<Edge*> edges)
 {
 	conditions.clear();
 	conditions.addAll(edges);
+}
+
+void Node::pauseNode()
+{
+	status = 0;
+}
+
+void Node::unpauseNode()
+{
+	status = 1;
 }

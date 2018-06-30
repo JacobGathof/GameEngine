@@ -9,6 +9,7 @@ Vector2f WorldManipulator::pos2;
 
 void WorldManipulator::process(Mouse & mouse, Keyboard & keyboard, float dt)
 {
+	return;
 	World* world = World::getInstance();
 
 

@@ -51,8 +51,8 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	Vector2f playerDir = player->pos - enemy->pos;
 	playerDir = playerDir.normalize() * startingDashBackLength;
 
-	enemy->setAI(new GoToPointAI(enemy->pos - playerDir, startingDashBackSpeed));
-	player->setAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
+	enemy->addAI(new GoToPointAI(enemy->pos - playerDir, startingDashBackSpeed));
+	player->addAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
 	playerAI = player->defaultAI;
 	ai = new PlayerCombatAI();
 	ai->enemy = enemy;

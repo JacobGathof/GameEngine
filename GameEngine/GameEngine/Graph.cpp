@@ -8,6 +8,12 @@ Graph::Graph()
 	current = nodes[0];
 }
 
+Graph::Graph(char* filename)
+{
+	GraphLoader::load(nodes, nodeNames, filename);
+	current = nodes[0];
+}
+
 
 Graph::~Graph()
 {
@@ -16,13 +22,17 @@ Graph::~Graph()
 	}
 }
 
-void Graph::update(float dt)
+int Graph::update(float dt)
 {
+	current->unpauseNode();
+	int status = current->status;
 	Node* n = current->update(dt);
 	while (n != 0) {
 		current = n;
+		status = current->status;
 		n = current->update(dt);
 	}
+	return status;
 }
 
 void Graph::setCurrentNode(std::string & s)

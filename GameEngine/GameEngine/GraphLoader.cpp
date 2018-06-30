@@ -1,5 +1,6 @@
 #include "GraphLoader.h"
 #include <algorithm>
+#include "PauseAction.h"
 
 GraphLoader::GraphLoader()
 {
@@ -149,6 +150,11 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		std::replace(val.begin(), val.end(), '~', '\n');
 		act = new QuoteAction(val);
 	}
+
+	else if (cmd == "pause") {
+		act = new PauseAction();
+	}
+
 	else if (cmd == "room") {
 		std::string room = inst->first_attribute("name")->value();
 		

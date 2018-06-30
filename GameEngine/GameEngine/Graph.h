@@ -8,8 +8,9 @@ class Graph
 {
 public:
 	Graph();
+	Graph(char* filename);
 	~Graph();
-	void update(float dt);
+	int update(float dt);
 
 	void setCurrentNode(std::string& s);
 

@@ -96,12 +96,6 @@
     <Filter Include="Header Files\Scripting">
       <UniqueIdentifier>{91ab0d82-be77-47e5-913e-c71f98e90892}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Scripting\Actions">
-      <UniqueIdentifier>{f7d69086-c4e0-42c6-9fd3-d08be5be8f6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Scripting\Actions">
-      <UniqueIdentifier>{30ab5505-825a-4923-98a9-e2936cc7abbf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Audio">
       <UniqueIdentifier>{a52b2bd2-6927-4355-bf32-ea81c7d20f3d}</UniqueIdentifier>
     </Filter>
@@ -132,6 +126,12 @@
     </Filter>
     <Filter Include="Source Files\Interaction">
       <UniqueIdentifier>{aca92c8a-b3ca-457b-a670-36c314cc63a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Actions">
+      <UniqueIdentifier>{8b083310-3459-4eff-a7a1-2780a9a7920b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Actions">
+      <UniqueIdentifier>{c0932ceb-fe4a-459c-83a0-656848af1ea7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -348,32 +348,11 @@
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\Scripting</Filter>
     </ClCompile>
-    <ClCompile Include="DebugAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenFadeAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="SetAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="TextAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="TextChoiceAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="WaitAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
     <ClCompile Include="Banner.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="AudioLoader.cpp">
       <Filter>Source Files\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayMusicAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="AudioSystem.cpp">
       <Filter>Source Files\Audio</Filter>
@@ -386,12 +365,6 @@
     </ClCompile>
     <ClCompile Include="FastParticleSystem.cpp">
       <Filter>Source Files\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="BannerAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="GraphLoader.cpp">
       <Filter>Source Files\Scripting</Filter>
@@ -456,21 +429,6 @@
     <ClCompile Include="QuoteBanner.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="RoomChangeAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveCameraAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="QuoteAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="RoomFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
     <ClCompile Include="BattleManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -503,12 +461,6 @@
     </ClCompile>
     <ClCompile Include="RoomFactory.cpp">
       <Filter>Source Files\World</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenFollowAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="SpawnAction.cpp">
-      <Filter>Source Files\Scripting\Actions</Filter>
     </ClCompile>
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
@@ -549,20 +501,74 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="DamageTag.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AbstractAction.cpp">
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BannerAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCameraAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayMusicAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="QuoteAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomChangeAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFadeAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFollowAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="SetAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="TextChoiceAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitAction.cpp">
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
     <ClCompile Include="DialogueAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseAction.cpp">
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageTag.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomFactory.cpp">
+      <Filter>Source Files\General</Filter>
     </ClCompile>
     <ClCompile Include="WorldManipulator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\General</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -785,32 +791,11 @@
     <ClInclude Include="Edge.h">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenFadeAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="SetAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="TextAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="TextChoiceAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="WaitAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
     <ClInclude Include="Banner.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="AudioLoader.h">
       <Filter>Header Files\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayMusicAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="AudioSystem.h">
       <Filter>Header Files\Audio</Filter>
@@ -823,12 +808,6 @@
     </ClInclude>
     <ClInclude Include="FastParticleSystem.h">
       <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="BannerAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="GraphLoader.h">
       <Filter>Header Files\Scripting</Filter>
@@ -899,24 +878,6 @@
     <ClInclude Include="QuoteBanner.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="RoomChangeAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveCameraAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="QuoteAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="CardManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RoomFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
     <ClInclude Include="BattleManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -949,12 +910,6 @@
     </ClInclude>
     <ClInclude Include="RoomFactory.h">
       <Filter>Header Files\World</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenFollowAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
     </ClInclude>
     <ClInclude Include="CommandLine.h">
       <Filter>Header Files\UI</Filter>
@@ -992,20 +947,77 @@
     <ClInclude Include="Projectile.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="DamageTag.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GraphAction.h">
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="PauseAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="BannerAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugAction.h">
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
     <ClInclude Include="DialogueAction.h">
-      <Filter>Header Files\Scripting\Actions</Filter>
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCameraAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayMusicAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuoteAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomChangeAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFadeAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFollowAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SetAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="TextChoiceAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CardManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageTag.h">
+      <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
     <ClInclude Include="WorldManipulator.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomFactory.h">
+      <Filter>Header Files\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

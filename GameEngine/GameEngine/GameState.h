@@ -40,6 +40,8 @@ public:
 
 	static Inventory* inv;
 
+	static std::map<std::string, bool> flags;
+
 private:
 	static std::string globalDebug;
 

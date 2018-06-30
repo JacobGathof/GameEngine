@@ -19,6 +19,11 @@ public:
 	void addEdge(Edge* edge);
 	void setEdges(List<Edge*> edges);
 
+	void pauseNode();
+	void unpauseNode();
+
+	int status = 1;
+
 private:
 	List<AbstractAction*> actions;
 	List<Edge*> conditions;

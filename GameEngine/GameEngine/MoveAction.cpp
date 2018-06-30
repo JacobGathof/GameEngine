@@ -38,6 +38,6 @@ NonBlockingMove::~NonBlockingMove()
 int NonBlockingMove::run(float dt)
 {
 	
-	object->setAI(ai);
+	object->addAI(ai);
 	return true;
 }

@@ -3,6 +3,7 @@
 #include "Tag.h"
 #include "Light.h"
 #include "FastParticleSystem.h"
+#include "GraphAction.h"
 
 
 RoomFactory::RoomFactory(){}
@@ -66,10 +67,10 @@ Room* RoomFactory::createReadingRoom()
 	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
-	//chest->addEffect(new FastParticleSystem(4096*16));
+	chest->addEffect(new FastParticleSystem(4096*16));
 
-
-	Chest * chest2 = new Chest(TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::MOONLIGHT)));
+	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
+	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));

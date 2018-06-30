@@ -1,6 +1,6 @@
 #pragma once
 #include "World.h"
-#include "Light.h";
+#include "Light.h"
 
 class WorldManipulator
 {

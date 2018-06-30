@@ -35,7 +35,7 @@ void PlayerCombatAI::receiveInput(Keyboard & keyboard, Mouse& mouse)
 
 	if (keyboard.press(VirtualKey::DODGE)) {
 		Vector2f pos = Vector2f(xVel, yVel).normalize() * rollDistance;
-		user->setAI(new GoToPointAI(user->pos + pos, rollSpeed));
+		user->addAI(new GoToPointAI(user->pos + pos, rollSpeed));
 	}
 	
 	if (keyboard.press(VirtualKey::SKILL_1)) {

@@ -10,7 +10,7 @@ public:
 	virtual ~InteractableObject();
 
 	virtual void interact();
-	virtual void setAI(AI * ai);
+	virtual void addAI(AI * ai);
 	virtual void setInteraction(AbstractAction * i);
 	virtual bool update(float dt);
 
@@ -19,9 +19,11 @@ public:
 	bool intersects(InteractableObject* obj);
 	Circle* getInteractionRadius();
 
+	virtual bool executeAI(float dt, AI* ai);
 
 protected:
 	AbstractAction * interactObj;
 	Circle* interactionRadius;
+	bool interacting = false;
 };
 

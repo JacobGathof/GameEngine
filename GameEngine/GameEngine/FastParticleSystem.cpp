@@ -62,6 +62,7 @@ bool FastParticleSystem::update(float dt)
 	
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->bind();
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadFloat("dt", dt);
+	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadFloat("tight", GameState::ui_blue);
 	Res::get(ShaderType::PARTICLE_COMPUTE_SHADER)->loadVector2f("center", parent->pos);
 
 	glBindVertexArray(vao);

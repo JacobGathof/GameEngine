@@ -14,8 +14,9 @@ Inventory* GameState::inv;
 Graph* GameState::graph;
 BattleManager GameState::battleManager;
 
-
 ApplicationControl GameState::applicationState;
+std::map<std::string, bool> GameState::flags;
+
 
 GameState::GameState()
 {

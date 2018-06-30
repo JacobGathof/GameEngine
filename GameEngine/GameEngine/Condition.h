@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 class Condition
 {
 public:
@@ -39,5 +41,16 @@ public:
 	virtual bool evaluate();
 
 	bool on;
+
+};
+
+
+class FlagCondition : public Condition
+{
+public:
+	FlagCondition(std::string str);
+	virtual bool evaluate();
+
+	std::string str;
 
 };

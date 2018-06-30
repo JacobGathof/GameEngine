@@ -12,6 +12,7 @@ layout (std430, binding = 1) buffer VelBuf {
 
 uniform float dt;
 uniform vec2 center;
+uniform float tight;
 
 const vec3 palette[5] = vec3[](vec3(1,1,1), vec3(0,0,1), vec3(.75,.75,1), vec3(0,0,1), vec3(1,1,1));
 
@@ -19,7 +20,8 @@ vec3 colorAt(float f){
 	return mix(palette[int(floor(f))], palette[int(ceil(f))], fract(f));
 }
 
-vec2 accel_field(float x, float y){
+vec2 field(float x, float y){
+	float f = (x*x + y*y);
 	return vec2(y*cos(y),x*cos(x));
 }
 
@@ -29,19 +31,20 @@ void main(){
 	vec4 pos = position_buffer[index];
 	vec4 vel = velocity_buffer[index];
 	
-	float x = pos.z;
-	float y = pos.w;
+	float x = pos.x;
+	float y = pos.y;
 	
-	vec2 accel = accel_field(x,y);
+	vec2 v = field(x,y);
 	
-	pos.zw += dt*accel;
+	pos.zw = v * tight + dt*v*(1-tight);
 	pos.xy += dt*pos.zw;
 	vel.xyz = vec3(1,1,1);//colorAt(vel.w*4);
 	
 	vel.w -= dt;
 	if(vel.w <= 0.0f){
 		vel.w  = 1.0f;
-		pos.xy = center + 1000*normalize(pos.xy);
+		pos.xy = center + 500*normalize(pos.zw);
+		pos.zw = 500*normalize(pos.zw);
 	}
 	
 	

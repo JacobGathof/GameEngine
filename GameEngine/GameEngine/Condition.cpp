@@ -48,3 +48,13 @@ bool TextBoxCondition::evaluate()
 {
 	return GameState::textboxEmpty != on;
 }
+
+FlagCondition::FlagCondition(std::string s)
+{
+	str = s;
+}
+
+bool FlagCondition::evaluate()
+{
+	return GameState::flags[str];
+}
