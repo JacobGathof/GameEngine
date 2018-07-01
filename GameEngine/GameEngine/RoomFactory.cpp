@@ -4,7 +4,8 @@
 #include "Light.h"
 #include "FastParticleSystem.h"
 #include "GraphAction.h"
-
+#include "CircleAI.h"
+#include "CardObject.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -52,29 +53,23 @@ Room* RoomFactory::createReadingRoom()
 	//melody->addHitbox(circ);
 	//melody->giveDeck(Res::get(DeckType::TEST));
 	
-	LivingObject * structure = new LivingObject(std::string("Structure"), TextureType::TEXTURE_MELODY, Vector2f(-2000, -300), Vector2f(256, 256));
-	structure->addHitbox(circ2);
-	TextInteractionAction * inter = new TextInteractionAction(std::string("Interacting"));
-	structure->setInteraction(inter);
-	/*
-	FollowAI * follow = new FollowAI(melody);
-	structure->moveSpeed = 600;
-	*/
-	
-	
+	Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
+	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, 256+64), Vector2f(64,64));
+
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(256, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
+	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(0, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
-	chest->addEffect(new FastParticleSystem(4096*16));
+	//chest->addEffect(new FastParticleSystem(4096*4));
 
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
-	room->addObject(structure);
+	//room->addObject(table);
+	room->addObject(card1);
 	room->addObject(chest);
 	room->addObject(chest2);
 

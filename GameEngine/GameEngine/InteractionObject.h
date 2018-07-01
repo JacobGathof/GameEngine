@@ -42,6 +42,9 @@ typedef ItemAction<Weapon*> GiveWeaponAction;
 typedef ItemAction<KeyItem*> GiveKeyItemAction;
 
 
+
+
+
 /*
 class GiveItemAction : public AbstractAction {
 public:

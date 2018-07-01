@@ -96,6 +96,19 @@ bool Object::executeAI(float dt, AI * ai)
 	return ai->execute(this, dt);
 }
 
+void Object::addAI(AI * a)
+{
+	if (stalled) {
+		return;
+	}
+	if (defaultAI == 0) {
+		defaultAI = a;
+	}
+	else {
+		aiQueue.add(a);
+	}
+}
+
 
 void Object::addEffect(Effect * eff)
 {

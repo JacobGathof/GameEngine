@@ -46,8 +46,9 @@ void FastParticleSystem::init()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * maxSize, 0, GL_DYNAMIC_COPY);
 	float* velocities = (float*)glMapBufferRange(GL_ARRAY_BUFFER, 0, maxSize * 4 * sizeof(float), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
 	for (int i = 0; i < maxSize; i++) {
-		velocities[4 * i + 0] = 0;
-		velocities[4 * i + 1] = 0;
+		Vector2f pos((float)rand() / RAND_MAX - .5, (float)rand() / RAND_MAX - .5);
+		velocities[4 * i + 0] = pos[0] * 1000;
+		velocities[4 * i + 1] = pos[1] * 1000;
 		velocities[4 * i + 2] = 1;
 		velocities[4 * i + 3] = 4*(float)rand() / RAND_MAX;
 	}

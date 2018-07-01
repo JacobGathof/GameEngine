@@ -32,9 +32,11 @@
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardManager.cpp" />
+    <ClCompile Include="CardObject.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleAI.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
     <ClCompile Include="CollidableObject.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
@@ -177,9 +179,11 @@
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardManager.h" />
+    <ClInclude Include="CardObject.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="Chest.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleAI.h" />
     <ClInclude Include="CircleHitbox.h" />
     <ClInclude Include="CollidableObject.h" />
     <ClInclude Include="CollisionUtil.h" />

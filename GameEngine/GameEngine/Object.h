@@ -32,7 +32,9 @@ public:
 	virtual void draw();
 	virtual void destroy();
 	virtual bool update(float dt);
+
 	virtual bool executeAI(float dt, AI* ai);
+	virtual void addAI(AI * ai);
 		
 	void addEffect(Effect * eff);
 	void removeEffect(Effect* eff);

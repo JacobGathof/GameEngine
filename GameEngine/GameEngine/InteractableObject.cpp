@@ -11,7 +11,12 @@ InteractableObject::InteractableObject(std::string& name, TextureType t, Vector2
 
 InteractableObject::~InteractableObject()
 {
-	delete interactObj;
+	if (interactObj != 0) {
+		delete interactObj;
+	}
+	if (triggerAction != 0) {
+		delete triggerAction;
+	}
 	delete interactionRadius;
 }
 
@@ -21,20 +26,9 @@ void InteractableObject::interact()
 {
 	std::cout << "Interact" << std::endl;
 	interacting = true;
+	interactionCount++;
 }
 
-void InteractableObject::addAI(AI * a)
-{
-	if (stalled) {
-		return;
-	}
-	if (defaultAI == 0) {
-		defaultAI = a;
-	}
-	else {
-		aiQueue.add(a);
-	}
-}
 
 void InteractableObject::setInteraction(AbstractAction * i)
 {
@@ -43,6 +37,19 @@ void InteractableObject::setInteraction(AbstractAction * i)
 	}
 
 	interactObj = i;
+}
+
+void InteractableObject::trigger()
+{
+	triggered = true;
+}
+
+void InteractableObject::setTrigger(AbstractAction * a)
+{
+	if (triggerAction != 0) {
+		delete triggerAction;
+	}
+	triggerAction = a;
 }
 
 bool InteractableObject::update(float dt)
@@ -57,7 +64,7 @@ bool InteractableObject::update(float dt)
 void InteractableObject::draw()
 {
 	AnimatedObject::draw();
-	//interactionRadius->draw();
+	interactionRadius->draw();
 }
 
 bool InteractableObject::intersects(InteractableObject * obj)

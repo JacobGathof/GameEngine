@@ -42,7 +42,7 @@ void TextureManager::init() {
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 
-	addTexture(TextureType::ZH_WARDROBE, "res/tex/ImageFiles/zh-wardrobe.png");
+	addTexture(TextureType::ZH_WARDROBE, "res/tex/Table.png");
 	addTexture(TextureType::ZF_GILGAMESH, "res/tex/ImageFiles/zf-Gilgamesh.png");
 	addTexture(TextureType::ZI_ZMELODY_BOOK, "res/tex/ImageFiles/zi_zMelody_Book.png");
 	addTexture(TextureType::ZH_HORIZONTAL_TABLE, "res/tex/ImageFiles/zh-horizontal table.png");

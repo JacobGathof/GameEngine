@@ -10,8 +10,11 @@ public:
 	virtual ~InteractableObject();
 
 	virtual void interact();
-	virtual void addAI(AI * ai);
 	virtual void setInteraction(AbstractAction * i);
+
+	virtual void trigger();
+	virtual void setTrigger(AbstractAction* a);
+
 	virtual bool update(float dt);
 
 	virtual void draw();
@@ -23,7 +26,12 @@ public:
 
 protected:
 	AbstractAction * interactObj;
+	AbstractAction* triggerAction;
+
 	Circle* interactionRadius;
 	bool interacting = false;
+	bool triggered = false;
+
+	bool interactionCount = 0;
 };
 
