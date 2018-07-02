@@ -115,6 +115,7 @@
     <ClCompile Include="SetAction.cpp" />
     <ClCompile Include="SetFlagAction.cpp" />
     <ClCompile Include="SettingsPage.cpp" />
+    <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SoundEntity.cpp" />
@@ -267,6 +268,7 @@
     <ClInclude Include="SetAction.h" />
     <ClInclude Include="SetFlagAction.h" />
     <ClInclude Include="SettingsPage.h" />
+    <ClInclude Include="Shadow.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SoundEntity.h" />

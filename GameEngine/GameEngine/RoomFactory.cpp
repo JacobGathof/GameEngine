@@ -6,6 +6,8 @@
 #include "GraphAction.h"
 #include "CircleAI.h"
 #include "CardObject.h"
+#include "Shadow.h"
+#include "DebugAction.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -31,7 +33,7 @@ void RoomFactory::addWorldObjects()
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 	GameState::battleManager = BattleManager(melody);
-
+	//melody->addEffect(new Shadow());
 	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(1, 0, 0, 1), Vector2f(256, 256)));
 
@@ -55,6 +57,8 @@ Room* RoomFactory::createReadingRoom()
 	
 	Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, 256+64), Vector2f(64,64));
+	card1->setEnterTrigger(new DebugAction("Entered Trigger"));
+	card1->setExitTrigger(new DebugAction("Exited Trigger"));
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
@@ -65,10 +69,11 @@ Room* RoomFactory::createReadingRoom()
 
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
+
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
-	//room->addObject(table);
+	room->addObject(table);
 	room->addObject(card1);
 	room->addObject(chest);
 	room->addObject(chest2);
@@ -80,7 +85,7 @@ Room* RoomFactory::createClearing()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("Clearing"));
-	room->loadObjects(std::string("ObjectMaps/Clearing"));
+	//room->loadObjects(std::string("ObjectMaps/Clearing"));
 
 	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128));
 	echo->weight = Weight::GHOST;

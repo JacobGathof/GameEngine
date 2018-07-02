@@ -12,11 +12,7 @@ public:
 	virtual void interact();
 	virtual void setInteraction(AbstractAction * i);
 
-	virtual void trigger();
-	virtual void setTrigger(AbstractAction* a);
-
 	virtual bool update(float dt);
-
 	virtual void draw();
 
 	bool intersects(InteractableObject* obj);
@@ -26,11 +22,10 @@ public:
 
 protected:
 	AbstractAction * interactObj;
-	AbstractAction* triggerAction;
 
 	Circle* interactionRadius;
 	bool interacting = false;
-	bool triggered = false;
+
 
 	bool interactionCount = 0;
 };

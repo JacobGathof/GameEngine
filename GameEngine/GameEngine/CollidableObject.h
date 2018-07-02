@@ -19,8 +19,20 @@ public:
 	virtual ~CollidableObject();
 
 	virtual bool collide(Object * o, Hitbox * h);
+	virtual bool collide(CollidableObject* obj);
+
 	virtual void drawHitboxes();
 	virtual bool update(float dt);
+
+
+	virtual void trigger();
+	virtual void setEnterTrigger(AbstractAction* a);
+	virtual void setExitTrigger(AbstractAction* a);
+	virtual void handleTriggers();
+
+	virtual void onEnterTrigger();
+	virtual void onExitTrigger();
+
 
 	void addHitbox(Hitbox * h);
 	Hitbox * getHitbox(int i);
@@ -32,6 +44,11 @@ public:
 protected:
 
 	List<Hitbox *> hitboxes;
+
+	bool triggered = false;
+	bool triggered_past = false;
+	AbstractAction* exitTriggerAction;
+	AbstractAction* enterTriggerAction;
 
 };
 

@@ -12,5 +12,12 @@ public:
 
 private:
 	Card * card;
+	Vector2f originalPosition;
+	Vector2f originalScale;
+
+	Vector2f offsetPos;
+	Vector2f offsetScale;
+
+	Timer timer;
 };
 

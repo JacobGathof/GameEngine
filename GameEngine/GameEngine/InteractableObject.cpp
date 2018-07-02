@@ -14,9 +14,6 @@ InteractableObject::~InteractableObject()
 	if (interactObj != 0) {
 		delete interactObj;
 	}
-	if (triggerAction != 0) {
-		delete triggerAction;
-	}
 	delete interactionRadius;
 }
 
@@ -39,18 +36,7 @@ void InteractableObject::setInteraction(AbstractAction * i)
 	interactObj = i;
 }
 
-void InteractableObject::trigger()
-{
-	triggered = true;
-}
 
-void InteractableObject::setTrigger(AbstractAction * a)
-{
-	if (triggerAction != 0) {
-		delete triggerAction;
-	}
-	triggerAction = a;
-}
 
 bool InteractableObject::update(float dt)
 {

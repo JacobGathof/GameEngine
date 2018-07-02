@@ -100,17 +100,20 @@ void Room::drawLights()
 void Room::checkCollisions()
 {
 
-	//rework
-	/*
+	
 	for (int i = 0; i < collidableObjects.size(); i++) {
 		CollidableObject * current = collidableObjects.get(i);
 
-		for (int k = i+1; k < collidableObjects.size(); k++) {
+		for (int k = i + 1; k < collidableObjects.size(); k++) {
 			CollidableObject * other = collidableObjects.get(k);
 			if (collision(current, other)) {
 				return;
 			}
 		}
+	}
+
+	for (int i = 0; i < collidableObjects.size(); i++) {
+		CollidableObject * current = collidableObjects.get(i);
 
 		for (int k = 0; k < interactableObjects.size(); k++) {
 			CollidableObject * other = interactableObjects.get(k);
@@ -118,10 +121,20 @@ void Room::checkCollisions()
 				return;
 			}
 		}
+	}
 
-		if (collision(current, collisionObject)) {
-			return;
+	for (int i = 0; i < interactableObjects.size(); i++) {
+		CollidableObject * current = interactableObjects.get(i);
+
+		for (int k = i + 1; k < interactableObjects.size(); k++) {
+			CollidableObject * other = interactableObjects.get(k);
+			if (collision(current, other)) {
+				return;
+			}
 		}
+	}
+
+	
 
 		/*
 		for (int k = i+1; (k < objects.size() && (current->pos[1] < objects[k]->pos[1] + objects[k]->scale[1])); k++) {
@@ -130,9 +143,9 @@ void Room::checkCollisions()
 				current->collide(obj);
 				obj->collide(current);
 			}
-			
+
 		}
-		
+
 	}
 
 	*/
@@ -210,11 +223,12 @@ bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 		for (int k = 0; k < obj2->numHitboxes(); k++) {
 			Hitbox * two = obj2->getHitbox(k);
 			
-			if (one->getPos() == two->getPos()) {
-				continue;
-			}
-			
 			if (one->collide(two)) {
+
+				obj1->collide(obj2);
+				obj2->collide(obj1);
+
+				/*
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;
 				bool cont1 = obj1->collide(obj2, two);
@@ -238,9 +252,11 @@ bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 				if (!(cont1 && cont2)) {
 					return true;
 				}
+				*/
 			}
 		}
 	}
+
 	return false;
 }
 
