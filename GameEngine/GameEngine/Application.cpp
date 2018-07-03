@@ -13,6 +13,8 @@
 #include <chrono>
 
 #include "WeatherManager.h"
+#include "GlobalActionInvoker.h"
+
 
 Application::Application(){}
 Application::~Application(){}
@@ -31,6 +33,7 @@ void Application::run()
 	ResourceManager::init();
 	Screen::init();
 	Input::init();
+	GlobalActionInvoker::init();
 
 	Inventory inv;
 	GameState::inv = &inv;
@@ -112,6 +115,7 @@ void Application::run()
 
 		if (!GameState::isGamePaused()) {
 
+			GlobalActionInvoker::update(dt);
 			WeatherManager::update(dt);
 
 			//graph.update(dt);
@@ -135,6 +139,7 @@ void Application::run()
 	AudioSystem::clean();
 
 	WeatherManager::clean();
+	GlobalActionInvoker::clean();
 
 	std::cout << "Objects Deleted: " << Object::numDeleted << std::endl;
 

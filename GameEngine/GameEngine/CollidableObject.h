@@ -25,14 +25,6 @@ public:
 	virtual bool update(float dt);
 
 
-	virtual void trigger();
-	virtual void setEnterTrigger(AbstractAction* a);
-	virtual void setExitTrigger(AbstractAction* a);
-	virtual void handleTriggers();
-
-	virtual void onEnterTrigger();
-	virtual void onExitTrigger();
-
 
 	void addHitbox(Hitbox * h);
 	Hitbox * getHitbox(int i);
@@ -45,10 +37,7 @@ protected:
 
 	List<Hitbox *> hitboxes;
 
-	bool triggered = false;
-	bool triggered_past = false;
-	AbstractAction* exitTriggerAction;
-	AbstractAction* enterTriggerAction;
+
 
 };
 

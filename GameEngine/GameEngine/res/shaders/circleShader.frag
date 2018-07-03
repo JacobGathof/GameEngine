@@ -6,9 +6,10 @@ in vec2 sc;
 
 void main(){
 
-	if(dot(fragPos,fragPos) < .5*dot(sc,sc) && dot(fragPos,fragPos) > .5*dot(sc-vec2(.01,.01), sc-vec2(.01,.01))){
-		gl_FragColor = vec4(1,1,1,1);
-	}else{
-		gl_FragColor = vec4(1,1,1,0);
-	}
+	vec2 d = fragPos/sc;
+	float e = dot(d,d);
+	uint a = uint(e < 1 && e > 1- 1./32);
+	
+	gl_FragColor = vec4(1,1,1,a);
+	
 }

@@ -14,6 +14,17 @@ public:
 
 	virtual bool update(float dt);
 	virtual void draw();
+	virtual bool collide(CollidableObject* obj);
+
+
+	virtual void trigger();
+	virtual void setEnterTrigger(AbstractAction* a);
+	virtual void setExitTrigger(AbstractAction* a);
+	virtual void handleTriggers();
+
+	virtual void onEnterTrigger();
+	virtual void onExitTrigger();
+
 
 	bool intersects(InteractableObject* obj);
 	Circle* getInteractionRadius();
@@ -25,8 +36,12 @@ protected:
 
 	Circle* interactionRadius;
 	bool interacting = false;
-
-
 	bool interactionCount = 0;
+
+
+	bool triggered = false;
+	bool triggered_past = false;
+	AbstractAction* exitTriggerAction;
+	AbstractAction* enterTriggerAction;
 };
 

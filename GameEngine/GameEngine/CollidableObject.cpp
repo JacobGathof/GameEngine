@@ -14,12 +14,7 @@ CollidableObject::~CollidableObject()
 	for (auto hit : hitboxes) {
 		delete hit;
 	}
-	if (enterTriggerAction != 0) {
-		delete enterTriggerAction;
-	}
-	if (exitTriggerAction != 0) {
-		delete exitTriggerAction;
-	}
+	
 }
 
 
@@ -38,7 +33,6 @@ bool CollidableObject::collide(Object * o, Hitbox * h)
 
 bool CollidableObject::collide(CollidableObject * obj)
 {
-	trigger();
 	return false;
 }
 
@@ -51,11 +45,6 @@ void CollidableObject::drawHitboxes()
 
 bool CollidableObject::update(float dt)
 {
-
-	handleTriggers();
-	triggered_past = triggered;
-	triggered = false;
-
 	updateHitbox();
 	return Object::update(dt);
 }
@@ -77,48 +66,3 @@ Hitbox * CollidableObject::getHitbox(int i)
 }
 
 
-
-void CollidableObject::trigger()
-{
-	triggered = true;
-}
-
-void CollidableObject::setExitTrigger(AbstractAction * a)
-{
-	if (exitTriggerAction != 0) {
-		delete exitTriggerAction;
-	}
-	exitTriggerAction = a;
-}
-
-void CollidableObject::setEnterTrigger(AbstractAction * a)
-{
-	if (enterTriggerAction != 0) {
-		delete enterTriggerAction;
-	}
-	enterTriggerAction = a;
-}
-
-void CollidableObject::handleTriggers()
-{
-	if (triggered && !triggered_past) {
-		onEnterTrigger();
-	}
-	if (!triggered && triggered_past) {
-		onExitTrigger();
-	}
-}
-
-void CollidableObject::onEnterTrigger()
-{
-	if (enterTriggerAction != 0) {
-		enterTriggerAction->run();
-	}
-}
-
-void CollidableObject::onExitTrigger()
-{
-	if (exitTriggerAction != 0) {
-		exitTriggerAction->run();
-	}
-}
