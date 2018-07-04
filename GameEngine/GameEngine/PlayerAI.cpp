@@ -88,7 +88,7 @@ void PlayerAI::leftClick(Vector2f & pos)
 {
 	
 	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
-	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(64, 64), direction);
+	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(64, 64), direction, user);
 	World::getInstance()->addCObject(p);
 
 }

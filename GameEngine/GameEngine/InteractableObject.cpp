@@ -69,7 +69,7 @@ void InteractableObject::draw()
 
 bool InteractableObject::collide(CollidableObject * obj)
 {
-	trigger();
+	trigger(obj);
 	return false;
 }
 
@@ -92,9 +92,10 @@ bool InteractableObject::executeAI(float dt, AI * ai)
 
 
 
-void InteractableObject::trigger()
+void InteractableObject::trigger(Object* obj)
 {
 	triggered = true;
+	triggerSubject = obj;
 }
 
 void InteractableObject::setExitTrigger(AbstractAction * a)

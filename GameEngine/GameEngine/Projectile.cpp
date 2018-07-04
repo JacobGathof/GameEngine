@@ -3,12 +3,13 @@
 
 
 
-Projectile::Projectile(std::string & name, TextureType t, Vector2f & position, Vector2f & sc, Vector2f& dir) : 
-	AnimatedObject(name, t, position, sc)
+Projectile::Projectile(std::string & name, TextureType t, Vector2f & position, Vector2f & sc, Vector2f& dir, Object* obj) : 
+	InteractableObject(name, t, position, sc)
 {
 	lifeTimer.setTickLength(2.0f);
 	direction = dir;
 	rotation = atan2(dir[1], dir[0]) - 3.14159f/4;
+	owner = obj;
 
 	//this->addHitbox(new CircleHitbox(Circle(Vector2f(0,0), 32), Vector2f(0, 0)));
 }
@@ -24,5 +25,12 @@ bool Projectile::update(float dt)
 	if (lifeTimer.tick()) {
 		destroy();
 	}
-	return AnimatedObject::update(dt);
+	return InteractableObject::update(dt);
+}
+
+void Projectile::onEnterTrigger()
+{
+	if (triggerSubject != owner) {
+		destroy();
+	}
 }

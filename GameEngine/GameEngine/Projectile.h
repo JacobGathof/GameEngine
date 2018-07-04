@@ -1,17 +1,19 @@
 #pragma once
-#include "AnimatedObject.h"
+#include "InteractableObject.h"
 
-class Projectile : public AnimatedObject
+class Projectile : public InteractableObject
 {
 public:
-	Projectile(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, Vector2f& dir);
+	Projectile(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, Vector2f& dir, Object* owner);
 	virtual ~Projectile();
 
 	virtual bool update(float dt);
+	virtual void onEnterTrigger();
 
 private:
 	Timer lifeTimer;
 	Vector2f direction;
+	Object* owner;
 
 };
 

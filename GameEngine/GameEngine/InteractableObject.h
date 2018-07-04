@@ -17,7 +17,7 @@ public:
 	virtual bool collide(CollidableObject* obj);
 
 
-	virtual void trigger();
+	virtual void trigger(Object* obj);
 	virtual void setEnterTrigger(AbstractAction* a);
 	virtual void setExitTrigger(AbstractAction* a);
 	virtual void handleTriggers();
@@ -43,5 +43,7 @@ protected:
 	bool triggered_past = false;
 	AbstractAction* exitTriggerAction;
 	AbstractAction* enterTriggerAction;
+
+	Object* triggerSubject;
 };
 
