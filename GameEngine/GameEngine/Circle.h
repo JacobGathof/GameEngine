@@ -14,6 +14,9 @@ public:
 
 	bool intersects(Circle* c);
 
+
+	Color color = Color::White;
+
 private:
 	
 };

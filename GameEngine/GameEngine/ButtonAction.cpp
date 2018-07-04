@@ -17,7 +17,7 @@ int NoteButtonAction::run(float dt)
 
 int MusicButtonAction::run(float dt)
 {
-	Res::get(AudioType::SONG_FMAB_AGAIN)->play();
+	Res::get(AudioType::SONG_1)->play();
 	return 1;
 }
 
@@ -30,5 +30,11 @@ int UnpauseAction::run(float dt)
 int ExitAction::run(float dt)
 {
 	Window::close();
+	return 1;
+}
+
+int MusicButtonAction2::run(float dt)
+{
+	Res::get(AudioType::SONG_2)->play();
 	return 1;
 }

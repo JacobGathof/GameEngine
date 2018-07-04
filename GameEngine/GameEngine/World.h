@@ -50,6 +50,7 @@ public:
 
 	Room * getCurrentRoom();
 	void addObject(Object * obj);
+	void addCObject(CollidableObject* obj);
 
 	void addWorldObject(InteractableObject* obj);
 	InteractableObject* getWorldObject(const char* name);

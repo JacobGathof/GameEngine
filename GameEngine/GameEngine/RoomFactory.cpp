@@ -8,6 +8,8 @@
 #include "CardObject.h"
 #include "Shadow.h"
 #include "DebugAction.h"
+#include "PlayMusicAction.h"
+#include "CompositeAction.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -57,12 +59,13 @@ Room* RoomFactory::createReadingRoom()
 	
 	Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, 256+64), Vector2f(64,64));
-	card1->setEnterTrigger(new DebugAction("Entered Trigger"));
+	card1->setEnterTrigger(new PlayMusicAction(AudioType::SONG_2));
+
 	card1->setExitTrigger(new DebugAction("Exited Trigger"));
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(0, 0), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
+	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
 	chest->isStatic = false;
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 	//chest->addEffect(new FastParticleSystem(4096*4));

@@ -6,6 +6,7 @@ InteractableObject::InteractableObject(std::string& name, TextureType t, Vector2
 	AnimatedObject(name, t, position, sc)
 {
 	interactionRadius = new Circle(position, sc[0]);
+	interactionRadius->color = Color::DarkBlue;
 }
 
 
@@ -63,6 +64,7 @@ void InteractableObject::draw()
 {
 	AnimatedObject::draw();
 	interactionRadius->draw();
+	drawHitboxes();
 }
 
 bool InteractableObject::collide(CollidableObject * obj)

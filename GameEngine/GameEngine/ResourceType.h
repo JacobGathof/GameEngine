@@ -119,6 +119,8 @@ enum class AudioType {
 	SOUND_A_SHARP_NOTE,
 
 	SONG_FMAB_AGAIN,
+	SONG_1,
+	SONG_2,
 };
 
 

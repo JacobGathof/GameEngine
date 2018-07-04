@@ -147,6 +147,13 @@ void World::addObject(Object * obj)
 	}
 }
 
+void World::addCObject(CollidableObject * obj)
+{
+	if (currentRoom != nullptr) {
+		currentRoom->addObject(obj);
+	}
+}
+
 void World::addWorldObject(InteractableObject * obj){
 	worldObjects[obj->name] = obj;
 }

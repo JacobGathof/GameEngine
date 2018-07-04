@@ -2,7 +2,6 @@
 #include "Text.h"
 
 
-
 Slider::Slider(Vector2f & pos, Vector2f & sc, std::string& t, float* r, float mi, float ma, int ic)
 {
 	position = pos;

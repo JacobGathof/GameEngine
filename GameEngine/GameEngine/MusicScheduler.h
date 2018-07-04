@@ -12,5 +12,6 @@ public:
 
 private:
 	static unsigned int source;
+	static SoundEntity* current;
 };
 

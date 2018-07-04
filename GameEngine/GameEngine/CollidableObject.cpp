@@ -5,7 +5,7 @@
 CollidableObject::CollidableObject(std::string& n, TextureType t, Vector2f& position, Vector2f& sc) :
 	Object(n, t, position, sc)
 {
-	addHitbox(new CircleHitbox(Circle(Vector2f(0,0), 64), Vector2f(0,0)));
+	addHitbox(new CircleHitbox(Circle(Vector2f(0,0), 32), Vector2f(0,0)));
 }
 
 

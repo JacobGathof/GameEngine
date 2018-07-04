@@ -25,6 +25,7 @@ void Circle::draw(){
 	shader->bind();
 	shader->loadVector2f("translate", center);
 	shader->loadVector2f("scale", Vector2f(radius));
+	shader->loadColor("color", color);
 	model->draw();
 }
 

@@ -18,6 +18,11 @@ public:
 	virtual int run(float dt = 0.0f);
 };
 
+class MusicButtonAction2 : public AbstractAction {
+public:
+	virtual int run(float dt = 0.0f);
+};
+
 class UnpauseAction : public AbstractAction {
 public:
 	virtual int run(float dt = 0.0f);

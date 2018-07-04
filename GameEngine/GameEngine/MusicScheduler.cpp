@@ -2,6 +2,7 @@
 #include <iostream>
 
 unsigned int MusicScheduler::source;
+SoundEntity* MusicScheduler::current;
 
 void MusicScheduler::init()
 {
@@ -15,8 +16,12 @@ void MusicScheduler::clean()
 
 void MusicScheduler::playMusic(SoundEntity * entity)
 {
-	alSourcei(source, AL_BUFFER, entity->buffer);
-	alSourcePlay(source);
+	if (entity != current) {
+		alSourceStop(source);
+		alSourcei(source, AL_BUFFER, entity->buffer);
+		alSourcePlay(source);
+		current = entity;
+	}
 }
 
 void MusicScheduler::setVolume(float f)
