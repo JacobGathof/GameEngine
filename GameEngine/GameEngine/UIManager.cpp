@@ -36,7 +36,7 @@ void UIManager::draw()
 	menu->draw();
 	banner->draw();
 	quoteBanner->draw();
-	//statusbar->draw();
+	statusbar->draw();
 	enemyStatus->draw();
 	cmdLine->draw();
 	//map->draw();

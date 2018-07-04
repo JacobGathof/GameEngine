@@ -1,5 +1,6 @@
 #pragma once
 #include "AbstractUIComponent.h"
+#include "Timer.h"
 
 class Text;
 
@@ -12,30 +13,53 @@ public:
 	virtual void update(float dt);
 	virtual void resize(int x, int y);
 
-	void updateStats();
-	std::string formatStatString(float cur, float max);
+	void setHealth(float* maxHealth, float* currHealth);
+	void setStamina(float* maxStamina, float* currStamina);
+	void setMana(float* maxMana, float* currMana);
 
 private:
 
+	struct DataContainer {
+		float hpm = 100; //Dummy variables, will be subsitituted for actual player stats
+		float hpc = 100;
+
+		float *data_max = &hpm; // Reference to actual HP Max (Player value)
+		float *data_cur = &hpc; // Reference to actual HP Current (Player Value)
+		float health_lost = 0; // Regulate the speed of HP decrease
+
+		float percentage = 1.0; //Percentage of Health meter to draw
+		float percentageShown = 1.0; // Percentage of Health lost to draw 
+
+		float hpml = hpm; // HP Max Last
+		float hpcl = hpc; // HP Current Max
+		float hpcs = hpc; // HP Current Shown (Shown hp being lost)
+
+		Text* text;
+	};
+
+	DataContainer health, stamina, mana;
+
+
+	void updateStats(DataContainer& data);
+	void updateComponent(DataContainer& data, float dt);
+
+	std::string formatStatString(float cur, float max);
+
+
 	Color backdrop = Color(0x000044ff);
 	Color healthColor = Color(0xdd2244ff);
+	Color healthLostColor = Color(0xdd8888ff);
+
 	Color staminaColor = Color(0x22dd22ff);
+	Color staminaLostColor = Color(0xaaddaaff);
+
 	Color magicColor = Color(0x0044ffff);
 	Color boxColor = Color(0x000022ff);
 
 
-	float hpm = 100;
-	float hpc = 100;
-
-	float *health_max = &hpm;
-	float *health_cur = &hpc;
-	float healthPercentage = 1.0;
-
-	float hpml = hpm;
-	float hpcl = hpc;
 
 
-
+	Timer timer;
 
 	float minBarLength = .25f;
 	float maxBarLength = .5f;
@@ -63,11 +87,6 @@ private:
 	Vector2f scale_s;
 	Vector2f scale_m;
 	Vector2f scale_box;
-
-
-	Text* healthText;
-	Text* staminaText;
-	Text* manaText;
 
 
 };
