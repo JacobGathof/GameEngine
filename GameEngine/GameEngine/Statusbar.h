@@ -53,7 +53,10 @@ private:
 	Color staminaColor = Color(0x22dd22ff);
 	Color staminaLostColor = Color(0xaaddaaff);
 
-	Color magicColor = Color(0x0044ffff);
+	Color manaColor = Color(0x0044ffff);
+	Color manaLostColor = Color(0x4488ffff);
+
+
 	Color boxColor = Color(0x000022ff);
 
 

@@ -2,7 +2,6 @@
 #include "Screen.h"
 #include "Text.h"
 
-
 Statusbar::Statusbar()
 {
 	health.text =	new Text(pos_h - Vector2f(offsetX, 0), std::string("100/100"), Vector2f(scale_h[1]), 0);
@@ -34,8 +33,9 @@ void Statusbar::draw()
 	UIUtils::drawRectangle(pos_s + barPadding, (scale_s - 2 * barPadding)*Vector2f(stamina.percentage, 1), staminaColor);
 	
 
-	UIUtils::drawRectangle(pos_m			, scale_m				, backdrop);
-	UIUtils::drawRectangle(pos_m+barPadding	, scale_m-2*barPadding	, magicColor);
+	UIUtils::drawRectangle(pos_m, scale_m, backdrop);
+	UIUtils::drawRectangle(pos_m + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentageShown, 1), manaLostColor);
+	UIUtils::drawRectangle(pos_m + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentage, 1), manaColor);
 
 
 	UIUtils::drawRectangle(pos_box, scale_box, Color(0x8888aa88));
@@ -59,7 +59,7 @@ void Statusbar::update(float dt)
 	timer.update(dt);
 	timer.setTickLength(1.0f);
 	if (timer.tick()) {
-		health.hpc -= 5;
+		mana.hpc -= 5;
 	}
 
 }
