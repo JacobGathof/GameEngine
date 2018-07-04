@@ -64,7 +64,7 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 	}
 
 	if (mouse.click()) {
-		leftClick(mouse.pos() - Vector2f(400,400));
+		leftClick(mouse.pos() - Vector2f(Screen::width, Screen::height)/2);
 	}
 
 }

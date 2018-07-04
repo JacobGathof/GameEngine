@@ -16,6 +16,7 @@
 <node id="First">
 	<actions>
 		<text>This is First Node :). You got the key</text>
+		<text>Echo: Nicely done Silver. Reeeeeeaaaaaaaaaaallllllllll nice</text>
 		<text>Continue to the beginning</text>
 		<set flag="flag_1" bool="1" />
 	</actions>
@@ -28,7 +29,7 @@
 
 <node id="Second">
 	<actions>
-		<text>This is the Second Node</text>
+		<text name="">This is the 00FSecond Node</text>
 		<text>You have reached the end</text>
 	</actions>
 	

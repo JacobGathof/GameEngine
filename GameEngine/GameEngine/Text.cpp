@@ -16,7 +16,7 @@ Text::Text(Vector2f & p, std::string & dat, Vector2f& s, Font * f)
 
 	model.init();
 	model.bind();
-	vbo_pos = model.addData(0, 0, 2, 0);
+	vbo_pos = model.addData(0, 0, 3, 0);
 	vbo_tex = model.addData(0, 0, 2, 1);
 	vbo_col = model.addData(0, 0, 4, 2);
 
@@ -38,6 +38,7 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	int vertexPointer = 0;
 	int texPointer = 0;
 	int colorPointer = 0;
+	int effects = 0;
 
 	float posScale = POS_SCALE;
 
@@ -73,12 +74,25 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 			continue;
 		}
 
+		if (c == 0x0e) {
+			length--;
+			effects = 1;
+			continue;
+		}
+
+		if (c == 0x0f) {
+			length--;
+			effects = 0;
+			continue;
+		}
+
+
 		Font::Char* ch = font->getCharacter(c);
 		if (c == 0) {
 			continue;
 		}
 
-		writeVertices(pos, ch, xPointer, yPointer, posScale, vertexPointer);
+		writeVertices(pos, ch, xPointer, yPointer, posScale, vertexPointer, effects);
 		writeTexCoords(tex, ch, texPointer);
 		writeColor(col, def, colorPointer);
 
@@ -89,25 +103,31 @@ void Text::writeCharacterData(std::string& string, float * pos, float * tex, flo
 	totalWidth = scale[0]*xPointer*posScale;
 }
 
-void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer){
+void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPointer, float posScale, int& vertexPointer, int effects){
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
+	pos[vertexPointer++] = effects;
 }
 
 void Text::writeTexCoords(float* tex, Font::Char* ch, int& texPointer)
@@ -175,7 +195,7 @@ void Text::setText(std::string& newdata)
 	data = newdata;
 	displayableLength = newLength;
 
-	int pos_size = newLength * 2 * 6;
+	int pos_size = newLength * 3 * 6;
 	int tex_size = newLength * 2 * 6;
 	int col_size = newLength * 4 * 6;
 	float* pos = new float[pos_size];

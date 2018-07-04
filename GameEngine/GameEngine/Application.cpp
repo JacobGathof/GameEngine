@@ -109,6 +109,8 @@ void Application::run()
 		Res::get(ShaderType::WATER_SHADER)->bind();
 		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
+		Res::get(ShaderType::TEXT_SHADER)->bind();
+		Res::get(ShaderType::TEXT_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
 		Input::processInput(dt);
 		UIManager::update(dt);
