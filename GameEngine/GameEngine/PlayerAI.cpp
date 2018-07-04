@@ -1,6 +1,6 @@
 #include "PlayerAI.h"
 #include "Player.h"
-#include "Projectile.h"
+#include "Boomerang.h"
 #include "FastParticleSystem.h"
 #include "DamageTag.h"
 
@@ -86,10 +86,17 @@ void PlayerAI::processArrowUpKey()
 
 void PlayerAI::leftClick(Vector2f & pos)
 {
-	
-	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
-	Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(64, 64), direction, user);
-	World::getInstance()->addCObject(p);
+	if (GameState::inv->getCurrentWeapon() == Res::get(WeaponType::SWORD)) {
+		Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
+		Projectile * p = new Boomerang(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(64, 64), direction, user);
+		World::getInstance()->addCObject(p);
+	}
+
+	if (GameState::inv->getCurrentWeapon() == Res::get(WeaponType::BOW)) {
+		Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
+		Projectile * p = new Projectile(std::string("_"), TextureType::ARROW_TEXTURE, user->pos, Vector2f(64, 64), direction, user);
+		World::getInstance()->addCObject(p);
+	}
 
 }
 

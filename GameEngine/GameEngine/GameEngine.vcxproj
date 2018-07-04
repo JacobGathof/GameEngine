@@ -28,6 +28,7 @@
     <ClCompile Include="Banner.cpp" />
     <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="BannerAction.cpp" />
+    <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Banner.h" />
     <ClInclude Include="BannerAction.h" />
     <ClInclude Include="BattleManager.h" />
+    <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />

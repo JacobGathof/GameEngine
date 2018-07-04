@@ -10,7 +10,7 @@ public:
 	virtual bool update(float dt);
 	virtual void onEnterTrigger();
 
-private:
+protected:
 	Timer lifeTimer;
 	Vector2f direction;
 	Object* owner;

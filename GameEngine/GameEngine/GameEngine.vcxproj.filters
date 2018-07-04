@@ -588,6 +588,9 @@
     <ClCompile Include="CompositeAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Boomerang.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1053,6 +1056,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CompositeAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boomerang.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

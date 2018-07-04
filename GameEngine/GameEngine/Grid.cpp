@@ -117,6 +117,7 @@ void Grid<T>::handleMouseEvents(Mouse & mouse)
 		if (i != -1) {
 			*index = i;
 		}
+
 	}
 
 	if (mouse.doubleClick()) {
