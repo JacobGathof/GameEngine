@@ -31,6 +31,6 @@ bool Projectile::update(float dt)
 void Projectile::onEnterTrigger()
 {
 	if (triggerSubject != owner) {
-		destroy();
+		//destroy();
 	}
 }

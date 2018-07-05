@@ -4,9 +4,18 @@
 
 Statusbar::Statusbar()
 {
-	health.text =	new Text(pos_h - Vector2f(offsetX, 0), std::string("100/100"), Vector2f(scale_h[1]), 0);
-	stamina.text =	new Text(pos_s - Vector2f(offsetX, 0), std::string("100/100"), Vector2f(scale_h[1]), 0);
-	mana.text =		new Text(pos_m - Vector2f(offsetX, 0), std::string("100/100"), Vector2f(scale_h[1]), 0);
+	health.name =	"HP: ";
+	stamina.name =	"ST: ";
+	mana.name =		"MP: ";
+
+	health.text =	new Text(pos_h - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	stamina.text =	new Text(pos_s - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	mana.text =		new Text(pos_m - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	goldText =		new Text(pos_g - Vector2f(offsetX, 0), std::string("$64"), Vector2f(scale_h[1]), 0);
+
+	updateStats(health);
+	updateStats(stamina);
+	updateStats(mana);
 }
 
 
@@ -15,6 +24,7 @@ Statusbar::~Statusbar()
 	delete health.text;
 	delete stamina.text;
 	delete mana.text;
+	delete goldText;
 
 }
 
@@ -45,6 +55,7 @@ void Statusbar::draw()
 	health.text->draw();
 	stamina.text->draw();
 	mana.text->draw();
+	goldText->draw();
 
 }
 
@@ -86,15 +97,16 @@ void Statusbar::updateComponent(DataContainer & data, float dt)
 
 void Statusbar::resize(int x, int y)
 {
-	height = y;
-	width = x*.4f;
+	float height = y;
+	float width = x*.4f;
 
-	pos_box = Vector2f(offsetX, height - offsetY - boxHeight);
+	pos_box = Vector2f(offsetX, height - offsetBoxY - boxHeight);
 	scale_box = Vector2f(boxHeight, boxWidth);
 
 	pos_h = Vector2f(pos_box[0] + scale_box[0] + offsetX, height - offsetY - barHeight);
-	pos_s = Vector2f(pos_box[0] + scale_box[0] + offsetX, height - offsetY - 2 * barHeight - gap);
+	pos_s = Vector2f(pos_box[0] + scale_box[0] + offsetX, height - offsetY - 2 * barHeight - 1 * gap);
 	pos_m = Vector2f(pos_box[0] + scale_box[0] + offsetX, height - offsetY - 3 * barHeight - 2 * gap);
+	pos_g = Vector2f(pos_box[0] + scale_box[0] + offsetX, height - offsetY - 4 * barHeight - 3 * gap);
 
 	scale_h = Vector2f(width + 2 * barPadding, barHeight);
 	scale_s = Vector2f(width + 2 * barPadding, barHeight);
@@ -103,10 +115,12 @@ void Statusbar::resize(int x, int y)
 	health.text->setPosition(	Vector2f(pos_box[0]+offsetX, pos_h[1]));
 	stamina.text->setPosition(	Vector2f(pos_box[0]+offsetX, pos_s[1]));
 	mana.text->setPosition(		Vector2f(pos_box[0]+offsetX, pos_m[1]));
+	goldText->setPosition(Vector2f(pos_box[0] + offsetX, pos_g[1]));
 
 	health.text->setScale(Vector2f(scale_h[1]));
 	stamina.text->setScale(Vector2f(scale_h[1]));
 	mana.text->setScale(Vector2f(scale_h[1]));
+	goldText->setScale(Vector2f(scale_h[1]));
 }
 
 void Statusbar::setHealth(float * maxHealth, float * currHealth)
@@ -138,7 +152,7 @@ void Statusbar::updateStats(DataContainer & data)
 {
 	data.percentage = min(max(*data.data_cur / *data.data_max, 0), 1);
 	std::string display = formatStatString(*data.data_cur, *data.data_max);
-	data.text->setText(display);
+	data.text->setText(data.name + display);
 }
 
 

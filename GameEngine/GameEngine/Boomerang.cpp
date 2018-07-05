@@ -20,7 +20,7 @@ bool Boomerang::update(float dt)
 
 	Vector2f d = owner->pos - pos;
 
-	acceleration = d.normalize() * d.length() * time * 1 - velocity;
+	acceleration = d.normalize() * d.length() * time * 4 - velocity;
 
 	velocity += dt * acceleration;
 	pos += dt * velocity;

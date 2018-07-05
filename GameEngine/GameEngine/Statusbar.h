@@ -20,6 +20,8 @@ public:
 private:
 
 	struct DataContainer {
+		std::string name;
+
 		float hpm = 100; //Dummy variables, will be subsitituted for actual player stats
 		float hpc = 100;
 
@@ -39,11 +41,12 @@ private:
 
 	DataContainer health, stamina, mana;
 
-
 	void updateStats(DataContainer& data);
 	void updateComponent(DataContainer& data, float dt);
 
 	std::string formatStatString(float cur, float max);
+
+	Text* goldText;
 
 
 	Color backdrop = Color(0x000044ff);
@@ -60,9 +63,7 @@ private:
 	Color boxColor = Color(0x000022ff);
 
 
-
-
-	Timer timer;
+	Timer timer; // Just for testing
 
 	float minBarLength = .25f;
 	float maxBarLength = .5f;
@@ -71,10 +72,10 @@ private:
 	float barPadding = 4;
 	float gap = 4;
 
-	float offsetX = 16;
+	float offsetX = 8;
 	float offsetY = 16;
-	float height = 800;
-	float width = 800;
+	float offsetBoxY = 8;
+
 
 	float boxHeight = 100;
 	float boxWidth = 100;
@@ -84,6 +85,7 @@ private:
 	Vector2f pos_h;
 	Vector2f pos_s;
 	Vector2f pos_m;
+	Vector2f pos_g;
 	Vector2f pos_box;
 
 	Vector2f scale_h;

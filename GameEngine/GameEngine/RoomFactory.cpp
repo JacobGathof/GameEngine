@@ -59,8 +59,7 @@ Room* RoomFactory::createReadingRoom()
 	
 	Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, 256+64), Vector2f(64,64));
-	card1->setEnterTrigger(new PlayMusicAction(AudioType::SONG_2));
-
+	card1->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
 	card1->setExitTrigger(new DebugAction("Exited Trigger"));
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
@@ -75,9 +74,19 @@ Room* RoomFactory::createReadingRoom()
 
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
+
+	CardObject* card2 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512 + 192, 256 + 64), Vector2f(64, 64));
+	card2->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
+
+	CardObject* card3 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512 + 192 + 128, 256 + 64), Vector2f(64, 64));
+	card3->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
+
+
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	room->addObject(table);
 	room->addObject(card1);
+	room->addObject(card2);
+	room->addObject(card3);
 	room->addObject(chest);
 	room->addObject(chest2);
 

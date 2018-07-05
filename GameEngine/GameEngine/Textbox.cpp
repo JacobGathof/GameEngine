@@ -42,7 +42,7 @@ void Textbox::draw(){
 		return;
 	}
 
-	UIUtils::drawRectangle(Vector2f(10, 10), Vector2f(780, 200), Color(0xffaaaaff));
+	UIUtils::drawRectangle(Vector2f(10, 10), Vector2f(780, 200), Color(0xaaaaffff));
 	UIUtils::drawRectangle(Vector2f(12, 12), Vector2f(776, 196), Color(0xffffffff));
 	UIUtils::drawRectangle(Vector2f(14, 14), Vector2f(772, 192), Color(0x000000ff));
 
