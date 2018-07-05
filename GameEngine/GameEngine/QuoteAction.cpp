@@ -24,5 +24,5 @@ int QuoteAction::run(float dt)
 
 void QuoteAction::reset()
 {
-	first = false;
+	first = true;
 }

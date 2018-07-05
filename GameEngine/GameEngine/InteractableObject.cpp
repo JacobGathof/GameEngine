@@ -55,7 +55,8 @@ bool InteractableObject::update(float dt)
 
 	interactionRadius->center = pos;
 	if (interacting) {
-		interacting = !interactObj->run(dt);
+		int status = interactObj->run(dt);
+		interacting = (status==0);
 	}
 	return AnimatedObject::update(dt);
 }

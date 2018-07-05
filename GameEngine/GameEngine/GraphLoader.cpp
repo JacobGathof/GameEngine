@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "PauseAction.h"
 #include "SetFlagAction.h"
+#include "TextboxWaitAction.h"
 
 GraphLoader::GraphLoader()
 {
@@ -106,6 +107,10 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 			c = c->next_sibling();
 		}
 		act = new TextChoiceAction(li);
+	}
+
+	else if (cmd == "block") {
+		act = new TextboxWaitAction();
 	}
 
 	else if (cmd == "fade") {

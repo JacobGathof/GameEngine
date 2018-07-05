@@ -31,6 +31,9 @@
 	<actions>
 		<text name="">This is the 00FSecond Node</text>
 		<text>You have reached the end</text>
+		<text>Instant message</text>
+		<block/>
+		<quote>Blocked Quote</quote>
 	</actions>
 	
 	<conditions>

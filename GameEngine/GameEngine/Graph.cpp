@@ -25,12 +25,12 @@ Graph::~Graph()
 int Graph::update(float dt)
 {
 	current->unpauseNode();
-	int status = current->status;
 	Node* n = current->update(dt);
+	int status = current->status;
 	while (n != 0) {
 		current = n;
-		status = current->status;
 		n = current->update(dt);
+		status = current->status;
 	}
 	return status;
 }

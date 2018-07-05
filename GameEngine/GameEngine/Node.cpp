@@ -23,7 +23,7 @@ Node* Node::update(float dt)
 {
 	Node* n = 0;
 
-	if (status == 0) {
+	if (status == NODE_HALTED) {
 		return n;
 	}
 
@@ -54,6 +54,9 @@ Node* Node::update(float dt)
 			n->resetNode();
 		}
 	}
+	else {
+		status = NODE_RUNNING;
+	}
 
 	return n;
 }
@@ -76,6 +79,7 @@ Node * Node::getNextNode()
 
 void Node::resetNode()
 {
+	status = NODE_RUNNING;
 	actionPtr = 0;
 	completedAllActions = false;
 	for (auto a : actions) {
@@ -107,10 +111,10 @@ void Node::setEdges(List<Edge*> edges)
 
 void Node::pauseNode()
 {
-	status = 0;
+	status = NODE_HALTED;
 }
 
 void Node::unpauseNode()
 {
-	status = 1;
+	status = NODE_RUNNING;
 }

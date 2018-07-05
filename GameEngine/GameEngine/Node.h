@@ -3,6 +3,10 @@
 #include "AbstractAction.h"
 #include "Edge.h"
 
+#define NODE_RUNNING 0
+#define NODE_HALTED 1
+
+
 class Node
 {
 public:
