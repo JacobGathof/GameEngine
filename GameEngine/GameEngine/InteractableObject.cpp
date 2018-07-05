@@ -28,7 +28,6 @@ InteractableObject::~InteractableObject()
 
 void InteractableObject::interact()
 {
-	std::cout << "Interact" << std::endl;
 	interacting = true;
 	interactionCount++;
 }
@@ -57,6 +56,9 @@ bool InteractableObject::update(float dt)
 	if (interacting) {
 		int status = interactObj->run(dt);
 		interacting = (status==0);
+		if (!interacting) {
+			interactObj->reset();
+		}
 	}
 	return AnimatedObject::update(dt);
 }

@@ -10,6 +10,7 @@
 #include "DebugAction.h"
 #include "PlayMusicAction.h"
 #include "CompositeAction.h"
+#include "QuoteAction.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -64,8 +65,8 @@ Room* RoomFactory::createReadingRoom()
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	Chest * chest = new Chest(TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128), new GiveCardAction(Res::get(CardType::DAWN)));
-	chest->isStatic = false;
+	InteractableObject * chest = new InteractableObject(std::string(""), TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128));
+	chest->setInteraction(new QuoteAction(std::string("Quote Interaction")));
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
