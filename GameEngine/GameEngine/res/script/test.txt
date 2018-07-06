@@ -12,7 +12,6 @@
 	</conditions>
 </node>
 
-
 <node id="First">
 	<actions>
 		<text>This is First Node :). You got the key</text>
