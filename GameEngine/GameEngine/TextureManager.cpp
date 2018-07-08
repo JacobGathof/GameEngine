@@ -13,9 +13,10 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_HORUS, "res/tex/horus.png");
 	addTexture(TextureType::TEXTURE_DAGON, "res/tex/dagon.png");
 	addTexture(TextureType::TEXTURE_SLIME, "res/tex/slime.png");
-
+	
 	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
-	addTexture(TextureType::TERRAIN_SHEET, "res/tex/terrainSheet.png");
+	//addTexture(TextureType::TERRAIN_SHEET, "res/tex/terrainSheet.png");
+	//Start old textures
 	addTexture(TextureType::BRIDGEHORIZ, "res/tex/ImageFiles/bridgeHoriz.png");
 	addTexture(TextureType::LARGE_TREE, "res/tex/ImageFiles/large tree.png");
 	addTexture(TextureType::PINK_FLOWERS_2, "res/tex/ImageFiles/pink flowers 2.png");
@@ -27,7 +28,17 @@ void TextureManager::init() {
 	addTexture(TextureType::MUSHROOMS, "res/tex/ImageFiles/mushrooms.png");
 	addTexture(TextureType::LOG, "res/tex/ImageFiles/Log.png");
 	addTexture(TextureType::BLUE_FLOWERS, "res/tex/ImageFiles/blue flowers.png");
+	//End old textures
 
+	//Start new Textures
+	addTexture(TextureType::FALLEN_TREE, "res/tex/ObjectImages/fallen_Tree.png");
+	addTexture(TextureType::FLOWER, "res/tex/ObjectImages/flower.png");
+	addTexture(TextureType::FLOWER_2, "res/tex/ObjectImages/flower_2.png");
+	addTexture(TextureType::FLOWER_3, "res/tex/ObjectImages/flower_3.png");
+	addTexture(TextureType::MUSHROOM, "res/tex/ObjectImages/mushroom.png");
+	addTexture(TextureType::MAIN_TREE_PINK_3, "res/tex/ObjectImages/main_tree_pink_3.png");
+	//End old Textures
+	
 	addTexture(TextureType::T_CARD_GHOST, "res/tex/Card_Ghost.png");
 	addTexture(TextureType::T_CARD_ACE, "res/tex/Card_Ace.png");
 
@@ -41,7 +52,7 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/clearing_top.png");
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
-
+	
 	addTexture(TextureType::ZH_WARDROBE, "res/tex/Table.png");
 	addTexture(TextureType::ZF_GILGAMESH, "res/tex/ImageFiles/zf-Gilgamesh.png");
 	addTexture(TextureType::ZI_ZMELODY_BOOK, "res/tex/ImageFiles/zi_zMelody_Book.png");

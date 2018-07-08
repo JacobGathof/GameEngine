@@ -274,19 +274,32 @@ void Room::loadObjects(std::string& filepath)
 			
 			List<std::string> values = FilesAndStrings::parseStrings(in, ' ');
 			//Need to convert to floats
+			TextureType t;
+			try {
+				t = textureMap.at(values.get(0));
+			}
+			catch (std::exception e) {
+				std::cout << "couldn't load " << values.get(0) << std::endl;
+				continue;
+			}
 			
-			TextureType t = textureMap.at(values.get(0));
 			float tileWidth = 50;
 			float tileHeight = 50;
-			float xPos = .9756f * FilesAndStrings::parseFloat(values.get(1)) - (terrain.width * tileWidth);
 			
-			float yPos = (terrain.height * tileHeight) - 1.2121f * FilesAndStrings::parseFloat(values.get(2));
+			float mapWidthTiled = 1950;
+			float mapHeightTiled = 1550;
 
-			float xScale = FilesAndStrings::parseFloat(values.get(3));
-			float yScale = FilesAndStrings::parseFloat(values.get(4));
+			float xScale = 4 * FilesAndStrings::parseFloat(values.get(3));
+			float yScale = 4 * FilesAndStrings::parseFloat(values.get(4));
+			
+			float xPos = 4.0f * (FilesAndStrings::parseFloat(values.get(1)) + (xScale / 8) - (mapWidthTiled / 2));
+
+			float yPos = 4.0f * ((mapHeightTiled - FilesAndStrings::parseFloat(values.get(2))) + (yScale / 8) - (mapHeightTiled / 2));
+			std::cout << values.get(0) << "   " << xPos << "   " << yPos << std::endl;
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
 			o->isStatic = true;
 			addObject(o);
+			/*
 			if (values.get(5) == std::string("Rect")) {
 				Vector2f offset(FilesAndStrings::parseFloat(values.get(6)), FilesAndStrings::parseFloat(values.get(7)));
 				Vector2f scale(FilesAndStrings::parseFloat(values.get(8)), FilesAndStrings::parseFloat(values.get(9)));
@@ -294,6 +307,7 @@ void Room::loadObjects(std::string& filepath)
 				//o->addHitbox(hit);
 				//TODO: fix ^^^;
 			}
+			*/
 			//objects.add(&o);
 		}
 	}
@@ -371,5 +385,14 @@ void Room::init()
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-WATER_GLASS"), TextureType::ZH_WATER_GLASS));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-BREAD_BASKET"), TextureType::ZH_BREAD_BASKET));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-CANDLE_POST"), TextureType::ZH_CANDLE_POST));
+
+	//These are the new ones
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("main_tree_pink_3"), TextureType::MAIN_TREE_PINK_3));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("flower"), TextureType::FLOWER));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("flower_2"), TextureType::FLOWER_2));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("flower_3"), TextureType::FLOWER_3));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("fallen_Tree"), TextureType::FALLEN_TREE));
+	textureMap.insert(std::pair<std::string, TextureType>(std::string("mushroom"), TextureType::MUSHROOM));
 }
+
 

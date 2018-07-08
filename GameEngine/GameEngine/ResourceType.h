@@ -60,6 +60,7 @@ enum class TextureType {
 	TEXTURE_SKYBOX,
 	PERLIN_NOISE,
 
+	//Start old Textures
 	BRIDGEHORIZ,
 	LARGE_TREE,
 	PINK_FLOWERS_2,
@@ -80,7 +81,17 @@ enum class TextureType {
 	ZH_WATER_GLASS,
 	ZH_BREAD_BASKET,
 	ZH_CANDLE_POST,
+	//End old textures
 
+	//Start new Textures
+	MAIN_TREE_PINK_3,
+	MUSHROOM,
+	FLOWER,
+	FLOWER_2,
+	FLOWER_3,
+	FALLEN_TREE,
+
+	//End new Textures
 
 	TS_TILESET,
 	TEXTURE_TEST,
