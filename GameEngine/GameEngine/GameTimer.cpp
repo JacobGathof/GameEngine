@@ -62,7 +62,6 @@ void GameTimer::sleep()
 {
 	float f = 1.0f / targetFPS;
 	int m = std::max(0, (int)((f - deltaTime) * 1000 * 1000));
-	std::cout << m << std::endl;
 	std::this_thread::sleep_for(std::chrono::microseconds(m));
 }
 
