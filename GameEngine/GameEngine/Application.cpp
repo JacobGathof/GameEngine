@@ -93,8 +93,6 @@ void Application::run()
 	Screen::setMovementBehavior(Screen::followBehavior);
 
 	dt = 1.0f / 60.0f;
-	
-
 
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
 
@@ -103,7 +101,7 @@ void Application::run()
 
 		timer.update();
 
-		std::cout << timer.FPS() << std::endl;
+		//std::cout << timer.FPS() << std::endl;
 
 		Res::get(ShaderType::LIGHT_SHADER)->bind();
 		Res::get(ShaderType::LIGHT_SHADER)->loadFloat("gameTime", timer.getGameTime());
