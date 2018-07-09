@@ -4,7 +4,8 @@
 #include "FastParticleSystem.h"
 #include "DamageTag.h"
 
-PlayerAI::PlayerAI()
+
+PlayerAI::PlayerAI() : spline(Vector2f(0,0), Vector2f(0,0), Vector2f(0,0), Vector2f(0,0)), line(Vector2f(0,0), Vector2f(0,0)), line2(Vector2f(0,0), Vector2f(0,0))
 {
 }
 
@@ -63,8 +64,54 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 		//user->forward = Vector2f(xVel, yVel).normalize();
 	}
 
+	Vector2f mp = mouse.pos() - Vector2f(Screen::width, Screen::height) / 2;
+
+
+	line.p1 = user->pos;
+	spline.p4 = user->pos;
+
+	if (numClicks == 0) {
+		line.p2 = Screen::toWorldCoords(mouse.pos());
+	}
+	if (numClicks == 1) {
+		line2.p2 = Screen::toWorldCoords(mouse.pos());
+	}
+
 	if (mouse.click()) {
-		leftClick(mouse.pos() - Vector2f(Screen::width, Screen::height)/2);
+
+		if (numClicks == 0) {
+			line.p2 = Screen::toWorldCoords(mouse.pos());
+			line2.p1 = Screen::toWorldCoords(mouse.pos());
+			line2.p2 = Screen::toWorldCoords(mouse.pos());
+		}if (numClicks == 1) {
+			Vector2f a = Screen::toWorldCoords(mouse.pos()) - line.p1;
+			Vector2f b = Vector2f(-(line.p2 - line.p1)[1], (line.p2 - line.p1)[0]);
+			line2.p2 = (a.dot(b) / b.dot(b)) * b + line.p2;
+
+			spline.p1 = user->pos;
+			spline.p2 = line2.p2;
+			spline.p3 = 2*line.p2  - line2.p2;
+			spline.p4 = user->pos;
+
+			leftClick(mp);
+
+		}
+		if (numClicks == 2) {
+			line.p1 = user->pos;
+			line.p2 = user->pos;
+			line2.p1 = user->pos;
+			line2.p2 = user->pos;
+
+			spline.p1 = user->pos;
+			spline.p2 = user->pos;
+			spline.p3 = user->pos;
+			spline.p4 = user->pos;
+		}
+
+		numClicks++;
+		if (numClicks >= 3)
+			numClicks = 0;
+
 	}
 
 }
@@ -86,6 +133,12 @@ void PlayerAI::processArrowUpKey()
 
 void PlayerAI::leftClick(Vector2f & pos)
 {
+
+	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
+	Boomerang * p = new Boomerang(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(64, 64), direction, user);
+	p->setPoints(spline.p1, spline.p2, spline.p3, spline.p4);
+	World::getInstance()->addCObject(p);
+
 	if (GameState::inv->getCurrentWeapon() == Res::get(WeaponType::SWORD)) {
 		Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 		Projectile * p = new Boomerang(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(64, 64), direction, user);

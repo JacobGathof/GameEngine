@@ -8,9 +8,12 @@ public:
 	~Line();
 
 	virtual bool contains(Vector2f& pt);
+	void draw();
 
-private:
 	Vector2f p1;
 	Vector2f p2;
+
+private:
+
 };
 

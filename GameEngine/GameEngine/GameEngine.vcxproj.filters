@@ -594,6 +594,9 @@
     <ClCompile Include="TextboxWaitAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BezierSpline.cpp">
+      <Filter>Source Files\Utilities\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1066,6 +1069,9 @@
     </ClInclude>
     <ClInclude Include="TextboxWaitAction.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierSpline.h">
+      <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,8 @@
 #include "WeatherManager.h"
 #include "GlobalActionInvoker.h"
 
+#include "BezierSpline.h"
+
 
 Application::Application(){}
 Application::~Application(){}
@@ -96,6 +98,7 @@ void Application::run()
 	dt = 1.0f / 60.0f;
 	
 
+
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
 
 	while (!Window::shouldClose()) {
@@ -128,6 +131,11 @@ void Application::run()
 
 		Screen::updateUniforms();
 		Renderer::draw();
+
+		Input::ai->spline.draw();
+		Input::ai->line.draw();
+		Input::ai->line2.draw();
+
 		Window::swapBuffers();
 		
 	}

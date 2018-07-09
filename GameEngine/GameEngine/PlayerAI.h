@@ -7,6 +7,9 @@
 
 #include "Player.h"
 
+#include "BezierSpline.h"
+#include "Line.h"
+
 class PlayerAI : public AI
 {
 public:
@@ -18,6 +21,11 @@ public:
 	virtual bool execute(Player * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard, Mouse& mouse);
 
+	BezierSpline spline;
+	Line line;
+	Line line2;
+	int numClicks;
+
 protected:
 	float xVel;
 	float yVel;
@@ -25,5 +33,6 @@ protected:
 	virtual void processInteractKey();
 	virtual void processArrowUpKey();
 	virtual void leftClick(Vector2f& pos);
+
 };
 
