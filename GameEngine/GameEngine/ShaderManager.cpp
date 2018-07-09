@@ -23,7 +23,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::SHADOW_SHADER, "res/shaders/shadowShader.vert", "res/shaders/shadowShader.frag");
 
 	addShader(ShaderType::WATER_SHADER, "res/shaders/waterShader.vert", "res/shaders/waterShader.frag");
-	addShader(ShaderType::FRACTAL_SHADER, "res/shaders/fractalShader.vert", "res/shaders/fractalShader.frag");
+	addShader(ShaderType::LINE_SHADER, "res/shaders/lineShader.vert", "res/shaders/lineShader.frag");
 }
 
 

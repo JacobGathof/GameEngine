@@ -19,7 +19,7 @@ enum class ShaderType {
 
 	WATER_SHADER,
 
-	FRACTAL_SHADER,
+	LINE_SHADER,
 
 	TEXT_WORLD_SHADER,
 };

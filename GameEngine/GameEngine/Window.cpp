@@ -35,6 +35,7 @@ void Window::init(char* title, int width, int height) {
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
 
+
 	initOpenGL();
 
 	centerCursor();
@@ -137,6 +138,7 @@ void Window::toggleFullscreen()
 		glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+		std::cout << mode->refreshRate << std::endl;
 		glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 	}
 	else {
@@ -151,6 +153,7 @@ void Window::toggleFullscreen()
 
 void Window::setSize(int width, int height)
 {
+
 	if (!fullscreen) {
 		WINDOW_WIDTH = width;
 		WINDOW_HEIGHT = height;

@@ -9,9 +9,6 @@
 #include "InteractionObject.h"
 #include "BattleManager.h"
 
-#include <thread>
-#include <chrono>
-
 #include "WeatherManager.h"
 #include "GlobalActionInvoker.h"
 
@@ -106,6 +103,8 @@ void Application::run()
 
 		timer.update();
 
+		std::cout << timer.FPS() << std::endl;
+
 		Res::get(ShaderType::LIGHT_SHADER)->bind();
 		Res::get(ShaderType::LIGHT_SHADER)->loadFloat("gameTime", timer.getGameTime());
 
@@ -135,6 +134,8 @@ void Application::run()
 		Input::ai->spline.draw();
 		Input::ai->line.draw();
 		Input::ai->line2.draw();
+
+		timer.sleep();
 
 		Window::swapBuffers();
 		

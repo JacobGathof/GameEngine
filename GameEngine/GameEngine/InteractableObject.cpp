@@ -53,7 +53,7 @@ bool InteractableObject::update(float dt)
 
 
 	interactionRadius->center = pos;
-	if (interacting) {
+	if (interacting && interactObj != 0) {
 		int status = interactObj->run(dt);
 		interacting = (status==0);
 		if (!interacting) {

@@ -18,7 +18,7 @@ bool Line::contains(Vector2f & pt)
 
 void Line::draw()
 {
-	ShaderProgram* p = Res::get(ShaderType::FRACTAL_SHADER);
+	ShaderProgram* p = Res::get(ShaderType::LINE_SHADER);
 	p->bind();
 	p->loadVector2f("translate", Vector2f(0, 0));
 	p->loadVector2f("scale", Vector2f(1, 1));

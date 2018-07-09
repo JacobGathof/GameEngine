@@ -40,7 +40,6 @@ public:
 
 private:
 	static Text* text;
-	
 	std::string str;
 
 };
@@ -117,8 +116,11 @@ public:
 	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex);
 	void addChoiceToQueue(List<std::string>& text);
 
+	void addTextContent(TextboxContent* content);
+
 	virtual void handleMouseEvents(Mouse& mouse);
 	virtual void handleKeyEvents(Keyboard& keyboard);
+	virtual void resize(int x, int y);
 
 	void show();
 	void hide();

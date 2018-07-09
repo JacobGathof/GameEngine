@@ -12,6 +12,9 @@ public:
 	bool tick();
 	int FPS();
 
+	void setTargetFPS(int f);
+	void sleep();
+
 	GameTimer();
 	~GameTimer();
 private:
@@ -27,5 +30,7 @@ private:
 	int frames = 0;
 	int fps = 0;
 	bool tickActive = false;
+
+	int targetFPS = 60;
 };
 

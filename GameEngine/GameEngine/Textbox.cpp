@@ -17,6 +17,9 @@ Textbox::Textbox()
 {
 	textScale = Vector2f(30, 30);
 	textStartPos = Vector2f(24+100, 160);
+	position = Vector2f(10, 10);
+	scale = Vector2f(780, 200);
+
 	timer.setTickLength(0.05f);
 	advanceTimer.setPauseOnTick(true);
 	advanceTimer.pause();
@@ -42,21 +45,10 @@ void Textbox::draw(){
 		return;
 	}
 
-	UIUtils::drawRectangle(Vector2f(10, 10), Vector2f(780, 200), Color(0xaaaaffff));
-	UIUtils::drawRectangle(Vector2f(12, 12), Vector2f(776, 196), Color(0xffffffff));
-	UIUtils::drawRectangle(Vector2f(14, 14), Vector2f(772, 192), Color(0x000000ff));
+	UIUtils::drawRectangle(position, scale, Color(0xaaaaffff));
+	UIUtils::drawRectangle(position + Vector2f(2,2), scale - Vector2f(4, 4), Color(0xffffffff));
+	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000000ff));
 
-	/*
-	UIUtils::drawRectangle(Vector2f(10, 210), Vector2f(200, 50), Color(0x000000dd));
-	UIUtils::drawRectangle(Vector2f(12, 212), Vector2f(196, 46), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(Vector2f(14, 214), Vector2f(192, 42), Color(0x000000dd));
-	*/
-
-	/*
-	UIUtils::drawRectangle(Vector2f(10, 210), Vector2f(100, 100), Color(0x000000dd));
-	UIUtils::drawRectangle(Vector2f(12, 212), Vector2f(96, 96), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(Vector2f(14, 214), Vector2f(92, 92), Color(0x000000dd));
-	*/
 	if (current != 0) {
 		current->draw();
 	}
@@ -105,28 +97,26 @@ void Textbox::advanceText()
 }
 
 void Textbox::addPlainTextToQueue(std::string& text){
-	queue.push(new PlainText(text));
-	GameState::textboxEmpty = false;
-	if (!visible) {
-		advanceText();
-	}
+	addTextContent(new PlainText(text));
 }
 
 void Textbox::addDialogueToQueue(std::string & text, std::string & name, TextureType tex)
 {
-	queue.push(new DialogueText(text, name, tex));
+	addTextContent(new DialogueText(text, name, tex));
 	//advanceTimer.unpause();
 	//advanceTimer.setTickLength(3.0f);
-	GameState::textboxEmpty = false;
-	if (!visible) {
-		advanceText();
-	}
+	
 }
 
 void Textbox::addChoiceToQueue(List<std::string>& text)
 {
+	addTextContent(new Choice(text));
+}
+
+void Textbox::addTextContent(TextboxContent * content)
+{
+	queue.push(content);
 	GameState::textboxEmpty = false;
-	queue.push(new Choice(text));
 	if (!visible) {
 		advanceText();
 	}
@@ -152,6 +142,12 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 			current->handleKeyEvents(keyboard);
 		}
 	}
+}
+
+void Textbox::resize(int x, int y)
+{
+	textStartPos = Vector2f(24 + 100, 160);
+	position[0] = x/2 - scale[0]/2;
 }
 
 void Textbox::show()
@@ -382,7 +378,6 @@ void DialogueText::draw()
 void DialogueText::finish()
 {
 }
-
 
 bool DialogueText::isDisplayingFullLength()
 {
