@@ -31,12 +31,12 @@ void Application::run()
 
 	Window::init("The Echo Effect", 800, 800);
 	AudioSystem::init();
-
+	
 	ResourceManager::init();
 	Screen::init();
 	Input::init();
 	GlobalActionInvoker::init();
-
+	
 	Inventory inv;
 	GameState::inv = &inv;
 	inv.add(Res::get(CardType::EXCALIBUR));
@@ -51,14 +51,14 @@ void Application::run()
 	UIManager::init();
 
 	WeatherManager::init();
-
+	
 
 	//Rooms and the world
 	World * world = World::getInstance();
 
 	RoomFactory::CreateAllRooms();
 	
-	world->setCurrentRoom(World::RoomNames::READING_ROOM);
+	world->setCurrentRoom(World::RoomNames::CLEARING);
 
 	//world->transition(world->getRoom(std::string("Clearing")));
 	

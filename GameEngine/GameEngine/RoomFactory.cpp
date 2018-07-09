@@ -25,8 +25,9 @@ void RoomFactory::CreateAllRooms()
 	world->addRoom(World::RoomNames::READING_ROOM, createReadingRoom());
 	world->addRoom(World::RoomNames::CLEARING, createClearing());
 	world->addRoom(World::RoomNames::EAST, createEastOfTown());
-
+	
 	AddTransitionObjects();
+	
 }
 
 void RoomFactory::addWorldObjects()
@@ -49,7 +50,6 @@ Room* RoomFactory::createReadingRoom()
 	Room * room = new Room();
 	room->setTerrainMap(std::string("StoryTellingRoom"));
 	//room->loadObjects(std::string("ObjectMaps/storyTellingRoom"));
-
 	
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
@@ -83,7 +83,7 @@ Room* RoomFactory::createReadingRoom()
 	card3->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
 
 
-	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
+	//room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	room->addObject(table);
 	room->addObject(card1);
 	room->addObject(card2);
@@ -98,12 +98,13 @@ Room* RoomFactory::createClearing()
 {
 	Room * room = new Room();
 	room->setTerrainMap(std::string("Clearing"));
-	//room->loadObjects(std::string("ObjectMaps/Clearing"));
-
+	
+	room->loadObjects(std::string("ObjectMaps/Clearing"));
+	
 	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128));
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
-	
+	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	return room;
 }
 
