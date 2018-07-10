@@ -33,7 +33,7 @@ void Window::init(char* title, int width, int height) {
 	glfwSetWindowPos(window, (mode->width - WINDOW_WIDTH)/2, (mode->height - WINDOW_HEIGHT) / 2);
 
 	glfwMakeContextCurrent(window);
-	//glfwSwapInterval(1);
+	glfwSwapInterval(1);
 
 
 	initOpenGL();

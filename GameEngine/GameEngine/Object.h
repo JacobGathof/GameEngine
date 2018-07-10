@@ -45,6 +45,8 @@ public:
 	TextureType texture;
 	std::string name;
 	float rotation;
+	float depthPercentage;
+	bool uniformDepth = true;
 
 	static int numCreated;
 	static int numDeleted;
@@ -53,6 +55,11 @@ protected:
 	List<AI *> aiQueue;
 
 	List<Effect *> effects;
+
+
+	// Variables from AnimatedObject, but if we put them here, we can reduce duplicated code in the draw method
+	int animationRow = 0;
+	int animationColumn = 0;
 
 };
 

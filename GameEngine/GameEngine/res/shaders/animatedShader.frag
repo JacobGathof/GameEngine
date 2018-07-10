@@ -2,6 +2,7 @@
 
 in vec2 uv;
 in vec2 sc;
+in float depth;
 
 uniform sampler2D image;
 uniform int selected;
@@ -26,4 +27,13 @@ void main(){
 	}else{
 		gl_FragColor = texture(image, uv);
 	}
+	
+	gl_FragDepth = depth;
+	if(gl_FragColor.a <= 0.5){
+		discard;
+	}
+	
+	//gl_FragColor = vec4(depth, depth, depth, 1);
+	
+	
 }

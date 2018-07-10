@@ -21,8 +21,6 @@ protected:
 	Timer animationTimer;
 
 	int animationState;
-	int animationRow = 0;
-	int animationColumn = 0;
 	int animationLoop = true;
 	int animationCurrentColumns = 1;
 

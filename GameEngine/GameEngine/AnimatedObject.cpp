@@ -30,26 +30,7 @@ void AnimatedObject::setAction(SpriteSheet::AnimationState action)
 
 void AnimatedObject::draw()
 {
-	ShaderProgram* p = Res::get(ShaderType::ANIMATED_SHADER);
-	SpriteSheet* sh = Res::get(texture);
-	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
-
-	m->bind();
-	sh->bind();
-
-	p->bind();
-	p->loadVector2f("translate", pos);
-	p->loadVector2f("scale", scale);
-
-	p->loadInteger("rows", sh->rows);
-	p->loadInteger("columns", sh->columns);
-	p->loadInteger("currentRow", animationRow);
-	p->loadInteger("currentColumn", animationColumn);
-	
-	p->loadInteger("selected", selected);
-	p->loadFloat("rotation", rotation);
-
-	m->draw();
+	CollidableObject::draw();
 }
 
 

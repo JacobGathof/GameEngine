@@ -83,7 +83,7 @@ Room* RoomFactory::createReadingRoom()
 	card3->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
 
 
-	//room->addWorldObject(World::getInstance()->getWorldObject("Player"));
+	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	room->addObject(table);
 	room->addObject(card1);
 	room->addObject(card2);

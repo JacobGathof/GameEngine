@@ -41,13 +41,15 @@ void Object::draw()
 	p->loadVector2f("translate", pos);
 	p->loadVector2f("scale", scale);
 
-	p->loadInteger("rows", 1);
-	p->loadInteger("columns", 1);
-	p->loadInteger("currentRow", 0);
-	p->loadInteger("currentColumn", 0);
+	p->loadInteger("rows", sh->rows);
+	p->loadInteger("columns", sh->columns);
+	p->loadInteger("currentRow", animationRow);
+	p->loadInteger("currentColumn", animationColumn);
 
 	p->loadInteger("selected", selected);
 	p->loadFloat("rotation", rotation);
+	p->loadFloat("depthPercentage", depthPercentage);
+	p->loadInteger("uniformDepth", uniformDepth);
 
 	m->draw();
 	

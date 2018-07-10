@@ -182,7 +182,7 @@ void Room::addWorldObject(InteractableObject * obj)
 
 void Room::sortObjects()
 {
-	std::sort(allRoomObjects.begin(), allRoomObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
+	//std::sort(allRoomObjects.begin(), allRoomObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
 }
 
 InteractableObject * Room::getNearestObject(Vector2f& pos)

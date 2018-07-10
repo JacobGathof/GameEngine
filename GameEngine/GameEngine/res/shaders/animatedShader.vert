@@ -5,6 +5,7 @@ layout(location=1) in vec2 texCoords;
 
 out vec2 uv;
 out vec2 sc;
+out float depth;
 
 uniform vec2 translate;
 uniform vec2 scale;
@@ -23,5 +24,10 @@ void main(){
 	vec2 pos = position * mat2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation));
 	sc = scale;
 	uv = (texCoords+vec2(currentColumn, currentRow)) / vec2(columns, rows);
-	gl_Position = vec4(pos*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
+	
+	vec2 worldPos = vec2(pos*(scale*camera_scale)+((translate-camera_translate)*camera_scale));
+	
+	depth = (((translate - camera_translate - vec2(0,scale.y/2))*camera_scale).y + 1)/2.0;
+	
+	gl_Position = vec4(worldPos, 0, 1);
 }

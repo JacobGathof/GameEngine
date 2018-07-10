@@ -55,7 +55,7 @@ void Application::run()
 
 	RoomFactory::CreateAllRooms();
 	
-	world->setCurrentRoom(World::RoomNames::CLEARING);
+	world->setCurrentRoom(World::RoomNames::READING_ROOM);
 
 	//world->transition(world->getRoom(std::string("Clearing")));
 	
@@ -129,9 +129,11 @@ void Application::run()
 		Screen::updateUniforms();
 		Renderer::draw();
 
+		/*
 		Input::ai->spline.draw();
 		Input::ai->line.draw();
 		Input::ai->line2.draw();
+		*/
 
 		timer.sleep();
 

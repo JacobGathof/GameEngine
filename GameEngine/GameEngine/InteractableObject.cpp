@@ -67,7 +67,6 @@ void InteractableObject::draw()
 {
 	AnimatedObject::draw();
 	interactionRadius->draw();
-	drawHitboxes();
 }
 
 bool InteractableObject::collide(CollidableObject * obj)

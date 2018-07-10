@@ -33,9 +33,14 @@ void Renderer::drawWorld()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	World::getInstance()->drawTerrain();
+
+	glEnable(GL_DEPTH_TEST);
 	World::getInstance()->drawObjects();
+	glDisable(GL_DEPTH_TEST);
+
 	World::getInstance()->drawHitboxes();
-	World::getInstance()->draw();
+
+	//World::getInstance()->draw();
 }
 
 
