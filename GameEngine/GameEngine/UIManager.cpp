@@ -137,6 +137,11 @@ void UIManager::addText(std::string & text, std::string & name, TextureType tex)
 	textbox->addDialogueToQueue(text, name, tex);
 }
 
+void UIManager::addText(std::string & text, std::string & name, TextureType tex, Vector2f & imageOffset)
+{
+	textbox->addDialogueToQueue(text, name, tex, imageOffset);
+}
+
 void UIManager::addChoice(List<std::string>& text)
 {
 	textbox->addChoiceToQueue(text);

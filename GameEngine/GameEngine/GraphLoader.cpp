@@ -95,7 +95,16 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 			act = new TextAction(val);
 		}
 		else {
-			act = new DialogueAction(val, std::string(a->value()), TextureType::TEXTURE_DAGON);
+			auto x = inst->first_attribute("ox");
+			auto y = inst->first_attribute("oy");
+			if (x == 0 || y == 0) {
+				act = new DialogueAction(val, std::string(a->value()), TextureType::TEXTURE_DAGON, Vector2f(0,0));
+			}
+			else {
+				int xx = std::atoi(x->value());
+				int yy = std::atoi(y->value());
+				act = new DialogueAction(val, std::string(a->value()), TextureType::T_CARD_5, Vector2f(xx,yy));
+			}
 		}
 	}
 

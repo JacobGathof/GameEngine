@@ -49,6 +49,7 @@ class DialogueText : public TextboxContent {
 public:
 	DialogueText(std::string& str);
 	DialogueText(std::string& str, std::string& name, TextureType tex);
+	DialogueText(std::string& str, std::string& name, TextureType tex, Vector2f& offset);
 
 	static void init();
 	static void clean();
@@ -70,6 +71,7 @@ private:
 	std::string str;
 	std::string name;
 	TextureType speakerPortrait;
+	Vector2f imageOffset;
 
 };
 
@@ -114,6 +116,7 @@ public:
 	void advanceText();
 	void addPlainTextToQueue(std::string& text);
 	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex);
+	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex, Vector2f& imageOffset);
 	void addChoiceToQueue(List<std::string>& text);
 
 	void addTextContent(TextboxContent* content);

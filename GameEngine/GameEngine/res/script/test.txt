@@ -28,7 +28,10 @@
 
 <node id="Second">
 	<actions>
-		<text name="">This is the 00FSecond Node</text>
+		<text name="" ox="0" oy="0">This is the 00FSecond Node</text>
+		<text name="" ox="2" oy="0">Here's a happy Melody</text>
+		<text name="" ox="1" oy="1">Here's a sleepy Melody</text>
+		<text name="" ox="2" oy="1">Melody ate a ghost pepper</text>
 		<text>You have reached the end</text>
 		<text>Instant message</text>
 		<block/>

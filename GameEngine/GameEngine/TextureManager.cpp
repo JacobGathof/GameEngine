@@ -41,6 +41,7 @@ void TextureManager::init() {
 	
 	addTexture(TextureType::T_CARD_GHOST, "res/tex/Card_Ghost.png");
 	addTexture(TextureType::T_CARD_ACE, "res/tex/Card_Ace.png");
+	addTexture(TextureType::T_CARD_5, "res/tex/Melody_Faces.png", 4, 4);
 
 	addTexture(TextureType::TEXTURE_SKYBOX, "res/tex/Skybox.png");
 	addTexture(TextureType::PERLIN_NOISE, "res/tex/perlin_displacement.png");

@@ -108,6 +108,11 @@ void Textbox::addDialogueToQueue(std::string & text, std::string & name, Texture
 	
 }
 
+void Textbox::addDialogueToQueue(std::string & text, std::string & name, TextureType tex, Vector2f & imageOffset)
+{
+	addTextContent(new DialogueText(text, name, tex, imageOffset));
+}
+
 void Textbox::addChoiceToQueue(List<std::string>& text)
 {
 	addTextContent(new Choice(text));
@@ -334,6 +339,11 @@ DialogueText::DialogueText(std::string & st, std::string & nm, TextureType tex)
 
 }
 
+DialogueText::DialogueText(std::string & str, std::string & name, TextureType tex, Vector2f & offset) : DialogueText(str, name, tex)
+{
+	imageOffset = offset;
+}
+
 void DialogueText::init()
 {
 	text = new Text(Vector2f(24 + 100, 160), std::string("-----"), Vector2f(30, 30), 0);
@@ -365,7 +375,7 @@ void DialogueText::draw()
 	UIUtils::drawRectangle(Vector2f(10, 110) + Vector2f(6, -6), Vector2f(100, 100), Color(0x000000dd));
 	UIUtils::drawRectangle(Vector2f(12, 112) + Vector2f(6, -6), Vector2f(96, 96), Color(0xaaaaaa88));
 	UIUtils::drawRectangle(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), Color(0x000000dd));
-	UIUtils::drawImage(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), speakerPortrait);
+	UIUtils::drawImage(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), speakerPortrait, imageOffset);
 
 	UIUtils::drawRectangle(Vector2f(10, 60) + Vector2f(6, -6), Vector2f(100, 40), Color(0x000000dd));
 	UIUtils::drawRectangle(Vector2f(12, 62) + Vector2f(6, -6), Vector2f(96, 36), Color(0xaaaaaa88));
