@@ -51,7 +51,6 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="DefaultParticleSystem.cpp" />
-    <ClCompile Include="DialogueAction.cpp" />
     <ClCompile Include="DirectedParticleSystem.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -204,7 +203,6 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DeckManager.h" />
     <ClInclude Include="DefaultParticleSystem.h" />
-    <ClInclude Include="DialogueAction.h" />
     <ClInclude Include="DirectedParticleSystem.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Enemy.h" />

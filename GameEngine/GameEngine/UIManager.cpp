@@ -127,19 +127,37 @@ void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 
 
 
+void UIManager::addText(TextboxContentData & data)
+{
+	textbox->addText(data);
+}
+
 void UIManager::addText(std::string& text)
 {
-	textbox->addPlainTextToQueue(text);
+	TextboxContentData data;
+	data.text = text;
+	textbox->addText(data);
 }
 
 void UIManager::addText(std::string & text, std::string & name, TextureType tex)
 {
-	textbox->addDialogueToQueue(text, name, tex);
+	TextboxContentData data;
+	data.text = text;
+	data.name = name;
+	data.portrait = tex;
+	data.dialogue = true;
+	textbox->addText(data);
 }
 
 void UIManager::addText(std::string & text, std::string & name, TextureType tex, Vector2f & imageOffset)
 {
-	textbox->addDialogueToQueue(text, name, tex, imageOffset);
+	TextboxContentData data;
+	data.text = text;
+	data.name = name;
+	data.portrait = tex;
+	data.offset = imageOffset;
+	data.dialogue = true;
+	textbox->addText(data);
 }
 
 void UIManager::addChoice(List<std::string>& text)

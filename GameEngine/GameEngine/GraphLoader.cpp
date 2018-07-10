@@ -89,23 +89,36 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	std::string cmd = inst->name();
 	std::string val = inst->value();
 
+
 	if (cmd == "text") {
-		auto a = inst->first_attribute("name");
-		if (a == 0) {
-			act = new TextAction(val);
+
+		TextboxContentData content;
+		content.text = val;
+
+		auto n = inst->first_attribute("name");
+		auto t = inst->first_attribute("time");
+
+		auto x = inst->first_attribute("x");
+		auto y = inst->first_attribute("y");
+
+		if (n != 0) {
+			content.dialogue = true;
+			content.name = n->value();
+			content.portrait = TextureType::T_CARD_5;
 		}
-		else {
-			auto x = inst->first_attribute("ox");
-			auto y = inst->first_attribute("oy");
-			if (x == 0 || y == 0) {
-				act = new DialogueAction(val, std::string(a->value()), TextureType::TEXTURE_DAGON, Vector2f(0,0));
-			}
-			else {
-				int xx = std::atoi(x->value());
-				int yy = std::atoi(y->value());
-				act = new DialogueAction(val, std::string(a->value()), TextureType::T_CARD_5, Vector2f(xx,yy));
-			}
+
+		if (t != 0) {
+			content.time = std::atof(t->value());
 		}
+
+		if (x != 0 && y != 0) {
+			int xx = std::atoi(x->value());
+			int yy = std::atoi(y->value());
+			content.offset = Vector2f(xx, yy);
+		}
+
+		act = new TextAction(content);
+
 	}
 
 	else if (cmd == "choice") {

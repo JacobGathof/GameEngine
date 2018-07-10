@@ -96,29 +96,28 @@ void Textbox::advanceText()
 	}
 }
 
-void Textbox::addPlainTextToQueue(std::string& text){
-	addTextContent(new PlainText(text));
+TextboxContent * Textbox::createContentFromData(TextboxContentData & data)
+{
+	if (data.dialogue) {
+		return new DialogueText(data.text, data.name, data.portrait, data.offset);
+	}
+	else {
+		return new PlainText(data.text);
+	}
 }
 
-void Textbox::addDialogueToQueue(std::string & text, std::string & name, TextureType tex)
+void Textbox::addText(TextboxContentData & data)
 {
-	addTextContent(new DialogueText(text, name, tex));
-	//advanceTimer.unpause();
-	//advanceTimer.setTickLength(3.0f);
-	
+	addTextContentToQueue(createContentFromData(data));
 }
 
-void Textbox::addDialogueToQueue(std::string & text, std::string & name, TextureType tex, Vector2f & imageOffset)
-{
-	addTextContent(new DialogueText(text, name, tex, imageOffset));
-}
 
 void Textbox::addChoiceToQueue(List<std::string>& text)
 {
-	addTextContent(new Choice(text));
+	addTextContentToQueue(new Choice(text));
 }
 
-void Textbox::addTextContent(TextboxContent * content)
+void Textbox::addTextContentToQueue(TextboxContent * content)
 {
 	queue.push(content);
 	GameState::textboxEmpty = false;
@@ -323,24 +322,11 @@ void TextboxContent::handleKeyEvents(Keyboard & keyboard)
 
 
 
-
-DialogueText::DialogueText(std::string & st)
-{
-	str = st;
-	name = "Test";
-	speakerPortrait = TextureType::TEXTURE_SLIME;
-}
-
-DialogueText::DialogueText(std::string & st, std::string & nm, TextureType tex)
+DialogueText::DialogueText(std::string & st, std::string & nm, TextureType tex, Vector2f & offset)
 {
 	str = st;
 	name = nm;
 	speakerPortrait = tex;
-
-}
-
-DialogueText::DialogueText(std::string & str, std::string & name, TextureType tex, Vector2f & offset) : DialogueText(str, name, tex)
-{
 	imageOffset = offset;
 }
 
@@ -366,6 +352,9 @@ void DialogueText::prepare()
 	text->resetLength();
 
 	speakerName->setText(name);
+
+	//advanceTimer.unpause();
+	//advanceTimer.setTickLength(3.0f);
 }
 
 void DialogueText::draw()

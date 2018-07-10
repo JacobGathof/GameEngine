@@ -1,18 +1,16 @@
 #pragma once
 #include "AbstractAction.h"
 #include "UIManager.h"
+#include "Textbox.h"
 
 class TextAction : public AbstractAction
 {
 public:
-	TextAction(std::string& txt, bool block = false);
+	TextAction(TextboxContentData& data);
 	~TextAction();
 	virtual int run(float dt);
-	virtual void reset();
 
 private:
-	std::string text;
-	bool blocking = false;
-	bool sent = false;
+	TextboxContentData data;
 };
 

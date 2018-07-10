@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "List.h"
+#include "Textbox.h"
 
 class Textbox;
 class Menu;
@@ -26,9 +27,15 @@ public:
 	static void handleMouseEvents(Mouse& mouse);
 	static void handleKeyboardEvents(Keyboard& keyboard);
 
+	static void addText(TextboxContentData& data);
+
+	//* Depreciated *//
 	static void addText(std::string& text);
 	static void addText(std::string& text, std::string& name, TextureType tex);
 	static void addText(std::string& text, std::string& name, TextureType tex, Vector2f& imageOffset);
+	//*				*//
+
+
 	static void addChoice(List<std::string>& text);
 	static bool isTextboxEmpty();
 

@@ -6,6 +6,18 @@
 #include "List.h"
 
 
+struct TextboxContentData {
+	std::string text = "";
+
+	std::string name = "???";
+	TextureType portrait = TextureType::TEXTURE_DEFAULT;
+	Vector2f offset = Vector2f(0,0);
+
+	float time = -1;
+
+	bool dialogue = false;
+};
+
 
 class TextboxContent {
 public:
@@ -47,8 +59,6 @@ private:
 
 class DialogueText : public TextboxContent {
 public:
-	DialogueText(std::string& str);
-	DialogueText(std::string& str, std::string& name, TextureType tex);
 	DialogueText(std::string& str, std::string& name, TextureType tex, Vector2f& offset);
 
 	static void init();
@@ -114,12 +124,13 @@ public:
 	void draw();
 	void update(float dt);
 	void advanceText();
-	void addPlainTextToQueue(std::string& text);
-	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex);
-	void addDialogueToQueue(std::string& text, std::string& name, TextureType tex, Vector2f& imageOffset);
+
+	TextboxContent* createContentFromData(TextboxContentData& data);
+	void addText(TextboxContentData& data);
+	void addTextContentToQueue(TextboxContent* content);
+
 	void addChoiceToQueue(List<std::string>& text);
 
-	void addTextContent(TextboxContent* content);
 
 	virtual void handleMouseEvents(Mouse& mouse);
 	virtual void handleKeyEvents(Keyboard& keyboard);

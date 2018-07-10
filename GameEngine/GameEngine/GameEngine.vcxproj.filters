@@ -546,9 +546,6 @@
     <ClCompile Include="WaitAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="DialogueAction.cpp">
-      <Filter>Source Files\Actions</Filter>
-    </ClCompile>
     <ClCompile Include="GraphAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
@@ -990,9 +987,6 @@
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
     <ClInclude Include="DebugAction.h">
-      <Filter>Header Files\Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="DialogueAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
     <ClInclude Include="MoveAction.h">
