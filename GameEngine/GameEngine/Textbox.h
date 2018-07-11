@@ -5,16 +5,17 @@
 #include "Timer.h"
 #include "List.h"
 
+#define TEXT_SPEED 0.05f
 
 struct TextboxContentData {
 	std::string text = "";
-
 	std::string name = "???";
 	TextureType portrait = TextureType::TEXTURE_DEFAULT;
 	Vector2f offset = Vector2f(0,0);
 
 	float time = -1;
-
+	float textSpeed = 1;
+	bool skippable = true;
 	bool dialogue = false;
 };
 
@@ -29,13 +30,16 @@ public:
 	virtual void displayFullLength() = 0;
 	virtual void addLetter() = 0;
 
-	virtual void handleKeyEvents(Keyboard& keyboard);
+	virtual void handleKeyEvents(Keyboard& keyboard) {};
 };
 
 
-class PlainText : public TextboxContent {
+
+
+class CompositeText : public TextboxContent {
 public:
-	PlainText(std::string& str);
+
+	CompositeText(TextboxContentData& data);
 
 	static void init();
 	static void clean();
@@ -47,41 +51,12 @@ public:
 	virtual bool isDisplayingFullLength();
 	virtual void displayFullLength();
 	virtual void addLetter();
-
-	virtual void handleKeyEvents(Keyboard& keyboard);
-
-private:
-	static Text* text;
-	std::string str;
-
-};
-
-
-class DialogueText : public TextboxContent {
-public:
-	DialogueText(std::string& str, std::string& name, TextureType tex, Vector2f& offset);
-
-	static void init();
-	static void clean();
-
-	virtual void prepare();
-	virtual void draw();
-	virtual void finish();
-
-	virtual bool isDisplayingFullLength();
-	virtual void displayFullLength();
-	virtual void addLetter();
-
-	virtual void handleKeyEvents(Keyboard& keyboard);
 
 private:
 	static Text* text;
 	static Text* speakerName;
 
-	std::string str;
-	std::string name;
-	TextureType speakerPortrait;
-	Vector2f imageOffset;
+	TextboxContentData data;
 
 };
 
@@ -123,7 +98,6 @@ public:
 
 	void draw();
 	void update(float dt);
-	void advanceText();
 
 	TextboxContent* createContentFromData(TextboxContentData& data);
 	void addText(TextboxContentData& data);
@@ -142,13 +116,25 @@ public:
 	bool isEmpty();
 	bool hasNext();
 
+	static void setTextSpeed(float multiplier);
+	static void initAdvanceTimer(float time);
+	static void setSkippable(bool skippable);
+	static void resetTextboxOptions();
+
+	static Timer advanceTimer;
+	static Timer timer;
+	static bool skippable;
+
+
+
 private:
 
+	void advanceText();
+
 	std::queue<TextboxContent*> queue;
-	Timer timer;
-	Timer advanceTimer;
 
 	bool visible = true;
+
 	Vector2f textScale;
 	Vector2f textStartPos;
 

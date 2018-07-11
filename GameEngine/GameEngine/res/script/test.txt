@@ -28,9 +28,9 @@
 
 <node id="Second">
 	<actions>
-		<text name="" x="0" y="0">This is the 00FSecond Node</text>
+		<text name="" x="0" y="0" speed="0.25">This is the 00FSecond Node</text>
 		<text name="" x="2" y="0">Here's a happy Melody</text>
-		<text name="" x="1" y="1">Here's a sleepy Melody</text>
+		<text name="" x="1" y="1" speed="0.5" skip="0">(No skip) Here's a sleepy Melody</text>
 		<text name="" x="2" y="1">Melody ate a ghost pepper</text>
 		<text name="" x="2" y="2">Silver, I don't feel too good...</text>
 		<text>You have reached the end</text>

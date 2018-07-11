@@ -101,6 +101,9 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		auto x = inst->first_attribute("x");
 		auto y = inst->first_attribute("y");
 
+		auto s = inst->first_attribute("speed");
+		auto sk = inst->first_attribute("skip");
+
 		if (n != 0) {
 			content.dialogue = true;
 			content.name = n->value();
@@ -109,6 +112,14 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 
 		if (t != 0) {
 			content.time = std::atof(t->value());
+		}
+
+		if (s != 0) {
+			content.textSpeed = std::atof(s->value());
+		}
+
+		if (sk != 0) {
+			content.skippable = (bool)std::atoi(sk->value());
 		}
 
 		if (x != 0 && y != 0) {
