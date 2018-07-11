@@ -19,6 +19,8 @@ std::string TextUtils::processString(std::string & txt, Font* font, Vector2f& sc
 	std::string newString;
 	newString.resize(txt.size());
 	int txtLength = txt.length();
+	int numNewlines = 0;
+
 	for (int i = 0; i < txtLength; i++) {
 		if (txt[i] == '\n' || txt[i] == ' '){
 			newString[i] = ' ';
@@ -33,8 +35,14 @@ std::string TextUtils::processString(std::string & txt, Font* font, Vector2f& sc
 		if (length >= maxLength) {
 			length = 0;
 			backtrack(i, txt, newString);
+			numNewlines++;
 		}
 	}
+
+	if (numNewlines >= 5) {
+		std::cout << "Warning - Line too long: " << txt << std::endl;
+	}
+
 	return newString;
 }
 

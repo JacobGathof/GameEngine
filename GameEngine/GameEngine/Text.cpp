@@ -299,4 +299,9 @@ Vector2f & Text::getScale()
 	return scale;
 }
 
+float Text::getWidth()
+{
+	return totalWidth;
+}
+
 

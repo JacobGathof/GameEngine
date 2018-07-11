@@ -33,6 +33,7 @@ public:
 	void displayFullLength();
 	Vector2f& getScale();
 
+	float getWidth();
 
 	static float POS_SCALE;
 

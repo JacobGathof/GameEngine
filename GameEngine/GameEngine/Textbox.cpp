@@ -6,6 +6,12 @@
 
 Text* CompositeText::text;
 Text* CompositeText::speakerName;
+Vector2f CompositeText::imagePosition;
+Vector2f CompositeText::imageScale;
+Vector2f CompositeText::textStartPosition;
+float CompositeText::textEffectiveWidth;
+Vector2f CompositeText::namePosition;
+Vector2f CompositeText::nameScale;
 
 Text* Choice::texts[4];
 Color Choice::selectedColor(0x00ffffff);
@@ -14,6 +20,9 @@ Color Choice::defaultColor(0xffffffff);
 bool Textbox::skippable = true;
 Timer Textbox::timer;
 Timer Textbox::advanceTimer;
+Vector2f Textbox::contentPosition;
+Vector2f Textbox::contentScale;
+Vector2f Textbox::textScale;
 
 
 #pragma region Textbox
@@ -21,9 +30,12 @@ Timer Textbox::advanceTimer;
 Textbox::Textbox()
 {
 	textScale = Vector2f(30, 30);
-	textStartPos = Vector2f(24+100, 160);
+
 	position = Vector2f(10, 10);
 	scale = Vector2f(780, 200);
+
+	contentPosition = position+Vector2f(10,10);
+	contentScale = scale - Vector2f(20,20);
 
 	timer.setTickLength(TEXT_SPEED);
 	advanceTimer.setPauseOnTick(true);
@@ -51,6 +63,10 @@ void Textbox::draw(){
 	UIUtils::drawRectangle(position, scale, Color(0xaaaaffff));
 	UIUtils::drawRectangle(position + Vector2f(2,2), scale - Vector2f(4, 4), Color(0xffffffff));
 	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000000ff));
+
+
+	//UIUtils::drawRectangle(contentPosition, contentScale, Color(0xff00ffff));
+	//UIUtils::drawRectangle(contentPosition+Vector2f(2,2), contentScale-Vector2f(4,4), Color(0x000000ff));
 
 	if (current != 0) {
 		current->draw();
@@ -157,8 +173,12 @@ void Textbox::handleKeyEvents(Keyboard & keyboard)
 
 void Textbox::resize(int x, int y)
 {
-	textStartPos = Vector2f(24 + 100, 160);
 	position[0] = x/2 - scale[0]/2;
+	contentPosition = position + Vector2f(10, 10);
+
+	if (current != 0) {
+		current->resize();
+	}
 }
 
 void Textbox::show()
@@ -319,11 +339,14 @@ CompositeText::CompositeText(TextboxContentData & dat){
 
 void CompositeText::init()
 {
-	text = new Text(Vector2f(24 + 100, 160), std::string("-----"), Vector2f(30, 30), 0);
+	textEffectiveWidth = (Textbox::contentPosition[0] + Textbox::contentScale[0]) - textStartPosition[0];
+
+	text = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
 	text->setColor(Color(0xffffffff));
 
-	speakerName = new Text(Vector2f(24, 60), std::string("-----"), Vector2f(30, 30), 0);
+	speakerName = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
 	speakerName->setColor(Color(0xaaaaffff));
+
 }
 
 void CompositeText::clean()
@@ -334,11 +357,12 @@ void CompositeText::clean()
 
 void CompositeText::prepare()
 {
-	data.text = TextUtils::processString(data.text, Res::get(FontType::DEFAULT), Vector2f(30, 30), 738.0f);
+	data.text = TextUtils::processString(data.text, Res::get(FontType::DEFAULT), Textbox::textScale, textEffectiveWidth);
 	text->setText(data.text);
 	text->resetLength();
 
 	speakerName->setText(data.name);
+	nameScale = Vector2f(speakerName->getWidth() + 16, 32);
 
 	Textbox::setTextSpeed(data.textSpeed);
 	Textbox::setSkippable(data.skippable);
@@ -351,22 +375,37 @@ void CompositeText::prepare()
 void CompositeText::draw()
 {
 	text->draw();
+	
+	UIUtils::drawRectangle(imagePosition, imageScale, Color(0x000000dd));
+	UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0xaaaaaa88));
+	UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000dd));
+	UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
 
-	UIUtils::drawRectangle(Vector2f(10, 110) + Vector2f(6, -6), Vector2f(100, 100), Color(0x000000dd));
-	UIUtils::drawRectangle(Vector2f(12, 112) + Vector2f(6, -6), Vector2f(96, 96), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), Color(0x000000dd));
-	UIUtils::drawImage(Vector2f(14, 114) + Vector2f(6, -6), Vector2f(92, 92), data.portrait, data.offset);
-
-	UIUtils::drawRectangle(Vector2f(10, 60) + Vector2f(6, -6), Vector2f(100, 40), Color(0x000000dd));
-	UIUtils::drawRectangle(Vector2f(12, 62) + Vector2f(6, -6), Vector2f(96, 36), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(Vector2f(14, 64) + Vector2f(6, -6), Vector2f(92, 32), Color(0x000000dd));
+	
+	UIUtils::drawRectangle(namePosition, nameScale, Color(0x000000dd));
+	UIUtils::drawRectangle(namePosition+Vector2f(2), nameScale-Vector2f(4), Color(0xaaaaaa88));
+	UIUtils::drawRectangle(namePosition+Vector2f(4), nameScale-Vector2f(8), Color(0x000000dd));
+	
 
 	speakerName->draw();
+	
 }
 
 void CompositeText::finish()
 {
 	Textbox::resetTextboxOptions();
+}
+
+void CompositeText::resize()
+{
+	imageScale = Vector2f(100, 100);
+	imagePosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1]-imageScale[1]) + Vector2f(4, -4);
+	textStartPosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1] - Textbox::textScale[1]) + Vector2f(imageScale[0] + 8, 0);
+	namePosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1]);
+
+
+	text->setPosition(textStartPosition);
+	speakerName->setPosition(namePosition + Vector2f(8,0));
 }
 
 bool CompositeText::isDisplayingFullLength()

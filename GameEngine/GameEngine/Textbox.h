@@ -25,6 +25,7 @@ public:
 	virtual void prepare() = 0;
 	virtual void finish() = 0;
 	virtual void draw() = 0;
+	virtual void resize() = 0;
 
 	virtual bool isDisplayingFullLength() = 0;
 	virtual void displayFullLength() = 0;
@@ -47,6 +48,7 @@ public:
 	virtual void prepare();
 	virtual void draw();
 	virtual void finish();
+	virtual void resize();
 
 	virtual bool isDisplayingFullLength();
 	virtual void displayFullLength();
@@ -55,6 +57,15 @@ public:
 private:
 	static Text* text;
 	static Text* speakerName;
+
+	static Vector2f imagePosition;
+	static Vector2f imageScale;
+	static Vector2f textStartPosition;
+
+	static Vector2f namePosition;
+	static Vector2f nameScale;
+
+	static float textEffectiveWidth;
 
 	TextboxContentData data;
 
@@ -73,6 +84,7 @@ public:
 	virtual void draw();
 	virtual void prepare();
 	virtual void finish();
+	virtual void resize() {};
 
 	virtual bool isDisplayingFullLength();
 	virtual void displayFullLength();
@@ -125,7 +137,9 @@ public:
 	static Timer timer;
 	static bool skippable;
 
-
+	static Vector2f textScale;
+	static Vector2f contentPosition;
+	static Vector2f contentScale;
 
 private:
 
@@ -134,9 +148,6 @@ private:
 	std::queue<TextboxContent*> queue;
 
 	bool visible = true;
-
-	Vector2f textScale;
-	Vector2f textStartPos;
 
 	TextboxContent* current = 0;
 
