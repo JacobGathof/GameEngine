@@ -14,8 +14,10 @@ TransitionAction::~TransitionAction()
 
 int TransitionAction::run(float dt)
 {
+	GlobalActionInvoker::createActionSet();
 	GlobalActionInvoker::addAction(new ScreenFadeAction(Color::Black, 2.0f, SCREEN_FADE_OUT));
 	GlobalActionInvoker::addAction(new RoomChangeAction(World::RoomNames::CLEARING));
 	GlobalActionInvoker::addAction(new ScreenFadeAction(Color::Black, 2.0f, SCREEN_FADE_IN));
+	GlobalActionInvoker::endActionSet();
 	return 1;
 }

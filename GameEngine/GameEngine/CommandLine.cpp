@@ -88,4 +88,9 @@ void CommandLine::handleCommand(std::string s)
 	}
 
 
+	if (li[0] == "WHERE") {
+		std::cout << World::getInstance()->getCurrentRoom()->name << std::endl;
+	}
+
+
 }
