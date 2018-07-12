@@ -16,6 +16,8 @@ public:
 	static void endActionSet();
 	static void addAction(AbstractAction* act);
 
+	static void addActionSet(std::initializer_list<AbstractAction*> actions);
+
 private:
 
 	class ActionSet {

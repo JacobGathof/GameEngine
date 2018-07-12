@@ -50,6 +50,15 @@ void GlobalActionInvoker::addAction(AbstractAction * act)
 	currentSet->addAction(act);
 }
 
+void GlobalActionInvoker::addActionSet(std::initializer_list<AbstractAction*> actions)
+{
+	createActionSet();
+	for (auto a : actions) {
+		addAction(a);
+	}
+	endActionSet();
+}
+
 
 GlobalActionInvoker::ActionSet::~ActionSet()
 {
