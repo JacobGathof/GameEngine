@@ -157,6 +157,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TextUtils.cpp" />
     <ClCompile Include="GameTimer.cpp" />
+    <ClCompile Include="TransitionAction.cpp" />
     <ClCompile Include="TransitionObject.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="UIUtils.cpp" />
@@ -314,6 +315,7 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TextUtils.h" />
     <ClInclude Include="GameTimer.h" />
+    <ClInclude Include="TransitionAction.h" />
     <ClInclude Include="TransitionObject.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="UIUtils.h" />

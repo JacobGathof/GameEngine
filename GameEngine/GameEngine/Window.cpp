@@ -202,7 +202,7 @@ void Window::Callbacks::WindowFocusCallback(GLFWwindow * window, int focused)
 	if (focused) {
 
 	} else {
-		Input::pause();
+		//Input::pause();
 	}
 }
 

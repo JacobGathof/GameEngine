@@ -60,8 +60,8 @@ void Textbox::draw(){
 		return;
 	}
 
-	UIUtils::drawRectangle(position, scale, Color(0xaaaaffff));
-	UIUtils::drawRectangle(position + Vector2f(2,2), scale - Vector2f(4, 4), Color(0xffffffff));
+	UIUtils::drawRectangle(position, scale, Color(0x445588ff));
+	UIUtils::drawRectangle(position + Vector2f(2,2), scale - Vector2f(4, 4), Color(0x88aaddff));
 	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000000ff));
 
 
@@ -345,7 +345,7 @@ void CompositeText::init()
 	text->setColor(Color(0xffffffff));
 
 	speakerName = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
-	speakerName->setColor(Color(0xaaaaffff));
+	speakerName->setColor(Color(0xffffffff));
 
 }
 
@@ -376,15 +376,15 @@ void CompositeText::draw()
 {
 	text->draw();
 	
-	UIUtils::drawRectangle(imagePosition, imageScale, Color(0x000000dd));
-	UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000dd));
+	UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff));
+	UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff));
+	UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000ff));
 	UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
 
 	
-	UIUtils::drawRectangle(namePosition, nameScale, Color(0x000000dd));
-	UIUtils::drawRectangle(namePosition+Vector2f(2), nameScale-Vector2f(4), Color(0xaaaaaa88));
-	UIUtils::drawRectangle(namePosition+Vector2f(4), nameScale-Vector2f(8), Color(0x000000dd));
+	UIUtils::drawRectangle(namePosition, nameScale, Color(0x445588ff));
+	UIUtils::drawRectangle(namePosition+Vector2f(2), nameScale-Vector2f(4), Color(0x88aaddff));
+	UIUtils::drawRectangle(namePosition+Vector2f(4), nameScale-Vector2f(8), Color(0x000000ff));
 	
 
 	speakerName->draw();
@@ -401,7 +401,7 @@ void CompositeText::resize()
 	imageScale = Vector2f(100, 100);
 	imagePosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1]-imageScale[1]) + Vector2f(4, -4);
 	textStartPosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1] - Textbox::textScale[1]) + Vector2f(imageScale[0] + 8, 0);
-	namePosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1]);
+	namePosition = Textbox::contentPosition + Vector2f(4, Textbox::contentScale[1]);
 
 
 	text->setPosition(textStartPosition);

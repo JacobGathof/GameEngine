@@ -16,6 +16,7 @@
 	<actions>
 		<text>This is First Node :). You got the key</text>
 		<text>Echo: Nicely done Silver. Reeeeeeaaaaaaaaaaallllllllll nice</text>
+		<text>F00GFA0GFF0G0F0G0FFG00FGF0FGF00AFA0AFF0A0F0A0FFA00FAF0FAF00YFA0YFF0Y0F0Y0FFY00FYF0FY</text>
 		<text>Continue to the beginning</text>
 		<set flag="flag_1" bool="1" />
 	</actions>
@@ -28,7 +29,7 @@
 
 <node id="Second">
 	<actions>
-		<text name="Melody" x="0" y="0" speed="0.25">This is the 00FSecond Node</text>
+		<text name="Melody" x="3" y="0" speed="0.25">This is the 00FSecond Node</text>
 		<text name="Dagon" x="2" y="0" speed="1.0">Here's a happy Melody</text>
 		<text name="Hammurabi" x="2" y="0" speed="4.0">Here's a happy Melody</text>
 		<text name="" x="1" y="1" speed="0.5" skip="0">(No skip) Here's a sleepy Melody</text>

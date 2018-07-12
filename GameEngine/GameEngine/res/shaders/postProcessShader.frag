@@ -26,7 +26,7 @@ void main(){
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 	
 	vec4 uiColor = ui_color*ui_trans;
-	finalColor = finalColor*(1-uiColor.a) + uiColor;
+	finalColor = finalColor*(1-uiColor.a) + uiColor*(uiColor.a);
 	//mix(finalColor, ui_color, .5);
 
 
