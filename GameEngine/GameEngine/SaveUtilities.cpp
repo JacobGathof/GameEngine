@@ -58,5 +58,8 @@ void SaveUtilities::init()
 {
 	integerSaves.add(&GameState::choicePointer);
 	floatSaves.add(&GameState::sliderValue);
+	floatSaves.add(&GameState::red);
+	floatSaves.add(&GameState::green);
+	floatSaves.add(&GameState::blue);
 	stringSaves.add(&GameState::playerName);
 }

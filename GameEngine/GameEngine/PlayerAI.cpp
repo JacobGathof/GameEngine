@@ -133,12 +133,12 @@ void PlayerAI::processArrowUpKey()
 
 void PlayerAI::leftClick(Vector2f & pos)
 {
-
+	/*
 	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 	Boomerang * p = new Boomerang(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(64, 64), direction, user);
 	p->setPoints(spline.p1, spline.p2, spline.p3, spline.p4);
 	World::getInstance()->addCObject(p);
-
+	*/
 	if (GameState::inv->getCurrentWeapon() == Res::get(WeaponType::SWORD)) {
 		Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 		Projectile * p = new Boomerang(std::string("_"), TextureType::TEXTURE_DAGON, user->pos, Vector2f(64, 64), direction, user);

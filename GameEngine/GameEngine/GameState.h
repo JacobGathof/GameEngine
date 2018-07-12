@@ -42,6 +42,11 @@ public:
 
 	static std::map<std::string, bool> flags;
 
+
+	static float blue;
+	static float green;
+	static float red;
+
 private:
 	static std::string globalDebug;
 

@@ -79,6 +79,7 @@ void Renderer::postProcess()
 
 	sp->loadColor("screen_color", Screen::screenColor);
 	sp->loadFloat("screen_color_percent", Screen::screenColorPercent);
+	sp->loadColor("ambientLight", Color(GameState::red, GameState::green, GameState::blue, 1));
 
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
 	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);

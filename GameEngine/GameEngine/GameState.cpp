@@ -18,6 +18,10 @@ ApplicationControl GameState::applicationState;
 std::map<std::string, bool> GameState::flags;
 
 
+float GameState::red;
+float GameState::green;
+float GameState::blue;
+
 GameState::GameState()
 {
 }

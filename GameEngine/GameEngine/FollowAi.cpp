@@ -26,8 +26,6 @@ bool FollowAI::execute(Object * obj, float dt)
 		Vector2f dir = Vector2f(dx, dy).normalize();
 		Vector2f odir = Vector2f(((int)(dir[0] * 2.0f) / 2.0f), ((int)(dir[1] * 2.0f) / 2.0f));
 
-		std::cout << odir << std::endl;
-
 		obj->pos += odir.normalize() * dt * 256;
 	}
 	return true;
