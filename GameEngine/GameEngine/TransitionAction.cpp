@@ -7,7 +7,6 @@ TransitionAction::TransitionAction()
 {
 }
 
-
 TransitionAction::~TransitionAction()
 {
 }

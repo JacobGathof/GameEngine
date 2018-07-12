@@ -19,7 +19,7 @@ bool PlayerAI::execute(Player * o, float dt)
 		user = o;
 	}
 
-	user->pos += Vector2f(xVel, yVel) * dt;
+	user->pos += Vector2f(xVel, yVel).normalize() * dt * user->moveSpeed;
 	
 	return true;
 }
@@ -44,19 +44,19 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 
 
 	if (keyboard.down(VirtualKey::UP)){
-		yVel = user->moveSpeed;
+		yVel = 1;
 		user->setAction(SpriteSheet::AnimationState::MOVE_UP);
 	}
 	if (keyboard.down(VirtualKey::DOWN)) {
-		yVel = -user->moveSpeed;
+		yVel = -1;
 		user->setAction(SpriteSheet::AnimationState::MOVE_DOWN);
 	}
 	if (keyboard.down(VirtualKey::LEFT)) {
-		xVel = -user->moveSpeed;
+		xVel = -1;
 		user->setAction(SpriteSheet::AnimationState::MOVE_LEFT);
 	}
 	if (keyboard.down(VirtualKey::RIGHT)) {
-		xVel = user->moveSpeed;
+		xVel = 1;
 		user->setAction(SpriteSheet::AnimationState::MOVE_RIGHT);
 	}
 

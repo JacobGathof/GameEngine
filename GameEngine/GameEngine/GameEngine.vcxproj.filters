@@ -570,32 +570,32 @@
     <ClCompile Include="SetFlagAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="CircleAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CardObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shadow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GlobalActionInvoker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CompositeAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Boomerang.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextboxWaitAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BezierSpline.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="Boomerang.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CardObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleAI.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalActionInvoker.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Shadow.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="TextboxWaitAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
     <ClCompile Include="TransitionAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1055,23 +1055,23 @@
     <ClInclude Include="Shadow.h">
       <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalActionInvoker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CompositeAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Boomerang.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextboxWaitAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BezierSpline.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Boomerang.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalActionInvoker.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="TextboxWaitAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
     <ClInclude Include="TransitionAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

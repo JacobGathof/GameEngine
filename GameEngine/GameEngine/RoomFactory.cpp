@@ -68,6 +68,7 @@ Room* RoomFactory::createReadingRoom()
 	
 	InteractableObject * chest = new InteractableObject(std::string(""), TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128));
 	chest->setInteraction(new QuoteAction(std::string("Quote Interaction")));
+	chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
