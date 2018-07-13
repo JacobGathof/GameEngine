@@ -20,11 +20,10 @@ protected:
 	Timer timer;
 	Timer animationTimer;
 
-	int animationState;
+	int animationState = 0;
 	int animationLoop = true;
 	int animationCurrentColumns = 1;
 
-	SpriteSheet::AnimationState currentAction;
 	float animationSpeed;
 
 };

@@ -68,7 +68,7 @@ Room* RoomFactory::createReadingRoom()
 	
 	InteractableObject * chest = new InteractableObject(std::string(""), TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128));
 	chest->setInteraction(new QuoteAction(std::string("Quote Interaction")));
-	chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
+	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
 	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 	//chest->addEffect(new FastParticleSystem(4096*4));
@@ -76,6 +76,9 @@ Room* RoomFactory::createReadingRoom()
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
+	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(0, 512), Vector2f(64,64));
+	torch->setAction(SpriteSheet::AnimationState::IDLE);
+	torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 
@@ -93,6 +96,7 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(card3);
 	room->addObject(chest);
 	room->addObject(chest2);
+	room->addObject(torch);
 
 	return room;
 }

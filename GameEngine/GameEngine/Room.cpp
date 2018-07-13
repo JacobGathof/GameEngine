@@ -295,7 +295,7 @@ void Room::loadObjects(std::string& filepath)
 			float xPos = 4.0f * (FilesAndStrings::parseFloat(values.get(1)) + (xScale / 8) - (mapWidthTiled / 2));
 
 			float yPos = 4.0f * ((mapHeightTiled - FilesAndStrings::parseFloat(values.get(2))) + (yScale / 8) - (mapHeightTiled / 2));
-			std::cout << values.get(0) << "   " << xPos << "   " << yPos << std::endl;
+			//std::cout << values.get(0) << "   " << xPos << "   " << yPos << std::endl;
 			Object * o = new Object(values.get(0), t, Vector2f(xPos, yPos), Vector2f(xScale, yScale));
 			o->isStatic = true;
 			addObject(o);

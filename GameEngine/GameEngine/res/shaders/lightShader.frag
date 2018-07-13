@@ -4,8 +4,8 @@ uniform vec4 color;
 
 in vec2 fragPos;
 
-const float maxStrength = .25;
-const float attenuation = 16;
+const float maxStrength = 1;
+const float attenuation = 1;
 
 uniform float gameTime;
 

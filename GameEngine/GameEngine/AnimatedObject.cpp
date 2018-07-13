@@ -22,7 +22,7 @@ void AnimatedObject::setAction(SpriteSheet::AnimationState action)
 		animationColumn = 0;
 		animationCurrentColumns = str.numColumns;
 
-		animationTimer.setTickLength(0.25f * str.animSpeed);
+		animationTimer.setTickLength(0.25f / str.animSpeed);
 		//TODO speed
 	}
 
@@ -42,7 +42,7 @@ bool AnimatedObject::update(float delta_time)
 	if (animationTimer.tick()) {
 
 		animationColumn = (animationColumn + 1) % animationCurrentColumns;
-		if (animationColumn == 0 && !(animationLoop--)) {
+		if (animationColumn == 0 && !(animationLoop--) && animationState != SpriteSheet::AnimationState::NONE) {
 			setAction(SpriteSheet::AnimationState::IDLE);
 		}
 	}

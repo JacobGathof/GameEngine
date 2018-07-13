@@ -9,6 +9,7 @@ public:
 
 	enum AnimationState
 	{
+		NONE,
 		IDLE,
 		MOVE_RIGHT,
 		MOVE_LEFT,
@@ -22,7 +23,7 @@ public:
 		int numColumns;
 		float animSpeed;
 		int loop;
-		AnimationState next = IDLE;
+		AnimationState next = NONE;
 	};
 
 	SpriteSheet(char* filename, int rows, int columns);
@@ -32,7 +33,7 @@ public:
 	int rows, columns;
 
 	std::map<AnimationState, AnimationStruct> animations;
-	AnimationState state = IDLE;
+	AnimationState state = NONE;
 
 	void setDefault(AnimationState anim);
 	void addAnimation(AnimationState state, AnimationStruct anim);

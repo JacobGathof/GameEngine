@@ -87,5 +87,9 @@ void TextureManager::initSpritesheets()
 	std::vector<SpriteSheet::AnimationStruct> structs = { aa{3,3,1,-1},	aa{ 0,3,1,-1 },	aa{ 1,3,1,-1 } ,	aa{ 2,3,1,-1 } , aa{ 3,3,1,-1 } };
 
 	addSpriteSheet(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3, states, structs);
+
+	states = { a::IDLE};
+	structs = { aa{ 0,4,2, -1}};
+	addSpriteSheet(TextureType::T_CARD_4, "res/tex/torch.png", 1, 4, states, structs);
 }
 
