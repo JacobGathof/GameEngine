@@ -62,7 +62,6 @@ void UIManager::init()
 	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
 	addText(std::string("Hello world"), std::string("--------"), TextureType::TEXTURE_PANDORA);
-
 }
 
 void UIManager::clean()
