@@ -48,6 +48,7 @@ void Renderer::drawEffects()
 {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
+	//WeatherManager::drawAmbientLight();
 	World::getInstance()->drawEffects();
 	//WeatherManager::drawWeatherEffects();
 

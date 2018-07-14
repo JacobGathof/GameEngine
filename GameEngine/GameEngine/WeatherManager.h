@@ -35,5 +35,9 @@ public:
 
 	static int weatherState;
 
+
+
+	static void drawAmbientLight();
+
 };
 

@@ -37,10 +37,10 @@ void RoomFactory::addWorldObjects()
 	Input::ai = playerAi;
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
+	melody->addEffect(new Light(Vector2f(0, 0), Color(1, 1,1, 1), Vector2f(256, 256)));
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
-	//melody->addEffect(new Light(Vector2f(0, 0), Color(1, 0, 0, 1), Vector2f(256, 256)));
 
 
 	World::getInstance()->addWorldObject(melody);
@@ -76,9 +76,9 @@ Room* RoomFactory::createReadingRoom()
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
-	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(0, 512), Vector2f(64,64));
+	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128,128), Vector2f(64,64));
 	torch->setAction(SpriteSheet::AnimationState::IDLE);
-	torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
+	//torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 

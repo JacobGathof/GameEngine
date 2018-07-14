@@ -5,7 +5,7 @@
 Tag::Tag(std::string & name, Vector2f& off) : Effect()
 {
 	text = new Text(Vector2f(0, 0), name, Vector2f(30), 0);
-	text->setColor(Color::White);
+	text->setColor(Color::Black);
 	text->setWorldRelative(true);
 	offset = off;
 }

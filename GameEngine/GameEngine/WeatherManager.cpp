@@ -1,7 +1,7 @@
 #include "WeatherManager.h"
 #include "Screen.h"
 
-Color WeatherManager::ambientDay = Color::White;
+Color WeatherManager::ambientDay = Color(.4,.4,1,1);
 Color WeatherManager::ambientNight = Color::DarkGray;
 Color WeatherManager::currentLight;
 
@@ -76,5 +76,20 @@ void WeatherManager::init()
 void WeatherManager::clean()
 {
 	delete sys;
+}
+
+void WeatherManager::drawAmbientLight()
+{
+	glBlendFunc(GL_ONE, GL_ONE);
+	ShaderProgram* p = Res::get(ShaderType::BASIC_SHADER);
+	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+
+	m->bind();
+	p->bind();
+
+	p->loadColor("color", Color(.4,.4,1,0));
+
+	m->draw();
+
 }
 

@@ -44,6 +44,7 @@ public:
 	Vector2f scale;
 	TextureType texture;
 	std::string name;
+	Color color = Color::White;
 	float rotation;
 	float depthPercentage;
 	bool uniformDepth = true;

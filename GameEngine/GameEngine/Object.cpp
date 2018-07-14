@@ -40,6 +40,7 @@ void Object::draw()
 	p->bind();
 	p->loadVector2f("translate", pos);
 	p->loadVector2f("scale", scale);
+	p->loadColor("color", color);
 
 	p->loadInteger("rows", sh->rows);
 	p->loadInteger("columns", sh->columns);

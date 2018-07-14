@@ -7,6 +7,8 @@ in float depth;
 uniform sampler2D image;
 uniform int selected;
 
+uniform vec4 color;
+
 void main(){
 
 
@@ -25,7 +27,7 @@ void main(){
 		}
 		
 	}else{
-		gl_FragColor = texture(image, uv);
+		gl_FragColor = texture(image, uv) * color;
 	}
 	
 	gl_FragDepth = depth;

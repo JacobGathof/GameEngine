@@ -21,11 +21,12 @@ void main(){
 	vec4 finalColor = vec4(0,0,0,1);
 	finalColor = world_color;
 
-	//finalColor = mix(finalColor, effects_color, effects_color.a);
-	vec4 totalLight = (ambientLight+effects_color);
 	
-	finalColor = finalColor * totalLight;
-	//finalColor = finalColor*(1-effects_color.a) + effects_color*(effects_color.a);
+	
+	vec4 totalLight = (ambientLight+effects_color);
+	finalColor *= totalLight;
+	//finalColor = finalColor *(1-totalLight.a) + totalLight*finalColor*(totalLight.a);
+	
 	
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 	

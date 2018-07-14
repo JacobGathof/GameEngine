@@ -40,12 +40,8 @@
 		<text name="Echo" face="F_ECHO"> Listen, I know it has been hard since Lydia passed away, but you can't let that rule your life. We all miss her, but we have to move on at some point.</text>
 		<text name="Melody" face="F_MELODY">Within a year it had grown to be the most powerful kingdom in all of Aaris.</text>
 		<text name="Echo" face="F_ECHO">I'm not going to argue with you.  We know where we stand on this matter.</text>
-		<text name="Melody" face="F_MELODY">To this day it remains no mortal soul knows the location of the Ancient City.</text>
+		<text name="Melody" face="F_MELODY">To this day, it remains that no mortal soul knows the location of the Ancient City.</text>
 		<text name="Echo" face="F_ECHO">Holy shit Melody</text>
-		<text name="Echo" face="F_ECHO">Shut</text>
-		<text name="Echo" face="F_ECHO">The</text>
-		<text name="Echo" face="F_ECHO">Fuck</text>
-		<text name="Echo" face="F_ECHO">Up</text>
 		
 		
 		<text>You have reached the end</text>

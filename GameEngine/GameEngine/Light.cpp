@@ -15,7 +15,7 @@ Light::~Light()
 
 void Light::draw()
 {
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
 	ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 	p->bind();
