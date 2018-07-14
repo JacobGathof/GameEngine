@@ -104,11 +104,18 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		auto s = inst->first_attribute("speed");
 		auto sk = inst->first_attribute("skip");
 
+		auto f = inst->first_attribute("face");
+
 		if (n != 0) {
 			content.dialogue = true;
 			content.name = n->value();
-			content.portrait = TextureType::T_CARD_5;
 		}
+
+
+		if (f != 0) {
+			content.portrait = Res::getTextureByName(std::string(f->value()));
+		}
+
 
 		if (t != 0) {
 			content.time = std::atof(t->value());

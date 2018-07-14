@@ -339,7 +339,6 @@ CompositeText::CompositeText(TextboxContentData & dat){
 
 void CompositeText::init()
 {
-	textEffectiveWidth = (Textbox::contentPosition[0] + Textbox::contentScale[0]) - textStartPosition[0];
 
 	text = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
 	text->setColor(Color(0xffffffff));
@@ -357,6 +356,8 @@ void CompositeText::clean()
 
 void CompositeText::prepare()
 {
+	textEffectiveWidth = (Textbox::contentPosition[0] + Textbox::contentScale[0]) - textStartPosition[0];
+
 	data.text = TextUtils::processString(data.text, Res::get(FontType::DEFAULT), Textbox::textScale, textEffectiveWidth);
 	text->setText(data.text);
 	text->resetLength();
@@ -376,19 +377,19 @@ void CompositeText::draw()
 {
 	text->draw();
 	
-	UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff));
-	UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff));
-	UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000ff));
-	UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
+	if (data.dialogue) {
+		UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff));
+		UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff));
+		UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000ff));
+		UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
 
-	
-	UIUtils::drawRectangle(namePosition, nameScale, Color(0x445588ff));
-	UIUtils::drawRectangle(namePosition+Vector2f(2), nameScale-Vector2f(4), Color(0x88aaddff));
-	UIUtils::drawRectangle(namePosition+Vector2f(4), nameScale-Vector2f(8), Color(0x000000ff));
-	
 
-	speakerName->draw();
-	
+		UIUtils::drawRectangle(namePosition, nameScale, Color(0x445588ff));
+		UIUtils::drawRectangle(namePosition + Vector2f(2), nameScale - Vector2f(4), Color(0x88aaddff));
+		UIUtils::drawRectangle(namePosition + Vector2f(4), nameScale - Vector2f(8), Color(0x000000ff));
+
+		speakerName->draw();
+	}
 }
 
 void CompositeText::finish()

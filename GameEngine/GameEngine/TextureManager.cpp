@@ -42,6 +42,7 @@ void TextureManager::init() {
 	addTexture(TextureType::T_CARD_GHOST, "res/tex/Card_Ghost.png");
 	addTexture(TextureType::T_CARD_ACE, "res/tex/Card_Ace.png");
 	addTexture(TextureType::T_CARD_5, "res/tex/Melody_Faces.png", 4, 4);
+	addTexture(TextureType::T_CARD_3, "res/tex/Echo_Faces.png", 4, 4);
 
 	addTexture(TextureType::TEXTURE_SKYBOX, "res/tex/Skybox.png");
 	addTexture(TextureType::PERLIN_NOISE, "res/tex/perlin_displacement.png");
@@ -66,6 +67,12 @@ void TextureManager::init() {
 
 
 	initSpritesheets();
+	initNameMap();
+}
+
+TextureType TextureManager::getTextureByName(std::string & name)
+{
+	return nameMap[name];
 }
 
 void TextureManager::addTexture(TextureType tex, char * filename, int rows, int columns) {
@@ -91,5 +98,11 @@ void TextureManager::initSpritesheets()
 	states = { a::IDLE};
 	structs = { aa{ 0,4,2, -1}};
 	addSpriteSheet(TextureType::T_CARD_4, "res/tex/torch.png", 1, 4, states, structs);
+}
+
+void TextureManager::initNameMap()
+{
+	nameMap["F_MELODY"] = TextureType::T_CARD_5;
+	nameMap["F_ECHO"] = TextureType::T_CARD_3;
 }
 
