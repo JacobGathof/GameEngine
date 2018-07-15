@@ -32,5 +32,7 @@ private:
 	static void handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml::xml_node<> *inst);
 	static void handleCondition(std::vector<Node*>& nodes, int nodePtr, std::map<std::string, int>& nodeNames, rapidxml::xml_node<> *inst);
 	static List<std::string> split(std::string& str, char delim);
+
+	static std::map<std::string, TextureType> nameMap;
 };
 

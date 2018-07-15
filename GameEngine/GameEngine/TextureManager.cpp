@@ -67,12 +67,7 @@ void TextureManager::init() {
 
 
 	initSpritesheets();
-	initNameMap();
-}
 
-TextureType TextureManager::getTextureByName(std::string & name)
-{
-	return nameMap[name];
 }
 
 void TextureManager::addTexture(TextureType tex, char * filename, int rows, int columns) {
@@ -90,19 +85,18 @@ void TextureManager::initSpritesheets()
 {
 	typedef SpriteSheet::AnimationState a;
 	typedef SpriteSheet::AnimationStruct aa;
+
 	std::vector<SpriteSheet::AnimationState> states =	{a::IDLE,		a::MOVE_RIGHT,	a::MOVE_LEFT,	a::MOVE_UP,		a::MOVE_DOWN};
 	std::vector<SpriteSheet::AnimationStruct> structs = { aa{3,3,1,-1},	aa{ 0,3,1,-1 },	aa{ 1,3,1,-1 } ,	aa{ 2,3,1,-1 } , aa{ 3,3,1,-1 } };
-
 	addSpriteSheet(TextureType::SPRITESHEET_MELODY, "res/tex/Melody_SS.png", 4, 3, states, structs);
 
 	states = { a::IDLE};
 	structs = { aa{ 0,4,2, -1}};
 	addSpriteSheet(TextureType::T_CARD_4, "res/tex/torch.png", 1, 4, states, structs);
+
+	states = { a::IDLE };
+	structs = { aa{ 0,4,2, -1 } };
+	addSpriteSheet(TextureType::SPRITESHEET_ECHO, "res/tex/Echo_SS.png", 1, 3, states, structs);
 }
 
-void TextureManager::initNameMap()
-{
-	nameMap["F_MELODY"] = TextureType::T_CARD_5;
-	nameMap["F_ECHO"] = TextureType::T_CARD_3;
-}
 

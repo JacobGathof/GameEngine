@@ -22,7 +22,6 @@ public:
 
 	static ShaderProgram* get(ShaderType type);
 	static SpriteSheet* get(TextureType type);
-	static TextureType getTextureByName(std::string& name);
 	static Framebuffer* get(FramebufferType type);
 	static Card* get(CardType type);
 	static Deck* get(DeckType deck);

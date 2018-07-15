@@ -4,6 +4,8 @@
 #include "SetFlagAction.h"
 #include "TextboxWaitAction.h"
 
+std::map<std::string, TextureType> GraphLoader::nameMap;
+
 GraphLoader::GraphLoader()
 {
 }
@@ -15,6 +17,12 @@ GraphLoader::~GraphLoader()
 
 void GraphLoader::load(std::vector<Node*>& nodes, std::map<std::string, int>& nodeNames, char * filename)
 {
+
+	nameMap["Melody"] = TextureType::T_CARD_5;
+	nameMap["Echo"] = TextureType::T_CARD_3;
+
+
+
 	rapidxml::xml_document<> doc;
 
 	std::ifstream file;
@@ -109,11 +117,12 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		if (n != 0) {
 			content.dialogue = true;
 			content.name = n->value();
+			content.portrait = nameMap[n->value()];
 		}
 
 
 		if (f != 0) {
-			content.portrait = Res::getTextureByName(std::string(f->value()));
+			content.portrait = nameMap[f->value()];
 		}
 
 

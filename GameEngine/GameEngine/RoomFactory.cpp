@@ -76,8 +76,13 @@ Room* RoomFactory::createReadingRoom()
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
-	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128,128), Vector2f(64,64));
-	torch->setAction(SpriteSheet::AnimationState::IDLE);
+
+	for (int i = 0; i < 10; i++) {
+		AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128-64*i, 128), Vector2f(64, 64));
+		torch->setAction(SpriteSheet::AnimationState::IDLE);
+		room->addObject(torch);
+	}
+	
 	//torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
@@ -96,7 +101,7 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(card3);
 	room->addObject(chest);
 	room->addObject(chest2);
-	room->addObject(torch);
+
 
 	return room;
 }

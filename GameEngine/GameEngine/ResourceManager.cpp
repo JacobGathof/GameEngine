@@ -106,11 +106,6 @@ SpriteSheet* ResourceManager::get(TextureType type){
 	return textureManager->get(type);
 }
 
-TextureType ResourceManager::getTextureByName(std::string & name)
-{
-	return textureManager->getTextureByName(name);
-}
-
 Framebuffer * ResourceManager::get(FramebufferType type){
 	return frameManager->get(type);
 }
