@@ -3,8 +3,8 @@
 
 
 ParticleSystem::ParticleSystem() {
-	maxParticles = 3000;
-	maxParticlesPerSecond = 1000;
+	maxParticles = 10;
+	maxParticlesPerSecond = 1;
 	init();
 }
 
@@ -65,11 +65,23 @@ bool ParticleSystem::update(float dt)
 	timer.update(dt);
 
 	ptime += dt;
+	float fractParticles = 0;
 	int particlesToCreate = 0;
 
 	if (emit) {
-		 particlesToCreate = (int)(dt*maxParticlesPerSecond);
+		 fractParticles = (dt*maxParticlesPerSecond);
+		 if (fractParticles < 1.0f) {
+			 particleLeftOver += fractParticles;
+		 }
 	}
+
+	particlesToCreate += (int)fractParticles;
+	if (particleLeftOver >= 1.0) {
+		particleLeftOver -= 1.0f;
+		particlesToCreate += 1;
+	}
+
+
 
 	for (int j = 0; j < particlesToCreate; j++) {
 		particles[pIndex] = createNewParticle();

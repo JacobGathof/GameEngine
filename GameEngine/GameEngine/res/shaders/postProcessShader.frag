@@ -3,7 +3,8 @@
 in vec2 uv;
 
 uniform sampler2D ui;
-uniform sampler2D world;
+uniform sampler2D terrain;
+uniform sampler2D objects;
 uniform sampler2D effects;
 
 uniform float ui_trans;
@@ -15,11 +16,13 @@ uniform float screen_color_percent;
 
 void main(){
 	vec4 ui_color = texture(ui, uv);
-	vec4 world_color = texture(world, uv);
+	vec4 world_color = texture(terrain, uv);
+	vec4 objects_color = texture(objects, uv);
 	vec4 effects_color = texture(effects, uv);
 
 	vec4 finalColor = vec4(0,0,0,1);
 	finalColor = world_color;
+	finalColor = mix(finalColor, objects_color, objects_color.a);
 
 	
 	

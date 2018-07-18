@@ -15,11 +15,6 @@ void main(){
 	adjustedUV.x = 1-adjustedUV.x;
 	vec4 color = texture(terrain, adjustedUV);
 
-	
-	if(abs(adjustedUV.y) <= 0.001 && abs(adjustedUV.x) <= 0.001){
-		discard;
-	}
-	
 	vec2 splitUV = fract(adjustedUV*TERRAIN_DIM);
 
 	vec2 newUV = round(color.rg*256)/256;

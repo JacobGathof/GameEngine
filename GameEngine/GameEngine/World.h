@@ -32,6 +32,7 @@ public:
 	void draw();
 	void drawTerrain();
 	void drawObjects();
+	void drawObjectsInverted();
 	void drawEffects();
 	void drawHitboxes();
 	void drawLights();

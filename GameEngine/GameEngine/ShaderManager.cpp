@@ -8,6 +8,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::TEXT_WORLD_SHADER, "res/shaders/text_worldShader.vert", "res/shaders/text_worldShader.frag");
 	addShader(ShaderType::BASIC_SHADER, "res/shaders/basicShader.vert", "res/shaders/basicShader.frag");
 	addShader(ShaderType::PARTICLE_SHADER, "res/shaders/particleShader.vert", "res/shaders/particleShader.frag");
+
 	addShader(ShaderType::PARTICLE_COMPUTE_SHADER, "res/shaders/particleComputeShader.comp");
 	addShader(ShaderType::PARTICLE_FAST_SHADER, "res/shaders/particleFastShader.vert", "res/shaders/particleFastShader.frag");
 

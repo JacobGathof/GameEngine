@@ -42,12 +42,13 @@ void TerrainMap::draw(){
 	
 	ShaderProgram* p = Res::get(ShaderType::WATER_SHADER);
 	p->bind();
-	p->loadVector2f("scale", Vector2f(0, 0));
-	p->loadVector2f("translate", Vector2f(64 * 32, 0));
+	p->loadVector2f("translate", Vector2f(64 * 32, 64*32));
 	p->loadInteger("skybox", 0);
 	p->loadInteger("dispMap", 1);
 	p->loadInteger("tileset", 2);
 	p->loadInteger("terrain", 3);
+	p->loadInteger("objects", 4);
+
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	m->bind();
 
@@ -55,10 +56,11 @@ void TerrainMap::draw(){
 	Res::get(TextureType::PERLIN_NOISE)->bind(1);
 
 	Res::get(TextureType::TS_TILESET)->bind(2);
-	Res::get(TextureType::TEXTURE_TEST_2)->bind(3);
 
+	Res::get(TextureType::TEXTURE_TEST_4)->bind(3);
+	Res::get(FramebufferType::EXTRA_BUFFER_1)->bindTexture(4);
 
-	//m->draw();
+	m->draw();
 	
 
 }

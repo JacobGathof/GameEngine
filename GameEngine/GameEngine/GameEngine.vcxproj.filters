@@ -597,6 +597,9 @@
     <ClCompile Include="TransitionAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
+    <ClCompile Include="FireflyParticleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1072,6 +1075,9 @@
     </ClInclude>
     <ClInclude Include="TransitionAction.h">
       <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="FireflyParticleSystem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

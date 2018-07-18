@@ -63,6 +63,21 @@ void Object::drawEffects()
 	}
 }
 
+void Object::drawInverted()
+{
+	Vector2f oPos = pos;
+	Vector2f oScale = scale;
+
+	pos -= Vector2f(0, scale[1]);
+	scale *= Vector2f(1, -1);
+
+	draw();
+
+	pos = oPos;
+	scale = oScale;
+
+}
+
 void Object::destroy(){
 	alive = false;
 }

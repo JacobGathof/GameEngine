@@ -27,6 +27,7 @@ public:
 	bool emit = true;
 	float maxParticleLife = 3.0f;
 
+	float particleLeftOver = 0.0f;
 
 	Color startColor = Color(0xddddff88);
 	Color endColor = Color(0x0000ffff);

@@ -5,12 +5,10 @@ layout(location=1) in vec4 color;
 layout(location=2) in float life;
 
 out vec4 col;
-out float li;
 
 void main(){
 
-	gl_PointSize = 2.0f;
+	gl_PointSize = 4.0f;
 	col = color;
-	li = life;
 	gl_Position = vec4(position,0,1);
 }

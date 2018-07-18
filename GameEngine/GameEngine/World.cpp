@@ -56,6 +56,11 @@ void World::drawObjects()
 	currentRoom->drawObjects();
 }
 
+void World::drawObjectsInverted()
+{
+	currentRoom->drawObjectsInverted();
+}
+
 void World::drawEffects()
 {
 	currentRoom->drawEffects();

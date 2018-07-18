@@ -52,6 +52,7 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_TEST, "res/tex/clearing_bottom.png");
 	addTexture(TextureType::TEXTURE_TEST_2, "res/tex/clearing_middle.png");
 	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/clearing_top.png");
+	addTexture(TextureType::TEXTURE_TEST_4, "res/tex/clearing_water.png");
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 	

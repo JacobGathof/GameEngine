@@ -45,12 +45,15 @@ public:
 	TextureType texture;
 	std::string name;
 	Color color = Color::White;
+
 	float rotation;
 	float depthPercentage;
 	bool uniformDepth = true;
 
 	static int numCreated;
 	static int numDeleted;
+
+	void drawInverted();
 
 protected:
 	List<AI *> aiQueue;

@@ -29,16 +29,21 @@ void Renderer::draw()
 void Renderer::drawWorld()
 {
 
-	Res::get(FramebufferType::WORLD_BUFFER)->bind();
-
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	World::getInstance()->drawTerrain();
-
+	Res::get(FramebufferType::OBJECT_BUFFER)->bind();
 	glEnable(GL_DEPTH_TEST);
 	World::getInstance()->drawObjects();
 	glDisable(GL_DEPTH_TEST);
 
-	World::getInstance()->drawHitboxes();
+
+	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
+	glEnable(GL_DEPTH_TEST);
+	World::getInstance()->drawObjectsInverted();
+	glDisable(GL_DEPTH_TEST);
+
+
+	Res::get(FramebufferType::TERRAIN_BUFFER)->bind();
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	World::getInstance()->drawTerrain();
 
 	//World::getInstance()->draw();
 }
@@ -50,6 +55,7 @@ void Renderer::drawEffects()
 	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
 	//WeatherManager::drawAmbientLight();
 	World::getInstance()->drawEffects();
+	//World::getInstance()->drawHitboxes();
 	//WeatherManager::drawWeatherEffects();
 
 }
@@ -72,8 +78,9 @@ void Renderer::postProcess()
 	m->bind();
 	sp->bind();
 	sp->loadInteger("ui", 0);
-	sp->loadInteger("world", 1);
+	sp->loadInteger("terrain", 1);
 	sp->loadInteger("effects", 2);
+	sp->loadInteger("objects", 3);
 
 	sp->loadFloat("ui_trans", GameState::sliderValue);
 	sp->loadFloat("ui_blue", GameState::ui_blue);
@@ -83,8 +90,9 @@ void Renderer::postProcess()
 	sp->loadColor("ambientLight", Color(GameState::red, GameState::green, GameState::blue, 1));
 
 	Res::get(FramebufferType::UI_BUFFER)->bindTexture(0);
-	Res::get(FramebufferType::WORLD_BUFFER)->bindTexture(1);
+	Res::get(FramebufferType::TERRAIN_BUFFER)->bindTexture(1);
 	Res::get(FramebufferType::EFFECTS_BUFFER)->bindTexture(2);
+	Res::get(FramebufferType::OBJECT_BUFFER)->bindTexture(3);
 	m->draw();
 
 
@@ -97,7 +105,10 @@ void Renderer::preProcess()
 	Res::get(FramebufferType::DEFAULT)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	Res::get(FramebufferType::WORLD_BUFFER)->bind();
+	Res::get(FramebufferType::OBJECT_BUFFER)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	Res::get(FramebufferType::TERRAIN_BUFFER)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	Res::get(FramebufferType::UI_BUFFER)->bind();
@@ -106,4 +117,7 @@ void Renderer::preProcess()
 	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
+	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }

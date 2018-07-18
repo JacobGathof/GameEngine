@@ -68,6 +68,19 @@ void Room::drawObjects() {
 	collisionObject->draw();
 }
 
+void Room::drawObjectsInverted()
+{
+	for (auto a : simpleObjects) {
+		a->drawInverted();
+	}
+	for (auto a : collidableObjects) {
+		a->drawInverted();
+	}
+	for (auto a : interactableObjects) {
+		a->drawInverted();
+	}
+}
+
 void Room::drawEffects()
 {
 	for (auto a : simpleObjects) {

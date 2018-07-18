@@ -12,6 +12,9 @@
 #include "CompositeAction.h"
 #include "QuoteAction.h"
 #include "TransitionAction.h"
+#include "FireflyParticleSystem.h"
+#include "RainParticleSystem.h"
+#include "DefaultParticleSystem.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -38,6 +41,7 @@ void RoomFactory::addWorldObjects()
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 	melody->addEffect(new Light(Vector2f(0, 0), Color(1, 1,1, 1), Vector2f(256, 256)));
+	melody->addEffect(new FireflyParticleSystem());
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
@@ -77,11 +81,11 @@ Room* RoomFactory::createReadingRoom()
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
 
-	for (int i = 0; i < 10; i++) {
-		AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128-64*i, 128), Vector2f(64, 64));
-		torch->setAction(SpriteSheet::AnimationState::IDLE);
-		room->addObject(torch);
-	}
+	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128 - 64 * 0, 128), Vector2f(64, 64));
+	torch->setAction(SpriteSheet::AnimationState::IDLE);
+	room->addObject(torch);
+
+
 	
 	//torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
