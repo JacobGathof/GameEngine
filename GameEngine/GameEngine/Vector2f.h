@@ -4,9 +4,18 @@
 class Vector2f
 {
 private:
-	float data[2];
 
 public:
+
+	union {
+		struct {
+			float data[2];
+		};
+		struct {
+			float x, y;
+		};
+	};
+
 	Vector2f();
 	Vector2f(float v1, float v2);
 	Vector2f(float v1);

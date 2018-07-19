@@ -35,6 +35,7 @@ void main(){
 	vec4 terrainColor = texture(tileset, newUV+splitUV/TILE_SET_DIM);
 	vec4 objectColor = texture(objects, uv3+disp);
 	vec4 skyboxColor = texture(skybox, uv2+disp);
+	skyboxColor = vec4(0,0,.4,1);
 	
 	vec4 totalColor = terrainColor.a * vec4(objectColor.xyz, 1);
 	totalColor = totalColor + skyboxColor*totalColor.a;
