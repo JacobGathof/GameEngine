@@ -25,7 +25,6 @@ public:
 	virtual void prepare() = 0;
 	virtual void finish() = 0;
 	virtual void draw() = 0;
-	virtual void resize() = 0;
 
 	virtual bool isDisplayingFullLength() = 0;
 	virtual void displayFullLength() = 0;
@@ -48,7 +47,8 @@ public:
 	virtual void prepare();
 	virtual void draw();
 	virtual void finish();
-	virtual void resize();
+
+	static void resize();
 
 	virtual bool isDisplayingFullLength();
 	virtual void displayFullLength();
@@ -66,6 +66,7 @@ private:
 	static Vector2f nameScale;
 
 	static float textEffectiveWidth;
+	static bool currentDialogue;
 
 	TextboxContentData data;
 
@@ -84,7 +85,7 @@ public:
 	virtual void draw();
 	virtual void prepare();
 	virtual void finish();
-	virtual void resize() {};
+	static void resize();
 
 	virtual bool isDisplayingFullLength();
 	virtual void displayFullLength();

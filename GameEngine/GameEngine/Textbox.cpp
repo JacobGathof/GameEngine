@@ -12,6 +12,7 @@ Vector2f CompositeText::textStartPosition;
 float CompositeText::textEffectiveWidth;
 Vector2f CompositeText::namePosition;
 Vector2f CompositeText::nameScale;
+bool CompositeText::currentDialogue;
 
 Text* Choice::texts[4];
 Color Choice::selectedColor(0x00ffffff);
@@ -168,9 +169,7 @@ void Textbox::resize(int x, int y)
 	position[0] = x/2 - scale[0]/2;
 	contentPosition = position + Vector2f(10, 10);
 
-	if (current != 0) {
-		current->resize();
-	}
+	CompositeText::resize();
 }
 
 void Textbox::show()
@@ -274,6 +273,10 @@ void Choice::finish()
 	GameState::choicePointer = choicePointer;
 }
 
+void Choice::resize()
+{
+}
+
 bool Choice::isDisplayingFullLength(){
 	return true;
 }
@@ -360,6 +363,7 @@ void CompositeText::prepare()
 
 	speakerName->setText(data.name);
 	nameScale = Vector2f(speakerName->getWidth() + 16, 32);
+	currentDialogue = data.dialogue;
 
 	Textbox::setTextSpeed(data.textSpeed);
 	Textbox::setSkippable(data.skippable);
@@ -377,7 +381,7 @@ void CompositeText::resize()
 	namePosition = Textbox::contentPosition + Vector2f(4, Textbox::contentScale[1]);
 
 
-	Vector2f offset = data.dialogue * Vector2f(imageScale[0] + 8, 0);
+	Vector2f offset = currentDialogue * Vector2f(imageScale[0] + 8, 0);
 	text->setPosition(textStartPosition+offset);
 	
 	speakerName->setPosition(namePosition + Vector2f(8, 0));

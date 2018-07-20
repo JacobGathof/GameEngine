@@ -8,8 +8,7 @@ class Slider : public AbstractUIComponent
 {
 
 public:
-	Slider(Vector2f& pos, Vector2f& sc, std::string& t, float* ref, float mi, float ma, int ic);
-	Slider(Vector2f& pos, Vector2f& sc, std::string& t, float* ref, float mi, float ma, int ic, AbstractAction* act);
+	Slider(Vector2f& pos, Vector2f& sc, std::string& t, float* ref, float mi, float ma, int ic, AbstractAction* act = 0);
 	~Slider();
 	virtual void draw();
 	virtual void update(float dt);
