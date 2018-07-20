@@ -46,6 +46,7 @@ public:
 	static float blue;
 	static float green;
 	static float red;
+	static float volume;
 
 private:
 	static std::string globalDebug;

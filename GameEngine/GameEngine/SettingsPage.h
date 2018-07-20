@@ -4,8 +4,6 @@
 #include "Slider.h"
 #include "KeyBinder.h"
 
-#define NUM_COMPS 7
-
 class SettingsPage : public AbstractUIComponent
 {
 public:
@@ -18,6 +16,6 @@ public:
 	virtual void handleKeyEvents(Keyboard& keyboard);
 
 private:
-	AbstractUIComponent * comps[NUM_COMPS];
+	std::vector<AbstractUIComponent*> comps;
 };
 

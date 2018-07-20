@@ -30,6 +30,7 @@ void main(){
 	finalColor *= totalLight;
 	
 	
+	
 	finalColor = mix(finalColor, screen_color, screen_color_percent);
 	
 	

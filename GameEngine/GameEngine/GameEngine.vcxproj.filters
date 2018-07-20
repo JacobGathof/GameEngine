@@ -600,6 +600,9 @@
     <ClCompile Include="FireflyParticleSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SetVolumeAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1077,6 +1080,9 @@
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
     <ClInclude Include="FireflyParticleSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetVolumeAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,12 +2,14 @@
 #include "AbstractUIComponent.h"
 
 class Text;
+class AbstractAction;
 
 class Slider : public AbstractUIComponent
 {
 
 public:
 	Slider(Vector2f& pos, Vector2f& sc, std::string& t, float* ref, float mi, float ma, int ic);
+	Slider(Vector2f& pos, Vector2f& sc, std::string& t, float* ref, float mi, float ma, int ic, AbstractAction* act);
 	~Slider();
 	virtual void draw();
 	virtual void update(float dt);
@@ -30,5 +32,7 @@ private:
 	int inc = 8;
 
 	float ptr = minX;
+
+	AbstractAction* action;
 };
 

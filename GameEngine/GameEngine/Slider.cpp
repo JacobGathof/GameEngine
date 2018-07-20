@@ -1,5 +1,6 @@
 #include "Slider.h"
 #include "Text.h"
+#include "AbstractAction.h"
 
 
 Slider::Slider(Vector2f & pos, Vector2f & sc, std::string& t, float* r, float mi, float ma, int ic)
@@ -20,10 +21,35 @@ Slider::Slider(Vector2f & pos, Vector2f & sc, std::string& t, float* r, float mi
 	data->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
 }
 
+Slider::Slider(Vector2f & pos, Vector2f & sc, std::string & t, float * r, float mi, float ma, int ic, AbstractAction * act)
+{
+	position = pos;
+	scale = sc;
+	ref = r;
+	minX = mi;
+	maxX = ma;
+	inc = ic;
+
+	//*ref = (maxX - minX)*ptr + minX;
+	data = new Text(position + scale, std::string(""), Vector2f(20, 20), 0);
+	title = new Text(position + Vector2f(scale[0] / 2, -10), t, Vector2f(20, 20), 0);
+	title->center();
+
+	ptr = (*ref - minX) / (maxX - minX);
+	data->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
+
+	action = act;
+	act->run(0);
+}
+
 Slider::~Slider()
 {
 	delete data;
 	delete title;
+
+	if (action != 0) {
+		delete action;
+	}
 }
 
 void Slider::draw()
@@ -51,6 +77,10 @@ void Slider::handleMouseEvents(Mouse & mouse)
 		}
 		*ref = (maxX - minX)*ptr + minX;
 		data->setText(std::to_string(((int)(*ref * 100)) / 100.0f).substr(0, 4));
+
+		if (action != 0) {
+			action->run(0);
+		}
 	}
 
 	if (mouse.release()) {

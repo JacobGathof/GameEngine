@@ -119,6 +119,7 @@
     <ClCompile Include="SetAction.cpp" />
     <ClCompile Include="SetFlagAction.cpp" />
     <ClCompile Include="SettingsPage.cpp" />
+    <ClCompile Include="SetVolumeAction.cpp" />
     <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Slider.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="SetAction.h" />
     <ClInclude Include="SetFlagAction.h" />
     <ClInclude Include="SettingsPage.h" />
+    <ClInclude Include="SetVolumeAction.h" />
     <ClInclude Include="Shadow.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Slider.h" />

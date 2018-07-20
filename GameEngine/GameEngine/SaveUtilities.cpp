@@ -61,5 +61,6 @@ void SaveUtilities::init()
 	floatSaves.add(&GameState::red);
 	floatSaves.add(&GameState::green);
 	floatSaves.add(&GameState::blue);
+	floatSaves.add(&GameState::volume);
 	stringSaves.add(&GameState::playerName);
 }

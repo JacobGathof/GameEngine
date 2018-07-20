@@ -63,7 +63,7 @@ Room* RoomFactory::createReadingRoom()
 	//melody->addHitbox(circ);
 	//melody->giveDeck(Res::get(DeckType::TEST));
 	
-	Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
+	//Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, -256-64), Vector2f(64,64));
 	card1->setEnterTrigger(new TransitionAction());
 	card1->setExitTrigger(new DebugAction("Exited Trigger"));
@@ -99,7 +99,7 @@ Room* RoomFactory::createReadingRoom()
 
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
-	room->addObject(table);
+	//room->addObject(table);
 	room->addObject(card1);
 	room->addObject(card2);
 	room->addObject(card3);

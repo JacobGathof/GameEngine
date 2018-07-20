@@ -9,6 +9,7 @@ public:
 	static void clean();
 
 	static void playSound(SoundEntity* entity);
+	static void setVolume(float f);
 
 private:
 	static std::vector<unsigned int> sources;

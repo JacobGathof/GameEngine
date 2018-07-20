@@ -31,3 +31,10 @@ void SoundScheduler::playSound(SoundEntity * entity)
 
 	alSourcePlay(src);
 }
+
+void SoundScheduler::setVolume(float f)
+{
+	for (int i = 0; i < maximumSources; i++) {
+		alSourcef(sources[i], AL_GAIN, f);
+	}
+}
