@@ -39,7 +39,6 @@ void TerrainMap::draw(){
 
 
 
-	
 	ShaderProgram* p = Res::get(ShaderType::WATER_SHADER);
 	p->bind();
 	p->loadVector2f("translate", Vector2f(64 * 32, 64*32));

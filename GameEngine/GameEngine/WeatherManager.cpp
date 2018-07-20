@@ -87,7 +87,7 @@ void WeatherManager::drawAmbientLight()
 	m->bind();
 	p->bind();
 
-	p->loadColor("color", Color(.4,.4,1,0));
+	p->loadColor("color", Color(.4f,.4f,1,1));
 
 	m->draw();
 

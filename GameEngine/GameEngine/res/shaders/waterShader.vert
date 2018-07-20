@@ -23,6 +23,7 @@ void main(){
 	uv3 = vec2(uv3.x, 1-uv3.y);
 	//uv3 = uv3 - vec2(0, .5-uv3.y);
 	
+	
 	fragCoord = 1/vec2(4096,4096) * (-translate - camera_translate - vec2(1024, 0) + vec2(64*64) + vec2(1,-1)/camera_scale);
 	
 	gl_Position = vec4(position*2,0,1);

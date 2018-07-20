@@ -40,7 +40,7 @@ void RoomFactory::addWorldObjects()
 	Input::ai = playerAi;
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
-	melody->addEffect(new Light(Vector2f(0, 0), Color(1, 1,1, 1), Vector2f(256, 256)));
+	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
 	melody->addEffect(new FireflyParticleSystem());
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
@@ -81,7 +81,7 @@ Room* RoomFactory::createReadingRoom()
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
 
-	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128 - 64 * 0, 128), Vector2f(64, 64));
+	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128 - 64 * 4, 128*5), Vector2f(64, 64));
 	torch->setAction(SpriteSheet::AnimationState::IDLE);
 	room->addObject(torch);
 
