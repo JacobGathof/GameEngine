@@ -12,9 +12,6 @@
 #include "CompositeAction.h"
 #include "QuoteAction.h"
 #include "TransitionAction.h"
-#include "FireflyParticleSystem.h"
-#include "RainParticleSystem.h"
-#include "DefaultParticleSystem.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -41,7 +38,7 @@ void RoomFactory::addWorldObjects()
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
-	melody->addEffect(new FireflyParticleSystem());
+	//melody->addEffect(new FireflyParticleSystem());
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));

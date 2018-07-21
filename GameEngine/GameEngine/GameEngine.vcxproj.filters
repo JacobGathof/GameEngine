@@ -279,18 +279,6 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultParticleSystem.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectedParticleSystem.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="RainParticleSystem.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
     <ClCompile Include="RunAwayAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -597,11 +585,17 @@
     <ClCompile Include="TransitionAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="FireflyParticleSystem.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="IParticle.cpp">
+      <Filter>Source Files\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="IParticleEmitter.cpp">
+      <Filter>Source Files\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleParticle.cpp">
+      <Filter>Source Files\Particles</Filter>
     </ClCompile>
     <ClCompile Include="SetVolumeAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -753,18 +747,6 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
-      <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultParticleSystem.h">
-      <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectedParticleSystem.h">
-      <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="RainParticleSystem.h">
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
     <ClInclude Include="RunAwayAI.h">
@@ -1079,11 +1061,17 @@
     <ClInclude Include="TransitionAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="FireflyParticleSystem.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="IParticle.h">
+      <Filter>Header Files\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleEmitter.h">
+      <Filter>Header Files\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleParticle.h">
+      <Filter>Header Files\Particles</Filter>
     </ClInclude>
     <ClInclude Include="SetVolumeAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

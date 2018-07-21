@@ -10,7 +10,6 @@ Timer WeatherManager::lightningTimer;
 
 int WeatherManager::nextStrikeCounter = 5;
 
-RainParticleSystem* WeatherManager::sys;
 
 int WeatherManager::weatherState = 0;
 
@@ -20,8 +19,8 @@ void WeatherManager::update(float dt)
 	currentLight = currentLight / 2;
 
 	if (weatherState == 1) {
-		sys->update(dt);
-		sys->position = Screen::offset;
+		//sys->update(dt);
+		//sys->position = Screen::offset;
 	}
 
 	if (weatherState == 2) {
@@ -57,7 +56,7 @@ void WeatherManager::simulateLightning(float dt)
 
 void WeatherManager::drawWeatherEffects()
 {
-	sys->draw();
+	//sys->draw();
 }
 
 void WeatherManager::setState(int i)
@@ -68,14 +67,14 @@ void WeatherManager::setState(int i)
 void WeatherManager::init()
 {
 	lightningTimer.setTickLength(.5f);
-	sys = new RainParticleSystem();
-	sys->startColor = Color::Blue;
-	sys->endColor = Color::Blue;
+	//sys = new RainParticleSystem();
+	//sys->startColor = Color::Blue;
+	//sys->endColor = Color::Blue;
 }
 
 void WeatherManager::clean()
 {
-	delete sys;
+	//delete sys;
 }
 
 void WeatherManager::drawAmbientLight()

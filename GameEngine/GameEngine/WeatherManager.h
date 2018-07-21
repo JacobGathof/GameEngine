@@ -2,7 +2,6 @@
 
 #include "Color.h"
 #include "Timer.h"
-#include "RainParticleSystem.h"
 
 class WeatherManager
 {
@@ -28,7 +27,6 @@ public:
 	static void setState(int i);
 
 
-	static RainParticleSystem* sys;
 
 	static void init();
 	static void clean();
