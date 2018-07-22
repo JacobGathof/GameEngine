@@ -61,7 +61,6 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="IParticle.cpp" />
-    <ClCompile Include="IParticleEmitterComponent.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Map.cpp" />

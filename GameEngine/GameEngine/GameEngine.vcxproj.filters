@@ -591,9 +591,6 @@
     <ClCompile Include="ToggleEffectAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="IParticleEmitterComponent.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
