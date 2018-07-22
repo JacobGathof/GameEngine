@@ -276,9 +276,6 @@
     <ClCompile Include="AbstractUIComponent.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
     <ClCompile Include="RunAwayAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -588,14 +585,14 @@
     <ClCompile Include="IParticle.cpp">
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
-    <ClCompile Include="IParticleEmitter.cpp">
-      <Filter>Source Files\Particles</Filter>
-    </ClCompile>
     <ClCompile Include="SetVolumeAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
     <ClCompile Include="ToggleEffectAction.cpp">
       <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="IParticleEmitterComponent.cpp">
+      <Filter>Source Files\Particles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1064,14 +1061,17 @@
     <ClInclude Include="IParticle.h">
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="IParticleEmitter.h">
-      <Filter>Header Files\Particles</Filter>
-    </ClInclude>
     <ClInclude Include="SetVolumeAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
     <ClInclude Include="ToggleEffectAction.h">
       <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitter.h">
+      <Filter>Header Files\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleEmitterComponent.h">
+      <Filter>Header Files\Particles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

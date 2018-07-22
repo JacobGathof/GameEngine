@@ -74,7 +74,8 @@ Room* RoomFactory::createReadingRoom()
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
 	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
-	chest->addEffect(new ParticleSystem(IParticleEmitter(), 30));
+
+	chest->addEffect(new ParticleSystem<SimpleParticle>(30, {new RandomVelocityComp(400), new ColorComp(Color::Black) }));
 	chest->setEnterTrigger(new ToggleEffectAction(chest, false));
 	chest->setExitTrigger(new ToggleEffectAction(chest, true));
 

@@ -5,31 +5,98 @@
 #include "Screen.h"
 #include "Timer.h"
 
-#include "IParticleEmitter.h"
+#include "ParticleEmitter.h"
 #include "Effect.h"
 
 
+template<class T>
 class ParticleSystem : public Effect
 {
 public:
 
-	ParticleSystem(IParticleEmitter& emitter, int maxParticles);
-	~ParticleSystem();
+	ParticleSystem(int m, std::initializer_list<IParticleEmitterComponent*> comps) {
+		maxParticles = m;
+		emitter.setComponents(comps);
+		init();
+	};
+	~ParticleSystem() {
+		for (int i = 0; i < maxParticles; i++) {
+			if (particles[i] != 0) {
+				delete particles[i];
+			}
+		}
+		delete[] particles;
+	};
 
-	void setEmitter(IParticleEmitter& emitter);
+	void setEmit(bool doEmit) {
+		emit = doEmit;
+	};
+	virtual bool update(float dt) {
+		timer.update(dt);
 
-	void setEmit(bool doEmit);
-	virtual bool update(float dt);
+		float fractParticles = 0;
+		int particlesToCreate = 0;
 
-	virtual void draw();
+		if (emit && active) {
+			fractParticles = (dt*maxParticlesPerSecond);
+			if (fractParticles < 1.0f) {
+				particleLeftOver += fractParticles;
+			}
+		}
+
+		particlesToCreate += (int)fractParticles;
+		if (particleLeftOver >= 1.0) {
+			particleLeftOver -= 1.0f;
+			particlesToCreate += 1;
+		}
+
+
+
+		for (int j = 0; j < particlesToCreate; j++) {
+			particles[pIndex] = createNewParticle();
+			pIndex = ++pIndex % maxParticles;
+		}
+
+		for (int i = 0; i < maxParticles; i++) {
+			IParticle* p = particles[i];
+			if (p != 0) {
+				p->update(dt);
+			}
+
+			/*
+			if (p->life > 0.0f) {
+			updateParticle(p, dt);
+			}
+			*/
+		}
+
+		return true;
+
+	};
+
+	virtual void draw() {
+		for (int i = 0; i < maxParticles; i++) {
+			IParticle* p = particles[i];
+			if (p != 0) {
+				p->draw();
+			}
+		}
+	};
 
 protected:
 	Timer timer;
 
 private:
-	void init();
+	void init() {
+		particles = new IParticle*[maxParticles] {0};
+		emit = true;
 
-	IParticle * createNewParticle();
+	};
+
+	IParticle * createNewParticle() {
+		return emitter.createNewParticle(parent->pos);
+	};
+
 	IParticle ** particles;
 
 	int maxParticles = 30;
@@ -40,8 +107,11 @@ private:
 	bool emit = true;
 	float particleLeftOver = 0.0f;
 
-
-	IParticleEmitter emitter;
+	ParticleEmitter<T> emitter;
 
 };
+
+
+
+
 

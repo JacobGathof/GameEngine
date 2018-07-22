@@ -2,15 +2,15 @@
 #include "ResourceManager.h"
 
 
-IParticle::IParticle(){}
+IParticle::IParticle(ParticleData& data){}
 IParticle::~IParticle(){}
 
 
 
-SimpleParticle::SimpleParticle(Vector2f&pos, Vector2f& v, Color& col){
-	position = pos;
-	velocity = v;
-	color = col;
+SimpleParticle::SimpleParticle(ParticleData& data) : IParticle(data) {
+	position = data.position;
+	velocity = data.velocity;
+	color = data.primaryColor;
 }
 
 void SimpleParticle::update(float dt){
@@ -41,11 +41,11 @@ void SimpleParticle::draw()
 
 
 
-LightParticle::LightParticle(Vector2f & pos, Vector2f & v, Color & col)
+LightParticle::LightParticle(ParticleData& data) : IParticle(data)
 {
-	position = pos;
-	velocity = v;
-	color = col;
+	position = data.position;
+	velocity = data.velocity;
+	color = data.primaryColor;
 }
 
 void LightParticle::update(float dt)

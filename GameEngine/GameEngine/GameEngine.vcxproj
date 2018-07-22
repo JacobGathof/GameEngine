@@ -61,7 +61,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="IParticle.cpp" />
-    <ClCompile Include="IParticleEmitter.cpp" />
+    <ClCompile Include="IParticleEmitterComponent.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -140,7 +140,6 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelManager.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerAI.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -214,7 +213,8 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IParticle.h" />
-    <ClInclude Include="IParticleEmitter.h" />
+    <ClInclude Include="IParticleEmitterComponent.h" />
+    <ClInclude Include="ParticleEmitter.h" />
     <ClInclude Include="KeyItemManager.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Map.h" />

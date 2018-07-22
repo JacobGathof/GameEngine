@@ -1,11 +1,24 @@
 #pragma once
 #include "Vector2f.h"
 #include "Color.h"
+#include "ResourceType.h"
+
+
+struct ParticleData {
+	Vector2f position;
+	Vector2f velocity;
+	Vector2f acceleration;
+	Color primaryColor, secondaryColor;
+	float life;
+	TextureType tex;
+};
+
+
 
 class IParticle
 {
 public:
-	IParticle();
+	IParticle(ParticleData& data);
 	~IParticle();
 
 	virtual void draw() {};
@@ -13,32 +26,28 @@ public:
 
 protected:
 	Vector2f position;
+	Vector2f velocity;
+	Color color;
 };
 
 
 class SimpleParticle : public IParticle
 {
 public:
-	SimpleParticle(Vector2f&pos, Vector2f& v, Color& col);
+	SimpleParticle(ParticleData& data);
 	virtual void update(float dt);
 	virtual void draw();
 
-protected:
-	Vector2f velocity;
-	Color color;
 };
 
 
 class LightParticle : public IParticle
 {
 public:
-	LightParticle(Vector2f& pos, Vector2f& v, Color& col);
+	LightParticle(ParticleData& data);
 	virtual void update(float dt);
 	virtual void draw();
 
-protected:
-	Vector2f velocity;
-	Color color;
 };
 
 
