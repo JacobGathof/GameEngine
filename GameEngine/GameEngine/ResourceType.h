@@ -5,6 +5,7 @@ enum class ShaderType {
 	TEXT_SHADER,
 	BASIC_SHADER,
 	PARTICLE_SHADER,
+
 	PARTICLE_COMPUTE_SHADER,
 	PARTICLE_FAST_SHADER,
 	UI_SOLID_SHADER,
@@ -30,6 +31,7 @@ class TextureTypeT{
 
 enum class TextureType {
 	TEXTURE_DEFAULT,
+	T_SOLID_WHITE,
 
 
 	TEXTURE_MELODY,

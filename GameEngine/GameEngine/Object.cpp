@@ -139,4 +139,11 @@ void Object::removeEffect(Effect * eff)
 	effects.remove(eff);
 }
 
+void Object::activateEffects(bool b)
+{
+	for (Effect * eff : effects) {
+		eff->setActive(b);
+	}
+}
+
 

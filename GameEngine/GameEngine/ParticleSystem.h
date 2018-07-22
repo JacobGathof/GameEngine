@@ -13,20 +13,11 @@ class ParticleSystem : public Effect
 {
 public:
 
-	virtual IParticle createNewParticle();
-
-	ParticleSystem();
-	virtual ~ParticleSystem();
+	ParticleSystem(IParticleEmitter& emitter, int maxParticles);
+	~ParticleSystem();
 
 	void setEmitter(IParticleEmitter& emitter);
 
-
-	Color startColor = Color(0xddddff88);
-	Color endColor = Color(0x0000ffff);
-	Color randColor = Color(0x00000000);
-
-
-	void init();
 	void setEmit(bool doEmit);
 	virtual bool update(float dt);
 
@@ -36,18 +27,17 @@ protected:
 	Timer timer;
 
 private:
-	IParticle * particles;
+	void init();
 
-	Vector2f position;
-	float speed;
-	bool active;
+	IParticle * createNewParticle();
+	IParticle ** particles;
 
 	int maxParticles = 30;
 	float maxParticlesPerSecond = 10;
-	int pIndex = 0;
-	float ptime = 0.0f;
-	bool emit = true;
 	float maxParticleLife = 3.0f;
+
+	int pIndex = 0;
+	bool emit = true;
 	float particleLeftOver = 0.0f;
 
 

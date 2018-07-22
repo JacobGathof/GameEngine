@@ -1,7 +1,7 @@
 #include "IParticleEmitter.h"
-#include "SimpleParticle.h"
 
-IParticle IParticleEmitter::createNewParticle()
+IParticle* IParticleEmitter::createNewParticle(Vector2f& origin)
 {
-	return SimpleParticle();
+	float r = (float)rand() / RAND_MAX * 3.14159f * 2;
+	return new LightParticle(origin, 200*Vector2f(cos(r), sin(r)), Color::White);
 }

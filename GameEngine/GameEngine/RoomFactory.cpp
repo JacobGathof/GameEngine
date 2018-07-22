@@ -13,6 +13,9 @@
 #include "QuoteAction.h"
 #include "TransitionAction.h"
 
+#include "ParticleSystem.h"
+#include "ToggleEffectAction.h"
+
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
 
@@ -38,7 +41,6 @@ void RoomFactory::addWorldObjects()
 	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
 	melody->persistent = true;
 	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
-	//melody->addEffect(new FireflyParticleSystem());
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
@@ -72,6 +74,10 @@ Room* RoomFactory::createReadingRoom()
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
 	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
+	chest->addEffect(new ParticleSystem(IParticleEmitter(), 30));
+	chest->setEnterTrigger(new ToggleEffectAction(chest, false));
+	chest->setExitTrigger(new ToggleEffectAction(chest, true));
+
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
 	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));

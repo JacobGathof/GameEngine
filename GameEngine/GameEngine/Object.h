@@ -38,6 +38,7 @@ public:
 		
 	void addEffect(Effect * eff);
 	void removeEffect(Effect* eff);
+	void activateEffects(bool b);
 	void drawEffects();
 
 	Vector2f pos;
@@ -62,6 +63,7 @@ protected:
 
 
 	// Variables from AnimatedObject, but if we put them here, we can reduce duplicated code in the draw method
+	// Also allows us to eventually index into a spritesheet if need be
 	int animationRow = 0;
 	int animationColumn = 0;
 

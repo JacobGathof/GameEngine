@@ -4,6 +4,11 @@
 class IParticleEmitter
 {
 public:
-	IParticle createNewParticle();
+	virtual IParticle* createNewParticle(Vector2f& origin);
+
+protected:
+
+
+
 };
 

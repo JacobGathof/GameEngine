@@ -3,6 +3,7 @@
 
 void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_DEFAULT, "res/tex/default.png");
+	addTexture(TextureType::T_SOLID_WHITE, "res/tex/solid_white.png");
 
 	addTexture(TextureType::TEXTURE_MELODY, "res/tex/melody.png");
 	addTexture(TextureType::TEXTURE_MELODY_BOOK, "res/tex/melody_book.png");

@@ -1,20 +1,26 @@
 #include "ParticleSystem.h"
+#include "Object.h"
 
 
-
-IParticle ParticleSystem::createNewParticle()
+IParticle* ParticleSystem::createNewParticle()
 {
-	return emitter.createNewParticle();
+	return emitter.createNewParticle(parent->pos);
 }
 
-ParticleSystem::ParticleSystem() {
-	maxParticles = 10;
-	maxParticlesPerSecond = 1;
+
+ParticleSystem::ParticleSystem(IParticleEmitter& e, int m)
+{
+	setEmitter(e);
+	maxParticles = m;
 	init();
 }
 
-
 ParticleSystem::~ParticleSystem() {
+	for (int i = 0; i < maxParticles; i++) {
+		if (particles[i] != 0) {
+			delete particles[i];
+		}
+	}
 	delete[] particles;
 }
 
@@ -25,8 +31,7 @@ void ParticleSystem::setEmitter(IParticleEmitter & em)
 
 void ParticleSystem::init()
 {
-	particles = new IParticle[maxParticles];
-
+	particles = new IParticle*[maxParticles] {0};
 	emit = true;
 
 }
@@ -40,11 +45,10 @@ bool ParticleSystem::update(float dt)
 {
 	timer.update(dt);
 
-	ptime += dt;
 	float fractParticles = 0;
 	int particlesToCreate = 0;
 
-	if (emit) {
+	if (emit && active) {
 		 fractParticles = (dt*maxParticlesPerSecond);
 		 if (fractParticles < 1.0f) {
 			 particleLeftOver += fractParticles;
@@ -65,7 +69,10 @@ bool ParticleSystem::update(float dt)
 	}
 
 	for (int i = 0; i < maxParticles; i++) {
-		IParticle* p = &particles[i];
+		IParticle* p = particles[i];
+		if (p != 0) {
+			p->update(dt);
+		}
 
 		/*
 		if (p->life > 0.0f) {
@@ -83,7 +90,10 @@ bool ParticleSystem::update(float dt)
 void ParticleSystem::draw()
 {
 	for (int i = 0; i < maxParticles; i++) {
-		particles[i].draw();
+		IParticle* p = particles[i];
+		if (p != 0) {
+			p->draw();
+		}
 	}
 
 }
