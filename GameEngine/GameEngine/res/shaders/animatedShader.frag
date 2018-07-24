@@ -27,13 +27,15 @@ void main(){
 		}
 		
 	}else{
-		gl_FragColor = texture(image, uv) * color;
+		gl_FragColor = texture(image, uv);
 	}
 	
 	gl_FragDepth = depth;
 	if(gl_FragColor.a <= 0.5){
 		discard;
 	}
+	
+	gl_FragColor *= color;
 	
 	//gl_FragColor = vec4(depth, depth, depth, 1);
 	

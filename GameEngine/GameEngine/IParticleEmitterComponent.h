@@ -94,3 +94,15 @@ private:
 	float speed1, speed2;
 };
 
+
+class TextureComp : public IParticleEmitterComponent {
+public:
+	TextureComp(TextureType t) {
+		tex = t;
+	}
+	virtual void setupData(ParticleData& data) {
+		data.tex = tex;
+	}
+private:
+	TextureType tex;
+};

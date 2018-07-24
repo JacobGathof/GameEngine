@@ -23,7 +23,7 @@ public:
 	~IParticle();
 
 	virtual void draw() {};
-	virtual void update(float dt) {};
+	virtual void update(float dt);
 
 protected:
 	Vector2f position;
@@ -54,6 +54,16 @@ public:
 	virtual void update(float dt);
 	virtual void draw();
 
+};
+
+
+class TexturedParticle : public IParticle {
+public:
+	TexturedParticle(ParticleData& data);
+	virtual void update(float dt);
+	virtual void draw();
+private:
+	TextureType tex;
 };
 
 
