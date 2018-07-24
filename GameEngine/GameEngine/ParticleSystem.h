@@ -14,11 +14,15 @@ class ParticleSystem : public Effect
 {
 public:
 
-	ParticleSystem(int m, std::initializer_list<IParticleEmitterComponent*> comps) {
+	ParticleSystem(int m, float p, std::initializer_list<IParticleEmitterComponent*> comps) {
 		maxParticles = m;
+		maxParticlesPerSecond = p;
+		maxParticleLife = m / p;
+
 		emitter.setComponents(comps);
 		init();
 	};
+
 	~ParticleSystem() {
 		for (int i = 0; i < maxParticles; i++) {
 			if (particles[i] != 0) {
@@ -94,14 +98,18 @@ private:
 	};
 
 	IParticle * createNewParticle() {
-		return emitter.createNewParticle(parent->pos);
+		ParticleData data;
+		data.position = parent->pos;
+		data.life = maxParticleLife;
+
+		return emitter.createNewParticle(data);
 	};
 
 	IParticle ** particles;
 
-	int maxParticles = 30;
-	float maxParticlesPerSecond = 10;
-	float maxParticleLife = 3.0f;
+	int maxParticles;
+	float maxParticlesPerSecond;
+	float maxParticleLife;
 
 	int pIndex = 0;
 	bool emit = true;

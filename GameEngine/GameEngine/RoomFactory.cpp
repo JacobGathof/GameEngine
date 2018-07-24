@@ -75,7 +75,12 @@ Room* RoomFactory::createReadingRoom()
 	chest->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
 	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 
-	chest->addEffect(new ParticleSystem<SimpleParticle>(30, {new RandomVelocityComp(400), new ColorComp(Color::Black) }));
+	chest->addEffect(new ParticleSystem<LightParticle>(30, 10,
+		{	new DirectedVelocityComp(0,0),
+			new SpeedComp(100,400),
+			new ColorComp(Color::White),
+			new PosSpreadComp(50),
+		}));
 	chest->setEnterTrigger(new ToggleEffectAction(chest, false));
 	chest->setExitTrigger(new ToggleEffectAction(chest, true));
 

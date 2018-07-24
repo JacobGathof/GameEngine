@@ -11,10 +11,15 @@ SimpleParticle::SimpleParticle(ParticleData& data) : IParticle(data) {
 	position = data.position;
 	velocity = data.velocity;
 	color = data.primaryColor;
+	life = data.life;
+	maxLife = life;
 }
 
 void SimpleParticle::update(float dt){
 	position += dt * velocity;
+	life -= dt;
+
+	color[3] = max(0, life / maxLife);
 }
 
 void SimpleParticle::draw()
@@ -46,15 +51,22 @@ LightParticle::LightParticle(ParticleData& data) : IParticle(data)
 	position = data.position;
 	velocity = data.velocity;
 	color = data.primaryColor;
+	life = data.life;
+	maxLife = life;
 }
 
 void LightParticle::update(float dt)
 {
 	position += dt * velocity;
+	life -= dt;
+
+	color[3] = max(0, life / maxLife);
 }
 
 void LightParticle::draw()
 {
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+
 	ShaderProgram* p = Res::get(ShaderType::LIGHT_SHADER);
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 

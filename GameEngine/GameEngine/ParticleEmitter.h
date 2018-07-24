@@ -19,11 +19,9 @@ public:
 		}
 	};
 
-	IParticle* createNewParticle(Vector2f& origin) {
-		ParticleData data;
-		data.position = origin;
-		setupData(data);
-		return new T(data);
+	IParticle* createNewParticle(ParticleData& seedData) {
+		setupData(seedData);
+		return new T(seedData);
 	};
 
 	void setupData(ParticleData& data) {
