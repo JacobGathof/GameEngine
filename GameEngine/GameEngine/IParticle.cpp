@@ -103,7 +103,7 @@ void TexturedParticle::draw()
 
 	p->bind();
 	p->loadVector2f("translate", position);
-	p->loadVector2f("scale", Vector2f(32, 32));
+	p->loadVector2f("scale", Vector2f(64, 64));
 	p->loadColor("color", color);
 
 	p->loadInteger("rows", 1);

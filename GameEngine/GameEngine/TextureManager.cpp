@@ -56,6 +56,7 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_TEST_4, "res/tex/clearing_water.png");
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
+	addTexture(TextureType::T_MUSIC_NOTE, "res/tex/MusicNote.png");
 	
 	addTexture(TextureType::ZH_WARDROBE, "res/tex/Table.png");
 	addTexture(TextureType::ZF_GILGAMESH, "res/tex/ImageFiles/zf-Gilgamesh.png");
