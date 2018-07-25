@@ -63,7 +63,7 @@ void UIManager::init()
 	inputName = new InputNamePage();
 
 	statusbar->setVisible(true);
-	inputName->setVisible(true);
+	//inputName->setVisible(true);
 	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
 	//addText(std::string("Hello world"), std::string("--------"), TextureType::TEXTURE_PANDORA);
