@@ -14,6 +14,10 @@ uniform vec4 ambientLight;
 uniform vec4 screen_color;
 uniform float screen_color_percent;
 
+
+const mat3 grayscale = mat3(.33,.33,.33,.33,.33,.33,.33,.33,.33);
+const mat3 sepia = mat3(.393, .769, .189, .349, .686, .168, .272, .534, .131);
+
 void main(){
 	vec4 ui_color = texture(ui, uv);
 	vec4 world_color = texture(terrain, uv);
@@ -38,6 +42,7 @@ void main(){
 	finalColor = finalColor*(1-uiColor.a) + uiColor*(uiColor.a);
 	//mix(finalColor, ui_color, .5);
 
+	//finalColor.xyz *= sepia;
 
 	gl_FragColor = finalColor;
 }

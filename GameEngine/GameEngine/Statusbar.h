@@ -1,8 +1,9 @@
 #pragma once
 #include "AbstractUIComponent.h"
 #include "Timer.h"
+#include "BezierSpline.h"
 
-class Text;
+class UIText;
 
 class Statusbar : public AbstractUIComponent
 {
@@ -36,7 +37,7 @@ private:
 		float hpcl = hpc; // HP Current Max
 		float hpcs = hpc; // HP Current Shown (Shown hp being lost)
 
-		Text* text;
+		UIText* text;
 	};
 
 	DataContainer health, stamina, mana;
@@ -46,7 +47,7 @@ private:
 
 	std::string formatStatString(float cur, float max);
 
-	Text* goldText;
+	UIText* goldText;
 
 
 	Color backdrop = Color(0x000044ff);
@@ -61,6 +62,7 @@ private:
 
 
 	Color boxColor = Color(0x000022ff);
+	Color boxOutline = Color(0x8888aa88);
 
 
 	Timer timer; // Just for testing
@@ -93,6 +95,14 @@ private:
 	Vector2f scale_m;
 	Vector2f scale_box;
 
+
+	BezierSpline fadeCurve = BezierSpline(Vector2f(0,0), Vector2f(.42, 0), Vector2f(.58, 1), Vector2f(1, 1)) * 150;
+	Timer fadeTimer;
+	int fading;
+
+	float fadeTime = 0.5f;
+	Vector2f fadePos = Vector2f(0, 0);
+	Color fadeColor = Color::White;
 
 };
 

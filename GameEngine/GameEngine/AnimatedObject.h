@@ -16,6 +16,8 @@ public:
 	virtual void draw();
 	virtual bool update(float dt);
 
+	bool finishedAnimation();
+
 protected:
 	Timer timer;
 	Timer animationTimer;

@@ -1,6 +1,6 @@
 #include "Statusbar.h"
 #include "Screen.h"
-#include "Text.h"
+#include "UIText.h"
 
 Statusbar::Statusbar()
 {
@@ -8,10 +8,10 @@ Statusbar::Statusbar()
 	stamina.name =	"ST: ";
 	mana.name =		"MP: ";
 
-	health.text =	new Text(pos_h - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
-	stamina.text =	new Text(pos_s - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
-	mana.text =		new Text(pos_m - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
-	goldText =		new Text(pos_g - Vector2f(offsetX, 0), std::string("$64"), Vector2f(scale_h[1]), 0);
+	health.text =	new UIText(pos_h - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	stamina.text =	new UIText(pos_s - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	mana.text =		new UIText(pos_m - Vector2f(offsetX, 0), std::string("--------"), Vector2f(scale_h[1]), 0);
+	goldText =		new UIText(pos_g - Vector2f(offsetX, 0), std::string("$64"), Vector2f(scale_h[1]), 0);
 
 	updateStats(health);
 	updateStats(stamina);
@@ -30,32 +30,32 @@ Statusbar::~Statusbar()
 
 void Statusbar::draw()
 {
-	if (!visible)
-		return;
+	//if (!visible)
+	//	return;
 
-	UIUtils::drawRectangle(pos_h, scale_h, backdrop);
-	UIUtils::drawRectangle(pos_h + barPadding, (scale_h - 2 * barPadding)*Vector2f(health.percentageShown, 1), healthLostColor);
-	UIUtils::drawRectangle(pos_h + barPadding, (scale_h - 2 * barPadding)*Vector2f(health.percentage, 1), healthColor);
+	UIUtils::drawRectangle(pos_h + fadePos, scale_h, backdrop*fadeColor);
+	UIUtils::drawRectangle(pos_h + fadePos + barPadding, (scale_h - 2 * barPadding)*Vector2f(health.percentageShown, 1), healthLostColor*fadeColor);
+	UIUtils::drawRectangle(pos_h + fadePos + barPadding, (scale_h - 2 * barPadding)*Vector2f(health.percentage, 1), healthColor*fadeColor);
 	
 
-	UIUtils::drawRectangle(pos_s, scale_s, backdrop);
-	UIUtils::drawRectangle(pos_s + barPadding, (scale_s - 2 * barPadding)*Vector2f(stamina.percentageShown, 1), staminaLostColor);
-	UIUtils::drawRectangle(pos_s + barPadding, (scale_s - 2 * barPadding)*Vector2f(stamina.percentage, 1), staminaColor);
+	UIUtils::drawRectangle(pos_s + fadePos, scale_s, backdrop*fadeColor);
+	UIUtils::drawRectangle(pos_s + fadePos + barPadding, (scale_s - 2 * barPadding)*Vector2f(stamina.percentageShown, 1), staminaLostColor*fadeColor);
+	UIUtils::drawRectangle(pos_s + fadePos + barPadding, (scale_s - 2 * barPadding)*Vector2f(stamina.percentage, 1), staminaColor*fadeColor);
 	
 
-	UIUtils::drawRectangle(pos_m, scale_m, backdrop);
-	UIUtils::drawRectangle(pos_m + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentageShown, 1), manaLostColor);
-	UIUtils::drawRectangle(pos_m + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentage, 1), manaColor);
+	UIUtils::drawRectangle(pos_m + fadePos, scale_m, backdrop*fadeColor);
+	UIUtils::drawRectangle(pos_m + fadePos + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentageShown, 1), manaLostColor*fadeColor);
+	UIUtils::drawRectangle(pos_m + fadePos + barPadding, (scale_m - 2 * barPadding)*Vector2f(mana.percentage, 1), manaColor*fadeColor);
 
 
-	UIUtils::drawRectangle(pos_box, scale_box, Color(0x8888aa88));
-	UIUtils::drawRectangle(pos_box + boxPadding, scale_box - 2 * boxPadding, boxColor);
+	UIUtils::drawRectangle(pos_box + fadePos, scale_box, boxOutline*fadeColor);
+	UIUtils::drawRectangle(pos_box + fadePos + boxPadding, scale_box - 2 * boxPadding, boxColor*fadeColor);
 
 
-	health.text->draw();
-	stamina.text->draw();
-	mana.text->draw();
-	goldText->draw();
+	health.text->draw(fadePos, fadeColor);
+	stamina.text->draw(fadePos, fadeColor);
+	mana.text->draw(fadePos, fadeColor);
+	goldText->draw(fadePos, fadeColor);
 
 }
 
@@ -72,6 +72,49 @@ void Statusbar::update(float dt)
 	if (timer.tick()) {
 		mana.hpc -= 5;
 	}
+
+	
+	/*
+	if (fading == 1 || fading == 3) {
+		fadeTimer.update(dt);
+	}
+
+	if (visible && fading == 0) {
+		fadeTimer.unpause();
+		fading = 1;
+	}
+
+	if (fading == 1) {
+		fadePos[1] = fadeCurve.positionAt(fadeTimer.getTotalTime() * fadeTime)[1];
+		fadeColor[3] = 1 - fadeTimer.getTotalTime() * fadeTime;
+
+
+		if (fadeTimer.getTotalTime() * fadeTime >= 1.0f) {
+			fadeTimer.reset();
+			fadeTimer.pause();
+			fading = 2;
+		}
+	}
+	
+	if (!visible && fading == 2) {
+		fadeTimer.unpause();
+		fading = 3;
+	}
+
+	if (fading == 3) {
+		fadePos[1] = fadeCurve.positionAt(1 - fadeTimer.getTotalTime()  * fadeTime)[1];
+		fadeColor[3] = fadeTimer.getTotalTime() * fadeTime;
+
+		if (fadeTimer.getTotalTime() * fadeTime >= 1.0f) {
+			fadeTimer.reset();
+			fadeTimer.pause();
+			fading = 0;
+		}
+	}
+
+	*/
+
+
 
 }
 

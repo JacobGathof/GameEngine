@@ -39,6 +39,8 @@ public:
 	void setKeyState(int key, int state);
 	void setKeyState(VirtualKey k, int state);
 
+	void setMods(int mods, int state);
+
 	void update();
 
 	bool down(int key);
@@ -50,6 +52,8 @@ public:
 	bool up(VirtualKey key);
 	bool press(VirtualKey key);
 	bool release(VirtualKey key);
+
+	bool modActive(int mod);
 
 	void setKeyBind(VirtualKey vk, int k);
 	int getKeyBind(VirtualKey vk);
@@ -63,6 +67,8 @@ public:
 
 private:
 	KeyState keys[512];
+	unsigned char mods;
+
 	std::queue<int> pressed;
 	std::queue<int> released;
 

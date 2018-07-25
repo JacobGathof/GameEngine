@@ -37,7 +37,7 @@ public:
 
 	static float POS_SCALE;
 
-private:
+protected:
 	unsigned int vao;
 	unsigned int vbo_pos;
 	unsigned int vbo_tex;

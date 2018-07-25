@@ -13,6 +13,8 @@ class CommandLine;
 class PauseMenu;
 class Map;
 
+class InputNamePage;
+
 class UIManager
 {
 public:
@@ -56,6 +58,7 @@ public:
 
 	static void toggleCommandLine();
 
+
 private:
 	static Textbox * textbox;
 	static Menu * menu;
@@ -66,6 +69,8 @@ private:
 	static CommandLine* cmdLine;
 	static PauseMenu* pauseMenu;
 	static Map* map;
+
+	static InputNamePage* inputName;
 
 };
 

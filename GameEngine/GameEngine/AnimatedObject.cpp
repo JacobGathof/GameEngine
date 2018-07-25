@@ -50,3 +50,8 @@ bool AnimatedObject::update(float delta_time)
 	return CollidableObject::update(delta_time);
 }
 
+bool AnimatedObject::finishedAnimation()
+{
+	return animationState == SpriteSheet::AnimationState::NONE || animationState == SpriteSheet::AnimationState::IDLE;
+}
+

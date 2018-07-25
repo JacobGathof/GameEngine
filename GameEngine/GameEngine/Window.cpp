@@ -175,7 +175,7 @@ void Window::Callbacks::CursorPosCallback(GLFWwindow * window, double xpos, doub
 }
 
 void Window::Callbacks::KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) {
-	Input::feedKey(key, action);
+	Input::feedKey(key, action, mods);
 }
 
 void Window::Callbacks::MouseCallback(GLFWwindow * window, int button, int action, int mods) {

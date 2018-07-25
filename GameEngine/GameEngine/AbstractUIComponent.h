@@ -16,7 +16,7 @@ public:
 	void setParentPosition(Vector2f* pos);
 	bool mouseIn(Mouse& mouse);
 	virtual void resize(int newX, int newY);
-	void setVisible(bool b);
+	virtual void setVisible(bool b);
 
 protected:
 	Vector2f * parentOffset;

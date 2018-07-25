@@ -243,8 +243,8 @@ void Text::draw()
 	sh->loadColor("text_color", color);
 	glDrawArrays(GL_TRIANGLES, 0, displayableLength*6);
 
-	glBlendFunc(GL_ONE, GL_ZERO);
 }
+
 
 void Text::setColor(Color & col){
 	color = col;

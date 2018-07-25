@@ -1,8 +1,6 @@
 #include "Keyboard.h"
 
 
-
-
 Keyboard::Keyboard()
 {
 	virtualMap[VirtualKey::UP] = GLFW_KEY_W;
@@ -68,6 +66,16 @@ void Keyboard::setKeyState(VirtualKey k, int state)
 	setKeyState(virtualMap[k], state);
 }
 
+void Keyboard::setMods(int m, int state)
+{
+	if (state == GLFW_PRESS) {
+		mods = mods | m;
+	}
+	if (state == GLFW_RELEASE) {
+		mods = mods & m;
+	}
+}
+
 void Keyboard::update(){
 
 	while (!pressed.empty()) {
@@ -120,6 +128,11 @@ bool Keyboard::press(VirtualKey key)
 bool Keyboard::release(VirtualKey key)
 {
 	return release(virtualMap[key]);
+}
+
+bool Keyboard::modActive(int mod)
+{
+	return mod & mods;
 }
 
 void Keyboard::setKeyBind(VirtualKey vk, int k)

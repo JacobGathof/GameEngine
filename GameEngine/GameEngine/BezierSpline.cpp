@@ -58,3 +58,8 @@ Vector2f BezierSpline::accelerationAt(float t)
 	float tt = 1 - t;
 	return 6 * tt*(p3 - 2*p2 + p1) + 6 * t*(p4 - 2*p3 + p2) ;
 }
+
+BezierSpline BezierSpline::operator*(float f)
+{
+	return BezierSpline(f*p1, f*p2,f*p3, f*p4);
+}

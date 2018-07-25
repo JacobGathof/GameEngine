@@ -22,7 +22,7 @@ public:
 	static Keyboard keyboard;
 
 	static void processInput(float dt);
-	static void feedKey(int key, int state);
+	static void feedKey(int key, int state, int mods);
 	static void init();
 	static void feedMousePosition(Vector2f& pos);
 	static void feedMouseEvent(int button, int action);

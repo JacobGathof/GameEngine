@@ -58,6 +58,14 @@ void Input::processInput(float dt) {
 		UIManager::toggleMenu();
 	}
 
+	if (keyboard.press(GLFW_KEY_Y)) {
+		UIManager::setStatusVisible(false);
+	}
+
+	if (keyboard.press(GLFW_KEY_U)) {
+		UIManager::setStatusVisible(true);
+	}
+
 	WorldManipulator::process(mouse, keyboard, dt);
 	ai->receiveInput(keyboard, mouse);
 
@@ -68,9 +76,10 @@ void Input::processInput(float dt) {
 
 }
 
-void Input::feedKey(int key, int state){
+void Input::feedKey(int key, int state, int mods){
 	if (key < 0 || key > 512) return;
 	keyboard.setKeyState(key, state);
+	keyboard.setMods(mods, state);
 
 }
 

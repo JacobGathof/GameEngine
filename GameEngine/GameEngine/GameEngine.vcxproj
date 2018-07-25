@@ -59,6 +59,7 @@
     <ClCompile Include="GlobalActionInvoker.cpp" />
     <ClCompile Include="GraphAction.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="InputNamePage.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="IParticle.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="TransitionAction.cpp" />
     <ClCompile Include="TransitionObject.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="UIText.cpp" />
     <ClCompile Include="UIUtils.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
@@ -210,6 +212,7 @@
     <ClInclude Include="GlobalActionInvoker.h" />
     <ClInclude Include="GraphAction.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="InputNamePage.h" />
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IParticle.h" />
     <ClInclude Include="IParticleEmitterComponent.h" />
@@ -317,6 +320,7 @@
     <ClInclude Include="TransitionAction.h" />
     <ClInclude Include="TransitionObject.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UIText.h" />
     <ClInclude Include="UIUtils.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />

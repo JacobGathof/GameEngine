@@ -19,6 +19,8 @@ public:
 	Vector2f p3;
 	Vector2f p4;
 
+	BezierSpline operator*(float f);
+
 private:
 
 };

@@ -8,6 +8,7 @@
 #include "CommandLine.h"
 #include "PauseMenu.h"
 #include "Map.h"
+#include "InputNamePage.h"
 
 #include "GameState.h"
 
@@ -20,6 +21,7 @@ EnemyStatusbar* UIManager::enemyStatus;
 CommandLine* UIManager::cmdLine;
 PauseMenu* UIManager::pauseMenu;
 Map* UIManager::map;
+InputNamePage* UIManager::inputName;
 
 UIManager::UIManager()
 {
@@ -40,6 +42,7 @@ void UIManager::draw()
 	enemyStatus->draw();
 	cmdLine->draw();
 	//map->draw();
+	inputName->draw();
 
 	if (GameState::isGamePaused()) {
 		pauseMenu->draw();
@@ -57,8 +60,10 @@ void UIManager::init()
 	cmdLine = new CommandLine();
 	pauseMenu = new PauseMenu();
 	map = new Map();
+	inputName = new InputNamePage();
 
 	statusbar->setVisible(true);
+	inputName->setVisible(true);
 	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
 	//addText(std::string("Hello world"), std::string("--------"), TextureType::TEXTURE_PANDORA);
@@ -75,6 +80,7 @@ void UIManager::clean()
 	delete cmdLine;
 	delete pauseMenu;
 	delete map;
+	delete inputName;
 }
 
 void UIManager::update(float dt)
@@ -88,6 +94,7 @@ void UIManager::update(float dt)
 		enemyStatus->update(dt);
 		cmdLine->update(dt);
 		map->update(dt);
+		inputName->update(dt);
 	}
 }
 
@@ -108,6 +115,7 @@ void UIManager::handleMouseEvents(Mouse & mouse)
 		menu->handleMouseEvents(mouse);
 		textbox->handleMouseEvents(mouse);
 		map->handleMouseEvents(mouse);
+		inputName->handleMouseEvents(mouse);
 	}
 	else {
 		pauseMenu->handleMouseEvents(mouse);
@@ -121,6 +129,7 @@ void UIManager::handleKeyboardEvents(Keyboard & keyboard)
 		menu->handleKeyEvents(keyboard);
 		textbox->handleKeyEvents(keyboard);
 		map->handleKeyEvents(keyboard);
+		inputName->handleKeyEvents(keyboard);
 	}
 }
 

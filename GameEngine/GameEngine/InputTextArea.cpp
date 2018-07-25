@@ -42,9 +42,15 @@ void InputTextArea::handleKeyEvents(Keyboard & keyboard)
 		return;
 
 	int key = keyboard.getCurrentPressed();
+	bool shiftHeld = keyboard.modActive(GLFW_MOD_SHIFT);
+
 	if (((key <= 'Z' && key >= 'A') || 
 		(key <= '9' && key >= '0') || 
 		key == ' ' || key == '-' || key=='_') && str.size() < maxChars) {
+
+		if ((key <= 'Z' && key >= 'A') && !shiftHeld) {
+			key = key - 'A' + 'a';
+		}
 		str += (char)key;
 		text->setText(str);
 	}
@@ -55,6 +61,9 @@ void InputTextArea::handleKeyEvents(Keyboard & keyboard)
 	if (key == GLFW_KEY_ENTER) {
 		selected = false;
 	}
+
+	keyboard.clearQueues();
+
 
 }
 
