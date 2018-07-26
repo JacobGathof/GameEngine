@@ -15,7 +15,7 @@ enum class Weight {
 class CollidableObject : public Object
 {
 public:
-	CollidableObject(std::string& n, TextureType t, Vector2f& position, Vector2f& sc);
+	CollidableObject(ObjectData& data);
 	virtual ~CollidableObject();
 
 	virtual bool collide(Object * o, Hitbox * h);

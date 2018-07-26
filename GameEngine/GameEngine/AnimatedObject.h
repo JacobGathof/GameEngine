@@ -9,7 +9,7 @@
 class AnimatedObject : public CollidableObject
 {
 public:
-	AnimatedObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc);
+	AnimatedObject(ObjectData& data);
 	virtual ~AnimatedObject();
 
 	void setAction(SpriteSheet::AnimationState action);

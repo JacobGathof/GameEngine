@@ -3,13 +3,12 @@
 
 
 
-CardObject::CardObject(Card * c, Vector2f position, Vector2f scale) : 
-	InteractableObject(c->getName(), c->getTexture(), position, scale)
+CardObject::CardObject(ObjectData& data, Card * c) : InteractableObject(data)
 {
 	card = c;
 	setInteraction(new GiveCardAction(card));
 
-	originalPosition = position;
+	originalPosition = pos;
 	originalScale = scale;
 }
 

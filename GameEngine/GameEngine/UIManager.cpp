@@ -9,8 +9,10 @@
 #include "PauseMenu.h"
 #include "Map.h"
 #include "InputNamePage.h"
+#include "ShopWindow.h"
 
 #include "GameState.h"
+#include "Item.h"
 
 Textbox* UIManager::textbox;
 Menu* UIManager::menu;
@@ -22,6 +24,7 @@ CommandLine* UIManager::cmdLine;
 PauseMenu* UIManager::pauseMenu;
 Map* UIManager::map;
 InputNamePage* UIManager::inputName;
+ShopWindow* UIManager::shopWindow;
 
 UIManager::UIManager()
 {
@@ -43,6 +46,7 @@ void UIManager::draw()
 	cmdLine->draw();
 	//map->draw();
 	inputName->draw();
+	shopWindow->draw();
 
 	if (GameState::isGamePaused()) {
 		pauseMenu->draw();
@@ -61,8 +65,10 @@ void UIManager::init()
 	pauseMenu = new PauseMenu();
 	map = new Map();
 	inputName = new InputNamePage();
+	shopWindow = new ShopWindow();
 
 	statusbar->setVisible(true);
+	shopWindow->setVisible(true);
 	//inputName->setVisible(true);
 	//enemyStatus->setVisible(true);
 	//menu->setVisible(true);
@@ -81,6 +87,7 @@ void UIManager::clean()
 	delete pauseMenu;
 	delete map;
 	delete inputName;
+	delete shopWindow;
 }
 
 void UIManager::update(float dt)
@@ -95,6 +102,7 @@ void UIManager::update(float dt)
 		cmdLine->update(dt);
 		map->update(dt);
 		inputName->update(dt);
+		shopWindow->update(dt);
 	}
 }
 
@@ -116,6 +124,7 @@ void UIManager::handleMouseEvents(Mouse & mouse)
 		textbox->handleMouseEvents(mouse);
 		map->handleMouseEvents(mouse);
 		inputName->handleMouseEvents(mouse);
+		shopWindow->handleMouseEvents(mouse);
 	}
 	else {
 		pauseMenu->handleMouseEvents(mouse);
@@ -191,6 +200,11 @@ void UIManager::setStatusVisible(bool t)
 void UIManager::toggleCommandLine()
 {
 	cmdLine->toggle();
+}
+
+void UIManager::showShopWindow(Item* i, bool b){
+	shopWindow->setItem(i);
+	shopWindow->setVisible(b);
 }
 
 

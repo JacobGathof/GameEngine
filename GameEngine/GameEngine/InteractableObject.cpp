@@ -2,10 +2,9 @@
 #include "Circle.h"
 
 
-InteractableObject::InteractableObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc) : 
-	AnimatedObject(name, t, position, sc)
+InteractableObject::InteractableObject(ObjectData& data) : AnimatedObject(data)
 {
-	interactionRadius = new Circle(position, sc[0]);
+	interactionRadius = new Circle(pos, scale[0]);
 	interactionRadius->color = Color::DarkBlue;
 }
 
@@ -20,6 +19,10 @@ InteractableObject::~InteractableObject()
 	}
 	if (exitTriggerAction != 0) {
 		delete exitTriggerAction;
+	}
+	if (destroyTriggerAction != 0) {
+		destroyTriggerAction->run(0);
+		delete destroyTriggerAction;
 	}
 	delete interactionRadius;
 }
@@ -106,6 +109,14 @@ void InteractableObject::setExitTrigger(AbstractAction * a)
 		delete exitTriggerAction;
 	}
 	exitTriggerAction = a;
+}
+
+void InteractableObject::setOnDestroyTrigger(AbstractAction * a)
+{
+	if (destroyTriggerAction != 0) {
+		delete destroyTriggerAction;
+	}
+	destroyTriggerAction = a;
 }
 
 void InteractableObject::setEnterTrigger(AbstractAction * a)

@@ -5,7 +5,7 @@
 
 Room::Room()
 {
-	collisionObject = new CollidableObject(std::string("extra"), TextureType::TEXTURE_DEFAULT, Vector2f(0,0), Vector2f(1,1));
+	collisionObject = new CollidableObject(ObjectData{});
 	init();
 }
 
@@ -25,18 +25,21 @@ void Room::update(float dt)
 	for (int i = 0; i < simpleObjects.size(); i++) {
 		bool b = simpleObjects[i]->update(dt);
 		if (!b) {
+			eraseObject(simpleObjects[i]);
 			removeObject(simpleObjects[i--]);
 		}
 	}
 	for (int i = 0; i < collidableObjects.size(); i++) {
 		bool b = collidableObjects[i]->update(dt);
 		if (!b) {
+			eraseObject(collidableObjects[i]);
 			removeCollidableObject(collidableObjects[i--]);
 		}
 	}
 	for (int i = 0; i < interactableObjects.size(); i++) {
 		bool b = interactableObjects[i]->update(dt);
 		if (!b) {
+			eraseObject(interactableObjects[i]);
 			removeInteractableObject(interactableObjects[i--]);
 		}
 	}
@@ -329,6 +332,12 @@ void Room::loadObjects(std::string& filepath)
 	}
 }
 
+
+void Room::eraseObject(Object * obj)
+{
+	allRoomObjects.remove(obj);
+	delete obj;
+}
 
 void Room::removeObject(Object * obj)
 {

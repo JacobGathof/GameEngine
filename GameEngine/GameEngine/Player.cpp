@@ -4,8 +4,7 @@
 #include "PlayerAI.h"
 
 
-Player::Player(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, PlayerAI * ai) : 
-	LivingObject(name, t, position, sc)
+Player::Player(ObjectData& data, PlayerAI * ai) : LivingObject(data)
 {
 	defaultAI = ai;
 	moveSpeed = 256;

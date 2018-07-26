@@ -2,8 +2,7 @@
 
 
 
-Boomerang::Boomerang(std::string & name, TextureType t, Vector2f & position, Vector2f & sc, Vector2f & dir, Object * owner) :
-	Projectile(name, t, position, sc, dir, owner)
+Boomerang::Boomerang(ObjectData& data, Vector2f & dir, Object * owner) : Projectile(data, dir, owner)
 {
 	lifeTimer.setTickLength(2.0f);
 }

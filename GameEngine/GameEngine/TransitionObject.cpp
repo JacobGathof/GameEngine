@@ -2,8 +2,7 @@
 
 
 
-TransitionObject::TransitionObject(TextureType t, Vector2f& position, Vector2f& sc, Room * r) : 
-	CollidableObject(std::string("trans"), t, position, sc)
+TransitionObject::TransitionObject(ObjectData& data, Room * r) : CollidableObject(data)
 {
 	isStatic = true;
 	room = r;

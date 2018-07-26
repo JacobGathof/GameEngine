@@ -11,10 +11,18 @@
 
 #include "AI.h"
 
+struct ObjectData {
+	std::string name;
+	Vector2f position;
+	Vector2f scale;
+	TextureType tex;
+};
+
 class Object
 {
 public:
 	Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc);
+	Object(ObjectData& data);
 	virtual ~Object();
 
 	bool persistent = false;

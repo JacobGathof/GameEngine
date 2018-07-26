@@ -1,8 +1,7 @@
 #include "Chest.h"
 
 
-Chest::Chest(TextureType t, Vector2f & position, Vector2f & sc, AbstractAction * action) 
-	: InteractableObject(std::string("Chest"), t, position, sc)
+Chest::Chest(ObjectData& data, AbstractAction * action) : InteractableObject(data)
 {
 	interactObj = action;
 }

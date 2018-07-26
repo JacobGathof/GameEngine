@@ -45,6 +45,7 @@ public:
 	void addHitbox(Vector2f& pos, Vector2f& scale);
 	void loadObjects(std::string& filepath);
 
+	void eraseObject(Object* obj);
 	void removeObject(Object * obj);
 	void removeCollidableObject(CollidableObject* obj);
 	void removeInteractableObject(InteractableObject* obj);

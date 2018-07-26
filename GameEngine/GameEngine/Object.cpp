@@ -14,6 +14,16 @@ Object::Object(std::string& n, TextureType t, Vector2f& position, Vector2f& sc)
 	numCreated++;
 }
 
+Object::Object(ObjectData & data)
+{
+	texture = data.tex;
+	pos = data.position;
+	scale = data.scale;
+	name = data.name;
+
+	numCreated++;
+}
+
 
 Object::~Object()
 {

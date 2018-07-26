@@ -4,7 +4,7 @@
 class Projectile : public InteractableObject
 {
 public:
-	Projectile(std::string& name, TextureType t, Vector2f& position, Vector2f& sc, Vector2f& dir, Object* owner);
+	Projectile(ObjectData& data, Vector2f& dir, Object* owner);
 	virtual ~Projectile();
 
 	virtual bool update(float dt);

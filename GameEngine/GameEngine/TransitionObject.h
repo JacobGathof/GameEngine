@@ -6,7 +6,7 @@
 class TransitionObject : public CollidableObject
 {
 public:
-	TransitionObject(TextureType t, Vector2f& position, Vector2f& sc, Room * r);
+	TransitionObject(ObjectData& data, Room * r);
 	virtual ~TransitionObject();
 
 	virtual bool collide(Object * o, Hitbox * h);

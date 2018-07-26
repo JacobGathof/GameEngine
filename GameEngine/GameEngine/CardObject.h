@@ -5,7 +5,7 @@
 class CardObject : public InteractableObject
 {
 public:
-	CardObject(Card* c, Vector2f position, Vector2f scale);
+	CardObject(ObjectData& data, Card* c);
 	~CardObject();
 
 	virtual bool update(float dt);

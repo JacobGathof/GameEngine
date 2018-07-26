@@ -2,8 +2,7 @@
 #include "CircleHitbox.h"
 
 
-CollidableObject::CollidableObject(std::string& n, TextureType t, Vector2f& position, Vector2f& sc) :
-	Object(n, t, position, sc)
+CollidableObject::CollidableObject(ObjectData& data) : Object(data)
 {
 	addHitbox(new CircleHitbox(Circle(Vector2f(0,0), 32), Vector2f(0,0)));
 }

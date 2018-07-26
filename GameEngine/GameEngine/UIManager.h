@@ -14,6 +14,10 @@ class PauseMenu;
 class Map;
 
 class InputNamePage;
+class ShopWindow;
+
+
+class Item;
 
 class UIManager
 {
@@ -58,6 +62,7 @@ public:
 
 	static void toggleCommandLine();
 
+	static void showShopWindow(Item* i, bool b);
 
 private:
 	static Textbox * textbox;
@@ -71,6 +76,7 @@ private:
 	static Map* map;
 
 	static InputNamePage* inputName;
+	static ShopWindow* shopWindow;
 
 };
 

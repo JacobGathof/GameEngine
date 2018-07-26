@@ -7,7 +7,7 @@ class LivingAi;
 class LivingObject : public InteractableObject
 {
 public:
-	LivingObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc);
+	LivingObject(ObjectData& data);
 	//LivingObject(std::string name, TextureType t, Vector2f position, Vector2f sc, int hp, int luc, Deck * d);
 	virtual ~LivingObject();
 

@@ -3,8 +3,7 @@
 
 
 
-Projectile::Projectile(std::string & name, TextureType t, Vector2f & position, Vector2f & sc, Vector2f& dir, Object* obj) : 
-	InteractableObject(name, t, position, sc)
+Projectile::Projectile(ObjectData& data, Vector2f& dir, Object* obj) : InteractableObject(data)
 {
 	lifeTimer.setTickLength(2.0f);
 	direction = dir;
@@ -21,7 +20,7 @@ Projectile::~Projectile()
 bool Projectile::update(float dt)
 {
 	lifeTimer.update(dt);
-	pos += direction*1600*dt;
+	pos += direction*800*dt;
 	if (lifeTimer.tick()) {
 		destroy();
 	}
@@ -32,5 +31,6 @@ void Projectile::onEnterTrigger()
 {
 	if (triggerSubject != owner) {
 		//destroy();
+		//Replace with arrow sprite object, for (fake) visual effect, tied to target's location
 	}
 }

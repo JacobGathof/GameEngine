@@ -6,7 +6,7 @@ class Circle;
 class InteractableObject : public AnimatedObject
 {
 public:
-	InteractableObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc);
+	InteractableObject(ObjectData& data);
 	virtual ~InteractableObject();
 
 	virtual void interact();
@@ -20,6 +20,7 @@ public:
 	virtual void trigger(Object* obj);
 	virtual void setEnterTrigger(AbstractAction* a);
 	virtual void setExitTrigger(AbstractAction* a);
+	virtual void setOnDestroyTrigger(AbstractAction* a);
 	virtual void handleTriggers();
 
 	virtual void onEnterTrigger();
@@ -43,6 +44,7 @@ protected:
 	bool triggered_past = false;
 	AbstractAction* exitTriggerAction;
 	AbstractAction* enterTriggerAction;
+	AbstractAction* destroyTriggerAction;
 
 	Object* triggerSubject;
 };

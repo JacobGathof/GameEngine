@@ -91,8 +91,7 @@ void LivingObject::drawCards(int amount)
 
 */
 
-LivingObject::LivingObject(std::string & name, TextureType t, Vector2f & position, Vector2f & sc) : 
-	InteractableObject(name, t, position, sc)
+LivingObject::LivingObject(ObjectData& data) : InteractableObject(data)
 {
 }
 

@@ -7,7 +7,7 @@
 class Enemy : public LivingObject
 {
 public:
-	Enemy(std::string name, TextureType t, Vector2f position, Vector2f sc);
+	Enemy(ObjectData& data);
 	~Enemy();
 
 	virtual bool collide(Object * o, Hitbox * h);

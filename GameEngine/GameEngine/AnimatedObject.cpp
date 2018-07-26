@@ -1,8 +1,7 @@
 #include "AnimatedObject.h"
 
 
-AnimatedObject::AnimatedObject(std::string& name, TextureType t, Vector2f& position, Vector2f& sc) : 
-	CollidableObject(name, t, position, sc)
+AnimatedObject::AnimatedObject(ObjectData& data) : CollidableObject(data)
 {
 	animationTimer.setTickLength(0.25f);
 }

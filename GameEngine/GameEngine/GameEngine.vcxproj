@@ -56,6 +56,7 @@
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
+    <ClCompile Include="FireObject_TEST.cpp" />
     <ClCompile Include="GlobalActionInvoker.cpp" />
     <ClCompile Include="GraphAction.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -119,6 +120,8 @@
     <ClCompile Include="SetVolumeAction.cpp" />
     <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShopWindow.cpp" />
+    <ClCompile Include="ShopWindowAction.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="SoundEntity.cpp" />
     <ClCompile Include="SoundScheduler.cpp" />
@@ -209,6 +212,7 @@
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
+    <ClInclude Include="FireObject_TEST.h" />
     <ClInclude Include="GlobalActionInvoker.h" />
     <ClInclude Include="GraphAction.h" />
     <ClInclude Include="Grid.h" />
@@ -279,6 +283,8 @@
     <ClInclude Include="SetVolumeAction.h" />
     <ClInclude Include="Shadow.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShopWindow.h" />
+    <ClInclude Include="ShopWindowAction.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="SoundEntity.h" />
     <ClInclude Include="SoundScheduler.h" />

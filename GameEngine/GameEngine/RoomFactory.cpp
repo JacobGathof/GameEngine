@@ -15,6 +15,8 @@
 
 #include "ParticleSystem.h"
 #include "ToggleEffectAction.h"
+#include "ShopWindowAction.h"
+#include "FireObject_TEST.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -38,7 +40,7 @@ void RoomFactory::addWorldObjects()
 {
 	PlayerAI * playerAi = new PlayerAI();
 	Input::ai = playerAi;
-	Player * melody = new Player(std::string("Player"), TextureType::SPRITESHEET_MELODY, Vector2f(0, 0), Vector2f(256, 256), playerAi);
+	Player * melody = new Player(ObjectData{ "Player", Vector2f(0, 0), Vector2f(256, 256), TextureType::SPRITESHEET_MELODY}, playerAi);
 	melody->persistent = true;
 	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
 	GameState::battleManager = BattleManager(melody);
@@ -63,13 +65,14 @@ Room* RoomFactory::createReadingRoom()
 	//melody->giveDeck(Res::get(DeckType::TEST));
 	
 	//Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
-	CardObject* card1 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512+64, -256-64), Vector2f(64,64));
+	CardObject* card1 = new CardObject(ObjectData{"", Vector2f(-512 + 64, -256 - 64), Vector2f(64, 64) , TextureType::T_CARD_GHOST}, Res::get(CardType::UNLIMITED_WATERWORKS));
 	card1->setEnterTrigger(new TransitionAction());
 	card1->setExitTrigger(new DebugAction("Exited Trigger"));
 
+
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	InteractableObject * chest = new InteractableObject(std::string(""), TextureType::TEXTURE_SLIME, Vector2f(0, -256), Vector2f(128, 128));
+	InteractableObject * chest = new InteractableObject(ObjectData{ "", Vector2f(0, -256), Vector2f(128, 128), TextureType::TEXTURE_SLIME});
 	chest->setInteraction(new QuoteAction(std::string("Quote Interaction")));
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
@@ -88,11 +91,11 @@ Room* RoomFactory::createReadingRoom()
 
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
-	LivingObject * chest2 = new LivingObject(std::string("nm"), TextureType::TEXTURE_SLIME, Vector2f(-256, 0), Vector2f(128, 128));
+	LivingObject * chest2 = new LivingObject(ObjectData{ "nm", Vector2f(-256, 0), Vector2f(128, 128), TextureType::TEXTURE_SLIME });
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
 
-	AnimatedObject* torch = new AnimatedObject(std::string(), TextureType::T_CARD_4, Vector2f(128 - 64 * 4, 128*5), Vector2f(64, 64));
+	InteractableObject* torch = new FireObject_TEST(ObjectData{"", Vector2f(128 - 64 * 4, 128 * 5), Vector2f(64, 64) , TextureType::T_CARD_4 });
 	torch->setAction(SpriteSheet::AnimationState::IDLE);
 	room->addObject(torch);
 
@@ -102,11 +105,17 @@ Room* RoomFactory::createReadingRoom()
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
 
-	CardObject* card2 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512 + 192, 256 + 64), Vector2f(64, 64));
-	card2->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
+	CardObject* card2 = new CardObject(ObjectData{"", Vector2f(-512 + 192, 256 + 64), Vector2f(64, 64) , TextureType::T_CARD_ACE}, Res::get(CardType::UNLIMITED_WATERWORKS));
+	card2->setEnterTrigger(new ShopWindowAction(Res::get(CardType::UNLIMITED_WATERWORKS), true));
+	card2->setExitTrigger(new ShopWindowAction(0, false));
+	card2->setOnDestroyTrigger(new ShopWindowAction(0, false));
 
-	CardObject* card3 = new CardObject(Res::get(CardType::UNLIMITED_WATERWORKS), Vector2f(-512 + 192 + 128, 256 + 64), Vector2f(64, 64));
-	card3->setEnterTrigger(new PlayMusicAction(AudioType::SOUND_A_NOTE));
+
+
+	CardObject* card3 = new CardObject(ObjectData{ "", Vector2f(-512 + 192 + 128, 256 + 64), Vector2f(64, 64) , TextureType::T_CARD_ACE}, Res::get(CardType::DAWN));
+	card3->setEnterTrigger(new ShopWindowAction(Res::get(CardType::DAWN), true));
+	card3->setExitTrigger(new ShopWindowAction(0, false));
+	card3->setOnDestroyTrigger(new ShopWindowAction(0, false));
 
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
@@ -128,7 +137,7 @@ Room* RoomFactory::createClearing()
 	
 	room->loadObjects(std::string("ObjectMaps/Clearing"));
 	
-	LivingObject * echo = new LivingObject(std::string("Echo"),TextureType::TEXTURE_MAVIS, Vector2f(-920, -500), Vector2f(128, 128));
+	LivingObject * echo = new LivingObject(ObjectData{ "Echo", Vector2f(-920, -500), Vector2f(128, 128), TextureType::TEXTURE_MAVIS });
 	echo->weight = Weight::GHOST;
 	room->addObject(echo);
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
