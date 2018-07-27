@@ -65,6 +65,7 @@
     <ClCompile Include="IParticle.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightPath.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseAction.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IParticle.h" />
     <ClInclude Include="IParticleEmitterComponent.h" />
+    <ClInclude Include="LightPath.h" />
     <ClInclude Include="ParticleEmitter.h" />
     <ClInclude Include="KeyItemManager.h" />
     <ClInclude Include="Light.h" />

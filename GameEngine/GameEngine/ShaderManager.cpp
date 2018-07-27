@@ -25,6 +25,8 @@ void ShaderManager::init(){
 
 	addShader(ShaderType::WATER_SHADER, "res/shaders/waterShader.vert", "res/shaders/waterShader.frag");
 	addShader(ShaderType::LINE_SHADER, "res/shaders/lineShader.vert", "res/shaders/lineShader.frag");
+
+	addShader(ShaderType::TEST_SHADER_1, "res/shaders/lineLightShader.vert", "res/shaders/lineLightShader.frag");
 }
 
 

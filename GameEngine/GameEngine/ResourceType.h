@@ -23,6 +23,10 @@ enum class ShaderType {
 	LINE_SHADER,
 
 	TEXT_WORLD_SHADER,
+
+	TEST_SHADER_1,
+	TEST_SHADER_2,
+	TEST_SHADER_3,
 };
 
 class TextureTypeT{
