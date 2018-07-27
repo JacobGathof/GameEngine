@@ -15,6 +15,9 @@ public:
 	LivingAi * ai;
 
 	int update(float dt);
+
+	virtual void addToInventory(Inventory* inv);
+
 	LivingAi * use();
 	friend std::ostream& operator<<(std::ostream &os, Card &c);
 };

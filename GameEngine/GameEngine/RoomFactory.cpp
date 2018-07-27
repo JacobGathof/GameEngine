@@ -107,16 +107,12 @@ Room* RoomFactory::createReadingRoom()
 
 
 	CardObject* card2 = new CardObject(ObjectData{"", Vector2f(-512 + 192, 256 + 64), Vector2f(64, 64) , TextureType::T_CARD_ACE}, Res::get(CardType::UNLIMITED_WATERWORKS));
-	card2->setEnterTrigger(new ShopWindowAction(Res::get(CardType::UNLIMITED_WATERWORKS), true));
-	card2->setExitTrigger(new ShopWindowAction(0, false));
-	card2->setOnDestroyTrigger(new ShopWindowAction(0, false));
+	//card2->setInteraction(new ShopWindowAction(Res::get(CardType::UNLIMITED_WATERWORKS), true));
 
 
 
 	CardObject* card3 = new CardObject(ObjectData{ "", Vector2f(-512 + 192 + 128, 256 + 64), Vector2f(64, 64) , TextureType::T_CARD_ACE}, Res::get(CardType::DAWN));
-	card3->setEnterTrigger(new ShopWindowAction(Res::get(CardType::DAWN), true));
-	card3->setExitTrigger(new ShopWindowAction(0, false));
-	card3->setOnDestroyTrigger(new ShopWindowAction(0, false));
+	//card3->setInteraction(new ShopWindowAction(Res::get(CardType::DAWN), true));
 
 
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));

@@ -1,10 +1,16 @@
 #include "Item.h"
-
+#include "Inventory.h"
 
 Item::Item(std::string& n, TextureType tex, std::string& desc){
 	name = n;
 	description = desc;
 	texture = tex;
+}
+
+Item::Item(ItemData & data){
+	name = data.name;
+	description = data.description;
+	texture = data.tex;
 }
 
 Item::~Item(){}

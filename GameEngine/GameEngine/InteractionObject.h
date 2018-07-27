@@ -18,13 +18,12 @@ private:
 
 
 
-template<class T>
-class ItemAction : public AbstractAction {
+class GiveItemAction : public AbstractAction {
 public:
-	ItemAction(T t) {
-		item = t;
+	GiveItemAction(Item* i) {
+		item = i;
 	};
-	~ItemAction() {};
+	~GiveItemAction() {};
 
 	virtual int run(float dt = 0.0f) {
 		GameState::inv->add(item);
@@ -32,29 +31,7 @@ public:
 		return 1;
 	};
 private:
-	T item;
+	Item* item;
 
 };
 
-
-typedef ItemAction<Card*> GiveCardAction;
-typedef ItemAction<Weapon*> GiveWeaponAction;
-typedef ItemAction<KeyItem*> GiveKeyItemAction;
-
-
-
-
-
-/*
-class GiveItemAction : public AbstractAction {
-public:
-	GiveItemAction();
-	~GiveItemAction();
-
-	List<Item *> items;
-	int timesGiven = 1;
-
-	virtual int run(float dt = 0.0f);
-	void addItem(Item * it);
-};
-*/

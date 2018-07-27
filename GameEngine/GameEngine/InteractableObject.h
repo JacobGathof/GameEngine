@@ -21,6 +21,7 @@ public:
 	virtual void setEnterTrigger(AbstractAction* a);
 	virtual void setExitTrigger(AbstractAction* a);
 	virtual void setOnDestroyTrigger(AbstractAction* a);
+
 	virtual void handleTriggers();
 
 	virtual void onEnterTrigger();

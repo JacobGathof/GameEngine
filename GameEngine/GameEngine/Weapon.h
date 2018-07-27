@@ -6,5 +6,7 @@ class Weapon : public Item
 public:
 	Weapon(std::string& n, TextureType tex, std::string& desc);
 	~Weapon();
+
+	virtual void addToInventory(Inventory* inv);
 };
 

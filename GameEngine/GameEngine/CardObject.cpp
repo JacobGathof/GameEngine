@@ -6,7 +6,7 @@
 CardObject::CardObject(ObjectData& data, Card * c) : InteractableObject(data)
 {
 	card = c;
-	setInteraction(new GiveCardAction(card));
+	setInteraction(new GiveItemAction(card));
 
 	originalPosition = pos;
 	originalScale = scale;
@@ -28,5 +28,6 @@ bool CardObject::update(float dt)
 	pos = originalPosition + offsetPos;
 	scale = originalScale * offsetScale;
 
+	/*!!!! This is the line you're looking for !!!*/
 	return InteractableObject::update(dt) && (interactionCount < 1);
 }

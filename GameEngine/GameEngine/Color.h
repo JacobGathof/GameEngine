@@ -4,9 +4,16 @@
 
 class Color
 {
-private:
-	float data[4];
 public:
+
+	union {
+		struct {
+			float data[4];
+		};
+		struct {
+			float r, g, b, a;
+		};
+	};
 
 	Color();
 	Color(float r, float g, float b, float a);

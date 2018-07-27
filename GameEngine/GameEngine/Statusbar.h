@@ -62,7 +62,7 @@ private:
 
 
 	Color boxColor = Color(0x000022ff);
-	Color boxOutline = Color(0x8888aa88);
+	Color boxOutline = Color(0x8888aaff);
 
 
 	Timer timer; // Just for testing

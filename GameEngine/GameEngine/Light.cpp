@@ -24,7 +24,6 @@ void Light::draw()
 	p->loadColor("color", color);
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	m->bind();
-
 	m->draw();
 }
 

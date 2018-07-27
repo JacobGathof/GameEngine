@@ -12,6 +12,11 @@ Inventory::~Inventory()
 {
 }
 
+void Inventory::add(Item * item)
+{
+	item->addToInventory(this);
+}
+
 void Inventory::add(Weapon * w)
 {
 	weapons.add(w);

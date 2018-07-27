@@ -15,9 +15,12 @@ public:
 	Inventory();
 	~Inventory();
 
+	void add(Item* item);
+
 	void add(Weapon * w);
 	void add(KeyItem * k);
 	void add(Card * c);
+
 
 	List<Card *>& getCards();
 	List<Weapon *>& getWeapons();
@@ -45,8 +48,6 @@ private:
 		List<Card*> deck;
 		Weapon* weapon;
 	} current;
-
-
 
 
 };
