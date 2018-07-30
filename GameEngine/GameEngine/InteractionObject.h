@@ -27,7 +27,11 @@ public:
 
 	virtual int run(float dt = 0.0f) {
 		GameState::inv->add(item);
-		UIManager::addText(std::string("You just got ") + item->getName());
+		TextboxContentData data;
+		data.text = "You just got : " + item->getName();
+		data.portrait = item->getTexture();
+		data.dialogue = true;
+		UIManager::addText(data);
 		return 1;
 	};
 private:

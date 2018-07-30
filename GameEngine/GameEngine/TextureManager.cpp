@@ -55,6 +55,8 @@ void TextureManager::init() {
 	addTexture(TextureType::TEXTURE_TEST_3, "res/tex/clearing_top.png");
 	addTexture(TextureType::TEXTURE_TEST_4, "res/tex/clearing_water.png");
 
+	addTexture(TextureType::T_UI_DECOR, "res/tex/UIDecoration.png", 4, 4);
+
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 	addTexture(TextureType::T_MUSIC_NOTE, "res/tex/MusicNote.png");
 	

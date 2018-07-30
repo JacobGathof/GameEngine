@@ -13,6 +13,7 @@ UIUtils::~UIUtils()
 
 void UIUtils::drawRectangle(Vector2f& pos, Vector2f& scale, Color& color)
 {
+	glBlendFunc(GL_ONE, GL_ZERO);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	ShaderProgram* shader = Res::get(ShaderType::UI_SOLID_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
@@ -34,12 +35,7 @@ void UIUtils::drawRectangleIcon(Vector2f& pos, Vector2f& scale, Color colors[3],
 
 }
 
-void UIUtils::drawImage(Vector2f& pos, Vector2f& scale, TextureType tex)
-{
-	drawImage(pos, scale, tex, Vector2f(0, 0));
-}
-
-void UIUtils::drawImage(Vector2f & pos, Vector2f & scale, TextureType tex, Vector2f & offset)
+void UIUtils::drawImage(Vector2f & pos, Vector2f & scale, TextureType tex, Vector2f & offset, Color& color)
 {
 	ShaderProgram* shader = Res::get(ShaderType::UI_IMAGE_SHADER);
 	Model * model = Res::get(ModelType::MODEL_SQUARE);
@@ -53,9 +49,20 @@ void UIUtils::drawImage(Vector2f & pos, Vector2f & scale, TextureType tex, Vecto
 	shader->loadVector2f("scale", scale);
 	shader->loadVector2f("dim", Vector2f(texture->columns, texture->rows));
 	shader->loadVector2f("offset", offset);
+	shader->loadColor("color", color);
 
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	model->draw();
 	glBlendFunc(GL_ONE, GL_ZERO);
+}
+
+void UIUtils::drawBorder(Vector2f & pos, Vector2f & scale, Color & color, int offset, int spacing)
+{
+	//drawRectangle(pos, scale, color);
+	drawRectangle(pos + Vector2f(offset, 0), Vector2f(spacing, scale[1]), Color::Clear);
+	drawRectangle(pos + Vector2f(scale[0], 0) - Vector2f(offset + spacing, 0), Vector2f(spacing, scale[1]), Color::Clear);
+
+	drawRectangle(pos + Vector2f(0, offset), Vector2f(scale[0], spacing), Color::Clear);
+	drawRectangle(pos + Vector2f(0, scale[1]) - Vector2f(0, offset + spacing), Vector2f(scale[0], spacing), Color::Clear);
 }

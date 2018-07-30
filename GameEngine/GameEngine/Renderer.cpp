@@ -19,7 +19,7 @@ void Renderer::draw()
 	
 	drawWorld();
 	drawUI();
-	drawEffects();
+	//drawEffects();
 
 	postProcess();
 	

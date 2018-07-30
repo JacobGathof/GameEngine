@@ -15,9 +15,11 @@ Menu::Menu()
 	equipPage = new EquipPage();
 
 	activeComponent = settings;
-	tabs.add(MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(75,25)));
-	tabs.add(MenuTab(cardsPage, std::string("Cards"), Vector2f(200, 650), Vector2f(75, 25)));
-	tabs.add(MenuTab(equipPage, std::string("Weapons"), Vector2f(300, 650), Vector2f(75, 25)));
+	tabs.add(new MenuTab(settings, std::string("Settings"), Vector2f(100,650), Vector2f(75,25)));
+	tabs.add(new MenuTab(cardsPage, std::string("Cards"), Vector2f(200, 650), Vector2f(75, 25)));
+	tabs.add(new MenuTab(equipPage, std::string("Weapons"), Vector2f(300, 650), Vector2f(75, 25)));
+	activeTab = tabs[0];
+	activeTab->setActive(true);
 }
 
 Menu::~Menu()
@@ -25,6 +27,10 @@ Menu::~Menu()
 	delete settings;
 	delete cardsPage;
 	delete equipPage;
+
+	for (auto t : tabs) {
+		delete t;
+	}
 }
 
 void Menu::draw()
@@ -32,14 +38,13 @@ void Menu::draw()
 	if (!visible)
 		return;
 
-	//Hwhat?								|
-	//										v
-	UIUtils::drawRectangle(position, scale, Color(0x888888ff));
-	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0xaaaaaaff));
-	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4,4), Color(0x000008ff));
+	UIUtils::drawRectangle(position, scale, Color(0x0087ccff));
+	UIUtils::drawRectangle(position + Vector2f(2, 2), scale - Vector2f(4, 4), Color(0x000008ff));
+	//UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000008ff));
+	//UIUtils::drawBorder(position, scale, Color(0x888888ff), 8, 4);
 
 	for (auto t : tabs) {
-		t.draw();
+		t->draw();
 	}
 
 	activeComponent->draw();
@@ -57,7 +62,7 @@ void Menu::resize(int x, int y)
 {
 	settings->resize(x, y);
 	cardsPage->resize(x, y);
-
+	equipPage->resize(x, y);
 }
 
 void Menu::handleMouseEvents(Mouse & mouse)
@@ -66,8 +71,12 @@ void Menu::handleMouseEvents(Mouse & mouse)
 		return;
 
 	for (auto t : tabs) {
-		if (t.clicked(mouse)) {
-			activeComponent = t.getContent();
+		if (t->clicked(mouse)) {
+			activeTab->setActive(false);
+			activeTab = t;
+			activeTab->setActive(true);
+
+			activeComponent = t->getContent();
 			break;
 		}
 	}
@@ -102,11 +111,12 @@ MenuTab::MenuTab(AbstractUIComponent * a, std::string& txt, Vector2f& pos, Vecto
 
 MenuTab::~MenuTab()
 {
+	delete tabText;
 }
 
 void MenuTab::draw()
 {
-	UIUtils::drawRectangle(position, scale, Color::Black);
+	UIUtils::drawRectangle(position, scale, active ? Color::White : Color::Black);
 	UIUtils::drawRectangle(position+Vector2f(2,2), scale-Vector2f(4,4), Color::DarkGray);
 	tabText->draw();
 }
@@ -118,6 +128,11 @@ void MenuTab::resize(int x, int y)
 bool MenuTab::clicked(Mouse & mouse)
 {
 	return mouse.click() && mouse.pos().between(position, position+scale);
+}
+
+void MenuTab::setActive(bool b)
+{
+	active = b;
 }
 
 AbstractUIComponent * MenuTab::getContent()

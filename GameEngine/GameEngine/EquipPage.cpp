@@ -30,7 +30,7 @@ void EquipPage::draw()
 	UIUtils::drawRectangle(Vector2f(520, 250) + Vector2f(4, 4), Vector2f(192, 392), Color(0x00000088));
 
 
-	UIUtils::drawImage(Vector2f(520, 200 + 250) + Vector2f(8, 8), Vector2f(184, 184), weaponTexture);
+	UIUtils::drawImage(Vector2f(520, 200 + 250) + Vector2f(8, 8), Vector2f(192, 192), weaponTexture);
 	weaponName->draw();
 	weaponDesc->draw();
 

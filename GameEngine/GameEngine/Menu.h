@@ -28,10 +28,13 @@ public:
 	virtual void resize(int x, int y);
 	bool clicked(Mouse& mouse);
 
+	void setActive(bool b);
+
 	AbstractUIComponent* getContent();
 private:
 	Text * tabText;
 	AbstractUIComponent * content;
+	bool active = false;
 
 };
 
@@ -51,6 +54,7 @@ public:
 
 private:
 	AbstractUIComponent * activeComponent;
+	MenuTab* activeTab;
 
 	InventoryPage * inventory;
 	CardsPage * cardsPage;
@@ -62,11 +66,11 @@ private:
 	Vector2f tab_area = Vector2f(100, 600);
 
 
-	Vector2f basePos =Vector2f(100, 250);
+	Vector2f basePos = Vector2f(100, 250);
 	Vector2f baseScale = Vector2f(600, 400);
 
 
-	List<MenuTab> tabs;
+	List<MenuTab*> tabs;
 
 	//CardsPage*
 	//Armor

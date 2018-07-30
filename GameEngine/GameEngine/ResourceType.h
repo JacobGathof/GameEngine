@@ -109,6 +109,13 @@ enum class TextureType {
 	ARROW_TEXTURE,
 	T_MUSIC_NOTE,
 
+
+	T_UI_DECOR,
+	TEXTURE_TEST_5,
+	TEXTURE_TEST_6,
+	TEXTURE_TEST_7,
+	TEXTURE_TEST_8,
+
 };
 
 

@@ -63,8 +63,11 @@ void Textbox::draw(){
 
 	UIUtils::drawRectangle(position, scale, Color(0x445588ff));
 	UIUtils::drawRectangle(position + Vector2f(2,2), scale - Vector2f(4, 4), Color(0x88aaddff));
+	UIUtils::drawBorder(position, scale, Color(0x445588ff), 8, 2);
 	UIUtils::drawRectangle(position + Vector2f(4, 4), scale - Vector2f(8, 8), Color(0x000000ff));
 
+	UIUtils::drawImage(position + Vector2f(6, 6), Vector2f(32, 32), TextureType::T_UI_DECOR, Vector2f(0, 0), Color(0x88aaddff));
+	UIUtils::drawImage(position + scale - Vector2f(6, 6), Vector2f(-32,-32), TextureType::T_UI_DECOR, Vector2f(0, 0), Color(0x88aaddff));
 
 	//UIUtils::drawRectangle(contentPosition, contentScale, Color(0xff00ffff));
 	//UIUtils::drawRectangle(contentPosition+Vector2f(2,2), contentScale-Vector2f(4,4), Color(0x000000ff));
@@ -392,9 +395,11 @@ void CompositeText::draw()
 	text->draw();
 	
 	if (data.dialogue) {
-		UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff));
-		UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff));
+		UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff) /*Color(0xbb6666ff)*/);
+		UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff) /*Color(0x884455ff)*/);
+		UIUtils::drawBorder(imagePosition, imageScale, Color(0x445588ff), 8, 2);
 		UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000ff));
+
 		UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
 
 		if (data.name != "") {
