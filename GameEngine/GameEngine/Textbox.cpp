@@ -3,20 +3,10 @@
 #include "Screen.h"
 #include "GameState.h"
 
+#include "CompositeText.h"
+#include "Choice.h"
+#include "CenteredText.h"
 
-Text* CompositeText::text;
-Text* CompositeText::speakerName;
-Vector2f CompositeText::imagePosition;
-Vector2f CompositeText::imageScale;
-Vector2f CompositeText::textStartPosition;
-float CompositeText::textEffectiveWidth;
-Vector2f CompositeText::namePosition;
-Vector2f CompositeText::nameScale;
-bool CompositeText::currentDialogue;
-
-Text* Choice::texts[4];
-Color Choice::selectedColor(0x00ffffff);
-Color Choice::defaultColor(0xffffffff);
 
 bool Textbox::skippable = true;
 Timer Textbox::timer;
@@ -46,6 +36,7 @@ Textbox::Textbox()
 
 	CompositeText::init();
 	Choice::init();
+	CenteredText::init();
 }
 
 
@@ -222,92 +213,6 @@ void Textbox::resetTextboxOptions()
 #pragma endregion
 
 
-#pragma region Choice
-
-Choice::Choice(List<std::string>& ch) : choices(ch)
-{
-	choices = ch;
-}
-
-Choice::~Choice()
-{
-}
-
-void Choice::init()
-{
-	texts[0] = new Text(Vector2f(24, 160), std::string(""), Vector2f(30, 30), 0);
-	texts[1] = new Text(Vector2f(24, 60), std::string("Test"), Vector2f(30, 30), 0);
-	texts[2] = new Text(Vector2f(424, 160), std::string(""), Vector2f(30, 30), 0);
-	texts[3] = new Text(Vector2f(424, 60), std::string(""), Vector2f(30, 30), 0);
-}
-
-void Choice::clean()
-{
-	delete texts[0];
-	delete texts[1];
-	delete texts[2];
-	delete texts[3];
-}
-
-void Choice::draw()
-{
-	for (int i = 0; i < numChoices; i++) {
-		texts[i]->draw();
-	}
-}
-
-void Choice::prepare()
-{
-	numChoices = 0;
-	choicePointer = 0;
-
-	numChoices = choices.size();
-	for (int i = 0; i < numChoices; i++) {
-		texts[i]->setText(*(choices.begin() + i));
-		texts[i]->setColor(defaultColor);
-	}
-
-	texts[0]->setColor(selectedColor);
-
-}
-
-void Choice::finish()
-{
-	GameState::choicePointer = choicePointer;
-}
-
-void Choice::resize()
-{
-}
-
-bool Choice::isDisplayingFullLength(){
-	return true;
-}
-
-void Choice::displayFullLength(){
-}
-
-void Choice::addLetter(){
-}
-
-void Choice::handleKeyEvents(Keyboard & keyboard)
-{
-	int i = 0;
-	if (keyboard.press(VirtualKey::ARROW_UP)) {i = -1;}
-	if (keyboard.press(VirtualKey::ARROW_DOWN)) { i = 1; }
-	if (keyboard.press(VirtualKey::ARROW_LEFT)) { i = -2; }
-	if (keyboard.press(VirtualKey::ARROW_RIGHT)) { i = 2; }
-
-	if (i != 0) {
-		texts[choicePointer]->setColor(defaultColor);
-		choicePointer += i;
-		choicePointer = (choicePointer % numChoices + numChoices) % numChoices;
-		texts[choicePointer]->setColor(selectedColor);
-
-	}
-}
-
-#pragma endregion
 
 /*
 void PlainText::init()
@@ -329,106 +234,3 @@ void PlainText::prepare()
 
 
 
-
-
-CompositeText::CompositeText(TextboxContentData & dat){
-	data = dat;
-}
-
-void CompositeText::init()
-{
-
-	text = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
-	text->setColor(Color(0xffffffff));
-
-	speakerName = new Text(Vector2f(0,0), std::string("-----"), Textbox::textScale, 0);
-	speakerName->setColor(Color(0xffffffff));
-
-}
-
-void CompositeText::clean()
-{
-	delete text;
-	delete speakerName;
-}
-
-void CompositeText::prepare()
-{
-	Vector2f offset = data.dialogue * Vector2f(imageScale[0] + 8, 0);
-
-	textEffectiveWidth = (Textbox::contentPosition[0] + Textbox::contentScale[0]) - (textStartPosition[0] + offset[0]);
-
-	data.text = TextUtils::processString(data.text, Res::get(FontType::DEFAULT), Textbox::textScale, textEffectiveWidth);
-	text->setText(data.text);
-	text->resetLength();
-	text->setPosition(textStartPosition + offset);
-
-
-	speakerName->setText(data.name);
-	nameScale = Vector2f(speakerName->getWidth() + 16, 32);
-	currentDialogue = data.dialogue;
-
-	Textbox::setTextSpeed(data.textSpeed);
-	Textbox::setSkippable(data.skippable);
-
-	if (data.time >= 0) {
-		Textbox::initAdvanceTimer(data.time);
-	}
-}
-
-void CompositeText::resize()
-{
-	imageScale = Vector2f(100, 100);
-	imagePosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1] - imageScale[1]) + Vector2f(4, -4);
-	textStartPosition = Textbox::contentPosition + Vector2f(0, Textbox::contentScale[1] - Textbox::textScale[1]);
-	namePosition = Textbox::contentPosition + Vector2f(4, Textbox::contentScale[1]);
-
-
-	Vector2f offset = currentDialogue * Vector2f(imageScale[0] + 8, 0);
-	text->setPosition(textStartPosition+offset);
-	
-	speakerName->setPosition(namePosition + Vector2f(8, 0));
-}
-
-void CompositeText::draw()
-{
-	text->draw();
-	
-	if (data.dialogue) {
-		UIUtils::drawRectangle(imagePosition, imageScale, Color(0x445588ff) /*Color(0xbb6666ff)*/);
-		UIUtils::drawRectangle(imagePosition + Vector2f(2), imageScale - Vector2f(4), Color(0x88aaddff) /*Color(0x884455ff)*/);
-		UIUtils::drawBorder(imagePosition, imageScale, Color(0x445588ff), 8, 2);
-		UIUtils::drawRectangle(imagePosition + Vector2f(4), imageScale - Vector2f(8), Color(0x000000ff));
-
-		UIUtils::drawImage(imagePosition + Vector2f(4), imageScale - Vector2f(8), data.portrait, data.offset);
-
-		if (data.name != "") {
-			UIUtils::drawRectangle(namePosition, nameScale, Color(0x445588ff));
-			UIUtils::drawRectangle(namePosition + Vector2f(2), nameScale - Vector2f(4), Color(0x88aaddff));
-			UIUtils::drawRectangle(namePosition + Vector2f(4), nameScale - Vector2f(8), Color(0x000000ff));
-
-			speakerName->draw();
-		}
-	}
-}
-
-void CompositeText::finish()
-{
-	Textbox::resetTextboxOptions();
-}
-
-
-bool CompositeText::isDisplayingFullLength()
-{
-	return text->isDisplayingFullLength();
-}
-
-void CompositeText::displayFullLength()
-{
-	text->displayFullLength();
-}
-
-void CompositeText::addLetter()
-{
-	text->addLetter();
-}

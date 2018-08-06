@@ -36,7 +36,9 @@
     <ClCompile Include="CardManager.cpp" />
     <ClCompile Include="CardObject.cpp" />
     <ClCompile Include="CardsPage.cpp" />
+    <ClCompile Include="CenteredText.cpp" />
     <ClCompile Include="Chest.cpp" />
+    <ClCompile Include="Choice.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleAI.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
@@ -45,6 +47,7 @@
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
     <ClCompile Include="CompositeAction.cpp" />
+    <ClCompile Include="CompositeText.cpp" />
     <ClCompile Include="Condition.cpp" />
     <ClCompile Include="DamageTag.cpp" />
     <ClCompile Include="DebugAction.cpp" />
@@ -131,6 +134,7 @@
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
     <ClCompile Include="TextAction.cpp" />
+    <ClCompile Include="TextboxContent.cpp" />
     <ClCompile Include="TextboxWaitAction.cpp" />
     <ClCompile Include="TextChoiceAction.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -193,7 +197,9 @@
     <ClInclude Include="CardManager.h" />
     <ClInclude Include="CardObject.h" />
     <ClInclude Include="CardsPage.h" />
+    <ClInclude Include="CenteredText.h" />
     <ClInclude Include="Chest.h" />
+    <ClInclude Include="Choice.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleAI.h" />
     <ClInclude Include="CircleHitbox.h" />
@@ -202,6 +208,7 @@
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
     <ClInclude Include="CompositeAction.h" />
+    <ClInclude Include="CompositeText.h" />
     <ClInclude Include="Condition.h" />
     <ClInclude Include="DamageTag.h" />
     <ClInclude Include="DebugAction.h" />
@@ -295,6 +302,7 @@
     <ClInclude Include="Tag.h" />
     <ClInclude Include="TerrainMap.h" />
     <ClInclude Include="TextAction.h" />
+    <ClInclude Include="TextboxContent.h" />
     <ClInclude Include="TextboxWaitAction.h" />
     <ClInclude Include="TextChoiceAction.h" />
     <ClInclude Include="Timer.h" />

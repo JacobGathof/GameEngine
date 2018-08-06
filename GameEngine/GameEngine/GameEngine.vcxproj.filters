@@ -133,6 +133,12 @@
     <Filter Include="Source Files\Actions">
       <UniqueIdentifier>{c0932ceb-fe4a-459c-83a0-656848af1ea7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI\Textbox">
+      <UniqueIdentifier>{12b55efb-7839-42bd-b3cc-57a301a3245b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Textbox">
+      <UniqueIdentifier>{0bed959c-497a-407d-a66f-5e4f3b983cc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -209,9 +215,6 @@
     </ClCompile>
     <ClCompile Include="TransitionObject.cpp">
       <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Textbox.cpp">
-      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="StatsPage.cpp">
       <Filter>Source Files\UI</Filter>
@@ -609,6 +612,21 @@
     <ClCompile Include="LightPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Textbox.cpp">
+      <Filter>Source Files\UI\Textbox</Filter>
+    </ClCompile>
+    <ClCompile Include="TextboxContent.cpp">
+      <Filter>Source Files\UI\Textbox</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeText.cpp">
+      <Filter>Source Files\UI\Textbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Choice.cpp">
+      <Filter>Source Files\UI\Textbox</Filter>
+    </ClCompile>
+    <ClCompile Include="CenteredText.cpp">
+      <Filter>Source Files\UI\Textbox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -685,9 +703,6 @@
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Textbox.h">
-      <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="StatsPage.h">
       <Filter>Header Files\UI</Filter>
@@ -1105,6 +1120,21 @@
     </ClInclude>
     <ClInclude Include="LightPath.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Textbox.h">
+      <Filter>Header Files\UI\Textbox</Filter>
+    </ClInclude>
+    <ClInclude Include="TextboxContent.h">
+      <Filter>Header Files\UI\Textbox</Filter>
+    </ClInclude>
+    <ClInclude Include="CenteredText.h">
+      <Filter>Header Files\UI\Textbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Choice.h">
+      <Filter>Header Files\UI\Textbox</Filter>
+    </ClInclude>
+    <ClInclude Include="CompositeText.h">
+      <Filter>Header Files\UI\Textbox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
