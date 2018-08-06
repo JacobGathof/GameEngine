@@ -279,6 +279,11 @@ void Text::center()
 	offset = Vector2f(-totalWidth/2,-scale[1]/2);
 }
 
+void Text::centerDisplayable()
+{
+	offset = Vector2f(-getDisplayableWidth() / 2, -scale[1] / 2);
+}
+
 void Text::setWorldRelative(bool b)
 {
 	worldRelative = b;
@@ -302,6 +307,11 @@ Vector2f & Text::getScale()
 float Text::getWidth()
 {
 	return totalWidth;
+}
+
+float Text::getDisplayableWidth()
+{
+	return TextUtils::getWidth(data, font, scale, displayableLength);
 }
 
 

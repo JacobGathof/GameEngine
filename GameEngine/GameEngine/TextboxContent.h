@@ -15,6 +15,7 @@ struct TextboxContentData {
 	bool skippable = true;
 	bool dialogue = false;
 	bool centered = false;
+	float scale = 1;
 };
 
 

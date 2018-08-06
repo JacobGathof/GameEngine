@@ -27,6 +27,7 @@ public:
 	void setScale(Vector2f& v);
 	void reloadData();
 	void center();
+	void centerDisplayable();
 	void setWorldRelative(bool b);
 
 	bool isDisplayingFullLength();
@@ -34,6 +35,7 @@ public:
 	Vector2f& getScale();
 
 	float getWidth();
+	float getDisplayableWidth();
 
 	static float POS_SCALE;
 

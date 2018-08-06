@@ -11,15 +11,15 @@ Renderer::Renderer()
 
 Renderer::~Renderer()
 {
-}
+} 
 
 void Renderer::draw()
 {
 	preProcess();
 	
-	//drawWorld();
+	drawWorld();
 	drawUI();
-	//drawEffects();
+	drawEffects();
 
 	postProcess();
 	

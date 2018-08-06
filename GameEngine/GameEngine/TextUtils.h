@@ -10,5 +10,7 @@ public:
 
 	static std::string processString(std::string & txt, Font* font, Vector2f& scale, float maxWidth);
 	static void backtrack(int& i, std::string & txt, std::string& newString);
+
+	static float getWidth(std::string & txt, Font* font, Vector2f& scale, int count);
 };
 

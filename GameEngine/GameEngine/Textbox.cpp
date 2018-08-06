@@ -44,6 +44,7 @@ Textbox::~Textbox()
 {
 	CompositeText::clean();
 	Choice::clean();
+	CenteredText::clean();
 }
 
 void Textbox::draw(){
@@ -112,6 +113,9 @@ void Textbox::advanceText()
 
 TextboxContent * Textbox::createContentFromData(TextboxContentData & data)
 {
+	if (data.centered) {
+		return new CenteredText(data);
+	}
 	return new CompositeText(data);
 }
 

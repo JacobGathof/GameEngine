@@ -113,6 +113,9 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		auto sk = inst->first_attribute("skip");
 
 		auto f = inst->first_attribute("face");
+		auto c = inst->first_attribute("center");
+
+		auto sc = inst->first_attribute("scale");
 
 		if (n != 0) {
 			content.dialogue = true;
@@ -137,6 +140,15 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		if (sk != 0) {
 			content.skippable = (bool)std::atoi(sk->value());
 		}
+
+		if (c != 0) {
+			content.centered = true;
+		}
+
+		if (sc != 0) {
+			content.scale = std::atof(sc->value());
+		}
+
 
 		if (x != 0 && y != 0) {
 			int xx = std::atoi(x->value());

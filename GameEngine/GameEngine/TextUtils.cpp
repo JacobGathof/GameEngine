@@ -57,3 +57,23 @@ void TextUtils::backtrack(int& i, std::string & txt, std::string & newString)
 		}
 	}
 }
+
+float TextUtils::getWidth(std::string & txt, Font * font, Vector2f & scale, int count)
+{
+	float length = 0;
+	int ptr = 0;
+	int validChars = 0;
+
+	while(validChars < count){
+		Font::Char * c = font->getCharacter(txt[ptr]);
+		if (c != 0) {
+			if (txt[ptr] != '\n' && txt[ptr] != ' ') {
+				validChars++;
+			}
+			length += Text::POS_SCALE * scale[0] * c->xadvance;
+		}
+		ptr++;
+	}
+
+	return length;
+}

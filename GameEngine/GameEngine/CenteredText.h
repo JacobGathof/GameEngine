@@ -2,7 +2,6 @@
 #include "Text.h"
 #include "TextboxContent.h"
 
-//class Text;
 
 class CenteredText : public TextboxContent {
 public:
@@ -23,10 +22,10 @@ public:
 	virtual void addLetter();
 
 private:
-	//static Text* text;
-	//static Vector2f textStartPosition;
+	static Text* text;
+	static Vector2f textStartPosition;
 
-	//static float textEffectiveWidth;
+	static float textEffectiveWidth;
 
 	TextboxContentData data;
 	std::string textData;
