@@ -132,6 +132,7 @@ Color Color::operator^(float f)
 
 
 
+
 Color& Color::operator*=(Color & c)
 {
 	data[0] *= c[0];

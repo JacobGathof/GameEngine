@@ -2,6 +2,7 @@
 #include <string>
 #include "Graph.h"
 #include "Inventory.h"
+#include "Color.h"
 
 
 class Inventory;
@@ -47,6 +48,8 @@ public:
 	static float green;
 	static float red;
 	static float volume;
+
+	static Color color;
 
 private:
 	static std::string globalDebug;

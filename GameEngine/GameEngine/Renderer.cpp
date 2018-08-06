@@ -17,7 +17,7 @@ void Renderer::draw()
 {
 	preProcess();
 	
-	drawWorld();
+	//drawWorld();
 	drawUI();
 	//drawEffects();
 

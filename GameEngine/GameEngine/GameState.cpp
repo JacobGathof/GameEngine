@@ -23,6 +23,8 @@ float GameState::green;
 float GameState::blue;
 float GameState::volume;
 
+Color GameState::color;
+
 GameState::GameState()
 {
 }

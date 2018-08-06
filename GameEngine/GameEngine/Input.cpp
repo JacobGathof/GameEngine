@@ -66,6 +66,22 @@ void Input::processInput(float dt) {
 		UIManager::setStatusVisible(true);
 	}
 
+	/*
+	if (mouse.down(GLFW_MOUSE_BUTTON_LEFT)) {
+		Vector2f pos = mouse.pos();
+
+		unsigned char * data = new unsigned char[4];
+
+		glReadPixels((int)pos.x, (int)pos.y, 1, 1, GL_RGBA, GL_BYTE, data);
+		GameState::color = Color((float)data[0]/255.0f, (float)data[1] / 255.0f, (float)data[2] / 255.0f, 1);
+
+		delete[] data;
+	}
+	*/
+
+
+
+
 	WorldManipulator::process(mouse, keyboard, dt);
 	ai->receiveInput(keyboard, mouse);
 

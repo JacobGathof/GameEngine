@@ -2,6 +2,7 @@
 #include "ResourceManager.h"
 
 
+
 UIUtils::UIUtils()
 {
 }
@@ -60,9 +61,11 @@ void UIUtils::drawImage(Vector2f & pos, Vector2f & scale, TextureType tex, Vecto
 void UIUtils::drawBorder(Vector2f & pos, Vector2f & scale, Color & color, int offset, int spacing)
 {
 	//drawRectangle(pos, scale, color);
-	drawRectangle(pos + Vector2f(offset, 0), Vector2f(spacing, scale[1]), Color::Clear);
-	drawRectangle(pos + Vector2f(scale[0], 0) - Vector2f(offset + spacing, 0), Vector2f(spacing, scale[1]), Color::Clear);
+	drawRectangle(pos + Vector2f(offset, 0), Vector2f(spacing, scale[1]), color);
+	drawRectangle(pos + Vector2f(scale[0], 0) - Vector2f(offset + spacing, 0), Vector2f(spacing, scale[1]), color);
 
-	drawRectangle(pos + Vector2f(0, offset), Vector2f(scale[0], spacing), Color::Clear);
-	drawRectangle(pos + Vector2f(0, scale[1]) - Vector2f(0, offset + spacing), Vector2f(scale[0], spacing), Color::Clear);
+	drawRectangle(pos + Vector2f(0, offset), Vector2f(scale[0], spacing), color);
+	drawRectangle(pos + Vector2f(0, scale[1]) - Vector2f(0, offset + spacing), Vector2f(scale[0], spacing), color);
 }
+
+
