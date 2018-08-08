@@ -50,6 +50,7 @@ void CenteredText::finish()
 
 void CenteredText::resize()
 {
+	text->setPosition(Textbox::contentPosition + Textbox::contentScale / 2);
 }
 
 bool CenteredText::isDisplayingFullLength()

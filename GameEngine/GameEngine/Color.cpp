@@ -129,6 +129,34 @@ Color Color::operator^(float f)
 		pow(data[3], f));
 }
 
+Color Color::HSVtoRGB()
+{
+	/*
+		vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+		vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+		return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+	*/
+
+	float h = r;
+	float s = g;
+	float v = b;
+
+	float chroma = v * s;
+	float hp = h / 60;
+
+	float x = chroma * (1 - abs(fmod(hp,2)-1));
+
+	int hh = (int)hp;
+
+	float rr = chroma * (hh % 5 == 0) + x * ((hh - 1) % 3 == 0);
+	float gg = chroma * (((hh - 2) % 6) % 5 == 0) + x * (hh % 3 == 0);
+	float bb = chroma * (((hh + 2) % 6) % 5 == 0) + x * ((hh - 2) % 3 == 0);
+
+	float m = v - chroma;
+
+	return Color(rr+m, gg+m, bb+m, a);
+}
+
 
 
 

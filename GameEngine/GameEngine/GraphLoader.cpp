@@ -106,7 +106,7 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		auto n = inst->first_attribute("name");
 		auto t = inst->first_attribute("time");
 
-		auto x = inst->first_attribute("x");
+		auto x = inst->first_attribute("x"); 
 		auto y = inst->first_attribute("y");
 
 		auto s = inst->first_attribute("speed");

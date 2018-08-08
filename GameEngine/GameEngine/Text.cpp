@@ -107,27 +107,27 @@ void Text::writeVertices(float* pos, Font::Char* ch, float xPointer, float yPoin
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 
 	pos[vertexPointer++] = (xPointer + ch->width + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer + -ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 
 	pos[vertexPointer++] = (xPointer + ch->xoffset) * posScale;
 	pos[vertexPointer++] = (yPointer - ch->height - ch->yoffset) * posScale;
-	pos[vertexPointer++] = effects;
+	pos[vertexPointer++] = (float)effects;
 }
 
 void Text::writeTexCoords(float* tex, Font::Char* ch, int& texPointer)

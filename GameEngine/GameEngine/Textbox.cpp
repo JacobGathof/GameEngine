@@ -168,6 +168,7 @@ void Textbox::resize(int x, int y)
 	contentPosition = position + Vector2f(10, 10);
 
 	CompositeText::resize();
+	CenteredText::resize();
 }
 
 void Textbox::show()

@@ -13,6 +13,7 @@ void WorldManipulator::process(Mouse & mouse, Keyboard & keyboard, float dt)
 	World* world = World::getInstance();
 
 
+
 	if (mouse.click()) {
 		pos1 = Screen::toWorldCoords(mouse.pos());
 		currentObject = new Object(std::string(), TextureType::TEXTURE_DEFAULT, pos1, Vector2f(0, 0));

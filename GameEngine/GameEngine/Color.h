@@ -37,6 +37,8 @@ public:
 
 	Color operator^(float f);
 
+	Color HSVtoRGB();
+
 
 	friend std::ostream& operator<<(std::ostream &os, Color &c);
 	static Color blend(Color c, Color c2, float f = 0.5f);

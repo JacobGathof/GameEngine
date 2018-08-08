@@ -64,7 +64,7 @@ float TextUtils::getWidth(std::string & txt, Font * font, Vector2f & scale, int 
 	int ptr = 0;
 	int validChars = 0;
 
-	while(validChars < count){
+	while(validChars <= count){
 		Font::Char * c = font->getCharacter(txt[ptr]);
 		if (c != 0) {
 			if (txt[ptr] != '\n' && txt[ptr] != ' ') {

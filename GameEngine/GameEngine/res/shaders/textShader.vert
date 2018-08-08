@@ -18,7 +18,7 @@ uniform float gameTime;
 void main(){
 	uv = texCoords;
 	col = color;
-	vec2 offset = vec2(0, position.z*cos(3*gameTime + uint(gl_VertexID / 6)));
-	vec2 realPosition = position.xy * (text_scale*ui_scale) * vec2(1, aspect_ratio) + ((text_translate+4*offset)*ui_scale) - vec2(1, 1);
+	vec2 offset = vec2(0, 4*position.z*cos(3*gameTime + uint(gl_VertexID / 6)));
+	vec2 realPosition = position.xy * (text_scale*ui_scale) * vec2(1, aspect_ratio) + ((text_translate+offset)*ui_scale) - vec2(1, 1);
 	gl_Position = vec4(realPosition,0,1);
 }
