@@ -100,8 +100,6 @@ void Renderer::postProcess()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	UIUtils::drawRectangle(Vector2f(0, 0), Vector2f(30, 30), Color(1, 1, 1,1).HSVtoRGB());
-
 }
 
 void Renderer::preProcess()

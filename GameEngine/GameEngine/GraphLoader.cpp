@@ -110,7 +110,7 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		auto y = inst->first_attribute("y");
 
 		auto s = inst->first_attribute("speed");
-		auto sk = inst->first_attribute("skip");
+		auto sk = inst->first_attribute("noskip");
 
 		auto f = inst->first_attribute("face");
 		auto c = inst->first_attribute("center");
@@ -138,7 +138,7 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 		}
 
 		if (sk != 0) {
-			content.skippable = (bool)std::atoi(sk->value());
+			content.skippable = false;
 		}
 
 		if (c != 0) {

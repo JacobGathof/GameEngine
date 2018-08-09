@@ -57,6 +57,7 @@ void Timer::reset()
 {
 	currentTime = 0.0;
 	totalTime = 0.0f;
+	tickActive = false;
 }
 
 float Timer::getTotalTime()
