@@ -46,13 +46,17 @@
 		-->
 		
 		<text name="Melody" speed="2.0" time="1.0">Hoo hoot! Link... Look up here!</text>
-		<text name="Melody" speed="3.2" time="1.8">It appears that the time has finally come for you to start your adventure!</text>
-		<text name="Melody" speed="3.4" time="1.6">You will encounter many hardships ahead... That is your fate</text>
-		<text name="Melody" speed="3.6" time="1.5">Don't feel discouraged, even during the toughest times!</text>
-		<text name="Melody" speed="3.8" time="1.4">Go straight this way and you will see Hyrule Castle.</text>
-		<text name="Melody" speed="4.0" time="1.3">You will meet a princess there...</text>
-		<text name="Melody" speed="4.2" time="1.2">If you are lost and don't know which way to go, look at the Map.</text>
-		<text name="Melody" speed="4.4" time="1.2">The areas you have explored will be shown on the map.</text>
+		<text name="Melody" speed="3.2" time="1.5">It appears that the time has finally come for you to start your adventure!</text>
+		<text name="Melody" speed="3.4" time="1.3">You will encounter many hardships ahead... That is your fate</text>
+		<text name="Melody" speed="3.6" time="1.1">Don't feel discouraged, even during the toughest times!</text>
+		<text name="Melody" speed="3.8" time="1.0">Go straight this way and you will see Hyrule Castle.</text>
+		<text name="Melody" speed="4.0" time="0.8">You will meet a princess there...</text>
+		<text name="Melody" speed="4.2" time="0.6">If you are lost and don't know which way to go, look at the Map.</text>
+		<text name="Melody" speed="4.4" time="0.5">The areas you have explored will be shown on the map.</text>
+		<text name="Melody" speed="4.0" time="0.5">....................................</text>
+		<text name="Melody" speed="4.0" time="0.5">....................................</text>
+		<text name="Melody" speed="4.0" time="0.5">....................................</text>
+		<text name="Melody" speed="4.0" time="0.5">....................................</text>
 		
 		<text>You have reached the end</text>
 		<text>Instant message</text>

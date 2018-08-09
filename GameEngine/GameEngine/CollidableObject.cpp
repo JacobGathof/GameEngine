@@ -4,7 +4,10 @@
 
 CollidableObject::CollidableObject(ObjectData& data) : Object(data)
 {
-	addHitbox(new CircleHitbox(Circle(Vector2f(0,0), 32), Vector2f(0,0)));
+	auto c = Circle(Vector2f(0, 0), 32);
+	c.color = Color::Red;
+	addHitbox(new CircleHitbox(c, Vector2f(0,0)));
+
 }
 
 

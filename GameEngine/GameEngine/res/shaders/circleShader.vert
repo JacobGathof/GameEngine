@@ -6,6 +6,7 @@ layout(location=1) in vec2 texCoords;
 out vec2 uv;
 out vec2 fragPos;
 out vec2 sc;
+out float ep;
 
 uniform vec2 translate;
 uniform vec2 scale;
@@ -19,4 +20,5 @@ void main(){
 	gl_Position = vec4(2*position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 	fragPos = position*scale*camera_scale*2;
 	sc = scale*camera_scale;
+	ep = (128. / scale[0]) * (1/16.) / (camera_scale[0]*800);
 }

@@ -56,7 +56,7 @@ void Renderer::drawEffects()
 	World::getInstance()->drawEffects();
 	//WeatherManager::drawAmbientLight();
 
-	//World::getInstance()->drawHitboxes();
+	World::getInstance()->drawHitboxes();
 	//WeatherManager::drawWeatherEffects();
 
 }
