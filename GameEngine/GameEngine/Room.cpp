@@ -203,6 +203,9 @@ void Room::sortObjects()
 
 InteractableObject * Room::getNearestObject(Vector2f& pos)
 {
+	// TODO - This function will not return any object that the player is pixel-perfectly aligned with. i.e, the distance between them is exactly zero. 
+	// In practice, this probably doesn't matter. But this is where the problem would be. 
+
 	InteractableObject * nearest = 0;
 	float nearestDist = -1;
 	
