@@ -9,7 +9,7 @@ Player::Player(ObjectData& data, PlayerAI * ai) : LivingObject(data)
 	defaultAI = ai;
 	moveSpeed = 256;
 	weight = Weight::PLAYER;
-	interactionRadius->radius = 10;
+	interactionRadius->radius = 64;
 }
 
 

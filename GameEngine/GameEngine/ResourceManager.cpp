@@ -98,6 +98,11 @@ void ResourceManager::uploadGlobalUniform(char * location, Vector2f & val)
 	shaderManager->uploadAll(location, val);
 }
 
+void ResourceManager::uploadGlobalUniform(char * location, float f)
+{
+	shaderManager->uploadAll(location, f);
+}
+
 Font* ResourceManager::get(FontType type){
 	return fontManager->get(type);
 }

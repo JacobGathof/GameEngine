@@ -102,15 +102,7 @@ void Application::run()
 		timer.update();
 
 		//std::cout << timer.FPS() << std::endl;
-
-		Res::get(ShaderType::LIGHT_SHADER)->bind();
-		Res::get(ShaderType::LIGHT_SHADER)->loadFloat("gameTime", timer.getGameTime());
-
-		Res::get(ShaderType::WATER_SHADER)->bind();
-		Res::get(ShaderType::WATER_SHADER)->loadFloat("gameTime", timer.getGameTime());
-
-		Res::get(ShaderType::TEXT_SHADER)->bind();
-		Res::get(ShaderType::TEXT_SHADER)->loadFloat("gameTime", timer.getGameTime());
+		Res::uploadGlobalUniform("gameTime", timer.getGameTime());
 
 		Input::processInput(dt);
 		UIManager::update(dt);

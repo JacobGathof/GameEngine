@@ -31,5 +31,5 @@ void Circle::draw(){
 
 bool Circle::intersects(Circle * c)
 {
-	return (radius + c->radius)*(radius + c->radius) > (center - c->center).lengthSquared();
+	return (radius + c->radius)*(radius + c->radius) >= (center - c->center).lengthSquared();
 }

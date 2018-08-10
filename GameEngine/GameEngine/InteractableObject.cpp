@@ -5,7 +5,7 @@
 InteractableObject::InteractableObject(ObjectData& data) : AnimatedObject(data)
 {
 	interactionRadius = new Circle(pos, scale[0]);
-	interactionRadius->color = Color::DarkBlue;
+	interactionRadius->color = Color::Blue;
 }
 
 

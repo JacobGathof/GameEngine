@@ -46,7 +46,7 @@ void RoomFactory::addWorldObjects()
 	melody->addEffect(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
-	//melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 100)));
+	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 32)));
 	//melody->addEffect(new LightPath());
 
 	World::getInstance()->addWorldObject(melody);
@@ -98,6 +98,7 @@ Room* RoomFactory::createReadingRoom()
 
 	InteractableObject* torch = new FireObject_TEST(ObjectData{"", Vector2f(128 - 64 * 4, 128 * 5), Vector2f(64, 64) , TextureType::T_CARD_4 });
 	torch->setAction(SpriteSheet::AnimationState::IDLE);
+	//torch->addAI(new CircleAI(Vector2f(0, 0), 512+256, 1.0f));
 	room->addObject(torch);
 
 

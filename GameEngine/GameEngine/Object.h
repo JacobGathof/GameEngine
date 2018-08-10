@@ -57,7 +57,7 @@ public:
 
 	float rotation;
 	float depthPercentage;
-	bool uniformDepth = true;
+	bool uniformDepth = false;
 
 	static int numCreated;
 	static int numDeleted;

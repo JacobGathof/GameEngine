@@ -20,6 +20,8 @@ uniform int currentColumn;
 
 uniform float rotation;
 
+uniform int uniformDepth;
+
 void main(){
 	vec2 pos = position * mat2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation));
 	sc = scale;
@@ -27,7 +29,9 @@ void main(){
 	
 	vec2 worldPos = vec2(pos*(scale*camera_scale)+((translate-camera_translate)*camera_scale));
 	
-	depth = (((translate - camera_translate - vec2(0,scale.y/2))*camera_scale).y + 1)/2.0;
+	vec2 v = uniformDepth * ((pos*scale) - vec2(0, 32));
+	depth = ((translate - camera_translate - vec2(0,scale.y/2) + v)*camera_scale).y;
+	depth = (depth+1)/2;
 	
 	gl_Position = vec4(worldPos, 0, 1);
 }

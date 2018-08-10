@@ -35,6 +35,7 @@ public:
 
 	static void updateFramebufferSizes(float x, float y);
 	static void uploadGlobalUniform(char* location, Vector2f& val);
+	static void uploadGlobalUniform(char* location, float f);
 
 private:
 

@@ -10,6 +10,7 @@ public:
 
 	virtual void init();
 	void uploadAll(char* location, Vector2f& v2);
+	void uploadAll(char* location, float f);
 
 private:
 

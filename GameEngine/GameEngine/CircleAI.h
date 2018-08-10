@@ -16,5 +16,6 @@ private:
 	float speed;
 	Vector2f center;
 	Timer timer;
+	Vector2f fakePos;
 };
 

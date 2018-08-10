@@ -37,6 +37,14 @@ void ShaderManager::uploadAll(char* location, Vector2f & v2){
 	}
 }
 
+void ShaderManager::uploadAll(char * location, float f)
+{
+	for (auto a : elements) {
+		a.second->bind();
+		a.second->loadFloat(location, f);
+	}
+}
+
 void ShaderManager::addShader(ShaderType shader, char * c){
 
 	ShaderProgram * sh = new ShaderProgram();
