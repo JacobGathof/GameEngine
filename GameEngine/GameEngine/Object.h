@@ -56,7 +56,7 @@ public:
 	Color color = Color::White;
 
 	float rotation;
-	float depthPercentage;
+	float height = 0;
 	bool uniformDepth = false;
 
 	static int numCreated;

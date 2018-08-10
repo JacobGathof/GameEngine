@@ -59,7 +59,7 @@ void Object::draw()
 
 	p->loadInteger("selected", selected);
 	p->loadFloat("rotation", rotation);
-	p->loadFloat("depthPercentage", depthPercentage);
+	p->loadFloat("height", height);
 	p->loadInteger("uniformDepth", uniformDepth);
 
 	m->draw();
