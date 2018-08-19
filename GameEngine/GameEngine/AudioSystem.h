@@ -6,6 +6,7 @@ class AudioSystem
 public:
 	static void init();
 	static void clean();
+	static void setMasterVolume(float f);
 
 private:
 	static ALCdevice* device;

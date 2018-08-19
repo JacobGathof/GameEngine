@@ -10,6 +10,8 @@ public:
 	static void playMusic(SoundEntity* entity);
 	static void setVolume(float f);
 
+	
+
 private:
 	static unsigned int source;
 	static SoundEntity* current;

@@ -4,6 +4,7 @@
 unsigned int MusicScheduler::source;
 SoundEntity* MusicScheduler::current;
 
+
 void MusicScheduler::init()
 {
 	alGenSources(1, &source);
@@ -28,3 +29,5 @@ void MusicScheduler::setVolume(float f)
 {
 	alSourcef(source, AL_GAIN, f);
 }
+
+

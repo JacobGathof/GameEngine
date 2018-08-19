@@ -66,6 +66,14 @@ void Input::processInput(float dt) {
 		UIManager::setStatusVisible(true);
 	}
 
+	if (keyboard.down(GLFW_KEY_EQUAL)) {
+		feedMouseScroll(-4);
+	}
+	if (keyboard.down(GLFW_KEY_MINUS)) {
+		feedMouseScroll(4);
+	}
+
+
 	/*
 	if (mouse.down(GLFW_MOUSE_BUTTON_LEFT)) {
 		Vector2f pos = mouse.pos();

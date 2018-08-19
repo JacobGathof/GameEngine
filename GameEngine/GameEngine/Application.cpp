@@ -13,6 +13,8 @@
 #include "GlobalActionInvoker.h"
 
 #include "BezierSpline.h"
+#include "Midi.h"
+#include "MidiScheduler.h"
 
 
 Application::Application(){}
@@ -48,7 +50,9 @@ void Application::run()
 	UIManager::init();
 
 	WeatherManager::init();
-	
+
+	Midi* midi = new Midi("res/audio/test.mid");
+	MidiScheduler::loadMidi(midi);
 
 	//Rooms and the world
 	World * world = World::getInstance();
@@ -115,7 +119,7 @@ void Application::run()
 			//graph.update(dt);
 			world->update(dt);
 			Screen::update(dt);
-
+			MidiScheduler::update(dt);
 		}
 
 		Screen::updateUniforms();
@@ -132,6 +136,8 @@ void Application::run()
 		Window::swapBuffers();
 		
 	}
+
+	delete midi;
 
 	SaveUtilities::saveGame();
 

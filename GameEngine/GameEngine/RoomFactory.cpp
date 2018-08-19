@@ -48,6 +48,7 @@ void RoomFactory::addWorldObjects()
 	//melody->addEffect(new Shadow());
 	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 32)));
 	//melody->addEffect(new LightPath());
+	//melody->addEffect(new FastParticleSystem(1000));
 
 	World::getInstance()->addWorldObject(melody);
 }

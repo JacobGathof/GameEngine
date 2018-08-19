@@ -4,6 +4,8 @@
 #include "FastParticleSystem.h"
 #include "DamageTag.h"
 
+#include "MidiScheduler.h"
+
 
 PlayerAI::PlayerAI() : spline(Vector2f(0,0), Vector2f(0,0), Vector2f(0,0), Vector2f(0,0)), line(Vector2f(0,0), Vector2f(0,0)), line2(Vector2f(0,0), Vector2f(0,0))
 {
@@ -42,6 +44,10 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 	yVel = 0;
 	xVel = 0;
 
+	MidiEvent* me = MidiScheduler::queryMidiState();
+	if (me != 0) {
+		
+	}
 
 	if (keyboard.press(VirtualKey::UP)){
 		yVel = 1;
