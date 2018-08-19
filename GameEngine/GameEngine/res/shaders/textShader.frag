@@ -10,5 +10,5 @@ void main(){
 
 	vec4 color = texture(image, uv);
 	gl_FragColor = vec4(0,0,0,text_color.a*color.a) + vec4(text_color.xyz*(1-col.a) + col.xyz*col.a, 0);
-
+	gl_FragColor.a *= 1.25;
 }

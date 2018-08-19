@@ -124,16 +124,6 @@ void Midi::readHeader(std::ifstream & file)
 			framesPerSecond = (timeDivision & 0x7f00) << 8;
 		}
 
-
-		std::cout << "Chunk Size:" << chunkSize << std::endl;
-		std::cout << "Format Type:" << formatType << std::endl;
-		std::cout << "Number Tracks:" << numTracks << std::endl;
-		std::cout << "Time Division:" << timeDivision << std::endl;
-		std::cout << "	Ticks / Quarter:" << ticksPerQuarter << std::endl;
-		std::cout << "	Frames / Second:" << framesPerSecond << std::endl;
-		std::cout << "	Ticks / Frame:" << ticksPerFrame << std::endl;
-		std::cout << std::endl;
-
 	}
 	else {
 		std::cout << "No header found, malformed midi" << std::endl;
@@ -220,12 +210,6 @@ MetaEvent Midi::processMetaEvent(int & ptr, char * track)
 	int event_length = (int)readVariableLength(ptr, track);
 	char* event_data = new char[event_length];
 	std::memcpy(event_data, track + ptr, event_length);
-
-	std::cout << "Event: " << std::hex << event_type << " " << event_length << " | ";
-	for (int i = 0; i < event_length; i++) {
-		std::cout << std::hex << (int)event_data[i] << " ";
-	}
-	std::cout << std::endl;
 
 	ptr += event_length;
 
