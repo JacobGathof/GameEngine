@@ -63,7 +63,9 @@ void Framebuffer::updateSize(int x, int y)
 	width = x;
 	height = y;
 
-	if (fbo == 0) {
+	if (fbo != 0) {
+		//width *= 4;
+		//height *= 4;
 		//width = 2400;
 		//height = 2400;
 	}
