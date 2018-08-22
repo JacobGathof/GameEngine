@@ -76,6 +76,7 @@
     <ClCompile Include="PauseAction.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Pulse.cpp" />
     <ClCompile Include="ScreenFollowAction.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="PauseAction.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Pulse.h" />
     <ClInclude Include="ScreenFollowAction.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />

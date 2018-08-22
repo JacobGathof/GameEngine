@@ -27,6 +27,7 @@ void ShaderManager::init(){
 	addShader(ShaderType::LINE_SHADER, "res/shaders/lineShader.vert", "res/shaders/lineShader.frag");
 
 	addShader(ShaderType::TEST_SHADER_1, "res/shaders/lineLightShader.vert", "res/shaders/lineLightShader.frag");
+	addShader(ShaderType::TEST_SHADER_2, "res/shaders/pulseShader.vert", "res/shaders/pulseShader.frag");
 }
 
 

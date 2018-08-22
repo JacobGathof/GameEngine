@@ -18,6 +18,7 @@
 #include "ShopWindowAction.h"
 #include "FireObject_TEST.h"
 #include "LightPath.h"
+#include "Pulse.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -47,6 +48,7 @@ void RoomFactory::addWorldObjects()
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 32)));
+	//melody->addEffect(new Pulse());
 	//melody->addEffect(new LightPath());
 	//melody->addEffect(new FastParticleSystem(1000));
 

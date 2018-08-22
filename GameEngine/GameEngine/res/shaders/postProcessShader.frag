@@ -25,7 +25,7 @@ void main(){
 	vec4 effects_color = texture(effects, uv);
 
 	vec4 finalColor = vec4(0,0,0,1);
-	finalColor = world_color;
+	//finalColor = world_color;
 	finalColor = mix(finalColor, objects_color, objects_color.a);
 
 	
