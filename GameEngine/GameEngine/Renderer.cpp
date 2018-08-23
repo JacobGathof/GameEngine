@@ -38,6 +38,12 @@ void Renderer::drawWorld()
 	World::getInstance()->drawObjects();
 	//glDisable(GL_DEPTH_TEST);
 
+
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
+	World::getInstance()->drawLights();
+
 	/*
 	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
 	glEnable(GL_DEPTH_TEST);
@@ -54,10 +60,9 @@ void Renderer::drawWorld()
 void Renderer::drawEffects()
 {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
+	Res::get(FramebufferType::OBJECT_BUFFER)->bind();
 	World::getInstance()->drawEffects();
 	//WeatherManager::drawAmbientLight();
-
 	World::getInstance()->drawHitboxes();
 	//WeatherManager::drawWeatherEffects();
 

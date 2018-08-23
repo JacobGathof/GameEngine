@@ -30,6 +30,9 @@ Object::~Object()
 	for (auto eff : effects) {
 		delete eff;
 	}
+	for (auto l : lights) {
+		delete l;
+	}
 	for (auto ai : aiQueue) {
 		delete ai;
 	}
@@ -73,6 +76,24 @@ void Object::drawEffects()
 	}
 }
 
+void Object::addLight(Light * l)
+{
+	l->setParent(this);
+	lights.add(l);
+}
+
+void Object::removeLight(Light * l)
+{
+	lights.remove(l);
+}
+
+void Object::drawLights()
+{
+	for (Light * l : lights) {
+		l->draw();
+	}
+}
+
 void Object::drawInverted()
 {
 	Vector2f oPos = pos;
@@ -99,6 +120,14 @@ bool Object::update(float dt)
 		if (!b) {
 			delete effects[i];
 			effects.removeIndex(i--);
+		}
+	}
+
+	for (int i = 0; i < lights.size(); i++) {
+		bool b = lights[i]->update(dt);
+		if (!b) {
+			delete lights[i];
+			lights.removeIndex(i--);
 		}
 	}
 

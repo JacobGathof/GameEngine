@@ -110,7 +110,15 @@ void Room::drawHitboxes()
 
 void Room::drawLights()
 {
-	
+	for (auto a : simpleObjects) {
+		a->drawLights();
+	}
+	for (auto a : collidableObjects) {
+		a->drawLights();
+	}
+	for (auto a : interactableObjects) {
+		a->drawLights();
+	}
 }
 
 void Room::checkCollisions()

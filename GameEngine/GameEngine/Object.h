@@ -2,6 +2,7 @@
 
 #include "Vector2f.h"
 #include "Effect.h"
+#include "Light.h"
 #include "List.h"
 #include "Screen.h"
 #include "Hitbox.h"
@@ -49,6 +50,10 @@ public:
 	void activateEffects(bool b);
 	void drawEffects();
 
+	void addLight(Light* l);
+	void removeLight(Light* l);
+	void drawLights();
+
 	Vector2f pos;
 	Vector2f scale;
 	TextureType texture;
@@ -68,6 +73,7 @@ protected:
 	List<AI *> aiQueue;
 
 	List<Effect *> effects;
+	List<Light *> lights;
 
 
 	// Variables from AnimatedObject, but if we put them here, we can reduce duplicated code in the draw method
