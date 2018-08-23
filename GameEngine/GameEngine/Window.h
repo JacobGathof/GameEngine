@@ -33,6 +33,7 @@ private:
 	static Color clearColor;
 	static char* WINDOW_TITLE;
 	static bool fullscreen;
+	static int fullscreenFrame;
 
 	static void setCallbacks();
 	static void setWindowHints();
