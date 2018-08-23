@@ -25,7 +25,8 @@ void GameTimer::update()
 
 float GameTimer::getDeltaTime()
 {
-	return deltaTime;
+	//return deltaTime;
+	return  1.0f / targetFPS;
 }
 
 float GameTimer::getGameTime()
@@ -61,7 +62,7 @@ void GameTimer::setTargetFPS(int f)
 void GameTimer::sleep()
 {
 	float f = 1.0f / targetFPS;
-	int m = std::max(0, (int)((f - deltaTime) * 1000 * 1000));
+	int m = std::max(0, (int)((f - deltaTime) * 1000000));
 	std::this_thread::sleep_for(std::chrono::microseconds(m));
 }
 

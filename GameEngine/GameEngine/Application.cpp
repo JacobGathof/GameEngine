@@ -84,8 +84,6 @@ void Application::run()
 	//Graph graph;
 	//GameState::graph = &graph;
 
-	float dt;
-
 	Window::show();
 	//Window::close();
 	
@@ -96,14 +94,17 @@ void Application::run()
 	Screen::setTargetPosition(&melody->pos);
 	Screen::setMovementBehavior(Screen::followBehavior);
 
-	dt = 1.0f / 60.0f;
 
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
+
+
+	float dt;
 
 	while (!Window::shouldClose()) {
 		Window::pollEvents();
 
 		timer.update();
+		dt = timer.getDeltaTime();
 
 		//std::cout << timer.FPS() << std::endl;
 		Res::uploadGlobalUniform("gameTime", timer.getGameTime());
@@ -131,10 +132,9 @@ void Application::run()
 		Input::ai->line2.draw();
 		*/
 
-		timer.sleep();
-
 		Window::swapBuffers();
 		
+		timer.sleep();
 	}
 
 	delete midi;

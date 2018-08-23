@@ -8,6 +8,7 @@ int Window::WINDOW_X = 0;
 int Window::WINDOW_Y = 0;
 bool Window::initialized = false;
 bool Window::fullscreen = false;
+int Window::fullscreenFrame = 0;
 char* Window::WINDOW_TITLE = "";
 Color Window::clearColor = Color(0x00000000);
 
@@ -34,7 +35,7 @@ void Window::init(char* title, int width, int height) {
 	glfwSetWindowPos(window, (mode->width - WINDOW_WIDTH)/2, (mode->height - WINDOW_HEIGHT) / 2);
 
 	glfwMakeContextCurrent(window);
-	glfwSwapInterval(1);
+	//glfwSwapInterval(1);
 
 
 	initOpenGL();
@@ -67,7 +68,12 @@ bool Window::isInitialized(){
 }
 
 void Window::swapBuffers(){
-	glfwSwapBuffers(window);
+	if (!fullscreenFrame) {
+		glfwSwapBuffers(window);
+	}
+	else {
+		fullscreenFrame = 1;
+	}
 }
 
 void Window::pollEvents(){
@@ -98,6 +104,7 @@ void Window::setWindowHints(){
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
 }
 
 void Window::initOpenGL(){
@@ -136,14 +143,15 @@ void Window::toggleFullscreen()
 {
 	if (!fullscreen) {
 		fullscreen = true;
+		fullscreenFrame = 10;
 		glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		GLFWmonitor* monitor = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(monitor);
-		std::cout << mode->refreshRate << std::endl;
 		glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 	}
 	else {
 		fullscreen = false;
+		fullscreenFrame = 0;
 		if (Window::WINDOW_X == 0 || Window::WINDOW_Y == 0) {
 			glfwGetWindowPos(window, &Window::WINDOW_X, &Window::WINDOW_Y);
 		}
