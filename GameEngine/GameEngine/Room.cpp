@@ -84,6 +84,19 @@ void Room::drawObjectsInverted()
 	}
 }
 
+void Room::drawObjectsNegative()
+{
+	for (auto a : simpleObjects) {
+		a->drawNegative();
+	}
+	for (auto a : collidableObjects) {
+		a->drawNegative();
+	}
+	for (auto a : interactableObjects) {
+		a->drawNegative();
+	}
+}
+
 void Room::drawEffects()
 {
 	for (auto a : simpleObjects) {

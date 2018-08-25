@@ -43,7 +43,8 @@ void Renderer::drawWorld()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Res::get(FramebufferType::EFFECTS_BUFFER)->bind();
 	World::getInstance()->drawLights();
-
+	glBlendFunc(GL_ONE, GL_ZERO);
+	//World::getInstance()->drawObjectsNegative();
 	/*
 	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
 	glEnable(GL_DEPTH_TEST);
@@ -107,6 +108,11 @@ void Renderer::postProcess()
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+
+
+	drawDebugWindow();
+
+
 }
 
 void Renderer::preProcess()
@@ -129,4 +135,50 @@ void Renderer::preProcess()
 
 	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void Renderer::drawDebugWindow()
+{
+
+	Model* m = Res::get(ModelType::MODEL_SQUARE);
+	ShaderProgram* sp = Res::get(ShaderType::UI_SOLID_SHADER);
+	sp->bind();
+	m->bind();
+
+	sp->loadVector2f("translate", Vector2f(0, 0));
+	sp->loadVector2f("scale", Vector2f(200, 200));
+	sp->loadColor("color", Color::Black);
+
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	m->draw();
+	glBlendFunc(GL_ONE, GL_ZERO);
+
+
+
+
+	
+	sp = Res::get(ShaderType::UI_IMAGE_SHADER);
+	sp->bind();
+	m->bind();
+
+	sp->loadVector2f("translate", Vector2f(0, 200));
+	sp->loadVector2f("scale", Vector2f(200, -200));
+
+	Res::get(FramebufferType::EFFECTS_BUFFER)->bindTexture(0);
+
+	sp->loadVector2f("dim", Vector2f(1, 1));
+	sp->loadVector2f("offset", Vector2f(0, 0));
+	sp->loadColor("color", Color::White);
+
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	m->draw();
+	glBlendFunc(GL_ONE, GL_ZERO);
+
+
+
+
+
+
 }

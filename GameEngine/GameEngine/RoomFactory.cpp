@@ -44,7 +44,7 @@ void RoomFactory::addWorldObjects()
 	Input::ai = playerAi;
 	Player * melody = new Player(ObjectData{ "Player", Vector2f(0, 0), Vector2f(256, 256), TextureType::SPRITESHEET_MELODY}, playerAi);
 	melody->persistent = true;
-	melody->addLight(new Light(Vector2f(0, 0), Color(1,1,1, 1), Vector2f(256, 256)));
+	melody->addLight(new Light(Vector2f(0, 0), Color(1,1,1, 1), 2*Vector2f(256, 256)));
 	GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	melody->addEffect(new Tag(std::string("Melody"), Vector2f(0, 32)));
@@ -79,7 +79,7 @@ Room* RoomFactory::createReadingRoom()
 	InteractableObject * chest = new InteractableObject(ObjectData{ "", Vector2f(0, -256), Vector2f(128, 128), TextureType::TEXTURE_SLIME});
 	chest->setInteraction(new QuoteAction(std::string("Quote Interaction")));
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
-	chest->addLight(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
+	//chest->addLight(new Light(Vector2f(0, 0), Color(1,1,1,1), Vector2f(256, 256)));
 	chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 
 	chest->addEffect(new ParticleSystem<TexturedParticle>(10, 4,

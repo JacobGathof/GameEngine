@@ -20,5 +20,8 @@ private:
 	static void postProcess();
 	static void preProcess();
 
+
+	static void drawDebugWindow();
+
 };
 

@@ -68,6 +68,7 @@ public:
 	static int numDeleted;
 
 	void drawInverted();
+	void drawNegative();
 
 protected:
 	List<AI *> aiQueue;

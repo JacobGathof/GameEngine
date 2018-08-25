@@ -68,12 +68,9 @@ bool Window::isInitialized(){
 }
 
 void Window::swapBuffers(){
-	if (!fullscreenFrame) {
-		glfwSwapBuffers(window);
-	}
-	else {
-		fullscreenFrame = 1;
-	}
+	
+	glfwSwapBuffers(window);
+	
 }
 
 void Window::pollEvents(){

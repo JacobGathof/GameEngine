@@ -109,6 +109,19 @@ void Object::drawInverted()
 
 }
 
+void Object::drawNegative()
+{
+	Color temp = color;
+
+	color = Color(0,0,0,0);
+
+	draw();
+
+	color = temp;
+
+
+}
+
 void Object::destroy(){
 	alive = false;
 }
