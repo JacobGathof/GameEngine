@@ -29,7 +29,6 @@
     <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="BannerAction.cpp" />
     <ClCompile Include="BezierSpline.cpp" />
-    <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
@@ -59,7 +58,6 @@
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
-    <ClCompile Include="FireObject_TEST.cpp" />
     <ClCompile Include="GlobalActionInvoker.cpp" />
     <ClCompile Include="GraphAction.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -68,15 +66,12 @@
     <ClCompile Include="IParticle.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
-    <ClCompile Include="LightPath.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Midi.cpp" />
     <ClCompile Include="MidiScheduler.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="PauseAction.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
-    <ClCompile Include="Projectile.cpp" />
-    <ClCompile Include="Pulse.cpp" />
     <ClCompile Include="ScreenFollowAction.cpp" />
     <ClCompile Include="FollowAI.cpp" />
     <ClCompile Include="Framebuffer.cpp" />
@@ -193,7 +188,6 @@
     <ClInclude Include="BannerAction.h" />
     <ClInclude Include="BattleManager.h" />
     <ClInclude Include="BezierSpline.h" />
-    <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
@@ -223,7 +217,6 @@
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
-    <ClInclude Include="FireObject_TEST.h" />
     <ClInclude Include="GlobalActionInvoker.h" />
     <ClInclude Include="GraphAction.h" />
     <ClInclude Include="Grid.h" />
@@ -231,7 +224,6 @@
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="IParticle.h" />
     <ClInclude Include="IParticleEmitterComponent.h" />
-    <ClInclude Include="LightPath.h" />
     <ClInclude Include="Midi.h" />
     <ClInclude Include="MidiScheduler.h" />
     <ClInclude Include="ParticleEmitter.h" />
@@ -241,8 +233,6 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="PauseAction.h" />
     <ClInclude Include="PauseMenu.h" />
-    <ClInclude Include="Projectile.h" />
-    <ClInclude Include="Pulse.h" />
     <ClInclude Include="ScreenFollowAction.h" />
     <ClInclude Include="FollowAI.h" />
     <ClInclude Include="Framebuffer.h" />
@@ -361,7 +351,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A8AE627C-9697-4B8E-9101-CEE497E98F0E}</ProjectGuid>
     <RootNamespace>GameEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

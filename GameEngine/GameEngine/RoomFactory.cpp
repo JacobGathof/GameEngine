@@ -16,9 +16,6 @@
 #include "ParticleSystem.h"
 #include "ToggleEffectAction.h"
 #include "ShopWindowAction.h"
-#include "FireObject_TEST.h"
-#include "LightPath.h"
-#include "Pulse.h"
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -99,7 +96,7 @@ Room* RoomFactory::createReadingRoom()
 	chest2->setInteraction(new GraphAction("res/script/test.txt"));
 
 
-	InteractableObject* torch = new FireObject_TEST(ObjectData{"", Vector2f(128 - 64 * 4, 128 * 5), Vector2f(64, 64) , TextureType::T_CARD_4 });
+	InteractableObject* torch = new InteractableObject(ObjectData{"", Vector2f(128 - 64 * 4, 128 * 5), Vector2f(64, 64) , TextureType::T_CARD_4 });
 	torch->setAction(SpriteSheet::AnimationState::IDLE);
 	//torch->addAI(new CircleAI(Vector2f(0, 0), 512+256, 1.0f));
 	room->addObject(torch);

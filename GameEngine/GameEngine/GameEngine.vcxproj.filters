@@ -486,9 +486,6 @@
     <ClCompile Include="Tag.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="AbstractAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
@@ -561,9 +558,6 @@
     <ClCompile Include="BezierSpline.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Boomerang.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="CardObject.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
@@ -606,12 +600,6 @@
     <ClCompile Include="ShopWindowAction.cpp">
       <Filter>Source Files\Actions</Filter>
     </ClCompile>
-    <ClCompile Include="FireObject_TEST.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="LightPath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Textbox.cpp">
       <Filter>Source Files\UI\Textbox</Filter>
     </ClCompile>
@@ -632,9 +620,6 @@
     </ClCompile>
     <ClCompile Include="MidiScheduler.cpp">
       <Filter>Source Files\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Pulse.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -995,9 +980,6 @@
     <ClInclude Include="Tag.h">
       <Filter>Header Files\Game Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="GraphAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
@@ -1079,9 +1061,6 @@
     <ClInclude Include="BezierSpline.h">
       <Filter>Header Files\Utilities\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Boomerang.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="CompositeAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
@@ -1121,14 +1100,8 @@
     <ClInclude Include="ShopWindowAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="FireObject_TEST.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="CardObject.h">
       <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="LightPath.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Textbox.h">
       <Filter>Header Files\UI\Textbox</Filter>
@@ -1150,9 +1123,6 @@
     </ClInclude>
     <ClInclude Include="MidiScheduler.h">
       <Filter>Header Files\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Pulse.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

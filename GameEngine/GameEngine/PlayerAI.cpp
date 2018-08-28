@@ -1,6 +1,5 @@
 #include "PlayerAI.h"
 #include "Player.h"
-#include "Boomerang.h"
 #include "FastParticleSystem.h"
 #include "DamageTag.h"
 
@@ -146,6 +145,7 @@ void PlayerAI::leftClick(Vector2f & pos)
 	World::getInstance()->addCObject(p);
 	*/
 
+	/*
 	Vector2f direction = (pos - Screen::toScreenCoords(user->pos)).normalize();
 	Projectile * p = new Projectile(ObjectData{ "_",  user->pos, Vector2f(64, 64), TextureType::ARROW_TEXTURE }, direction, user);
 	World::getInstance()->addCObject(p);
@@ -161,6 +161,7 @@ void PlayerAI::leftClick(Vector2f & pos)
 		Projectile * p = new Projectile(ObjectData{ "_",  user->pos, Vector2f(64, 64), TextureType::ARROW_TEXTURE }, direction, user);
 		World::getInstance()->addCObject(p);
 	}
+	*/
 
 }
 
