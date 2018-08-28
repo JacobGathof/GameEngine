@@ -66,6 +66,11 @@ void World::drawObjectsNegative()
 	currentRoom->drawObjectsNegative();
 }
 
+void World::eraseProjection(Vector2f & center, float radius, Object* pass)
+{
+	currentRoom->eraseProjection(center, radius, pass);
+}
+
 void World::drawEffects()
 {
 	currentRoom->drawEffects();

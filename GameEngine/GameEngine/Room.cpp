@@ -97,6 +97,22 @@ void Room::drawObjectsNegative()
 	}
 }
 
+void Room::eraseProjection(Vector2f & center, float radius, Object* pass)
+{
+	for (auto a : simpleObjects) {
+		if(a != pass)
+			a->eraseProjection(center, radius);
+	}
+	for (auto a : collidableObjects) {
+		if (a != pass)
+			a->eraseProjection(center, radius);
+	}
+	for (auto a : interactableObjects) {
+		if (a != pass)
+			a->eraseProjection(center, radius);
+	}
+}
+
 void Room::drawEffects()
 {
 	for (auto a : simpleObjects) {
@@ -439,6 +455,7 @@ void Room::init()
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("flower_3"), TextureType::FLOWER_3));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("fallen_Tree"), TextureType::FALLEN_TREE));
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("mushroom"), TextureType::MUSHROOM));
+
 }
 
 

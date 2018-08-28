@@ -1,5 +1,7 @@
 #include "Light.h"
 #include "Object.h"
+#include "World.h"
+
 
 Light::Light(Vector2f & off, Color & c, Vector2f& sc)
 {
@@ -25,6 +27,9 @@ void Light::draw()
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
 	m->bind();
 	m->draw();
+
+	glBlendFunc(GL_ONE, GL_ZERO);
+	World::getInstance()->eraseProjection(parent->pos + offset, scale[0], parent);
 }
 
 bool Light::update(float dt)

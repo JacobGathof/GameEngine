@@ -69,7 +69,7 @@ bool InteractableObject::update(float dt)
 void InteractableObject::draw()
 {
 	AnimatedObject::draw();
-	//interactionRadius->draw();
+	interactionRadius->draw();
 }
 
 bool InteractableObject::collide(CollidableObject * obj)

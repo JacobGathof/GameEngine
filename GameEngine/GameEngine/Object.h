@@ -69,6 +69,8 @@ public:
 
 	void drawInverted();
 	void drawNegative();
+	void eraseProjection(Vector2f& center, float radius);
+	void eraseHelper(Vector2f& first, Vector2f& second, Vector2f& center, float radius);
 
 protected:
 	List<AI *> aiQueue;

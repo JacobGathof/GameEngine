@@ -45,12 +45,13 @@ void Renderer::drawWorld()
 	World::getInstance()->drawLights();
 	glBlendFunc(GL_ONE, GL_ZERO);
 	//World::getInstance()->drawObjectsNegative();
-	/*
+	
+
 	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	World::getInstance()->drawObjectsInverted();
-	glDisable(GL_DEPTH_TEST);
-	*/
+	//glDisable(GL_DEPTH_TEST);
+	
 
 	drawEffects();
 
@@ -110,7 +111,7 @@ void Renderer::postProcess()
 
 
 
-	drawDebugWindow();
+	//drawDebugWindow();
 
 
 }

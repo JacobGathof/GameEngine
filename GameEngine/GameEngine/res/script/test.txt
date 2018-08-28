@@ -35,7 +35,8 @@
 		<text name="Echo" x="2" y="0" speed="4.0">Echo joins the fray</text>
 		<text name="" x="1" y="1" speed="1.5" noskip="">(No skip)</text>
 		<text name="" x="2" y="2">Silver, I don't feel too good...</text>
-		
+		-->
+
 		<text name="Echo">Maybe you could at least pretend to be a little happy every once in awhile.</text>
 		<text name="Melody">Babylon was established in 270 FA</text>
 		<text name="Echo">Listen, I know it has been hard since Lydia passed away, but you can't let that rule your life. We all miss her, but we have to move on at some point.</text>
@@ -43,7 +44,7 @@
 		<text name="Echo">I'm not going to argue with you.  We know where we stand on this matter.</text>
 		<text name="Melody">To this day, it remains that no mortal soul knows the location of the Ancient City.</text>
 		<text name="Echo">Holy shit Melody</text>
-		-->
+		
 		
 		<text name="Melody" speed="2.0" time="1.0">Hoo hoot! Link... Look up here!</text>
 		<text name="Melody" speed="3.2" time="1.5">It appears that the time has finally come for you to start your adventure!</text>

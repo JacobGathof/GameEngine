@@ -34,6 +34,7 @@ public:
 	void drawObjects();
 	void drawObjectsInverted();
 	void drawObjectsNegative();
+	void eraseProjection(Vector2f& center, float radius, Object* pass);
 
 	void drawEffects();
 	void drawHitboxes();

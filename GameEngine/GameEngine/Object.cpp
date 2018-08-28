@@ -122,6 +122,51 @@ void Object::drawNegative()
 
 }
 
+void Object::eraseProjection(Vector2f & center, float radius)
+{
+
+	eraseHelper(pos + Vector2f(scale.x, scale.y), pos + Vector2f(scale.x, -scale.y), center, radius);
+	eraseHelper(pos + Vector2f(scale.x, -scale.y), pos + Vector2f(-scale.x, -scale.y), center, radius);
+	eraseHelper(pos + Vector2f(-scale.x, -scale.y), pos + Vector2f(-scale.x, scale.y), center, radius);
+	eraseHelper(pos + Vector2f(-scale.x, scale.y), pos + Vector2f(scale.x, scale.y), center, radius);
+
+	eraseHelper(pos + Vector2f(-scale.x, -scale.y), pos + Vector2f(scale.x, scale.y), center, radius);
+	eraseHelper(pos + Vector2f(scale.x, -scale.y), pos + Vector2f(-scale.x, scale.y), center, radius);
+}
+
+void Object::eraseHelper(Vector2f & first, Vector2f & second, Vector2f& center, float radius)
+{
+	Vector2f points[4];
+	points[0] = first;
+	points[1] = second;
+	points[2] = (first - center).normalize() * radius * 2;
+	points[3] = (second - center).normalize() * radius * 2;
+
+
+	ShaderProgram* p = Res::get(ShaderType::SHADOW_SHADER);
+	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+
+	m->bind();
+
+	p->bind();
+	p->loadVector2f("translate", Vector2f(0,0));
+	p->loadVector2f("scale", Vector2f(1,1));
+
+	p->loadVector2f("vertices[0]", points[0]);
+	p->loadVector2f("vertices[1]", points[1]);
+	p->loadVector2f("vertices[2]", points[2]);
+	p->loadVector2f("vertices[3]", points[0]);
+	p->loadVector2f("vertices[4]", points[1]);
+	p->loadVector2f("vertices[5]", points[3]);
+
+	m->draw();
+
+	
+
+	m->draw();
+}
+
+
 void Object::destroy(){
 	alive = false;
 }
