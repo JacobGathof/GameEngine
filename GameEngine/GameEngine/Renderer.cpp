@@ -28,15 +28,21 @@ void Renderer::draw()
 
 void Renderer::drawWorld()
 {
+
+	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
+	glEnable(GL_DEPTH_TEST);
+	World::getInstance()->drawObjectsInverted();
+	glDisable(GL_DEPTH_TEST);
+
 	Res::get(FramebufferType::OBJECT_BUFFER)->bind();
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	World::getInstance()->drawTerrain();
 
 
 	Res::get(FramebufferType::OBJECT_BUFFER)->bind();
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 	World::getInstance()->drawObjects();
-	//glDisable(GL_DEPTH_TEST);
+	glDisable(GL_DEPTH_TEST);
 
 
 
@@ -47,13 +53,9 @@ void Renderer::drawWorld()
 	//World::getInstance()->drawObjectsNegative();
 	
 
-	Res::get(FramebufferType::EXTRA_BUFFER_1)->bind();
-	//glEnable(GL_DEPTH_TEST);
-	World::getInstance()->drawObjectsInverted();
-	//glDisable(GL_DEPTH_TEST);
-	
 
-	drawEffects();
+
+	//drawEffects();
 
 	//World::getInstance()->draw();
 }

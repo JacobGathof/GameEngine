@@ -84,7 +84,8 @@ void FastParticleSystem::draw()
 	Res::get(ShaderType::PARTICLE_FAST_SHADER)->loadVector2f("translate", Vector2f(0,0));
 
 	glBindVertexArray(vao);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_ONE, GL_ONE);
 	glDrawArrays(GL_POINTS, 0, maxSize);
 
 }

@@ -1,5 +1,11 @@
 #pragma once
 
+
+enum class GraphType {
+	MAIN,
+};
+
+
 enum class ShaderType {
 	ANIMATED_SHADER,
 	TEXT_SHADER,

@@ -15,6 +15,7 @@ out vec3 color;
 void main(){
 	alpha = velocity.w;
 	color = velocity.xyz;
+
 	
 	gl_PointSize = 2.0f;
 	gl_Position = vec4(position.xy*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);

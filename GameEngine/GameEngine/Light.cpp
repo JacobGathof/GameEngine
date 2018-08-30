@@ -28,8 +28,8 @@ void Light::draw()
 	m->bind();
 	m->draw();
 
-	glBlendFunc(GL_ONE, GL_ZERO);
-	World::getInstance()->eraseProjection(parent->pos + offset, scale[0], parent);
+	//glBlendFunc(GL_ONE, GL_ZERO);
+	//World::getInstance()->eraseProjection(parent->pos + offset, scale[0], parent);
 }
 
 bool Light::update(float dt)
