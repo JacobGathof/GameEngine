@@ -3,7 +3,7 @@
 #include "BattleManager.h"
 
 std::string GameState::globalDebug;
-float GameState::sliderValue;
+float GameState::sliderValue = .5f;
 float GameState::ui_blue;
 std::string GameState::playerName = "Player";
 bool GameState::textboxEmpty = true;

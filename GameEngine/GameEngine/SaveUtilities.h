@@ -14,5 +14,10 @@ private:
 	static List<float*> floatSaves;
 	static List<std::string*> stringSaves;
 
+	static void writeFloat(std::ofstream& file, float f);
+	static void writeInteger(std::ofstream& file, int f);
+
+	static int loadInt(std::ifstream& file);
+	static float loadFloat(std::ifstream& file);
 };
 

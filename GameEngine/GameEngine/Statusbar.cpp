@@ -50,13 +50,14 @@ void Statusbar::draw()
 
 	UIUtils::drawRectangle(pos_box + fadePos, scale_box, boxOutline*fadeColor);
 	UIUtils::drawRectangle(pos_box + fadePos + boxPadding, scale_box - 2 * boxPadding, boxColor*fadeColor);
+	UIUtils::drawImage(pos_box + fadePos + boxPadding, scale_box - 2 * boxPadding, TextureType::T_CARD_3, Vector2f(0,0));
 
-
+	/*
 	health.text->draw(fadePos, fadeColor);
 	stamina.text->draw(fadePos, fadeColor);
 	mana.text->draw(fadePos, fadeColor);
 	goldText->draw(fadePos, fadeColor);
-
+	*/
 }
 
 void Statusbar::update(float dt)

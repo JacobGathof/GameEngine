@@ -13,10 +13,10 @@ void SaveUtilities::saveGame()
 	file.open("res/save.txt", file.out);
 
 	for (auto i : integerSaves) {
-		file << std::to_string(*i).c_str() << std::endl;
+		writeInteger(file, *i);
 	}
 	for (auto f : floatSaves) {
-		file << std::to_string(*f).c_str() << std::endl;
+		writeFloat(file, *f);
 	}
 	for (auto c : stringSaves) {
 		file << *c << std::endl;
@@ -28,20 +28,17 @@ void SaveUtilities::saveGame()
 
 void SaveUtilities::loadGame()
 {
-
 	std::ifstream file;
 	std::string str;
 	file.open("res/save.txt", file.in);
 
 	for (auto i : integerSaves) {
 		if (!file) continue;
-		std::getline(file, str);
-		*i = std::atoi(str.c_str());
+		*i = loadInt(file);
 	}
 	for (auto f : floatSaves) {
 		if (!file) continue;
-		std::getline(file, str);
-		*f = std::atof(str.c_str());
+		*f = loadFloat(file);
 	}
 	for (auto c : stringSaves) {
 		if (!file) continue;
@@ -63,4 +60,34 @@ void SaveUtilities::init()
 	floatSaves.add(&GameState::blue);
 	floatSaves.add(&GameState::volume);
 	stringSaves.add(&GameState::playerName);
+}
+
+void SaveUtilities::writeFloat(std::ofstream & file, float f){
+	char data[4];
+	std::memcpy(data, &f, 4);
+	file.write(data, 4);
+}
+
+void SaveUtilities::writeInteger(std::ofstream & file, int f){
+	char data[4];
+	std::memcpy(data, &f, 4);
+	file.write(data, 4);
+}
+
+int SaveUtilities::loadInt(std::ifstream & file)
+{
+	char data[4];
+	int i;
+	file.read(data, 4);
+	std::memcpy(&i, data, 4);
+	return i;
+}
+
+float SaveUtilities::loadFloat(std::ifstream & file)
+{
+	char data[4];
+	float f;
+	file.read(data, 4);
+	std::memcpy(&f, data, 4);
+	return f;
 }
