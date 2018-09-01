@@ -349,6 +349,13 @@
   <ItemGroup>
     <ResourceCompile Include="GameEngine.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmaps\meldy.png" />
+    <Image Include="res\icon.ico" />
+    <Image Include="res\png1.png" />
+    <Image Include="res\tex\Melody.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A8AE627C-9697-4B8E-9101-CEE497E98F0E}</ProjectGuid>

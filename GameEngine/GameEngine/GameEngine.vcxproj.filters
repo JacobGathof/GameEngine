@@ -1136,4 +1136,21 @@
       <Filter>Source Files\Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon.ico">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmaps\meldy.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="res\png1.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+    <Image Include="res\tex\Melody.png">
+      <Filter>Source Files\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

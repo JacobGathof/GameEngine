@@ -3,9 +3,15 @@
 #include "lodepng.h"
 #include "Vector2f.h"
 
+struct ResourceData {
+	unsigned char* data;
+	int size;
+};
+
 class Texture
 {
 public:
+
 	void bind(int offset = 0);
 
 	Texture();
@@ -14,6 +20,7 @@ public:
 	virtual ~Texture();
 
 	void getData(float* data);
+	ResourceData getDataFromResource();
 
 private:
 	GLuint tbo;

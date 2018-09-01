@@ -1,5 +1,5 @@
 #include "Texture.h"
-
+#include "resource.h"
 
 void Texture::bind(int offset)
 {
@@ -12,6 +12,10 @@ Texture::Texture(char * filename, bool enable_mipmap)
 	unsigned int w, h;
 	std::vector<unsigned char> image;
 	lodepng::decode(image, w, h, filename);
+
+	//ResourceData d = getDataFromResource();
+	//lodepng::decode(image, w, h, d.data, d.size);
+	//std::cout << d.data[0] << " " << d.size << std::endl;
 
 	if (image.empty()) {
 		std::cout << "Image could not be loaded: " << filename << std::endl;
@@ -54,4 +58,27 @@ void Texture::getData(float * data)
 {
 	bind();
 	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, data);
+}
+
+ResourceData Texture::getDataFromResource()
+{
+	ResourceData data{};
+	HGLOBAL     res_handle = NULL;
+	HRSRC       res;
+	unsigned char *      res_data;
+	DWORD       res_size;
+
+	res = FindResource(NULL, MAKEINTRESOURCE(T_MELDY), "PNG");
+	if (!res)
+		return data;
+	res_handle = LoadResource(NULL, res);
+	if (!res_handle)
+		return data;
+	res_data = (unsigned char*)LockResource(res_handle);
+	res_size = SizeofResource(NULL, res);
+
+	data.data = res_data;
+	data.size = res_size;
+
+	return data;
 }
