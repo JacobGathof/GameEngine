@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "ResourceManager.h"
+#include "AnimatedComponent.h"
 
 int Object::numCreated = 0;
 int Object::numDeleted = 0;
@@ -39,6 +40,12 @@ Object::~Object()
 	delete defaultAI;
 
 	numDeleted++;
+
+
+	for (auto a : map) {
+		delete a.second;
+	}
+
 }
 
 void Object::draw()
@@ -57,8 +64,13 @@ void Object::draw()
 
 	p->loadInteger("rows", sh->rows);
 	p->loadInteger("columns", sh->columns);
-	p->loadInteger("currentRow", animationRow);
-	p->loadInteger("currentColumn", animationColumn);
+
+	p->loadInteger("currentRow", 0);
+	p->loadInteger("currentColumn", 0);
+	if (hasTrait<AnimatedComponent>()) {
+		p->loadInteger("currentRow", getComponent<AnimatedComponent>()->animationRow);
+		p->loadInteger("currentColumn", getComponent<AnimatedComponent>()->animationColumn);
+	}
 
 	p->loadInteger("selected", selected);
 	p->loadFloat("rotation", rotation);
@@ -173,6 +185,12 @@ void Object::destroy(){
 
 bool Object::update(float dt)
 {
+
+	for (auto a : map) {
+		a.second->update(dt);
+	}
+
+
 	for (int i = 0; i < effects.size(); i++) {
 		bool b = effects[i]->update(dt);
 		if (!b) {

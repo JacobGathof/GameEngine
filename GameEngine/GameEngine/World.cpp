@@ -4,7 +4,7 @@
 
 World* World::inst;
 std::map<std::string, Room *> World::rooms;
-std::map<std::string, InteractableObject *> World::worldObjects;
+std::map<std::string, Object *> World::worldObjects;
 
 
 World::~World(){}
@@ -126,7 +126,7 @@ void World::setCurrentRoom(const char* name)
 	setCurrentRoom(room);
 }
 
-InteractableObject * World::getNearestObject(Vector2f pos)
+Object * World::getNearestObject(Vector2f pos)
 {
 	return currentRoom->getNearestObject(pos);
 }
@@ -162,18 +162,12 @@ void World::addObject(Object * obj)
 	}
 }
 
-void World::addCObject(CollidableObject * obj)
-{
-	if (currentRoom != nullptr) {
-		currentRoom->addObject(obj);
-	}
-}
 
-void World::addWorldObject(InteractableObject * obj){
+void World::addWorldObject(Object * obj){
 	worldObjects[obj->name] = obj;
 }
 
-InteractableObject * World::getWorldObject(const char * name)
+Object * World::getWorldObject(const char * name)
 {
 	return worldObjects[name];
 }

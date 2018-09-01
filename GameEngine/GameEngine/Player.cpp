@@ -4,12 +4,12 @@
 #include "PlayerAI.h"
 
 
-Player::Player(ObjectData& data, PlayerAI * ai) : LivingObject(data)
+Player::Player(ObjectData& data, PlayerAI * ai) : Object(data)
 {
 	defaultAI = ai;
-	moveSpeed = 256;
-	weight = Weight::PLAYER;
-	interactionRadius->radius = 64;
+	//moveSpeed = 256;
+	//weight = Weight::PLAYER;
+	//interactionRadius->radius = 64;
 }
 
 
@@ -25,7 +25,7 @@ bool Player::update(float delta_time)
 	}
 	lastX = pos[0];
 	lastY = pos[1];
-	LivingObject::update(delta_time);
+	Object::update(delta_time);
 	return true;
 }
 

@@ -1,19 +1,18 @@
 #pragma once
 
-#include "LivingAi.h"
+#include "AI.h"
 
-class LivingObject;
 
-class RunAwayAI : public LivingAi
+class RunAwayAI : public AI
 {
 public:
-	RunAwayAI(LivingObject * object);
+	RunAwayAI(Object * object);
 	~RunAwayAI();
 
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Object * obj, float dt);
 
 private:
-	LivingObject * object;
+	Object * object;
 	bool moving = false;
 
 };

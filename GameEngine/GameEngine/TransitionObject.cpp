@@ -2,11 +2,11 @@
 
 
 
-TransitionObject::TransitionObject(ObjectData& data, Room * r) : CollidableObject(data)
+TransitionObject::TransitionObject(ObjectData& data, Room * r) : Object(data)
 {
 	isStatic = true;
 	room = r;
-	weight = Weight::GHOST;
+	//weight = Weight::GHOST;
 }
 
 TransitionObject::~TransitionObject()

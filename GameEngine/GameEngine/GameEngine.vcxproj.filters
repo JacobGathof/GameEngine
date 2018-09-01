@@ -139,6 +139,18 @@
     <Filter Include="Source Files\UI\Textbox">
       <UniqueIdentifier>{0bed959c-497a-407d-a66f-5e4f3b983cc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Components">
+      <UniqueIdentifier>{98be8838-161b-48ba-8385-26d2eb0d81d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Components">
+      <UniqueIdentifier>{fa7aaa60-7123-4c64-b367-af00e76c7f3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Other">
+      <UniqueIdentifier>{5fafa88a-ad53-4ba9-81d4-c9ced7061e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Other">
+      <UniqueIdentifier>{341b08fa-9992-4a0b-95f1-35029cdf4239}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -198,9 +210,6 @@
     <ClCompile Include="Effect.cpp">
       <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
-    <ClCompile Include="AnimatedObject.cpp">
-      <Filter>Source Files\Objects\AbstractObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
@@ -213,20 +222,11 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="TransitionObject.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="StatsPage.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="PlayerAI.cpp">
       <Filter>Source Files\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="LivingObject.cpp">
-      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>Source Files\Managers</Filter>
@@ -360,9 +360,6 @@
     <ClCompile Include="FollowAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
-    <ClCompile Include="LivingAI.cpp">
-      <Filter>Source Files\AI</Filter>
-    </ClCompile>
     <ClCompile Include="CircleHitbox.cpp">
       <Filter>Source Files\Utilities\Hitbox</Filter>
     </ClCompile>
@@ -426,14 +423,8 @@
     <ClCompile Include="CardManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Chest.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="DeckManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="FilesAndStrings.cpp">
       <Filter>Source Files\General</Filter>
@@ -476,12 +467,6 @@
     </ClCompile>
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="CollidableObject.cpp">
-      <Filter>Source Files\Objects\AbstractObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractableObject.cpp">
-      <Filter>Source Files\Objects\AbstractObjects</Filter>
     </ClCompile>
     <ClCompile Include="Tag.cpp">
       <Filter>Source Files\Game Objects</Filter>
@@ -558,9 +543,6 @@
     <ClCompile Include="BezierSpline.cpp">
       <Filter>Source Files\Utilities\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="CardObject.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="CircleAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -624,6 +606,27 @@
     <ClCompile Include="ScriptManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatedComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractObjectComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionObject.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="CollidableComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="LivingComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -683,9 +686,6 @@
     <ClInclude Include="Object.h">
       <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
-    <ClInclude Include="AnimatedObject.h">
-      <Filter>Header Files\Objects\AbstractObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Header Files\World</Filter>
     </ClInclude>
@@ -695,9 +695,6 @@
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="TransitionObject.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -706,12 +703,6 @@
     </ClInclude>
     <ClInclude Include="PlayerAI.h">
       <Filter>Header Files\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="LivingObject.h">
-      <Filter>Header Files\Objects\AbstractObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="TerrainMap.h">
       <Filter>Header Files\World</Filter>
@@ -857,9 +848,6 @@
     <ClInclude Include="FollowAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
-    <ClInclude Include="LivingAI.h">
-      <Filter>Header Files\AI</Filter>
-    </ClInclude>
     <ClInclude Include="CircleHitbox.h">
       <Filter>Header Files\Utilities\Hitbox</Filter>
     </ClInclude>
@@ -926,14 +914,8 @@
     <ClInclude Include="CardManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Chest.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="DeckManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="FilesAndStrings.h">
       <Filter>Header Files\General</Filter>
@@ -973,12 +955,6 @@
     </ClInclude>
     <ClInclude Include="Grid.h">
       <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="CollidableObject.h">
-      <Filter>Header Files\Objects\AbstractObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractableObject.h">
-      <Filter>Header Files\Objects\AbstractObjects</Filter>
     </ClInclude>
     <ClInclude Include="Tag.h">
       <Filter>Header Files\Game Objects</Filter>
@@ -1103,9 +1079,6 @@
     <ClInclude Include="ShopWindowAction.h">
       <Filter>Header Files\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="CardObject.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Textbox.h">
       <Filter>Header Files\UI\Textbox</Filter>
     </ClInclude>
@@ -1129,6 +1102,27 @@
     </ClInclude>
     <ClInclude Include="ScriptManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractObjectComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionObject.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidableComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="LivingComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

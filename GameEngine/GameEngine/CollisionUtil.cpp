@@ -4,12 +4,11 @@
 #include "ComplexHitbox.h"
 #include "Hitbox.h"
 #include <math.h>
-#include "CollidableObject.h"
 
 
 Vector2f CollisionUtil::shortestResolve;
-CollidableObject * CollisionUtil::one;
-CollidableObject * CollisionUtil::two;
+Object * CollisionUtil::one;
+Object * CollisionUtil::two;
 
 CollisionUtil::CollisionUtil()
 {
@@ -225,8 +224,9 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 	return true;
 }
 
-bool CollisionUtil::equalResolve(CollidableObject * o1, CollidableObject * o2, float bounciness)
+bool CollisionUtil::equalResolve(Object * o1, Object * o2, float bounciness)
 {
+	/*
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
 		o1->pos += dir * bounciness / 2.0f;
@@ -235,12 +235,13 @@ bool CollisionUtil::equalResolve(CollidableObject * o1, CollidableObject * o2, f
 		o1->updateHitbox();
 		o2->updateHitbox();
 	}
-
+	*/
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(CollidableObject * o1, Hitbox * h2, float bounciness)
+bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, float bounciness)
 {
+	/*
 	while (o1->getHitbox(0)->collide(h2)) {
 		Vector2f dir = shortestResolve;
 		if (o1 == two) {
@@ -251,11 +252,13 @@ bool CollisionUtil::unequalResolve(CollidableObject * o1, Hitbox * h2, float bou
 		
 		o1->updateHitbox();
 	}
+	*/
 	return false;
 }
 
-bool CollisionUtil::unequalResolve(CollidableObject * o1, CollidableObject * o2, float bounciness)
+bool CollisionUtil::unequalResolve(Object * o1, Object * o2, float bounciness)
 {
+	/*
 	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
 		o1->pos += dir * bounciness;
@@ -263,6 +266,6 @@ bool CollisionUtil::unequalResolve(CollidableObject * o1, CollidableObject * o2,
 		o1->updateHitbox();
 		o2->updateHitbox();
 	}
-
+	*/
 	return false;
 }

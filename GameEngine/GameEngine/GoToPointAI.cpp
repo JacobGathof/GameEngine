@@ -1,5 +1,5 @@
 #include "GoToPointAI.h"
-#include "LivingObject.h"
+#include "Object.h"
 
 
 GoToPointAI::GoToPointAI(Vector2f loc, float sp)
@@ -16,9 +16,10 @@ GoToPointAI::~GoToPointAI()
 {
 }
 
-bool GoToPointAI::execute(LivingObject * obj, float dt)
+bool GoToPointAI::execute(Object * obj, float dt)
 {
-	float sp = obj->moveSpeed;
+	//float sp = obj->moveSpeed;
+	float sp = 10;
 	if (speed > -1) {
 		sp = speed;
 	}

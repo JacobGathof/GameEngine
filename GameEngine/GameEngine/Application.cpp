@@ -17,6 +17,14 @@
 #include "MidiScheduler.h"
 
 
+
+#include "AbstractObjectComponent.h"
+#include "AnimatedComponent.h"
+#include "CollidableComponent.h"
+#include "InteractableComponent.h"
+#include "LivingComponent.h"
+
+
 Application::Application(){}
 Application::~Application(){}
 

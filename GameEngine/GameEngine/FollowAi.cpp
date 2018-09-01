@@ -1,5 +1,5 @@
 #include "FollowAI.h"
-#include "LivingObject.h"
+#include "Object.h"
 
 
 FollowAI::FollowAI(Object * obj)

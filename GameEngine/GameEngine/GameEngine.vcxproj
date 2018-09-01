@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractObjectComponent.cpp" />
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="AbstractAction.cpp" />
     <ClCompile Include="AI.cpp" />
+    <ClCompile Include="AnimatedComponent.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
@@ -33,15 +35,13 @@
     <ClCompile Include="ButtonAction.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardManager.cpp" />
-    <ClCompile Include="CardObject.cpp" />
     <ClCompile Include="CardsPage.cpp" />
     <ClCompile Include="CenteredText.cpp" />
-    <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Choice.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleAI.cpp" />
     <ClCompile Include="CircleHitbox.cpp" />
-    <ClCompile Include="CollidableObject.cpp" />
+    <ClCompile Include="CollidableComponent.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
@@ -53,7 +53,6 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="Edge.cpp" />
-    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
@@ -62,10 +61,11 @@
     <ClCompile Include="GraphAction.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="InputNamePage.cpp" />
-    <ClCompile Include="InteractableObject.cpp" />
+    <ClCompile Include="InteractableComponent.cpp" />
     <ClCompile Include="IParticle.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LivingComponent.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Midi.cpp" />
     <ClCompile Include="MidiScheduler.cpp" />
@@ -92,8 +92,6 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="KeyItem.cpp" />
     <ClCompile Include="Line.cpp" />
-    <ClCompile Include="LivingAI.cpp" />
-    <ClCompile Include="AnimatedObject.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BounceTimer.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -142,7 +140,6 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="LivingObject.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelManager.cpp" />
@@ -179,9 +176,11 @@
     <ClCompile Include="WorldManipulator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractObjectComponent.h" />
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="AbstractAction.h" />
     <ClInclude Include="AI.h" />
+    <ClInclude Include="AnimatedComponent.h" />
     <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="AudioSystem.h" />
@@ -193,15 +192,13 @@
     <ClInclude Include="ButtonAction.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardManager.h" />
-    <ClInclude Include="CardObject.h" />
     <ClInclude Include="CardsPage.h" />
     <ClInclude Include="CenteredText.h" />
-    <ClInclude Include="Chest.h" />
     <ClInclude Include="Choice.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleAI.h" />
     <ClInclude Include="CircleHitbox.h" />
-    <ClInclude Include="CollidableObject.h" />
+    <ClInclude Include="CollidableComponent.h" />
     <ClInclude Include="CollisionUtil.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
@@ -213,7 +210,6 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DeckManager.h" />
     <ClInclude Include="Edge.h" />
-    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
@@ -222,9 +218,10 @@
     <ClInclude Include="GraphAction.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="InputNamePage.h" />
-    <ClInclude Include="InteractableObject.h" />
+    <ClInclude Include="InteractableComponent.h" />
     <ClInclude Include="IParticle.h" />
     <ClInclude Include="IParticleEmitterComponent.h" />
+    <ClInclude Include="LivingComponent.h" />
     <ClInclude Include="Midi.h" />
     <ClInclude Include="MidiScheduler.h" />
     <ClInclude Include="ParticleEmitter.h" />
@@ -256,8 +253,6 @@
     <ClInclude Include="KeyItem.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="LivingAI.h" />
-    <ClInclude Include="AnimatedObject.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BounceTimer.h" />
     <ClInclude Include="Menu.h" />
@@ -309,7 +304,6 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Input.h" />
-    <ClInclude Include="LivingObject.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelManager.h" />

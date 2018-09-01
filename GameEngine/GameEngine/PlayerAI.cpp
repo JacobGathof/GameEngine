@@ -4,6 +4,8 @@
 #include "DamageTag.h"
 
 #include "MidiScheduler.h"
+#include "AnimatedComponent.h"
+#include "InteractableComponent.h"
 
 
 PlayerAI::PlayerAI() : spline(Vector2f(0,0), Vector2f(0,0), Vector2f(0,0), Vector2f(0,0)), line(Vector2f(0,0), Vector2f(0,0)), line2(Vector2f(0,0), Vector2f(0,0))
@@ -20,7 +22,7 @@ bool PlayerAI::execute(Player * o, float dt)
 		user = o;
 	}
 
-	user->pos += Vector2f(xVel, yVel).normalize() *user->moveSpeed*dt;
+	user->pos += Vector2f(xVel, yVel).normalize() * 256*dt;
 	
 	return true;
 }
@@ -48,21 +50,23 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 		
 	}
 
+	AnimatedComponent* comp = user->getComponent<AnimatedComponent>();
+
 	if (keyboard.down(VirtualKey::UP)){
 		yVel = 1;
-		user->setAction(SpriteSheet::AnimationState::MOVE_UP);
+		comp->setAction(SpriteSheet::AnimationState::MOVE_UP);
 	}
 	if (keyboard.down(VirtualKey::DOWN)) {
 		yVel = -1;
-		user->setAction(SpriteSheet::AnimationState::MOVE_DOWN);
+		comp->setAction(SpriteSheet::AnimationState::MOVE_DOWN);
 	}
 	if (keyboard.down(VirtualKey::LEFT)) {
 		xVel = -1;
-		user->setAction(SpriteSheet::AnimationState::MOVE_LEFT);
+		comp->setAction(SpriteSheet::AnimationState::MOVE_LEFT);
 	}
 	if (keyboard.down(VirtualKey::RIGHT)) {
 		xVel = 1;
-		user->setAction(SpriteSheet::AnimationState::MOVE_RIGHT);
+		comp->setAction(SpriteSheet::AnimationState::MOVE_RIGHT);
 	}
 
 	if (xVel != 0 || yVel != 0) {
@@ -123,11 +127,12 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 
 void PlayerAI::processInteractKey()
 {
-	InteractableObject * closest = World::getInstance()->getNearestObject(user->pos);
+	Object * closest = World::getInstance()->getNearestObject(user->pos);
 	if (closest == 0)
 		return;
-	if (closest->intersects(user)) {
-		closest->interact();
+	InteractableComponent* comp = closest->getComponent<InteractableComponent>();
+	if (comp->intersects(user)) {
+		comp->interact();
 	}
 }
 

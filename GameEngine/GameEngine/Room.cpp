@@ -1,20 +1,16 @@
 #include "Room.h"
-#include "CollidableObject.h"
-#include "InteractableObject.h"
 #include "CollisionUtil.h"
+#include "CollidableComponent.h"
+#include "InteractableComponent.h"
 
 Room::Room()
 {
-	collisionObject = new CollidableObject(ObjectData{});
 	init();
 }
 
 
 Room::~Room()
 {
-	if (collisionObject != 0) {
-		delete collisionObject;
-	}
 	for (auto a : allRoomObjects) {
 		delete a;
 	}
@@ -22,25 +18,11 @@ Room::~Room()
 
 void Room::update(float dt)
 {
-	for (int i = 0; i < simpleObjects.size(); i++) {
-		bool b = simpleObjects[i]->update(dt);
+	for (int i = 0; i < objects.size(); i++) {
+		bool b = objects[i]->update(dt);
 		if (!b) {
-			eraseObject(simpleObjects[i]);
-			removeObject(simpleObjects[i--]);
-		}
-	}
-	for (int i = 0; i < collidableObjects.size(); i++) {
-		bool b = collidableObjects[i]->update(dt);
-		if (!b) {
-			eraseObject(collidableObjects[i]);
-			removeCollidableObject(collidableObjects[i--]);
-		}
-	}
-	for (int i = 0; i < interactableObjects.size(); i++) {
-		bool b = interactableObjects[i]->update(dt);
-		if (!b) {
-			eraseObject(interactableObjects[i]);
-			removeInteractableObject(interactableObjects[i--]);
+			eraseObject(objects[i]);
+			removeObject(objects[i--]);
 		}
 	}
 }
@@ -59,100 +41,59 @@ void Room::drawTerrain()
 }
 
 void Room::drawObjects() {
-	for (auto a : simpleObjects) {
+	for (auto a : objects) {
 		a->draw();
 	}
-	for (auto a : collidableObjects) {
-		a->draw();
-	}
-	for (auto a : interactableObjects) {
-		a->draw();
-	}
-	collisionObject->draw();
 }
 
 void Room::drawObjectsInverted()
 {
-	for (auto a : simpleObjects) {
-		a->drawInverted();
-	}
-	for (auto a : collidableObjects) {
-		a->drawInverted();
-	}
-	for (auto a : interactableObjects) {
+	for (auto a : objects) {
 		a->drawInverted();
 	}
 }
 
 void Room::drawObjectsNegative()
 {
-	for (auto a : simpleObjects) {
-		a->drawNegative();
-	}
-	for (auto a : collidableObjects) {
-		a->drawNegative();
-	}
-	for (auto a : interactableObjects) {
+	for (auto a : objects) {
 		a->drawNegative();
 	}
 }
 
 void Room::eraseProjection(Vector2f & center, float radius, Object* pass)
 {
-	for (auto a : simpleObjects) {
+	for (auto a : objects) {
 		if(a != pass)
-			a->eraseProjection(center, radius);
-	}
-	for (auto a : collidableObjects) {
-		if (a != pass)
-			a->eraseProjection(center, radius);
-	}
-	for (auto a : interactableObjects) {
-		if (a != pass)
 			a->eraseProjection(center, radius);
 	}
 }
 
 void Room::drawEffects()
 {
-	for (auto a : simpleObjects) {
-		a->drawEffects();
-	}
-	for (auto a : collidableObjects) {
-		a->drawEffects();
-	}
-	for (auto a : interactableObjects) {
+	for (auto a : objects) {
 		a->drawEffects();
 	}
 }
 
 void Room::drawHitboxes()
 {
-	for (auto o : collidableObjects) {
-		o->drawHitboxes();
+	for (auto o : objects) {
+		if (o->hasTrait<CollidableComponent>()) {
+			o->getComponent<CollidableComponent>()->drawHitboxes();
+		}
 	}
-	for (auto o : interactableObjects) {
-		o->drawHitboxes();
-	}
-	collisionObject->drawHitboxes();
 }
 
 void Room::drawLights()
 {
-	for (auto a : simpleObjects) {
-		a->drawLights();
-	}
-	for (auto a : collidableObjects) {
-		a->drawLights();
-	}
-	for (auto a : interactableObjects) {
+	for (auto a : objects) {
 		a->drawLights();
 	}
 }
 
 void Room::checkCollisions()
 {
-
+	/*
 	
 	for (int i = 0; i < collidableObjects.size(); i++) {
 		CollidableObject * current = collidableObjects.get(i);
@@ -208,29 +149,16 @@ void Room::checkCollisions()
 
 void Room::addObject(Object * obj)
 {
-	simpleObjects.add(obj);
+	objects.add(obj);
 	objectMap[obj->name] = obj;
 
 	allRoomObjects.add(obj);
 }
 
-void Room::addObject(CollidableObject * obj)
+void Room::addWorldObject(Object * obj)
 {
-	collidableObjects.add(obj);
-	objectMap[obj->name]= obj;
-	allRoomObjects.add(obj);
-}
-
-void Room::addObject(InteractableObject * obj)
-{
-	interactableObjects.add(obj);
+	objects.add(obj);
 	objectMap[obj->name] = obj;
-	allRoomObjects.add(obj);
-}
-
-void Room::addWorldObject(InteractableObject * obj)
-{
-	interactableObjects.add(obj);
 }
 
 void Room::sortObjects()
@@ -238,19 +166,21 @@ void Room::sortObjects()
 	//std::sort(allRoomObjects.begin(), allRoomObjects.end(), [](Object* a, Object* b) { return (a->pos[1] < b->pos[1]); });
 }
 
-InteractableObject * Room::getNearestObject(Vector2f& pos)
+Object * Room::getNearestObject(Vector2f& pos)
 {
 	// TODO - This function will not return any object that the player is pixel-perfectly aligned with. i.e, the distance between them is exactly zero. 
 	// In practice, this probably doesn't matter. But this is where the problem would be. 
 
-	InteractableObject * nearest = 0;
+	Object * nearest = 0;
 	float nearestDist = -1;
 	
-	for (auto  obj : interactableObjects) {
-		float dist = (pos - obj->pos).lengthSquared();
-		if ((dist < nearestDist || nearestDist == -1) && (dist != 0)) {
-			nearestDist = dist;
-			nearest = obj;
+	for (auto  obj : objects) {
+		if (obj->hasTrait<InteractableComponent>()) {
+			float dist = (pos - obj->pos).lengthSquared();
+			if ((dist < nearestDist || nearestDist == -1) && (dist != 0)) {
+				nearestDist = dist;
+				nearest = obj;
+			}
 		}
 	}
 	return nearest;
@@ -266,12 +196,7 @@ void Room::setTerrainMap(std::string& map)
 	terrain.constructMap("TerrainMaps/" + map);
 }
 
-void Room::addHitbox(Vector2f& pos, Vector2f& scale)
-{
-	Hitbox * hit = new RectHitbox(Rect(pos,scale), pos);
-	collisionObject->addHitbox(hit);
-}
-
+/*
 bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 {
 	for (int i = 0; i < obj1->numHitboxes(); i++) {
@@ -308,14 +233,14 @@ bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 				if (!(cont1 && cont2)) {
 					return true;
 				}
-				*/
+				
 			}
 		}
 	}
 
 	return false;
 }
-
+*/
 
 void Room::loadObjects(std::string& filepath)
 {
@@ -381,47 +306,13 @@ void Room::eraseObject(Object * obj)
 
 void Room::removeObject(Object * obj)
 {
-	for (int i = 0; i < simpleObjects.size(); i++) {
-		Object * o = simpleObjects.get(i);
+	for (int i = 0; i < objects.size(); i++) {
+		Object * o = objects.get(i);
 		if (obj == o) {
-			simpleObjects.removeIndex(i);
+			objects.removeIndex(i);
 			return;
 		}
 	}
-}
-
-void Room::removeCollidableObject(CollidableObject * obj)
-{
-	for (int i = 0; i < collidableObjects.size(); i++) {
-		CollidableObject * o = collidableObjects.get(i);
-		if (obj == o) {
-			collidableObjects.removeIndex(i);
-			return;
-		}
-	}
-}
-
-void Room::removeInteractableObject(InteractableObject * obj)
-{
-	for (int i = 0; i < interactableObjects.size(); i++) {
-		InteractableObject * o = interactableObjects.get(i);
-		if (obj == o) {
-			interactableObjects.removeIndex(i);
-			return;
-		}
-	}
-}
-
-
-
-List<InteractableObject*>& Room::getInteractableObjects()
-{
-	return interactableObjects;
-}
-
-List<CollidableObject*>& Room::getCollidableObjects()
-{
-	return collidableObjects;
 }
 
 

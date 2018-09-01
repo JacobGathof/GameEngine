@@ -1,5 +1,5 @@
 #include "CircleAI.h"
-#include "InteractableObject.h"
+#include "Object.h"
 
 CircleAI::CircleAI(Vector2f& c, float r, float s)
 {
@@ -13,7 +13,7 @@ CircleAI::~CircleAI()
 {
 }
 
-bool CircleAI::execute(InteractableObject * obj, float dt)
+bool CircleAI::execute(Object * obj, float dt)
 {
 	timer.update(dt);
 	float f = timer.getTotalTime();

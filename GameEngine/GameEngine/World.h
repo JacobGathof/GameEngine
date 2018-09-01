@@ -43,7 +43,7 @@ public:
 	void update(float delta_time);
 	void transition(Room * newRoom);
 
-	InteractableObject * getNearestObject(Vector2f pos);
+	Object * getNearestObject(Vector2f pos);
 
 	Object * getObject(std::string& name);
 
@@ -54,15 +54,14 @@ public:
 
 	Room * getCurrentRoom();
 	void addObject(Object * obj);
-	void addCObject(CollidableObject* obj);
 
-	void addWorldObject(InteractableObject* obj);
-	InteractableObject* getWorldObject(const char* name);
+	void addWorldObject(Object* obj);
+	Object* getWorldObject(const char* name);
 
 private:
 	World();
 	static std::map<std::string, Room *> rooms;
-	static std::map<std::string, InteractableObject *> worldObjects;
+	static std::map<std::string, Object *> worldObjects;
 
 
 	static World *inst;

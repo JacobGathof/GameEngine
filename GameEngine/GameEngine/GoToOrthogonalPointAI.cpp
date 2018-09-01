@@ -1,5 +1,5 @@
 #include "GoToOrthogonalPointAI.h"
-#include "LivingObject.h"
+#include "Object.h"
 
 GoToOrthogonalPointAI::GoToOrthogonalPointAI(Vector2f loc, bool yThenX)
 {
@@ -11,8 +11,9 @@ GoToOrthogonalPointAI::~GoToOrthogonalPointAI()
 {
 }
 
-bool GoToOrthogonalPointAI::execute(LivingObject * obj, float dt)
+bool GoToOrthogonalPointAI::execute(Object * obj, float dt)
 {
+	/*
 	if (yFirst) {
 		if (abs(obj->pos[1] - dest[1]) < obj->moveSpeed * dt) {
 			obj->pos[1] = dest[1];
@@ -61,6 +62,6 @@ bool GoToOrthogonalPointAI::execute(LivingObject * obj, float dt)
 		obj->pos[0] += cos(angle) * obj->moveSpeed * dt;
 		obj->pos[1] += sin(angle) * obj->moveSpeed * dt;
 	}
-	return false;
+	*/
 	return false;
 }

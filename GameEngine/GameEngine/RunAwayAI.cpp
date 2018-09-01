@@ -1,7 +1,7 @@
 #include "RunAwayAI.h"
-#include "LivingObject.h"
+#include "Object.h"
 
-RunAwayAI::RunAwayAI(LivingObject * obj)
+RunAwayAI::RunAwayAI(Object * obj)
 {
 	object = obj;
 }
@@ -10,7 +10,7 @@ RunAwayAI::~RunAwayAI()
 {
 }
 
-bool RunAwayAI::execute(LivingObject * obj, float dt)
+bool RunAwayAI::execute(Object * obj, float dt)
 {
 
 	if (moving == true && obj->pos.distanceTo(object->pos) > 1200) {

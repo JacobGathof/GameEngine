@@ -1,16 +1,16 @@
 #pragma once
 
-#include "LivingAi.h"
+#include "AI.h"
 #include "Vector2f.h"
 
-class GoToOrthogonalPointAI : public LivingAi
+class GoToOrthogonalPointAI : public AI
 {
 public:
 	GoToOrthogonalPointAI(Vector2f loc, bool yThenX);
 	~GoToOrthogonalPointAI();
 
 	bool done = false;
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Object * obj, float dt);
 
 private:
 	Vector2f dest;

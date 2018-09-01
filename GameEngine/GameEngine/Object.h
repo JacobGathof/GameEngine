@@ -12,6 +12,8 @@
 
 #include "AI.h"
 
+class AbstractObjectComponent;
+
 struct ObjectData {
 	std::string name;
 	Vector2f position;
@@ -79,10 +81,37 @@ protected:
 	List<Light *> lights;
 
 
-	// Variables from AnimatedObject, but if we put them here, we can reduce duplicated code in the draw method
-	// Also allows us to eventually index into a spritesheet if need be
-	int animationRow = 0;
-	int animationColumn = 0;
 
+	std::map<AbstractObjectComponent*, AbstractObjectComponent*> map;
+
+public:
+	template<class T> T* getComponent();
+	template<class T> bool hasTrait();
+	template<class T> void addComponent(T* t);
 };
+
+template<class T>
+inline T * Object::getComponent()
+{
+	return (T*)map[T::getComponent()];
+}
+
+template<class T>
+inline bool Object::hasTrait()
+{
+	return map.find(T::getComponent()) != map.end();
+}
+
+template<class T>
+inline void Object::addComponent(T * t)
+{
+	if (hasTrait<T>()) {
+		delete getComponent<T>();
+	}
+	map[T::getComponent()] = t;
+	t->setParent(this);
+}
+
+
+
 

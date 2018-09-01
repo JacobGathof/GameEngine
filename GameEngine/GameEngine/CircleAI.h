@@ -9,7 +9,7 @@ public:
 	CircleAI(Vector2f& center, float radius, float speed);
 	~CircleAI();
 
-	virtual bool execute(InteractableObject * obj, float dt);
+	virtual bool execute(Object * obj, float dt);
 
 private:
 	float radius;

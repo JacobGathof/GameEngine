@@ -1,8 +1,8 @@
 #include "Card.h"
-#include "LivingAi.h"
 #include "Inventory.h"
+#include "AI.h"
 
-Card::Card(std::string& n, std::string& desc, TextureType tex, LivingAi * a) : Item(n,tex,desc)
+Card::Card(std::string& n, std::string& desc, TextureType tex, AI * a) : Item(n,tex,desc)
 {
 	ai = a;
 }
@@ -23,7 +23,7 @@ void Card::addToInventory(Inventory * inv)
 	inv->add(this);
 }
 
-LivingAi * Card::use()
+AI * Card::use()
 {
 	
 	std::cout << "Using Card: " << this->getName() << std::endl;

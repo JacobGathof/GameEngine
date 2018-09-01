@@ -9,7 +9,6 @@
 #include "Circle.h"
 #include "FilesAndStrings.h"
 
-class CollidableObject;
 
 class Room
 {
@@ -35,32 +34,24 @@ public:
 
 	void checkCollisions();
 	void addObject(Object * obj);
-	void addObject(CollidableObject * obj);
-	void addObject(InteractableObject* obj);
 
-	void addWorldObject(InteractableObject* obj);
+	void addWorldObject(Object* obj);
 
 	void sortObjects();
 
-	InteractableObject * getNearestObject(Vector2f& pos);
+	Object * getNearestObject(Vector2f& pos);
 	Object * getObject(std::string& name);
 	void setTerrainMap(std::string& map);
-	void addHitbox(Vector2f& pos, Vector2f& scale);
 	void loadObjects(std::string& filepath);
 
 	void eraseObject(Object* obj);
 	void removeObject(Object * obj);
-	void removeCollidableObject(CollidableObject* obj);
-	void removeInteractableObject(InteractableObject* obj);
 
-	List<InteractableObject *>& getInteractableObjects();
-	List<CollidableObject *>& getCollidableObjects();
+	List<Object *>& getObjects();
 
 protected:
 
-	List<InteractableObject *> interactableObjects;
-	List<CollidableObject *> collidableObjects;
-	List<Object *> simpleObjects;
+	List<Object *> objects;
 
 	List<Object*> allRoomObjects;
 
@@ -68,14 +59,13 @@ protected:
 	TerrainMap terrain;
 	std::map<std::string, Object *> objectMap;
 
-	CollidableObject * collisionObject;
 	std::map<std::string, TextureType> textureMap;
 
 	Hitbox * oneCarry;
 	Hitbox * twoCarry;
 
 	void init();
-	bool collision(CollidableObject * obj1, CollidableObject * obj2);
+	bool collision(Object * obj1, Object * obj2);
 
 };
 

@@ -1,5 +1,5 @@
 #include "MoveAction.h"
-#include "LivingObject.h"
+#include "Object.h"
 
 MoveAction::MoveAction(std::string& name, Vector2f& pos, float speed)
 {
@@ -16,6 +16,7 @@ MoveAction::~MoveAction()
 
 int MoveAction::run(float dt)
 {
+	/*
 	if (ai->execute(object, dt)) {
 		object->stalled = false;
 		delete ai;
@@ -23,6 +24,7 @@ int MoveAction::run(float dt)
 	}
 	
 	object->stalled = true;
+	*/
 	return false;
 }
 
@@ -38,6 +40,6 @@ NonBlockingMove::~NonBlockingMove()
 int NonBlockingMove::run(float dt)
 {
 	
-	object->addAI(ai);
+	//object->addAI(ai);
 	return true;
 }

@@ -3,7 +3,7 @@
 #include "Object.h"
 #include "World.h"
 
-class TransitionObject : public CollidableObject
+class TransitionObject : public Object
 {
 public:
 	TransitionObject(ObjectData& data, Room * r);

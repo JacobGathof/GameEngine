@@ -1,10 +1,10 @@
 #pragma once
-#include "LivingObject.h"
+#include "Object.h"
 
 class AI;
 class PlayerAI;
 
-class Player : public LivingObject
+class Player : public Object
 {
 public:
 	Player(ObjectData& data, PlayerAI * ai);

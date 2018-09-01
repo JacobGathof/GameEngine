@@ -15,8 +15,8 @@ bool PlayerCombatAI::execute(Player * obj, float dt)
 	PlayerAI::execute(obj, dt);
 	if (meleeAttacking) {
 		meleeAttacking = false;
-		Vector2f enemyDir = obj->pos - enemy->pos;
-		enemyDir = enemyDir.normalize();
+		//Vector2f enemyDir = obj->pos - enemy->pos;
+		//enemyDir = enemyDir.normalize();
 		
 		//std::cout << enemyDir.dot(obj->forward) << std::endl;
 		/*

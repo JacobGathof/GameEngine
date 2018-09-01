@@ -1,9 +1,9 @@
 #pragma once
 
-#include "LivingAi.h"
+#include "AI.h"
 #include "Vector2f.h"
 
-class GoToPointAI : public LivingAi
+class GoToPointAI : public AI
 {
 public:
 	GoToPointAI(Vector2f loc, float speed = -1);
@@ -13,7 +13,7 @@ public:
 	Vector2f dest;
 	float speed = -1;
 
-	virtual bool execute(LivingObject * obj, float dt);
+	virtual bool execute(Object * obj, float dt);
 
 private:
 };
