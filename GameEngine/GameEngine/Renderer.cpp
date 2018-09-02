@@ -55,7 +55,7 @@ void Renderer::drawWorld()
 
 
 
-	//drawEffects();
+	drawEffects();
 
 	//World::getInstance()->draw();
 }

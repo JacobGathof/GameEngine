@@ -1,6 +1,8 @@
 #include "Object.h"
 #include "ResourceManager.h"
 #include "AnimatedComponent.h"
+#include "CollidableComponent.h"
+#include "InteractableComponent.h"
 
 int Object::numCreated = 0;
 int Object::numDeleted = 0;
@@ -28,17 +30,6 @@ Object::Object(ObjectData & data)
 
 Object::~Object()
 {
-	for (auto eff : effects) {
-		delete eff;
-	}
-	for (auto l : lights) {
-		delete l;
-	}
-	for (auto ai : aiQueue) {
-		delete ai;
-	}
-	delete defaultAI;
-
 	numDeleted++;
 
 
@@ -79,32 +70,20 @@ void Object::draw()
 
 	m->draw();
 	
-}
 
-void Object::drawEffects()
-{
-	for (Effect * eff : effects) {
-		eff->draw();
+	if (hasTrait<CollidableComponent>()) {
+		getComponent<CollidableComponent>()->drawHitboxes();
 	}
-}
 
-void Object::addLight(Light * l)
-{
-	l->setParent(this);
-	lights.add(l);
-}
-
-void Object::removeLight(Light * l)
-{
-	lights.remove(l);
-}
-
-void Object::drawLights()
-{
-	for (Light * l : lights) {
-		l->draw();
+	if (hasTrait<InteractableComponent>()) {
+		getComponent<InteractableComponent>()->draw();
 	}
+
 }
+
+
+
+
 
 void Object::drawInverted()
 {
@@ -190,75 +169,10 @@ bool Object::update(float dt)
 		a.second->update(dt);
 	}
 
-
-	for (int i = 0; i < effects.size(); i++) {
-		bool b = effects[i]->update(dt);
-		if (!b) {
-			delete effects[i];
-			effects.removeIndex(i--);
-		}
-	}
-
-	for (int i = 0; i < lights.size(); i++) {
-		bool b = lights[i]->update(dt);
-		if (!b) {
-			delete lights[i];
-			lights.removeIndex(i--);
-		}
-	}
-
-	if (aiQueue.size() == 0) {
-		if (defaultAI != 0) {
-			executeAI(dt, defaultAI);
-		}
-	}
-	else {
-		if (executeAI(dt, aiQueue[0])) {
-			//If the current AI is done, remove it
-			AI * ai = aiQueue[0];
-			aiQueue.removeIndex(0);
-			delete ai;
-		}
-	}
-
 	return alive;
 }
 
-bool Object::executeAI(float dt, AI * ai)
-{
-	return ai->execute(this, dt);
-}
-
-void Object::addAI(AI * a)
-{
-	if (stalled) {
-		return;
-	}
-	if (defaultAI == 0) {
-		defaultAI = a;
-	}
-	else {
-		aiQueue.add(a);
-	}
-}
 
 
-void Object::addEffect(Effect * eff)
-{
-	eff->setParent(this);
-	effects.add(eff);
-}
-
-void Object::removeEffect(Effect * eff)
-{
-	effects.remove(eff);
-}
-
-void Object::activateEffects(bool b)
-{
-	for (Effect * eff : effects) {
-		eff->setActive(b);
-	}
-}
 
 

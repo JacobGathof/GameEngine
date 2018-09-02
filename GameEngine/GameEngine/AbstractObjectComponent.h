@@ -5,7 +5,7 @@ class Object;
 class AbstractObjectComponent
 {
 public:
-	void setParent(Object* obj);
+	virtual void setParent(Object* obj);
 	Object* getParent();
 
 	virtual bool update(float dt) = 0;

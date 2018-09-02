@@ -16,9 +16,10 @@ public:
 	PlayerAI();
 	~PlayerAI();
 
-	Player * user;
 
-	virtual bool execute(Player * obj, float dt);
+	Object * user;
+
+	virtual bool execute(Object * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard, Mouse& mouse);
 
 	BezierSpline spline;

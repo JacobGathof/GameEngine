@@ -16,7 +16,7 @@ PlayerAI::~PlayerAI()
 {
 }
 
-bool PlayerAI::execute(Player * o, float dt)
+bool PlayerAI::execute(Object * o, float dt)
 {
 	if (user == 0) {
 		user = o;

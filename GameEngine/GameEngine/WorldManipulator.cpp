@@ -19,7 +19,7 @@ void WorldManipulator::process(Mouse & mouse, Keyboard & keyboard, float dt)
 		currentObject = new Object(std::string(), TextureType::TEXTURE_DEFAULT, pos1, Vector2f(0, 0));
 		currentEffect = new Light(Vector2f(0, 0), Color(0,0,GameState::ui_blue,1), Vector2f(0, 0));
 
-		currentObject->addEffect(currentEffect);
+		//currentObject->addEffect(currentEffect);
 		world->addObject(currentObject);
 	}
 

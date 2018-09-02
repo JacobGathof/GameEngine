@@ -1,12 +1,12 @@
 #include "Player.h"
 
 #include "BattleManager.h"
-#include "PlayerAI.h"
 
 
-Player::Player(ObjectData& data, PlayerAI * ai) : Object(data)
+Player::Player(ObjectData& data) : Object(data)
 {
-	defaultAI = ai;
+
+	//defaultAI = ai;
 	//moveSpeed = 256;
 	//weight = Weight::PLAYER;
 	//interactionRadius->radius = 64;
@@ -20,9 +20,6 @@ Player::~Player()
 
 bool Player::update(float delta_time)
 {
-	if (colliding) {
-		return true;
-	}
 	lastX = pos[0];
 	lastY = pos[1];
 	Object::update(delta_time);
@@ -37,7 +34,3 @@ bool Player::collide(Object * o, Hitbox * h)
 	return true;
 }
 
-bool Player::executeAI(float dt, AI * ai)
-{
-	return ai->execute(this, dt);
-}

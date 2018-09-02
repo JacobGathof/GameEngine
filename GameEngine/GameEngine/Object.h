@@ -34,28 +34,15 @@ public:
 
 
 	bool stalled = false;
-	bool colliding = false;
 	
 	
-	AI * defaultAI;
 	bool selected = false;
 
 	virtual void draw();
 	virtual void destroy();
 	virtual bool update(float dt);
 
-	virtual bool executeAI(float dt, AI* ai);
-	virtual void addAI(AI * ai);
-		
-	void addEffect(Effect * eff);
-	void removeEffect(Effect* eff);
-	void activateEffects(bool b);
-	void drawEffects();
-
-	void addLight(Light* l);
-	void removeLight(Light* l);
-	void drawLights();
-
+	
 	Vector2f pos;
 	Vector2f scale;
 	TextureType texture;
@@ -75,13 +62,7 @@ public:
 	void eraseHelper(Vector2f& first, Vector2f& second, Vector2f& center, float radius);
 
 protected:
-	List<AI *> aiQueue;
-
-	List<Effect *> effects;
-	List<Light *> lights;
-
-
-
+	
 	std::map<AbstractObjectComponent*, AbstractObjectComponent*> map;
 
 public:

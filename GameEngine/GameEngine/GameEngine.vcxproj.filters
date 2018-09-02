@@ -627,6 +627,15 @@
     <ClCompile Include="LivingComponent.cpp">
       <Filter>Source Files\Objects\Components</Filter>
     </ClCompile>
+    <ClCompile Include="LightComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AIComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectComponent.cpp">
+      <Filter>Source Files\Objects\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1122,6 +1131,15 @@
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
     <ClInclude Include="LivingComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="LightComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AIComponent.h">
+      <Filter>Header Files\Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectComponent.h">
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
   </ItemGroup>

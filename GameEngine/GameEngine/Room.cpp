@@ -2,6 +2,9 @@
 #include "CollisionUtil.h"
 #include "CollidableComponent.h"
 #include "InteractableComponent.h"
+#include "LightComponent.h"
+#include "EffectComponent.h"
+
 
 Room::Room()
 {
@@ -70,8 +73,10 @@ void Room::eraseProjection(Vector2f & center, float radius, Object* pass)
 
 void Room::drawEffects()
 {
-	for (auto a : objects) {
-		a->drawEffects();
+	for (auto o : objects) {
+		if (o->hasTrait<EffectComponent>()) {
+			o->getComponent<EffectComponent>()->drawEffects();
+		}
 	}
 }
 
@@ -87,62 +92,30 @@ void Room::drawHitboxes()
 void Room::drawLights()
 {
 	for (auto a : objects) {
-		a->drawLights();
+		if (a->hasTrait<LightComponent>()) {
+			a->getComponent<LightComponent>()->drawLights();
+		}
+	
 	}
 }
 
 void Room::checkCollisions()
 {
-	/*
-	
-	for (int i = 0; i < collidableObjects.size(); i++) {
-		CollidableObject * current = collidableObjects.get(i);
 
-		for (int k = i + 1; k < collidableObjects.size(); k++) {
-			CollidableObject * other = collidableObjects.get(k);
-			if (collision(current, other)) {
-				return;
+
+	for (int i = 0; i < objects.size(); i++) {
+		Object * current = objects.get(i);
+		if (current->hasTrait<CollidableComponent>()) {
+			for (int k = i + 1; k < objects.size(); k++) {
+				Object * other = objects.get(k);
+				if (other->hasTrait<CollidableComponent>()) {
+
+					collision(current, other);
+
+				}
 			}
 		}
 	}
-
-	for (int i = 0; i < collidableObjects.size(); i++) {
-		CollidableObject * current = collidableObjects.get(i);
-
-		for (int k = 0; k < interactableObjects.size(); k++) {
-			CollidableObject * other = interactableObjects.get(k);
-			if (collision(current, other)) {
-				return;
-			}
-		}
-	}
-
-	for (int i = 0; i < interactableObjects.size(); i++) {
-		CollidableObject * current = interactableObjects.get(i);
-
-		for (int k = i + 1; k < interactableObjects.size(); k++) {
-			CollidableObject * other = interactableObjects.get(k);
-			if (collision(current, other)) {
-				return;
-			}
-		}
-	}
-
-	
-
-		/*
-		for (int k = i+1; (k < objects.size() && (current->pos[1] < objects[k]->pos[1] + objects[k]->scale[1])); k++) {
-			Object * obj = objects.get(k);
-			if (collision(current, obj)) {
-				current->collide(obj);
-				obj->collide(current);
-			}
-
-		}
-
-	}
-
-	*/
 	
 	
 }
@@ -196,19 +169,25 @@ void Room::setTerrainMap(std::string& map)
 	terrain.constructMap("TerrainMaps/" + map);
 }
 
-/*
-bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
+
+bool Room::collision(Object * obj1, Object * obj2)
 {
-	for (int i = 0; i < obj1->numHitboxes(); i++) {
-		Hitbox * one = obj1->getHitbox(i);
-		for (int k = 0; k < obj2->numHitboxes(); k++) {
-			Hitbox * two = obj2->getHitbox(k);
-			
+	CollidableComponent* comp1 = obj1->getComponent<CollidableComponent>();
+	CollidableComponent* comp2 = obj2->getComponent<CollidableComponent>();
+
+	for (int i = 0; i < comp1->numHitboxes(); i++) {
+		Hitbox * one = comp1->getHitbox(i);
+		for (int k = 0; k < comp2->numHitboxes(); k++) {
+			Hitbox * two = comp2->getHitbox(k);
+
 			if (one->collide(two)) {
 
-				obj1->collide(obj2);
-				obj2->collide(obj1);
-
+				comp1->trigger(obj1);
+				comp2->trigger(obj2);
+			}
+		}
+	}
+	return false;
 				/*
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;
@@ -239,8 +218,9 @@ bool Room::collision(CollidableObject * obj1, CollidableObject * obj2)
 	}
 
 	return false;
+	*/
 }
-*/
+
 
 void Room::loadObjects(std::string& filepath)
 {

@@ -1,6 +1,7 @@
 #include "PlayerCombatAI.h"
 #include "Keyboard.h"
 #include "Player.h"
+#include "AIComponent.h"
 
 PlayerCombatAI::PlayerCombatAI() : PlayerAI()
 {
@@ -35,7 +36,7 @@ void PlayerCombatAI::receiveInput(Keyboard & keyboard, Mouse& mouse)
 
 	if (keyboard.press(VirtualKey::DODGE)) {
 		Vector2f pos = Vector2f(xVel, yVel).normalize() * rollDistance;
-		user->addAI(new GoToPointAI(user->pos + pos, rollSpeed));
+		user->getComponent<AIComponent>()->addAI(new GoToPointAI(user->pos + pos, rollSpeed));
 	}
 	
 	if (keyboard.press(VirtualKey::SKILL_1)) {

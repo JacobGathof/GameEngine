@@ -6,6 +6,8 @@ InteractableComponent InteractableComponent::comp;
 
 InteractableComponent::InteractableComponent()
 {
+	interactionRadius = new Circle(Vector2f(0, 0), 64);
+	interactionRadius->color = Color::Red;
 }
 
 
@@ -55,16 +57,17 @@ bool InteractableComponent::update(float dt)
 
 void InteractableComponent::draw()
 {
-	//Nothing
+	interactionRadius->draw();
 }
 
 bool InteractableComponent::intersects(Object * obj)
 {
-	/*
-	auto a = obj->getComponent<InteractableComponent>();
-
-	return obj->getInteractionRadius()->intersects(interactionRadius);
-	*/
+	
+	if (obj->hasTrait<InteractableComponent>()) {
+		InteractableComponent* comp = obj->getComponent<InteractableComponent>();
+		return comp->getInteractionRadius()->intersects(interactionRadius);
+	}
+	
 	return false;
 }
 

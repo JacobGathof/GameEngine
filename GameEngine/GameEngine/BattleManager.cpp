@@ -4,6 +4,7 @@
 #include "PlayerCombatAI.h"
 #include "Room.h"
 #include "World.h"
+#include "AIComponent.h"
 
 BattleManager::BattleManager(Player * play)
 {
@@ -52,10 +53,13 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 
 	//enemy->addAI(new GoToPointAI(enemy->pos - playerDir, startingDashBackSpeed));
 	//player->addAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
-	playerAI = player->defaultAI;
-	ai = new PlayerCombatAI();
-	ai->enemy = enemy;
-	player->defaultAI = ai;
+	if (player->hasTrait<AIComponent>()) {
+		playerAI = player->getComponent<AIComponent>()->defaultAI;
+		ai = new PlayerCombatAI();
+		ai->enemy = enemy;
+		player->getComponent<AIComponent>()->defaultAI = ai;
+	}
+	
 	Input::ai = ai;
 	battleState = BATTLESTARTED;
 
@@ -69,8 +73,10 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 void BattleManager::endBattle()
 {
 	battleState = NOBATTLE;
-	player->defaultAI = playerAI;
-	Input::ai = (PlayerAI *)player->defaultAI;
+	if (player->hasTrait<AIComponent>()) {
+		player->getComponent<AIComponent>()->defaultAI = playerAI;
+		Input::ai = (PlayerAI *)player->getComponent<AIComponent>()->defaultAI;
+	}
 
 	World::getInstance()->setCurrentRoom(room);
 	player->pos = pos;

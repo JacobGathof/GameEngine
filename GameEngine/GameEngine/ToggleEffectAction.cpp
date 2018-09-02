@@ -1,6 +1,6 @@
 #include "ToggleEffectAction.h"
 #include "Object.h"
-
+#include "EffectComponent.h"
 
 
 ToggleEffectAction::ToggleEffectAction(Object * target, bool a)
@@ -15,6 +15,8 @@ ToggleEffectAction::~ToggleEffectAction()
 
 int ToggleEffectAction::run(float dt)
 {
-	obj->activateEffects(activate);
+	if (obj->hasTrait<EffectComponent>()) {
+		obj->getComponent<EffectComponent>()->activateEffects(activate);
+	}
 	return 1;
 }

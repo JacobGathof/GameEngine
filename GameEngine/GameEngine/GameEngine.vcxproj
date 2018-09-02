@@ -23,6 +23,7 @@
     <ClCompile Include="AbstractUIComponent.cpp" />
     <ClCompile Include="AbstractAction.cpp" />
     <ClCompile Include="AI.cpp" />
+    <ClCompile Include="AIComponent.cpp" />
     <ClCompile Include="AnimatedComponent.cpp" />
     <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="AudioManager.cpp" />
@@ -53,6 +54,7 @@
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="EffectComponent.cpp" />
     <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
@@ -65,6 +67,7 @@
     <ClCompile Include="IParticle.cpp" />
     <ClCompile Include="KeyItemManager.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="LivingComponent.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Midi.cpp" />
@@ -180,6 +183,7 @@
     <ClInclude Include="AbstractUIComponent.h" />
     <ClInclude Include="AbstractAction.h" />
     <ClInclude Include="AI.h" />
+    <ClInclude Include="AIComponent.h" />
     <ClInclude Include="AnimatedComponent.h" />
     <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="AudioManager.h" />
@@ -210,6 +214,7 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DeckManager.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="EffectComponent.h" />
     <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
@@ -221,6 +226,7 @@
     <ClInclude Include="InteractableComponent.h" />
     <ClInclude Include="IParticle.h" />
     <ClInclude Include="IParticleEmitterComponent.h" />
+    <ClInclude Include="LightComponent.h" />
     <ClInclude Include="LivingComponent.h" />
     <ClInclude Include="Midi.h" />
     <ClInclude Include="MidiScheduler.h" />

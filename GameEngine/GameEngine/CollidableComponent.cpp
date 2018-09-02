@@ -1,11 +1,13 @@
 #include "CollidableComponent.h"
 #include "Hitbox.h"
 #include "Object.h"
+#include "CircleHitbox.h"
 
 CollidableComponent CollidableComponent::comp;
 
 CollidableComponent::CollidableComponent()
 {
+	addHitbox(new CircleHitbox(Circle(Vector2f(0, 0), 128), Vector2f(0, 0)));
 }
 
 
