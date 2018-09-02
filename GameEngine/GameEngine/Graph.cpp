@@ -31,6 +31,7 @@ int Graph::update(float dt)
 		n = current->update(dt);
 		status = current->status;
 	}
+	graphStatus = status;
 	return status;
 }
 
@@ -39,12 +40,23 @@ int Graph::readyToRun(float dt)
 	return current->checkAction(dt);
 }
 
+bool Graph::graphComplete()
+{
+	return graphStatus == NODE_TERMINATED;
+}
+
 void Graph::setCurrentNode(std::string & s)
 {
 	auto k = nodeNames.find(s);
 	if (k != nodeNames.end()) {
 		current = nodes[nodeNames[s]];
 	}
+}
+
+void Graph::reset()
+{
+	current = nodes[0];
+	current->resetNode();
 }
 
 void Graph::createGraph()

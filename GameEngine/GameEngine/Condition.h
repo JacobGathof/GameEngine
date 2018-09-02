@@ -55,3 +55,14 @@ public:
 	bool val;
 
 };
+
+
+
+class InteractCondition : public Condition {
+public:
+	InteractCondition(std::string name);
+	virtual bool evaluate();
+
+	std::string name;
+
+};

@@ -21,6 +21,7 @@
 #include "EffectComponent.h"
 #include "AIComponent.h"
 #include "InteractableComponent.h"
+#include "StartScriptAction.h"
 
 
 RoomFactory::RoomFactory(){}
@@ -93,9 +94,9 @@ Room* RoomFactory::createReadingRoom()
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	Object * chest = new Object(ObjectData{ "", Vector2f(0, -256), Vector2f(128, 128), TextureType::TEXTURE_SLIME});
+	Object * chest = new Object(ObjectData{ "slimew", Vector2f(0, -256), Vector2f(128, 128), TextureType::TEXTURE_SLIME});
 	InteractableComponent* icomp = new InteractableComponent();
-	icomp->setInteraction(new QuoteAction(std::string("Quote Interaction")));
+	icomp->setInteraction(new StartScriptAction(GraphType::TERNARY));
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addComponent(icomp);
 	LightComponent* lcomp = new LightComponent();
@@ -119,9 +120,9 @@ Room* RoomFactory::createReadingRoom()
 
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
-	Object * chest2 = new Object(ObjectData{ "nm", Vector2f(-256, 0), Vector2f(128, 128), TextureType::TEXTURE_SLIME });
+	Object * chest2 = new Object(ObjectData{ "slime_test", Vector2f(-256, 0), Vector2f(128, 128), TextureType::TEXTURE_SLIME });
 	InteractableComponent* icomp2 = new InteractableComponent();
-	icomp2->setInteraction(new GraphAction("res/script/test.txt"));
+	//icomp2->setInteraction(new GraphAction("res/script/test.txt"));
 	chest2->addComponent(icomp2);
 
 

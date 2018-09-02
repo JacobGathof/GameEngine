@@ -1,6 +1,6 @@
 #include "QuoteAction.h"
 #include "UIManager.h"
-
+#include "GlobalActionInvoker.h"
 
 
 QuoteAction::QuoteAction(std::string & s1)
@@ -25,4 +25,24 @@ int QuoteAction::run(float dt)
 void QuoteAction::reset()
 {
 	first = true;
+}
+
+
+
+
+QuoteActionWrapper::QuoteActionWrapper(std::string & s1)
+{
+	str = s1;
+}
+
+QuoteActionWrapper::~QuoteActionWrapper()
+{
+}
+
+int QuoteActionWrapper::run(float dt)
+{
+	if (!UIManager::isQuoteBannerVisible()) {
+		GlobalActionInvoker::addActionSet({ new QuoteAction(str) });
+	}
+	return 1;
 }

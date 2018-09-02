@@ -1,25 +1,34 @@
 #include "ScriptManager.h"
 
 
+bool ScriptManager::running = false;
 
 ScriptManager::ScriptManager()
 {
-	init();
 }
 
 
 ScriptManager::~ScriptManager()
 {
-	clean();
 }
 
 void ScriptManager::update(float dt)
 {
+	running = false;
+
 	int b = NODE_HALTED;
 	if (currentScript != 0) {
 		b = currentScript->update(dt);
 		if (b == NODE_HALTED) {
 			currentScript = 0;
+		}
+		if (b == NODE_TERMINATED) {
+			activeScripts.remove(currentScript);
+			currentScript = 0;
+
+		}
+		else {
+			running = true;
 		}
 	}
 	if (b == NODE_RUNNING) {
@@ -31,17 +40,36 @@ void ScriptManager::update(float dt)
 		b = activeScripts[i]->readyToRun(dt);
 
 		if (b == ACTION_COMPLETE) {
+			running = true;
 			currentScript = activeScripts[i];
 			return;
 		}
 	}
+
+
 }
 
 void ScriptManager::init()
 {
 	elements[GraphType::MAIN] = new Graph("res/script/test.txt");
-	//elements[GraphType::SECONDARY] = new Graph("res/script/test2.txt");
+	elements[GraphType::SECONDARY] = new Graph("res/script/blacksmith.txt");
+	elements[GraphType::TERNARY] = new Graph("res/script/bookkeeper.txt");
 
 	activeScripts.add(elements[GraphType::MAIN]);
+	activeScripts.add(elements[GraphType::SECONDARY]);
 
+}
+
+bool ScriptManager::isRunning()
+{
+	return running;
+}
+
+void ScriptManager::addScript(GraphType type)
+{
+	if (std::find(activeScripts.begin(), activeScripts.end(), elements[type]) == activeScripts.end()) {
+		elements[type]->reset();
+		activeScripts.add(elements[type]);
+	}
+	
 }

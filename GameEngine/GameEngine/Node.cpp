@@ -70,7 +70,7 @@ Node * Node::getNextNode()
 	}
 
 	if (n == 0) {
-		//std::cout << "Node dead end failure" << std::endl;
+		status = NODE_TERMINATED;
 	}
 	return n;
 }

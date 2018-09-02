@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node id="Start">
+	<actions>
+		<text>Go away</text>
+	</actions>
+	
+	<conditions>
+	</conditions>
+</node>
+

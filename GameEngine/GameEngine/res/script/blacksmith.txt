@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node id="Start">
+	<actions>
+		<waitfor name="slime_test"/>
+		<text>Hi, I'm George the Blacksmith</text>
+		<text>Would you like to buy anything today?</text>
+		<choice>
+			<c>Yes</c>
+			<c>No</c>
+		</choice>
+		<text>Move along</text>
+	</actions>
+	
+	<conditions>
+		
+	</conditions>
+</node>
+

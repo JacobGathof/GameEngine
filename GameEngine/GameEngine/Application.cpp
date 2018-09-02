@@ -110,9 +110,6 @@ void Application::run()
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
 
 
-	ScriptManager *man = new ScriptManager();
-
-
 	float dt;
 
 	while (!Window::shouldClose()) {
@@ -124,6 +121,7 @@ void Application::run()
 		//std::cout << timer.FPS() << std::endl;
 		Res::uploadGlobalUniform("gameTime", timer.getGameTime());
 
+
 		Input::processInput(dt);
 		UIManager::update(dt);
 
@@ -133,7 +131,7 @@ void Application::run()
 			WeatherManager::update(dt);
 
 			//graph.update(dt);
-			man->update(dt);
+			Res::scriptManager->update(dt);
 			world->update(dt);
 			Screen::update(dt);
 			MidiScheduler::update(dt);
@@ -147,6 +145,8 @@ void Application::run()
 		Input::ai->line.draw();
 		Input::ai->line2.draw();
 		*/
+
+		GameState::applicationState.interactionName = "";
 
 		Window::swapBuffers();
 		
@@ -165,8 +165,6 @@ void Application::run()
 
 	WeatherManager::clean();
 	GlobalActionInvoker::clean();
-
-	delete man;
 
 	std::cout << "Objects Deleted: " << Object::numDeleted << std::endl;
 

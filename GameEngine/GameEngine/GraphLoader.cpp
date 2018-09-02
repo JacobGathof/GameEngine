@@ -3,6 +3,7 @@
 #include "PauseAction.h"
 #include "SetFlagAction.h"
 #include "TextboxWaitAction.h"
+#include "WaitForAction.h"
 
 std::map<std::string, TextureType> GraphLoader::nameMap;
 
@@ -173,6 +174,15 @@ void GraphLoader::handleCommand(std::vector<Node*>& nodes, int nodePtr, rapidxml
 	else if (cmd == "block") {
 		act = new TextboxWaitAction();
 	}
+
+
+	else if (cmd == "waitfor") {
+		auto n = inst->first_attribute("name");
+		Condition* cond = new InteractCondition(n->value());
+		act = new WaitForAction(cond);
+
+	}
+
 
 	else if (cmd == "fade") {
 		std::string color = inst->first_attribute("color")->value();

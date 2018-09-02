@@ -130,6 +130,7 @@
     <ClCompile Include="SoundEntity.cpp" />
     <ClCompile Include="SoundScheduler.cpp" />
     <ClCompile Include="SpawnAction.cpp" />
+    <ClCompile Include="StartScriptAction.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="TerrainMap.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="WaitAction.cpp" />
+    <ClCompile Include="WaitForAction.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponManager.cpp" />
     <ClCompile Include="WeatherManager.cpp" />
@@ -297,6 +299,7 @@
     <ClInclude Include="SoundEntity.h" />
     <ClInclude Include="SoundScheduler.h" />
     <ClInclude Include="SpawnAction.h" />
+    <ClInclude Include="StartScriptAction.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="TerrainMap.h" />
@@ -339,6 +342,7 @@
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="WaitAction.h" />
+    <ClInclude Include="WaitForAction.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WeaponManager.h" />
     <ClInclude Include="WeatherManager.h" />

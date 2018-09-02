@@ -60,3 +60,15 @@ bool FlagCondition::evaluate()
 {
 	return (GameState::flags[str] == val);
 }
+
+
+
+InteractCondition::InteractCondition(std::string nm)
+{
+	name = nm;
+}
+
+bool InteractCondition::evaluate()
+{
+	return GameState::applicationState.interactionName == name;
+}

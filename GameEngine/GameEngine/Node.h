@@ -5,6 +5,7 @@
 
 #define NODE_RUNNING 0
 #define NODE_HALTED 1
+#define NODE_TERMINATED 2
 
 
 class Node

@@ -27,6 +27,7 @@ protected:
 
 	Circle* interactionRadius;
 	bool interacting = false;
+	bool waiting = false;
 	bool interactionCount = 0;
 
 

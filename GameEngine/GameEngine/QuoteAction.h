@@ -13,3 +13,13 @@ private:
 	bool first;
 	std::string str;
 };
+
+
+class QuoteActionWrapper : public AbstractAction {
+public:
+	QuoteActionWrapper(std::string& s1);
+	~QuoteActionWrapper();
+	virtual int run(float dt = 0.0f);
+private:
+	std::string str;
+};

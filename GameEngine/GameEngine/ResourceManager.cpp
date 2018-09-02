@@ -1,4 +1,5 @@
 #include "ResourceManager.h"
+#include "ScriptManager.h"
 
 CardManager* Res::cardManager;
 FontManager* Res::fontManager;
@@ -11,6 +12,8 @@ DeckManager* Res::deckManager;
 
 WeaponManager* Res::weaponManager;
 KeyItemManager* Res::keyItemManager;
+
+ScriptManager* Res::scriptManager;
 
 void ResourceManager::init()
 {
@@ -25,7 +28,7 @@ void ResourceManager::init()
 
 	weaponManager = new WeaponManager();
 	keyItemManager = new KeyItemManager();
-	
+	scriptManager = new ScriptManager();
 
 	cardManager->init();
 	deckManager->init();
@@ -38,6 +41,7 @@ void ResourceManager::init()
 
 	weaponManager->init();
 	keyItemManager->init();
+	scriptManager->init();
 }
 
 void ResourceManager::clean()
@@ -52,6 +56,7 @@ void ResourceManager::clean()
 	deckManager->clean();
 	weaponManager->clean();
 	keyItemManager->clean();
+	scriptManager->clean();
 
 	delete deckManager;
 	delete fontManager;
@@ -63,6 +68,7 @@ void ResourceManager::clean()
 	delete soundManager;
 	delete weaponManager;
 	delete keyItemManager;
+	delete scriptManager;
 }
 
 ShaderProgram* ResourceManager::get(ShaderType type){

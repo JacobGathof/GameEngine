@@ -11,7 +11,10 @@
 #include "WeaponManager.h"
 #include "KeyItemManager.h"
 
+
 #include "IManager.h"
+
+class ScriptManager;
 
 class ResourceManager
 {
@@ -36,6 +39,8 @@ public:
 	static void updateFramebufferSizes(float x, float y);
 	static void uploadGlobalUniform(char* location, Vector2f& val);
 	static void uploadGlobalUniform(char* location, float f);
+
+	static ScriptManager* scriptManager;
 
 private:
 

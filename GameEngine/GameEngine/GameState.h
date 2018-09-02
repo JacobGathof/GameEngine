@@ -12,6 +12,8 @@ struct ApplicationControl {
 	bool gamePaused = false;
 	int fps = 60;
 	float gameTime = 0;
+
+	std::string interactionName;
 };
 
 

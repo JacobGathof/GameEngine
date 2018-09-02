@@ -11,10 +11,16 @@ public:
 	~ScriptManager();
 
 	void update(float dt);
+
 	virtual void init();
+	
+	static bool isRunning();
+	void addScript(GraphType type);
 
 private:
 	List<Graph*> activeScripts;
 	Graph* currentScript;
+
+	static bool running;
 };
 
