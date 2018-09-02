@@ -11,6 +11,7 @@ public:
 	Graph(char* filename);
 	~Graph();
 	int update(float dt);
+	int readyToRun(float dt);
 
 	void setCurrentNode(std::string& s);
 

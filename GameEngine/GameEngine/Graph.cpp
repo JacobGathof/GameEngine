@@ -24,7 +24,6 @@ Graph::~Graph()
 
 int Graph::update(float dt)
 {
-	current->unpauseNode();
 	Node* n = current->update(dt);
 	int status = current->status;
 	while (n != 0) {
@@ -33,6 +32,11 @@ int Graph::update(float dt)
 		status = current->status;
 	}
 	return status;
+}
+
+int Graph::readyToRun(float dt)
+{
+	return current->checkAction(dt);
 }
 
 void Graph::setCurrentNode(std::string & s)

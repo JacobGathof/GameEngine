@@ -25,6 +25,10 @@
 #include "LivingComponent.h"
 
 
+
+#include "ScriptManager.h"
+
+
 Application::Application(){}
 Application::~Application(){}
 
@@ -106,6 +110,9 @@ void Application::run()
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
 
 
+	ScriptManager *man = new ScriptManager();
+
+
 	float dt;
 
 	while (!Window::shouldClose()) {
@@ -126,6 +133,7 @@ void Application::run()
 			WeatherManager::update(dt);
 
 			//graph.update(dt);
+			man->update(dt);
 			world->update(dt);
 			Screen::update(dt);
 			MidiScheduler::update(dt);
@@ -157,6 +165,8 @@ void Application::run()
 
 	WeatherManager::clean();
 	GlobalActionInvoker::clean();
+
+	delete man;
 
 	std::cout << "Objects Deleted: " << Object::numDeleted << std::endl;
 
