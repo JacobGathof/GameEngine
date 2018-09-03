@@ -11,7 +11,7 @@ uniform vec4 color;
 
 void main(){
 
-
+/*
 	if(selected == 1){
 		float k = (8.0 / 256) * (sc.x / 256);
 		vec4 t0 = texture(image, uv);
@@ -29,15 +29,14 @@ void main(){
 	}else{
 		gl_FragColor = texture(image, uv);
 	}
-	
+*/
+
+	gl_FragColor = texture(image, uv);
 	gl_FragDepth = depth;
 	if(gl_FragColor.a <= 0.5){
 		discard;
 	}
 	
 	gl_FragColor *= color;
-	
-	//gl_FragColor = vec4(depth, depth, depth, 1);
-	
 	
 }

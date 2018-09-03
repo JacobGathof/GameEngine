@@ -636,11 +636,11 @@
     <ClCompile Include="EffectComponent.cpp">
       <Filter>Source Files\Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="WaitForAction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="StartScriptAction.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitForAction.cpp">
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1149,10 +1149,10 @@
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
     <ClInclude Include="WaitForAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="StartScriptAction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scripting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

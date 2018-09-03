@@ -298,26 +298,6 @@ void Room::removeObject(Object * obj)
 
 void Room::init()
 {
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("BRIDGEHORIZ"), TextureType::BRIDGEHORIZ));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("LARGE_TREE"), TextureType::LARGE_TREE));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("PINK_FLOWERS_2"), TextureType::PINK_FLOWERS_2));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("BLUE_FLOWERS_2"), TextureType::BLUE_FLOWERS_2));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("PINK_FLOWERS"), TextureType::PINK_FLOWERS));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("SMALL_LEAF_SHRUB"), TextureType::SMALL_LEAF_SHRUB));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("TALL_GRASS"), TextureType::TALL_GRASS));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ROCK"), TextureType::ROCK));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("MUSHROOMS"), TextureType::MUSHROOMS));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("LOG"), TextureType::LOG));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("BLUE_FLOWERS"), TextureType::BLUE_FLOWERS));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-WARDROBE"), TextureType::ZH_WARDROBE));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZF-GILGAMESH"), TextureType::ZF_GILGAMESH));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZI_ZMELODY_BOOK"), TextureType::ZI_ZMELODY_BOOK));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-HORIZONTAL_TABLE"), TextureType::ZH_HORIZONTAL_TABLE));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-NIGHT_WINDOW_LARGE"), TextureType::ZH_NIGHT_WINDOW_LARGE));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-TOMATO_BASKET"), TextureType::ZH_TOMATO_BASKET));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-WATER_GLASS"), TextureType::ZH_WATER_GLASS));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-BREAD_BASKET"), TextureType::ZH_BREAD_BASKET));
-	textureMap.insert(std::pair<std::string, TextureType>(std::string("ZH-CANDLE_POST"), TextureType::ZH_CANDLE_POST));
 
 	//These are the new ones
 	textureMap.insert(std::pair<std::string, TextureType>(std::string("main_tree_pink_3"), TextureType::MAIN_TREE_PINK_3));

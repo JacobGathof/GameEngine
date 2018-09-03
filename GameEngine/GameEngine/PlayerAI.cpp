@@ -23,6 +23,7 @@ bool PlayerAI::execute(Object * o, float dt)
 	}
 
 	user->pos += Vector2f(xVel, yVel).normalize() * 256*dt;
+	user->height += 64.0f*dt*rise;
 	
 	return true;
 }
@@ -41,6 +42,15 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 	if (keyboard.press(VirtualKey::ARROW_UP)) {
 		this->processArrowUpKey();
 	}
+
+	rise = 0;
+	if (keyboard.down(GLFW_KEY_O)) {
+		rise = 1;
+	}
+	if (keyboard.down(GLFW_KEY_P)) {
+		rise = -1;
+	}
+
 
 	yVel = 0;
 	xVel = 0;

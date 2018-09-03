@@ -29,7 +29,7 @@ void main(){
 	sc = scale;
 	uv = (texCoords+vec2(currentColumn, currentRow)) / vec2(columns, rows);
 	
-	vec2 worldPos = vec2(pos*(scale*camera_scale)+((translate-camera_translate)*camera_scale));
+	vec2 worldPos = vec2(pos*(scale*camera_scale)+((translate-camera_translate+vec2(0,height))*camera_scale));
 	
 	vec2 v = uniformDepth * ((pos*scale) - vec2(0, height));
 	depth = ((translate - camera_translate - vec2(0,scale.y/2) + v)*camera_scale).y;

@@ -27,6 +27,8 @@ public:
 	Line line2;
 	int numClicks;
 
+	int rise;
+
 protected:
 	float xVel;
 	float yVel;

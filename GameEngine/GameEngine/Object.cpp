@@ -90,7 +90,7 @@ void Object::drawInverted()
 	Vector2f oPos = pos;
 	Vector2f oScale = scale;
 
-	pos -= Vector2f(0, scale[1]);
+	pos -= Vector2f(0, scale[1]+2*height);
 	scale *= Vector2f(1, -1);
 
 	draw();

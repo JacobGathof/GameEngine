@@ -17,19 +17,6 @@ void TextureManager::init() {
 	
 	addTexture(TextureType::SWORD_ICON, "res/tex/sword_icon.png");
 	//addTexture(TextureType::TERRAIN_SHEET, "res/tex/terrainSheet.png");
-	//Start old textures
-	addTexture(TextureType::BRIDGEHORIZ, "res/tex/ImageFiles/bridgeHoriz.png");
-	addTexture(TextureType::LARGE_TREE, "res/tex/ImageFiles/large tree.png");
-	addTexture(TextureType::PINK_FLOWERS_2, "res/tex/ImageFiles/pink flowers 2.png");
-	addTexture(TextureType::BLUE_FLOWERS_2, "res/tex/ImageFiles/blue flowers 2.png");
-	addTexture(TextureType::PINK_FLOWERS, "res/tex/ImageFiles/Pink Flowers.png");
-	addTexture(TextureType::SMALL_LEAF_SHRUB, "res/tex/ImageFiles/small leaf shrub.png");
-	addTexture(TextureType::TALL_GRASS, "res/tex/ImageFiles/Tall Grass.png");
-	addTexture(TextureType::ROCK, "res/tex/ImageFiles/rock.png");
-	addTexture(TextureType::MUSHROOMS, "res/tex/ImageFiles/mushrooms.png");
-	addTexture(TextureType::LOG, "res/tex/ImageFiles/Log.png");
-	addTexture(TextureType::BLUE_FLOWERS, "res/tex/ImageFiles/blue flowers.png");
-	//End old textures
 
 	//Start new Textures
 	addTexture(TextureType::FALLEN_TREE, "res/tex/ObjectImages/fallen_Tree.png");
@@ -59,16 +46,6 @@ void TextureManager::init() {
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 	addTexture(TextureType::T_MUSIC_NOTE, "res/tex/MusicNote.png");
-	
-	addTexture(TextureType::ZH_WARDROBE, "res/tex/Table.png");
-	addTexture(TextureType::ZF_GILGAMESH, "res/tex/ImageFiles/zf-Gilgamesh.png");
-	addTexture(TextureType::ZI_ZMELODY_BOOK, "res/tex/ImageFiles/zi_zMelody_Book.png");
-	addTexture(TextureType::ZH_HORIZONTAL_TABLE, "res/tex/ImageFiles/zh-horizontal table.png");
-	addTexture(TextureType::ZH_NIGHT_WINDOW_LARGE, "res/tex/ImageFiles/zh-night window large.png");
-	addTexture(TextureType::ZH_TOMATO_BASKET, "res/tex/ImageFiles/zh-tomato basket.png");
-	addTexture(TextureType::ZH_WATER_GLASS, "res/tex/ImageFiles/zh-water glass.png");
-	addTexture(TextureType::ZH_BREAD_BASKET, "res/tex/ImageFiles/zh-bread basket.png");
-	addTexture(TextureType::ZH_CANDLE_POST, "res/tex/ImageFiles/zh-candle post.png");
 
 
 	initSpritesheets();
