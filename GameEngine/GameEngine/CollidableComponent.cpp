@@ -7,7 +7,7 @@ CollidableComponent CollidableComponent::comp;
 
 CollidableComponent::CollidableComponent()
 {
-	addHitbox(new CircleHitbox(Circle(Vector2f(0, 0), 128), Vector2f(0, 0)));
+	addHitbox(new CircleHitbox(128, Vector2f(0, 0)));
 }
 
 

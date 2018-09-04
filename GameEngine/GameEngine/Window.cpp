@@ -107,7 +107,7 @@ void Window::setWindowHints(){
 void Window::initOpenGL(){
 
 	gl3w_init();
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glPointSize(1.0f);

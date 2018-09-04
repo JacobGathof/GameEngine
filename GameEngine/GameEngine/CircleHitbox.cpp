@@ -2,9 +2,9 @@
 
 
 
-CircleHitbox::CircleHitbox(Circle c, Vector2f off)
+CircleHitbox::CircleHitbox(float f, Vector2f& off)
 {
-	shape = c;
+	shape = Circle(Vector2f(0,0), f);
 	offset = off;
 }
 

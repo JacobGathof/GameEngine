@@ -8,15 +8,16 @@
 class CircleHitbox : public Hitbox
 {
 public:
-	CircleHitbox(Circle c, Vector2f off);
+	CircleHitbox(float radius, Vector2f& off);
 	~CircleHitbox();
 
-	Circle shape = Circle(Vector2f(1,2), 1);
+	Circle shape;
 
 	virtual bool collide(Hitbox * s);
 	virtual bool collide(CircleHitbox * h);
 	virtual bool collide(RectHitbox * h);
 	virtual bool collide(ComplexHitbox * h);
+
 	virtual void updatePos(Vector2f p);
 	virtual void draw();
 

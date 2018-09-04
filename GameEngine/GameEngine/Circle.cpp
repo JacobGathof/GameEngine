@@ -12,6 +12,9 @@ Circle::Circle(Vector2f& c, float rad){
 	radius = rad;
 }
 
+Circle::Circle() : Circle(Vector2f(0,0), 0) {
+}
+
 
 Circle::~Circle()
 {

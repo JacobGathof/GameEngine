@@ -35,5 +35,5 @@ void main(){
 	depth = ((translate - camera_translate - vec2(0,scale.y/2) + v)*camera_scale).y;
 	depth = (depth+1)/2;
 	
-	gl_Position = vec4(worldPos, 0, 1);
+	gl_Position = vec4(worldPos, depth, 1);
 }

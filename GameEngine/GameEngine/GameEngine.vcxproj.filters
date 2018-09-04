@@ -1148,11 +1148,11 @@
     <ClInclude Include="EffectComponent.h">
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="WaitForAction.h">
-      <Filter>Header Files\Scripting</Filter>
-    </ClInclude>
     <ClInclude Include="StartScriptAction.h">
-      <Filter>Header Files\Scripting</Filter>
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitForAction.h">
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

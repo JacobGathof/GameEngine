@@ -9,6 +9,8 @@ uniform sampler2D terrain;
 const int TILE_SET_DIM = 64;
 const int TERRAIN_DIM = 64;
 
+uniform int layer;
+
 void main(){
 
 	vec2 adjustedUV = fragCoord + vec2(1-uv.x, uv.y)/4;
@@ -22,5 +24,8 @@ void main(){
 
 
 	gl_FragColor = terrainColor;
+	
+	//if(uv.x < 1.0)
+		//discard;
 
 }

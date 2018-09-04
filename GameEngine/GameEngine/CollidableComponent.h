@@ -6,7 +6,7 @@ class Object;
 class AbstractAction;
 class Hitbox;
 
-enum class Weight_T {
+enum class Weight {
 	VERY_LIGHT,
 	LIGHT,
 	PLAYER,
@@ -36,8 +36,7 @@ public:
 	int numHitboxes();
 	void updateHitbox();
 
-	Weight_T weight = Weight_T::UNMOVABLE;
-
+	Weight weight = Weight::UNMOVABLE;
 
 
 

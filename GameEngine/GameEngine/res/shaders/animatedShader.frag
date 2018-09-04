@@ -6,7 +6,6 @@ in float depth;
 
 uniform sampler2D image;
 uniform int selected;
-
 uniform vec4 color;
 
 void main(){

@@ -184,17 +184,12 @@ bool Room::collision(Object * obj1, Object * obj2)
 
 				comp1->trigger(obj1);
 				comp2->trigger(obj2);
-			}
-		}
-	}
-	return false;
-				/*
+			
+				
 				CollisionUtil::one = obj1;
 				CollisionUtil::two = obj2;
-				bool cont1 = obj1->collide(obj2, two);
-				bool cont2 = obj2->collide(obj1, one);
-				Weight weight1 = obj1->weight;
-				Weight weight2 = obj2->weight;
+				Weight weight1 = comp1->weight;
+				Weight weight2 = comp2->weight;
 				
 				if (weight1 == Weight::GHOST || weight2 == Weight::GHOST) {
 					//Do Nothing
@@ -209,16 +204,12 @@ bool Room::collision(Object * obj1, Object * obj2)
 					CollisionUtil::equalResolve(obj1, obj2, 5);
 				}
 				
-				if (!(cont1 && cont2)) {
-					return true;
-				}
-				
 			}
 		}
 	}
 
 	return false;
-	*/
+	
 }
 
 

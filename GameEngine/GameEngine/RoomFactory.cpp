@@ -24,6 +24,8 @@
 #include "StartScriptAction.h"
 
 
+#include "RectHitbox.h"
+
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
 
@@ -53,7 +55,9 @@ void RoomFactory::addWorldObjects()
 	melody->addComponent(aiComp);
 
 	melody->addComponent(new AnimatedComponent());
-	melody->addComponent(new CollidableComponent());
+	CollidableComponent * ccomp = new CollidableComponent();
+	ccomp->weight = Weight::PLAYER;
+	melody->addComponent(ccomp);
 	melody->addComponent(new InteractableComponent());
 
 	melody->persistent = true;
@@ -81,7 +85,7 @@ Room* RoomFactory::createReadingRoom()
 
 	//Hitbox * circ = new ComplexHitbox(new ComplexPolygon({ Vector2f(-100,0), Vector2f(100,0), Vector2f(150,100), Vector2f(0,150), Vector2f(-150,100) }), Vector2f(0, 0));
 	//Hitbox * rect = new RectHitbox(Rect(Vector2f(0, 0), Vector2f(150, 100)), Vector2f(-10, -90));
-	Hitbox * circ2 = new CircleHitbox(Circle(Vector2f(0, 0), 400), Vector2f(0, 0));
+	Hitbox * circ2 = new CircleHitbox(400, Vector2f(0, 0));
 	//melody->addHitbox(circ);
 	//melody->giveDeck(Res::get(DeckType::TEST));
 	
@@ -122,10 +126,15 @@ Room* RoomFactory::createReadingRoom()
 	//chest->addEffect(new FastParticleSystem(4096*4));
 
 	Object * chest2 = new Object(ObjectData{ "slime_test", Vector2f(-256, 0), Vector2f(128, 128), TextureType::TEXTURE_SLIME });
-	InteractableComponent* icomp2 = new InteractableComponent();
-	//icomp2->setInteraction(new GraphAction("res/script/test.txt"));
-	chest2->addComponent(icomp2);
 
+	//CollidableComponent* ccomp2 = new CollidableComponent();
+	//ccomp2->addHitbox(new RectHitbox(Rect(Vector2f(0, 0), Vector2f(128, 128)), Vector2f(0, 0)));
+	//chest2->addComponent(ccomp2);
+	CollidableComponent * ccomp = new CollidableComponent();
+	ccomp->weight = Weight::PLAYER;
+	chest->addComponent(ccomp);
+	InteractableComponent* icomp2 = new InteractableComponent();
+	chest2->addComponent(icomp2);
 
 	Object* torch = new Object(ObjectData{"", Vector2f(128 - 64 * 4, 128 * 5), Vector2f(64, 64) , TextureType::T_CARD_4 });
 	//torch->setAction(SpriteSheet::AnimationState::IDLE);

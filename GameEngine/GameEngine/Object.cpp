@@ -44,6 +44,7 @@ void Object::draw()
 	ShaderProgram* p = Res::get(ShaderType::ANIMATED_SHADER);
 	SpriteSheet* sh = Res::get(texture);
 	Model * m = Res::get(ModelType::MODEL_SQUARE_CENTERED);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	m->bind();
 	sh->bind();

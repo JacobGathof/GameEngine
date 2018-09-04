@@ -27,14 +27,17 @@ void TerrainMap::draw(){
 
 	Res::get(TextureType::TS_TILESET)->bind(0);
 	Res::get(TextureType::TEXTURE_TEST)->bind(1);
+	shader->loadInteger("layer", 0);
 	model->draw();
 
 
 	Res::get(TextureType::TEXTURE_TEST_2)->bind(1);
+	shader->loadInteger("layer", 1);
 	model->draw();
 
 
 	Res::get(TextureType::TEXTURE_TEST_3)->bind(1);
+	shader->loadInteger("layer", 2);
 	model->draw();
 
 
