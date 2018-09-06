@@ -21,6 +21,8 @@
 #include "EffectComponent.h"
 #include "AIComponent.h"
 #include "InteractableComponent.h"
+#include "ForceComponent.h"
+
 #include "StartScriptAction.h"
 
 
@@ -66,6 +68,9 @@ void RoomFactory::addWorldObjects()
 	LightComponent* comp = new LightComponent();
 	comp->addLight(new Light(Vector2f(0, -128 + 8), Color(1, 1, 1, -.5), .5*Vector2f(128, 64)));
 	melody->addComponent(comp);
+	auto fcomp = new ForceComponent();
+	//fcomp->addForce(new Force(Vector2f(100,0)));
+	melody->addComponent(fcomp);
 	//GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	EffectComponent* ecomp = new EffectComponent();
@@ -121,6 +126,13 @@ Room* RoomFactory::createReadingRoom()
 		}));
 	
 	chest->addComponent(ecomp);
+
+
+	CollidableComponent * ccomp = new CollidableComponent();
+	ccomp->weight = Weight::PLAYER;
+	chest->addComponent(ccomp);
+	chest->addComponent(new ForceComponent());
+
 	//chest->setEnterTrigger(new ToggleEffectAction(chest, true));
 	//chest->setExitTrigger(new ToggleEffectAction(chest, false));
 	//chest->activateEffects(false);
@@ -132,9 +144,6 @@ Room* RoomFactory::createReadingRoom()
 	//CollidableComponent* ccomp2 = new CollidableComponent();
 	//ccomp2->addHitbox(new RectHitbox(Rect(Vector2f(0, 0), Vector2f(128, 128)), Vector2f(0, 0)));
 	//chest2->addComponent(ccomp2);
-	CollidableComponent * ccomp = new CollidableComponent();
-	ccomp->weight = Weight::PLAYER;
-	chest->addComponent(ccomp);
 	InteractableComponent* icomp2 = new InteractableComponent();
 	chest2->addComponent(icomp2);
 

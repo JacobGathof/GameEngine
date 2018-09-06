@@ -30,6 +30,8 @@ public:
 	static bool unequalResolve(Object * o1, Hitbox * h2, float bounciness);
 	static bool unequalResolve(Object * o1, Object * o2, float bounciness);
 
+	static void applyForce(Object* o1, Object* o2);
+
 private:
 
 	static Vector2f shortestResolve;

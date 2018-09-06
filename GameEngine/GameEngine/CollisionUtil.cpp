@@ -7,7 +7,7 @@
 
 #include "Object.h"
 #include "CollidableComponent.h"
-
+#include "ForceComponent.h"
 
 Vector2f CollisionUtil::shortestResolve;
 Object * CollisionUtil::one;
@@ -252,6 +252,8 @@ bool CollisionUtil::equalResolve(Object * o1, Object * o2, float bounciness)
 	comp1->updateHitbox();
 	comp2->updateHitbox();
 	
+	applyForce(o1, o2);
+
 	return false;
 }
 
@@ -299,4 +301,23 @@ bool CollisionUtil::unequalResolve(Object * o1, Object * o2, float bounciness)
 	comp2->updateHitbox();
 	
 	return false;
+}
+
+void CollisionUtil::applyForce(Object * o1, Object * o2)
+{
+	if (o1->hasTrait<ForceComponent>() && o2->hasTrait<ForceComponent>()) {
+		ForceComponent* comp1 = o1->getComponent<ForceComponent>();
+		ForceComponent* comp2 = o2->getComponent<ForceComponent>();
+
+		Force f1 = comp1->getTotalForce();
+		Force f2 = comp2->getTotalForce();
+
+		//comp1->addForce(new Force(f2.value));
+		//comp2->addForce(new Force(f1.value));
+
+		Vector2f dir = -1*(o1->pos - o2->pos);
+		comp2->addForce(new Force(dir.normalize() * 64));
+
+	}
+
 }

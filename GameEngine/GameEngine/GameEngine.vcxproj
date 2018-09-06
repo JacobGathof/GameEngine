@@ -59,6 +59,8 @@
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
     <ClCompile Include="FilesAndStrings.cpp" />
+    <ClCompile Include="Force.cpp" />
+    <ClCompile Include="ForceComponent.cpp" />
     <ClCompile Include="GlobalActionInvoker.cpp" />
     <ClCompile Include="GraphAction.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -221,6 +223,8 @@
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
     <ClInclude Include="FilesAndStrings.h" />
+    <ClInclude Include="Force.h" />
+    <ClInclude Include="ForceComponent.h" />
     <ClInclude Include="GlobalActionInvoker.h" />
     <ClInclude Include="GraphAction.h" />
     <ClInclude Include="Grid.h" />

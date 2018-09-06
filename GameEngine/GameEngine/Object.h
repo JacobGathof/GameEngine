@@ -77,6 +77,7 @@ inline T * Object::getComponent()
 	return (T*)map[T::getComponent()];
 }
 
+
 template<class T>
 inline bool Object::hasTrait()
 {
