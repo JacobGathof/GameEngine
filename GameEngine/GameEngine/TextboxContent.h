@@ -16,6 +16,7 @@ struct TextboxContentData {
 	bool dialogue = false;
 	bool centered = false;
 	float scale = 1;
+	bool instant = false;
 };
 
 

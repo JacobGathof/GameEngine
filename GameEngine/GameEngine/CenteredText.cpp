@@ -30,6 +30,11 @@ void CenteredText::prepare()
 	text->setPosition(Textbox::contentPosition + Textbox::contentScale / 2);
 	text->setScale(Textbox::textScale * data.scale);
 
+	if (data.instant) {
+		displayFullLength();
+		text->centerDisplayable();
+	}
+
 	Textbox::setTextSpeed(data.textSpeed);
 	Textbox::setSkippable(data.skippable);
 

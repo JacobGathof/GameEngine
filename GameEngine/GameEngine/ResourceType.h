@@ -91,6 +91,7 @@ enum class TextureType {
 	TEXTURE_TEST_4,
 
 	ARROW_TEXTURE,
+	T_SIGN_POST,
 	T_MUSIC_NOTE,
 
 

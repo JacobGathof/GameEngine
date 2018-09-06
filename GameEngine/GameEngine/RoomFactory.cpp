@@ -25,6 +25,8 @@
 
 
 #include "RectHitbox.h"
+#include "TextAction.h"
+
 
 RoomFactory::RoomFactory(){}
 RoomFactory::~RoomFactory(){}
@@ -156,6 +158,33 @@ Room* RoomFactory::createReadingRoom()
 	//card3->setInteraction(new ShopWindowAction(Res::get(CardType::DAWN), true));
 
 
+
+	Object * sign = new Object(ObjectData{ "sign", Vector2f(256, 0), Vector2f(128, 128), TextureType::T_SIGN_POST });
+	InteractableComponent* icomp3 = new InteractableComponent();
+	TextboxContentData tdata;
+	tdata.instant = true;
+	tdata.text = "North Hyrule Village (3 miles)";
+	tdata.centered = true;
+	icomp3->setInteraction(new TextAction(tdata));
+	sign->addComponent(icomp3);
+
+
+	Object * sign2 = new Object(ObjectData{ "sign", Vector2f(256+128, 0), Vector2f(128, 128), TextureType::T_SIGN_POST });
+	InteractableComponent* icomp4 = new InteractableComponent();
+	TextboxContentData tdata2;
+	tdata2.instant = true;
+	tdata2.text = "Why did the chicken cross the road?";
+	tdata2.centered = true;
+	icomp4->setInteraction(new TextAction(tdata2));
+	sign2->addComponent(icomp4);
+
+
+
+	Object* stair = new Object(ObjectData{ "", Vector2f(256, 128), Vector2f(128, 128) , TextureType::TEXTURE_TEST_7 });
+	stair->height = -100;
+	//card3->setInteraction(new ShopWindowAction(Res::get(CardType::DAWN), true));
+
+
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	//room->addObject(table);
 	room->addObject(card1);
@@ -163,7 +192,9 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(card3);
 	room->addObject(chest);
 	room->addObject(chest2);
-
+	room->addObject(sign);
+	room->addObject(sign2);
+	room->addObject(stair);
 
 	return room;
 }

@@ -195,10 +195,10 @@ bool Room::collision(Object * obj1, Object * obj2)
 					//Do Nothing
 				}
 				else if (weight1 > weight2) {
-					CollisionUtil::unequalResolve(obj1, two, 5);
+					CollisionUtil::unequalResolve(obj1, obj2, 5);
 				}
 				else if (weight2 > weight1) {
-					CollisionUtil::unequalResolve(obj2, one, 5);
+					CollisionUtil::unequalResolve(obj2, obj1, 5);
 				}
 				else {
 					CollisionUtil::equalResolve(obj1, obj2, 5);

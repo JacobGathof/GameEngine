@@ -46,7 +46,10 @@ void TextureManager::init() {
 
 	addTexture(TextureType::ARROW_TEXTURE, "res/tex/Arrow.png");
 	addTexture(TextureType::T_MUSIC_NOTE, "res/tex/MusicNote.png");
+	addTexture(TextureType::T_SIGN_POST, "res/tex/SignPost.png");
 
+
+	addTexture(TextureType::TEXTURE_TEST_7, "res/tex/stairs.png");
 
 	initSpritesheets();
 

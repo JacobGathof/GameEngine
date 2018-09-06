@@ -5,6 +5,9 @@
 #include "Hitbox.h"
 #include <math.h>
 
+#include "Object.h"
+#include "CollidableComponent.h"
+
 
 Vector2f CollisionUtil::shortestResolve;
 Object * CollisionUtil::one;
@@ -226,22 +229,38 @@ bool CollisionUtil::collide(RectHitbox& r1, ComplexHitbox& c1)
 
 bool CollisionUtil::equalResolve(Object * o1, Object * o2, float bounciness)
 {
+	CollidableComponent* comp1 = o1->getComponent<CollidableComponent>();
+	CollidableComponent* comp2 = o2->getComponent<CollidableComponent>();
+	
 	/*
-	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
+	while (comp1->getHitbox(0)->collide(comp2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
 		o1->pos += dir * bounciness / 2.0f;
 		o2->pos -= dir * bounciness / 2.0f;
 
-		o1->updateHitbox();
-		o2->updateHitbox();
+		comp1->updateHitbox();
+		comp2->updateHitbox();
 	}
 	*/
+
+	Vector2f dir = (o1->pos - o2->pos);
+	float length = dir.length();
+	dir = dir.normalize();
+	o1->pos += dir * (256 - length) / 2;
+	o2->pos -= dir * (256 - length) / 2;
+
+	comp1->updateHitbox();
+	comp2->updateHitbox();
+	
 	return false;
 }
 
 bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, float bounciness)
 {
 	/*
+	CollidableComponent* comp1 = o1->getComponent<CollidableComponent>();
+	CollidableComponent* comp2 = o2->getComponent<CollidableComponent>();
+
 	while (o1->getHitbox(0)->collide(h2)) {
 		Vector2f dir = shortestResolve;
 		if (o1 == two) {
@@ -258,14 +277,26 @@ bool CollisionUtil::unequalResolve(Object * o1, Hitbox * h2, float bounciness)
 
 bool CollisionUtil::unequalResolve(Object * o1, Object * o2, float bounciness)
 {
+	CollidableComponent* comp1 = o1->getComponent<CollidableComponent>();
+	CollidableComponent* comp2 = o2->getComponent<CollidableComponent>();
+
 	/*
-	while (o1->getHitbox(0)->collide(o2->getHitbox(0))) {
+	while (comp1->getHitbox(0)->collide(comp2->getHitbox(0))) {
 		Vector2f dir = (o1->pos - o2->pos).normalize();
 		o1->pos += dir * bounciness;
 
-		o1->updateHitbox();
-		o2->updateHitbox();
+		comp1->updateHitbox();
+		comp2->updateHitbox();
 	}
 	*/
+
+	Vector2f dir = (o1->pos - o2->pos);
+	float length = dir.length();
+	dir = dir.normalize();
+	o1->pos += dir * (256 - length);
+
+	comp1->updateHitbox();
+	comp2->updateHitbox();
+	
 	return false;
 }
