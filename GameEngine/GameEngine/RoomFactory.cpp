@@ -105,7 +105,9 @@ Room* RoomFactory::createReadingRoom()
 
 	//melody->addEffect(new Light(Vector2f(0, 0), Color(0, .5, 0, 1)));
 	
-	Object * chest = new Object(ObjectData{ "slimew", Vector2f(0, -256), Vector2f(128, 128), TextureType::TEXTURE_SLIME});
+	Object * chest = new Object(ObjectData{ "slimew", Vector2f(0, -256), Vector2f(128, 128), TextureType::T_FIRE_SLIME});
+	chest->addComponent(new AnimatedComponent());
+	chest->getComponent<AnimatedComponent>()->setAction(SpriteSheet::AnimationState::IDLE);
 	InteractableComponent* icomp = new InteractableComponent();
 	icomp->setInteraction(new StartScriptAction(GraphType::TERNARY));
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));

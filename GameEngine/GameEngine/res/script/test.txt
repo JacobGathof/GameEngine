@@ -2,6 +2,12 @@
 
 <node id="Start">
 	<actions>
+		<choice>
+			<c>Hello World</c>
+			<c>Not Hello World</c>
+			<c>Third Option</c>
+			<c>Flavor Text</c>
+		</choice>
 		<text>Hello world</text>
 		<waitfor name="slime_test"/>
 	</actions>

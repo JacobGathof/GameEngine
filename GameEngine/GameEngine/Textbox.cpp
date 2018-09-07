@@ -169,6 +169,7 @@ void Textbox::resize(int x, int y)
 
 	CompositeText::resize();
 	CenteredText::resize();
+	Choice::resize();
 }
 
 void Textbox::show()
