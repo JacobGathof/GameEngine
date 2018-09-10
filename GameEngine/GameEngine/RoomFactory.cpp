@@ -24,6 +24,7 @@
 #include "ForceComponent.h"
 
 #include "StartScriptAction.h"
+#include "StartBattleAction.h"
 
 
 #include "RectHitbox.h"
@@ -99,7 +100,7 @@ Room* RoomFactory::createReadingRoom()
 	//Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	Object* card1 = new Object(ObjectData{"", Vector2f(-512 + 64, -256 - 64), Vector2f(64, 64) , TextureType::T_CARD_GHOST});
 	CollidableComponent* comp = new CollidableComponent();
-	comp->setEnterTrigger(new TransitionAction());
+	//comp->setEnterTrigger(new TransitionAction(World::RoomNames::CLEARING));
 	comp->setExitTrigger(new DebugAction("Exited Trigger"));
 	card1->addComponent(comp);
 
@@ -131,7 +132,7 @@ Room* RoomFactory::createReadingRoom()
 
 
 	CollidableComponent * ccomp = new CollidableComponent();
-	ccomp->weight = Weight::PLAYER;
+	ccomp->weight = Weight::HEAVY;
 	chest->addComponent(ccomp);
 	chest->addComponent(new ForceComponent());
 
@@ -155,7 +156,12 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(torch);
 
 
-	
+	Object* enemy = new Object(ObjectData{ "", Vector2f(128 - 64 * 3, 128 * 4), Vector2f(64,64), TextureType::SPRITESHEET_ECHO });
+	CollidableComponent* enemyCol = new CollidableComponent();
+	enemyCol->setEnterTrigger(new StartBattleAction(enemy));
+	AIComponent* enemyAIComp = new AIComponent();
+	enemy->addComponent(enemyCol);
+	enemy->addComponent(enemyAIComp);
 	//torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
@@ -206,6 +212,7 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(sign);
 	room->addObject(sign2);
 	room->addObject(stair);
+	room->addObject(enemy);
 
 	return room;
 }

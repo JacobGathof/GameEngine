@@ -1,5 +1,4 @@
 #include "World.h"
-#include "Room.h"
 #include "Object.h"
 
 World* World::inst;
@@ -95,19 +94,21 @@ void World::update(float delta_time)
 
 void World::transition(Room * newRoom)
 {
-	/*
+	
 	List<Object *> objs = currentRoom->getObjects();
-	objs.addAll(currentRoom->getStaticObjects());
+
 	for (int i = 0; i < objs.size(); i++) {
+		
 		Object * obj = objs.get(i);
 		if (obj->persistent) {
 			currentRoom->removeObject(obj);
 			newRoom->addObject(obj);
 		}
+		
 	}
-
+	
+	
 	currentRoom = newRoom;
-	*/
 }
 
 void World::setCurrentRoom(Room * r)
@@ -160,6 +161,11 @@ void World::addObject(Object * obj)
 	if (currentRoom != nullptr) {
 		currentRoom->addObject(obj);
 	}
+}
+
+void World::removeObject(Object * obj)
+{
+	currentRoom->removeObject(obj);
 }
 
 

@@ -32,6 +32,7 @@ public:
 
 
 	void addHitbox(Hitbox * h);
+	void removeHitbox(int i = 0);
 	Hitbox * getHitbox(int i = 0);
 	int numHitboxes();
 	void updateHitbox();

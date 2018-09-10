@@ -7,7 +7,7 @@
 #include "GoToPointAI.h"
 
 
-class LivingObject;
+class Object;
 class Player;
 class PlayerCombatAI;
 class Room;
@@ -19,19 +19,20 @@ public:
 	BattleManager();
 	~BattleManager();
 
-	Player * player;
-	LivingObject * enemy;
+	Object * player;
+	Object * enemy;
 	int battleState = NOBATTLE;
 
 	bool update(float dt);
-	void startBattle(LivingObject * enemy);
+	void transitionBattle(Object * enemy);
+	void startBattle();
 	void endBattle();
 	void draw();
 
 private:
 	//Consider Adding a weight factor to this
-	float startingDashBackLength = 500;
-	float startingDashBackSpeed = 1000;
+	float startingDashBackLength = 300;
+	float startingDashBackSpeed = 500;
 	
 	Vector2f enemyPos = Vector2f(100.0f, 200.0f);
 	Vector2f playerPos = Vector2f(100.0f, -200.0f);

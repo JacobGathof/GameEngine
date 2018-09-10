@@ -295,7 +295,9 @@ bool CollisionUtil::unequalResolve(Object * o1, Object * o2, float bounciness)
 	Vector2f dir = (o1->pos - o2->pos);
 	float length = dir.length();
 	dir = dir.normalize();
-	o1->pos += dir * (256 - length);
+	
+	//TODO: Fix This To not assume Circles
+	o1->pos += dir * (2*((CircleHitbox*)o2->getComponent<CollidableComponent>()->getHitbox())->shape.radius - length);
 
 	comp1->updateHitbox();
 	comp2->updateHitbox();

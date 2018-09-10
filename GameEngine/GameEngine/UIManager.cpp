@@ -207,6 +207,13 @@ void UIManager::showShopWindow(Item* i, bool b){
 	shopWindow->setVisible(b);
 }
 
+void UIManager::setStatusBarValues(float * hp, float * stamina, float * lucidium, float * maxHp, float * maxStamina, float * maxLucidium)
+{
+	statusbar->setHealth(maxHp, hp);
+	statusbar->setStamina(maxStamina, stamina);
+	statusbar->setMana(maxLucidium, lucidium);
+}
+
 
 
 bool UIManager::isTextboxEmpty()

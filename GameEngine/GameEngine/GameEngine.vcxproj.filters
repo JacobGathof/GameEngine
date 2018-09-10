@@ -648,6 +648,18 @@
     <ClCompile Include="Force.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StartBattleAction.cpp">
+      <Filter>Source Files\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCombatAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleTransitionAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatStartAction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -1164,6 +1176,18 @@
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
     <ClInclude Include="Force.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartBattleAction.h">
+      <Filter>Header Files\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCombatAI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleTransitionAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatStartAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

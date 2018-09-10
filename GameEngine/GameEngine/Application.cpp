@@ -102,13 +102,15 @@ void Application::run()
 	Object * melody = world->getObject(std::string("Player"));
 	melody->pos = Vector2f(0, 0);
 
+	UIManager::setStatusBarValues(&melody->health, &melody->stamina, &melody->lucidium, &melody->maxHealth, &melody->maxStamina, &melody->maxLucidium);
+
 	//melody->weight = Weight::GHOST;
 	Screen::setTargetPosition(&melody->pos);
 	Screen::setMovementBehavior(Screen::followBehavior);
 
 
 	std::cout << "Objects Created: " << Object::numCreated << std::endl;
-
+	GameState::battleManager.player = melody;
 
 	float dt;
 

@@ -5,10 +5,14 @@
 #include "Room.h"
 #include "World.h"
 #include "AIComponent.h"
+#include "EnemyCombatAI.h"
+#include "BattleTransitionAction.h"
+#include "CollidableComponent.h"
 
 BattleManager::BattleManager(Player * play)
 {
 	player = play;
+	battleState = NOBATTLE;
 }
 
 BattleManager::BattleManager()
@@ -25,34 +29,51 @@ bool BattleManager::update(float dt)
 	if (battleState == NOBATTLE) {
 		return false;
 	}
-	
-	player->update(dt);
+
+	//player->update(dt);
 	//enemy->update(dt);
 
 	return true;
 }
 
-void BattleManager::startBattle(LivingObject * enemyObj)
+void BattleManager::transitionBattle(Object * enemyObj)
 {
 	if (battleState == BATTLESTARTED) {
 		return;
 	}
-	room = World::getInstance()->getCurrentRoom();
+	if (!enemyObj->hasTrait<AIComponent>()) {
+		return;
+	}
 	pos = player->pos;
-	//enemy = enemyObj;
-	//enemy->persistent = true;
-	Room * room = World::getInstance()->getRoom(World::RoomNames::CLEARING);
+	player->persistent = true;
+
+	enemy = enemyObj;
+	enemy->persistent = true;
+	battleState = BATTLESTARTED;
 	
-	World::getInstance()->transition(room);
+	enemy->getComponent<CollidableComponent>()->weight = Weight::GHOST;
+	player->getComponent<CollidableComponent>()->weight = Weight::GHOST;
 
-	player->pos = playerPos;
-	//enemyObj ->pos = enemyPos;
+	BattleTransitionAction act(player->pos);
+	act.run(0);
 
-	//Vector2f playerDir = player->pos - enemy->pos;
-	//playerDir = playerDir.normalize() * startingDashBackLength;
+}
 
-	//enemy->addAI(new GoToPointAI(enemy->pos - playerDir, startingDashBackSpeed));
-	//player->addAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
+void BattleManager::startBattle()
+{
+	enemy->getComponent<CollidableComponent>()->weight = Weight::LIGHT;
+	player->getComponent<CollidableComponent>()->weight = Weight::PLAYER;
+
+
+	Vector2f playerDir = player->pos - enemy->pos;
+	playerDir = playerDir.normalize() * startingDashBackLength;
+
+	
+	EnemyCombatAI * enemyAi = new EnemyCombatAI();
+	enemyAi->setPlayer(player);
+	enemy->getComponent<AIComponent>()->addAI(enemyAi);
+	enemy->getComponent<AIComponent>()->addAI(new GoToPointAI(enemy->pos - playerDir, startingDashBackSpeed));
+	player->getComponent<AIComponent>()->addAI(new GoToPointAI(player->pos + playerDir, startingDashBackSpeed));
 	if (player->hasTrait<AIComponent>()) {
 		playerAI = player->getComponent<AIComponent>()->defaultAI;
 		ai = new PlayerCombatAI();
@@ -61,7 +82,7 @@ void BattleManager::startBattle(LivingObject * enemyObj)
 	}
 	
 	Input::ai = ai;
-	battleState = BATTLESTARTED;
+	//battleState = BATTLESTARTED;
 
 	//enemy->shuffle();
 	//enemy->drawCards(5);
@@ -80,7 +101,7 @@ void BattleManager::endBattle()
 
 	World::getInstance()->setCurrentRoom(room);
 	player->pos = pos;
-	//enemy->persistent = false;
+	enemy->persistent = false;
 
 	delete ai;
 }

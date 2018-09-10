@@ -45,9 +45,19 @@ public:
 	
 	Vector2f pos;
 	Vector2f scale;
+	Vector2f forward;
 	TextureType texture;
 	std::string name;
 	Color color = Color::White;
+
+	//Consider moving following fields
+	float health = 100;
+	float lucidium = 100;
+	float stamina = 100;
+	float maxStamina = 100;
+	float maxHealth = 100;
+	float maxLucidium = 100;
+
 
 	float rotation;
 	float height = 0;

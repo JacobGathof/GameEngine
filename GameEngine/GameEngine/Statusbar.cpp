@@ -67,13 +67,6 @@ void Statusbar::update(float dt)
 	updateComponent(stamina, dt);
 	updateComponent(mana, dt);
 
-
-	timer.update(dt);
-	timer.setTickLength(1.0f);
-	if (timer.tick()) {
-		mana.hpc -= 5;
-	}
-
 	
 	/*
 	if (fading == 1 || fading == 3) {
@@ -181,6 +174,7 @@ void Statusbar::setStamina(float * maxStamina, float * currStamina)
 	stamina.data_cur = currStamina;
 	stamina.hpml = *maxStamina;
 	stamina.hpcl = *currStamina;
+	stamina.hpcs = *currStamina;
 }
 
 void Statusbar::setMana(float * maxMana, float * currMana)

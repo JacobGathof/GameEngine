@@ -31,6 +31,7 @@
     <ClCompile Include="Banner.cpp" />
     <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="BannerAction.cpp" />
+    <ClCompile Include="BattleTransitionAction.cpp" />
     <ClCompile Include="BezierSpline.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonAction.cpp" />
@@ -44,6 +45,7 @@
     <ClCompile Include="CircleHitbox.cpp" />
     <ClCompile Include="CollidableComponent.cpp" />
     <ClCompile Include="CollisionUtil.cpp" />
+    <ClCompile Include="CombatStartAction.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="ComplexHitbox.cpp" />
     <ClCompile Include="CompositeAction.cpp" />
@@ -55,6 +57,7 @@
     <ClCompile Include="DeckManager.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="EffectComponent.cpp" />
+    <ClCompile Include="EnemyCombatAI.cpp" />
     <ClCompile Include="EnemyStatusbar.cpp" />
     <ClCompile Include="EquipPage.cpp" />
     <ClCompile Include="FastParticleSystem.cpp" />
@@ -132,6 +135,7 @@
     <ClCompile Include="SoundEntity.cpp" />
     <ClCompile Include="SoundScheduler.cpp" />
     <ClCompile Include="SpawnAction.cpp" />
+    <ClCompile Include="StartBattleAction.cpp" />
     <ClCompile Include="StartScriptAction.cpp" />
     <ClCompile Include="Statusbar.cpp" />
     <ClCompile Include="Tag.cpp" />
@@ -195,6 +199,7 @@
     <ClInclude Include="Banner.h" />
     <ClInclude Include="BannerAction.h" />
     <ClInclude Include="BattleManager.h" />
+    <ClInclude Include="BattleTransitionAction.h" />
     <ClInclude Include="BezierSpline.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonAction.h" />
@@ -208,6 +213,7 @@
     <ClInclude Include="CircleHitbox.h" />
     <ClInclude Include="CollidableComponent.h" />
     <ClInclude Include="CollisionUtil.h" />
+    <ClInclude Include="CombatStartAction.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="ComplexHitbox.h" />
     <ClInclude Include="CompositeAction.h" />
@@ -219,6 +225,7 @@
     <ClInclude Include="DeckManager.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="EffectComponent.h" />
+    <ClInclude Include="EnemyCombatAI.h" />
     <ClInclude Include="EnemyStatusbar.h" />
     <ClInclude Include="EquipPage.h" />
     <ClInclude Include="FastParticleSystem.h" />
@@ -303,6 +310,7 @@
     <ClInclude Include="SoundEntity.h" />
     <ClInclude Include="SoundScheduler.h" />
     <ClInclude Include="SpawnAction.h" />
+    <ClInclude Include="StartBattleAction.h" />
     <ClInclude Include="StartScriptAction.h" />
     <ClInclude Include="Statusbar.h" />
     <ClInclude Include="Tag.h" />
@@ -368,7 +376,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A8AE627C-9697-4B8E-9101-CEE497E98F0E}</ProjectGuid>
     <RootNamespace>GameEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

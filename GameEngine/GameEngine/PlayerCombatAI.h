@@ -3,6 +3,7 @@
 
 #include "GoToPointAI.h"
 #include "PlayerAI.h"
+#include "Timer.h"
 
 class Keyboard;
 
@@ -12,9 +13,9 @@ public:
 	PlayerCombatAI();
 	~PlayerCombatAI();
 
-	LivingObject * enemy;
+	Object * enemy;
 
-	virtual bool execute(Player * obj, float dt);
+	virtual bool execute(Object * obj, float dt);
 	virtual void receiveInput(Keyboard& keyboard, Mouse& mouse);
 
 protected:
@@ -28,5 +29,7 @@ private:
 
 	bool skillBuffer = false;
 	bool meleeAttacking = false;
+
+	Timer staminaGainTimer;
 };
 

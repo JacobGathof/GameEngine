@@ -286,6 +286,11 @@ void Room::removeObject(Object * obj)
 	}
 }
 
+List<Object*>& Room::getObjects()
+{
+	return objects;
+}
+
 
 void Room::init()
 {

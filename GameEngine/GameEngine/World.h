@@ -9,7 +9,6 @@
 #include "BattleManager.h"
 
 
-class Room;
 class Object;
 
 class World
@@ -54,6 +53,7 @@ public:
 
 	Room * getCurrentRoom();
 	void addObject(Object * obj);
+	void removeObject(Object * obj);
 
 	void addWorldObject(Object* obj);
 	Object* getWorldObject(const char* name);

@@ -58,6 +58,11 @@ void CollidableComponent::addHitbox(Hitbox * h)
 	hitboxes.add(h);
 }
 
+void CollidableComponent::removeHitbox(int i)
+{
+	hitboxes.removeIndex(i);
+}
+
 Hitbox * CollidableComponent::getHitbox(int i)
 {
 	return hitboxes.get(i);

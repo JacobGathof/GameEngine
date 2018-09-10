@@ -63,6 +63,7 @@ public:
 	static void toggleCommandLine();
 
 	static void showShopWindow(Item* i, bool b);
+	static void setStatusBarValues(float * hp, float * stamina, float * lucidium, float * maxHp, float * maxStamina, float * maxLucidium);
 
 private:
 	static Textbox * textbox;

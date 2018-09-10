@@ -80,7 +80,7 @@ void PlayerAI::receiveInput(Keyboard& keyboard, Mouse& mouse)
 	}
 
 	if (xVel != 0 || yVel != 0) {
-		//user->forward = Vector2f(xVel, yVel).normalize();
+		user->forward = Vector2f(xVel, yVel).normalize();
 	}
 
 	Vector2f mp = mouse.pos() - Vector2f(Screen::width, Screen::height) / 2;
