@@ -34,7 +34,7 @@ private:
 		float percentageShown = 1.0; // Percentage of Health lost to draw 
 
 		float hpml = hpm; // HP Max Last
-		float hpcl = hpc; // HP Current Max
+		float hpcl = hpc; // HP Current Last
 		float hpcs = hpc; // HP Current Shown (Shown hp being lost)
 
 		UIText* text;

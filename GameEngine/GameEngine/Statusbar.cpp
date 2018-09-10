@@ -116,7 +116,7 @@ void Statusbar::update(float dt)
 void Statusbar::updateComponent(DataContainer & data, float dt)
 {
 	if ((*data.data_max != data.hpml) || (*data.data_cur != data.hpcl)) {
-		data.health_lost = data.hpcl - *data.data_cur;
+		data.health_lost = data.hpcs - *data.data_cur;
 		//health_lost = hpcs - *health_cur;
 		updateStats(data);
 	}
@@ -124,11 +124,13 @@ void Statusbar::updateComponent(DataContainer & data, float dt)
 	data.hpml = *data.data_max;
 	data.hpcl = *data.data_cur;
 
+
 	if (data.hpcs > data.hpcl) {
 		data.hpcs -= data.health_lost * dt;
-		data.hpcs = max(data.hpcs, 0), 1;
+		data.hpcs = max(data.hpcs, 0);
 		data.percentageShown = data.hpcs / *data.data_max;
 	}
+	data.hpcs = max(data.hpcs, data.hpcl);
 }
 
 
