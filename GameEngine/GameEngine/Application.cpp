@@ -26,6 +26,7 @@
 
 
 #include "ScriptManager.h"
+#include "Text.h"
 
 
 Application::Application(){}
@@ -112,12 +113,17 @@ void Application::run()
 	GameState::battleManager.player = melody;
 
 	float dt;
+	Text text(Vector2f(0, 0), std::string("Test"), Vector2f(20,20), 0);
 
 	while (!Window::shouldClose()) {
 		Window::pollEvents();
 
 		timer.update();
 		dt = timer.getDeltaTime();
+		
+		if (timer.tick()) {
+			text.setText(std::to_string(timer.FPS()));
+		}
 
 		//std::cout << timer.FPS() << std::endl;
 		Res::uploadGlobalUniform("gameTime", timer.getGameTime());
@@ -140,6 +146,7 @@ void Application::run()
 
 		Screen::updateUniforms();
 		Renderer::draw();
+		text.draw();
 
 		/*
 		Input::ai->spline.draw();
