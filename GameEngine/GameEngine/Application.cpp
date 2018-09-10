@@ -6,7 +6,6 @@
 #include "FastParticleSystem.h"
 #include "SaveUtilities.h"
 #include "Room.h"
-#include "InteractionObject.h"
 #include "BattleManager.h"
 
 #include "WeatherManager.h"
@@ -120,7 +119,7 @@ void Application::run()
 
 		//std::cout << timer.FPS() << std::endl;
 		Res::uploadGlobalUniform("gameTime", timer.getGameTime());
-
+		Res::uploadGlobalUniform("window_scale", Vector2f(Window::WINDOW_WIDTH, Window::WINDOW_HEIGHT));
 
 		Input::processInput(dt);
 		UIManager::update(dt);

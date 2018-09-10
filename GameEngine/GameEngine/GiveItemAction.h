@@ -5,17 +5,6 @@
 #include "Inventory.h"
 #include "GameState.h"
 
-class TextInteractionAction : public AbstractAction {
-public:
-	TextInteractionAction(std::string& s);
-	~TextInteractionAction();
-
-	virtual int run(float dt = 0.0f);
-private:
-	std::string text;
-
-};
-
 
 
 class GiveItemAction : public AbstractAction {

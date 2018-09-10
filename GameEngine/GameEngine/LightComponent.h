@@ -18,7 +18,7 @@ public:
 	void addLight(Light* l);
 	void removeLight(Light* l);
 	void drawLights();
-
+	void activateEffects(bool b);
 
 protected:
 	List<Light *> lights;

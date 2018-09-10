@@ -4,9 +4,8 @@
 #include "ComplexHitbox.h"
 
 
-RectHitbox::RectHitbox(Rect rect, Vector2f off)
+RectHitbox::RectHitbox(Vector2f& scale, Vector2f& off) : shape(Vector2f(0, 0), scale)
 {
-	shape = rect;
 	pos = shape.center;
 
 	offset = off;
@@ -36,7 +35,7 @@ bool RectHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*this, *h);
 }
 
-void RectHitbox::updatePos(Vector2f p)
+void RectHitbox::updatePos(Vector2f& p)
 {
 	Hitbox::updatePos(p);
 	shape.center = pos;

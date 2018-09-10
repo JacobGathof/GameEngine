@@ -2,6 +2,7 @@
 
 <node id="Start">
 	<actions>
+		<waitfor name="slimew"/>
 		<choice>
 			<c>Hello World</c>
 			<c>Not Hello World</c>

@@ -9,7 +9,7 @@ public:
 	~CompositeAction();
 	virtual int run(float dt);
 private:
-	List<AbstractAction*> actions;
-	int pointer;
+	std::initializer_list<AbstractAction*> actions;
+	bool sentList = false;
 };
 

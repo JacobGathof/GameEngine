@@ -7,7 +7,7 @@
 class Rect : public Shape
 {
 public:
-	Rect(Vector2f pos, Vector2f size);
+	Rect(Vector2f& pos, Vector2f& size);
 	Rect();
 	~Rect();
 

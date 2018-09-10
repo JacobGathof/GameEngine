@@ -7,7 +7,7 @@ Rect::Rect()
 }
 
 
-Rect::Rect(Vector2f pos, Vector2f size)
+Rect::Rect(Vector2f& pos, Vector2f& size)
 {
 	center = pos;
 	scale = size;

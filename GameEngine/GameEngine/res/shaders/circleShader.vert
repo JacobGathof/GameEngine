@@ -14,11 +14,13 @@ uniform vec2 scale;
 uniform vec2 camera_translate;
 uniform vec2 camera_scale;
 
+uniform vec2 window_scale;
+
 
 void main(){
 	uv = texCoords;
 	gl_Position = vec4(2*position*(scale*camera_scale)+((translate-camera_translate)*camera_scale),0,1);
 	fragPos = position*scale*camera_scale*2;
 	sc = scale*camera_scale;
-	ep = (128. / scale[0]) * (1/16.) / (camera_scale[0]*800);
+	ep = (128. / scale[0]) * (1/32.) / (camera_scale[0]*window_scale[0]);
 }

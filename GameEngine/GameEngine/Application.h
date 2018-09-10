@@ -10,7 +10,6 @@
 #include "BounceTimer.h"
 #include "Player.h"
 #include "World.h"
-#include "TransitionObject.h"
 #include "Circle.h"
 #include "FollowAi.h"
 #include "GoToPointAI.h"

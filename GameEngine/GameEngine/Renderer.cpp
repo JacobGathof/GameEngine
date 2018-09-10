@@ -3,6 +3,7 @@
 #include "World.h"
 #include "GameState.h"
 #include "WeatherManager.h"
+#include "Text.h"
 
 Renderer::Renderer()
 {
@@ -118,6 +119,28 @@ void Renderer::postProcess()
 
 
 
+
+
+
+	/*
+
+
+	UIUtils::drawRectangle(Vector2f(200, 399), Vector2f(100, 2), Color::White);
+	UIUtils::drawLine(Vector2f(300, 400), Vector2f(330, 430), Color::White, 3);
+	UIUtils::drawLine(Vector2f(300, 400), Vector2f(330, 370), Color::White, 3);
+
+	Text text(Vector2f(270, 400), std::string("The"), Vector2f(20, 20), 0);
+	text.draw();
+
+	Text text2(Vector2f(320, 385), std::string("Echo Effect"), Vector2f(30, 30), 0);
+	text2.draw();
+
+	UIUtils::drawRectangle(Vector2f(465, 399), Vector2f(100, 2), Color::White);
+	UIUtils::drawLine(Vector2f(465, 400), Vector2f(435, 430), Color::White, 3);
+	UIUtils::drawLine(Vector2f(465, 400), Vector2f(435, 370), Color::White, 3);
+
+	*/
+
 	//drawDebugWindow();
 
 
@@ -183,8 +206,6 @@ void Renderer::drawDebugWindow()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	m->draw();
 	glBlendFunc(GL_ONE, GL_ZERO);
-
-
 
 
 

@@ -121,12 +121,6 @@
     <Filter Include="Source Files\Utilities\Hitbox">
       <UniqueIdentifier>{83b5f09e-3170-485f-890e-13af2ffe1c68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Interaction">
-      <UniqueIdentifier>{df47b42e-b1af-498f-a920-c55f82771e7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Interaction">
-      <UniqueIdentifier>{aca92c8a-b3ca-457b-a670-36c314cc63a6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Actions">
       <UniqueIdentifier>{8b083310-3459-4eff-a7a1-2780a9a7920b}</UniqueIdentifier>
     </Filter>
@@ -432,9 +426,6 @@
     <ClCompile Include="InputTextArea.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="InteractionObject.cpp">
-      <Filter>Source Files\Interaction</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerCombatAI.cpp">
       <Filter>Source Files\AI</Filter>
     </ClCompile>
@@ -615,9 +606,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
-    <ClCompile Include="TransitionObject.cpp">
-      <Filter>Source Files\Objects\Other</Filter>
-    </ClCompile>
     <ClCompile Include="CollidableComponent.cpp">
       <Filter>Source Files\Objects\Components</Filter>
     </ClCompile>
@@ -647,6 +635,15 @@
     </ClCompile>
     <ClCompile Include="Force.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lamp.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Sign.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="GiveItemAction.cpp">
+      <Filter>Source Files\Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -944,9 +941,6 @@
     <ClInclude Include="InputTextArea.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="InteractionObject.h">
-      <Filter>Header Files\Interaction</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerCombatAI.h">
       <Filter>Header Files\AI</Filter>
     </ClInclude>
@@ -1130,9 +1124,6 @@
     <ClInclude Include="AnimatedComponent.h">
       <Filter>Header Files\Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="TransitionObject.h">
-      <Filter>Header Files\Objects\Other</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
@@ -1165,6 +1156,15 @@
     </ClInclude>
     <ClInclude Include="Force.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lamp.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Sign.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="GiveItemAction.h">
+      <Filter>Header Files\Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

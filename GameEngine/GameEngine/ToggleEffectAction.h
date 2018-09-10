@@ -6,7 +6,7 @@ class Object;
 class ToggleEffectAction : public AbstractAction
 {
 public:
-	ToggleEffectAction(Object* target, bool activate);
+	ToggleEffectAction(Object* target, bool activate = false);
 	~ToggleEffectAction();
 
 	virtual int run(float dt);

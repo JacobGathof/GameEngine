@@ -7,7 +7,7 @@
 class RectHitbox : public Hitbox
 {
 public:
-	RectHitbox(Rect rect, Vector2f offset);
+	RectHitbox(Vector2f& scale, Vector2f& offset);
 	~RectHitbox();
 
 	Rect shape;
@@ -16,7 +16,7 @@ public:
 	virtual bool collide(CircleHitbox * h);
 	virtual bool collide(RectHitbox * h);
 	virtual bool collide(ComplexHitbox * h);
-	virtual void updatePos(Vector2f p);
+	virtual void updatePos(Vector2f& p);
 	virtual void draw();
 
 	virtual Shape* getShape();

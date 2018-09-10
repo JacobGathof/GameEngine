@@ -14,6 +14,8 @@ void ShaderManager::init(){
 
 	addShader(ShaderType::UI_SOLID_SHADER, "res/shaders/textboxShader.vert", "res/shaders/textboxShader.frag");
 	addShader(ShaderType::UI_IMAGE_SHADER, "res/shaders/uiImageShader.vert", "res/shaders/uiImageShader.frag");
+	addShader(ShaderType::UI_LINE_SHADER, "res/shaders/uiLineShader.vert", "res/shaders/uiLineShader.frag");
+
 	addShader(ShaderType::TERRAIN_SHADER, "res/shaders/terrainShader.vert", "res/shaders/terrainShader.frag");
 	addShader(ShaderType::CIRCLE_SHADER, "res/shaders/circleShader.vert", "res/shaders/circleShader.frag");
 	addShader(ShaderType::POST_PROCESS_SHADER, "res/shaders/postProcessShader.vert", "res/shaders/postProcessShader.frag");

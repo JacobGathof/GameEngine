@@ -9,7 +9,7 @@ public:
 
 	bool update(float dt);
 
-	float friction = .25f;
+	float friction = .1f;
 	Vector2f value;
 };
 
