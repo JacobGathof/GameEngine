@@ -36,7 +36,7 @@ bool CircleHitbox::collide(ComplexHitbox * h)
 	return CollisionUtil::collide(*this, *h);
 }
 
-void CircleHitbox::updatePos(Vector2f p)
+void CircleHitbox::updatePos(Vector2f& p)
 {
 	Hitbox::updatePos(p);
 	shape.center = pos;

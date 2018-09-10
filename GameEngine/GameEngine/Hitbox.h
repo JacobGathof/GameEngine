@@ -16,7 +16,8 @@ public:
 	Vector2f offset;
 
 	virtual Vector2f getPos();
-	virtual void updatePos(Vector2f p);
+	virtual void updatePos(Vector2f& p);
+
 	virtual bool collide(Hitbox * s);
 	virtual bool collide(CircleHitbox * h);
 	virtual bool collide(RectHitbox * h);

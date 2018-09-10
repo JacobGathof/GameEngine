@@ -63,6 +63,8 @@ void Choice::prepare()
 	numChoices = choices.size();
 	for (int i = 0; i < numChoices; i++) {
 		texts[i]->setText(choices[i]);
+		texts[i]->resetLength();
+		texts[i]->displayFullLength();
 		texts[i]->setColor(defaultColor);
 	}
 

@@ -4,7 +4,7 @@
 
 
 
-ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f off)
+ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f& off)
 {
 	shape = p;
 
@@ -32,9 +32,8 @@ ComplexHitbox::ComplexHitbox(ComplexPolygon* p, Vector2f off)
 		}
 	}
 	Vector2f dif = Vector2f(maxX - minX, maxY - minY);
-	outerCollide = new RectHitbox(Rect(Vector2f((maxX - minX)/2, (maxY - minY)/2),dif), off + Vector2f(0,dif[1]/2));
-
-
+	outerCollide = new RectHitbox(Vector2f((maxX - minX) / 2, (maxY - minY) / 2) + Vector2f(0, dif[1] / 2) + offset, dif);
+	
 
 	offset = off;
 }
@@ -45,7 +44,7 @@ ComplexHitbox::~ComplexHitbox()
 	delete shape;
 }
 
-void ComplexHitbox::updatePos(Vector2f p)
+void ComplexHitbox::updatePos(Vector2f& p)
 {
 	pos = p + offset;
 	outerCollide->updatePos(p);
@@ -75,8 +74,6 @@ bool ComplexHitbox::collide(ComplexHitbox * h)
 void ComplexHitbox::draw()
 {
 	outerCollide->draw();
-	
-
 	shape->draw();
 }
 

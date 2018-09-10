@@ -5,8 +5,6 @@
 #include "Input.h"
 #include "PlayerAI.h"
 #include "Player.h"
-#include "InteractionObject.h"
-#include "TransitionObject.h"
 #include "FollowAI.h"
 #include "DeckManager.h"
 

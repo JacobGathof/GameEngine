@@ -68,4 +68,25 @@ void UIUtils::drawBorder(Vector2f & pos, Vector2f & scale, Color & color, int of
 	drawRectangle(pos + Vector2f(0, scale[1]) - Vector2f(0, offset + spacing), Vector2f(scale[0], spacing), color);
 }
 
+void UIUtils::drawLine(Vector2f & start, Vector2f & end, Color & color, float width)
+{
+	glLineWidth(width);
+
+	ShaderProgram* shader = Res::get(ShaderType::UI_LINE_SHADER);
+	Model * model = Res::get(ModelType::MODEL_SQUARE);
+
+	model->bind();
+	shader->bind();
+
+	shader->loadVector2f("translate", Vector2f(0,0));
+	shader->loadVector2f("scale", Vector2f(1,1));
+	shader->loadColor("color", color);
+	shader->loadVector2f("points[0]", start);
+	shader->loadVector2f("points[1]", end);
+
+	glDrawArrays(GL_LINES, 0, 2);
+
+	glLineWidth(1.0);
+}
+
 

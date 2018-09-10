@@ -55,3 +55,10 @@ void LightComponent::drawLights()
 		l->draw();
 	}
 }
+
+void LightComponent::activateEffects(bool b)
+{
+	for (Light * l : lights) {
+		l->setActive(b);
+	}
+}

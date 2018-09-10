@@ -29,6 +29,8 @@
 
 #include "RectHitbox.h"
 #include "TextAction.h"
+#include "Lamp.h"
+#include "Sign.h"
 
 
 RoomFactory::RoomFactory(){}
@@ -62,16 +64,18 @@ void RoomFactory::addWorldObjects()
 	melody->addComponent(new AnimatedComponent());
 	CollidableComponent * ccomp = new CollidableComponent();
 	ccomp->weight = Weight::PLAYER;
+	//ccomp->addHitbox(new CircleHitbox(128, Vector2f(0, 0)));
 	melody->addComponent(ccomp);
 	melody->addComponent(new InteractableComponent());
 
 	melody->persistent = true;
 	LightComponent* comp = new LightComponent();
 	comp->addLight(new Light(Vector2f(0, -128 + 8), Color(1, 1, 1, -.5), .5*Vector2f(128, 64)));
+	comp->addLight(new Light(Vector2f(0, 0), Color(1, 1, 1, 1), Vector2f(256, 256)));
 	melody->addComponent(comp);
-	auto fcomp = new ForceComponent();
+	//auto fcomp = new ForceComponent();
 	//fcomp->addForce(new Force(Vector2f(100,0)));
-	melody->addComponent(fcomp);
+	//melody->addComponent(fcomp);
 	//GameState::battleManager = BattleManager(melody);
 	//melody->addEffect(new Shadow());
 	EffectComponent* ecomp = new EffectComponent();
@@ -114,8 +118,8 @@ Room* RoomFactory::createReadingRoom()
 	//chest->addAI(new FollowAI(World::getInstance()->getWorldObject("Player")));
 	chest->addComponent(icomp);
 	LightComponent* lcomp = new LightComponent();
-	lcomp->addLight(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(256, 256)));
-	lcomp->addLight(new Light(Vector2f(0, -64 + 8), Color(1, 1, 1, -.5), .5*Vector2f(256, 128)));
+	//lcomp->addLight(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(256, 256)));
+	//lcomp->addLight(new Light(Vector2f(0, -64 + 8), Color(1, 1, 1, -.5), .5*Vector2f(256, 128)));
 	chest->addComponent(lcomp);
 	//chest->addEffect(new Tag(std::string("Slime"), Vector2f(0, 80)));
 	EffectComponent* ecomp = new EffectComponent();
@@ -162,6 +166,8 @@ Room* RoomFactory::createReadingRoom()
 	AIComponent* enemyAIComp = new AIComponent();
 	enemy->addComponent(enemyCol);
 	enemy->addComponent(enemyAIComp);
+	room->addObject(new Lamp(ObjectData{ "", Vector2f(256+256, 0), Vector2f(64, 64) , TextureType::T_CARD_4 }));
+	
 	//torch->addEffect(new Light(Vector2f(0, 0), Color(1,1,1,1), 4*Vector2f(128, 128)));
 	//chest2->addEffect(new Tag(std::string("Horus?"), Vector2f(0, 80)));
 
@@ -176,24 +182,8 @@ Room* RoomFactory::createReadingRoom()
 
 
 
-	Object * sign = new Object(ObjectData{ "sign", Vector2f(256, 0), Vector2f(128, 128), TextureType::T_SIGN_POST });
-	InteractableComponent* icomp3 = new InteractableComponent();
-	TextboxContentData tdata;
-	tdata.instant = true;
-	tdata.text = "North Hyrule Village (3 miles)";
-	tdata.centered = true;
-	icomp3->setInteraction(new TextAction(tdata));
-	sign->addComponent(icomp3);
-
-
-	Object * sign2 = new Object(ObjectData{ "sign", Vector2f(256+128, 0), Vector2f(128, 128), TextureType::T_SIGN_POST });
-	InteractableComponent* icomp4 = new InteractableComponent();
-	TextboxContentData tdata2;
-	tdata2.instant = true;
-	tdata2.text = "Why did the chicken cross the road?";
-	tdata2.centered = true;
-	icomp4->setInteraction(new TextAction(tdata2));
-	sign2->addComponent(icomp4);
+	Object * sign = new Sign(ObjectData{ "sign", Vector2f(256, 0), Vector2f(128, 128), TextureType::T_SIGN_POST }, std::string("North Hyrule Village (3 miles)"));
+	Object * sign2 = new Sign(ObjectData{ "sign", Vector2f(256+128, 0), Vector2f(128, 128), TextureType::T_SIGN_POST }, std::string("Why did the chicken cross the road?"));
 
 
 
