@@ -70,7 +70,7 @@ void UIManager::init()
 	statusbar->setVisible(true);
 	shopWindow->setVisible(true);
 	//inputName->setVisible(true);
-	//enemyStatus->setVisible(true);
+	enemyStatus->setVisible(true);
 	//menu->setVisible(true);
 	//addText(std::string("Hello world"), std::string("--------"), TextureType::TEXTURE_PANDORA);
 }

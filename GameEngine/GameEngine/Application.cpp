@@ -90,6 +90,7 @@ void Application::run()
 
 	GameTimer timer;
 	timer.setTickLength(1.0f);
+	timer.setTargetFPS(60);
 
 	//Circle circ(Vector2f(0,0), 256.0f);
 	
@@ -158,7 +159,7 @@ void Application::run()
 
 		Window::swapBuffers();
 		
-		timer.sleep();
+		//timer.sleep();
 	}
 
 	delete midi;

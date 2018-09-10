@@ -35,7 +35,7 @@ void Window::init(char* title, int width, int height) {
 	glfwSetWindowPos(window, (mode->width - WINDOW_WIDTH)/2, (mode->height - WINDOW_HEIGHT) / 2);
 
 	glfwMakeContextCurrent(window);
-	//glfwSwapInterval(1);
+	glfwSwapInterval(1);
 
 
 	initOpenGL();
@@ -189,6 +189,7 @@ void Window::Callbacks::MouseCallback(GLFWwindow * window, int button, int actio
 
 void Window::Callbacks::WindowSizeCallback(GLFWwindow * window, int width, int height) {
 	if (Window::isInitialized()) {
+		glfwSwapInterval(1);
 		glViewport(0, 0, width, height);
 		Screen::updateRes((float)width, (float)height);
 		Window::setSize(width, height);

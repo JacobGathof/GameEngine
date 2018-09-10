@@ -4,7 +4,7 @@
 
 EnemyStatusbar::EnemyStatusbar()
 {
-	text = new Text(Vector2f(0,0), std::string("Last Scholar of the Lost Arcana: The Angel's Templar"), Vector2f(0,0), 0);
+	text = new Text(Vector2f(0,0), std::string("Narcissus: Shoot the Moon"), Vector2f(0,0), 0);
 }
 
 
