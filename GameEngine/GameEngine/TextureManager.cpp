@@ -86,6 +86,10 @@ void TextureManager::initSpritesheets()
 	states = { a::IDLE };
 	structs = { aa{ 0,4,1, -1 } };
 	addSpriteSheet(TextureType::T_FIRE_SLIME, "res/tex/FireSlime.png", 1, 4, states, structs);
+
+	states = { a::IDLE };
+	structs = { aa{ 0,3,1, -1 } };
+	addSpriteSheet(TextureType::SPRITESHEET_IRIS, "res/tex/Iris.png", 1, 3, states, structs);
 }
 
 

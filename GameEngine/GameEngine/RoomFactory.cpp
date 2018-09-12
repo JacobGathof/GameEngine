@@ -91,7 +91,7 @@ void RoomFactory::addWorldObjects()
 Room* RoomFactory::createReadingRoom()
 {
 	Room * room = new Room();
-	room->setTerrainMap(std::string("StoryTellingRoom"));
+	room->setTerrainMap(List<TextureType>({ TextureType::TEXTURE_TEST }));
 	//room->loadObjects(std::string("ObjectMaps/storyTellingRoom"));
 	
 
@@ -104,7 +104,7 @@ Room* RoomFactory::createReadingRoom()
 	//Object* table = new Object(std::string(""), TextureType::ZH_WARDROBE, Vector2f(-512, 256), 4 * Vector2f(256, 64));
 	Object* card1 = new Object(ObjectData{"", Vector2f(-512 + 64, -256 - 64), Vector2f(64, 64) , TextureType::T_CARD_GHOST});
 	CollidableComponent* comp = new CollidableComponent();
-	//comp->setEnterTrigger(new TransitionAction(World::RoomNames::CLEARING));
+	//comp->setEnterTrigger(new TransitionAction(World::RoomNames::EAST));
 	comp->setExitTrigger(new DebugAction("Exited Trigger"));
 	card1->addComponent(comp);
 
@@ -192,6 +192,12 @@ Room* RoomFactory::createReadingRoom()
 	//card3->setInteraction(new ShopWindowAction(Res::get(CardType::DAWN), true));
 
 
+
+	Object * iris = new Object(ObjectData{ "Iris", Vector2f(0, 256), 2*Vector2f(128, 128), TextureType::SPRITESHEET_IRIS });
+	iris->addComponent(new AnimatedComponent());
+	iris->getComponent<AnimatedComponent>()->setAction(SpriteSheet::AnimationState::IDLE);
+
+
 	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
 	//room->addObject(table);
 	room->addObject(card1);
@@ -203,6 +209,7 @@ Room* RoomFactory::createReadingRoom()
 	room->addObject(sign2);
 	room->addObject(stair);
 	room->addObject(enemy);
+	room->addObject(iris);
 
 	return room;
 }
@@ -227,9 +234,11 @@ Room* RoomFactory::createClearing()
 Room* RoomFactory::createEastOfTown()
 {
 	Room * room = new Room();
-	room->setTerrainMap(std::string("EastOfTown2.txt"));
+	room->setTerrainMap(List<TextureType>({ TextureType::TEXTURE_TEST_2 }));
 	//room->loadObjects(std::string("Clearing"));
 	
+	room->addWorldObject(World::getInstance()->getWorldObject("Player"));
+
 	return room;
 }
 

@@ -9,6 +9,8 @@
 Room::Room()
 {
 	init();
+
+	
 }
 
 
@@ -17,6 +19,7 @@ Room::~Room()
 	for (auto a : allRoomObjects) {
 		delete a;
 	}
+	delete terrain;
 }
 
 void Room::update(float dt)
@@ -40,7 +43,7 @@ void Room::draw()
 
 void Room::drawTerrain()
 {
-	terrain.draw();
+	terrain->draw();
 }
 
 void Room::drawObjects() {
@@ -164,9 +167,9 @@ Object * Room::getObject(std::string& name)
 	return objectMap[name];
 }
 
-void Room::setTerrainMap(std::string& map)
+void Room::setTerrainMap(List<TextureType>& layers)
 {
-	terrain.constructMap("TerrainMaps/" + map);
+	terrain = new TerrainMap(layers);
 }
 
 

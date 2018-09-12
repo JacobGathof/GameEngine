@@ -5,7 +5,7 @@
 AnimatedComponent AnimatedComponent::comp;
 
 AnimatedComponent::AnimatedComponent(){
-	animationTimer.setTickLength(0.25f);
+	animationTimer.setTickLength(0.125f);
 }
 
 AnimatedComponent::~AnimatedComponent()
@@ -47,7 +47,7 @@ void AnimatedComponent::setAction(SpriteSheet::AnimationState action)
 		animationColumn = 0;
 		animationCurrentColumns = str.numColumns;
 
-		animationTimer.setTickLength(0.25f / str.animSpeed);
+		animationTimer.setTickLength(0.125f / str.animSpeed);
 		//TODO speed
 	}
 

@@ -41,7 +41,7 @@ public:
 
 	Object * getNearestObject(Vector2f& pos);
 	Object * getObject(std::string& name);
-	void setTerrainMap(std::string& map);
+	void setTerrainMap(List<TextureType>& layers);
 	void loadObjects(std::string& filepath);
 
 	void eraseObject(Object* obj);
@@ -56,7 +56,7 @@ protected:
 	List<Object*> allRoomObjects;
 
 
-	TerrainMap terrain;
+	TerrainMap* terrain;
 	std::map<std::string, Object *> objectMap;
 
 	std::map<std::string, TextureType> textureMap;

@@ -11,15 +11,16 @@
 class TerrainMap
 {
 public:
-	TerrainMap();
+	TerrainMap(List<TextureType>& layers);
 	~TerrainMap();
 
 	void draw();
 	void update(float dt);
-	void constructMap(std::string filename);
 
 	int width = 0;
 	int height = 0;
 
+private:
+	List<TextureType> layers;
 };
 

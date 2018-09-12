@@ -2,13 +2,11 @@
 
 #include "Window.h"
 
-TerrainMap::TerrainMap()
+
+TerrainMap::TerrainMap(List<TextureType>& l)
 {
-	
-
-
+	layers = l;
 }
-
 
 TerrainMap::~TerrainMap()
 {
@@ -26,22 +24,16 @@ void TerrainMap::draw(){
 	shader->loadVector2f("translate", Vector2f(64*32,64*32));
 
 	Res::get(TextureType::TS_TILESET)->bind(0);
-	Res::get(TextureType::TEXTURE_TEST)->bind(1);
-	shader->loadInteger("layer", 0);
-	model->draw();
 
+	for (auto a : layers) {
 
-	Res::get(TextureType::TEXTURE_TEST_2)->bind(1);
-	shader->loadInteger("layer", 1);
-	model->draw();
+		Res::get(a)->bind(1);
+		shader->loadInteger("layer", 0);
+		model->draw();
 
+	}
 
-	Res::get(TextureType::TEXTURE_TEST_3)->bind(1);
-	shader->loadInteger("layer", 2);
-	model->draw();
-
-
-
+	/*
 	ShaderProgram* p = Res::get(ShaderType::WATER_SHADER);
 	p->bind();
 	p->loadVector2f("translate", Vector2f(64 * 32, 64*32));
@@ -63,7 +55,7 @@ void TerrainMap::draw(){
 	Res::get(FramebufferType::EXTRA_BUFFER_1)->bindTexture(4);
 
 	m->draw();
-	
+	*/
 
 }
 
@@ -71,9 +63,5 @@ void TerrainMap::update(float dt)
 {
 }
 
-void TerrainMap::constructMap(std::string filename)
-{
-	
-}
 
 

@@ -154,7 +154,6 @@ void Window::toggleFullscreen()
 		}
 		glfwSetWindowMonitor(window, NULL, WINDOW_X, WINDOW_Y, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
 	}
-
 }
 
 void Window::setSize(int width, int height)
